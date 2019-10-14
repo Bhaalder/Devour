@@ -36,8 +36,7 @@ public class Player : StateMachine {
     }
     
     protected override void FixedUpdate() {
-        FacingDirection();
-        
+        FacingDirection(); 
         MovePlayer();
     }
 
@@ -121,9 +120,9 @@ public class Player : StateMachine {
         Debug.Log("PLAYER: " + message);
     }
 
-    //private void OnDrawGizmos() {
-    //    Gizmos.DrawWireSphere(groundCheck.position, groundCheckDistance);
-    //    Gizmos.DrawLine(wallCheck.position, new Vector3(wallCheck.position.x + wallCheckValue, wallCheck.position.y, wallCheck.position.z));
-    //}
+    private void OnDrawGizmos() {
+        Gizmos.DrawWireSphere(groundCheck.position, groundCheckDistance);
+        Gizmos.DrawLine(wallCheck.position, new Vector3(wallCheck.position.x + wallCheckValue, wallCheck.position.y, wallCheck.position.z));
+    }
 
 }
