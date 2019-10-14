@@ -9,12 +9,12 @@ public class ProjectileEnemy : Enemy
 
     [SerializeField] private Vector3 projectileOffset;
     [SerializeField] private float enemyHealth;
-    private ProjectileWeapon enemyWeapon;
+    //private ProjectileWeapon enemyWeapon;
 
 
     protected override void Awake()
     {
-        enemyWeapon = WeaponController.Instance.GetEnemyProjectileWeapon();
+        //enemyWeapon = WeaponController.Instance.GetEnemyProjectileWeapon();
         health = enemyHealth;
         base.Awake();
     }
@@ -41,9 +41,9 @@ public class ProjectileEnemy : Enemy
     }
     public void ProjectileAttack()
     {
-        GameObject enemyProj = Instantiate(WeaponController.Instance.EnemyWeaponProjectileGO, transform.position + transform.forward * 2 + projectileOffset, Quaternion.identity);
-        enemyProj.GetComponent<EnemyProjectile>().SetProjectileSpeed(enemyWeapon.GetProjectileSpeed());
-        enemyProj.GetComponent<EnemyProjectile>().SetProjectileTravelDistance(enemyWeapon.GetRange());
-        enemyProj.GetComponent<EnemyProjectile>().SetProjectileDamage(enemyWeapon.GetDamage());
+        //GameObject enemyProj = Instantiate(WeaponController.Instance.EnemyWeaponProjectileGO, transform.position + transform.forward * 2 + projectileOffset, Quaternion.identity);
+        //enemyProj.GetComponent<EnemyProjectile>().SetProjectileSpeed(enemyWeapon.GetProjectileSpeed());
+        //enemyProj.GetComponent<EnemyProjectile>().SetProjectileTravelDistance(enemyWeapon.GetRange());
+        //enemyProj.GetComponent<EnemyProjectile>().SetProjectileDamage(enemyWeapon.GetDamage());
     }
 }

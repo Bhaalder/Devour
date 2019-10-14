@@ -13,7 +13,7 @@ public class Enemy : StateMachine
     [HideInInspector] public NavMeshAgent agent;
     public Animator animator;
     public LayerMask visionMask;
-    public PlayerMovementController player;
+    //public PlayerMovementController player;
 
     public bool HasRecentlyCharged { get; set; }
 
@@ -34,7 +34,7 @@ public class Enemy : StateMachine
     {
         Renderer = GetComponent<MeshRenderer>();
         agent = GetComponent<NavMeshAgent>();
-        player = (PlayerMovementController)FindObjectOfType(typeof(PlayerMovementController));
+        //player = (PlayerMovementController)FindObjectOfType(typeof(PlayerMovementController));
         isDead = false;
         isDamaged = false;
         CanDamage = false;
@@ -66,9 +66,9 @@ public class Enemy : StateMachine
     {
         if (!isDead) {
             GameObject explosionDeath = Instantiate(bloodExplosion, transform.position + new Vector3(0, 3, 0), Quaternion.identity);
-            AudioController.Instance.PlayRandomSFX_InWorldspace("EnemyDeath1", "EnemyDeath2", explosionDeath, 0.95f, 1f);
+            //AudioController.Instance.PlayRandomSFX_InWorldspace("EnemyDeath1", "EnemyDeath2", explosionDeath, 0.95f, 1f);
             Destroy(explosionDeath, 2f);
-            GameController.Instance.KillCount++;
+            //GameController.Instance.KillCount++;
             if (GetComponentInParent<SpawnManager>()) {
                 isDead = true;
                 GetComponentInParent<SpawnManager>().EnemyDefeated();
@@ -86,7 +86,7 @@ public class Enemy : StateMachine
 
     public void DoMeleeDamage()
     {
-        GameController.Instance.TakeDamage(EnemyMeleeDamage);
+        //GameController.Instance.TakeDamage(EnemyMeleeDamage);
     }
 
     public bool CurrentAnimatorState(string animatorTag)

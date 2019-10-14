@@ -11,7 +11,7 @@ public class ProjectileAttackState : EnemyBaseState
     [SerializeField] private float chaseDistance;
     [SerializeField] private Vector3 projectileOffset;
 
-    private ProjectileWeapon enemyWeapon;
+    //private ProjectileWeapon enemyWeapon;
     private float cooldown;
     private float currentCool;
 
@@ -19,10 +19,10 @@ public class ProjectileAttackState : EnemyBaseState
     public override void Enter()
     {
         base.Enter();
-        enemyWeapon = WeaponController.Instance.GetEnemyProjectileWeapon();
+        //enemyWeapon = WeaponController.Instance.GetEnemyProjectileWeapon();
         //Animation
         
-        cooldown = enemyWeapon.GetFireRate();
+        //cooldown = enemyWeapon.GetFireRate();
         currentCool = cooldown;
     }
 
@@ -47,7 +47,7 @@ public class ProjectileAttackState : EnemyBaseState
 
         if (CanSeePlayer() == true && IsGrounded())
         {
-            owner.transform.LookAt(owner.player.transform, Vector3.up);
+            //owner.transform.LookAt(owner.player.transform, Vector3.up);
             owner.animator.SetBool("isIdle", false);
             owner.animator.SetBool("isRunning", false);
             owner.animator.SetBool("isAttacking", true);
@@ -58,9 +58,9 @@ public class ProjectileAttackState : EnemyBaseState
 
     public void ProjectileAttack()
     {
-        GameObject enemyProj = Instantiate(WeaponController.Instance.EnemyWeaponProjectileGO, owner.transform.position + owner.transform.forward * 2 + projectileOffset, Quaternion.identity);
-        enemyProj.GetComponent<EnemyProjectile>().SetProjectileSpeed(enemyWeapon.GetProjectileSpeed());
-        enemyProj.GetComponent<EnemyProjectile>().SetProjectileTravelDistance(enemyWeapon.GetRange());
-        enemyProj.GetComponent<EnemyProjectile>().SetProjectileDamage(enemyWeapon.GetDamage());
+        //GameObject enemyProj = Instantiate(WeaponController.Instance.EnemyWeaponProjectileGO, owner.transform.position + owner.transform.forward * 2 + projectileOffset, Quaternion.identity);
+        //enemyProj.GetComponent<EnemyProjectile>().SetProjectileSpeed(enemyWeapon.GetProjectileSpeed());
+        //enemyProj.GetComponent<EnemyProjectile>().SetProjectileTravelDistance(enemyWeapon.GetRange());
+        //enemyProj.GetComponent<EnemyProjectile>().SetProjectileDamage(enemyWeapon.GetDamage());
     }
 }
