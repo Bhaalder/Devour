@@ -95,26 +95,26 @@ public class Player : StateMachine {
         if (isGrounded || isWallSliding) {
             extraJumping = extraJumps;
         }
-        if (isWallSliding && Input.GetKeyDown(KeyCode.Space)) {
+        if (isWallSliding && Input.GetButtonDown("Jump")) {
             Jump(0);
             return;
         }
-        if (isGrounded && Input.GetKeyDown(KeyCode.Space)) {
+        if (isGrounded && Input.GetButtonDown("Jump")) {
             Jump(0);
             return;
         }
-        if (!isGrounded && extraJumping > 0 && Input.GetKeyDown(KeyCode.Space)) {
+        if (!isGrounded && extraJumping > 0 && Input.GetButtonDown("Jump")) {
             extraJumping--;
             rb2D.velocity = new Vector2(0, 0);
-            Jump(0);
+            Jump(5);
         }
-        if (Input.GetKeyUp(KeyCode.Space) && rb2D.velocity.y > 0) {
+        if (Input.GetButtonUp("Jump") && rb2D.velocity.y > 0) {
             rb2D.velocity = new Vector2(rb2D.velocity.x, rb2D.velocity.y * variableJumpHeight);
         }
     }
     
-    private void Jump(float walldistance) {
-        rb2D.velocity = new Vector2((5 * walldistance), (1 * jumpForce));
+    private void Jump(float extra) {
+        rb2D.velocity = Vector2.up * (jumpForce + extra);
     }
 
     public void PlayerLog(string message) {
