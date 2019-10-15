@@ -2,12 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "Player/PlayerIdleState")]
-public class PlayerIdleState : PlayerBaseState {
+[CreateAssetMenu(menuName = "Player/PlayerDashState")]
+public class PlayerDashState : PlayerBaseState {
 
     public override void Enter() {
-        owner.PlayerLog("IdleState");
-        owner.PlayerState = PlayerState.IDLE;
+        owner.PlayerLog("DashState");
+        owner.PlayerState = PlayerState.DASH;
     }
 
     public override void HandleFixedUpdate() {

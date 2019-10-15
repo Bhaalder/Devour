@@ -11,7 +11,6 @@ public abstract class StateMachine : MonoBehaviour
 
     private Dictionary<Type, State> stateDictionary = new Dictionary<Type, State>();
     private State currentState;
-
     // Methods
     protected virtual void Awake()
     {
