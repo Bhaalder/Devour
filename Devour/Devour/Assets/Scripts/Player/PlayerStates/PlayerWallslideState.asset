@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e36873a69ef83c24ebc85f83dd99a915, type: 3}
   m_Name: PlayerWallslideState
   m_EditorClassIdentifier: 
-  wallSlideSpeed: 1
-  wallJumpForce: {x: 15, y: 15}
+  wallSlideSpeed: 7
+  wallJumpForce: {x: 10, y: 25}

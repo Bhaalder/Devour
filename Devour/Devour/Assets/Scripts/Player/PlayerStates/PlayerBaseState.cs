@@ -43,7 +43,7 @@ public class PlayerBaseState : State {
 
     public override void HandleUpdate() {
         Debug.Log(owner.PlayerState.ToString());
-        if (owner.IsWallSliding && owner.PlayerState != PlayerState.WALLSLIDE && owner.PlayerState != PlayerState.WALLJUMP) {
+        if (owner.IsWallSliding && owner.PlayerState != PlayerState.WALLSLIDE && owner.Rb2D.velocity.y < 0) {
             owner.Transition<PlayerWallslideState>();
         }
         CollisionCheck();
