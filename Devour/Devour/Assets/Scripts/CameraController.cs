@@ -8,7 +8,20 @@ public class CameraController : MonoBehaviour{
     [SerializeField] private Transform player;
     [SerializeField] private float cameraZoom;
 
-    void Start() {
+    private static bool exists;
+
+    private void Awake() {
+        if (!exists) {
+            exists = true;
+            DontDestroyOnLoad(gameObject);
+        } else {
+            Destroy(gameObject);
+            Debug.LogWarning("Destroyed other Singleton with name: " + gameObject.name);
+            return;
+        }
+    }
+
+    private void Start() {
 
     }
     

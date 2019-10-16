@@ -18,6 +18,15 @@ public class Player : StateMachine {
 
     public Rigidbody2D Rb2D { get; set; }
 
+    public float Health { get; set; }
+    public float CombatDamage { get; set; }
+    public float ProjectileDamage { get; set; }
+    public float KnockbackForce { get; set; }
+    public float CombatCooldown { get; set; }
+    public float CombatLifeLeech { get; set; }
+    public float ProjectileCooldown { get; set; }
+    public float ProjectileHealthcost { get; set; }
+
     public float MovementSpeed { get; set; }
     public float JumpForce { get; set; }
     public int ExtraJumps { get; set; }
@@ -44,12 +53,29 @@ public class Player : StateMachine {
     public Transform WallCheck { get; set; }
     public LayerMask WhatIsGround { get; set; }
 
-    [Tooltip("For testing if the player has certain abilities")]
-    [SerializeField] private PlayerAbility[] playerAbilities;//TESTING
-
-    [Tooltip("How fast the player is moving")]
-    [SerializeField] private float movementSpeed;
     
+
+    [Header("Health & Combat")]
+    [Tooltip("Player health")]
+    [SerializeField] private float health;
+    [Tooltip("Player damage (close combat)")]
+    [SerializeField] private float combatDamage;
+    [Tooltip("How much health the close combat attack leeches")]
+    [SerializeField] private float combatLifeLeech;
+    [Tooltip("Cooldown between attacks (close combat)")]
+    [SerializeField] private float combatCooldown;
+    [Tooltip("Player damage (projectile)")]
+    [SerializeField] private float projectileDamage;
+    [Tooltip("How much health the projectile-attack drains")]
+    [SerializeField] private float projectileHealthcost;
+    [Tooltip("Cooldown between attacks (projectile)")]
+    [SerializeField] private float projectileCooldown;
+    [Tooltip("Kockbackvalue applied to enemies")]
+    [SerializeField] private float knockbackForce;
+
+    [Header("Movement")]
+    [Tooltip("How fast the player is moving")]
+    [SerializeField] private float movementSpeed;   
     [Tooltip("How high the player can jump")]
     [SerializeField] private float jumpForce;
     [Tooltip("How many extra jumps the player has (when not on ground)")]
@@ -59,22 +85,40 @@ public class Player : StateMachine {
     [Tooltip("The cooldown between dashes")]
     [SerializeField] private float dashCooldown;
 
+    [Header("MovementCheckVariables")]
     [Tooltip("The area of the groundcheck, to see if the player is touching the ground")]
     [SerializeField] private float groundCheckDistance;
     [Tooltip("The length of the wallcheck, to see if the player is touching a wall")]
     [SerializeField] private float wallCheckDistance;
     private float wallCheckDistanceValue;
-    
-    [Tooltip("Is the player touching ground?")]
-    [SerializeField] private bool isGrounded;
-    [Tooltip("Is the player touching wall?")]
-    [SerializeField] private bool isTouchingWall;
-    [Tooltip("Is the player touching wallsliding?")]
-    [SerializeField] private bool isWallSliding;
 
+    [Header("Transforms & Layermask")]
     [SerializeField] private Transform groundCheck;
     [SerializeField] private Transform wallCheck;
     [SerializeField] private LayerMask whatIsGround;
+
+    [Header("Testing")]//bara för att se i inspektorn atm, kan tas bort sen
+    [Tooltip("Is the player touching ground?")]//
+    [SerializeField] private bool isGrounded;//
+    [Tooltip("Is the player touching wall?")]//
+    [SerializeField] private bool isTouchingWall;//
+    [Tooltip("Is the player touching wallsliding?")]//
+    [SerializeField] private bool isWallSliding;//
+    [Tooltip("For testing if the player has certain abilities")]
+    [SerializeField] private PlayerAbility[] playerAbilities;//TESTING
+
+    private static bool exists;
+
+    protected override void Awake() {
+        if (!exists) {
+            exists = true;
+            DontDestroyOnLoad(gameObject);
+        } else {
+            Destroy(gameObject);
+            Debug.LogWarning("Destroyed other Singleton with name: " + gameObject.name);
+            return;
+        }
+    }
 
     private void Start() {
         PlayerAbilities = new List<PlayerAbility>();
@@ -83,6 +127,15 @@ public class Player : StateMachine {
         }
 
         Rb2D = GetComponent<Rigidbody2D>();
+
+        Health = health;
+        CombatDamage = combatDamage;
+        CombatCooldown = combatCooldown;
+        CombatLifeLeech = combatLifeLeech;
+        ProjectileDamage = projectileDamage;       
+        ProjectileCooldown = projectileCooldown;
+        ProjectileHealthcost = projectileHealthcost;
+        KnockbackForce = knockbackForce;
 
         MovementSpeed = movementSpeed;
         JumpForce = jumpForce;
@@ -116,7 +169,7 @@ public class Player : StateMachine {
         Debug.Log("PLAYER: " + message);
     }
 
-    public bool PlayerHas(PlayerAbility playerAbility) {
+    public bool PlayerHasAbility(PlayerAbility playerAbility) {
         foreach(PlayerAbility ability in PlayerAbilities) {
             if(ability == playerAbility) {
                 return true;

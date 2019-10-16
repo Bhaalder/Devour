@@ -72,7 +72,7 @@ GameObject:
   - component: {fileID: 3752226931262427188}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -210,7 +210,14 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 048698712f8b0e74db85b306e81121c0, type: 2}
   - {fileID: 11400000, guid: a4f4315bafaf3074f9d4e873521d8ae3, type: 2}
   - {fileID: 11400000, guid: d0280f51a441ddf499864fb6d673368d, type: 2}
-  playerAbilities: 000000000100000002000000
+  health: 100
+  combatDamage: 5
+  combatLifeLeech: 5
+  combatCooldown: 0.5
+  projectileDamage: 15
+  projectileHealthcost: 10
+  projectileCooldown: 0.5
+  knockbackForce: 5
   movementSpeed: 10
   jumpForce: 20
   extraJumps: 1
@@ -218,14 +225,15 @@ MonoBehaviour:
   dashCooldown: 0.5
   groundCheckDistance: 0.6
   wallCheckDistance: 0.65
-  isGrounded: 0
-  isTouchingWall: 0
-  isWallSliding: 0
   groundCheck: {fileID: 3752226932106922852}
   wallCheck: {fileID: 3752226931692729299}
   whatIsGround:
     serializedVersion: 2
     m_Bits: 256
+  isGrounded: 0
+  isTouchingWall: 0
+  isWallSliding: 0
+  playerAbilities: 000000000100000002000000
 --- !u!1 &3752226931692729298
 GameObject:
   m_ObjectHideFlags: 0
