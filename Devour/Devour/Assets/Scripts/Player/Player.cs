@@ -18,6 +18,8 @@ public class Player : StateMachine {
     public int ExtraJumpsLeft { get; set; }
     public float VariableJumpHeight { get; set; }
     public float PermanentVariableJumpHeight { get; set; }
+    public float DashCooldown { get; set; }
+    public float UntilNextDash { get; set; }
 
     public float XInput { get; set; }
     public float YInput { get; set; }
@@ -45,6 +47,8 @@ public class Player : StateMachine {
     [SerializeField] private int extraJumps;
     [Tooltip("How much the jump gets 'cut' if the player releases the jumpbutton")]
     [SerializeField] private float variableJumpHeight;
+    [Tooltip("The cooldown between dashes")]
+    [SerializeField] private float dashCooldown;
 
     [Tooltip("The area of the groundcheck, to see if the player is touching the ground")]
     [SerializeField] private float groundCheckDistance;
@@ -72,6 +76,7 @@ public class Player : StateMachine {
         ExtraJumpsLeft = extraJumps;
         VariableJumpHeight = variableJumpHeight;
         PermanentVariableJumpHeight = variableJumpHeight;
+        DashCooldown = dashCooldown;
         XScale = transform.localScale.x;
         GroundCheckDistance = groundCheckDistance;
         WallCheckDistance = wallCheckDistance;

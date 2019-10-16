@@ -8,11 +8,16 @@ public class PlayerDashState : PlayerBaseState {
     [SerializeField] private float dashForce;
     [SerializeField] private float startDashTime;
     private float dashTime;
-
+    
     public override void Enter() {
         owner.PlayerLog("DashState");
         owner.PlayerState = PlayerState.DASH;
         dashTime = startDashTime;
+        owner.UntilNextDash = owner.DashCooldown;
+        if (owner.IsTouchingWall) {
+            Flip(owner.XScale * -owner.FacingDirection);
+            owner.FacingDirection *= -1;
+        }
     }
 
     public override void HandleFixedUpdate() {
@@ -27,10 +32,7 @@ public class PlayerDashState : PlayerBaseState {
     protected void Dash() {
         //base.MovePlayer();
         
-        if (owner.IsWallSliding) {
-            Flip(owner.XScale * -owner.FacingDirection);
-            owner.FacingDirection *= -1;
-        }
+        
         owner.Rb2D.velocity = new Vector2((dashForce * owner.FacingDirection), 0);
 
         if (dashTime <= 0) {

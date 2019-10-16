@@ -17,7 +17,7 @@ public class PlayerBaseState : State {
 
     public override void HandleFixedUpdate() {
         MovePlayer();
-        CollisionCheck();
+        
         FacingDirection();
         
 
@@ -45,10 +45,8 @@ public class PlayerBaseState : State {
     }
 
     public override void HandleUpdate() {
-        //Debug.Log(owner.PlayerState.ToString());
-        if (owner.IsWallSliding && owner.PlayerState != PlayerState.WALLSLIDE && owner.Rb2D.velocity.y < 0) {
-            owner.Transition<PlayerWallslideState>();
-        }
+        CooldownTimers();
+        CollisionCheck();
         DashCheck();
         GetInput();
         JumpCheck();
@@ -68,6 +66,16 @@ public class PlayerBaseState : State {
         } else {
             owner.IsWallSliding = false;
         }
+        if (owner.IsWallSliding && owner.PlayerState != PlayerState.WALLSLIDE && owner.Rb2D.velocity.y < 0) {
+            owner.Transition<PlayerWallslideState>();
+        }
+    }
+
+    private void CooldownTimers() {
+        owner.UntilNextDash -= Time.deltaTime;
+        if(owner.UntilNextDash <= 0) {
+            owner.UntilNextDash = 0;
+        }
     }
 
     protected virtual void GetInput() {
@@ -75,7 +83,8 @@ public class PlayerBaseState : State {
     }
 
     private void DashCheck() {
-        if (Input.GetButtonDown("Dash")) {
+
+        if (Input.GetButtonDown("Dash") && owner.UntilNextDash <= 0) {
             owner.Transition<PlayerDashState>();
         }
     }
