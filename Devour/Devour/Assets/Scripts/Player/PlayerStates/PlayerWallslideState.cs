@@ -7,14 +7,12 @@ public class PlayerWallslideState : PlayerBaseState {
 
     [Tooltip("The speed of the player sliding down on walls")]
     [SerializeField] private float wallSlideSpeed;
-
+    [Tooltip("The force of the jump horizontally(x) and vertically(y)")]
     [SerializeField] private Vector2 wallJumpForce;
 
     public override void Enter() {
         owner.PlayerLog("WallslideState");
         owner.PlayerState = PlayerState.WALLSLIDE;
-        owner.WallJumpForce = wallJumpForce;
-
     }
 
     public override void HandleFixedUpdate() {
@@ -50,10 +48,11 @@ public class PlayerWallslideState : PlayerBaseState {
     }
 
     protected override void Jump(float extra) {
-        Vector2 impulse = new Vector2((owner.WallJumpForce.x * -owner.FacingDirection), owner.WallJumpForce.y);
+        Vector2 impulse = new Vector2((wallJumpForce.x * -owner.FacingDirection), wallJumpForce.y);
         owner.Rb2D.AddForce(impulse, ForceMode2D.Impulse);
         Flip(owner.XScale * -owner.FacingDirection);
         owner.FacingDirection *= -1;
+        owner.Transition<PlayerWallJumpState>();
     }
 
     public override void Exit() {

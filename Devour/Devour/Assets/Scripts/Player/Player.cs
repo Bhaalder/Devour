@@ -27,7 +27,6 @@ public class Player : StateMachine {
     public float GroundCheckDistance { get; set; }
     public float WallCheckDistance { get; set; }
     public int FacingDirection { get; set; }
-    public Vector2 WallJumpForce { get; set; }
 
     public bool IsGrounded { get; set; }
     public bool IsTouchingWall { get; set; }
@@ -52,10 +51,7 @@ public class Player : StateMachine {
     [Tooltip("The length of the wallcheck, to see if the player is touching a wall")]
     [SerializeField] private float wallCheckDistance;
     private float wallCheckDistanceValue;
-
-    [SerializeField] private Vector2 wallJumpForce;
-
-
+    
     [Tooltip("Is the player touching ground?")]
     [SerializeField] private bool isGrounded;
     [Tooltip("Is the player touching wall?")]
@@ -80,7 +76,6 @@ public class Player : StateMachine {
         GroundCheckDistance = groundCheckDistance;
         WallCheckDistance = wallCheckDistance;
         wallCheckDistanceValue = wallCheckDistance;
-        WallJumpForce = wallJumpForce;
 
         GroundCheck = groundCheck;
         WallCheck = wallCheck;

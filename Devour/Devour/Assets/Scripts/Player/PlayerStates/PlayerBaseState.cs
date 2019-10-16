@@ -42,7 +42,8 @@ public class PlayerBaseState : State {
     }
 
     public override void HandleUpdate() {
-        if (owner.IsWallSliding && owner.PlayerState != PlayerState.WALLSLIDE) {
+        Debug.Log(owner.PlayerState.ToString());
+        if (owner.IsWallSliding && owner.PlayerState != PlayerState.WALLSLIDE && owner.PlayerState != PlayerState.WALLJUMP) {
             owner.Transition<PlayerWallslideState>();
         }
         CollisionCheck();
@@ -85,7 +86,7 @@ public class PlayerBaseState : State {
         if (!owner.IsGrounded && owner.ExtraJumpsLeft > 0 && Input.GetButtonDown("Jump")) {
             owner.ExtraJumpsLeft--;
             owner.Rb2D.velocity = new Vector2(0, 0);
-            Jump(5);
+            Jump(0);
         }
         if (Input.GetButtonUp("Jump") && owner.Rb2D.velocity.y > 0) {
             owner.Rb2D.velocity = new Vector2(owner.Rb2D.velocity.x, owner.Rb2D.velocity.y * owner.VariableJumpHeight);

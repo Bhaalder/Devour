@@ -151,13 +151,14 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 42b52c6bdfb23764fbd74ec7f652f3a5, type: 2}
   - {fileID: 11400000, guid: 048698712f8b0e74db85b306e81121c0, type: 2}
   - {fileID: 11400000, guid: a4f4315bafaf3074f9d4e873521d8ae3, type: 2}
+  - {fileID: 11400000, guid: d0280f51a441ddf499864fb6d673368d, type: 2}
   movementSpeed: 10
-  jumpForce: 15
+  jumpForce: 20
   extraJumps: 1
   variableJumpHeight: 0.4
   groundCheckDistance: 0.6
   wallCheckDistance: 0.65
-  wallJumpForce: {x: 0, y: 0}
+  wallJumpForce: {x: 200, y: 200}
   isGrounded: 0
   isTouchingWall: 0
   isWallSliding: 0
