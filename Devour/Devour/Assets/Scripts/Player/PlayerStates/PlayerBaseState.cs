@@ -70,7 +70,7 @@ public class PlayerBaseState : State {
         }
     }
 
-    private void GetInput() {
+    protected virtual void GetInput() {
         owner.XInput = Input.GetAxisRaw("Horizontal");
     }
 

@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8beac529f9ca44244917b4e994965cfc, type: 3}
   m_Name: PlayerDashState
   m_EditorClassIdentifier: 
-  dashForce: 40
-  startDashTime: 0.15
+  dashForce: 30
+  startDashTime: 0.2

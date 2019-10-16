@@ -13,7 +13,6 @@ public class PlayerDashState : PlayerBaseState {
         owner.PlayerLog("DashState");
         owner.PlayerState = PlayerState.DASH;
         dashTime = startDashTime;
-
     }
 
     public override void HandleFixedUpdate() {
@@ -27,7 +26,7 @@ public class PlayerDashState : PlayerBaseState {
 
     protected void Dash() {
         //base.MovePlayer();
-        owner.XInput = 0;
+        
         if (owner.IsWallSliding) {
             Flip(owner.XScale * -owner.FacingDirection);
             owner.FacingDirection *= -1;
@@ -43,6 +42,10 @@ public class PlayerDashState : PlayerBaseState {
         }
         dashTime -= Time.deltaTime;
         
+    }
+
+    protected override void GetInput() {
+        owner.XInput = 0;
     }
 
     protected override void MovePlayer() {
