@@ -11,7 +11,7 @@ public class PlayerDashState : PlayerBaseState {
     private float dashTime;
     
     public override void Enter() {
-        owner.PlayerLog("DashState");
+        //owner.PlayerLog("DashState");
         owner.PlayerState = PlayerState.DASH;
         dashTime = startDashTime;
         owner.UntilNextDash = owner.DashCooldown;

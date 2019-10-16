@@ -162,7 +162,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: cd8eb8208f8d8374a8e35aadc6645123, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 4
 --- !u!61 &3752226931262427190
 BoxCollider2D:
@@ -210,6 +210,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 048698712f8b0e74db85b306e81121c0, type: 2}
   - {fileID: 11400000, guid: a4f4315bafaf3074f9d4e873521d8ae3, type: 2}
   - {fileID: 11400000, guid: d0280f51a441ddf499864fb6d673368d, type: 2}
+  playerAbilities: 000000000100000002000000
   movementSpeed: 10
   jumpForce: 20
   extraJumps: 1

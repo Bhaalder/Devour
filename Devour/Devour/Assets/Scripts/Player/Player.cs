@@ -7,9 +7,14 @@ public enum PlayerState {
     IDLE, AIR, DASH, WALLSLIDE, WALLJUMP, WALK
 }
 
+public enum PlayerAbility {
+    DOUBLEJUMP, WALLSLIDE, DASH
+}
+
 public class Player : StateMachine {
 
     public PlayerState PlayerState { get; set; }
+    public List<PlayerAbility> PlayerAbilities { get; set; }
 
     public Rigidbody2D Rb2D { get; set; }
 
@@ -38,6 +43,9 @@ public class Player : StateMachine {
     public Transform GroundCheck { get; set; }
     public Transform WallCheck { get; set; }
     public LayerMask WhatIsGround { get; set; }
+
+    [Tooltip("For testing if the player has certain abilities")]
+    [SerializeField] private PlayerAbility[] playerAbilities;//TESTING
 
     [Tooltip("How fast the player is moving")]
     [SerializeField] private float movementSpeed;
@@ -69,6 +77,11 @@ public class Player : StateMachine {
     [SerializeField] private LayerMask whatIsGround;
 
     private void Start() {
+        PlayerAbilities = new List<PlayerAbility>();
+        foreach(PlayerAbility ability in playerAbilities) {
+            PlayerAbilities.Add(ability);
+        }
+
         Rb2D = GetComponent<Rigidbody2D>();
 
         MovementSpeed = movementSpeed;
@@ -101,6 +114,15 @@ public class Player : StateMachine {
 
     public void PlayerLog(string message) {
         Debug.Log("PLAYER: " + message);
+    }
+
+    public bool PlayerHas(PlayerAbility playerAbility) {
+        foreach(PlayerAbility ability in PlayerAbilities) {
+            if(ability == playerAbility) {
+                return true;
+            }
+        }
+        return false;
     }
 
     private void OnDrawGizmos() {

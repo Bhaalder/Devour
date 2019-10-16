@@ -11,7 +11,7 @@ public class PlayerBaseState : State {
     protected Vector2 impulse;
 
     public override void Enter() {
-        owner.PlayerLog("Initialized Playerstates!");
+        //owner.PlayerLog("Initialized Playerstates!");
         owner.Transition<PlayerIdleState>();
         base.Enter();
     }
@@ -48,7 +48,9 @@ public class PlayerBaseState : State {
     public override void HandleUpdate() {
         CooldownTimers();
         CollisionCheck();
-        DashCheck();
+        if (owner.PlayerHas(PlayerAbility.DASH)) {
+            DashCheck();
+        }
         GetInput();
         JumpCheck();
         
@@ -58,7 +60,9 @@ public class PlayerBaseState : State {
     public void CollisionCheck() {
         owner.IsGrounded = Physics2D.OverlapCircle(owner.GroundCheck.position, owner.GroundCheckDistance, owner.WhatIsGround);
         owner.IsTouchingWall = Physics2D.Raycast(owner.WallCheck.position, owner.transform.right, (owner.WallCheckDistance * owner.FacingDirection), owner.WhatIsGround);
-        WallSlideCheck();
+        if (owner.PlayerHas(PlayerAbility.WALLSLIDE)) {
+            WallSlideCheck();
+        }       
     }
 
     public void WallSlideCheck() {
@@ -84,16 +88,12 @@ public class PlayerBaseState : State {
     }
 
     private void DashCheck() {
-
         if (Input.GetButtonDown("Dash") && owner.UntilNextDash <= 0) {
             owner.Transition<PlayerDashState>();
         }
     }
 
     private void JumpCheck() {
-        if (owner.IsGrounded || owner.IsWallSliding) {
-            owner.ExtraJumpsLeft = owner.ExtraJumps;
-        }
         if (owner.IsWallSliding && Input.GetButtonDown("Jump")) {
             Jump(0);
             return;
@@ -102,15 +102,20 @@ public class PlayerBaseState : State {
             Jump(0);
             return;
         }
-        if (!owner.IsGrounded && owner.ExtraJumpsLeft > 0 && Input.GetButtonDown("Jump")) {
-            owner.ExtraJumpsLeft--;
-            owner.Rb2D.velocity = new Vector2(0, 0);
-            Jump(0);
-        }
         if (Input.GetButtonUp("Jump") && owner.Rb2D.velocity.y > 0) {
             owner.Rb2D.velocity = new Vector2(owner.Rb2D.velocity.x, owner.Rb2D.velocity.y * owner.VariableJumpHeight);
             if (owner.PlayerState != PlayerState.AIR) {
                 owner.Transition<PlayerAirState>();
+            }
+        }
+        if (owner.PlayerHas(PlayerAbility.DOUBLEJUMP)) {
+            if (owner.IsGrounded || owner.IsWallSliding) {
+                owner.ExtraJumpsLeft = owner.ExtraJumps;
+            }
+            if (!owner.IsGrounded && owner.ExtraJumpsLeft > 0 && Input.GetButtonDown("Jump")) {
+                owner.ExtraJumpsLeft--;
+                owner.Rb2D.velocity = new Vector2(0, 0);
+                Jump(0);
             }
         }
     }

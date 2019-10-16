@@ -7,7 +7,7 @@ using UnityEngine;
 public class PlayerAirState : PlayerBaseState {
 
     public override void Enter() {
-        owner.PlayerLog("AirState");
+        //owner.PlayerLog("AirState");
         owner.PlayerState = PlayerState.AIR;
     }
 

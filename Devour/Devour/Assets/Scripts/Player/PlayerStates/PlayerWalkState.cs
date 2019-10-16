@@ -7,7 +7,7 @@ using UnityEngine;
 public class PlayerWalkState : PlayerBaseState {
 
     public override void Enter() {
-        owner.PlayerLog("WalkState");
+        //owner.PlayerLog("WalkState");
         owner.PlayerState = PlayerState.WALK;
     }
 

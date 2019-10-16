@@ -7,7 +7,7 @@ using UnityEngine;
 public class PlayerIdleState : PlayerBaseState {
 
     public override void Enter() {
-        owner.PlayerLog("IdleState");
+        //owner.PlayerLog("IdleState");
         owner.PlayerState = PlayerState.IDLE;
     }
 

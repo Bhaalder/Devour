@@ -12,7 +12,7 @@ public class PlayerWallslideState : PlayerBaseState {
     [SerializeField] private Vector2 wallJumpForce;
 
     public override void Enter() {
-        owner.PlayerLog("WallslideState");
+        //owner.PlayerLog("WallslideState");
         owner.PlayerState = PlayerState.WALLSLIDE;
     }
 
@@ -49,11 +49,6 @@ public class PlayerWallslideState : PlayerBaseState {
     }
 
     protected override void Jump(float extra) {
-
-
-
-
-
         Vector2 impulse = new Vector2((wallJumpForce.x * -owner.FacingDirection), 0);
         owner.Rb2D.AddForce(impulse, ForceMode2D.Impulse);
         owner.Rb2D.velocity = new Vector2(owner.Rb2D.velocity.x, wallJumpForce.y);
@@ -61,7 +56,6 @@ public class PlayerWallslideState : PlayerBaseState {
             Flip(owner.XScale * -owner.FacingDirection);
             owner.FacingDirection *= -1;
         }
-
         owner.Transition<PlayerWallJumpState>();
     }
 

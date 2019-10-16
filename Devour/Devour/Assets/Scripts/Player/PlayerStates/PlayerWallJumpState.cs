@@ -7,7 +7,7 @@ using UnityEngine;
 public class PlayerWallJumpState : PlayerWallslideState {
 
     public override void Enter() {
-        owner.PlayerLog("WallJumpState");
+        //owner.PlayerLog("WallJumpState");
         owner.PlayerState = PlayerState.WALLJUMP;
     }
 
