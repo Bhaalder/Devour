@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿//Authors: quill18creates@youtube & FuzzyHobo@github
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
