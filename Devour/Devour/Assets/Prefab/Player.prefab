@@ -155,10 +155,9 @@ MonoBehaviour:
   movementSpeed: 10
   jumpForce: 20
   extraJumps: 1
-  variableJumpHeight: 0.4
+  variableJumpHeight: 0.1
   groundCheckDistance: 0.6
   wallCheckDistance: 0.65
-  wallJumpForce: {x: 200, y: 200}
   isGrounded: 0
   isTouchingWall: 0
   isWallSliding: 0
