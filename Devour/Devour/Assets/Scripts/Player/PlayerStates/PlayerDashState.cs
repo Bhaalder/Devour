@@ -13,6 +13,7 @@ public class PlayerDashState : PlayerBaseState {
         owner.PlayerLog("DashState");
         owner.PlayerState = PlayerState.DASH;
         dashTime = startDashTime;
+
     }
 
     public override void HandleFixedUpdate() {
@@ -20,11 +21,17 @@ public class PlayerDashState : PlayerBaseState {
     }
 
     public override void HandleUpdate() {
+        Dash();
         base.HandleUpdate();
     }
 
-    protected override void MovePlayer() {
+    protected void Dash() {
         //base.MovePlayer();
+        owner.XInput = 0;
+        if (owner.IsWallSliding) {
+            Flip(owner.XScale * -owner.FacingDirection);
+            owner.FacingDirection *= -1;
+        }
         owner.Rb2D.velocity = new Vector2((dashForce * owner.FacingDirection), 0);
 
         if (dashTime <= 0) {
@@ -35,6 +42,11 @@ public class PlayerDashState : PlayerBaseState {
             }
         }
         dashTime -= Time.deltaTime;
+        
+    }
+
+    protected override void MovePlayer() {
+
     }
 
     protected override void Jump(float extra) {

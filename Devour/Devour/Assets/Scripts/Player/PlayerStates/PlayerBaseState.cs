@@ -20,6 +20,7 @@ public class PlayerBaseState : State {
         CollisionCheck();
         FacingDirection();
         
+
         base.HandleFixedUpdate();
     }
 
