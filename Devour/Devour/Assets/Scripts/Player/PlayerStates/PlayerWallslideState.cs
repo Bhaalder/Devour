@@ -48,11 +48,19 @@ public class PlayerWallslideState : PlayerBaseState {
     }
 
     protected override void Jump(float extra) {
+
+
+
+
+
         Vector2 impulse = new Vector2((wallJumpForce.x * -owner.FacingDirection), 0);
         owner.Rb2D.AddForce(impulse, ForceMode2D.Impulse);
         owner.Rb2D.velocity = new Vector2(owner.Rb2D.velocity.x, wallJumpForce.y);
-        Flip(owner.XScale * -owner.FacingDirection);
-        owner.FacingDirection *= -1;
+        if (owner.XInput != owner.FacingDirection) {
+            Flip(owner.XScale * -owner.FacingDirection);
+            owner.FacingDirection *= -1;
+        }
+
         owner.Transition<PlayerWallJumpState>();
     }
 

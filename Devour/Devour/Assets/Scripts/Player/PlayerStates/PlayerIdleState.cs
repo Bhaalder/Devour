@@ -18,6 +18,9 @@ public class PlayerIdleState : PlayerBaseState {
         if(Input.GetButton("Horizontal")) {
             owner.Transition<PlayerWalkState>();
         }
+        if(owner.Rb2D.velocity.y < 0) {
+            owner.Transition<PlayerAirState>();
+        }
         base.HandleUpdate();
     }
 }
