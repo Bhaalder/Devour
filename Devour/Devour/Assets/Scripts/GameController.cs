@@ -12,6 +12,7 @@ public class GameController : MonoBehaviour {
 
     public Transform SceneCheckpoint { get; set; } //om man rör vid en "killzone"
     public Transform RestingCheckpoint { get; set; } //senaste platsen man restade på
+    public Transform VoidEssenceLocation { get; set; } //platsen man dog på och måste hämta sin essence
 
     private static GameController instance;
 

@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public enum PlayerState {
-    IDLE, AIR, DASH, WALLSLIDE, WALLJUMP, WALK
+    IDLE, AIR, DASH, WALLSLIDE, WALLJUMP, WALK, HURT
 }
 
 public enum PlayerAbility {
@@ -53,8 +53,6 @@ public class Player : StateMachine {
     public Transform WallCheck { get; set; }
     public LayerMask WhatIsGround { get; set; }
 
-    
-
     [Header("Health & Combat")]
     [Tooltip("Player health")]
     [SerializeField] private float health;
@@ -72,6 +70,9 @@ public class Player : StateMachine {
     [SerializeField] private float projectileCooldown;
     [Tooltip("Kockbackvalue applied to enemies")]
     [SerializeField] private float knockbackForce;
+    [Tooltip("How long the player is invulnerable to damage after taking damage")]
+    [SerializeField] private float invulnerableStateTime;
+    private bool isInvulnerable;
 
     [Header("Movement")]
     [Tooltip("How fast the player is moving")]
@@ -118,6 +119,7 @@ public class Player : StateMachine {
             Debug.LogWarning("Destroyed other Singleton with name: " + gameObject.name);
             return;
         }
+        PlayerTakeDamageEvent.RegisterListener(TakeDamageEvent);
     }
 
     private void Start() {
@@ -163,6 +165,31 @@ public class Player : StateMachine {
         isTouchingWall = IsTouchingWall;//bara för att se i inspektorn atm, kan tas bort sen
         isWallSliding = IsWallSliding;//bara för att se i inspektorn atm, kan tas bort sen
         base.Update();
+    }
+
+    private void TakeDamageEvent(PlayerTakeDamageEvent eventDamage) {//EJ KLART
+        if (isInvulnerable) {
+            //ingen skada
+            if (eventDamage.isKillzone) {
+                TakeDamage(eventDamage.damage);
+                Respawn();
+                return;
+            } else {
+                return;
+            }
+        }
+        TakeDamage(eventDamage.damage);
+    }
+    private void TakeDamage(float value) {//EJ KLART
+        Health -= value;
+        if (Health <= 0) {
+            //dör
+            return;
+        }
+    }
+
+    private void Respawn() { //EJ KLART
+        //respawnEvent?
     }
 
     public void PlayerLog(string message) {
