@@ -15,6 +15,13 @@ public class PlayerAirState : PlayerBaseState {
     }
 
     public override void HandleUpdate() {
+        if (owner.Rb2D.velocity.y == Mathf.Round(0)) {
+            if (Input.GetButton("Horizontal")) {
+                owner.Transition<PlayerWalkState>();
+            } else {
+                owner.Transition<PlayerIdleState>();
+            }           
+        }
         base.HandleUpdate();
     }
 }

@@ -7,9 +7,10 @@ public class PlayerBaseState : State {
 
     protected Player owner;
 
+    protected Vector2 impulse;
+
     public override void Enter() {
         owner.PlayerLog("Initialized Playerstates!");
-        owner.WallCheckDistanceValue = owner.WallCheckDistance;
         owner.Transition<PlayerIdleState>();
         base.Enter();
     }
@@ -23,14 +24,14 @@ public class PlayerBaseState : State {
     private void FacingDirection() {
         if (owner.XInput < 0) {
             Flip(-owner.XScale);
-            owner.WallCheckDistanceValue = -owner.WallCheckDistance;
+            owner.FacingDirection = -1;
         } else if (owner.XInput > 0) {
             Flip(owner.XScale);
-            owner.WallCheckDistanceValue = owner.WallCheckDistance;
+            owner.FacingDirection = 1;
         }
     }
 
-    private void Flip(float direction) {
+    protected void Flip(float direction) {
         Vector3 myScale = owner.transform.localScale;
         myScale.x = direction;
         owner.transform.localScale = myScale;
@@ -38,7 +39,6 @@ public class PlayerBaseState : State {
 
     protected virtual void MovePlayer() {
         owner.Rb2D.velocity = new Vector2(owner.XInput * owner.MovementSpeed, owner.Rb2D.velocity.y);
-
     }
 
     public override void HandleUpdate() {
@@ -51,13 +51,13 @@ public class PlayerBaseState : State {
         base.HandleUpdate();
     }
 
-    private void CollisionCheck() {
+    public void CollisionCheck() {
         owner.IsGrounded = Physics2D.OverlapCircle(owner.GroundCheck.position, owner.GroundCheckDistance, owner.WhatIsGround);
-        owner.IsTouchingWall = Physics2D.Raycast(owner.WallCheck.position, owner.transform.right, owner.WallCheckDistanceValue, owner.WhatIsGround);
+        owner.IsTouchingWall = Physics2D.Raycast(owner.WallCheck.position, owner.transform.right, (owner.WallCheckDistance * owner.FacingDirection), owner.WhatIsGround);
         WallSlideCheck();
     }
 
-    private void WallSlideCheck() {
+    public void WallSlideCheck() {
         if (owner.IsTouchingWall && !owner.IsGrounded && owner.Rb2D.velocity.y < 0) {
             owner.IsWallSliding = true;
         } else {
@@ -70,8 +70,9 @@ public class PlayerBaseState : State {
     }
 
     private void JumpCheck() {
+
         if (owner.IsGrounded || owner.IsWallSliding) {
-            owner.ExtraJumpingLeft = owner.ExtraJumps;
+            owner.ExtraJumpsLeft = owner.ExtraJumps;
         }
         if (owner.IsWallSliding && Input.GetButtonDown("Jump")) {
             Jump(0);
@@ -81,18 +82,26 @@ public class PlayerBaseState : State {
             Jump(0);
             return;
         }
-        if (!owner.IsGrounded && owner.ExtraJumpingLeft > 0 && Input.GetButtonDown("Jump")) {
-            owner.ExtraJumpingLeft--;
+        if (!owner.IsGrounded && owner.ExtraJumpsLeft > 0 && Input.GetButtonDown("Jump")) {
+            owner.ExtraJumpsLeft--;
             owner.Rb2D.velocity = new Vector2(0, 0);
             Jump(5);
         }
         if (Input.GetButtonUp("Jump") && owner.Rb2D.velocity.y > 0) {
             owner.Rb2D.velocity = new Vector2(owner.Rb2D.velocity.x, owner.Rb2D.velocity.y * owner.VariableJumpHeight);
+            if (owner.PlayerState != PlayerState.AIR) {
+                owner.Transition<PlayerAirState>();
+            }
         }
     }
 
-    private void Jump(float extra) {
-        owner.Rb2D.velocity = Vector2.up * (owner.JumpForce + extra);
+    protected virtual void Jump(float extra) {
+        if (owner.PlayerState != PlayerState.AIR) {
+            owner.Transition<PlayerAirState>();
+        }
+        if (!owner.IsWallSliding) {
+            owner.Rb2D.velocity = Vector2.up * (owner.JumpForce + extra);
+        }      
     }
 
 

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public enum PlayerState {
-    IDLE, AIR, DASH, WALLSLIDE
+    IDLE, AIR, DASH, WALLSLIDE, WALLJUMP, WALK
 }
 
 public class Player : StateMachine {
@@ -15,8 +15,9 @@ public class Player : StateMachine {
     public float MovementSpeed { get; set; }
     public float JumpForce { get; set; }
     public int ExtraJumps { get; set; }
-    public int ExtraJumpingLeft { get; set; }
+    public int ExtraJumpsLeft { get; set; }
     public float VariableJumpHeight { get; set; }
+    public float PermanentVariableJumpHeight { get; set; }
 
     public float XInput { get; set; }
     public float YInput { get; set; }
@@ -25,7 +26,8 @@ public class Player : StateMachine {
 
     public float GroundCheckDistance { get; set; }
     public float WallCheckDistance { get; set; }
-    public float WallCheckDistanceValue { get; set; }
+    public int FacingDirection { get; set; }
+    public Vector2 WallJumpForce { get; set; }
 
     public bool IsGrounded { get; set; }
     public bool IsTouchingWall { get; set; }
@@ -51,6 +53,9 @@ public class Player : StateMachine {
     [SerializeField] private float wallCheckDistance;
     private float wallCheckDistanceValue;
 
+    [SerializeField] private Vector2 wallJumpForce;
+
+
     [Tooltip("Is the player touching ground?")]
     [SerializeField] private bool isGrounded;
     [Tooltip("Is the player touching wall?")]
@@ -68,12 +73,14 @@ public class Player : StateMachine {
         MovementSpeed = movementSpeed;
         JumpForce = jumpForce;
         ExtraJumps = extraJumps;
-        ExtraJumpingLeft = extraJumps;
+        ExtraJumpsLeft = extraJumps;
         VariableJumpHeight = variableJumpHeight;
+        PermanentVariableJumpHeight = variableJumpHeight;
         XScale = transform.localScale.x;
         GroundCheckDistance = groundCheckDistance;
         WallCheckDistance = wallCheckDistance;
         wallCheckDistanceValue = wallCheckDistance;
+        WallJumpForce = wallJumpForce;
 
         GroundCheck = groundCheck;
         WallCheck = wallCheck;
