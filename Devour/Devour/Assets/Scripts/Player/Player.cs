@@ -75,10 +75,12 @@ public class Player : StateMachine {
     [SerializeField] private float projectileHealthcost;
     [Tooltip("Cooldown between attacks (projectile)")]
     [SerializeField] private float projectileCooldown;
-    [Tooltip("Kockbackvalue applied to enemies")]
+    [Tooltip("Knockbackvalue applied to enemies from the player")]
     [SerializeField] private float knockbackForce;
     [Tooltip("How long the player is invulnerable to damage after taking damage")]
     [SerializeField] private float invulnerableStateTime;
+    [Tooltip("Knockbackvalue applied to player when hurt by enemies")]
+    [SerializeField] private Vector2 playerHurtKnockbackForce;
     private float untilInvulnerableEnds;
 
     [Header("Movement")]
@@ -195,15 +197,16 @@ public class Player : StateMachine {
             Die();
             return;
         }
-        KnockBack(eventDamage.enemyPosition, 5);//knockback
+        KnockBack(eventDamage.enemyPosition, 2);//knockback
         Transition<PlayerHurtState>();
     }
 
     private void KnockBack(Vector3 enemyPosition, float amount) {
+        int direction = 1;
         if (enemyPosition.x > transform.position.x) {
-            amount = -amount;
+            direction = -direction;
         }
-        Rb2D.velocity = new Vector2(amount, 5);
+        Rb2D.velocity = new Vector2(playerHurtKnockbackForce.x*direction, playerHurtKnockbackForce.y);
     }
 
     private void OnHeal(PlayerHealEvent eventHeal) {

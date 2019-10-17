@@ -222,6 +222,7 @@ MonoBehaviour:
   projectileCooldown: 0.5
   knockbackForce: 5
   invulnerableStateTime: 1
+  playerHurtKnockbackForce: {x: 2, y: 7}
   movementSpeed: 10
   jumpForce: 20
   extraJumps: 1
