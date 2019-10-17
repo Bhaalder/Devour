@@ -14,14 +14,13 @@ public class Enemy1 : MonoBehaviour
     
     private Vector2 direction;
     private Vector2 force;
-    private bool movingRight = true;
+    [SerializeField] private bool movingRight = true;
     
 
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-
     }
 
     // Update is called once per frame
@@ -54,7 +53,7 @@ public class Enemy1 : MonoBehaviour
             enemyGFX.localScale = new Vector3(1f, 1f, 1f);
         }
 
-        RaycastHit2D obstructed = Physics2D.Raycast(rb.position, direction, distanceBeforeTurning);
+        RaycastHit2D obstructed = Physics2D.Raycast(rb.position, direction, distanceBeforeTurning, layerMask);
         if (obstructed.collider == true)
         {
             movingRight = !movingRight;

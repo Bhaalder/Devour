@@ -132,6 +132,7 @@ MonoBehaviour:
   enemyGFX: {fileID: 5264885074495060604}
   speed: 200
   distanceBeforeTurning: 1
+  movingRight: 1
 --- !u!58 &5264885074668572414
 CircleCollider2D:
   m_ObjectHideFlags: 0
