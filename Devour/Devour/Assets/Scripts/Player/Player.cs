@@ -13,6 +13,8 @@ public enum PlayerAbility {
 
 public class Player : StateMachine {
 
+    public Transform enemyKBTEST;
+
     public PlayerState PlayerState { get; set; }
     public List<PlayerAbility> PlayerAbilities { get; set; }
 
@@ -166,9 +168,9 @@ public class Player : StateMachine {
     protected override void Update() {
         if (Input.GetKeyDown(KeyCode.E)) {//TESTING
             PlayerTakeDamageEvent ptde = new PlayerTakeDamageEvent {//
-                damage = 5
+                damage = 5, enemyPosition = enemyKBTEST.position
             };
-            ptde.FireEvent();//
+            ptde.FireEvent();//            
         }//
         health = Health;//
         InvulnerableTimeCheck();
@@ -193,7 +195,15 @@ public class Player : StateMachine {
             Die();
             return;
         }
+        KnockBack(eventDamage.enemyPosition, 5);//knockback
         Transition<PlayerHurtState>();
+    }
+
+    private void KnockBack(Vector3 enemyPosition, float amount) {
+        if (enemyPosition.x > transform.position.x) {
+            amount = -amount;
+        }
+        Rb2D.velocity = new Vector2(amount, 5);
     }
 
     private void OnHeal(PlayerHealEvent eventHeal) {
@@ -231,7 +241,7 @@ public class Player : StateMachine {
 
     private void Respawn() {
         Transition<PlayerHurtState>();
-        untilInvulnerableEnds = invulnerableStateTime + 1f;       
+        untilInvulnerableEnds = invulnerableStateTime + 1f; //längre invulnerable när man fallit ner i killzone?       
     }
 
     private void Die() { //EJ KLART
