@@ -16,7 +16,11 @@ public class PlayerWallJumpState : PlayerWallslideState {
     }
 
     public override void HandleUpdate() {
-
+        if (Input.GetAxisRaw("Vertical") < 0) {
+            owner.IsAttackingDown = true;
+        } else {
+            owner.IsAttackingDown = false;
+        }
         base.HandleUpdate();
     }
 }

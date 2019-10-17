@@ -16,6 +16,11 @@ public class PlayerAirState : PlayerBaseState {
     }
 
     public override void HandleUpdate() {
+        if(Input.GetAxisRaw("Vertical") < 0) {
+            owner.IsAttackingDown = true;
+        } else {
+            owner.IsAttackingDown = false;
+        }
         if (owner.Rb2D.velocity.y == Mathf.Round(0)) {
             if (Input.GetButton("Horizontal")) {
                 owner.Transition<PlayerWalkState>();
@@ -25,4 +30,10 @@ public class PlayerAirState : PlayerBaseState {
         }
         base.HandleUpdate();
     }
+
+    public override void Exit() {
+        owner.IsAttackingDown = false;
+        base.Exit();
+    }
+
 }

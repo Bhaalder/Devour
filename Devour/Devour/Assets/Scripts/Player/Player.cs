@@ -3,6 +3,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+using UnityEngine.UI;//TEST
+using TMPro;//TEST
+
 public enum PlayerState {
     IDLE, AIR, DASH, WALLSLIDE, WALLJUMP, WALK, HURT
 }
@@ -28,6 +31,9 @@ public class Player : StateMachine {
     public float ProjectileCooldown { get; set; }
     public float ProjectileHealthcost { get; set; }
 
+    public BoxCollider2D PlayerMeleeCollider2D { get; set; }
+    public bool IsAttackingDown { get; set; }
+    public bool IsAttackingUp { get; set; }
     public bool IsInvulnerable { get; set; }
 
     public float MovementSpeed { get; set; }
@@ -108,6 +114,9 @@ public class Player : StateMachine {
     [Header("Testing")]//TESTING
     [Tooltip("For testing if the player has certain abilities")]//
     [SerializeField] private PlayerAbility[] playerAbilities;//
+    public Vector2 PlayerVelocity;
+    public TextMeshProUGUI velocityText;
+    public TextMeshProUGUI stateText;
 
     private static bool exists;
 
@@ -143,6 +152,7 @@ public class Player : StateMachine {
         ProjectileCooldown = projectileCooldown;
         ProjectileHealthcost = projectileHealthcost;
         KnockbackForce = knockbackForce;
+        
 
         MovementSpeed = movementSpeed;
         JumpForce = jumpForce;
@@ -166,6 +176,9 @@ public class Player : StateMachine {
     }
 
     protected override void Update() {
+        PlayerVelocity = Rb2D.velocity;
+        velocityText.text = "x:" + Rb2D.velocity.x + "| y: " + Rb2D.velocity.y;
+        stateText.text = PlayerState.ToString();
         health = Health;//
         InvulnerableTimeCheck();
         base.Update();

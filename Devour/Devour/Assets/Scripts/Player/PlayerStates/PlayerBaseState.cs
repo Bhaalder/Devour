@@ -81,6 +81,11 @@ public class PlayerBaseState : State {
     }
 
     protected virtual void GetInput() {
+        if (Input.GetAxisRaw("Vertical") > 0) {
+            owner.IsAttackingUp = true;
+        } else {
+            owner.IsAttackingUp = false;
+        }
         owner.XInput = Input.GetAxisRaw("Horizontal");
     }
 

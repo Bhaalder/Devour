@@ -19,7 +19,7 @@ public class PlayerWalkState : PlayerBaseState {
         if(!Input.GetButton("Horizontal") && owner.IsGrounded) {
             owner.Transition<PlayerIdleState>();
         }
-        if (owner.Rb2D.velocity.y != 0) {
+        if (!owner.IsGrounded) {
             owner.Transition<PlayerAirState>();
         }
         base.HandleUpdate();

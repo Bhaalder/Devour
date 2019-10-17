@@ -60,7 +60,8 @@ public class PlayerWallslideState : PlayerBaseState {
     }
 
     public override void Exit() {
-        
+        owner.IsAttackingDown = false;
+        base.Exit();
     }
 
 }
