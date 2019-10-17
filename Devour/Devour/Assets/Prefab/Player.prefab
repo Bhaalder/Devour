@@ -211,6 +211,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: d0280f51a441ddf499864fb6d673368d, type: 2}
   - {fileID: 11400000, guid: 42b52c6bdfb23764fbd74ec7f652f3a5, type: 2}
   - {fileID: 11400000, guid: 932b1a35c594cf948afe3fac1e7013ea, type: 2}
+  enemyKBTEST: {fileID: 0}
   maxHealth: 100
   health: 100
   combatDamage: 5
