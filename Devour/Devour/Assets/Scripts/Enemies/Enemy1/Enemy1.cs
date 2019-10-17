@@ -1,21 +1,22 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
-public class Enemy1 : MonoBehaviour
+public class Enemy1 : Enemy
 {
 
     [SerializeField] private LayerMask layerMask;
-    [SerializeField] private Transform enemyGFX;
-    [SerializeField] private float speed = 200f;
     [SerializeField] private float distanceBeforeTurning = 1f;
+    [SerializeField] private float enemySpeed = 400;
+    [SerializeField] private Rigidbody2D rb;
+    [SerializeField] private Transform enemyGFX;
 
-    private Rigidbody2D rb;
-    
     private Vector2 direction;
     private Vector2 force;
-    [SerializeField] private bool movingRight = true;
-    
+    private bool movingRight = true;
+
+
 
     // Start is called before the first frame update
     void Start()
@@ -24,11 +25,17 @@ public class Enemy1 : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    protected override void Update()
     {
+
+        base.Update();
         Movement();
     }
 
+    protected override void FixedUpdate()
+    {
+        //base.FixedUpdate();
+    }
     private void Movement()
     {
         if (movingRight)
@@ -40,7 +47,7 @@ public class Enemy1 : MonoBehaviour
             direction = new Vector2(-1f, 0f);
         }
 
-        force = direction.normalized * speed * Time.deltaTime;
+        force = direction.normalized * enemySpeed * Time.deltaTime;
 
         rb.AddForce(force);
 

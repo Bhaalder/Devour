@@ -44,14 +44,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 1325847437710850827}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 14369bfc5fce25c46b99888121311499, type: 3}
+  m_Script: {fileID: 11500000, guid: 077e6de48be45de478bd52efaa8bcb85, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  states:
+  - {fileID: 11400000, guid: f4be1189cf461d7468506831ea166cd4, type: 2}
+  enemyHealth: 0
   target: {fileID: 0}
   speed: 200
   nextWaypointDistance: 3
   enemyGFX: {fileID: 1325847437968064738}
-  attackDistance: 15
+  attackDistance: 25
 --- !u!114 &1325847437710850820
 MonoBehaviour:
   m_ObjectHideFlags: 0

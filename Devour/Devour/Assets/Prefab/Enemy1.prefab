@@ -123,16 +123,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 5264885074668572408}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 410e92c99942a494ab81456e12af579b, type: 3}
+  m_Script: {fileID: 11500000, guid: 77f45058d390fc0478e5c8d65e1bff34, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  states:
+  - {fileID: 11400000, guid: ac0d3dd5f11cb9b46a5ed8ae69dcc307, type: 2}
+  enemyHealth: 100
   layerMask:
     serializedVersion: 2
-    m_Bits: 0
-  enemyGFX: {fileID: 5264885074495060604}
-  speed: 200
+    m_Bits: 256
   distanceBeforeTurning: 1
-  movingRight: 1
+  enemySpeed: 400
+  rb: {fileID: 0}
+  enemyGFX: {fileID: 5264885074495060604}
 --- !u!58 &5264885074668572414
 CircleCollider2D:
   m_ObjectHideFlags: 0

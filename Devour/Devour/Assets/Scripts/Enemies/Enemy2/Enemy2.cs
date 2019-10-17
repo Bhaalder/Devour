@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Pathfinding;
 
-public class Enemy2 : MonoBehaviour
+public class Enemy2 : Enemy
 {
 
     [SerializeField] private Transform target;
@@ -34,9 +34,14 @@ public class Enemy2 : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    protected override void Update()
     {
+        base.Update();
+        Movement();
+    }
 
+    private void Movement()
+    {
         if (!isWithinAttackDistance)
         {
             if (Vector2.Distance(rb.position, target.position) <= attackDistance)
