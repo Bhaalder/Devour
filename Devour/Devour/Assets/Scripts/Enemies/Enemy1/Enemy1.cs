@@ -24,6 +24,10 @@ public class Enemy1 : Enemy
         rb = GetComponent<Rigidbody2D>();
     }
 
+    protected override void Awake() {
+        base.Awake();
+    }
+
     // Update is called once per frame
     protected override void Update()
     {

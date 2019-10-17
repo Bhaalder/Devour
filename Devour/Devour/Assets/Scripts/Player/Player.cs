@@ -3,11 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-using UnityEngine.UI;//TEST
-using TMPro;//TEST
-
 public enum PlayerState {
-    IDLE, AIR, DASH, WALLSLIDE, WALLJUMP, WALK, HURT
+    IDLE, AIR, DASH, WALLSLIDE, WALLJUMP, WALK, HURT, ATTACK
 }
 
 public enum PlayerAbility {
@@ -27,11 +24,15 @@ public class Player : StateMachine {
     public float ProjectileDamage { get; set; }
     public float KnockbackForce { get; set; }
     public float CombatCooldown { get; set; }
+    public float UntilNextMeleeAttack { get; set; }
     public float CombatLifeLeech { get; set; }
     public float ProjectileCooldown { get; set; }
+    public float UntilNextProjectileAttack { get; set; }
     public float ProjectileHealthcost { get; set; }
 
-    public BoxCollider2D PlayerMeleeCollider2D { get; set; }
+    public BoxCollider2D PlayerHorizontalMeleeCollider { get; set; }
+    public BoxCollider2D PlayerDownMeleeCollider { get; set; }
+    public BoxCollider2D PlayerUpMeleeCollider { get; set; }
     public bool IsAttackingDown { get; set; }
     public bool IsAttackingUp { get; set; }
     public bool IsInvulnerable { get; set; }
@@ -107,6 +108,9 @@ public class Player : StateMachine {
     private float wallCheckDistanceValue;
 
     [Header("Transforms & Layermask")]
+    [SerializeField] private Transform horizontalAttack;
+    [SerializeField] private Transform upAttack;
+    [SerializeField] private Transform downAttack;
     [SerializeField] private Transform groundCheck;
     [SerializeField] private Transform wallCheck;
     [SerializeField] private LayerMask whatIsGround;
@@ -140,6 +144,9 @@ public class Player : StateMachine {
         }
 
         Rb2D = GetComponent<Rigidbody2D>();
+        PlayerHorizontalMeleeCollider = horizontalAttack.GetComponent<BoxCollider2D>();
+        PlayerUpMeleeCollider = upAttack.GetComponent<BoxCollider2D>();
+        PlayerDownMeleeCollider = downAttack.GetComponent<BoxCollider2D>();
 
         MaxHealth = maxHealth;
         Health = maxHealth;

@@ -34,8 +34,7 @@ public class PlayerDashState : PlayerBaseState {
 
     protected void Dash() {
         //base.MovePlayer();
-        
-        
+   
         owner.Rb2D.velocity = new Vector2((dashForce * owner.FacingDirection), 0);
 
         if (dashTime <= 0) {
@@ -49,7 +48,7 @@ public class PlayerDashState : PlayerBaseState {
         
     }
 
-    protected override void GetInput() {
+    protected override void GetMovementInput() {
         owner.XInput = 0;
     }
 

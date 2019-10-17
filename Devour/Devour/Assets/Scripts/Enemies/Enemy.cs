@@ -6,17 +6,18 @@ using System;
 public class Enemy : StateMachine
 {
     [SerializeField] private float enemyHealth;
-    private BoxCollider2D boxCollider2D;
+    private CircleCollider2D circleCollider2D;
 
     // Start is called before the first frame update
     void Start()
     {
-        boxCollider2D = GetComponent<BoxCollider2D>();
+        
     }
-    protected override void Awake()
-    {
+    protected override void Awake(){
+        base.Awake();
+        circleCollider2D = GetComponent<CircleCollider2D>();
         EnemyTakeDamageEvent.RegisterListener(TakeDamage);
-       base.Awake();
+
     }
 
     // Update is called once per frame
@@ -30,15 +31,25 @@ public class Enemy : StateMachine
         base.FixedUpdate();
     }
 
-    public void TakeDamage(EnemyTakeDamageEvent damageEvent){
-        if (damageEvent.attackCollider.bounds.Intersects(boxCollider2D.bounds)) {
-            enemyHealth = -damageEvent.damage;
-            if(damageEvent.player.Rb2D.velocity.y <= 0) {//denna ska ta in så player studsar upp när man hugger ner, just nu studsar man alltid upp
-                damageEvent.player.Rb2D.velocity = new Vector2(damageEvent.player.Rb2D.velocity.x, 5);
+    public void TakeDamage(EnemyTakeDamageEvent damageEvent){//funkar ej
+
+        try {
+            if (damageEvent.attackCollider.bounds.Intersects(circleCollider2D.bounds)) {
+                Debug.Log("I took damage!");
+                Debug.Log(damageEvent.attackCollider.gameObject.name);
+                enemyHealth -= damageEvent.damage;
+
+                if (!damageEvent.player.IsGrounded && damageEvent.player.IsAttackingDown) {//denna ska ta in så player studsar upp när man hugger ner, just nu studsar man alltid upp
+                    damageEvent.player.Rb2D.velocity = new Vector2(damageEvent.player.Rb2D.velocity.x, 0);
+                    damageEvent.player.Rb2D.velocity = new Vector2(damageEvent.player.Rb2D.velocity.x, 15);
+                }
             }
+        } catch (System.NullReferenceException) {
+
         }
-        
-        if(enemyHealth <= 0)
+
+
+        if (enemyHealth <= 0)
         {
             EnemyDeath();
         }
@@ -46,6 +57,7 @@ public class Enemy : StateMachine
 
     private void EnemyDeath()
     {
+        EnemyTakeDamageEvent.UnRegisterListener(TakeDamage);
         Destroy(gameObject);
     }
 

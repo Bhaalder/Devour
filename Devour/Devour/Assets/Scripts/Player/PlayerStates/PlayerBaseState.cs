@@ -42,13 +42,14 @@ public class PlayerBaseState : State {
         owner.Rb2D.velocity = new Vector2(owner.XInput * owner.MovementSpeed, owner.Rb2D.velocity.y);
     }
 
-    public override void HandleUpdate() {
+    public override void HandleUpdate() {       
         CooldownTimers();
         CollisionCheck();
         if (owner.HasAbility(PlayerAbility.DASH)) {
             DashCheck();
         }
-        GetInput();
+        GetMovementInput();
+        GetCombatInput();
         JumpCheck();
 
         base.HandleUpdate();
@@ -80,13 +81,29 @@ public class PlayerBaseState : State {
         }
     }
 
-    protected virtual void GetInput() {
-        if (Input.GetAxisRaw("Vertical") > 0) {
-            owner.IsAttackingUp = true;
-        } else {
-            owner.IsAttackingUp = false;
-        }
+    protected virtual void GetMovementInput() {
         owner.XInput = Input.GetAxisRaw("Horizontal");
+    }
+
+    protected void GetCombatInput() {
+        if (Input.GetButtonDown("Attack")) {
+            BoxCollider2D attackCollider;
+            attackCollider = owner.PlayerHorizontalMeleeCollider;
+            if (Input.GetAxisRaw("Vertical") > 0) {
+                attackCollider = owner.PlayerUpMeleeCollider;
+            }
+            if (owner.IsAttackingDown) {
+                attackCollider = owner.PlayerDownMeleeCollider;
+            }
+            EnemyTakeDamageEvent etde = new EnemyTakeDamageEvent {
+                attackCollider = attackCollider,
+                damage = owner.CombatDamage,
+                playerPosition = owner.transform.position,
+                player = owner.GetComponent<Player>()
+            };
+            etde.FireEvent();
+            owner.Transition<PlayerAttackState>();
+        }
     }
 
     private void DashCheck() {
@@ -104,7 +121,7 @@ public class PlayerBaseState : State {
             Jump(0);
             return;
         }
-        if (Input.GetButtonUp("Jump") && owner.Rb2D.velocity.y > 0) {//denna kukar ur
+        if (Input.GetButtonUp("Jump") && owner.Rb2D.velocity.y > 0) {
             owner.Rb2D.velocity = new Vector2(owner.Rb2D.velocity.x, owner.Rb2D.velocity.y * owner.VariableJumpHeight);
         }
         if (owner.HasAbility(PlayerAbility.DOUBLEJUMP)) {

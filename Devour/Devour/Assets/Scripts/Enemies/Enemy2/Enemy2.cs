@@ -23,7 +23,9 @@ public class Enemy2 : Enemy
     private Vector2 direction;
     private Vector2 force;
 
-
+    protected override void Awake() {
+        base.Awake();
+    }
     // Start is called before the first frame update
     void Start()
     {
