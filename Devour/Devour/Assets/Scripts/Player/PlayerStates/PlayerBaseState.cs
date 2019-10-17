@@ -45,19 +45,19 @@ public class PlayerBaseState : State {
     public override void HandleUpdate() {
         CooldownTimers();
         CollisionCheck();
-        if (owner.PlayerHasAbility(PlayerAbility.DASH)) {
+        if (owner.HasAbility(PlayerAbility.DASH)) {
             DashCheck();
         }
         GetInput();
         JumpCheck();
-        
+
         base.HandleUpdate();
     }
 
     public void CollisionCheck() {
         owner.IsGrounded = Physics2D.OverlapCircle(owner.GroundCheck.position, owner.GroundCheckDistance, owner.WhatIsGround);
         owner.IsTouchingWall = Physics2D.Raycast(owner.WallCheck.position, owner.transform.right, (owner.WallCheckDistance * owner.FacingDirection), owner.WhatIsGround);
-        if (owner.PlayerHasAbility(PlayerAbility.WALLSLIDE)) {
+        if (owner.HasAbility(PlayerAbility.WALLSLIDE)) {
             WallSlideCheck();
         }       
     }
@@ -105,7 +105,7 @@ public class PlayerBaseState : State {
                 owner.Transition<PlayerAirState>();
             }
         }
-        if (owner.PlayerHasAbility(PlayerAbility.DOUBLEJUMP)) {
+        if (owner.HasAbility(PlayerAbility.DOUBLEJUMP)) {
             if (owner.IsGrounded || owner.IsWallSliding) {
                 owner.ExtraJumpsLeft = owner.ExtraJumps;
             }

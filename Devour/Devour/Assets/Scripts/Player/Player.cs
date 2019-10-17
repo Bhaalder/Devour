@@ -28,6 +28,8 @@ public class Player : StateMachine {
     public float ProjectileCooldown { get; set; }
     public float ProjectileHealthcost { get; set; }
 
+    public bool IsInvulnerable { get; set; }
+
     public float MovementSpeed { get; set; }
     public float JumpForce { get; set; }
     public int ExtraJumps { get; set; }
@@ -75,7 +77,7 @@ public class Player : StateMachine {
     [SerializeField] private float knockbackForce;
     [Tooltip("How long the player is invulnerable to damage after taking damage")]
     [SerializeField] private float invulnerableStateTime;
-    private bool isInvulnerable;
+    private float untilInvulnerableEnds;
 
     [Header("Movement")]
     [Tooltip("How fast the player is moving")]
@@ -101,15 +103,9 @@ public class Player : StateMachine {
     [SerializeField] private Transform wallCheck;
     [SerializeField] private LayerMask whatIsGround;
 
-    [Header("Testing")]//bara för att se i inspektorn atm, kan tas bort sen
-    [Tooltip("Is the player touching ground?")]//
-    [SerializeField] private bool isGrounded;//
-    [Tooltip("Is the player touching wall?")]//
-    [SerializeField] private bool isTouchingWall;//
-    [Tooltip("Is the player touching wallsliding?")]//
-    [SerializeField] private bool isWallSliding;//
-    [Tooltip("For testing if the player has certain abilities")]
-    [SerializeField] private PlayerAbility[] playerAbilities;//TESTING
+    [Header("Testing")]//TESTING
+    [Tooltip("For testing if the player has certain abilities")]//
+    [SerializeField] private PlayerAbility[] playerAbilities;//
 
     private static bool exists;
 
@@ -122,7 +118,9 @@ public class Player : StateMachine {
             Debug.LogWarning("Destroyed other Singleton with name: " + gameObject.name);
             return;
         }
-        PlayerTakeDamageEvent.RegisterListener(TakeDamageEvent);
+        PlayerTakeDamageEvent.RegisterListener(OnTakeDamage);
+        PlayerHealEvent.RegisterListener(OnHeal);
+        PlayerTouchKillzoneEvent.RegisterListener(OnTouchKillzone);
         base.Awake();
     }
 
@@ -135,7 +133,7 @@ public class Player : StateMachine {
         Rb2D = GetComponent<Rigidbody2D>();
 
         MaxHealth = maxHealth;
-        Health = health;
+        Health = maxHealth;
         CombatDamage = combatDamage;
         CombatCooldown = combatCooldown;
         CombatLifeLeech = combatLifeLeech;
@@ -166,35 +164,77 @@ public class Player : StateMachine {
     }
 
     protected override void Update() {
-        isGrounded = IsGrounded;//bara för att se i inspektorn atm, kan tas bort sen
-        isTouchingWall = IsTouchingWall;//bara för att se i inspektorn atm, kan tas bort sen
-        isWallSliding = IsWallSliding;//bara för att se i inspektorn atm, kan tas bort sen
+        if (Input.GetKeyDown(KeyCode.E)) {//TESTING
+            PlayerTakeDamageEvent ptde = new PlayerTakeDamageEvent {//
+                damage = 5
+            };
+            ptde.FireEvent();//
+        }//
+        health = Health;//
+        InvulnerableTimeCheck();
         base.Update();
     }
 
-    private void TakeDamageEvent(PlayerTakeDamageEvent eventDamage) {//EJ KLART
-        if (isInvulnerable) {
-            //ingen skada
+    private void OnTouchKillzone(PlayerTouchKillzoneEvent killzone) {
+        ChangeHealth(-killzone.damage);
+        if (DamageWasDeadly()) {
+            Die();
             return;
         }
-        Health -= eventDamage.damage;
-        if (Health <= 0) {
-            //dör
-            return;
-        }
+        //respawn?
     }
 
-    private void HealEvent(PlayerHealEvent eventHeal) {
+    private void OnTakeDamage(PlayerTakeDamageEvent eventDamage) {//EJ KLART
+        if (IsInvulnerable) {
+            return;
+        }
+        ChangeHealth(-eventDamage.damage);
+        if (DamageWasDeadly()) {
+            Die();
+            return;
+        }
+        Transition<PlayerHurtState>();
+    }
+
+    private void OnHeal(PlayerHealEvent eventHeal) {
         if (eventHeal.isLifeLeech) {
             eventHeal.amount = CombatLifeLeech;
         }
-        Health += eventHeal.amount;
-        if(Health > MaxHealth) {
+        ChangeHealth(eventHeal.amount);
+        if (Health > MaxHealth) {
             Health = MaxHealth;
         }
     }
 
-    private void Respawn() { //EJ KLART
+    public void ChangeHealth(float amount) {
+        Health += amount;
+    }
+
+    public bool DamageWasDeadly() {
+        if (Health <= 0) {
+            return true;
+        }
+        return false;
+    }
+
+    private void InvulnerableTimeCheck() {
+        if(untilInvulnerableEnds <= 0) {
+            IsInvulnerable = false;
+        }
+        if (IsInvulnerable) {
+            Debug.Log(untilInvulnerableEnds);
+            untilInvulnerableEnds -= Time.deltaTime;
+            return;
+        }
+        untilInvulnerableEnds = invulnerableStateTime;
+    }
+
+    private void Respawn() {
+        Transition<PlayerHurtState>();
+        untilInvulnerableEnds = invulnerableStateTime + 1f;       
+    }
+
+    private void Die() { //EJ KLART
         //respawnEvent?
     }
 
@@ -202,7 +242,7 @@ public class Player : StateMachine {
         Debug.Log("PLAYER: " + message);
     }
 
-    public bool PlayerHasAbility(PlayerAbility playerAbility) {
+    public bool HasAbility(PlayerAbility playerAbility) {
         foreach(PlayerAbility ability in PlayerAbilities) {
             if(ability == playerAbility) {
                 return true;

@@ -6,7 +6,9 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "Player/PlayerDashState")]
 public class PlayerDashState : PlayerBaseState {
 
+    [Tooltip("How fast you dash")]
     [SerializeField] private float dashForce;
+    [Tooltip("How long time the dash lasts")]
     [SerializeField] private float startDashTime;
     private float dashTime;
     
