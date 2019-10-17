@@ -5,6 +5,12 @@ using UnityEngine;
 public class PlayerTakeDamageEvent : Event<PlayerTakeDamageEvent> {
 
     public float damage;
-    public bool isKillzone;
+
+}
+
+public class PlayerHealEvent : Event<PlayerHealEvent> {
+
+    public bool isLifeLeech;
+    public float amount;
 
 }

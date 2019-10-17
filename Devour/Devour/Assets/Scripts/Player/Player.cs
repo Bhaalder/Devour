@@ -18,6 +18,7 @@ public class Player : StateMachine {
 
     public Rigidbody2D Rb2D { get; set; }
 
+    public float MaxHealth { get; set; }
     public float Health { get; set; }
     public float CombatDamage { get; set; }
     public float ProjectileDamage { get; set; }
@@ -54,7 +55,9 @@ public class Player : StateMachine {
     public LayerMask WhatIsGround { get; set; }
 
     [Header("Health & Combat")]
-    [Tooltip("Player health")]
+    [Tooltip("Player maxHealth")]
+    [SerializeField] private float maxHealth;
+    [Tooltip("Player current health")]
     [SerializeField] private float health;
     [Tooltip("Player damage (close combat)")]
     [SerializeField] private float combatDamage;
@@ -131,6 +134,7 @@ public class Player : StateMachine {
 
         Rb2D = GetComponent<Rigidbody2D>();
 
+        MaxHealth = maxHealth;
         Health = health;
         CombatDamage = combatDamage;
         CombatCooldown = combatCooldown;
@@ -171,22 +175,22 @@ public class Player : StateMachine {
     private void TakeDamageEvent(PlayerTakeDamageEvent eventDamage) {//EJ KLART
         if (isInvulnerable) {
             //ingen skada
-            if (eventDamage.isKillzone) {
-                TakeDamage(eventDamage.damage);
-                Respawn();
-                return;
-            } else {
-                return;
-            }
+            return;
         }
-        TakeDamage(eventDamage.damage);
-    }
-
-    private void TakeDamage(float value) {//EJ KLART
-        Health -= value;
+        Health -= eventDamage.damage;
         if (Health <= 0) {
             //dör
             return;
+        }
+    }
+
+    private void HealEvent(PlayerHealEvent eventHeal) {
+        if (eventHeal.isLifeLeech) {
+            eventHeal.amount = CombatLifeLeech;
+        }
+        Health += eventHeal.amount;
+        if(Health > MaxHealth) {
+            Health = MaxHealth;
         }
     }
 
