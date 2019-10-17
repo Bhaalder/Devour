@@ -199,7 +199,7 @@ MonoBehaviour:
   invulnerableStateTime: 1
   playerHurtKnockbackForce: {x: 2, y: 7}
   movementSpeed: 10
-  jumpForce: 20
+  jumpForce: 21.72
   extraJumps: 1
   variableJumpHeight: 0.1
   dashCooldown: 0.5
@@ -211,6 +211,9 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 256
   playerAbilities: 000000000100000002000000
+  PlayerVelocity: {x: 0, y: 0}
+  velocityText: {fileID: 0}
+  stateText: {fileID: 0}
 --- !u!95 &8357399058647830924
 Animator:
   serializedVersion: 3

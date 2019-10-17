@@ -104,11 +104,8 @@ public class PlayerBaseState : State {
             Jump(0);
             return;
         }
-        if (Input.GetButtonUp("Jump") && owner.Rb2D.velocity.y > 0) {
+        if (Input.GetButtonUp("Jump") && owner.Rb2D.velocity.y > 0) {//denna kukar ur
             owner.Rb2D.velocity = new Vector2(owner.Rb2D.velocity.x, owner.Rb2D.velocity.y * owner.VariableJumpHeight);
-            if (owner.PlayerState != PlayerState.AIR) {
-                owner.Transition<PlayerAirState>();
-            }
         }
         if (owner.HasAbility(PlayerAbility.DOUBLEJUMP)) {
             if (owner.IsGrounded || owner.IsWallSliding) {

@@ -115,8 +115,6 @@ public class Player : StateMachine {
     [Tooltip("For testing if the player has certain abilities")]//
     [SerializeField] private PlayerAbility[] playerAbilities;//
     public Vector2 PlayerVelocity;
-    public TextMeshProUGUI velocityText;
-    public TextMeshProUGUI stateText;
 
     private static bool exists;
 
@@ -176,10 +174,8 @@ public class Player : StateMachine {
     }
 
     protected override void Update() {
-        PlayerVelocity = Rb2D.velocity;
-        velocityText.text = "x:" + Rb2D.velocity.x + "| y: " + Rb2D.velocity.y;
-        stateText.text = PlayerState.ToString();
-        health = Health;//
+        PlayerVelocity = Rb2D.velocity;//TEST
+        health = Health;//TEST
         InvulnerableTimeCheck();
         base.Update();
     }

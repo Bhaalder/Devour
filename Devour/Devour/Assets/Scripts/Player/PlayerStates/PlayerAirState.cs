@@ -21,7 +21,7 @@ public class PlayerAirState : PlayerBaseState {
         } else {
             owner.IsAttackingDown = false;
         }
-        if (owner.Rb2D.velocity.y == Mathf.Round(0)) {
+        if (owner.IsGrounded) {
             if (Input.GetButton("Horizontal")) {
                 owner.Transition<PlayerWalkState>();
             } else {
