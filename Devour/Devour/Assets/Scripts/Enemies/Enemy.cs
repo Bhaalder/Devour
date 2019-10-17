@@ -35,11 +35,12 @@ public class Enemy : StateMachine
 
         try {
             if (damageEvent.attackCollider.bounds.Intersects(circleCollider2D.bounds)) {
-                Debug.Log("I took damage!");
+                Debug.Log("I took damage! " + gameObject.name);
                 Debug.Log(damageEvent.attackCollider.gameObject.name);
                 enemyHealth -= damageEvent.damage;
 
                 if (!damageEvent.player.IsGrounded && damageEvent.player.IsAttackingDown) {//denna ska ta in så player studsar upp när man hugger ner, just nu studsar man alltid upp
+                    damageEvent.player.ExtraJumpsLeft = damageEvent.player.ExtraJumps;
                     damageEvent.player.Rb2D.velocity = new Vector2(damageEvent.player.Rb2D.velocity.x, 0);
                     damageEvent.player.Rb2D.velocity = new Vector2(damageEvent.player.Rb2D.velocity.x, 15);
                 }
