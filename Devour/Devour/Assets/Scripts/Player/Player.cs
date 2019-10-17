@@ -13,8 +13,6 @@ public enum PlayerAbility {
 
 public class Player : StateMachine {
 
-    public Transform enemyKBTEST;
-
     public PlayerState PlayerState { get; set; }
     public List<PlayerAbility> PlayerAbilities { get; set; }
 
@@ -168,12 +166,6 @@ public class Player : StateMachine {
     }
 
     protected override void Update() {
-        if (Input.GetKeyDown(KeyCode.E)) {//TESTING
-            PlayerTakeDamageEvent ptde = new PlayerTakeDamageEvent {//
-                damage = 5, enemyPosition = enemyKBTEST.position
-            };
-            ptde.FireEvent();//            
-        }//
         health = Health;//
         InvulnerableTimeCheck();
         base.Update();
@@ -235,7 +227,6 @@ public class Player : StateMachine {
             IsInvulnerable = false;
         }
         if (IsInvulnerable) {
-            Debug.Log(untilInvulnerableEnds);
             untilInvulnerableEnds -= Time.deltaTime;
             return;
         }
