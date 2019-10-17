@@ -120,6 +120,7 @@ public class Player : StateMachine {
             return;
         }
         PlayerTakeDamageEvent.RegisterListener(TakeDamageEvent);
+        base.Awake();
     }
 
     private void Start() {
@@ -180,6 +181,7 @@ public class Player : StateMachine {
         }
         TakeDamage(eventDamage.damage);
     }
+
     private void TakeDamage(float value) {//EJ KLART
         Health -= value;
         if (Health <= 0) {

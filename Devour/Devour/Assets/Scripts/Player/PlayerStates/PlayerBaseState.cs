@@ -17,11 +17,8 @@ public class PlayerBaseState : State {
     }
 
     public override void HandleFixedUpdate() {
-        MovePlayer();
-        
+        MovePlayer();       
         FacingDirection();
-        
-
         base.HandleFixedUpdate();
     }
 

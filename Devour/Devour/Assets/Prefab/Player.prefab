@@ -205,11 +205,11 @@ MonoBehaviour:
   states:
   - {fileID: 11400000, guid: 313cefbc59c2d9e4c8a82f9215e96378, type: 2}
   - {fileID: 11400000, guid: 45ee2531e9676ed4fabb1367e49e68df, type: 2}
-  - {fileID: 11400000, guid: dd958811f681946409e7164f0c7eecea, type: 2}
-  - {fileID: 11400000, guid: 42b52c6bdfb23764fbd74ec7f652f3a5, type: 2}
-  - {fileID: 11400000, guid: 048698712f8b0e74db85b306e81121c0, type: 2}
   - {fileID: 11400000, guid: a4f4315bafaf3074f9d4e873521d8ae3, type: 2}
+  - {fileID: 11400000, guid: dd958811f681946409e7164f0c7eecea, type: 2}
+  - {fileID: 11400000, guid: 048698712f8b0e74db85b306e81121c0, type: 2}
   - {fileID: 11400000, guid: d0280f51a441ddf499864fb6d673368d, type: 2}
+  - {fileID: 11400000, guid: 42b52c6bdfb23764fbd74ec7f652f3a5, type: 2}
   health: 100
   combatDamage: 5
   combatLifeLeech: 5
@@ -218,6 +218,7 @@ MonoBehaviour:
   projectileHealthcost: 10
   projectileCooldown: 0.5
   knockbackForce: 5
+  invulnerableStateTime: 0
   movementSpeed: 10
   jumpForce: 20
   extraJumps: 1
