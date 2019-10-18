@@ -18,7 +18,7 @@ public class Enemy : StateMachine
     protected override void Awake(){
         base.Awake();
         circleCollider2D = GetComponent<CircleCollider2D>();
-        PlayerMeleeAttackEvent.RegisterListener(TakeDamage);
+        PlayerAttackEvent.RegisterListener(TakeDamage);
     }
 
     // Update is called once per frame
@@ -32,15 +32,16 @@ public class Enemy : StateMachine
         base.FixedUpdate();
     }
 
-    public void TakeDamage(PlayerMeleeAttackEvent attackEvent){
+    public void TakeDamage(PlayerAttackEvent attackEvent){
         try {
-            if (attackEvent.attackCollider.bounds.Intersects(circleCollider2D.bounds)) {
-                Debug.Log("I took damage! " + gameObject.name);
+            if (attackEvent.attackCollider.bounds.Intersects(circleCollider2D.bounds)) {           
                 ChangeEnemyHealth(-attackEvent.damage);
-                PlayerHealEvent phe = new PlayerHealEvent {
-                    isLifeLeech = true
-                };
-                phe.FireEvent();
+                if (attackEvent.isLifeLeechAttack) {
+                    PlayerHealEvent phe = new PlayerHealEvent {
+                        isLifeLeech = true
+                    };
+                    phe.FireEvent();
+                }
                 if (!attackEvent.player.IsGrounded && attackEvent.player.IsAttackingDown) {
                     attackEvent.player.ExtraJumpsLeft = attackEvent.player.ExtraJumps;
                     attackEvent.player.Rb2D.velocity = new Vector2(attackEvent.player.Rb2D.velocity.x, 0);
@@ -50,18 +51,19 @@ public class Enemy : StateMachine
         } catch (NullReferenceException) {
 
         }
-        if (enemyHealth <= 0){
+    }
+
+    public void ChangeEnemyHealth(float amount) {
+        Debug.Log("I took damage! " + gameObject.name);
+        enemyHealth += amount;
+        if (enemyHealth <= 0) {
             EnemyDeath();
         }
     }
 
-    public void ChangeEnemyHealth(float amount) {
-        enemyHealth += amount;
-    }
-
     private void EnemyDeath()
     {
-        PlayerMeleeAttackEvent.UnRegisterListener(TakeDamage);
+        PlayerAttackEvent.UnRegisterListener(TakeDamage);
         Destroy(gameObject);
     }
 

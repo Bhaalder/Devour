@@ -102,7 +102,7 @@ public class PlayerBaseState : State {
             if (owner.IsAttackingDown) {
                 attackCollider = owner.PlayerDownMeleeCollider;
             }
-            PlayerMeleeAttackEvent etde = new PlayerMeleeAttackEvent {
+            PlayerAttackEvent etde = new PlayerAttackEvent {
                 attackCollider = attackCollider,
                 damage = owner.MeleeDamage,
                 playerPosition = owner.transform.position,
@@ -116,9 +116,17 @@ public class PlayerBaseState : State {
     protected void GetProjectileInput() {
         if (owner.HasAbility(PlayerAbility.PROJECTILE)) {
             if (Input.GetButtonDown("Projectile")) {
-                Debug.Log("PewPew");
+                if(owner.Health <= owner.ProjectileHealthcost) {
+                    Debug.Log("Too low HP!");
+                    return;
+                }
+                owner.Transition<PlayerProjectileAttackState>();
             }
         }
+    }
+
+    private void InstantiateProjectile() {
+        
     }
 
     private void DashCheck() {

@@ -3,12 +3,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerMeleeAttackEvent : Event<PlayerMeleeAttackEvent> {
+public class PlayerAttackEvent : Event<PlayerAttackEvent> {
 
     public Player player;
     public BoxCollider2D attackCollider;
     public Vector3 playerPosition;
     public float damage;
+    public bool isLifeLeechAttack;
 
 }
 

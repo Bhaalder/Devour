@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public enum PlayerState {
-    IDLE, AIR, DASH, WALLSLIDE, WALLJUMP, WALK, HURT, ATTACK
+    IDLE, AIR, DASH, WALLSLIDE, WALLJUMP, WALK, HURT, ATTACK, PROJECTILEATTACK
 }
 
 public enum PlayerAbility {
@@ -113,7 +113,6 @@ public class Player : StateMachine {
     [SerializeField] private Transform downAttack;
     [SerializeField] private Transform groundCheck;
     [SerializeField] private Transform wallCheck;
-    [SerializeField] private GameObject playerProjectilePrefab;
     [SerializeField] private LayerMask whatIsGround;
 
     [Header("Testing")]//TESTING
@@ -143,6 +142,7 @@ public class Player : StateMachine {
         foreach(PlayerAbility ability in playerAbilities) {
             PlayerAbilities.Add(ability);
         }
+        FacingDirection = 1;
 
         Rb2D = GetComponent<Rigidbody2D>();
         PlayerHorizontalMeleeCollider = horizontalAttack.GetComponent<BoxCollider2D>();
