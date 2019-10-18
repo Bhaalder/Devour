@@ -14,6 +14,8 @@ public class GameController : MonoBehaviour {
     public Transform RestingCheckpoint { get; set; } //senaste platsen man restade på
     public Transform VoidEssenceLocation { get; set; } //platsen man dog på och måste hämta sin essence
 
+    [SerializeField] private Transform sceneCheckpoint;//TILLFÄLLIGT
+
     private static GameController instance;
 
     public static GameController Instance {
@@ -39,6 +41,13 @@ public class GameController : MonoBehaviour {
 
         Player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
         Camera = UnityEngine.Camera.main.transform.parent;
+
+        try {//TILLFÄLLIGT
+            SceneCheckpoint = sceneCheckpoint;//
+        } catch (System.NullReferenceException) {//
+            Debug.LogWarning("GameController har ingen deklarerad checkpoint!");//
+        }//
+        
     }
 
     public void GamePaused() {
