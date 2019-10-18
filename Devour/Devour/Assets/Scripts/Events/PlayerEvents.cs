@@ -3,6 +3,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+public class PlayerAttackEvent : Event<PlayerAttackEvent> {
+
+    public Player player;
+    public BoxCollider2D attackCollider;
+    public Vector3 playerPosition;
+    public float damage;
+
+}
+
 public class PlayerTakeDamageEvent : Event<PlayerTakeDamageEvent> {
 
     //public Enemy enemy; //fienden som gav skada

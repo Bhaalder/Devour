@@ -1,4 +1,6 @@
-﻿using System.Collections;
+﻿//Main Author: Marcus Söderberg
+//Secondary Author: Patrik Ahlgren (TakeDamage)
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
@@ -16,8 +18,7 @@ public class Enemy : StateMachine
     protected override void Awake(){
         base.Awake();
         circleCollider2D = GetComponent<CircleCollider2D>();
-        EnemyTakeDamageEvent.RegisterListener(TakeDamage);
-
+        PlayerAttackEvent.RegisterListener(TakeDamage);
     }
 
     // Update is called once per frame
@@ -31,34 +32,32 @@ public class Enemy : StateMachine
         base.FixedUpdate();
     }
 
-    public void TakeDamage(EnemyTakeDamageEvent damageEvent){//funkar ej
-
+    public void TakeDamage(PlayerAttackEvent attackEvent){
         try {
-            if (damageEvent.attackCollider.bounds.Intersects(circleCollider2D.bounds)) {
+            if (attackEvent.attackCollider.bounds.Intersects(circleCollider2D.bounds)) {
                 Debug.Log("I took damage! " + gameObject.name);
-                Debug.Log(damageEvent.attackCollider.gameObject.name);
-                enemyHealth -= damageEvent.damage;
-
-                if (!damageEvent.player.IsGrounded && damageEvent.player.IsAttackingDown) {//denna ska ta in så player studsar upp när man hugger ner, just nu studsar man alltid upp
-                    damageEvent.player.ExtraJumpsLeft = damageEvent.player.ExtraJumps;
-                    damageEvent.player.Rb2D.velocity = new Vector2(damageEvent.player.Rb2D.velocity.x, 0);
-                    damageEvent.player.Rb2D.velocity = new Vector2(damageEvent.player.Rb2D.velocity.x, 15);
+                enemyHealth -= attackEvent.damage;
+                PlayerHealEvent phe = new PlayerHealEvent {
+                    isLifeLeech = true
+                };
+                phe.FireEvent();
+                if (!attackEvent.player.IsGrounded && attackEvent.player.IsAttackingDown) {
+                    attackEvent.player.ExtraJumpsLeft = attackEvent.player.ExtraJumps;
+                    attackEvent.player.Rb2D.velocity = new Vector2(attackEvent.player.Rb2D.velocity.x, 0);
+                    attackEvent.player.Rb2D.velocity = new Vector2(attackEvent.player.Rb2D.velocity.x, 15);
                 }
             }
-        } catch (System.NullReferenceException) {
+        } catch (NullReferenceException) {
 
         }
-
-
-        if (enemyHealth <= 0)
-        {
+        if (enemyHealth <= 0){
             EnemyDeath();
         }
     }
 
     private void EnemyDeath()
     {
-        EnemyTakeDamageEvent.UnRegisterListener(TakeDamage);
+        PlayerAttackEvent.UnRegisterListener(TakeDamage);
         Destroy(gameObject);
     }
 

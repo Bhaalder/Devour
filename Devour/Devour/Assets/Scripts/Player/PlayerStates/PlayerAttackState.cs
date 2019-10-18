@@ -9,7 +9,6 @@ public class PlayerAttackState : PlayerBaseState {
     public override void Enter() {
         owner.PlayerLog("AttackState");
         owner.PlayerState = PlayerState.ATTACK;
-
     }
 
     public override void HandleFixedUpdate() {

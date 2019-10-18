@@ -95,7 +95,7 @@ public class PlayerBaseState : State {
             if (owner.IsAttackingDown) {
                 attackCollider = owner.PlayerDownMeleeCollider;
             }
-            EnemyTakeDamageEvent etde = new EnemyTakeDamageEvent {
+            PlayerAttackEvent etde = new PlayerAttackEvent {
                 attackCollider = attackCollider,
                 damage = owner.CombatDamage,
                 playerPosition = owner.transform.position,
@@ -144,8 +144,6 @@ public class PlayerBaseState : State {
             owner.Rb2D.velocity = Vector2.up * (owner.JumpForce + extra);
         }      
     }
-
-
 
     public override void Initialize(StateMachine owner) {
         this.owner = (Player)owner;
