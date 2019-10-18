@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Enemy2IdleState
   m_EditorClassIdentifier: 
   idleMovementRange: 2
-  idleSpeed: 1
+  idleSpeed: 100
   attackDistance: 15

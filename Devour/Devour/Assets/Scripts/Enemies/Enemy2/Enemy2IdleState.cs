@@ -8,10 +8,12 @@ public class Enemy2IdleState : EnemyBaseState
 
     [SerializeField] private float idleMovementRange = 2f;
     [SerializeField] private float idleSpeed = 2f;
-    [SerializeField] private float attackDistance = 25f;
+    [SerializeField] private float attackDistance = 15f;
 
     private Vector2 startingPosition;
     private Vector2 newPosition;
+    private Vector2 direction;
+    private Vector2 force;
 
     private float cooldownTime = 2f;
     private float currentCooldown;
@@ -39,12 +41,13 @@ public class Enemy2IdleState : EnemyBaseState
 
         base.HandleUpdate();
         positionUpdateCooldown();
-        Debug.Log(newPosition);
 
-        Vector2 position = Vector2.MoveTowards(owner.rb.position, newPosition, idleSpeed * Time.fixedDeltaTime);
-        owner.rb.MovePosition(position);
+        direction = (newPosition - owner.rb.position).normalized;
+        Debug.Log("Direction: " + direction);
+        force = direction * idleSpeed * Time.deltaTime;
+        owner.rb.AddForce(force);
 
-        if(owner.rb.position == newPosition)
+        if (owner.rb.position == newPosition)
         {
             setNewPosition();
         }
