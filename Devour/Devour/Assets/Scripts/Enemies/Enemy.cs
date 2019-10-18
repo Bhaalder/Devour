@@ -14,7 +14,6 @@ public class Enemy : StateMachine
     [SerializeField] private Transform enemyGFX;
 
 
-    // Start is called before the first frame update
     void Start()
     {
 
@@ -26,7 +25,6 @@ public class Enemy : StateMachine
         PlayerAttackEvent.RegisterListener(TakeDamage);
     }
 
-    // Update is called once per frame
     protected override void Update()
     {
         base.Update();

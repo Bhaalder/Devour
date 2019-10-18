@@ -10,7 +10,6 @@ public class Enemy1MovementState : EnemyBaseState
     [SerializeField] private LayerMask layerMask;
     [SerializeField] private float distanceBeforeTurning = 1f;
 
-    private Rigidbody2D rb;
     private Vector2 direction;
     private Vector2 force;
     private bool movingRight = true;
@@ -19,7 +18,6 @@ public class Enemy1MovementState : EnemyBaseState
     public override void Enter()
     {
         base.Enter();
-        rb = owner.rb;
     }
 
     public override void HandleUpdate()
