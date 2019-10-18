@@ -194,7 +194,7 @@ public class Player : StateMachine {
             Die();
             return;
         }
-        //respawn?
+        Respawn();
     }
 
     private void OnTakeDamage(PlayerTakeDamageEvent eventDamage) {//EJ KLART
@@ -252,11 +252,18 @@ public class Player : StateMachine {
 
     private void Respawn() {
         Transition<PlayerHurtState>();
-        untilInvulnerableEnds = invulnerableStateTime + 1f; //längre invulnerable när man fallit ner i killzone?       
+        untilInvulnerableEnds = invulnerableStateTime + 1f; //längre invulnerable när man fallit ner i killzone?
+        try {
+            transform.position = GameController.Instance.SceneCheckpoint.position;
+        } catch(System.NullReferenceException) {
+            Debug.LogError("Ingen 'SceneCheckpoint' deklarerad i GameController för att kunna respawna!");
+        }
+        
     }
 
-    private void Die() { //EJ KLART
-        //respawnEvent?
+    private void Die() { //EJ KLART, just nu gör vi bara en respawn och får fullt HP
+        Health = MaxHealth;
+        Respawn();//FÖR TILLFÄLLET
     }
 
     public void PlayerLog(string message) {
