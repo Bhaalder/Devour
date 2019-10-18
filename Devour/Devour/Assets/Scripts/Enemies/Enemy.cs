@@ -18,7 +18,7 @@ public class Enemy : StateMachine
     protected override void Awake(){
         base.Awake();
         circleCollider2D = GetComponent<CircleCollider2D>();
-        PlayerAttackEvent.RegisterListener(TakeDamage);
+        PlayerMeleeAttackEvent.RegisterListener(TakeDamage);
     }
 
     // Update is called once per frame
@@ -32,11 +32,11 @@ public class Enemy : StateMachine
         base.FixedUpdate();
     }
 
-    public void TakeDamage(PlayerAttackEvent attackEvent){
+    public void TakeDamage(PlayerMeleeAttackEvent attackEvent){
         try {
             if (attackEvent.attackCollider.bounds.Intersects(circleCollider2D.bounds)) {
                 Debug.Log("I took damage! " + gameObject.name);
-                enemyHealth -= attackEvent.damage;
+                ChangeEnemyHealth(-attackEvent.damage);
                 PlayerHealEvent phe = new PlayerHealEvent {
                     isLifeLeech = true
                 };
@@ -55,9 +55,13 @@ public class Enemy : StateMachine
         }
     }
 
+    public void ChangeEnemyHealth(float amount) {
+        enemyHealth += amount;
+    }
+
     private void EnemyDeath()
     {
-        PlayerAttackEvent.UnRegisterListener(TakeDamage);
+        PlayerMeleeAttackEvent.UnRegisterListener(TakeDamage);
         Destroy(gameObject);
     }
 

@@ -44,18 +44,18 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 2, y: -0.28529477}
+  m_Offset: {x: 2, y: 0}
   m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
+    border: {x: 0.049999997, y: 0.049999997, z: 0.049999997, w: 0.049999997}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.16, y: 0.16}
+    newSize: {x: 0.16, y: 0.16}
+    adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 3, y: 2.5543647}
+  m_Size: {x: 4, y: 2.5}
   m_EdgeRadius: 0
 --- !u!1 &1194415343768570297
 GameObject:
@@ -112,7 +112,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 3, y: 3}
+  m_Size: {x: 3, y: 4}
   m_EdgeRadius: 0
 --- !u!1 &3301961057141574973
 GameObject:
@@ -169,7 +169,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 3, y: 3}
+  m_Size: {x: 3, y: 5}
   m_EdgeRadius: 0
 --- !u!1 &3752226931262427210
 GameObject:
@@ -306,9 +306,9 @@ MonoBehaviour:
   - {fileID: 11400000, guid: b9babbaa8a75082428c33aea50ba7e02, type: 2}
   maxHealth: 100
   health: 100
-  combatDamage: 5
-  combatLifeLeech: 5
-  combatCooldown: 0.5
+  meleeDamage: 5
+  meleeLifeLeech: 5
+  meleeCooldown: 0.2
   projectileDamage: 15
   projectileHealthcost: 10
   projectileCooldown: 0.5
@@ -327,10 +327,12 @@ MonoBehaviour:
   downAttack: {fileID: 8438113401184324993}
   groundCheck: {fileID: 3752226932106922852}
   wallCheck: {fileID: 3752226931692729299}
+  playerProjectilePrefab: {fileID: 750626383402467609, guid: 4931ba120975e9149bd67a645d6e4550,
+    type: 3}
   whatIsGround:
     serializedVersion: 2
     m_Bits: 256
-  playerAbilities: 000000000100000002000000
+  playerAbilities: 00000000010000000200000003000000
   PlayerVelocity: {x: 0, y: 0}
 --- !u!95 &8357399058647830924
 Animator:

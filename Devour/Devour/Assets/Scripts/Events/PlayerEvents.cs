@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerAttackEvent : Event<PlayerAttackEvent> {
+public class PlayerMeleeAttackEvent : Event<PlayerMeleeAttackEvent> {
 
     public Player player;
     public BoxCollider2D attackCollider;

@@ -45,9 +45,7 @@ public class PlayerBaseState : State {
     public override void HandleUpdate() {       
         CooldownTimers();
         CollisionCheck();
-        if (owner.HasAbility(PlayerAbility.DASH)) {
-            DashCheck();
-        }
+        DashCheck();
         GetMovementInput();
         GetCombatInput();
         JumpCheck();
@@ -86,6 +84,15 @@ public class PlayerBaseState : State {
     }
 
     protected void GetCombatInput() {
+        GetMeleeInput();
+        GetProjectileInput();      
+    }
+
+    protected void GetMeleeInput() {
+        if(owner.UntilNextMeleeAttack > 0) {
+            owner.UntilNextMeleeAttack -= Time.deltaTime;
+            return;
+        }
         if (Input.GetButtonDown("Attack")) {
             BoxCollider2D attackCollider;
             attackCollider = owner.PlayerHorizontalMeleeCollider;
@@ -95,9 +102,9 @@ public class PlayerBaseState : State {
             if (owner.IsAttackingDown) {
                 attackCollider = owner.PlayerDownMeleeCollider;
             }
-            PlayerAttackEvent etde = new PlayerAttackEvent {
+            PlayerMeleeAttackEvent etde = new PlayerMeleeAttackEvent {
                 attackCollider = attackCollider,
-                damage = owner.CombatDamage,
+                damage = owner.MeleeDamage,
                 playerPosition = owner.transform.position,
                 player = owner.GetComponent<Player>()
             };
@@ -106,9 +113,19 @@ public class PlayerBaseState : State {
         }
     }
 
+    protected void GetProjectileInput() {
+        if (owner.HasAbility(PlayerAbility.PROJECTILE)) {
+            if (Input.GetButtonDown("Projectile")) {
+                Debug.Log("PewPew");
+            }
+        }
+    }
+
     private void DashCheck() {
-        if (Input.GetButtonDown("Dash") && owner.UntilNextDash <= 0) {
-            owner.Transition<PlayerDashState>();
+        if (owner.HasAbility(PlayerAbility.DASH)) {
+            if (Input.GetButtonDown("Dash") && owner.UntilNextDash <= 0) {
+                owner.Transition<PlayerDashState>();
+            }
         }
     }
 

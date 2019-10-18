@@ -8,7 +8,7 @@ public enum PlayerState {
 }
 
 public enum PlayerAbility {
-    DOUBLEJUMP, WALLSLIDE, DASH
+    DOUBLEJUMP, WALLSLIDE, DASH, PROJECTILE
 }
 
 public class Player : StateMachine {
@@ -20,12 +20,12 @@ public class Player : StateMachine {
 
     public float MaxHealth { get; set; }
     public float Health { get; set; }
-    public float CombatDamage { get; set; }
+    public float MeleeDamage { get; set; }
     public float ProjectileDamage { get; set; }
     public float KnockbackForce { get; set; }
-    public float CombatCooldown { get; set; }
+    public float MeleeCooldown { get; set; }
     public float UntilNextMeleeAttack { get; set; }
-    public float CombatLifeLeech { get; set; }
+    public float MeleeLifeLeech { get; set; }
     public float ProjectileCooldown { get; set; }
     public float UntilNextProjectileAttack { get; set; }
     public float ProjectileHealthcost { get; set; }
@@ -69,11 +69,11 @@ public class Player : StateMachine {
     [Tooltip("Player current health")]
     [SerializeField] private float health;
     [Tooltip("Player damage (close combat)")]
-    [SerializeField] private float combatDamage;
+    [SerializeField] private float meleeDamage;
     [Tooltip("How much health the close combat attack leeches")]
-    [SerializeField] private float combatLifeLeech;
+    [SerializeField] private float meleeLifeLeech;
     [Tooltip("Cooldown between attacks (close combat)")]
-    [SerializeField] private float combatCooldown;
+    [SerializeField] private float meleeCooldown;
     [Tooltip("Player damage (projectile)")]
     [SerializeField] private float projectileDamage;
     [Tooltip("How much health the projectile-attack drains")]
@@ -113,6 +113,7 @@ public class Player : StateMachine {
     [SerializeField] private Transform downAttack;
     [SerializeField] private Transform groundCheck;
     [SerializeField] private Transform wallCheck;
+    [SerializeField] private GameObject playerProjectilePrefab;
     [SerializeField] private LayerMask whatIsGround;
 
     [Header("Testing")]//TESTING
@@ -150,9 +151,9 @@ public class Player : StateMachine {
 
         MaxHealth = maxHealth;
         Health = maxHealth;
-        CombatDamage = combatDamage;
-        CombatCooldown = combatCooldown;
-        CombatLifeLeech = combatLifeLeech;
+        MeleeDamage = meleeDamage;
+        MeleeCooldown = meleeCooldown;
+        MeleeLifeLeech = meleeLifeLeech;
         ProjectileDamage = projectileDamage;       
         ProjectileCooldown = projectileCooldown;
         ProjectileHealthcost = projectileHealthcost;
@@ -219,7 +220,7 @@ public class Player : StateMachine {
 
     private void OnHeal(PlayerHealEvent eventHeal) {
         if (eventHeal.isLifeLeech) {
-            eventHeal.amount = CombatLifeLeech;
+            eventHeal.amount = MeleeLifeLeech;
         }
         ChangeHealth(eventHeal.amount);
         if (Health > MaxHealth) {
