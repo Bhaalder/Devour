@@ -19,6 +19,7 @@ public class PlayerProjectileAttackState : PlayerBaseState {
         owner.PlayerState = PlayerState.PROJECTILEATTACK;
         attackTime = startAttackTime;
         owner.UntilNextProjectileAttack = owner.ProjectileCooldown;
+        owner.Health -= owner.ProjectileHealthcost;
         Shoot();
     }
 

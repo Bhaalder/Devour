@@ -74,8 +74,12 @@ public class PlayerBaseState : State {
 
     private void CooldownTimers() {
         owner.UntilNextDash -= Time.deltaTime;
-        if(owner.UntilNextDash <= 0) {
+        owner.UntilNextProjectileAttack -= Time.deltaTime;
+        if (owner.UntilNextDash <= 0) {
             owner.UntilNextDash = 0;
+        }
+        if (owner.UntilNextProjectileAttack <= 0) {
+            owner.UntilNextProjectileAttack = 0;
         }
     }
 
@@ -115,7 +119,7 @@ public class PlayerBaseState : State {
 
     protected void GetProjectileInput() {
         if (owner.HasAbility(PlayerAbility.PROJECTILE)) {
-            if (Input.GetButtonDown("Projectile")) {
+            if (Input.GetButtonDown("Projectile") && owner.UntilNextProjectileAttack <= 0) {
                 if(owner.Health <= owner.ProjectileHealthcost) {
                     Debug.Log("Too low HP!");
                     return;
@@ -123,10 +127,6 @@ public class PlayerBaseState : State {
                 owner.Transition<PlayerProjectileAttackState>();
             }
         }
-    }
-
-    private void InstantiateProjectile() {
-        
     }
 
     private void DashCheck() {
