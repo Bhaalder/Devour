@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5264885074495060604}
   - component: {fileID: 5264885074495060605}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Enemy1GFX
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -92,7 +92,7 @@ GameObject:
   - component: {fileID: 5264885074668572412}
   - component: {fileID: 5264885074668572414}
   - component: {fileID: 5264885074668572409}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Enemy1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -129,12 +129,6 @@ MonoBehaviour:
   states:
   - {fileID: 11400000, guid: ac0d3dd5f11cb9b46a5ed8ae69dcc307, type: 2}
   enemyHealth: 100
-  layerMask:
-    serializedVersion: 2
-    m_Bits: 256
-  distanceBeforeTurning: 1
-  enemySpeed: 400
-  rb: {fileID: 0}
   enemyGFX: {fileID: 5264885074495060604}
 --- !u!58 &5264885074668572414
 CircleCollider2D:

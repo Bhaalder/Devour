@@ -18,7 +18,6 @@ public class Enemy2 : Enemy
     private bool isWithinAttackDistance = false;
 
     private Seeker seeker;
-    private Rigidbody2D rb;
 
     private Vector2 direction;
     private Vector2 force;

@@ -9,14 +9,19 @@ public class Enemy : StateMachine
 {
     [SerializeField] private float enemyHealth;
     private CircleCollider2D circleCollider2D;
+    [SerializeField] public Rigidbody2D rb { get; set; }
+
+    [SerializeField] private Transform enemyGFX;
+
 
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
     protected override void Awake(){
         base.Awake();
+        rb = GetComponent<Rigidbody2D>();
         circleCollider2D = GetComponent<CircleCollider2D>();
         PlayerAttackEvent.RegisterListener(TakeDamage);
     }
@@ -65,6 +70,11 @@ public class Enemy : StateMachine
     {
         PlayerAttackEvent.UnRegisterListener(TakeDamage);
         Destroy(gameObject);
+    }
+
+    public void setGFX(Vector3 v)
+    {
+        enemyGFX.localScale = v;
     }
 
 }

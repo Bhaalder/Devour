@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ccba39031cb2a943bc884c1b3808a87, type: 3}
   m_Name: Enemy1MovementState
   m_EditorClassIdentifier: 
+  enemySpeed: 400
   layerMask:
     serializedVersion: 2
     m_Bits: 256
   distanceBeforeTurning: 1
-  enemySpeed: 400
