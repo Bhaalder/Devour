@@ -34,8 +34,6 @@ public class Enemy2MovementState : EnemyBaseState
         base.Enter();
         seeker = owner.GetComponent<Seeker>();
         target = FindObjectOfType<Player>().transform;
-        Debug.Log("target = " + target);
-
         currentCooldown = cooldownTime;
     }
 

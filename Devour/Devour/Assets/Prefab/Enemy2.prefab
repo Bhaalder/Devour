@@ -48,13 +48,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   states:
+  - {fileID: 11400000, guid: a1533498c36b89d4f93b62106f912197, type: 2}
   - {fileID: 11400000, guid: f4be1189cf461d7468506831ea166cd4, type: 2}
   enemyHealth: 0
-  target: {fileID: 0}
-  speed: 200
-  nextWaypointDistance: 3
   enemyGFX: {fileID: 1325847437968064738}
-  attackDistance: 25
 --- !u!114 &1325847437710850820
 MonoBehaviour:
   m_ObjectHideFlags: 0
