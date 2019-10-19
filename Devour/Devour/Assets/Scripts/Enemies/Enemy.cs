@@ -54,6 +54,10 @@ public class Enemy : StateMachine
                     Vector2 knockBack = new Vector2(attackEvent.player.FacingDirection * attackEvent.player.KnockbackForce, 0);
                     rb.velocity = knockBack;
                 }
+                if (attackEvent.player.IsAttackingUp) {
+                    Vector2 knockBack = new Vector2(0, attackEvent.player.KnockbackForce);
+                    rb.velocity = knockBack;
+                }
             }
         } catch (NullReferenceException) {
 
