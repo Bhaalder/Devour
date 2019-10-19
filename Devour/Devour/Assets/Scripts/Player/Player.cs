@@ -263,7 +263,7 @@ public class Player : StateMachine {
         untilInvulnerableEnds = invulnerableStateTime + 1f; //längre invulnerable när man fallit ner i killzone?
         try {
             transform.position = GameController.Instance.SceneCheckpoint.position;
-        } catch(System.NullReferenceException) {
+        } catch(System.Exception) {
             Debug.LogError("Ingen 'SceneCheckpoint' deklarerad i GameController för att kunna respawna!");
         }
         
