@@ -20,6 +20,7 @@ public class Player : StateMachine {
 
     public float MaxHealth { get; set; }
     public float Health { get; set; }
+    public float DamageReduction { get; set; }
     public float MeleeDamage { get; set; }
     public float ProjectileDamage { get; set; }
     public float KnockbackForce { get; set; }
@@ -68,6 +69,8 @@ public class Player : StateMachine {
     [SerializeField] private float maxHealth;
     [Tooltip("Player current health")]
     [SerializeField] private float health;
+    [Tooltip("How much less damage the player takes from enemy attacks")]
+    [SerializeField] private float damageReduction;
     [Tooltip("Player damage (close combat)")]
     [SerializeField] private float meleeDamage;
     [Tooltip("How much health the close combat attack leeches")]
@@ -151,6 +154,7 @@ public class Player : StateMachine {
 
         MaxHealth = maxHealth;
         Health = maxHealth;
+        DamageReduction = damageReduction;
         MeleeDamage = meleeDamage;
         MeleeCooldown = meleeCooldown;
         MeleeLifeLeech = meleeLifeLeech;
@@ -200,6 +204,10 @@ public class Player : StateMachine {
     private void OnTakeDamage(PlayerTakeDamageEvent eventDamage) {//EJ KLART
         if (IsInvulnerable) {
             return;
+        }
+        eventDamage.damage -= DamageReduction;
+        if (eventDamage.damage <= 0) {
+            eventDamage.damage = 0;
         }
         ChangeHealth(-eventDamage.damage);
         if (DamageWasDeadly()) {

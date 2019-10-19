@@ -65,7 +65,7 @@ public class Enemy : StateMachine
     }
 
     public void ChangeEnemyHealth(float amount) {
-        Debug.Log("I took damage! " + gameObject.name);
+        Debug.Log("I took " + amount + " damage! (" + gameObject.name +")");
         enemyHealth += amount;
         if (enemyHealth <= 0) {
             EnemyDeath();
