@@ -39,16 +39,20 @@ public class Enemy : StateMachine
         try {
             if (attackEvent.attackCollider.bounds.Intersects(circleCollider2D.bounds)) {           
                 ChangeEnemyHealth(-attackEvent.damage);
-                if (attackEvent.isLifeLeechAttack) {
+                if (attackEvent.isMeleeAttack) {
                     PlayerHealEvent phe = new PlayerHealEvent {
                         isLifeLeech = true
                     };
                     phe.FireEvent();
                 }
-                if (!attackEvent.player.IsGrounded && attackEvent.player.IsAttackingDown) {
+                if (!attackEvent.player.IsGrounded && attackEvent.player.IsAttackingDown && attackEvent.isMeleeAttack) {
                     attackEvent.player.ExtraJumpsLeft = attackEvent.player.ExtraJumps;
                     attackEvent.player.Rb2D.velocity = new Vector2(attackEvent.player.Rb2D.velocity.x, 0);
                     attackEvent.player.Rb2D.velocity = new Vector2(attackEvent.player.Rb2D.velocity.x, 15);
+                }
+                if (!attackEvent.player.IsAttackingDown) {
+                    Vector2 knockBack = new Vector2(attackEvent.player.FacingDirection * attackEvent.player.KnockbackForce, 0);
+                    rb.velocity = knockBack;
                 }
             }
         } catch (NullReferenceException) {

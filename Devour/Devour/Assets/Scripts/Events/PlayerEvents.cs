@@ -9,7 +9,7 @@ public class PlayerAttackEvent : Event<PlayerAttackEvent> {
     public BoxCollider2D attackCollider;
     public Vector3 playerPosition;
     public float damage;
-    public bool isLifeLeechAttack;
+    public bool isMeleeAttack;
 
 }
 

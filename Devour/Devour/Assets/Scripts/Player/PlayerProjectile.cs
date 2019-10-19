@@ -14,6 +14,10 @@ public class PlayerProjectile : MonoBehaviour{
 
     private BoxCollider2D boxCollider2D;
 
+    private void Awake() {
+        boxCollider2D = GetComponent<BoxCollider2D>();
+    }
+
     private void Update() {
         transform.position += (Vector3)Direction * Speed * Time.deltaTime;
         if(lifespan > 0) {
@@ -23,9 +27,16 @@ public class PlayerProjectile : MonoBehaviour{
         Destroy(gameObject);
     }
 
-    private void OnTriggerEnter2D(Collider2D collision) {//
+    private void OnTriggerEnter2D(Collider2D collision) {
         try {
-            collision.gameObject.GetComponent<Enemy>().ChangeEnemyHealth(-Damage);
+            PlayerAttackEvent playerAttack = new PlayerAttackEvent {
+                attackCollider = boxCollider2D,
+                isMeleeAttack = false,
+                damage = Damage,
+                player = Player,
+                playerPosition = Player.transform.position
+            };
+            playerAttack.FireEvent();
         } catch (System.Exception) {
 
         }

@@ -106,13 +106,14 @@ public class PlayerBaseState : State {
             if (owner.IsAttackingDown) {
                 attackCollider = owner.PlayerDownMeleeCollider;
             }
-            PlayerAttackEvent etde = new PlayerAttackEvent {
+            PlayerAttackEvent playerAttack = new PlayerAttackEvent {
                 attackCollider = attackCollider,
                 damage = owner.MeleeDamage,
                 playerPosition = owner.transform.position,
-                player = owner.GetComponent<Player>()
+                player = owner.GetComponent<Player>(),
+                isMeleeAttack = true
             };
-            etde.FireEvent();
+            playerAttack.FireEvent();
             owner.Transition<PlayerAttackState>();
         }
     }
