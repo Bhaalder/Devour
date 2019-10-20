@@ -22,19 +22,4 @@ public class Enemy2 : Enemy
     {
         base.Update();
     }
-
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        Debug.Log("collision is made");
-        if (collision.gameObject.tag == "Player")
-        {
-            Debug.Log("collision is player");
-            PlayerTakeDamageEvent ptde = new PlayerTakeDamageEvent
-            {
-                damage = 5,
-                enemyPosition = rb.position
-            };
-            ptde.FireEvent();
-        }
-    }
 }
