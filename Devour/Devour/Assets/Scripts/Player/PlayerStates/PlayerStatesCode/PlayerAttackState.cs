@@ -10,6 +10,7 @@ public class PlayerAttackState : PlayerBaseState {
         //owner.PlayerLog("AttackState");
         owner.PlayerState = PlayerState.ATTACK;
         owner.UntilNextMeleeAttack = owner.MeleeCooldown;
+
     }
 
     public override void HandleFixedUpdate() {

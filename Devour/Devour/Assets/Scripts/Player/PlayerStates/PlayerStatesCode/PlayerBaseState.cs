@@ -145,6 +145,7 @@ public class PlayerBaseState : State {
     private void JumpCheck() {
         if (owner.IsWallSliding && Input.GetButtonDown("Jump")) {
             Jump(0);
+            
             return;
         }
         if (owner.IsGrounded && Input.GetButtonDown("Jump")) {

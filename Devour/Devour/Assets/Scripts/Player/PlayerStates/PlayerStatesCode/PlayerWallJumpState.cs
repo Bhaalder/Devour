@@ -6,9 +6,14 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "Player/PlayerWallJumpState")]
 public class PlayerWallJumpState : PlayerWallslideState {
 
+    [Tooltip("How long time the dash lasts")]
+    [SerializeField] private float startJumpTime;
+    private float jumpTime;
+
     public override void Enter() {
         //owner.PlayerLog("WallJumpState");
         owner.PlayerState = PlayerState.WALLJUMP;
+        jumpTime = startJumpTime;
     }
 
     public override void HandleFixedUpdate() {
@@ -21,6 +26,17 @@ public class PlayerWallJumpState : PlayerWallslideState {
         } else {
             owner.IsAttackingDown = false;
         }
+
+        if (jumpTime <= 0) {
+            owner.Rb2D.velocity = new Vector2(0, owner.Rb2D.velocity.y);
+            if (owner.IsGrounded) {
+                owner.Transition<PlayerIdleState>();
+            } else {
+                owner.Transition<PlayerAirState>();
+            }
+        }
+        jumpTime -= Time.deltaTime;
+
         base.HandleUpdate();
     }
 }
