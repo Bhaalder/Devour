@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public enum PlayerState {
-    IDLE, AIR, DASH, WALLSLIDE, WALLJUMP, WALK, HURT, ATTACK, PROJECTILEATTACK
+    NONE, IDLE, WALK, AIR, DASH, WALLSLIDE, WALLJUMP, HURT, ATTACK, PROJECTILEATTACK
 }
 
 public enum PlayerAbility {
@@ -63,6 +63,7 @@ public class Player : StateMachine {
     public Transform GroundCheck { get; set; }
     public Transform WallCheck { get; set; }
     public LayerMask WhatIsGround { get; set; }
+    public Animator Animator { get; set; }
 
     [Header("Health & Combat")]
     [Tooltip("Player maxHealth")]
@@ -179,6 +180,7 @@ public class Player : StateMachine {
         GroundCheck = groundCheck;
         WallCheck = wallCheck;
         WhatIsGround = whatIsGround;
+        Animator = GetComponent<Animator>();
     }
 
     protected override void FixedUpdate() {
@@ -189,6 +191,7 @@ public class Player : StateMachine {
         PlayerVelocity = Rb2D.velocity;//TEST
         health = Health;//TEST
         InvulnerableTimeCheck();
+        Animator.SetInteger("State", (int)PlayerState);//Ska bytas senare
         base.Update();
     }
 
@@ -270,6 +273,7 @@ public class Player : StateMachine {
     }
 
     private void Die() { //EJ KLART, just nu gör vi bara en respawn och får fullt HP
+        //MaxHP halveras, man hamnar på senaste "RestingPlace", ens "essence" hamnar där man dog
         Health = MaxHealth;
         Respawn();//FÖR TILLFÄLLET
     }

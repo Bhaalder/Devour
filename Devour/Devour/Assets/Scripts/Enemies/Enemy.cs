@@ -8,10 +8,13 @@ using System;
 public class Enemy : StateMachine
 {
     [SerializeField] private float enemyHealth;
-    private CircleCollider2D circleCollider2D;
+    [SerializeField] private float damageToPlayerOnContact = 5;
+    
     [SerializeField] public Rigidbody2D rb { get; set; }
 
     [SerializeField] private Transform enemyGFX;
+
+    private CircleCollider2D circleCollider2D;
 
 
     void Start()
@@ -81,6 +84,22 @@ public class Enemy : StateMachine
     public void setGFX(Vector3 v)
     {
         enemyGFX.localScale = v;
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        Debug.Log("collision is made");
+        if (collision.gameObject.tag == "Player")
+        {
+            Debug.Log("collision is player");
+            PlayerTakeDamageEvent ptde = new PlayerTakeDamageEvent
+            {
+                damage = damageToPlayerOnContact,
+                enemyPosition = rb.position
+            };
+            ptde.FireEvent();
+        }
+
     }
 
 }

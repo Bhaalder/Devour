@@ -12,7 +12,9 @@ public class PlayerBaseState : State {
 
     public override void Enter() {
         //owner.PlayerLog("Initialized Playerstates!");
-        owner.Transition<PlayerIdleState>();
+        if(owner.PlayerState == PlayerState.NONE) {
+            owner.Transition<PlayerIdleState>();
+        }
         base.Enter();
     }
 

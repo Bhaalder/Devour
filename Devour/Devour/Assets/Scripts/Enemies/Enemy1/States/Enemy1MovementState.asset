@@ -16,4 +16,4 @@ MonoBehaviour:
   layerMask:
     serializedVersion: 2
     m_Bits: 256
-  distanceBeforeTurning: 1
+  distanceBeforeTurning: 3
