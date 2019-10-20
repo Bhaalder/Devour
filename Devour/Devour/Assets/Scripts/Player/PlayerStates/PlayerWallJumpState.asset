@@ -14,3 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   wallSlideSpeed: 0
   wallJumpForce: {x: 0, y: 0}
+  startJumpTime: 0.05
