@@ -427,7 +427,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   states:
   - {fileID: 11400000, guid: ac0d3dd5f11cb9b46a5ed8ae69dcc307, type: 2}
-  enemyHealth: 100
+  enemyHealth: 50
+  damageToPlayerOnContact: 25
   enemyGFX: {fileID: 5264885074668572413}
 --- !u!58 &5264885074668572414
 CircleCollider2D:
