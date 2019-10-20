@@ -43,7 +43,7 @@ public class Enemy2IdleState : EnemyBaseState
         positionUpdateCooldown();
 
         direction = (newPosition - owner.rb.position).normalized;
-        Debug.Log("Direction: " + direction);
+
         force = direction * idleSpeed * Time.deltaTime;
         owner.rb.AddForce(force);
 

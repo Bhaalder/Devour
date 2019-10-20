@@ -46,12 +46,12 @@ public class Enemy1MovementState : EnemyBaseState
 
         owner.rb.AddForce(force);
 
-        if (owner.rb.velocity.x >= 0.01f)
+        if (owner.rb.velocity.x <= 0.01f)
         {
             Vector3 v = new Vector3(-1f, 1f, 1f);
             owner.setGFX(v);
         }
-        else if (owner.rb.velocity.x <= -0.01f)
+        else if (owner.rb.velocity.x >= -0.01f)
         {
             Vector3 v = new Vector3(1f, 1f, 1f);
             owner.setGFX(v);
