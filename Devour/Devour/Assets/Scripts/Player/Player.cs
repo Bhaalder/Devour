@@ -92,6 +92,13 @@ public class Player : StateMachine {
     [SerializeField] private Vector2 playerHurtKnockbackForce;
     private float untilInvulnerableEnds;
 
+    [Header("Camera")]
+    [Tooltip("How long the camera will shake when taking damage")]
+    [SerializeField] private float cameraShakeDuration;
+    [Tooltip("How much the camera will shake when taking damagee")]
+    [SerializeField] private float cameraShakeValue;
+    
+
     [Header("Movement")]
     [Tooltip("How fast the player is moving")]
     [SerializeField] private float movementSpeed;   
@@ -212,6 +219,11 @@ public class Player : StateMachine {
         if (eventDamage.damage <= 0) {
             eventDamage.damage = 0;
         }
+        CameraShakeEvent cse = new CameraShakeEvent {
+            startDuration = cameraShakeDuration,
+            startValue = cameraShakeValue
+        };
+        cse.FireEvent();
         ChangeHealth(-eventDamage.damage);
         if (DamageWasDeadly()) {
             Die();

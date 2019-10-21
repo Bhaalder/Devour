@@ -316,7 +316,9 @@ MonoBehaviour:
   projectileCooldown: 1
   knockbackForce: 5
   invulnerableStateTime: 1
-  playerHurtKnockbackForce: {x: 2, y: 7}
+  playerHurtKnockbackForce: {x: 5, y: 14}
+  cameraShakeDuration: 0.5
+  cameraShakeValue: 0.5
   movementSpeed: 10
   jumpForce: 26
   extraJumps: 1
