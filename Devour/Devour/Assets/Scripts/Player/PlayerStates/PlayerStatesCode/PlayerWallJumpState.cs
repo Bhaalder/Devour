@@ -6,7 +6,7 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "Player/PlayerWallJumpState")]
 public class PlayerWallJumpState : PlayerWallslideState {
 
-    [Tooltip("How long time the dash lasts")]
+    [Tooltip("How long time the jump lasts in horizontal")]
     [SerializeField] private float startJumpTime;
     private float jumpTime;
 

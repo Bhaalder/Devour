@@ -276,7 +276,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 4
+  m_GravityScale: 6
   m_Material: {fileID: 6200000, guid: cd8eb8208f8d8374a8e35aadc6645123, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -307,17 +307,18 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 9138233c29fb34246a74278928ec9be2, type: 2}
   maxHealth: 100
   health: 100
-  meleeDamage: 5
+  damageReduction: 0
+  meleeDamage: 25
   meleeLifeLeech: 5
   meleeCooldown: 0.2
   projectileDamage: 15
   projectileHealthcost: 10
-  projectileCooldown: 0.5
+  projectileCooldown: 1
   knockbackForce: 5
   invulnerableStateTime: 1
   playerHurtKnockbackForce: {x: 2, y: 7}
   movementSpeed: 10
-  jumpForce: 21.72
+  jumpForce: 26
   extraJumps: 1
   variableJumpHeight: 0.1
   dashCooldown: 0.5

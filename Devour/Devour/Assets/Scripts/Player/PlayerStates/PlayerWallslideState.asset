@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: PlayerWallslideState
   m_EditorClassIdentifier: 
   wallSlideSpeed: 7
-  wallJumpForce: {x: 25, y: 25}
+  wallJumpForce: {x: 35, y: 25}
