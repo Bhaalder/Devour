@@ -8,11 +8,13 @@ public class EnemyPauseOnDamage : EnemyBaseState
 
     [SerializeField] private float timePaused = 2f;
     private float currentCooldown;
+    private bool iHavePaused = false;
 
 
     public override void Enter()
     {
         base.Enter();
+        currentCooldown = timePaused;
     }
 
     public override void HandleUpdate()
@@ -36,14 +38,15 @@ public class EnemyPauseOnDamage : EnemyBaseState
 
         currentCooldown = timePaused;
 
-        if(owner.GetComponent<Enemy1>() != null)
+        if (owner.GetComponent<Enemy1>() != null)
         {
             owner.Transition<Enemy1MovementState>();
         }
-        else if( owner.GetComponent<Enemy2>() != null)
+        else if (owner.GetComponent<Enemy2>() != null)
         {
             owner.Transition<Enemy2MovementState>();
         }
+
     }
 
 }
