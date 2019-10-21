@@ -315,6 +315,7 @@ MonoBehaviour:
   projectileHealthcost: 10
   projectileCooldown: 1
   knockbackForce: 5
+  bounceForce: 20
   invulnerableStateTime: 1
   playerHurtKnockbackForce: {x: 5, y: 14}
   cameraShakeDuration: 0.5

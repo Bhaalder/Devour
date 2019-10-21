@@ -24,6 +24,7 @@ public class Player : StateMachine {
     public float MeleeDamage { get; set; }
     public float ProjectileDamage { get; set; }
     public float KnockbackForce { get; set; }
+    public float BounceForce { get; set; }
     public float MeleeCooldown { get; set; }
     public float UntilNextMeleeAttack { get; set; }
     public float MeleeLifeLeech { get; set; }
@@ -86,6 +87,8 @@ public class Player : StateMachine {
     [SerializeField] private float projectileCooldown;
     [Tooltip("Knockbackvalue applied to enemies from the player")]
     [SerializeField] private float knockbackForce;
+    [Tooltip("Bouncevalue applied when player is attacking down on enemies")]
+    [SerializeField] private float bounceForce;
     [Tooltip("How long the player is invulnerable to damage after taking damage")]
     [SerializeField] private float invulnerableStateTime;
     [Tooltip("Knockbackvalue applied to player when hurt by enemies")]
@@ -170,6 +173,7 @@ public class Player : StateMachine {
         ProjectileCooldown = projectileCooldown;
         ProjectileHealthcost = projectileHealthcost;
         KnockbackForce = knockbackForce;
+        BounceForce = bounceForce;
         
 
         MovementSpeed = movementSpeed;
