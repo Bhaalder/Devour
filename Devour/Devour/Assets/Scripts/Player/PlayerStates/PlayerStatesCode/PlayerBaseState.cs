@@ -136,6 +136,9 @@ public class PlayerBaseState : State {
 
     private void DashCheck() {
         if (owner.HasAbility(PlayerAbility.DASH)) {
+            if(Input.GetAxis("Dash") > 0 && owner.UntilNextDash <= 0) {
+                owner.Transition<PlayerDashState>();
+            }
             if (Input.GetButtonDown("Dash") && owner.UntilNextDash <= 0) {
                 owner.Transition<PlayerDashState>();
             }
