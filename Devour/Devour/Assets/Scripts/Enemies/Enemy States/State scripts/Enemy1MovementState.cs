@@ -65,7 +65,7 @@ public class Enemy1MovementState : EnemyMovement
         }
         noGroundAhead = new Vector2(direction.x, -1);
         RaycastHit2D noMoreGround = Physics2D.Raycast(owner.rb.position, noGroundAhead, distanceBeforeTurning + 2f, layerMask);
-        Debug.Log("Ground: " + noMoreGround.collider);
+
         if (noMoreGround.collider == false)
         {
             movingRight = !movingRight;
