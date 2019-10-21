@@ -101,7 +101,6 @@ public class Player : StateMachine {
     [Tooltip("How much the camera will shake when taking damagee")]
     [SerializeField] private float cameraShakeValue;
     
-
     [Header("Movement")]
     [Tooltip("How fast the player is moving")]
     [SerializeField] private float movementSpeed;   
