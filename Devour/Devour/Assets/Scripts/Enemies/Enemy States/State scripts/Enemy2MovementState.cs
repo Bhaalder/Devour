@@ -7,7 +7,7 @@ using System;
 
 [CreateAssetMenu(menuName = "Enemy/Enemy2MovementState")]
 
-public class Enemy2MovementState : EnemyBaseState
+public class Enemy2MovementState : EnemyMovement
 {
 
     [SerializeField] private Transform target;

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(menuName = "Enemy/Enemy1MovementState")]
-public class Enemy1MovementState : EnemyBaseState
+public class Enemy1MovementState : EnemyMovement
 {
 
     [SerializeField] private float enemySpeed = 400;
@@ -12,6 +12,7 @@ public class Enemy1MovementState : EnemyBaseState
 
     private Vector2 direction;
     private Vector2 force;
+    private Vector2 noGroundAhead;
     private bool movingRight = true;
     
 
@@ -59,6 +60,13 @@ public class Enemy1MovementState : EnemyBaseState
 
         RaycastHit2D obstructed = Physics2D.Raycast(owner.rb.position, direction, distanceBeforeTurning, layerMask);
         if (obstructed.collider == true)
+        {
+            movingRight = !movingRight;
+        }
+        noGroundAhead = new Vector2(direction.x, -1);
+        RaycastHit2D noMoreGround = Physics2D.Raycast(owner.rb.position, noGroundAhead, distanceBeforeTurning + 2f, layerMask);
+        Debug.Log("Ground: " + noMoreGround.collider);
+        if (noMoreGround.collider == false)
         {
             movingRight = !movingRight;
         }

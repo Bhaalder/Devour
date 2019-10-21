@@ -98,6 +98,7 @@ public class Enemy : StateMachine
                 enemyPosition = rb.position
             };
             ptde.FireEvent();
+            Transition<EnemyPauseOnDamage>();
         }
 
     }
