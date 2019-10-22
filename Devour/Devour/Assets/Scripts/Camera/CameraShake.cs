@@ -1,10 +1,10 @@
-﻿using System.Collections;
+﻿//Author: Patrik Ahlgren
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 
-public class CameraShake : MonoBehaviour {
-    //Author: Patrik Ahlgren
+public class CameraShake : MonoBehaviour {  
     private float shakeValue;
     private float shakeDuration;
 
@@ -22,7 +22,7 @@ public class CameraShake : MonoBehaviour {
         CameraShakeEvent.RegisterListener(Shake);
     }
 
-    void Shake(CameraShakeEvent shakeEvent) {
+    private void Shake(CameraShakeEvent shakeEvent) {
         startValue = shakeEvent.startValue;
         startDuration = shakeEvent.startDuration;
         shakeValue = startValue;

@@ -282,9 +282,8 @@ public class Player : StateMachine {
         try {
             transform.position = GameController.Instance.SceneCheckpoint.position;
         } catch(System.Exception) {
-            Debug.LogError("Ingen 'SceneCheckpoint' deklarerad i GameController för att kunna respawna!");
+            Debug.LogError("No 'SceneCheckpoint' defined in GameController to be able to respawn!");
         }
-        
     }
 
     private void Die() { //EJ KLART, just nu gör vi bara en respawn och får fullt HP
