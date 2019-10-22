@@ -37,10 +37,14 @@ public class Enemy1MovementState : EnemyMovement
         if (movingRight)
         {
             direction = new Vector2(1f, 0f);
+            Vector3 v = new Vector3(1f, 1f, 1f);
+            owner.setGFX(v);
         }
         else if (!movingRight)
         {
             direction = new Vector2(-1f, 0f);
+            Vector3 v = new Vector3(-1f, 1f, 1f);
+            owner.setGFX(v);
         }
 
         force = direction.normalized * enemySpeed * Time.deltaTime;
@@ -49,13 +53,11 @@ public class Enemy1MovementState : EnemyMovement
 
         if (owner.rb.velocity.x <= 0.01f)
         {
-            Vector3 v = new Vector3(-1f, 1f, 1f);
-            owner.setGFX(v);
+            
         }
         else if (owner.rb.velocity.x >= -0.01f)
         {
-            Vector3 v = new Vector3(1f, 1f, 1f);
-            owner.setGFX(v);
+            
         }
 
         RaycastHit2D obstructed = Physics2D.Raycast(owner.rb.position, direction, distanceBeforeTurning, layerMask);

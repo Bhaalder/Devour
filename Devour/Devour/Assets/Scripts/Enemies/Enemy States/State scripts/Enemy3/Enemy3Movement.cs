@@ -59,26 +59,20 @@ public class Enemy3Movement : EnemyMovement
         if (movingRight)
         {
             direction = new Vector2(1f, 0f);
+            Vector3 v = new Vector3(1f, 1f, 1f);
+            owner.setGFX(v);
         }
         else if (!movingRight)
         {
             direction = new Vector2(-1f, 0f);
+            Vector3 v = new Vector3(-1f, 1f, 1f);
+            owner.setGFX(v);
         }
 
         force = direction.normalized * enemySpeed * Time.deltaTime;
 
         owner.rb.AddForce(force);
 
-        if (owner.rb.velocity.x <= 0.01f)
-        {
-            Vector3 v = new Vector3(-1f, 1f, 1f);
-            owner.setGFX(v);
-        }
-        else if (owner.rb.velocity.x >= -0.01f)
-        {
-            Vector3 v = new Vector3(1f, 1f, 1f);
-            owner.setGFX(v);
-        }
 
         CheckAttackDistance();
         CheckGround();
@@ -126,6 +120,13 @@ public class Enemy3Movement : EnemyMovement
         }
     }
 
+    private bool CanSeePlayer()
+    {
+        bool lineHit = Physics2D.Linecast(owner.transform.position, target.position, layerMask);
+        Debug.Log(lineHit);
+        return !lineHit;
+    }
+
     private void positionUpdateCooldown()
     {
         currentCooldown -= Time.deltaTime;
@@ -146,7 +147,7 @@ public class Enemy3Movement : EnemyMovement
 
     private void CheckAttackDistance()
     {
-        if (Vector2.Distance(owner.rb.position, target.position) <= attackDistance)
+        if (CanSeePlayer() && Vector2.Distance(owner.rb.position, target.position) < attackDistance)
         {
             if (isChargeAttacker)
             {
