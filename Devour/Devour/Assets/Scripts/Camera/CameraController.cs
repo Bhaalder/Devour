@@ -13,7 +13,10 @@ public class CameraController : MonoBehaviour{
     private Vector3 desiredPosition;
     private Vector3 velocity;
 
-    [SerializeField] private BoxCollider2D sceneCamerabounds;
+    [SerializeField] private BoxCollider2D sceneBoxCollider;
+    private bool cameraBoundsIsFound;
+    float checkBoundsTimer = 1f;
+    float untilNextBoundsCheck;
 
     private static bool exists;
 
@@ -25,50 +28,72 @@ public class CameraController : MonoBehaviour{
             Destroy(gameObject);
             Debug.LogWarning("Destroyed other Singleton with name: " + gameObject.name);
             return;
-        }
-        
+        }        
     }
 
     private void Start() {
         player = GameController.Instance.Player;
         playerTransform = player.transform;
+        try {
+            sceneBoxCollider = GameObject.FindGameObjectWithTag("CameraBounds").GetComponent<BoxCollider2D>();
+            cameraBoundsIsFound = true;
+        } catch (System.Exception) {
+            Debug.LogWarning("SceneCameraBounds is not defined in CameraHolder and cannot be found in scene!");
+            cameraBoundsIsFound = false;
+        }
+        untilNextBoundsCheck = checkBoundsTimer;
     }
     
     private void FixedUpdate() {
-
-        if (Input.GetKeyDown(KeyCode.P)) {
-            Destroy(sceneCamerabounds.gameObject);
-        }
-
         desiredPosition = new Vector3(playerTransform.position.x + (cameraOffset.x * player.FacingDirection), playerTransform.position.y + cameraOffset.y, cameraOffset.z);
 
         Vector3 currentPosition = transform.position;
 
         transform.position = Vector3.SmoothDamp(currentPosition, desiredPosition, ref velocity, delay);
-        try {
+        if (cameraBoundsIsFound) {
             transform.position = new Vector3(CameraBoundsX(), CameraBoundsY(), cameraOffset.z);
-        } catch (System.Exception) {
-            
+        } else { 
+            CheckCameraBounds();
         }
     }
 
+    #region CameraBounds
     private float CameraBoundsX() {
-        try {
-            return Mathf.Clamp(transform.position.x, sceneCamerabounds.bounds.min.x, sceneCamerabounds.bounds.max.x);
-        } catch (System.Exception) {
-            try {
-                sceneCamerabounds = GameObject.FindGameObjectWithTag("CameraBounds").GetComponent<BoxCollider2D>();
-            } catch (System.Exception) {
-                Debug.LogWarning("SceneCameraBounds is not defined in CameraHolder and cannot be found in scene!");
-            }
-            return -1;
+        if (CameraBoundsExist()) {
+            return Mathf.Clamp(transform.position.x, sceneBoxCollider.bounds.min.x, sceneBoxCollider.bounds.max.x);
         }
+        return -1;
     }
     private float CameraBoundsY() {
-        try {
-            return Mathf.Clamp(transform.position.y, sceneCamerabounds.bounds.min.y, sceneCamerabounds.bounds.max.y);
-        } catch (System.Exception) {
-            return -1;
-        }       
+        if (CameraBoundsExist()) {
+            return Mathf.Clamp(transform.position.y, sceneBoxCollider.bounds.min.y, sceneBoxCollider.bounds.max.y);
+        }
+        return -1;
+        
     }
+
+    private void CheckCameraBounds() {
+        if(untilNextBoundsCheck <= 0) {
+            if (CameraBoundsExist()) {
+                sceneBoxCollider = GameObject.FindGameObjectWithTag("CameraBounds").GetComponent<BoxCollider2D>();
+            }
+            untilNextBoundsCheck = checkBoundsTimer;
+        }
+        untilNextBoundsCheck -= Time.deltaTime;
+    }
+
+    private bool CameraBoundsExist() {
+        try {
+            if (GameObject.FindGameObjectWithTag("CameraBounds").GetComponent<BoxCollider2D>()) {
+                cameraBoundsIsFound = true;
+                return true;
+            }
+        } catch (System.NullReferenceException) {
+            Debug.LogWarning("SceneCameraBounds is not defined in CameraHolder and cannot be found in scene!");
+        }
+        cameraBoundsIsFound = false;
+        return false;
+    }
+    #endregion
+
 }
