@@ -41,6 +41,8 @@ public class GameController : MonoBehaviour {
 
         Player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
         Camera = UnityEngine.Camera.main.transform.parent;
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
 
         try {//TILLFÄLLIGT
             SceneCheckpoint = sceneCheckpoint;//

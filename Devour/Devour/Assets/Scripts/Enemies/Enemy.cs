@@ -1,5 +1,5 @@
 ﻿//Main Author: Marcus Söderberg
-//Secondary Author: Patrik Ahlgren (TakeDamage)
+//Secondary Author: Patrik Ahlgren (TakeDamage(), ChangeEnemyHealth(), Start(), lade till get/set på health & damage)
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,6 +7,9 @@ using System;
 
 public class Enemy : StateMachine
 {
+    public float Health { get; set; }
+    public float Damage { get; set; }
+
     [SerializeField] private float enemyHealth;
     [SerializeField] private float damageToPlayerOnContact = 5;
     
@@ -14,13 +17,15 @@ public class Enemy : StateMachine
 
     [SerializeField] private Transform enemyGFX;
 
-    private BoxCollider2D boxCollider2D;
+    protected BoxCollider2D boxCollider2D;
 
 
-    void Start()
+    private void Start()
     {
-
+        Health = enemyHealth;
+        Damage = damageToPlayerOnContact;
     }
+
     protected override void Awake(){
         base.Awake();
         rb = GetComponent<Rigidbody2D>();
@@ -28,17 +33,15 @@ public class Enemy : StateMachine
         PlayerAttackEvent.RegisterListener(TakeDamage);
     }
 
-    protected override void Update()
-    {
+    protected override void Update(){
         base.Update();
     }
 
-    protected override void FixedUpdate()
-    {
+    protected override void FixedUpdate(){
         base.FixedUpdate();
     }
 
-    public void TakeDamage(PlayerAttackEvent attackEvent){
+    public virtual void TakeDamage(PlayerAttackEvent attackEvent){
         try {
             if (attackEvent.attackCollider.bounds.Intersects(boxCollider2D.bounds)) {
                 Vector2 knockBack;
@@ -62,22 +65,21 @@ public class Enemy : StateMachine
                 }
                 knockBack = new Vector2(attackEvent.player.FacingDirection * attackEvent.player.KnockbackForce, 0);
                 rb.velocity = knockBack;
-
             }
         } catch (NullReferenceException) {
 
         }
     }
 
-    public void ChangeEnemyHealth(float amount) {
+    public virtual void ChangeEnemyHealth(float amount) {
         Debug.Log("I took " + amount + " damage! (" + gameObject.name +")");
-        enemyHealth += amount;
-        if (enemyHealth <= 0) {
+        Health += amount;
+        if (Health <= 0) {
             EnemyDeath();
         }
     }
 
-    private void EnemyDeath()
+    public virtual void EnemyDeath()
     {
         PlayerAttackEvent.UnRegisterListener(TakeDamage);
         Destroy(gameObject);
@@ -100,7 +102,6 @@ public class Enemy : StateMachine
                 enemyPosition = rb.position
             };
             ptde.FireEvent();
-            Transition<EnemyPauseOnDamage>();
         }
 
     }
