@@ -18,6 +18,9 @@ MonoBehaviour:
     m_Bits: 256
   distanceBeforeTurning: 3
   patrolMoveRange: 3
-  attackDistance: 15
+  attackDistance: 10
+  canSeePLayer:
+    serializedVersion: 2
+    m_Bits: 256
   isPatrolling: 0
   isChargeAttacker: 0
