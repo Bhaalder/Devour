@@ -12,3 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eae900d5a7d591448bad93794bdc4c34, type: 3}
   m_Name: Enemy3ChargeAttack
   m_EditorClassIdentifier: 
+  timeStunned: 2
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 256
+  enemySpeed: 400
+  distanceBeforeTurning: 3
+  patrolMoveRange: 3
+  attackDistance: 15
+  chargeSpeed: 700
