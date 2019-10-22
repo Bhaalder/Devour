@@ -10,7 +10,6 @@ using System;
 public class Enemy2MovementState : EnemyMovement
 {
 
-    [SerializeField] private Transform target;
     [SerializeField] private float speed = 200f;
     [SerializeField] private float nextWaypointDistance = 3f;
     [SerializeField] private float attackDistance = 25f;
@@ -33,7 +32,6 @@ public class Enemy2MovementState : EnemyMovement
     {
         base.Enter();
         seeker = owner.GetComponent<Seeker>();
-        target = FindObjectOfType<Player>().transform;
         currentPathUpdateCooldown = cooldownTime;
     }
 

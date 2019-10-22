@@ -7,7 +7,6 @@ public class Enemy1MovementState : EnemyMovement
 {
 
     [SerializeField] private float enemySpeed = 400;
-    [SerializeField] private LayerMask layerMask;
     [SerializeField] private float distanceBeforeTurning = 1f;
 
     private Vector2 direction;

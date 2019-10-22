@@ -12,7 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2efdbcd1fc562b54ca6cda64e7f38b79, type: 3}
   m_Name: Enemy2MovementState
   m_EditorClassIdentifier: 
-  target: {fileID: 0}
+  timeStunned: 2
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 256
   speed: 200
   nextWaypointDistance: 3
   attackDistance: 15

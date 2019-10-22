@@ -6,21 +6,15 @@ using UnityEngine;
 
 public class Enemy3Movement : EnemyMovement
 {
-    [SerializeField] private float enemySpeed = 400;
-    [SerializeField] private LayerMask layerMask;
-    [SerializeField] private float distanceBeforeTurning = 1f;
+    [SerializeField] private float enemySpeed = 400f;
+    [SerializeField] private float distanceBeforeTurning = 3f;
     [SerializeField] private float patrolMoveRange = 3;
-    [SerializeField] private float attackDistance = 15f;
+    [SerializeField] protected float attackDistance = 15f;
 
-    [SerializeField] private bool isPatrolling;
-    [SerializeField] private bool isChargeAttacker;
-
-    private Transform target;
-
+    protected Vector2 force;
+    protected Vector2 direction;
     private Vector2 startingPosition;
     private Vector2 newPosition;
-    private Vector2 direction;
-    private Vector2 force;
     private Vector2 noGroundAhead;
 
     private bool movingRight = true;
@@ -33,14 +27,13 @@ public class Enemy3Movement : EnemyMovement
     public override void Enter()
     {
         base.Enter();
-        target = FindObjectOfType<Player>().transform;
     }
 
     public override void HandleUpdate()
     {
         if (!owner.Stunned)
         {
-            if (isPatrolling == true)
+            if (owner.GetComponent<Enemy3>().PatrolEnemy == true)
             {
                 Patrol();
             }
@@ -127,12 +120,6 @@ public class Enemy3Movement : EnemyMovement
         }
     }
 
-    private bool CanSeePlayer()
-    {
-        bool lineHit = Physics2D.Linecast(owner.transform.position, target.position, layerMask);
-        Debug.Log(lineHit);
-        return !lineHit;
-    }
 
     private void positionUpdateCooldown()
     {
@@ -156,15 +143,22 @@ public class Enemy3Movement : EnemyMovement
     {
         if (CanSeePlayer() && Vector2.Distance(owner.rb.position, target.position) < attackDistance)
         {
-            if (isChargeAttacker)
+            if (owner.GetComponent<Enemy3>().ChargeEnemy == true)
             {
-                owner.Transition<Enemy3ChargeAttack>();
+                SetChargeTarget();
+                Debug.Log("Handing over to Telegraph, Charge at: " + owner.GetComponent<Enemy3>().ChargeTarget);
+                owner.Transition<Enemy3TelegraphCharge>();
             }
             else
             {
                 owner.Transition<Enemy3FollowAttack>();
             }
         }
+    }
+
+    protected void SetChargeTarget()
+    {
+        owner.GetComponent<Enemy3>().ChargeTarget = new Vector2(target.position.x, 0);
     }
 }
 

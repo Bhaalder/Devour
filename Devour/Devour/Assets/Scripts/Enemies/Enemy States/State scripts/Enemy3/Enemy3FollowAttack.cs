@@ -4,21 +4,18 @@ using UnityEngine;
 
 [CreateAssetMenu(menuName = "Enemy/Enemy3FollowAttackState")]
 
-public class Enemy3FollowAttack : EnemyBaseState
+public class Enemy3FollowAttack : EnemyMovement
 {
 
     [SerializeField] private float followSpeed = 300f;
     [SerializeField] private float abortFollow = 25f;
-
-    private Transform target;
 
     private Vector2 direction;
     private Vector2 force;
 
     public override void Enter()
     {
-    target = FindObjectOfType<Player>().transform;
-    base.Enter();
+        base.Enter();
     }
 
     public override void HandleUpdate()

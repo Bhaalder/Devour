@@ -9,12 +9,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6d760ab8b8cd5e34ebc88cdead4ce3e7, type: 3}
-  m_Name: Enemy3FollowAttack
+  m_Script: {fileID: 11500000, guid: 49b5f71b0176b5f42aaeabde40ea05e8, type: 3}
+  m_Name: Enemy3TelegraphCharge
   m_EditorClassIdentifier: 
   timeStunned: 2
   layerMask:
     serializedVersion: 2
     m_Bits: 256
-  followSpeed: 300
-  abortFollow: 25
+  enemySpeed: 700
+  distanceBeforeTurning: 3
+  patrolMoveRange: 3
+  attackDistance: 15
+  isPatrolling: 0
+  isChargeAttacker: 0
+  telegraphTime: 5
