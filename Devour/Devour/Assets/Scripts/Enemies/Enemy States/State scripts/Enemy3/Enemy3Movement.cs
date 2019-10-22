@@ -27,7 +27,7 @@ public class Enemy3Movement : EnemyMovement
     private bool startPositionSet = false;
 
     private float cooldownTime = .5f;
-    private float currentCooldown;
+    private float currentPositionCooldown;
 
 
     public override void Enter()
@@ -38,14 +38,22 @@ public class Enemy3Movement : EnemyMovement
 
     public override void HandleUpdate()
     {
-        if (isPatrolling == true)
+        if (!owner.Stunned)
         {
-            Patrol();
+            if (isPatrolling == true)
+            {
+                Patrol();
+            }
+            else
+            {
+                Movement();
+            }
         }
-        else
+        else if (owner.Stunned)
         {
-            Movement();
+            StunnedCooldown();
         }
+
         base.HandleUpdate();
     }
 
@@ -76,7 +84,6 @@ public class Enemy3Movement : EnemyMovement
 
         CheckAttackDistance();
         CheckGround();
-
     }
 
     private void Patrol()
@@ -129,15 +136,15 @@ public class Enemy3Movement : EnemyMovement
 
     private void positionUpdateCooldown()
     {
-        currentCooldown -= Time.deltaTime;
+        currentPositionCooldown -= Time.deltaTime;
 
-        if (currentCooldown > 0)
+        if (currentPositionCooldown > 0)
         {
             return;
         }
 
         setNewPosition();
-        currentCooldown = cooldownTime;
+        currentPositionCooldown = cooldownTime;
     }
 
     private void setNewPosition()

@@ -5,6 +5,10 @@ using UnityEngine;
 public class EnemyMovement : EnemyBaseState
 {
 
+    [SerializeField] protected float timeStunned = 2f;
+
+    protected float currentCooldown;
+
     public override void Enter()
     {
         base.Enter();
@@ -17,6 +21,19 @@ public class EnemyMovement : EnemyBaseState
     public override void HandleFixedUpdate()
     {
         base.HandleFixedUpdate();
+    }
+
+    protected void StunnedCooldown()
+    {
+        currentCooldown -= Time.deltaTime;
+
+        if (currentCooldown > 0)
+        {
+            return;
+        }
+
+        owner.Stunned = false;
+        currentCooldown = timeStunned;
     }
 
 }

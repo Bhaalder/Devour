@@ -27,21 +27,29 @@ public class Enemy2MovementState : EnemyMovement
     private Vector2 force;
 
     private float cooldownTime = .5f;
-    private float currentCooldown;
+    private float currentPathUpdateCooldown;
 
     public override void Enter()
     {
         base.Enter();
         seeker = owner.GetComponent<Seeker>();
         target = FindObjectOfType<Player>().transform;
-        currentCooldown = cooldownTime;
+        currentPathUpdateCooldown = cooldownTime;
     }
 
     public override void HandleUpdate()
     {
         base.HandleUpdate();
         pathUpdateCooldown();
-        Movement();
+
+        if (!owner.Stunned)
+        {
+            Movement();
+        }
+        else if (owner.Stunned)
+        {
+            StunnedCooldown();
+        }
     }
     public override void HandleFixedUpdate()
     {
@@ -119,14 +127,14 @@ public class Enemy2MovementState : EnemyMovement
 
     private void pathUpdateCooldown()
     {
-        currentCooldown -= Time.deltaTime;
+        currentPathUpdateCooldown -= Time.deltaTime;
 
-        if (currentCooldown > 0)
+        if (currentPathUpdateCooldown > 0)
         {
             return;
         }
 
         UpdatePath();
-        currentCooldown = cooldownTime;
+        currentPathUpdateCooldown = cooldownTime;
     }
 }

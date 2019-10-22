@@ -9,6 +9,7 @@ public class Enemy : StateMachine
 {
     public float Health { get; set; }
     public float Damage { get; set; }
+    public bool Stunned { get; set; }
 
     [SerializeField] private float enemyHealth;
     [SerializeField] private float damageToPlayerOnContact = 5;
@@ -24,6 +25,7 @@ public class Enemy : StateMachine
     {
         Health = enemyHealth;
         Damage = damageToPlayerOnContact;
+        Stunned = false;
     }
 
     protected override void Awake(){
@@ -102,6 +104,7 @@ public class Enemy : StateMachine
                 enemyPosition = rb.position
             };
             ptde.FireEvent();
+            Stunned = true;
         }
 
     }

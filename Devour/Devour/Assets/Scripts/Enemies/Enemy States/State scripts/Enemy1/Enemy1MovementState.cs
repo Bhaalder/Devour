@@ -14,7 +14,8 @@ public class Enemy1MovementState : EnemyMovement
     private Vector2 force;
     private Vector2 noGroundAhead;
     private bool movingRight = true;
-    
+
+
 
     public override void Enter()
     {
@@ -34,32 +35,39 @@ public class Enemy1MovementState : EnemyMovement
 
     private void Movement()
     {
-        if (movingRight)
+
+        if (!owner.Stunned)
         {
-            direction = new Vector2(1f, 0f);
-            Vector3 v = new Vector3(1f, 1f, 1f);
-            owner.setGFX(v);
+            currentCooldown = timeStunned;
+
+            if (movingRight)
+            {
+                direction = new Vector2(1f, 0f);
+                Vector3 v = new Vector3(1f, 1f, 1f);
+                owner.setGFX(v);
+            }
+            else if (!movingRight)
+            {
+                direction = new Vector2(-1f, 0f);
+                Vector3 v = new Vector3(-1f, 1f, 1f);
+                owner.setGFX(v);
+            }
+
+            force = direction.normalized * enemySpeed * Time.deltaTime;
+
+            owner.rb.AddForce(force);
+
+            CheckGround();
         }
-        else if (!movingRight)
+        else if (owner.Stunned)
         {
-            direction = new Vector2(-1f, 0f);
-            Vector3 v = new Vector3(-1f, 1f, 1f);
-            owner.setGFX(v);
+            StunnedCooldown();
         }
 
-        force = direction.normalized * enemySpeed * Time.deltaTime;
+    }
 
-        owner.rb.AddForce(force);
-
-        if (owner.rb.velocity.x <= 0.01f)
-        {
-            
-        }
-        else if (owner.rb.velocity.x >= -0.01f)
-        {
-            
-        }
-
+    private void CheckGround()
+    {
         RaycastHit2D obstructed = Physics2D.Raycast(owner.rb.position, direction, distanceBeforeTurning, layerMask);
         if (obstructed.collider == true)
         {

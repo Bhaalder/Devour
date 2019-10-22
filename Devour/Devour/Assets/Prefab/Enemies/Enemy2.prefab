@@ -51,7 +51,6 @@ MonoBehaviour:
   states:
   - {fileID: 11400000, guid: a1533498c36b89d4f93b62106f912197, type: 2}
   - {fileID: 11400000, guid: f4be1189cf461d7468506831ea166cd4, type: 2}
-  - {fileID: 11400000, guid: b6c56bf52a0f1394d8d4cb2a912c2b25, type: 2}
   enemyHealth: 50
   damageToPlayerOnContact: 25
   enemyGFX: {fileID: 1325847437968064738}
