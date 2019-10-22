@@ -46,6 +46,10 @@ public class EnemyPauseOnDamage : EnemyBaseState
         {
             owner.Transition<Enemy2MovementState>();
         }
+        else if (owner.GetComponent<Enemy3>() != null)
+        {
+            owner.Transition<Enemy3Movement>();
+        }
 
     }
 

@@ -1,13 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using System;
 
-public class Enemy1 : Enemy
+public class Enemy3 : Enemy
 {
 
-
-    protected override void Awake() {
+    protected override void Awake()
+    {
         base.Awake();
     }
 
@@ -21,5 +20,4 @@ public class Enemy1 : Enemy
     {
         base.FixedUpdate();
     }
-
 }
