@@ -39,7 +39,7 @@ public class CameraController : MonoBehaviour{
             sceneBoxCollider = GameObject.FindGameObjectWithTag("CameraBounds").GetComponent<BoxCollider2D>();
             cameraBoundsIsFound = true;
         } catch (System.Exception) {
-            Debug.LogWarning("SceneCameraBounds is not defined in CameraHolder and cannot be found in scene!");
+            Debug.LogWarning("SceneCameraBounds cannot be found in scene!");
             cameraBoundsIsFound = false;
         }
         untilNextBoundsCheck = checkBoundsTimer;
@@ -91,7 +91,7 @@ public class CameraController : MonoBehaviour{
                 return true;
             }
         } catch (System.NullReferenceException) {
-            Debug.LogWarning("SceneCameraBounds is not defined in CameraHolder and cannot be found in scene!");
+            Debug.LogWarning("SceneCameraBounds cannot be found in scene!");
         }
         cameraBoundsIsFound = false;
         return false;

@@ -14,7 +14,7 @@ public class Enemy : StateMachine
 
     [SerializeField] private Transform enemyGFX;
 
-    private CircleCollider2D circleCollider2D;
+    private BoxCollider2D boxCollider2D;
 
 
     void Start()
@@ -24,7 +24,7 @@ public class Enemy : StateMachine
     protected override void Awake(){
         base.Awake();
         rb = GetComponent<Rigidbody2D>();
-        circleCollider2D = GetComponent<CircleCollider2D>();
+        boxCollider2D = GetComponent<BoxCollider2D>();
         PlayerAttackEvent.RegisterListener(TakeDamage);
     }
 
@@ -40,7 +40,7 @@ public class Enemy : StateMachine
 
     public void TakeDamage(PlayerAttackEvent attackEvent){
         try {
-            if (attackEvent.attackCollider.bounds.Intersects(circleCollider2D.bounds)) {           
+            if (attackEvent.attackCollider.bounds.Intersects(boxCollider2D.bounds)) {           
                 ChangeEnemyHealth(-attackEvent.damage);
                 if (attackEvent.isMeleeAttack) {
                     PlayerHealEvent phe = new PlayerHealEvent {
