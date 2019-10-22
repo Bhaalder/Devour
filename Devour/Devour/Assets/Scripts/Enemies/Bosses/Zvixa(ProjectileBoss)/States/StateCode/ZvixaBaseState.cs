@@ -3,17 +3,22 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public enum BossZvixaState {
-    NONE, INTRO, IDLE, LIGHTORB_ATTACK, 
+    NONE, INTRO, IDLE, PREPARE_BASICATTACK, BASICATTACK, PREPARE_SONAR_EXPEL, SONAR_EXPEL, SPIKE_ATTACK
 }
 
-[CreateAssetMenu(menuName = "Boss/Zvixa/ZvixaIdleState")]
+//SPIKEATTACK är en followup av SonarExpel (%-chans)
+[CreateAssetMenu(menuName = "Boss/Zvixa/ZvixaBaseState")]
 public class ZvixaBaseState : State {
 
     protected Boss owner;
     protected BossZvixaState State;
+    //protected bool isInSecondStage;
+    protected Player player;
 
     public override void Enter() {
-        if(State == BossZvixaState.NONE) {
+        owner.BossLog("Initialized Zvixas states!");
+        if (State == BossZvixaState.NONE) {
+            player = GameController.Instance.Player;
             owner.Transition<ZvixaIdleState>();
         }
         base.Enter();

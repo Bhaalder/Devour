@@ -6,7 +6,7 @@ using UnityEngine;
 public class ZvixaIdleState : ZvixaBaseState {
 
     public override void Enter() {
-        
+        owner.BossLog("IdleState");
     }
 
     public override void HandleFixedUpdate() {

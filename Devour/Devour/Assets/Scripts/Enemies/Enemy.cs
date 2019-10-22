@@ -1,5 +1,5 @@
 ﻿//Main Author: Marcus Söderberg
-//Secondary Author: Patrik Ahlgren (TakeDamage(), ChangeEnemyHealth(), Start(), lade till get/set på health & damage)
+//Secondary Author: Patrik Ahlgren (TakeDamage(), ChangeEnemyHealth(), invulnerability, lade till get/set på health & damage)
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -19,7 +19,8 @@ public class Enemy : StateMachine
     [SerializeField] private Transform enemyGFX;
 
     protected BoxCollider2D boxCollider2D;
-
+    protected float startInvulnerability = 0.1f;
+    protected float invulnerabilityTimer;
 
     private void Start()
     {
@@ -37,6 +38,9 @@ public class Enemy : StateMachine
 
     protected override void Update(){
         base.Update();
+        if (invulnerabilityTimer > 0) {
+            invulnerabilityTimer -= Time.deltaTime;
+        }
     }
 
     protected override void FixedUpdate(){
@@ -44,32 +48,34 @@ public class Enemy : StateMachine
     }
 
     public virtual void TakeDamage(PlayerAttackEvent attackEvent){
-        try {
-            if (attackEvent.attackCollider.bounds.Intersects(boxCollider2D.bounds)) {
-                Vector2 knockBack;
-                ChangeEnemyHealth(-attackEvent.damage);
-                if (attackEvent.isMeleeAttack) {
-                    PlayerHealEvent phe = new PlayerHealEvent {
-                        isLifeLeech = true
-                    };
-                    phe.FireEvent();
-                    if (!attackEvent.player.IsGrounded && attackEvent.player.IsAttackingDown && attackEvent.isMeleeAttack) {
-                        attackEvent.player.ExtraJumpsLeft = attackEvent.player.ExtraJumps;
-                        attackEvent.player.Rb2D.velocity = new Vector2(attackEvent.player.Rb2D.velocity.x, 0);
-                        attackEvent.player.Rb2D.velocity = new Vector2(attackEvent.player.Rb2D.velocity.x, attackEvent.player.BounceForce);
-                        return;
+        if (invulnerabilityTimer <= 0) {
+            try {
+                if (attackEvent.attackCollider.bounds.Intersects(boxCollider2D.bounds)) {
+                    Vector2 knockBack;
+                    ChangeEnemyHealth(-attackEvent.damage);
+                    if (attackEvent.isMeleeAttack) {
+                        PlayerHealEvent phe = new PlayerHealEvent {
+                            isLifeLeech = true
+                        };
+                        phe.FireEvent();
+                        if (!attackEvent.player.IsGrounded && attackEvent.player.IsAttackingDown && attackEvent.isMeleeAttack) {
+                            attackEvent.player.ExtraJumpsLeft = attackEvent.player.ExtraJumps;
+                            attackEvent.player.Rb2D.velocity = new Vector2(attackEvent.player.Rb2D.velocity.x, 0);
+                            attackEvent.player.Rb2D.velocity = new Vector2(attackEvent.player.Rb2D.velocity.x, attackEvent.player.BounceForce);
+                            return;
+                        }
+                        if (attackEvent.player.IsAttackingUp) {
+                            knockBack = new Vector2(0, attackEvent.player.KnockbackForce);
+                            rb.velocity = knockBack;
+                            return;
+                        }
                     }
-                    if (attackEvent.player.IsAttackingUp) {
-                        knockBack = new Vector2(0, attackEvent.player.KnockbackForce);
-                        rb.velocity = knockBack;
-                        return;
-                    }
+                    knockBack = new Vector2(attackEvent.player.FacingDirection * attackEvent.player.KnockbackForce, 0);
+                    rb.velocity = knockBack;
                 }
-                knockBack = new Vector2(attackEvent.player.FacingDirection * attackEvent.player.KnockbackForce, 0);
-                rb.velocity = knockBack;
-            }
-        } catch (NullReferenceException) {
+            } catch (NullReferenceException) {
 
+            }
         }
     }
 
@@ -79,6 +85,7 @@ public class Enemy : StateMachine
         if (Health <= 0) {
             EnemyDeath();
         }
+        invulnerabilityTimer = startInvulnerability;
     }
 
     public virtual void EnemyDeath()

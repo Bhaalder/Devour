@@ -311,7 +311,7 @@ MonoBehaviour:
   meleeDamage: 25
   meleeLifeLeech: 5
   meleeCooldown: 0.2
-  projectileDamage: 15
+  projectileDamage: 50
   projectileHealthcost: 10
   projectileCooldown: 1
   knockbackForce: 5
@@ -436,7 +436,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3752226932106922875}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.05, y: -1.44, z: 0}
+  m_LocalPosition: {x: 0.05, y: -1.823, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 3752226931262427211}
