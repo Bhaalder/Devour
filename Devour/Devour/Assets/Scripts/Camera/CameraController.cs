@@ -9,11 +9,12 @@ public class CameraController : MonoBehaviour{
     [SerializeField] private Player player;
     [SerializeField] private Vector3 cameraOffset;
     [SerializeField] private float delay;
+
     private Transform playerTransform;
     private Vector3 desiredPosition;
     private Vector3 velocity;
 
-    [SerializeField] private BoxCollider2D sceneBoxCollider;
+    private BoxCollider2D sceneBoxCollider;
     private bool cameraBoundsIsFound;
     float checkBoundsTimer = 1f;
     float untilNextBoundsCheck;
@@ -78,6 +79,7 @@ public class CameraController : MonoBehaviour{
                 sceneBoxCollider = GameObject.FindGameObjectWithTag("CameraBounds").GetComponent<BoxCollider2D>();
             }
             untilNextBoundsCheck = checkBoundsTimer;
+            return;
         }
         untilNextBoundsCheck -= Time.deltaTime;
     }
