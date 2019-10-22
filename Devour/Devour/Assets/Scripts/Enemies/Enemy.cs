@@ -40,27 +40,29 @@ public class Enemy : StateMachine
 
     public void TakeDamage(PlayerAttackEvent attackEvent){
         try {
-            if (attackEvent.attackCollider.bounds.Intersects(boxCollider2D.bounds)) {           
+            if (attackEvent.attackCollider.bounds.Intersects(boxCollider2D.bounds)) {
+                Vector2 knockBack;
                 ChangeEnemyHealth(-attackEvent.damage);
                 if (attackEvent.isMeleeAttack) {
                     PlayerHealEvent phe = new PlayerHealEvent {
                         isLifeLeech = true
                     };
                     phe.FireEvent();
+                    if (!attackEvent.player.IsGrounded && attackEvent.player.IsAttackingDown && attackEvent.isMeleeAttack) {
+                        attackEvent.player.ExtraJumpsLeft = attackEvent.player.ExtraJumps;
+                        attackEvent.player.Rb2D.velocity = new Vector2(attackEvent.player.Rb2D.velocity.x, 0);
+                        attackEvent.player.Rb2D.velocity = new Vector2(attackEvent.player.Rb2D.velocity.x, attackEvent.player.BounceForce);
+                        return;
+                    }
+                    if (attackEvent.player.IsAttackingUp) {
+                        knockBack = new Vector2(0, attackEvent.player.KnockbackForce);
+                        rb.velocity = knockBack;
+                        return;
+                    }
                 }
-                if (!attackEvent.player.IsGrounded && attackEvent.player.IsAttackingDown && attackEvent.isMeleeAttack) {
-                    attackEvent.player.ExtraJumpsLeft = attackEvent.player.ExtraJumps;
-                    attackEvent.player.Rb2D.velocity = new Vector2(attackEvent.player.Rb2D.velocity.x, 0);
-                    attackEvent.player.Rb2D.velocity = new Vector2(attackEvent.player.Rb2D.velocity.x, attackEvent.player.BounceForce);
-                }
-                if (!attackEvent.player.IsAttackingDown) {
-                    Vector2 knockBack = new Vector2(attackEvent.player.FacingDirection * attackEvent.player.KnockbackForce, 0);
-                    rb.velocity = knockBack;
-                }
-                if (attackEvent.player.IsAttackingUp) {
-                    Vector2 knockBack = new Vector2(0, attackEvent.player.KnockbackForce);
-                    rb.velocity = knockBack;
-                }
+                knockBack = new Vector2(attackEvent.player.FacingDirection * attackEvent.player.KnockbackForce, 0);
+                rb.velocity = knockBack;
+
             }
         } catch (NullReferenceException) {
 
