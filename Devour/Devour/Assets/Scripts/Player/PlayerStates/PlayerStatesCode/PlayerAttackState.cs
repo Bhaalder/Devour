@@ -6,11 +6,10 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "Player/PlayerAttackState")]
 public class PlayerAttackState : PlayerBaseState {
 
-    public override void Enter() {//denna animation som ska in här måste nog ha exit-time (jag kollade på hollowknight)
+    public override void Enter() {//denna animation som ska vara här måste nog ha exit-time (jag kollade på hollowknight)
         //owner.PlayerLog("AttackState");
         owner.PlayerState = PlayerState.ATTACK;
         owner.UntilNextMeleeAttack = owner.MeleeCooldown;
-
     }
 
     public override void HandleFixedUpdate() {

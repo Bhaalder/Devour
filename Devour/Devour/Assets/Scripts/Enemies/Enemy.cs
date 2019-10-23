@@ -74,7 +74,7 @@ public class Enemy : StateMachine
                     rb.velocity = knockBack;
                 }
             } catch (NullReferenceException) {
-
+                Debug.LogWarning("A missing reference in PlayerAttackEvent, check Log!");
             }
         }
     }

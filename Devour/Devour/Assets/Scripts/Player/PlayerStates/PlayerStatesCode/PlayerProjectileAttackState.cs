@@ -45,7 +45,6 @@ public class PlayerProjectileAttackState : PlayerBaseState {
 
     protected void Attack() {
         owner.Rb2D.velocity = new Vector2(0, 0);
-
         if (attackTime <= 0) {
             if (owner.IsGrounded) {
                 owner.Transition<PlayerIdleState>();
@@ -54,7 +53,6 @@ public class PlayerProjectileAttackState : PlayerBaseState {
             }
         }
         attackTime -= Time.deltaTime;
-
     }
 
     protected override void GetMovementInput() {

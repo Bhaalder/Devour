@@ -17,7 +17,7 @@ public class ZvixaBaseState : State {
 
     public override void Enter() {
         owner.BossLog("Initialized Zvixas states!");
-        if (State == BossZvixaState.NONE) {
+        if (State == BossZvixaState.NONE) {// och om player är inne i bossrummet
             player = GameController.Instance.Player;
             owner.Transition<ZvixaIdleState>();
         }

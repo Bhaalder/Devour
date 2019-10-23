@@ -38,7 +38,7 @@ public class CameraController : MonoBehaviour{
         try {
             sceneBoxCollider = GameObject.FindGameObjectWithTag("CameraBounds").GetComponent<BoxCollider2D>();
             cameraBoundsIsFound = true;
-        } catch (System.Exception) {
+        } catch (System.NullReferenceException) {
             Debug.LogWarning("SceneCameraBounds cannot be found in scene!");
             cameraBoundsIsFound = false;
         }

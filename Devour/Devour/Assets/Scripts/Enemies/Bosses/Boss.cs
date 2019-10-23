@@ -38,7 +38,7 @@ public class Boss : Enemy{
                     }
                 }
             } catch (System.NullReferenceException) {
-
+                Debug.LogWarning("A missing reference in PlayerAttackEvent, check Log!");
             }
         }
     }
