@@ -21,7 +21,7 @@ public class Enemy4RangeAttack : EnemyBaseState
 
     private float currentAttackCooldown;
 
-    private bool canAttack = true;
+    private bool canAttack = false;
 
 
     public override void Enter()
@@ -45,9 +45,11 @@ public class Enemy4RangeAttack : EnemyBaseState
             owner.rb.velocity = new Vector2(0f, 0f);
             SetTarget();
             Attack();
+            canAttack = false;
         }
 
         AttackCooldown();
+        TurnToPlayer();
 
     }
     public override void HandleFixedUpdate()
@@ -73,7 +75,6 @@ public class Enemy4RangeAttack : EnemyBaseState
 
     private void AttackCooldown()
     {
-        canAttack = false;
         currentAttackCooldown -= Time.deltaTime;
 
         if (currentAttackCooldown > 0)
@@ -83,6 +84,20 @@ public class Enemy4RangeAttack : EnemyBaseState
 
         currentAttackCooldown = attackCooldown;
         canAttack = true;
+    }
+
+    private void TurnToPlayer()
+    {
+        if (target.position.x < owner.rb.position.x)
+        {
+            Vector3 v = new Vector3(-1f, 1f, 1f);
+            owner.setGFX(v);
+        }
+        else
+        {
+            Vector3 v = new Vector3(1f, 1f, 1f);
+            owner.setGFX(v);
+        }
     }
 
 }
