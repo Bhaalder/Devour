@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ecdc6559f53e0d44a1a3f77e3422028, type: 3}
+  m_Name: Enemy4RangeAttack
+  m_EditorClassIdentifier: 
+  abortAttack: 15
+  attackCooldown: 2
+  count: 1
+  middlePointCurve: 20
+  projectileOffset: {x: 0, y: 1}
+  enemy4Projectile: {fileID: 7510088793791112755, guid: a407df305b98ee847956af4ae15c3108,
+    type: 3}
