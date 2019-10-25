@@ -189,37 +189,63 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8c2da167ca3386e4e9f7a974884633ab, type: 3}
---- !u!1 &576137531 stripped
+--- !u!1 &565104457
 GameObject:
-  m_CorrespondingSourceObject: {fileID: 7798199713427833462, guid: 8c2da167ca3386e4e9f7a974884633ab,
-    type: 3}
-  m_PrefabInstance: {fileID: 21043000}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &576137534
-MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 576137531}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 565104458}
+  - component: {fileID: 565104459}
+  m_Layer: 0
+  m_Name: HighArea
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &565104458
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 565104457}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1092955749}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &565104459
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 565104457}
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 02fa8e99c91e5644daf9ab4389b86b0c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerSounds: []
-  enemySounds: []
-  environmentSounds: []
-  musicSounds: []
-  voiceSounds: []
-  audioMixer: {fileID: 24100000, guid: 6514dab25353a754e895e7c7a570fc29, type: 2}
-  masterMixerGroup: {fileID: 24300002, guid: 6514dab25353a754e895e7c7a570fc29, type: 2}
-  sfxMixerGroup: {fileID: 2131962249976066528, guid: 6514dab25353a754e895e7c7a570fc29,
-    type: 2}
-  musicMixerGroup: {fileID: -2622853438608223660, guid: 6514dab25353a754e895e7c7a570fc29,
-    type: 2}
-  voiceMixerGroup: {fileID: 2025667456246419455, guid: 6514dab25353a754e895e7c7a570fc29,
-    type: 2}
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 6.9815226, y: 9.206358}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 40.09648, y: 18.398464}
+  m_EdgeRadius: 0
 --- !u!1 &775885062
 GameObject:
   m_ObjectHideFlags: 0
@@ -2044,6 +2070,39 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ba1d249ac0a79f9429f90987bcfbee98, type: 3}
+--- !u!1 &1092955748
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1092955749}
+  m_Layer: 0
+  m_Name: ZvixaBossArea
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1092955749
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1092955748}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1241206021}
+  - {fileID: 565104458}
+  - {fileID: 1285235018}
+  m_Father: {fileID: 0}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1241206018
 GameObject:
   m_ObjectHideFlags: 0
@@ -2053,11 +2112,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1241206021}
-  - component: {fileID: 1241206020}
   - component: {fileID: 1241206019}
   - component: {fileID: 1241206023}
   - component: {fileID: 1241206024}
   - component: {fileID: 1241206022}
+  - component: {fileID: 1241206020}
   m_Layer: 0
   m_Name: Zvixa
   m_TagString: Untagged
@@ -2123,16 +2182,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 1241206018}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a9c78dc20212c7e4fac59d9fdb1a80ad, type: 3}
+  m_Script: {fileID: 11500000, guid: 6a712e0eb20f7c3449198d92dacb9d1a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   states:
   - {fileID: 11400000, guid: b38bf45e91cac5b45809911a981cee05, type: 2}
+  - {fileID: 11400000, guid: 7e625aea0c068ab44970e8f88fb1b9a5, type: 2}
   - {fileID: 11400000, guid: e6349fe52c4f83041ae58fbf352e074b, type: 2}
   enemyHealth: 1000
   damageToPlayerOnContact: 25
   enemyGFX: {fileID: 1241206021}
   bossName: Zvixa the Meticulous
+  highArea: {fileID: 565104459}
+  lowArea: {fileID: 1285235019}
 --- !u!4 &1241206021
 Transform:
   m_ObjectHideFlags: 0
@@ -2140,12 +2202,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1241206018}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 7.57, y: 14.54, z: 0}
   m_LocalScale: {x: 4, y: 4, z: 1}
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_Father: {fileID: 1092955749}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &1241206022
 BoxCollider2D:
@@ -2279,6 +2341,63 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 762d84cda62c2dc45aea533b0ca651b5, type: 3}
+--- !u!1 &1285235017
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1285235018}
+  - component: {fileID: 1285235019}
+  m_Layer: 0
+  m_Name: LowArea
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1285235018
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1285235017}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1092955749}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &1285235019
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1285235017}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 6.9404907, y: -1.8891163}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 40.507164, y: 4.7782326}
+  m_EdgeRadius: 0
 --- !u!1001 &1338662302
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2334,7 +2453,7 @@ PrefabInstance:
     - target: {fileID: 1560410938374507316, guid: 6e4c41df1d92a704996f3aeff088c20d,
         type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 1560410938374507316, guid: 6e4c41df1d92a704996f3aeff088c20d,
         type: 3}

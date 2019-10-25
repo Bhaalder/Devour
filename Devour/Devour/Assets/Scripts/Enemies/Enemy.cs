@@ -22,17 +22,14 @@ public class Enemy : StateMachine
     protected float startInvulnerability = 0.2f;
     protected float invulnerabilityTimer;
 
-    private void Start()
-    {
-        Health = enemyHealth;
-        Damage = damageToPlayerOnContact;
-        Stunned = false;
-    }
-
     protected override void Awake(){
         base.Awake();
         rb = GetComponent<Rigidbody2D>();
         boxCollider2D = GetComponent<BoxCollider2D>();
+        Health = enemyHealth;
+        Damage = damageToPlayerOnContact;
+        Stunned = false;
+
         PlayerAttackEvent.RegisterListener(TakeDamage);
     }
 

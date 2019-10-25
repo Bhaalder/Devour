@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class Boss : Enemy{
 
-    [SerializeField] private string bossName;
+    [SerializeField] protected string bossName;
 
     protected override void Awake() {
         base.Awake();
