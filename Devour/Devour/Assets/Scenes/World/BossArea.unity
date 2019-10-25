@@ -189,6 +189,37 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8c2da167ca3386e4e9f7a974884633ab, type: 3}
+--- !u!1 &576137531 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7798199713427833462, guid: 8c2da167ca3386e4e9f7a974884633ab,
+    type: 3}
+  m_PrefabInstance: {fileID: 21043000}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &576137534
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 576137531}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 02fa8e99c91e5644daf9ab4389b86b0c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerSounds: []
+  enemySounds: []
+  environmentSounds: []
+  musicSounds: []
+  voiceSounds: []
+  audioMixer: {fileID: 24100000, guid: 6514dab25353a754e895e7c7a570fc29, type: 2}
+  masterMixerGroup: {fileID: 24300002, guid: 6514dab25353a754e895e7c7a570fc29, type: 2}
+  sfxMixerGroup: {fileID: 2131962249976066528, guid: 6514dab25353a754e895e7c7a570fc29,
+    type: 2}
+  musicMixerGroup: {fileID: -2622853438608223660, guid: 6514dab25353a754e895e7c7a570fc29,
+    type: 2}
+  voiceMixerGroup: {fileID: 2025667456246419455, guid: 6514dab25353a754e895e7c7a570fc29,
+    type: 2}
 --- !u!1 &775885062
 GameObject:
   m_ObjectHideFlags: 0

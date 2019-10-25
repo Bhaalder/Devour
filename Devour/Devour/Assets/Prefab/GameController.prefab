@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6284974963712195168}
   - component: {fileID: 932730756030866100}
+  - component: {fileID: 576137534}
   m_Layer: 0
   m_Name: GameController
   m_TagString: Untagged
@@ -43,5 +44,49 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9b4cc3bc5174104f9d6541525374d2a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  subscribedScripts: []
-  player: {fileID: 0}
+  sceneCheckpoint: {fileID: 0}
+--- !u!114 &576137534
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7798199713427833462}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 02fa8e99c91e5644daf9ab4389b86b0c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerSounds:
+  - name: Attack
+    clip: {fileID: 8300000, guid: 922568739fd80774babff4602e9a0bcc, type: 3}
+    volume: 1
+    pitch: 1
+    spatialBlend_2D_3D: 0
+    rolloffMode: 0
+    minDistance: 0
+    maxDistance: 0
+    loop: 0
+    source: {fileID: 0}
+  - name: Dash
+    clip: {fileID: 8300000, guid: 388b67ec59fcb9d4cad6655a0d8ba7c8, type: 3}
+    volume: 1
+    pitch: 1
+    spatialBlend_2D_3D: 0
+    rolloffMode: 0
+    minDistance: 0
+    maxDistance: 0
+    loop: 0
+    source: {fileID: 0}
+  enemySounds: []
+  environmentSounds: []
+  musicSounds: []
+  voiceSounds: []
+  audioMixer: {fileID: 24100000, guid: 6514dab25353a754e895e7c7a570fc29, type: 2}
+  masterMixerGroup: {fileID: 24300002, guid: 6514dab25353a754e895e7c7a570fc29, type: 2}
+  sfxMixerGroup: {fileID: 2131962249976066528, guid: 6514dab25353a754e895e7c7a570fc29,
+    type: 2}
+  musicMixerGroup: {fileID: -2622853438608223660, guid: 6514dab25353a754e895e7c7a570fc29,
+    type: 2}
+  voiceMixerGroup: {fileID: 2025667456246419455, guid: 6514dab25353a754e895e7c7a570fc29,
+    type: 2}

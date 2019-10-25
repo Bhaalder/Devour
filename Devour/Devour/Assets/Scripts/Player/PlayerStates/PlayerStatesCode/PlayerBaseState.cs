@@ -95,7 +95,7 @@ public class PlayerBaseState : State {
     }
 
     protected void GetMeleeInput() {
-        if(owner.UntilNextMeleeAttack > 0) {
+        if (owner.UntilNextMeleeAttack > 0) {
             owner.UntilNextMeleeAttack -= Time.deltaTime;
             return;
         }
@@ -117,7 +117,15 @@ public class PlayerBaseState : State {
                 player = owner.GetComponent<Player>(),
                 isMeleeAttack = true
             };
+            AudioPlaySoundEvent attackAudio = new AudioPlaySoundEvent {
+                name = "Attack",
+                soundType = SoundType.SFX,
+                isRandomPitch = true,
+                minPitch = 0.95f,
+                maxPitch = 1f
+            };
             playerAttack.FireEvent();
+            attackAudio.FireEvent();
             owner.Transition<PlayerAttackState>();
         }
     }

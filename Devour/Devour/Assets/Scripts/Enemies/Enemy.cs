@@ -19,7 +19,7 @@ public class Enemy : StateMachine
     [SerializeField] private Transform enemyGFX;
 
     protected BoxCollider2D boxCollider2D;
-    protected float startInvulnerability = 0.1f;
+    protected float startInvulnerability = 0.2f;
     protected float invulnerabilityTimer;
 
     private void Start()

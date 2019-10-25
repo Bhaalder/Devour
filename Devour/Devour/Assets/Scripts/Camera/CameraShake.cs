@@ -25,7 +25,7 @@ public class CameraShake : MonoBehaviour {
     private void Shake(CameraShakeEvent shakeEvent) {
         startValue = shakeEvent.startValue;
         startDuration = shakeEvent.startDuration;
-        shakeValue = startValue;
+        shakeValue += startValue;
         shakeDuration = startDuration;
         if (!isShaking) {
             StartCoroutine(ShakeCamera());

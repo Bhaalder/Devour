@@ -17,10 +17,15 @@ public class PlayerDashState : PlayerBaseState {
         owner.PlayerState = PlayerState.DASH;
         dashTime = startDashTime;
         owner.UntilNextDash = owner.DashCooldown;
-        if (owner.IsTouchingWall) {
-            Flip(owner.XScale * -owner.FacingDirection);
-            owner.FacingDirection *= -1;
-        }
+
+        AudioPlaySoundEvent dashAudio = new AudioPlaySoundEvent {
+            name = "Dash",
+            soundType = SoundType.SFX,
+            isRandomPitch = true,
+            minPitch = 0.95f,
+            maxPitch = 1f
+        };
+        dashAudio.FireEvent();
     }
 
     public override void HandleFixedUpdate() {
@@ -33,6 +38,10 @@ public class PlayerDashState : PlayerBaseState {
     }
 
     protected void Dash() {
+        if (owner.IsWallSliding) {
+            Flip(owner.XScale * -owner.FacingDirection);
+            owner.FacingDirection *= -1;
+        }
         owner.Rb2D.velocity = new Vector2((dashForce * owner.FacingDirection), 0);
 
         if (dashTime <= 0) {
