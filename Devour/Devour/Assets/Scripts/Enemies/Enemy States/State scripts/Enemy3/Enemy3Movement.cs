@@ -163,7 +163,6 @@ public class Enemy3Movement : EnemyMovement
             if (owner.GetComponent<Enemy3>().ChargeEnemy == true)
             {
                 SetChargeTarget();
-                Debug.Log("Handing over to Telegraph, Charge at: " + owner.GetComponent<Enemy3>().ChargeTarget);
                 owner.Transition<Enemy3TelegraphCharge>();
             }
             else

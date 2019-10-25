@@ -37,7 +37,14 @@ public class Enemy4RangeAttack : EnemyBaseState
 
         if (Vector2.Distance(owner.rb.position, target.position) >= abortAttack)
         {
-            owner.Transition<Enemy4Movement>();
+            if (owner.GetComponent<Enemy4>().IsIdle)
+            {
+                owner.Transition<Enemy4Idle>();
+            }
+            else
+            {
+                owner.Transition<Enemy4Movement>();
+            }
         }
 
         if (canAttack)
