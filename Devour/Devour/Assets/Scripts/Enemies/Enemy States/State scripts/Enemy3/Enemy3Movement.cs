@@ -8,7 +8,7 @@ public class Enemy3Movement : EnemyMovement
 {
     [SerializeField] private float enemySpeed = 400f;
     [SerializeField] private float distanceBeforeTurning = 3f;
-    [SerializeField] private float patrolMoveRange = 3;
+    [SerializeField] private float newPositionCooldownTime = 5f;
     [SerializeField] protected float attackDistance = 15f;
 
     protected Vector2 force;
@@ -19,9 +19,10 @@ public class Enemy3Movement : EnemyMovement
 
     private bool movingRight = true;
     private bool startPositionSet = false;
+    private bool movingToNewPosition = false;
 
-    private float cooldownTime = .5f;
     private float currentPositionCooldown;
+    private float patrolMoveRange;
 
 
     public override void Enter()
@@ -87,17 +88,31 @@ public class Enemy3Movement : EnemyMovement
             startPositionSet = true;
         }
 
-        positionUpdateCooldown();
+        CheckDirection();
 
-        direction = (newPosition - owner.rb.position).normalized;
-        direction.y = 0;    
-
-        force = direction * enemySpeed * Time.deltaTime;
-        owner.rb.AddForce(force);
-
-        if (owner.rb.position == newPosition)
+        if (newPosition.x < owner.rb.position.x)
         {
-            setNewPosition();
+            direction = new Vector2(-1f, 0f);
+        }
+        else if (newPosition.x > owner.rb.position.x)
+        {
+            direction = new Vector2(1f, 0f);
+        }
+
+        if (movingToNewPosition)
+        {
+            force = direction * enemySpeed * Time.deltaTime;
+            owner.rb.AddForce(force);
+        }
+        else
+        {
+            positionUpdateCooldown();
+        }
+
+        if (Mathf.Round(owner.rb.position.x) == Mathf.Round(newPosition.x))
+        {
+            owner.rb.velocity = new Vector2(0f, 0f);
+            movingToNewPosition = false;
         }
 
         CheckAttackDistance();
@@ -131,12 +146,14 @@ public class Enemy3Movement : EnemyMovement
         }
 
         setNewPosition();
-        currentPositionCooldown = cooldownTime;
+        currentPositionCooldown = newPositionCooldownTime;
     }
 
     private void setNewPosition()
     {
-        newPosition = new Vector2(startingPosition.x + Random.Range(0, patrolMoveRange), 0);
+        patrolMoveRange = owner.GetComponent<Enemy3>().PatrolMoveRange;
+        newPosition = new Vector2(startingPosition.x + Random.Range(-patrolMoveRange, patrolMoveRange), 0);
+        movingToNewPosition = true;
     }
 
     private void CheckAttackDistance()
@@ -159,6 +176,20 @@ public class Enemy3Movement : EnemyMovement
     protected void SetChargeTarget()
     {
         owner.GetComponent<Enemy3>().ChargeTarget = new Vector2(target.position.x, 0);
+    }
+
+    private void CheckDirection()
+    {
+        if (owner.rb.velocity.x <= 0.01f && movingToNewPosition == true)
+        {
+            Vector3 v = new Vector3(-1f, 1f, 1f);
+            owner.setGFX(v);
+        }
+        else if (owner.rb.velocity.x >= -0.01f && movingToNewPosition == true)
+        {
+            Vector3 v = new Vector3(1f, 1f, 1f);
+            owner.setGFX(v);
+        }
     }
 }
 

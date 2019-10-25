@@ -12,15 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4783d990b7d45d3409f750033ac74019, type: 3}
   m_Name: Enemy3MovementState
   m_EditorClassIdentifier: 
-  enemySpeed: 400
+  timeStunned: 2
   layerMask:
     serializedVersion: 2
     m_Bits: 256
+  enemySpeed: 400
   distanceBeforeTurning: 3
-  patrolMoveRange: 3
+  patrolMoveRange: 10
+  newPositionCooldownTime: 3
   attackDistance: 10
-  canSeePLayer:
-    serializedVersion: 2
-    m_Bits: 256
-  isPatrolling: 0
-  isChargeAttacker: 0
