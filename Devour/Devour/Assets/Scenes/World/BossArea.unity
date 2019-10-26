@@ -2021,7 +2021,7 @@ PrefabInstance:
     - target: {fileID: 3752226931262427211, guid: ba1d249ac0a79f9429f90987bcfbee98,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.943
+      value: 6.82
       objectReference: {fileID: 0}
     - target: {fileID: 3752226931262427211, guid: ba1d249ac0a79f9429f90987bcfbee98,
         type: 3}
@@ -2070,6 +2070,36 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ba1d249ac0a79f9429f90987bcfbee98, type: 3}
+--- !u!1 &1056949646
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1056949647}
+  m_Layer: 0
+  m_Name: TeleportAreaRight
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1056949647
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1056949646}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 22.32, y: 12.71, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1092955749}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1092955748
 GameObject:
   m_ObjectHideFlags: 0
@@ -2100,6 +2130,9 @@ Transform:
   - {fileID: 1241206021}
   - {fileID: 565104458}
   - {fileID: 1285235018}
+  - {fileID: 1681353458}
+  - {fileID: 1467855648}
+  - {fileID: 1056949647}
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2162,7 +2195,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: abce64d31a802fe4fa15ba5d2afa85c7, type: 3}
+  m_Sprite: {fileID: 21300000, guid: b2e024169e8b61a4ba6c7d0afc5e1259, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -2189,12 +2222,18 @@ MonoBehaviour:
   - {fileID: 11400000, guid: b38bf45e91cac5b45809911a981cee05, type: 2}
   - {fileID: 11400000, guid: 7e625aea0c068ab44970e8f88fb1b9a5, type: 2}
   - {fileID: 11400000, guid: e6349fe52c4f83041ae58fbf352e074b, type: 2}
+  - {fileID: 11400000, guid: 44aaf21abd138d54799636150038bcc4, type: 2}
+  - {fileID: 11400000, guid: b326545ecc90eb34a98f5c05639bfb33, type: 2}
+  - {fileID: 11400000, guid: 477136a08a764ca4cbecf82fda63d8aa, type: 2}
   enemyHealth: 1000
   damageToPlayerOnContact: 25
   enemyGFX: {fileID: 1241206021}
   bossName: Zvixa the Meticulous
   highArea: {fileID: 565104459}
   lowArea: {fileID: 1285235019}
+  teleportAreaLeft: {fileID: 1681353458}
+  teleportAreaMiddle: {fileID: 1467855648}
+  teleportAreaRight: {fileID: 1056949647}
 --- !u!4 &1241206021
 Transform:
   m_ObjectHideFlags: 0
@@ -2226,7 +2265,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.5, y: 1.81}
+    oldSize: {x: 1.21, y: 2.01}
     newSize: {x: 1.5, y: 1.81}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -2255,7 +2294,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 4
+  m_Constraints: 6
 --- !u!58 &1241206024
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -2492,6 +2531,66 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6e4c41df1d92a704996f3aeff088c20d, type: 3}
+--- !u!1 &1467855647
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1467855648}
+  m_Layer: 0
+  m_Name: TeleportAreaMiddle
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1467855648
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1467855647}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 6.71, y: 12.71, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1092955749}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1681353457
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1681353458}
+  m_Layer: 0
+  m_Name: TeleportAreaLeft
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1681353458
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1681353457}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -8.89, y: 12.71, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1092955749}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1890774596
 GameObject:
   m_ObjectHideFlags: 0

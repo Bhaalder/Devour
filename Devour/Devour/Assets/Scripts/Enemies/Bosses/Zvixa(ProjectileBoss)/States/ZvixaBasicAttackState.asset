@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0dfb6fda114080944bd3d42bd788dbc6, type: 3}
   m_Name: ZvixaBasicAttackState
   m_EditorClassIdentifier: 
-  colorTest: {r: 0, g: 0, b: 0, a: 0}
-  introTime: 0
+  colorTest: {r: 1, g: 0.9227282, b: 0, a: 1}
+  basicAttackTimeWindUp: 0
+  basicAttackTime: 0
   ballAttackGameObject: {fileID: 0}

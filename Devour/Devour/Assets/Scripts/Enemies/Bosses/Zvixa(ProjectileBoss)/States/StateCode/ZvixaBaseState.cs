@@ -12,7 +12,8 @@ public class ZvixaBaseState : State {
     protected Zvixa owner;
     public Color colorTest; //För tillfället för test
     //protected bool isInSecondStage;
-    private float moveTime = 2f;
+    private float minimumTimeUntilMove = 1.5f;
+    private float maximumTimeUntilMove = 3.5f;
     private float timeUntilNextMove;
     protected Transform lastTeleport;
     protected Transform teleportLocation;
@@ -40,7 +41,7 @@ public class ZvixaBaseState : State {
             timeUntilNextMove -= Time.deltaTime;
             return;
         }
-        timeUntilNextMove = moveTime;
+        timeUntilNextMove = Random.Range(minimumTimeUntilMove, maximumTimeUntilMove);
         while(lastTeleport == teleportLocation) {
             int position = Random.Range(0, 3) + 1;
             switch (position) {

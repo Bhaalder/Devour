@@ -60,7 +60,7 @@ MonoBehaviour:
   playerSounds:
   - name: Attack
     clip: {fileID: 8300000, guid: 922568739fd80774babff4602e9a0bcc, type: 3}
-    volume: 1
+    volume: 0.8
     pitch: 1
     spatialBlend_2D_3D: 0
     rolloffMode: 0

@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 12a049ef9eeb8da4fbab9335c8d19029, type: 3}
   m_Name: ZvixaSpikeAttackState
   m_EditorClassIdentifier: 
-  colorTest: {r: 0, g: 0, b: 0, a: 0}
-  introTime: 0
+  colorTest: {r: 1, g: 0, b: 0, a: 1}
+  spikeAttackWindUpTime: 0
+  spikeAttackTime: 0
   ballAttackGameObject: {fileID: 0}

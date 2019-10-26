@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2adc1bff22b152b489bce4e7b498f8c8, type: 3}
   m_Name: ZvixaSonarExpelState
   m_EditorClassIdentifier: 
-  colorTest: {r: 0, g: 0, b: 0, a: 0}
+  colorTest: {r: 1, g: 0.6060064, b: 0, a: 1}
   introTime: 0
   sonarExpelGameObject: {fileID: 0}

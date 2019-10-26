@@ -12,3 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41d5e4c37e25c0740ba524c8df1fae24, type: 3}
   m_Name: ZvixaBaseState
   m_EditorClassIdentifier: 
+  colorTest: {r: 1, g: 1, b: 1, a: 0}
