@@ -11,8 +11,8 @@ public class Enemy : StateMachine
     public float Damage { get; set; }
     public bool Stunned { get; set; }
 
-    [SerializeField] private float enemyHealth;
-    [SerializeField] private float damageToPlayerOnContact = 5;
+    [SerializeField] protected float enemyHealth;
+    [SerializeField] protected float damageToPlayerOnContact = 5;
     
     [SerializeField] public Rigidbody2D rb { get; set; }
 
@@ -96,7 +96,7 @@ public class Enemy : StateMachine
         enemyGFX.localScale = v;
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    protected virtual void OnCollisionEnter2D(Collision2D collision)
     {
         Debug.Log("collision is made");
         if (collision.gameObject.tag == "Player")

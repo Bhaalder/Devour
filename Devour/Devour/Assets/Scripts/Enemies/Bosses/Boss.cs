@@ -59,6 +59,18 @@ public class Boss : Enemy{
         Destroy(gameObject);
     }
 
+    protected override void OnCollisionEnter2D(Collision2D collision) {
+        Debug.Log("collision is made");
+        if (collision.gameObject.tag == "Player") {
+            Debug.Log("collision is player");
+            PlayerTakeDamageEvent ptde = new PlayerTakeDamageEvent {
+                damage = damageToPlayerOnContact,
+                enemyPosition = rb.position
+            };
+            ptde.FireEvent();
+        }
+    }
+
     public void BossLog(string message) {
         Debug.Log(bossName + ": " + message);
     }

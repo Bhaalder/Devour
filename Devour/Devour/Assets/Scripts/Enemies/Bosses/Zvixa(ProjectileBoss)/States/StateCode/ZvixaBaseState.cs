@@ -10,18 +10,22 @@ using UnityEngine;
 public class ZvixaBaseState : State {
 
     protected Zvixa owner;
+    public Color colorTest; //För tillfället för test
     //protected bool isInSecondStage;
     private float moveTime = 2f;
     private float timeUntilNextMove;
+    protected Transform lastTeleport;
+    protected Transform teleportLocation;
 
     public override void Enter() {
-        owner.BossLog("Initialized Zvixas states!");
         base.Enter();
+        owner.GetComponent<SpriteRenderer>().color = colorTest;//TEST
     }
 
     public override void HandleFixedUpdate() {
         base.HandleFixedUpdate();
         Movement();
+        FacingDirection();
     }
 
     public override void HandleUpdate() {
@@ -37,7 +41,28 @@ public class ZvixaBaseState : State {
             return;
         }
         timeUntilNextMove = moveTime;
-        owner.Rb2d.velocity = new Vector2(Random.Range(-10, 10), Random.Range(-10, 10));
+        while(lastTeleport == teleportLocation) {
+            int position = Random.Range(0, 3) + 1;
+            switch (position) {
+                case 1:
+                    teleportLocation = owner.TeleportAreaLeft;
+                    break;
+                case 2:
+                    teleportLocation = owner.TeleportAreaMiddle;
+                    break;
+                case 3:
+                    teleportLocation = owner.TeleportAreaRight;
+                    break;
+            }
+        }
+        if(lastTeleport == null || teleportLocation == null) {
+            lastTeleport = owner.TeleportAreaMiddle;
+            teleportLocation = owner.TeleportAreaMiddle;
+        }
+        //owner.Rb2d.MovePosition(teleportLocation.position);
+        owner.rb.velocity = new Vector2(0, 0);
+        owner.transform.position = teleportLocation.position;
+        lastTeleport = teleportLocation;
     }
 
     protected int CheckPlayerPosition() {
@@ -48,6 +73,26 @@ public class ZvixaBaseState : State {
             return 2;
         }
         return -1;
+    }
+
+    public void ChangeColorTest() {//TEST
+        
+    }
+
+    private void FacingDirection() {
+        if (owner.Player.transform.position.x < owner.transform.position.x) {
+            Flip(-4);
+            //owner.FacingDirection = -1;
+        } else {
+            Flip(4);
+            //owner.FacingDirection = 1;
+        }
+    }
+
+    protected void Flip(float direction) {
+        Vector3 myScale = owner.transform.localScale;
+        myScale.x = direction;
+        owner.transform.localScale = myScale;
     }
 
     public override void Initialize(StateMachine owner) {

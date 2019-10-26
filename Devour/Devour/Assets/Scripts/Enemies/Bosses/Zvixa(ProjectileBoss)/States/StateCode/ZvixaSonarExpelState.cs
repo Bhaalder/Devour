@@ -3,15 +3,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "Boss/Zvixa/ZvixaIntroState")]
-public class ZvixaIntroState : ZvixaBaseState {
+[CreateAssetMenu(menuName = "Boss/Zvixa/ZvixaSonarExpelState")]
+public class ZvixaSonarExpelState : ZvixaBaseState {
 
     [Tooltip("How long time the introsequence lasts")]
     [SerializeField] private float introTime;
+    [Tooltip("The projectile that Zvixa shoots out")]
+    [SerializeField] private GameObject sonarExpelGameObject;
 
     public override void Enter() {
-        owner.State = BossZvixaState.INTRO;
-        owner.BossLog("IntroState");
+        owner.State = BossZvixaState.SONAR_EXPEL;
+        owner.BossLog("SonarExpelState");
         base.Enter();
     }
 
@@ -20,11 +22,7 @@ public class ZvixaIntroState : ZvixaBaseState {
     }
 
     public override void HandleUpdate() {
-        if(introTime > 0) {
-            introTime -= Time.deltaTime;
-            return;
-        }
-        owner.Transition<ZvixaIdleState>();
+        
         base.HandleUpdate();
     }
 }

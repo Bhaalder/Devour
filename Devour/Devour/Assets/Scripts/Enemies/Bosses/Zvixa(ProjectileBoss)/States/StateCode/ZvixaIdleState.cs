@@ -18,12 +18,13 @@ public class ZvixaIdleState : ZvixaBaseState {
     public override void Enter() {
         owner.State = BossZvixaState.IDLE;
         owner.BossLog("IdleState");
-        actAgain = Random.Range(1, 100) + 1;
+        actAgain = Random.Range(0, 100) + 1;
         if(actAgain <= actAgainPercentage) {
             untilNextAction = 0;
         } else {
             untilNextAction = Random.Range(minIdle, maxIdle);
-        }      
+        }
+        base.Enter();
     }
 
     public override void HandleFixedUpdate() {
@@ -40,15 +41,21 @@ public class ZvixaIdleState : ZvixaBaseState {
     }
 
     private void DecideAction() {
-        int percentage = Random.Range(1, 100) + 1;
+        int percentage = Random.Range(0, 100) + 1;
         switch (CheckPlayerPosition()) {
             case 1:
                 if(percentage <= 60) {
-
+                    owner.Transition<ZvixaBasicAttackState>();
+                } else {
+                    owner.Transition<ZvixaSonarExpelState>();
                 }
                 break;
             case 2:
-
+                if (percentage <= 60) {
+                    owner.Transition<ZvixaBasicAttackState>();
+                } else {
+                    owner.Transition<ZvixaSpikeAttackState>();
+                }
                 break;
             default:
                 break;
