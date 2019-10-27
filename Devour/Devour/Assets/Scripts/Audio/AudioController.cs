@@ -553,4 +553,18 @@ public class AudioController : MonoBehaviour {
         Debug.LogWarning("The sound with name '" + name + "' could not be found in list. Is it spelled correctly? (NullReferenceException)");
     }
 
+    private void OnDestroy() {
+        AudioPlaySoundEvent.UnRegisterListener(Play);
+        AudioStopSoundEvent.UnRegisterListener(Stop);
+        AudioPauseSoundEvent.UnRegisterListener(Pause);
+        AudioPlaySoundAtLocationEvent.UnRegisterListener(Play_InWorldspace);
+        AudioPlayRandomSoundAtLocationEvent.UnRegisterListener(PlayRandom_InWorldspace);
+        AudioPlayRandomSoundEvent.UnRegisterListener(PlayRandom);
+        AudioPlaySequence.UnRegisterListener(PlaySequence);
+        AudioFadeSoundEvent.UnRegisterListener(Fade);
+        AudioSoundVolumeEvent.UnRegisterListener(SoundSetVolume);
+        AudioMixerVolumeEvent.UnRegisterListener(MixerSetVolume);
+        AudioMixerPitchEvent.UnRegisterListener(MixerSetPitch);
+    }
+
 }

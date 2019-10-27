@@ -110,7 +110,10 @@ public class Enemy : StateMachine
             ptde.FireEvent();
             Stunned = true;
         }
+    }
 
+    private void OnDestroy() {
+        PlayerAttackEvent.UnRegisterListener(TakeDamage);
     }
 
 }
