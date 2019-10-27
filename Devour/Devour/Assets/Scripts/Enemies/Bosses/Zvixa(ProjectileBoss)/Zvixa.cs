@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿//Author: Patrik Ahlgren
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -18,7 +19,7 @@ public class Zvixa : Boss{
 
     public int FacingDirection { get; set; }
 
-    public Player Player { get; set; }
+    
     public float DistanceToPlayer { get; set; }
 
     [SerializeField] private BoxCollider2D highArea;
@@ -26,10 +27,6 @@ public class Zvixa : Boss{
     [SerializeField] private Transform teleportAreaLeft;
     [SerializeField] private Transform teleportAreaMiddle;
     [SerializeField] private Transform teleportAreaRight;
-
-    private void Start() {
-        Player = GameController.Instance.Player;           
-    }
 
     protected override void Awake() {
         base.Awake();
@@ -49,7 +46,7 @@ public class Zvixa : Boss{
         base.FixedUpdate();
     }
 
-    protected override void OnCollisionEnter2D(Collision2D collision) {
+    protected override void OnCollisionStay2D(Collision2D collision) {
         if (collision.gameObject.tag == "Player") {
             Debug.Log("Collided with Player");
             PlayerTakeDamageEvent ptde = new PlayerTakeDamageEvent {

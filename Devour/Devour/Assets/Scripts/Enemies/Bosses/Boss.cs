@@ -59,7 +59,7 @@ public class Boss : Enemy{
         Destroy(gameObject);
     }
 
-    protected override void OnCollisionEnter2D(Collision2D collision) {
+    protected override void OnCollisionStay2D(Collision2D collision) {
         Debug.Log("collision is made");
         if (collision.gameObject.tag == "Player") {
             Debug.Log("collision is player");

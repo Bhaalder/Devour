@@ -7,6 +7,7 @@ using System;
 
 public class Enemy : StateMachine
 {
+    public Player Player { get; set; }
     public float Health { get; set; }
     public float Damage { get; set; }
     public bool Stunned { get; set; }
@@ -21,6 +22,10 @@ public class Enemy : StateMachine
     protected BoxCollider2D boxCollider2D;
     protected float startInvulnerability = 0.2f;
     protected float invulnerabilityTimer;
+
+    private void Start() {
+        Player = GameController.Instance.player;
+    }
 
     protected override void Awake(){
         base.Awake();
@@ -96,7 +101,7 @@ public class Enemy : StateMachine
         enemyGFX.localScale = v;
     }
 
-    protected virtual void OnCollisionEnter2D(Collision2D collision)
+    protected virtual void OnCollisionStay2D(Collision2D collision)
     {
         Debug.Log("collision is made");
         if (collision.gameObject.tag == "Player")

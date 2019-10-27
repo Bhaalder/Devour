@@ -3,8 +3,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-
-
 //SPIKEATTACK är en followup av SonarExpel (%-chans)
 [CreateAssetMenu(menuName = "Boss/Zvixa/ZvixaBaseState")]
 public class ZvixaBaseState : State {

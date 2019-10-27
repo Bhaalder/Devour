@@ -21,15 +21,11 @@ public class Enemy2IdleState : EnemyBaseState
     private bool isWithinAttackDistance = false;
     private Transform target;
 
-
-
-
-
     public override void Enter()
     {
         base.Enter();
-        //target = FindObjectOfType<Player>().transform;
-        target = GameController.Instance.Player.transform;
+        target = FindObjectOfType<Player>().transform;
+        //target = owner.Player.transform;
     }
 
     public override void HandleUpdate()
@@ -52,7 +48,7 @@ public class Enemy2IdleState : EnemyBaseState
         {
             setNewPosition();
         }
-
+        
         if (Vector2.Distance(owner.rb.position, target.position) <= attackDistance)
         {
             owner.Transition<Enemy2MovementState>();
