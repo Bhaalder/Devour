@@ -53,13 +53,12 @@ public class Boss : Enemy{
     }
 
     public override void EnemyDeath() {
-        PlayerAttackEvent.UnRegisterListener(TakeDamage);
         //Bossen gör en animation som tar X lång tid
         //Bossen dör
         Destroy(gameObject);
     }
 
-    protected override void OnCollisionEnter2D(Collision2D collision) {
+    protected override void OnCollisionStay2D(Collision2D collision) {
         Debug.Log("collision is made");
         if (collision.gameObject.tag == "Player") {
             Debug.Log("collision is player");
