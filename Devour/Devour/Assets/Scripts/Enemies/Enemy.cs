@@ -92,7 +92,6 @@ public class Enemy : StateMachine
 
     public virtual void EnemyDeath()
     {
-        PlayerAttackEvent.UnRegisterListener(TakeDamage);
         Destroy(gameObject);
     }
 

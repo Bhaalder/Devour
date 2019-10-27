@@ -53,7 +53,6 @@ public class Boss : Enemy{
     }
 
     public override void EnemyDeath() {
-        PlayerAttackEvent.UnRegisterListener(TakeDamage);
         //Bossen gör en animation som tar X lång tid
         //Bossen dör
         Destroy(gameObject);

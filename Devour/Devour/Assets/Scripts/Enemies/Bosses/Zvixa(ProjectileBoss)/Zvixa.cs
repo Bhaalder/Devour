@@ -59,7 +59,6 @@ public class Zvixa : Boss{
     }
 
     public override void EnemyDeath() {
-        PlayerAttackEvent.UnRegisterListener(TakeDamage);
         //Transition till DeathState
         Destroy(gameObject);//FÖR TILLFÄLLET
     }
