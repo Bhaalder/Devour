@@ -10,12 +10,16 @@ public class ZvixaSpikeAttackState : ZvixaBaseState {
     [SerializeField] private float spikeAttackWindUpTime;
     [Tooltip("How long time the spikeAttack lasts")]
     [SerializeField] private float spikeAttackTime;
-    [Tooltip("The projectile that Zvixa shoots out")]
-    [SerializeField] private GameObject ballAttackGameObject;
+    
+    private float windUpLeft;
+    private float attackTimeLeft;
+
 
     public override void Enter() {
         owner.State = BossZvixaState.SPIKE_ATTACK;
         owner.BossLog("SpikeAttackState");
+        windUpLeft = spikeAttackWindUpTime;
+        attackTimeLeft = spikeAttackTime;
         base.Enter();
     }
 
@@ -24,7 +28,14 @@ public class ZvixaSpikeAttackState : ZvixaBaseState {
     }
 
     public override void HandleUpdate() {
-        
+        windUpLeft -= Time.deltaTime;
+        attackTimeLeft -= Time.deltaTime;
+        if (windUpLeft <= 0) {
+            Debug.Log("Spikes spawns (not implemented)");
+        }
+        if (attackTimeLeft <= 0) {
+            owner.Transition<ZvixaIdleState>();
+        }
         base.HandleUpdate();
     }
 }

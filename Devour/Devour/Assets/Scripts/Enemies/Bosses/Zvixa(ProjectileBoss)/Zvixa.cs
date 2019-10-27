@@ -16,6 +16,8 @@ public class Zvixa : Boss{
     public Transform TeleportAreaMiddle { get; set; }
     public Transform TeleportAreaRight { get; set; }
 
+    public int FacingDirection { get; set; }
+
     public Player Player { get; set; }
     public float DistanceToPlayer { get; set; }
 

@@ -11,7 +11,7 @@ public class ZvixaBaseState : State {
 
     protected Zvixa owner;
     public Color colorTest; //För tillfället för test
-    //protected bool isInSecondStage;
+    protected bool battleStart;
     private float minimumTimeUntilMove = 1.5f;
     private float maximumTimeUntilMove = 3.5f;
     private float timeUntilNextMove;
@@ -25,7 +25,9 @@ public class ZvixaBaseState : State {
 
     public override void HandleFixedUpdate() {
         base.HandleFixedUpdate();
-        Movement();
+        if (!battleStart) {
+            Movement();
+        }
         FacingDirection();
     }
 
@@ -33,6 +35,7 @@ public class ZvixaBaseState : State {
         if (owner.State == BossZvixaState.NONE && CheckPlayerPosition() == 2) {// och om player är inne i bossrummet
             owner.Transition<ZvixaIntroState>();
         }
+        owner.rb.velocity = Vector2.zero;
         base.HandleUpdate();
     }
 
@@ -83,10 +86,10 @@ public class ZvixaBaseState : State {
     private void FacingDirection() {
         if (owner.Player.transform.position.x < owner.transform.position.x) {
             Flip(-4);
-            //owner.FacingDirection = -1;
+            owner.FacingDirection = -1;
         } else {
             Flip(4);
-            //owner.FacingDirection = 1;
+            owner.FacingDirection = 1;
         }
     }
 

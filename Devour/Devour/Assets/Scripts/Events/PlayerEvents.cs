@@ -33,3 +33,9 @@ public class PlayerTouchKillzoneEvent : Event<PlayerTouchKillzoneEvent> {
     public float damage;
 
 }
+
+public class PlayerDiedEvent : Event<PlayerDiedEvent> {
+
+    //info var man dog (typ vilken scen m.m.)
+
+}

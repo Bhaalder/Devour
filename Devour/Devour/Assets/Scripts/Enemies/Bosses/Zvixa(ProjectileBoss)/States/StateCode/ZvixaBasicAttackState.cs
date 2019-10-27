@@ -10,12 +10,25 @@ public class ZvixaBasicAttackState : ZvixaBaseState {
     [SerializeField] private float basicAttackTimeWindUp;
     [Tooltip("How long time the basic attack lasts")]
     [SerializeField] private float basicAttackTime;
+    [Tooltip("How much damage the ball does on contact")]
+    [SerializeField] private float ballDamage;
+    [Tooltip("How fast the ball moves")]
+    [SerializeField] private float ballSpeed;
+    [Tooltip("How long the ball is out before disappearing")]
+    [SerializeField] private float ballLifespan;
     [Tooltip("The projectile that Zvixa shoots out")]
-    [SerializeField] private GameObject ballAttackGameObject;
+    [SerializeField] private GameObject ballAttackPrefab;
+    private bool ballSpawned;
+    private float windUpLeft;
+    private float attackTimeLeft;
+
 
     public override void Enter() {
         owner.State = BossZvixaState.BASICATTACK;
         owner.BossLog("BasicAttackState");
+        windUpLeft = basicAttackTimeWindUp;
+        attackTimeLeft = basicAttackTime;
+        ballSpawned = false;
         base.Enter();
     }
 
@@ -24,7 +37,30 @@ public class ZvixaBasicAttackState : ZvixaBaseState {
     }
 
     public override void HandleUpdate() {
-        
-        base.HandleUpdate();
+        windUpLeft -= Time.deltaTime;
+        attackTimeLeft -= Time.deltaTime;
+        if (windUpLeft <= 0 && !ballSpawned) {
+            SpawnBall();
+            ballSpawned = true;
+        }
+        if(attackTimeLeft <= 0) {
+            owner.Transition<ZvixaIdleState>();
+        }
+        base.HandleUpdate();       
     }
+
+    protected override void Movement() {
+
+    }
+
+    private void SpawnBall() {
+        GameObject projectile;
+        ZvixaProjectile zvixaProjectile;
+        projectile = Instantiate(ballAttackPrefab, owner.transform.position + new Vector3(owner.FacingDirection * 6, 2, 0), Quaternion.identity);
+        zvixaProjectile = projectile.GetComponent<ZvixaProjectile>();
+        zvixaProjectile.Damage = ballDamage;
+        zvixaProjectile.Speed = ballSpeed;
+        zvixaProjectile.LifeSpan = ballLifespan;
+    }
+
 }

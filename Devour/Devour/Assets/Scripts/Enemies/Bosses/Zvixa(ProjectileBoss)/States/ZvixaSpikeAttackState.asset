@@ -13,6 +13,5 @@ MonoBehaviour:
   m_Name: ZvixaSpikeAttackState
   m_EditorClassIdentifier: 
   colorTest: {r: 1, g: 0, b: 0, a: 1}
-  spikeAttackWindUpTime: 0
-  spikeAttackTime: 0
-  ballAttackGameObject: {fileID: 0}
+  spikeAttackWindUpTime: 0.5
+  spikeAttackTime: 2

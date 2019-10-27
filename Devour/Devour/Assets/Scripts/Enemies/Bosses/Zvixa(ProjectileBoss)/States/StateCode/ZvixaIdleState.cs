@@ -12,12 +12,17 @@ public class ZvixaIdleState : ZvixaBaseState {
     [SerializeField] protected float maxIdle;
     [Tooltip("The chance in % that the boss will act immediately again after an action")]
     [SerializeField] protected int actAgainPercentage;
+    [Tooltip("The chance in % that the boss will do the basic attack")]
+    [SerializeField] protected int basicAttackPercentage;
     private float untilNextAction;
     private int actAgain;
 
     public override void Enter() {
         owner.State = BossZvixaState.IDLE;
         owner.BossLog("IdleState");
+        if (!battleStart) {
+            battleStart = true;
+        }
         actAgain = Random.Range(0, 100) + 1;
         if(actAgain <= actAgainPercentage) {
             untilNextAction = 0;
@@ -44,14 +49,14 @@ public class ZvixaIdleState : ZvixaBaseState {
         int percentage = Random.Range(0, 100) + 1;
         switch (CheckPlayerPosition()) {
             case 1:
-                if(percentage <= 60) {
+                if(percentage <= basicAttackPercentage) {
                     owner.Transition<ZvixaBasicAttackState>();
                 } else {
                     owner.Transition<ZvixaSonarExpelState>();
                 }
                 break;
             case 2:
-                if (percentage <= 60) {
+                if (percentage <= basicAttackPercentage) {
                     owner.Transition<ZvixaBasicAttackState>();
                 } else {
                     owner.Transition<ZvixaSpikeAttackState>();
