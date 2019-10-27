@@ -28,7 +28,8 @@ public class Enemy2IdleState : EnemyBaseState
     public override void Enter()
     {
         base.Enter();
-        target = FindObjectOfType<Player>().transform;
+        //target = FindObjectOfType<Player>().transform;
+        target = GameController.Instance.Player.transform;
     }
 
     public override void HandleUpdate()
