@@ -109,9 +109,17 @@ public class PlayerBaseState : State {
                 owner.IsAttackingUp = true;
                 owner.Animator.SetBool("IsAttackingUp", true);
             }
-            if (owner.IsAttackingDown) {
+            if (Input.GetAxisRaw("Vertical") < 0 && !owner.IsGrounded) {
                 attackCollider = owner.PlayerDownMeleeCollider;
+                owner.IsAttackingDown = true;
+                owner.Animator.SetBool("IsAttackingDown", true);
+            } else {
+                owner.IsAttackingDown = false;
+                owner.Animator.SetBool("IsAttackingDown", false);
             }
+            //if (owner.IsAttackingDown) {
+            //    attackCollider = owner.PlayerDownMeleeCollider;
+            //}
             PlayerAttackEvent playerAttack = new PlayerAttackEvent {
                 attackCollider = attackCollider,
                 damage = owner.MeleeDamage,
