@@ -55,6 +55,7 @@ public class Enemy : StateMachine
                 if (attackEvent.attackCollider.bounds.Intersects(boxCollider2D.bounds)) {
                     Vector2 knockBack;
                     ChangeEnemyHealth(-attackEvent.damage);
+                    HurtSound();
                     if (attackEvent.isMeleeAttack) {
                         PlayerHealEvent phe = new PlayerHealEvent {
                             isLifeLeech = true
@@ -88,6 +89,18 @@ public class Enemy : StateMachine
             EnemyDeath();
         }
         invulnerabilityTimer = startInvulnerability;
+    }
+
+    protected void HurtSound() {
+        string[] soundNames = { "Hit1", "Hit2", "Hit3" };
+        AudioPlayRandomSoundEvent hurtSound = new AudioPlayRandomSoundEvent {
+            name = soundNames,
+            isRandomPitch = true,
+            minPitch = 0.96f,
+            maxPitch = 1.0f,
+            soundType = SoundType.SFX
+        };
+        hurtSound.FireEvent();
     }
 
     public virtual void EnemyDeath()

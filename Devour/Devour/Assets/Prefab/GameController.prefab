@@ -44,7 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9b4cc3bc5174104f9d6541525374d2a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneCheckpoint: {fileID: 0}
+  player: {fileID: 0}
 --- !u!114 &576137534
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -78,7 +78,37 @@ MonoBehaviour:
     maxDistance: 0
     loop: 0
     source: {fileID: 0}
-  enemySounds: []
+  enemySounds:
+  - name: Hit1
+    clip: {fileID: 8300000, guid: 4b441940730ed9b47b75367b65eeaf3d, type: 3}
+    volume: 1
+    pitch: 1
+    spatialBlend_2D_3D: 0
+    rolloffMode: 0
+    minDistance: 0
+    maxDistance: 0
+    loop: 0
+    source: {fileID: 0}
+  - name: Hit2
+    clip: {fileID: 8300000, guid: 74cbaa6f43623ba40b4168390eaf0009, type: 3}
+    volume: 1
+    pitch: 1
+    spatialBlend_2D_3D: 0
+    rolloffMode: 0
+    minDistance: 0
+    maxDistance: 0
+    loop: 0
+    source: {fileID: 0}
+  - name: Hit3
+    clip: {fileID: 8300000, guid: 92dfb696ae3b03b4eaedea55e165d280, type: 3}
+    volume: 1
+    pitch: 1
+    spatialBlend_2D_3D: 0
+    rolloffMode: 0
+    minDistance: 0
+    maxDistance: 0
+    loop: 0
+    source: {fileID: 0}
   environmentSounds: []
   musicSounds: []
   voiceSounds: []
