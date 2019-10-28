@@ -48,11 +48,15 @@ public class Enemy2IdleState : EnemyBaseState
         {
             setNewPosition();
         }
-        
-        if (Vector2.Distance(owner.rb.position, target.position) <= attackDistance)
-        {
-            owner.Transition<Enemy2MovementState>();
+
+        try {
+            if (Vector2.Distance(owner.rb.position, target.position) <= attackDistance) {
+                owner.Transition<Enemy2MovementState>();
+            }
+        } catch (MissingReferenceException) {
+            target = FindObjectOfType<Player>().transform;
         }
+
 
 
     }

@@ -1,5 +1,5 @@
 ﻿//Main Author: Marcus Söderberg
-//Secondary Author: Patrik Ahlgren (TakeDamage(), ChangeEnemyHealth(), invulnerability, lade till get/set på health & damage)
+//Secondary Author: Patrik Ahlgren (TakeDamage(), ChangeEnemyHealth(), invulnerability, lade till get/set på health & damage, lade till Player)
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -102,10 +102,8 @@ public class Enemy : StateMachine
 
     protected virtual void OnCollisionStay2D(Collision2D collision)
     {
-        Debug.Log("collision is made");
         if (collision.gameObject.tag == "Player")
         {
-            Debug.Log("collision is player");
             PlayerTakeDamageEvent ptde = new PlayerTakeDamageEvent
             {
                 damage = damageToPlayerOnContact,
