@@ -103,9 +103,11 @@ public class PlayerBaseState : State {
             BoxCollider2D attackCollider;
             attackCollider = owner.PlayerHorizontalMeleeCollider;
             owner.IsAttackingUp = false;
+            owner.Animator.SetBool("IsAttackingUp", false);
             if (Input.GetAxisRaw("Vertical") > 0) {
                 attackCollider = owner.PlayerUpMeleeCollider;
                 owner.IsAttackingUp = true;
+                owner.Animator.SetBool("IsAttackingUp", true);
             }
             if (owner.IsAttackingDown) {
                 attackCollider = owner.PlayerDownMeleeCollider;
