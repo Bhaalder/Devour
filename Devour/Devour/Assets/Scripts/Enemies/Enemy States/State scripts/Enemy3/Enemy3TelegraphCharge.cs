@@ -18,7 +18,6 @@ public class Enemy3TelegraphCharge : Enemy3Movement
     }
     public override void HandleUpdate()
     {
-        //base.HandleUpdate();
         TelegraphTime();
     }
     public override void HandleFixedUpdate()
@@ -36,7 +35,6 @@ public class Enemy3TelegraphCharge : Enemy3Movement
         }
 
         currentTCooldown = telegraphTime;
-        Debug.Log(owner.ToString() + "Beginning my charge!");
         owner.Transition<Enemy3ChargeAttack>();
 
     }

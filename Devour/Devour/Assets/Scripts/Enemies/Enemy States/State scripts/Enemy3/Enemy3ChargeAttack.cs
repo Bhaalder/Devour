@@ -11,12 +11,10 @@ public class Enemy3ChargeAttack : Enemy3Movement
     public override void Enter()
     {
         base.Enter();
-        Debug.Log("Enter A; Attack Target:"+ owner.GetComponent<Enemy3>().ChargeTarget);
     }
 
     public override void HandleUpdate()
     {
-        //base.HandleUpdate();
         if (!owner.Stunned)
         {
             Movement();
