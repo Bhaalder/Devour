@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 3510261926993473058}
   - component: {fileID: 8795822803368772979}
   - component: {fileID: 4685576645109338654}
+  - component: {fileID: 8579277151344628686}
   m_Layer: 0
   m_Name: Enemy4Projectile
   m_TagString: Untagged
@@ -93,3 +94,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41c4435606fe53d40b1431c4a5b8a322, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  timeToDestruction: 2
+--- !u!58 &8579277151344628686
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7510088793791112755}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.74

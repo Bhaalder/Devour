@@ -203,7 +203,7 @@ GameObject:
   - component: {fileID: 4053150901980052511}
   m_Layer: 9
   m_Name: Enemy3
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -250,6 +250,7 @@ MonoBehaviour:
   enemyGFX: {fileID: 949550574438261648}
   chargeEnemy: 0
   patrolEnemy: 0
+  patrolMoveRange: 5
 --- !u!58 &949550574438261651
 CircleCollider2D:
   m_ObjectHideFlags: 0
