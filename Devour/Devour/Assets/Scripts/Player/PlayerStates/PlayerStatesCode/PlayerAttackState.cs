@@ -20,7 +20,7 @@ public class PlayerAttackState : PlayerBaseState {
         if(owner.UntilNextMeleeAttack <= 0) {
             owner.IsAttackingUp = false;
             owner.Animator.SetBool("IsAttackingUp", false);
-            if (Input.GetButton("Horizontal")) {
+            if (Input.GetButton("Horizontal") && owner.IsGrounded) {
                 owner.Transition<PlayerWalkState>();
                 return;
             }
