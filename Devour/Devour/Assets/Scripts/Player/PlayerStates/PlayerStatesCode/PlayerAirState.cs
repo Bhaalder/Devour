@@ -18,8 +18,10 @@ public class PlayerAirState : PlayerBaseState {
     public override void HandleUpdate() {
         if(Input.GetAxisRaw("Vertical") < 0) {
             owner.IsAttackingDown = true;
+            owner.Animator.SetBool("IsAttackingDown", true);
         } else {
             owner.IsAttackingDown = false;
+            owner.Animator.SetBool("IsAttackingDown", false);
         }
         if (owner.IsGrounded) {
             if (Input.GetButton("Horizontal")) {

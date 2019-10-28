@@ -23,8 +23,10 @@ public class PlayerWallJumpState : PlayerWallslideState {
     public override void HandleUpdate() {
         if (Input.GetAxisRaw("Vertical") < 0) {
             owner.IsAttackingDown = true;
+            owner.Animator.SetBool("IsAttackingDown", true);
         } else {
             owner.IsAttackingDown = false;
+            owner.Animator.SetBool("IsAttackingDown", false);
         }
 
         if (jumpTime <= 0) {
