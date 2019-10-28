@@ -11,7 +11,6 @@ public class CameraController : MonoBehaviour{
     [SerializeField] private float delay;
 
     private Transform playerTransform;
-    private Vector3 desiredPosition;
     private Vector3 velocity;
 
     private BoxCollider2D sceneBoxCollider;
@@ -29,7 +28,8 @@ public class CameraController : MonoBehaviour{
             Destroy(gameObject);
             Debug.LogWarning("Destroyed other Singleton with name: " + gameObject.name);
             return;
-        }        
+        }
+        
     }
 
     private void Start() {
@@ -43,19 +43,23 @@ public class CameraController : MonoBehaviour{
             cameraBoundsIsFound = false;
         }
         untilNextBoundsCheck = checkBoundsTimer;
+        transform.position = DesiredPosition();
     }
-    
+
     private void FixedUpdate() {
-        desiredPosition = new Vector3(playerTransform.position.x + (cameraOffset.x * player.FacingDirection), playerTransform.position.y + cameraOffset.y, cameraOffset.z);
 
         Vector3 currentPosition = transform.position;
 
-        transform.position = Vector3.SmoothDamp(currentPosition, desiredPosition, ref velocity, delay);
+        transform.position = Vector3.SmoothDamp(currentPosition, DesiredPosition(), ref velocity, delay);
         if (cameraBoundsIsFound) {
             transform.position = new Vector3(CameraBoundsX(), CameraBoundsY(), cameraOffset.z);
         } else { 
             CheckCameraBounds();
         }
+    }
+
+    private Vector3 DesiredPosition() {
+        return new Vector3(playerTransform.position.x + (cameraOffset.x * player.FacingDirection), playerTransform.position.y + cameraOffset.y, cameraOffset.z);
     }
 
     #region CameraBounds

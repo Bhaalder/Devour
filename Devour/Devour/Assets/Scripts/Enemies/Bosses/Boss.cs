@@ -59,9 +59,7 @@ public class Boss : Enemy{
     }
 
     protected override void OnCollisionStay2D(Collision2D collision) {
-        Debug.Log("collision is made");
         if (collision.gameObject.tag == "Player") {
-            Debug.Log("collision is player");
             PlayerTakeDamageEvent ptde = new PlayerTakeDamageEvent {
                 damage = damageToPlayerOnContact,
                 enemyPosition = rb.position

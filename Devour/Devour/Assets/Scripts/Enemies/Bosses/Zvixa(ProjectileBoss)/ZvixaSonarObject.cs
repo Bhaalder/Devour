@@ -17,17 +17,14 @@ public class ZvixaSonarObject : MonoBehaviour {
     private void FixedUpdate() {
         LifeSpan -= Time.deltaTime;
         if (LifeSpan > 0.5f) {
-            Debug.Log("GROWING");
             if(growing <= 1) {
                 growing = 1.01f;
             }
             transform.localScale *= Growth;
         } else {
-            Debug.Log("SHRINKING");
             transform.localScale *= Growth / 1.2f;
         }
         if(LifeSpan <= 0) {
-            Debug.Log("Destroyed");
             Destroy(gameObject);
         }
     }

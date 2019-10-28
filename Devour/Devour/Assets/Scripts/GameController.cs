@@ -10,11 +10,9 @@ public class GameController : MonoBehaviour {
     public Transform Camera { get; set; }
     public bool GameIsPaused { get; set; }
 
-    public Transform SceneCheckpoint { get; set; } //om man rör vid en "killzone"
-    public Transform RestingCheckpoint { get; set; } //senaste platsen man restade på
-    public Transform VoidEssenceLocation { get; set; } //platsen man dog på och måste hämta sin essence
-
-    [SerializeField] private Transform sceneCheckpoint;//TILLFÄLLIGT
+    public Vector3 SceneCheckpoint { get; set; } //om man rör vid en "killzone"
+    public Vector3 RestingCheckpoint { get; set; } //senaste platsen man restade på
+    public Vector3 VoidEssenceLocation { get; set; } //platsen man dog på och måste hämta sin essence
 
     private static GameController instance;
 
@@ -45,11 +43,9 @@ public class GameController : MonoBehaviour {
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
 
-        try {//TILLFÄLLIGT
-            SceneCheckpoint = sceneCheckpoint;//
-        } catch (System.NullReferenceException) {//
-            Debug.LogWarning("GameController har ingen deklarerad checkpoint!");//
-        }//
+        if (SceneCheckpoint == null) {
+            SceneCheckpoint = Player.transform.position;
+        }
         
     }
 

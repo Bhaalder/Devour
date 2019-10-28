@@ -280,7 +280,7 @@ public class Player : StateMachine {
         Transition<PlayerHurtState>();
         untilInvulnerableEnds = invulnerableStateTime + 1f; //längre invulnerable när man fallit ner i killzone?
         try {
-            transform.position = GameController.Instance.SceneCheckpoint.position;
+            transform.position = GameController.Instance.SceneCheckpoint;
         } catch(UnassignedReferenceException) {
             Debug.LogError("No 'SceneCheckpoint' assigned in GameController to be able to respawn!");
         }
