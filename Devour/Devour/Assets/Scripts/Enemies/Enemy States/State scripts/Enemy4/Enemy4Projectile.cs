@@ -6,7 +6,7 @@ public class Enemy4Projectile : MonoBehaviour
 {
 
     [SerializeField] private float timeToDestruction = 2f;
-    [SerializeField] private float damageToPLayer = 5f;
+    [SerializeField] private float damageToPlayer = 5f;
     public float Count { get; set; }
     public Vector2 StartPoint { get; set; }
     public Vector2 EndPoint { get; set; }
@@ -57,13 +57,11 @@ public class Enemy4Projectile : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        Debug.Log(collision.gameObject.layer);
-
         if (collision.gameObject.tag == "Player")
         {
             PlayerTakeDamageEvent ptde = new PlayerTakeDamageEvent
             {
-                damage = damageToPLayer,
+                damage = damageToPlayer,
                 enemyPosition = gameObject.transform.position
             };
             ptde.FireEvent();
