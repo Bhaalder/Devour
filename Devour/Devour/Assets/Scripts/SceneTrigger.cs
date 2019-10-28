@@ -16,6 +16,10 @@ public class SceneTrigger : MonoBehaviour {
     private static int scenePointID;
     private static bool switchedScene;
 
+    private void Awake() {
+        Destroy(transform.GetChild(0).GetComponent<SpriteRenderer>());
+    }
+
     private void Start() {
         if (switchedScene) {
             if (scenePointID == sceneSpawnPointID) {
