@@ -101,6 +101,13 @@ public class Enemy : StateMachine
             soundType = SoundType.SFX
         };
         hurtSound.FireEvent();
+        AudioFadeSoundEvent fadeSwoosh = new AudioFadeSoundEvent {
+            name = "Attack",
+            isFadeOut = true,
+            fadeDuration = 0.1f,
+            soundVolumePercentage = 0
+        };
+        fadeSwoosh.FireEvent();
     }
 
     public virtual void EnemyDeath()

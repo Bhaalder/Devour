@@ -376,6 +376,7 @@ public class AudioController : MonoBehaviour {
                 yield return null;
             }
         }
+        sound.source.volume = startSoundValue;
     }
     #endregion
 
