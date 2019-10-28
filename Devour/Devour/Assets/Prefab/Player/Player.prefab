@@ -373,7 +373,7 @@ MonoBehaviour:
   damageReduction: 0
   meleeDamage: 25
   meleeLifeLeech: 5
-  meleeCooldown: 0.2
+  meleeCooldown: 0.35
   projectileDamage: 50
   projectileHealthcost: 10
   projectileCooldown: 1
