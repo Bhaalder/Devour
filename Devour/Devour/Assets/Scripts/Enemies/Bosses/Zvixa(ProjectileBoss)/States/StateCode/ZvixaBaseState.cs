@@ -30,7 +30,7 @@ public class ZvixaBaseState : State {
     }
 
     public override void HandleUpdate() {
-        if (owner.State == BossZvixaState.NONE && CheckPlayerPosition() == 2) {// och om player är inne i bossrummet
+        if (owner.State == BossZvixaState.NONE && PlayerIsInsideBossRoom()) {
             owner.Transition<ZvixaIntroState>();
         }
         owner.rb.velocity = Vector2.zero;
@@ -67,18 +67,21 @@ public class ZvixaBaseState : State {
         lastTeleport = teleportLocation;
     }
 
+    private bool PlayerIsInsideBossRoom() {
+        if (owner.Player.BoxCollider2D.bounds.Intersects(owner.StartFightArea.bounds)) {
+            return true;
+        }
+        return false;
+    }
+
     protected int CheckPlayerPosition() {
-        if (owner.Player.PlayerHorizontalMeleeCollider.bounds.Intersects(owner.HighArea.bounds)) {
+        if (owner.Player.BoxCollider2D.bounds.Intersects(owner.HighArea.bounds)) {
             return 1;
         }
-        if (owner.Player.PlayerHorizontalMeleeCollider.bounds.Intersects(owner.LowArea.bounds)) {
+        if (owner.Player.BoxCollider2D.bounds.Intersects(owner.LowArea.bounds)) {
             return 2;
         }
         return -1;
-    }
-
-    public void ChangeColorTest() {//TEST
-        
     }
 
     private void FacingDirection() {

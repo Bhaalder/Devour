@@ -40,11 +40,9 @@ public class GameController : MonoBehaviour {
         Camera = UnityEngine.Camera.main.transform.parent;
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
-
         if (SceneCheckpoint == null) {
             SceneCheckpoint = Player.transform.position;
-        }
-        
+        }      
     }
 
     public void GamePaused() {

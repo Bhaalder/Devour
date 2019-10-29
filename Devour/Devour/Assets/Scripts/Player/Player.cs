@@ -32,9 +32,10 @@ public class Player : StateMachine {
     public float UntilNextProjectileAttack { get; set; }
     public float ProjectileHealthcost { get; set; }
 
-    public BoxCollider2D PlayerHorizontalMeleeCollider { get; set; }
-    public BoxCollider2D PlayerDownMeleeCollider { get; set; }
-    public BoxCollider2D PlayerUpMeleeCollider { get; set; }
+    public BoxCollider2D BoxCollider2D { get; set; }
+    public BoxCollider2D HorizontalMeleeCollider { get; set; }
+    public BoxCollider2D DownMeleeCollider { get; set; }
+    public BoxCollider2D UpMeleeCollider { get; set; }
     public bool IsAttackingDown { get; set; }
     public bool IsAttackingUp { get; set; }
     public bool IsInvulnerable { get; set; }
@@ -94,7 +95,7 @@ public class Player : StateMachine {
     [Tooltip("How long the player is invulnerable to damage after taking damage")]
     [SerializeField] private float invulnerableStateTime;
     [Tooltip("Knockbackvalue applied to player when hurt by enemies")]
-    [SerializeField] private Vector2 playerHurtKnockbackForce;
+    [SerializeField] private Vector2 hurtKnockbackForce;
     private float untilInvulnerableEnds;
 
     [Header("Camera")]
@@ -156,9 +157,10 @@ public class Player : StateMachine {
         FacingDirection = 1;
 
         Rb2D = GetComponent<Rigidbody2D>();
-        PlayerHorizontalMeleeCollider = horizontalAttack.GetComponent<BoxCollider2D>();
-        PlayerUpMeleeCollider = upAttack.GetComponent<BoxCollider2D>();
-        PlayerDownMeleeCollider = downAttack.GetComponent<BoxCollider2D>();
+        BoxCollider2D = GetComponent<BoxCollider2D>();
+        HorizontalMeleeCollider = horizontalAttack.GetComponent<BoxCollider2D>();
+        UpMeleeCollider = upAttack.GetComponent<BoxCollider2D>();
+        DownMeleeCollider = downAttack.GetComponent<BoxCollider2D>();
 
         MaxHealth = maxHealth;
         Health = maxHealth;
@@ -250,7 +252,7 @@ public class Player : StateMachine {
         if (enemyPosition.x > transform.position.x) {
             direction = -direction;
         }
-        Rb2D.velocity = new Vector2(playerHurtKnockbackForce.x*direction, playerHurtKnockbackForce.y);
+        Rb2D.velocity = new Vector2(hurtKnockbackForce.x*direction, hurtKnockbackForce.y);
     }
 
     private void OnHeal(PlayerHealEvent eventHeal) {

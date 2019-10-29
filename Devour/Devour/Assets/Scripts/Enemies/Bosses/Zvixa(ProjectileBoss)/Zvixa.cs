@@ -12,10 +12,12 @@ public class Zvixa : Boss{
     
     public BoxCollider2D HighArea { get; set; }
     public BoxCollider2D LowArea { get; set; }
+    public BoxCollider2D StartFightArea { get; set; }
 
     public Transform TeleportAreaLeft { get; set; }
     public Transform TeleportAreaMiddle { get; set; }
     public Transform TeleportAreaRight { get; set; }
+    public GameObject BossDoor { get; set; }
 
     public int FacingDirection { get; set; }
 
@@ -24,17 +26,21 @@ public class Zvixa : Boss{
 
     [SerializeField] private BoxCollider2D highArea;
     [SerializeField] private BoxCollider2D lowArea;
+    [SerializeField] private BoxCollider2D startFightArea;
     [SerializeField] private Transform teleportAreaLeft;
     [SerializeField] private Transform teleportAreaMiddle;
     [SerializeField] private Transform teleportAreaRight;
+    [SerializeField] private GameObject bossDoor;
 
     protected override void Awake() {
         base.Awake();
         HighArea = highArea;
         LowArea = lowArea;
+        StartFightArea = startFightArea;
         TeleportAreaLeft = teleportAreaLeft;
         TeleportAreaMiddle = teleportAreaMiddle;
         TeleportAreaRight = teleportAreaRight;
+        BossDoor = bossDoor;
 
         PlayerDiedEvent.RegisterListener(Reset);
     }
@@ -64,6 +70,7 @@ public class Zvixa : Boss{
         Health = MaxHealth;
         State = BossZvixaState.NONE;
         transform.position = TeleportAreaMiddle.position;
+        BossDoor.SetActive(false);
     }
 
     public override void EnemyDeath() {
@@ -71,4 +78,9 @@ public class Zvixa : Boss{
         Destroy(gameObject);//FÖR TILLFÄLLET
     }
 
+    protected override void OnDestroy() {
+        BossDoor.SetActive(false);
+        PlayerAttackEvent.UnRegisterListener(TakeDamage);
+        PlayerDiedEvent.UnRegisterListener(Reset);
+    }
 }

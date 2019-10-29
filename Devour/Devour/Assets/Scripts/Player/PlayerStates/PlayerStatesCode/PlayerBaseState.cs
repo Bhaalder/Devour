@@ -102,16 +102,16 @@ public class PlayerBaseState : State {
         if (!owner.IsWallSliding) {
             if (Input.GetButtonDown("Attack")) {
                 BoxCollider2D attackCollider;
-                attackCollider = owner.PlayerHorizontalMeleeCollider;
+                attackCollider = owner.HorizontalMeleeCollider;
                 owner.IsAttackingUp = false;
                 owner.Animator.SetBool("IsAttackingUp", false);
                 if (Input.GetAxisRaw("Vertical") > 0) {
-                    attackCollider = owner.PlayerUpMeleeCollider;
+                    attackCollider = owner.UpMeleeCollider;
                     owner.IsAttackingUp = true;
                     owner.Animator.SetBool("IsAttackingUp", true);
                 }
                 if (Input.GetAxisRaw("Vertical") < 0 && !owner.IsGrounded) {
-                    attackCollider = owner.PlayerDownMeleeCollider;
+                    attackCollider = owner.DownMeleeCollider;
                     owner.IsAttackingDown = true;
                     owner.Animator.SetBool("IsAttackingDown", true);
                 } else {

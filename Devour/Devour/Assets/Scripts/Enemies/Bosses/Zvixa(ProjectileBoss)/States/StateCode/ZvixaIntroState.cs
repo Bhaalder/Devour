@@ -13,6 +13,7 @@ public class ZvixaIntroState : ZvixaBaseState {
     public override void Enter() {
         owner.State = BossZvixaState.INTRO;
         owner.BossLog("IntroState");
+        owner.BossDoor.SetActive(true);
         introTimeLeft = introTime;
         battleStart = false;
         base.Enter();

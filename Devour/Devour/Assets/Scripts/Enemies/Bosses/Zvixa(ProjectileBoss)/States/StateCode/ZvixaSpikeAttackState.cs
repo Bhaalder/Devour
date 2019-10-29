@@ -41,7 +41,7 @@ public class ZvixaSpikeAttackState : ZvixaBaseState {
             spikesAreUp = true;
         }
         if (spikesAreUp) {
-            if (owner.Player.PlayerHorizontalMeleeCollider.bounds.Intersects(owner.LowArea.bounds)) {
+            if (owner.Player.HorizontalMeleeCollider.bounds.Intersects(owner.LowArea.bounds)) {
                 PlayerTakeDamageEvent playerTakeDamage = new PlayerTakeDamageEvent {
                     damage = spikeDamage,
                     enemyPosition = owner.LowArea.transform.position
