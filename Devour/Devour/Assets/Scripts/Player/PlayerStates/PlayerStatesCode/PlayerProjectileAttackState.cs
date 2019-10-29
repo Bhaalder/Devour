@@ -19,7 +19,12 @@ public class PlayerProjectileAttackState : PlayerBaseState {
         owner.PlayerState = PlayerState.PROJECTILEATTACK;
         attackTime = startAttackTime;
         owner.UntilNextProjectileAttack = owner.ProjectileCooldown;
-        owner.Health -= owner.ProjectileHealthcost;
+        PlayerTakeDamageEvent playerTakeDamage = new PlayerTakeDamageEvent {
+            damage = owner.ProjectileHealthcost,
+            isSelfInflicted = true
+        };
+        playerTakeDamage.FireEvent();
+        //owner.Health -= owner.ProjectileHealthcost;
         Shoot();
     }
 

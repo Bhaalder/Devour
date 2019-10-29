@@ -99,45 +99,48 @@ public class PlayerBaseState : State {
             owner.UntilNextMeleeAttack -= Time.deltaTime;
             return;
         }
-        if (Input.GetButtonDown("Attack")) {
-            BoxCollider2D attackCollider;
-            attackCollider = owner.PlayerHorizontalMeleeCollider;
-            owner.IsAttackingUp = false;
-            owner.Animator.SetBool("IsAttackingUp", false);
-            if (Input.GetAxisRaw("Vertical") > 0) {
-                attackCollider = owner.PlayerUpMeleeCollider;
-                owner.IsAttackingUp = true;
-                owner.Animator.SetBool("IsAttackingUp", true);
+        if (!owner.IsWallSliding) {
+            if (Input.GetButtonDown("Attack")) {
+                BoxCollider2D attackCollider;
+                attackCollider = owner.PlayerHorizontalMeleeCollider;
+                owner.IsAttackingUp = false;
+                owner.Animator.SetBool("IsAttackingUp", false);
+                if (Input.GetAxisRaw("Vertical") > 0) {
+                    attackCollider = owner.PlayerUpMeleeCollider;
+                    owner.IsAttackingUp = true;
+                    owner.Animator.SetBool("IsAttackingUp", true);
+                }
+                if (Input.GetAxisRaw("Vertical") < 0 && !owner.IsGrounded) {
+                    attackCollider = owner.PlayerDownMeleeCollider;
+                    owner.IsAttackingDown = true;
+                    owner.Animator.SetBool("IsAttackingDown", true);
+                } else {
+                    owner.IsAttackingDown = false;
+                    owner.Animator.SetBool("IsAttackingDown", false);
+                }
+                //if (owner.IsAttackingDown) {
+                //    attackCollider = owner.PlayerDownMeleeCollider;
+                //}
+                PlayerAttackEvent playerAttack = new PlayerAttackEvent {
+                    attackCollider = attackCollider,
+                    damage = owner.MeleeDamage,
+                    playerPosition = owner.transform.position,
+                    player = owner.GetComponent<Player>(),
+                    isMeleeAttack = true
+                };
+                AudioPlaySoundEvent attackAudio = new AudioPlaySoundEvent {
+                    name = "Attack",
+                    soundType = SoundType.SFX,
+                    isRandomPitch = true,
+                    minPitch = 0.95f,
+                    maxPitch = 1f
+                };
+                playerAttack.FireEvent();
+                attackAudio.FireEvent();
+                owner.Transition<PlayerAttackState>();
             }
-            if (Input.GetAxisRaw("Vertical") < 0 && !owner.IsGrounded) {
-                attackCollider = owner.PlayerDownMeleeCollider;
-                owner.IsAttackingDown = true;
-                owner.Animator.SetBool("IsAttackingDown", true);
-            } else {
-                owner.IsAttackingDown = false;
-                owner.Animator.SetBool("IsAttackingDown", false);
-            }
-            //if (owner.IsAttackingDown) {
-            //    attackCollider = owner.PlayerDownMeleeCollider;
-            //}
-            PlayerAttackEvent playerAttack = new PlayerAttackEvent {
-                attackCollider = attackCollider,
-                damage = owner.MeleeDamage,
-                playerPosition = owner.transform.position,
-                player = owner.GetComponent<Player>(),
-                isMeleeAttack = true
-            };
-            AudioPlaySoundEvent attackAudio = new AudioPlaySoundEvent {
-                name = "Attack",
-                soundType = SoundType.SFX,
-                isRandomPitch = true,
-                minPitch = 0.95f,
-                maxPitch = 1f
-            };
-            playerAttack.FireEvent();
-            attackAudio.FireEvent();
-            owner.Transition<PlayerAttackState>();
         }
+        
     }
 
     protected void GetProjectileInput() {

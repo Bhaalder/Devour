@@ -49,10 +49,6 @@ public class ZvixaBasicAttackState : ZvixaBaseState {
         base.HandleUpdate();       
     }
 
-    protected override void Movement() {
-
-    }
-
     private void SpawnBall() {
         GameObject projectile;
         ZvixaProjectile zvixaProjectile;

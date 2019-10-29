@@ -18,6 +18,7 @@ public class PlayerTakeDamageEvent : Event<PlayerTakeDamageEvent> {
     //public Enemy enemy; //fienden som gav skada
     public Vector3 enemyPosition;
     public float damage;
+    public bool isSelfInflicted;
 
 }
 

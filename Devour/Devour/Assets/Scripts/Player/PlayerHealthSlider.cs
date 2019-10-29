@@ -22,7 +22,13 @@ public class PlayerHealthSlider : MonoBehaviour{
     }
 
     private void TakeDamage(PlayerTakeDamageEvent takeDamageEvent) {
-        healthSlider.value = GameController.Instance.Player.Health;
+        if (takeDamageEvent.isSelfInflicted) {
+            healthSlider.value -= takeDamageEvent.damage;
+            return;
+        }
+        if (!GameController.Instance.Player.IsInvulnerable) {
+            healthSlider.value -= takeDamageEvent.damage;
+        }     
     }
 
     private void GainHealth(PlayerHealEvent healEvent) {

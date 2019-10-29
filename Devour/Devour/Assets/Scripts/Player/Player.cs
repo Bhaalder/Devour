@@ -222,25 +222,27 @@ public class Player : StateMachine {
     }
 
     private void OnTakeDamage(PlayerTakeDamageEvent eventDamage) {//EJ KLART
-        if (IsInvulnerable) {
-            return;
-        }
-        eventDamage.damage -= DamageReduction;
-        if (eventDamage.damage <= 0) {
-            eventDamage.damage = 0;
-        }
-        CameraShakeEvent cse = new CameraShakeEvent {
-            startDuration = cameraShakeDuration,
-            startValue = cameraShakeValue
-        };
-        cse.FireEvent();
+        if (!eventDamage.isSelfInflicted) {
+            if (IsInvulnerable) {
+                return;
+            }
+            eventDamage.damage -= DamageReduction;
+            if (eventDamage.damage <= 0) {
+                eventDamage.damage = 0;
+            }
+            CameraShakeEvent cse = new CameraShakeEvent {
+                startDuration = cameraShakeDuration,
+                startValue = cameraShakeValue
+            };
+            cse.FireEvent();
+            KnockBack(eventDamage.enemyPosition, 2);//knockback
+            Transition<PlayerHurtState>();
+        }       
         ChangeHealth(-eventDamage.damage);
         if (DamageWasDeadly()) {
             Die();
             return;
-        }
-        KnockBack(eventDamage.enemyPosition, 2);//knockback
-        Transition<PlayerHurtState>();
+        }  
     }
 
     private void KnockBack(Vector3 enemyPosition, float amount) {
@@ -295,7 +297,10 @@ public class Player : StateMachine {
 
     private void Die() { //EJ KLART, just nu gör vi bara en respawn och får fullt HP
         //MaxHP halveras, man hamnar på senaste "RestingPlace", ens "essence" hamnar där man dog
-        Health = MaxHealth;
+        PlayerHealEvent healEvent = new PlayerHealEvent {
+            amount = MaxHealth//FÖR TILLFÄLLET
+        };
+        healEvent.FireEvent();
         Respawn();//FÖR TILLFÄLLET
     }
 
