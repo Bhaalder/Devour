@@ -20,4 +20,4 @@ MonoBehaviour:
   distanceBeforeTurning: 3
   newPositionCooldownTime: 5
   attackDistance: 15
-  chargeSpeed: 700
+  chargeSpeed: 900

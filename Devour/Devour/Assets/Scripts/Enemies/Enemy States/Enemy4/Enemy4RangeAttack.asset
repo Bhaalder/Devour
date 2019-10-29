@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Enemy4RangeAttack
   m_EditorClassIdentifier: 
   abortAttack: 15
-  attackCooldown: 2
+  attackCooldown: 3
   count: 1
   middlePointCurve: 20
   projectileOffset: {x: 0, y: 1}
