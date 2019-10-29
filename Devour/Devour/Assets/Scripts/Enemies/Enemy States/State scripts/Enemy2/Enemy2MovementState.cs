@@ -50,6 +50,8 @@ public class Enemy2MovementState : EnemyMovement
         {
             StunnedCooldown();
         }
+
+        Debug.Log("Am I within attack distance? A: " + isWithinAttackDistance);
     }
     public override void HandleFixedUpdate()
     {
@@ -114,12 +116,14 @@ public class Enemy2MovementState : EnemyMovement
             if (seeker.IsDone())
             {
                 seeker.StartPath(owner.rb.position, target.position, OnPathComplete);
+                Debug.Log("Updated path (1)");
             }
         }
         else if (!isWithinAttackDistance)
         {
             if (seeker.IsDone())
             {
+                Debug.Log("Updated path (2)");
                 seeker.StartPath(owner.rb.position, startPosition, OnPathComplete);
             }
         }
@@ -134,7 +138,12 @@ public class Enemy2MovementState : EnemyMovement
             currentWaypoint = 0;
             if (!isWithinAttackDistance)
             {
-                owner.Transition<Enemy2IdleState>();
+                Vector2 cp = new Vector2(Mathf.Round(owner.rb.position.x), Mathf.Round(owner.rb.position.y));
+                Vector2 op = new Vector2(Mathf.Round(startPosition.x), Mathf.Round(startPosition.y));
+                if(cp == op)
+                {
+                    owner.Transition<Enemy2IdleState>();
+                }
             }
         }
     }
