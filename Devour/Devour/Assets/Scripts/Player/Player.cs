@@ -136,7 +136,8 @@ public class Player : StateMachine {
     [Header("Testing")]//TESTING
     [Tooltip("For testing if the player has certain abilities")]//
     [SerializeField] private PlayerAbility[] playerAbilities;//
-    public Vector2 PlayerVelocity;
+    public Vector2 PlayerVelocity;//
+    private bool hasAllAbilities;//
 
     private static bool exists;
 
@@ -151,9 +152,7 @@ public class Player : StateMachine {
         }
 
         PlayerAbilities = new List<PlayerAbility>();
-        foreach (PlayerAbility ability in playerAbilities) {
-            PlayerAbilities.Add(ability);
-        }
+
         FacingDirection = 1;
 
         Rb2D = GetComponent<Rigidbody2D>();
@@ -209,6 +208,16 @@ public class Player : StateMachine {
     protected override void Update() {
         PlayerVelocity = Rb2D.velocity;//TEST
         health = Health;//TEST
+        if (Input.GetKeyDown(KeyCode.P)) {//TEST
+            if (PlayerAbilities.Count > 0) {
+                PlayerAbilities.Clear();
+                return;
+            } else {
+                foreach (PlayerAbility ability in playerAbilities) {
+                    PlayerAbilities.Add(ability);
+                }
+            }
+        }//TEST
         InvulnerableTimeCheck();
         Animator.SetInteger("State", (int)PlayerState);//Ska bytas senare
         base.Update();
