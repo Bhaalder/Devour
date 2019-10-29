@@ -16,6 +16,6 @@ MonoBehaviour:
   layerMask:
     serializedVersion: 2
     m_Bits: 256
-  speed: 400
+  speed: 200
   nextWaypointDistance: 3
-  attackDistance: 15
+  attackDistance: 25

@@ -24,6 +24,7 @@ public class Enemy2MovementState : EnemyMovement
 
     private Vector2 direction;
     private Vector2 force;
+    private Vector2 startPosition;
 
     private float cooldownTime = .5f;
     private float currentPathUpdateCooldown;
@@ -33,6 +34,7 @@ public class Enemy2MovementState : EnemyMovement
         base.Enter();
         seeker = owner.GetComponent<Seeker>();
         currentPathUpdateCooldown = cooldownTime;
+        startPosition = owner.GetComponent<Enemy2>().StartPosition;
     }
 
     public override void HandleUpdate()
@@ -56,62 +58,72 @@ public class Enemy2MovementState : EnemyMovement
 
     private void Movement()
     {
-        if (!isWithinAttackDistance)
+
+        if (Vector2.Distance(owner.rb.position, target.position) <= attackDistance)
         {
-            if (Vector2.Distance(owner.rb.position, target.position) <= attackDistance)
-            {
-                isWithinAttackDistance = true;
-            }
+            isWithinAttackDistance = true;
+        }
+        else if (Vector2.Distance(owner.rb.position, target.position) >= attackDistance)
+        {
+            isWithinAttackDistance = false;
         }
 
-        if (isWithinAttackDistance)
+        if (path == null)
         {
-            if (path == null)
-            {
-                return;
-            }
+            return;
+        }
 
-            if (currentWaypoint >= path.vectorPath.Count)
-            {
-                reachedEndOfPath = true;
-                return;
-            }
-            else
-            {
-                reachedEndOfPath = false;
-            }
+        if (currentWaypoint >= path.vectorPath.Count)
+        {
+            reachedEndOfPath = true;
+            return;
+        }
+        else
+        {
+            reachedEndOfPath = false;
+        }
 
-            direction = ((Vector2)path.vectorPath[currentWaypoint] - owner.rb.position).normalized;
-            force = direction * speed * Time.deltaTime;
+        direction = ((Vector2)path.vectorPath[currentWaypoint] - owner.rb.position).normalized;
+        force = direction * speed * Time.deltaTime;
 
-            owner.rb.AddForce(force);
+        owner.rb.AddForce(force);
 
-            float distance = Vector2.Distance(owner.rb.position, path.vectorPath[currentWaypoint]);
+        float distance = Vector2.Distance(owner.rb.position, path.vectorPath[currentWaypoint]);
 
-            if (distance < nextWaypointDistance)
-            {
-                currentWaypoint++;
-            }
+        if (distance < nextWaypointDistance)
+        {
+            currentWaypoint++;
+        }
 
-            if (owner.rb.velocity.x >= 0.01f)
-            {
-                Vector3 v = new Vector3(-1f, 1f, 1f);
-                owner.setGFX(v);
-            }
-            else if (owner.rb.velocity.x <= -0.01f)
-            {
-                Vector3 v = new Vector3(1f, 1f, 1f);
-                owner.setGFX(v);
-            }
+        if (owner.rb.velocity.x >= 0.01f)
+        {
+            Vector3 v = new Vector3(-1f, 1f, 1f);
+            owner.setGFX(v);
+        }
+        else if (owner.rb.velocity.x <= -0.01f)
+        {
+            Vector3 v = new Vector3(1f, 1f, 1f);
+            owner.setGFX(v);
         }
     }
 
     void UpdatePath()
     {
-        if (seeker.IsDone())
+        if (isWithinAttackDistance)
         {
-            seeker.StartPath(owner.rb.position, target.position, OnPathComplete);
+            if (seeker.IsDone())
+            {
+                seeker.StartPath(owner.rb.position, target.position, OnPathComplete);
+            }
         }
+        else if (!isWithinAttackDistance)
+        {
+            if (seeker.IsDone())
+            {
+                seeker.StartPath(owner.rb.position, startPosition, OnPathComplete);
+            }
+        }
+
     }
 
     void OnPathComplete(Path p)
@@ -120,6 +132,10 @@ public class Enemy2MovementState : EnemyMovement
         {
             path = p;
             currentWaypoint = 0;
+            if (!isWithinAttackDistance)
+            {
+                owner.Transition<Enemy2IdleState>();
+            }
         }
     }
 
