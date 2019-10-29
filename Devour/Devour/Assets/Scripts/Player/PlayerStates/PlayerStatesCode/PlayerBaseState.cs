@@ -105,12 +105,12 @@ public class PlayerBaseState : State {
                 attackCollider = owner.HorizontalMeleeCollider;
                 owner.IsAttackingUp = false;
                 owner.Animator.SetBool("IsAttackingUp", false);
-                if (Input.GetAxisRaw("Vertical") > 0.1f) {
+                if (Input.GetAxisRaw("Vertical") > 0.15f) {
                     attackCollider = owner.UpMeleeCollider;
                     owner.IsAttackingUp = true;
                     owner.Animator.SetBool("IsAttackingUp", true);
                 }
-                if (Input.GetAxisRaw("Vertical") < -0.1f && !owner.IsGrounded) {
+                if (Input.GetAxisRaw("Vertical") < -0.15f && !owner.IsGrounded) {
                     attackCollider = owner.DownMeleeCollider;
                     owner.IsAttackingDown = true;
                     owner.Animator.SetBool("IsAttackingDown", true);
