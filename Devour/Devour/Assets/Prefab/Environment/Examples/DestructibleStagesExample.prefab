@@ -208,10 +208,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 100
-  isUsingStages: 1
+  isUsingStageDamagedHealth: 1
+  isUsingStageHalfHealth: 1
+  isUsingDestroyCooldown: 1
   fullHealth: {fileID: 3458176586786198268}
   damagedHealth: {fileID: 2622173193412458701}
   halfHealth: {fileID: 3458176588323914950}
+  destroyCooldown: 2
 --- !u!61 &3458176587912690151
 BoxCollider2D:
   m_ObjectHideFlags: 0
