@@ -18,8 +18,6 @@ MonoBehaviour:
     m_Bits: 256
   enemySpeed: 700
   distanceBeforeTurning: 3
-  patrolMoveRange: 3
+  newPositionCooldownTime: 5
   attackDistance: 15
-  isPatrolling: 0
-  isChargeAttacker: 0
-  telegraphTime: 5
+  telegraphTime: 3
