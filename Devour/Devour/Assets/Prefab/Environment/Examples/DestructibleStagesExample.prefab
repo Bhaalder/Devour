@@ -214,6 +214,7 @@ MonoBehaviour:
   fullHealth: {fileID: 3458176586786198268}
   damagedHealth: {fileID: 2622173193412458701}
   halfHealth: {fileID: 3458176588323914950}
+  particles: {fileID: 1315949759934820, guid: 9907afeacb944384ba81ef307601e7db, type: 3}
   destroyCooldown: 2
 --- !u!61 &3458176587912690151
 BoxCollider2D:

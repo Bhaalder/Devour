@@ -121,3 +121,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 100
+  isUsingStageDamagedHealth: 0
+  isUsingStageHalfHealth: 0
+  isUsingDestroyCooldown: 0
+  fullHealth: {fileID: 0}
+  damagedHealth: {fileID: 0}
+  halfHealth: {fileID: 0}
+  particles: {fileID: 1315949759934820, guid: 9907afeacb944384ba81ef307601e7db, type: 3}
+  destroyCooldown: 2

@@ -11,6 +11,7 @@ public class DestructibleObject : MonoBehaviour
     [SerializeField] GameObject fullHealth;
     [SerializeField] GameObject damagedHealth;
     [SerializeField] GameObject halfHealth;
+    [SerializeField] GameObject particles;
     [SerializeField] float destroyCooldown = 2f;
 
     private BoxCollider2D boxCollider2D;
@@ -42,6 +43,13 @@ public class DestructibleObject : MonoBehaviour
         if (attackEvent.attackCollider.bounds.Intersects(boxCollider2D.bounds))
         {
             health -= attackEvent.damage;
+
+            if (particles != null)
+            {
+                GameObject instantiatedParticle = Instantiate(particles, null);
+                instantiatedParticle.transform.position = transform.position;
+            }
+
             if (health < originalHealth && health > originalHealth/2 && isUsingStageDamagedHealth)
             {
                 fullHealth.SetActive(false);
@@ -83,6 +91,11 @@ public class DestructibleObject : MonoBehaviour
 
     private void DestroyObject()
     {
+        if (particles != null)
+        {
+            GameObject instantiatedParticle = Instantiate(particles, null);
+            instantiatedParticle.transform.position = transform.position;
+        }
         Destroy(gameObject);
     }
 
