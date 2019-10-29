@@ -35,6 +35,8 @@ public class Zvixa : Boss{
         TeleportAreaLeft = teleportAreaLeft;
         TeleportAreaMiddle = teleportAreaMiddle;
         TeleportAreaRight = teleportAreaRight;
+
+        PlayerDiedEvent.RegisterListener(Reset);
     }
 
     protected override void Update() {
@@ -58,8 +60,19 @@ public class Zvixa : Boss{
         rb.velocity = new Vector2(0, 0);
     }
 
+    private void Reset(PlayerDiedEvent playerDied) {
+        Health = MaxHealth;
+        State = BossZvixaState.NONE;
+        transform.position = TeleportAreaMiddle.position;
+    }
+
     public override void EnemyDeath() {
         //Transition till DeathState
         Destroy(gameObject);//FÖR TILLFÄLLET
     }
+
+    private void OnDestroy() {
+        PlayerDiedEvent.UnRegisterListener(Reset);
+    }
+
 }

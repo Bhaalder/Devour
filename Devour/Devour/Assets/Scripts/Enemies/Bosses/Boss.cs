@@ -5,10 +5,15 @@ using UnityEngine;
 
 public class Boss : Enemy{
 
+    public float MaxHealth { get; set; }
+
     [SerializeField] protected string bossName;
+    [SerializeField] protected float maxHealth;
 
     protected override void Awake() {
         base.Awake();
+        MaxHealth = maxHealth;
+        Health = MaxHealth;
     }
 
     protected override void Update() {

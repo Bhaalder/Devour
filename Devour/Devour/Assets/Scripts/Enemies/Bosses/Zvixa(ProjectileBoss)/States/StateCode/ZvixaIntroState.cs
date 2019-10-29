@@ -8,10 +8,13 @@ public class ZvixaIntroState : ZvixaBaseState {
 
     [Tooltip("How long time the introsequence lasts")]
     [SerializeField] private float introTime;
+    private float introTimeLeft;
 
     public override void Enter() {
         owner.State = BossZvixaState.INTRO;
         owner.BossLog("IntroState");
+        introTimeLeft = introTime;
+        battleStart = false;
         base.Enter();
     }
 
@@ -20,8 +23,8 @@ public class ZvixaIntroState : ZvixaBaseState {
     }
 
     public override void HandleUpdate() {
-        if(introTime > 0) {
-            introTime -= Time.deltaTime;
+        if(introTimeLeft > 0) {
+            introTimeLeft -= Time.deltaTime;
             return;
         }
         owner.Transition<ZvixaIdleState>();

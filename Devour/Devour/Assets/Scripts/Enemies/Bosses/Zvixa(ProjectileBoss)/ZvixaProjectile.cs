@@ -10,11 +10,13 @@ public class ZvixaProjectile : MonoBehaviour{
 
     private Transform player;
     private Rigidbody2D rb;
+    private CircleCollider2D circleCollider2D;
     private bool gotHit;
 
     private void Start(){
         player = GameController.Instance.Player.transform;
         rb = GetComponent<Rigidbody2D>();
+        circleCollider2D = GetComponent<CircleCollider2D>();
         PlayerAttackEvent.RegisterListener(GetHit);
         // GetComponent<Rigidbody2D>().velocity += new Vector2(8, 0);
         //transform.position = Vector2.MoveTowards(transform.position, GameController.Instance.Player.transform.position, 5 * Time.deltaTime);
@@ -31,17 +33,19 @@ public class ZvixaProjectile : MonoBehaviour{
     }
 
     private void GetHit(PlayerAttackEvent attackEvent) {
-        Vector2 knockBack;
-        if (attackEvent.player.IsAttackingDown) {
-            knockBack = new Vector2(0, -attackEvent.player.KnockbackForce * 3);
-        } else if (attackEvent.player.IsAttackingUp) {
-            knockBack = new Vector2(0, attackEvent.player.KnockbackForce * 3);
-        } else {
-            knockBack = new Vector2(attackEvent.player.FacingDirection * attackEvent.player.KnockbackForce * 3, 0);
+        if (attackEvent.attackCollider.bounds.Intersects(circleCollider2D.bounds)) {
+            Vector2 knockBack;
+            if (attackEvent.player.IsAttackingDown) {
+                knockBack = new Vector2(0, -attackEvent.player.KnockbackForce * 3);
+            } else if (attackEvent.player.IsAttackingUp) {
+                knockBack = new Vector2(0, attackEvent.player.KnockbackForce * 3);
+            } else {
+                knockBack = new Vector2(attackEvent.player.FacingDirection * attackEvent.player.KnockbackForce * 3, 0);
+            }
+            gotHit = true;
+            rb.velocity = Vector2.zero;
+            rb.velocity = knockBack;
         }
-        gotHit = true;
-        rb.velocity = Vector2.zero;
-        rb.velocity = knockBack;
     }
 
     private void OnCollisionEnter2D(Collision2D collision) {

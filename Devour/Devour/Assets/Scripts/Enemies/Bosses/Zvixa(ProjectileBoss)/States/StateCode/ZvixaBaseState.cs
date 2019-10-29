@@ -18,7 +18,7 @@ public class ZvixaBaseState : State {
 
     public override void Enter() {
         base.Enter();
-        owner.GetComponent<SpriteRenderer>().color = colorTest;//TEST
+        owner.GetComponent<SpriteRenderer>().color = colorTest;//TEST       
     }
 
     public override void HandleFixedUpdate() {
@@ -100,5 +100,4 @@ public class ZvixaBaseState : State {
     public override void Initialize(StateMachine owner) {
         this.owner = (Zvixa)owner;
     }
-
 }
