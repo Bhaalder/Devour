@@ -33,7 +33,10 @@ public class DestructibleObject : MonoBehaviour
 
     private void DestroyObject()
     {
-        PlayerAttackEvent.UnRegisterListener(TakeDamage);
         Destroy(gameObject);
+    }
+    private void OnDestroy()
+    {
+        PlayerAttackEvent.UnRegisterListener(TakeDamage);
     }
 }
