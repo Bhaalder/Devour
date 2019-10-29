@@ -51,7 +51,6 @@ public class Enemy2MovementState : EnemyMovement
             StunnedCooldown();
         }
 
-        Debug.Log("Am I within attack distance? A: " + isWithinAttackDistance);
     }
     public override void HandleFixedUpdate()
     {
