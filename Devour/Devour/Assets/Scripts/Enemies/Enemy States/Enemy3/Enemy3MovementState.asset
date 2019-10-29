@@ -16,8 +16,7 @@ MonoBehaviour:
   layerMask:
     serializedVersion: 2
     m_Bits: 256
-  enemySpeed: 400
+  enemySpeed: 1600
   distanceBeforeTurning: 3
-  patrolMoveRange: 10
   newPositionCooldownTime: 3
   attackDistance: 10

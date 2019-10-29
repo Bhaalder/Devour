@@ -16,8 +16,8 @@ MonoBehaviour:
   layerMask:
     serializedVersion: 2
     m_Bits: 256
-  enemySpeed: 400
+  enemySpeed: 2200
   distanceBeforeTurning: 3
-  patrolMoveRange: 3
+  newPositionCooldownTime: 5
   attackDistance: 15
   chargeSpeed: 700

@@ -16,5 +16,5 @@ MonoBehaviour:
   layerMask:
     serializedVersion: 2
     m_Bits: 256
-  followSpeed: 300
+  followSpeed: 1800
   abortFollow: 25
