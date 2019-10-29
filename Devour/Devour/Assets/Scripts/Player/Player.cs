@@ -45,6 +45,8 @@ public class Player : StateMachine {
     public int ExtraJumpsLeft { get; set; }
     public float VariableJumpHeight { get; set; }
     public float PermanentVariableJumpHeight { get; set; }
+    public int NumberOfDashes { get; set; }
+    public int DashesLeft { get; set; }
     public float DashCooldown { get; set; }
     public float UntilNextDash { get; set; }
 
@@ -110,6 +112,8 @@ public class Player : StateMachine {
     [SerializeField] private int extraJumps;
     [Tooltip("How much the jump gets 'cut' if the player releases the jumpbutton")]
     [SerializeField] private float variableJumpHeight;
+    [Tooltip("How many dashes the player can do between being on ground/wallslide or bounce on enemies")]
+    [SerializeField] private int numberOfDashes;
     [Tooltip("The cooldown between dashes")]
     [SerializeField] private float dashCooldown;
 
@@ -144,15 +148,9 @@ public class Player : StateMachine {
             Debug.LogWarning("Destroyed other Singleton with name: " + gameObject.name);
             return;
         }
-        PlayerTakeDamageEvent.RegisterListener(OnTakeDamage);
-        PlayerHealEvent.RegisterListener(OnHeal);
-        PlayerTouchKillzoneEvent.RegisterListener(OnTouchKillzone);
-        base.Awake();
-    }
 
-    private void Start() {
         PlayerAbilities = new List<PlayerAbility>();
-        foreach(PlayerAbility ability in playerAbilities) {
+        foreach (PlayerAbility ability in playerAbilities) {
             PlayerAbilities.Add(ability);
         }
         FacingDirection = 1;
@@ -168,12 +166,11 @@ public class Player : StateMachine {
         MeleeDamage = meleeDamage;
         MeleeCooldown = meleeCooldown;
         MeleeLifeLeech = meleeLifeLeech;
-        ProjectileDamage = projectileDamage;       
+        ProjectileDamage = projectileDamage;
         ProjectileCooldown = projectileCooldown;
         ProjectileHealthcost = projectileHealthcost;
         KnockbackForce = knockbackForce;
         BounceForce = bounceForce;
-        
 
         MovementSpeed = movementSpeed;
         JumpForce = jumpForce;
@@ -181,6 +178,7 @@ public class Player : StateMachine {
         ExtraJumpsLeft = extraJumps;
         VariableJumpHeight = variableJumpHeight;
         PermanentVariableJumpHeight = variableJumpHeight;
+        NumberOfDashes = numberOfDashes;
         DashCooldown = dashCooldown;
         XScale = transform.localScale.x;
         GroundCheckDistance = groundCheckDistance;
@@ -191,6 +189,15 @@ public class Player : StateMachine {
         WallCheck = wallCheck;
         WhatIsGround = whatIsGround;
         Animator = GetComponent<Animator>();
+
+        PlayerTakeDamageEvent.RegisterListener(OnTakeDamage);
+        PlayerHealEvent.RegisterListener(OnHeal);
+        PlayerTouchKillzoneEvent.RegisterListener(OnTouchKillzone);
+        base.Awake();
+    }
+
+    private void Start() {
+
     }
 
     protected override void FixedUpdate() {
@@ -303,6 +310,12 @@ public class Player : StateMachine {
             }
         }
         return false;
+    }
+
+    private void OnDestroy() {
+        PlayerTakeDamageEvent.UnRegisterListener(OnTakeDamage);
+        PlayerHealEvent.UnRegisterListener(OnHeal);
+        PlayerTouchKillzoneEvent.UnRegisterListener(OnTouchKillzone);
     }
 
     private void OnDrawGizmos() {

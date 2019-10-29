@@ -24,7 +24,7 @@ public class Enemy : StateMachine
     protected float invulnerabilityTimer;
 
     private void Start() {
-        Player = GameController.Instance.player;
+        Player = GameController.Instance.Player;
     }
 
     protected override void Awake(){
@@ -63,6 +63,7 @@ public class Enemy : StateMachine
                         phe.FireEvent();
                         if (!attackEvent.player.IsGrounded && attackEvent.player.IsAttackingDown && attackEvent.isMeleeAttack) {
                             attackEvent.player.ExtraJumpsLeft = attackEvent.player.ExtraJumps;
+                            attackEvent.player.DashesLeft = attackEvent.player.NumberOfDashes;
                             attackEvent.player.Rb2D.velocity = new Vector2(attackEvent.player.Rb2D.velocity.x, 0);
                             attackEvent.player.Rb2D.velocity = new Vector2(attackEvent.player.Rb2D.velocity.x, attackEvent.player.BounceForce);
                             return;

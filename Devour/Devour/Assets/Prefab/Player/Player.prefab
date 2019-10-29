@@ -489,6 +489,7 @@ MonoBehaviour:
   jumpForce: 26
   extraJumps: 1
   variableJumpHeight: 0.1
+  numberOfDashes: 1
   dashCooldown: 0.5
   groundCheckDistance: 0.85
   wallCheckDistance: 0.94

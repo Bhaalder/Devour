@@ -6,7 +6,6 @@ using UnityEngine;
 public class GameController : MonoBehaviour {
 
     public Player Player { get; set; }
-    public Player player;
     public Transform Camera { get; set; }
     public bool GameIsPaused { get; set; }
 
@@ -38,7 +37,6 @@ public class GameController : MonoBehaviour {
         DontDestroyOnLoad(gameObject);
 
         Player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
-        player = Player;
         Camera = UnityEngine.Camera.main.transform.parent;
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;

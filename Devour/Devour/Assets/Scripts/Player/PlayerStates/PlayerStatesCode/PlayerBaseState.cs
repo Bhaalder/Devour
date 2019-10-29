@@ -153,11 +153,16 @@ public class PlayerBaseState : State {
     }
 
     private void DashCheck() {
+        if(owner.IsWallSliding || owner.IsGrounded) {
+            owner.DashesLeft = owner.NumberOfDashes;
+        }
         if (owner.HasAbility(PlayerAbility.DASH)) {
-            if(Input.GetAxis("Dash") > 0 && owner.UntilNextDash <= 0) {
+            if(Input.GetAxis("Dash") > 0 && owner.DashesLeft > 0 && owner.UntilNextDash <= 0) {
+                owner.DashesLeft--;
                 owner.Transition<PlayerDashState>();
             }
-            if (Input.GetButtonDown("Dash") && owner.UntilNextDash <= 0) {
+            if (Input.GetButtonDown("Dash") && owner.DashesLeft > 0 && owner.UntilNextDash <= 0) {
+                owner.DashesLeft--;
                 owner.Transition<PlayerDashState>();
             }
         }
