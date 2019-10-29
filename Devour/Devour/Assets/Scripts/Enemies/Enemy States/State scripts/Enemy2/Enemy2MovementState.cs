@@ -116,14 +116,12 @@ public class Enemy2MovementState : EnemyMovement
             if (seeker.IsDone())
             {
                 seeker.StartPath(owner.rb.position, target.position, OnPathComplete);
-                Debug.Log("Updated path (1)");
             }
         }
         else if (!isWithinAttackDistance)
         {
             if (seeker.IsDone())
             {
-                Debug.Log("Updated path (2)");
                 seeker.StartPath(owner.rb.position, startPosition, OnPathComplete);
             }
         }
