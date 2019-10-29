@@ -1,0 +1,295 @@
+fileFormatVersion: 2
+guid: 0737fac1186bc6544ab370c291c5e09d
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 7723652632321733531
+    second: Enemy2_0
+  - first:
+      213: 4566099760326480194
+    second: Enemy2_1
+  - first:
+      213: -6022894079859659142
+    second: Enemy2_2
+  - first:
+      213: -7149371478718136880
+    second: Enemy2_3
+  - first:
+      213: 8810748929610878751
+    second: Enemy2_4
+  - first:
+      213: 2992058599336829362
+    second: Enemy2_5
+  - first:
+      213: -2388611721508771250
+    second: Enemy2_6
+  - first:
+      213: -9009188383509947307
+    second: Enemy2_7
+  externalObjects: {}
+  serializedVersion: 10
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Enemy2_0
+      rect:
+        serializedVersion: 2
+        x: 31
+        y: 442
+        width: 16
+        height: 23
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e6e7dbd1c0fc91044b75a8c0f32ca4a3
+      internalID: 7723652632321733531
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy2_1
+      rect:
+        serializedVersion: 2
+        x: 60
+        y: 429
+        width: 27
+        height: 37
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cd3f39bebf71ff949befc3c1fcc2fedd
+      internalID: 4566099760326480194
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy2_2
+      rect:
+        serializedVersion: 2
+        x: 229
+        y: 353
+        width: 100
+        height: 113
+      alignment: 9
+      pivot: {x: 0.6064157, y: 0.23410034}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e31cb720fcd27eb4796fd9c07f7f0e46
+      internalID: -6022894079859659142
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy2_3
+      rect:
+        serializedVersion: 2
+        x: 136
+        y: 235
+        width: 18
+        height: 36
+      alignment: 9
+      pivot: {x: 0.7125973, y: 0.9415478}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5361807f588fcfd48acc90526ebf28c8
+      internalID: -7149371478718136880
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy2_4
+      rect:
+        serializedVersion: 2
+        x: 206
+        y: 235
+        width: 20
+        height: 36
+      alignment: 9
+      pivot: {x: 0.54415435, y: 0.9251946}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bc9233e4f4b68af42b73f8174804042b
+      internalID: 8810748929610878751
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy2_5
+      rect:
+        serializedVersion: 2
+        x: 264
+        y: 217
+        width: 130
+        height: 133
+      alignment: 9
+      pivot: {x: 0.4141949, y: 0.076457664}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 20977f4eef873214dab6a54b60f5ab85
+      internalID: 2992058599336829362
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy2_6
+      rect:
+        serializedVersion: 2
+        x: 267
+        y: 118
+        width: 25
+        height: 83
+      alignment: 9
+      pivot: {x: 0.6626636, y: 0.91155934}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7d58b8646e95fb3429d89f47be83b381
+      internalID: -2388611721508771250
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy2_7
+      rect:
+        serializedVersion: 2
+        x: 329
+        y: 118
+        width: 25
+        height: 83
+      alignment: 9
+      pivot: {x: 0.6301306, y: 0.9017604}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 12d01dc89f83a2b46990f8e3c26e0ee0
+      internalID: -9009188383509947307
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
