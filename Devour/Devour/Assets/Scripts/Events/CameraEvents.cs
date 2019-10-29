@@ -19,5 +19,4 @@ public class CameraBoundsChangeEvent : Event<CameraBoundsChangeEvent> {
 
     public GameObject cameraBoundsToEnable;
 
-
 }
