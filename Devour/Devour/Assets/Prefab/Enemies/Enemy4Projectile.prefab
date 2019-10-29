@@ -95,7 +95,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timeToDestruction: 2
-  damageToPlayer: 5
+  damageToPlayer: 25
 --- !u!58 &8579277151344628686
 CircleCollider2D:
   m_ObjectHideFlags: 0
