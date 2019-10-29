@@ -32,7 +32,14 @@ public class Zvixa : Boss{
     [SerializeField] private Transform teleportAreaRight;
     [SerializeField] private GameObject bossDoor;
 
+    
+
+    private static bool isDead;
+
     protected override void Awake() {
+        if (isDead) {
+            Destroy(gameObject);
+        }
         base.Awake();
         HighArea = highArea;
         LowArea = lowArea;
@@ -69,12 +76,14 @@ public class Zvixa : Boss{
     private void Reset(PlayerDiedEvent playerDied) {
         Health = MaxHealth;
         State = BossZvixaState.NONE;
+        Transition<ZvixaBaseState>();
         transform.position = TeleportAreaMiddle.position;
         BossDoor.SetActive(false);
     }
 
     public override void EnemyDeath() {
         //Transition till DeathState
+        isDead = true;
         Destroy(gameObject);//FÖR TILLFÄLLET
     }
 

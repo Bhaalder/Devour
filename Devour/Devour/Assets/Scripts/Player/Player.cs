@@ -306,15 +306,15 @@ public class Player : StateMachine {
     }
 
     private void Die() { //EJ KLART, just nu gör vi bara en respawn och får fullt HP
-        //MaxHP halveras, man hamnar på senaste "RestingPlace", ens "essence" hamnar där man dog
-        PlayerDiedEvent diedEvent = new PlayerDiedEvent {
-            Description = "Player died!"
-        };
-        diedEvent.FireEvent();
+                         //MaxHP halveras, man hamnar på senaste "RestingPlace", ens "essence" hamnar där man dog      
         PlayerHealEvent healEvent = new PlayerHealEvent {
             amount = MaxHealth//FÖR TILLFÄLLET
         };
         healEvent.FireEvent();
+        PlayerDiedEvent diedEvent = new PlayerDiedEvent {
+            Description = "Player died!"
+        };
+        diedEvent.FireEvent();
         Respawn();//FÖR TILLFÄLLET
     }
 

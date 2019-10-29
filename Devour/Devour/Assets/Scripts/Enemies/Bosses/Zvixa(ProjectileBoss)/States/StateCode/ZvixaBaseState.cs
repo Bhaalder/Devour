@@ -30,7 +30,7 @@ public class ZvixaBaseState : State {
     }
 
     public override void HandleUpdate() {
-        if (owner.State == BossZvixaState.NONE && PlayerIsInsideBossRoom()) {
+        if (owner.State == BossZvixaState.NONE && PlayerIsInsideBossRoom() && owner.Player.PlayerState != PlayerState.HURT) {
             owner.Transition<ZvixaIntroState>();
         }
         owner.rb.velocity = Vector2.zero;
