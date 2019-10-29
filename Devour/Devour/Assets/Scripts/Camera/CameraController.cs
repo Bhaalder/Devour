@@ -13,7 +13,7 @@ public class CameraController : MonoBehaviour{
     private Transform playerTransform;
     private Vector3 velocity;
 
-    private BoxCollider2D sceneBoxCollider;
+    public BoxCollider2D sceneBoxCollider;
     private bool cameraBoundsIsFound;
     float checkBoundsTimer = 0.1f;
     float untilNextBoundsCheck;
@@ -51,7 +51,7 @@ public class CameraController : MonoBehaviour{
         Vector3 currentPosition = transform.position;
 
         transform.position = Vector3.SmoothDamp(currentPosition, DesiredPosition(), ref velocity, delay);
-        if (cameraBoundsIsFound && sceneBoxCollider != null) {
+        if (cameraBoundsIsFound && sceneBoxCollider.gameObject.activeSelf) {
             transform.position = new Vector3(CameraBoundsX(), CameraBoundsY(), cameraOffset.z);
         } else { 
             CheckCameraBounds();
@@ -96,6 +96,8 @@ public class CameraController : MonoBehaviour{
             }
         } catch (System.NullReferenceException) {
             Debug.LogWarning("SceneCameraBounds cannot be found in scene!");
+            cameraBoundsIsFound = false;
+            return false;
         }
         cameraBoundsIsFound = false;
         return false;
