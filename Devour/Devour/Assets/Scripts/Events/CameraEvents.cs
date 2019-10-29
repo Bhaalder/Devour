@@ -10,13 +10,8 @@ public class CameraShakeEvent : Event<CameraShakeEvent> {
 
 }
 
-public class CameraBoundsClearEvent : Event<CameraBoundsClearEvent> {
-
-
-}
-
 public class CameraBoundsChangeEvent : Event<CameraBoundsChangeEvent> {
 
-    public GameObject cameraBoundsToEnable;
+    public BoxCollider2D cameraBounds;
 
 }
