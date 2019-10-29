@@ -5,18 +5,18 @@ using UnityEngine;
 public class DestructibleObject : MonoBehaviour
 {
     [SerializeField] private float health = 100;
+    [SerializeField] private bool isUsingStages;
+    [SerializeField] GameObject fullHealth;
+    [SerializeField] GameObject halfHealth;
 
     private BoxCollider2D boxCollider2D;
+    private float originalHealth;
 
     void Start()
     {
         PlayerAttackEvent.RegisterListener(TakeDamage);
         boxCollider2D = GetComponent<BoxCollider2D>();
-    }
-
-    void Update()
-    {
-        
+        originalHealth = health;
     }
 
     private void TakeDamage(PlayerAttackEvent attackEvent)
@@ -24,6 +24,11 @@ public class DestructibleObject : MonoBehaviour
         if (attackEvent.attackCollider.bounds.Intersects(boxCollider2D.bounds))
         {
             health -= attackEvent.damage;
+            if (health <= originalHealth / 2 && isUsingStages)
+            {
+                fullHealth.SetActive(false);
+                halfHealth.SetActive(true);
+            }
             if (health <= 0)
             {
                 DestroyObject();
