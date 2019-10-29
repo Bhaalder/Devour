@@ -137,7 +137,6 @@ public class Player : StateMachine {
     [Tooltip("For testing if the player has certain abilities")]//
     [SerializeField] private PlayerAbility[] playerAbilities;//
     public Vector2 PlayerVelocity;//
-    private bool hasAllAbilities;//
 
     private static bool exists;
 
