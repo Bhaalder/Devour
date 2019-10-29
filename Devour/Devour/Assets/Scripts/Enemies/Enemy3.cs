@@ -20,7 +20,6 @@ public class Enemy3 : Enemy
         ChargeEnemy = chargeEnemy;
         PatrolEnemy = patrolEnemy;
         PatrolMoveRange = patrolMoveRange;
-        Debug.Log("Charge=" + ChargeEnemy + " & " + "Patrol=" + PatrolEnemy);
     }
 
     protected override void Update()
