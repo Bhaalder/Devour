@@ -135,7 +135,7 @@ public class Enemy : StateMachine
         }
     }
 
-    private void OnDestroy() {
+    protected void OnDestroy() {
         PlayerAttackEvent.UnRegisterListener(TakeDamage);
     }
 

@@ -77,5 +77,4 @@ public class Boss : Enemy{
     public void BossLog(string message) {
         Debug.Log(bossName + ": " + message);
     }
-
 }

@@ -9,3 +9,15 @@ public class CameraShakeEvent : Event<CameraShakeEvent> {
     public float startDuration;
 
 }
+
+public class CameraBoundsClearEvent : Event<CameraBoundsClearEvent> {
+
+
+}
+
+public class CameraBoundsChangeEvent : Event<CameraBoundsChangeEvent> {
+
+    public GameObject cameraBoundsToEnable;
+
+
+}

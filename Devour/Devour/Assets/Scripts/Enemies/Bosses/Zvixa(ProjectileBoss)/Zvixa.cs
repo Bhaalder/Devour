@@ -71,8 +71,4 @@ public class Zvixa : Boss{
         Destroy(gameObject);//FÖR TILLFÄLLET
     }
 
-    private void OnDestroy() {
-        PlayerDiedEvent.UnRegisterListener(Reset);
-    }
-
 }
