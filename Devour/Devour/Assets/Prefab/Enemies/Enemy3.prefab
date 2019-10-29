@@ -245,8 +245,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: dfd8ac4e38450324f8e97f1cca0a78cc, type: 2}
   - {fileID: 11400000, guid: 0e721b4559e4b8b46bc17ea238a7e48a, type: 2}
   - {fileID: 11400000, guid: 928dc42f0aa455e4c9e64075ba558eb3, type: 2}
-  enemyHealth: 100
-  damageToPlayerOnContact: 5
+  enemyHealth: 75
+  damageToPlayerOnContact: 25
   enemyGFX: {fileID: 949550574438261648}
   chargeEnemy: 0
   patrolEnemy: 0
