@@ -15,7 +15,7 @@ public class CameraController : MonoBehaviour{
 
     private BoxCollider2D sceneBoxCollider;
     private bool cameraBoundsIsFound;
-    float checkBoundsTimer = 1f;
+    float checkBoundsTimer = 0.1f;
     float untilNextBoundsCheck;
 
     private static bool exists;
@@ -51,7 +51,7 @@ public class CameraController : MonoBehaviour{
         Vector3 currentPosition = transform.position;
 
         transform.position = Vector3.SmoothDamp(currentPosition, DesiredPosition(), ref velocity, delay);
-        if (cameraBoundsIsFound) {
+        if (cameraBoundsIsFound && sceneBoxCollider != null) {
             transform.position = new Vector3(CameraBoundsX(), CameraBoundsY(), cameraOffset.z);
         } else { 
             CheckCameraBounds();
