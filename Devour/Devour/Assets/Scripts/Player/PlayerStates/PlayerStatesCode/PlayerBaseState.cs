@@ -15,8 +15,6 @@ public class PlayerBaseState : State {
         if(owner.PlayerState == PlayerState.NONE) {
             owner.Transition<PlayerIdleState>();
         }
-        owner.IsAttackingUp = false;
-        owner.Animator.SetBool("IsAttackingUp", false);
         base.Enter();
     }
 

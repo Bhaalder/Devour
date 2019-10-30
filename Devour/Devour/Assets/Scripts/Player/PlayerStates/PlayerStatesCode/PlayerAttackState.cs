@@ -18,8 +18,6 @@ public class PlayerAttackState : PlayerBaseState {
 
     public override void HandleUpdate() {
         if(owner.UntilNextMeleeAttack-0.1f <= 0) {
-            owner.IsAttackingUp = false;
-            owner.Animator.SetBool("IsAttackingUp", false);
             if (Input.GetButton("Horizontal") && owner.IsGrounded) {
                 owner.Transition<PlayerWalkState>();
                 return;
@@ -34,4 +32,11 @@ public class PlayerAttackState : PlayerBaseState {
         }
         base.HandleUpdate();
     }
+
+    public override void Exit() {
+        owner.IsAttackingUp = false;
+        owner.Animator.SetBool("IsAttackingUp", false);
+        base.Exit();
+    }
+
 }

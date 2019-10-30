@@ -15,7 +15,6 @@ public class PlayerHurtState : PlayerBaseState {
         owner.IsInvulnerable = true;
         owner.PlayerState = PlayerState.HURT;
         hurtTime = startHurtTime;
-        base.Enter();
     }
 
     public override void HandleFixedUpdate() {
