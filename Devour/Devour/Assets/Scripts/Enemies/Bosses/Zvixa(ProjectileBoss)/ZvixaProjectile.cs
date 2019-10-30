@@ -18,6 +18,7 @@ public class ZvixaProjectile : MonoBehaviour{
         rb = GetComponent<Rigidbody2D>();
         circleCollider2D = GetComponent<CircleCollider2D>();
         PlayerAttackEvent.RegisterListener(GetHit);
+        BossDiedEvent.RegisterListener(BossDied);
         // GetComponent<Rigidbody2D>().velocity += new Vector2(8, 0);
         //transform.position = Vector2.MoveTowards(transform.position, GameController.Instance.Player.transform.position, 5 * Time.deltaTime);
     }
@@ -60,8 +61,13 @@ public class ZvixaProjectile : MonoBehaviour{
         }
     }
 
+    private void BossDied(BossDiedEvent bossDied) {
+        Destroy(gameObject);
+    }
+
     private void OnDestroy() {
         PlayerAttackEvent.UnRegisterListener(GetHit);
+        BossDiedEvent.UnRegisterListener(BossDied);
     }
 
 }

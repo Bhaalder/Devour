@@ -16,3 +16,9 @@ public class EnemyTouchKillzoneEvent : Event<EnemyTouchKillzoneEvent> {
     public float damage;
 
 }
+
+public class BossDiedEvent : Event<BossDiedEvent> {
+
+    public Boss boss;
+
+}

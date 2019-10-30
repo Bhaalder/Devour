@@ -84,6 +84,10 @@ public class Zvixa : Boss{
     public override void EnemyDeath() {
         //Transition till DeathState
         isDead = true;
+        BossDiedEvent zvixaDied = new BossDiedEvent {
+            boss = this
+        };
+        zvixaDied.FireEvent();
         Destroy(gameObject);//FÖR TILLFÄLLET
     }
 

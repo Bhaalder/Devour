@@ -11,7 +11,7 @@ public class ZvixaSonarObject : MonoBehaviour {
     private float growing;
 
     private void Start() {
-
+        BossDiedEvent.RegisterListener(BossDied);
     }
 
     private void FixedUpdate() {
@@ -38,6 +38,14 @@ public class ZvixaSonarObject : MonoBehaviour {
             };
             ptde.FireEvent();
         }
+    }
+
+    private void BossDied(BossDiedEvent bossDied) {
+        Destroy(gameObject);
+    }
+
+    private void OnDestroy() {
+        BossDiedEvent.UnRegisterListener(BossDied);
     }
 
 }
