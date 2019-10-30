@@ -17,7 +17,7 @@ public class PlayerAttackState : PlayerBaseState {
     }
 
     public override void HandleUpdate() {
-        if(owner.UntilNextMeleeAttack <= 0) {
+        if(owner.UntilNextMeleeAttack-0.1f <= 0) {
             owner.IsAttackingUp = false;
             owner.Animator.SetBool("IsAttackingUp", false);
             if (Input.GetButton("Horizontal") && owner.IsGrounded) {
