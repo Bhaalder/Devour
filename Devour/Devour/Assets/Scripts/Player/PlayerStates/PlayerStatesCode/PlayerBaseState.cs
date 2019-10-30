@@ -44,13 +44,13 @@ public class PlayerBaseState : State {
         owner.Rb2D.velocity = new Vector2(owner.XInput * owner.MovementSpeed, owner.Rb2D.velocity.y);
     }
 
-    public override void HandleUpdate() {       
+    public override void HandleUpdate() {
+        JumpCheck();
         CooldownTimers();
         CollisionCheck();
         DashCheck();
         GetMovementInput();
         GetCombatInput();
-        JumpCheck();
 
         base.HandleUpdate();
     }
