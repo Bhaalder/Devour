@@ -9,6 +9,8 @@ public class PlayerAirState : PlayerBaseState {
     public override void Enter() {
         //owner.PlayerLog("AirState");
         owner.PlayerState = PlayerState.AIR;
+        owner.IsAttackingUp = false;
+        owner.Animator.SetBool("IsAttackingUp", false);
     }
 
     public override void HandleFixedUpdate() {
@@ -23,8 +25,7 @@ public class PlayerAirState : PlayerBaseState {
         //    owner.IsAttackingDown = false;
         //    owner.Animator.SetBool("IsAttackingDown", false);
         //}
-        owner.IsAttackingUp = false;
-        owner.Animator.SetBool("IsAttackingUp", false);
+        
         if (owner.IsGrounded) {
             if (Input.GetButton("Horizontal")) {
                 owner.Transition<PlayerWalkState>();
