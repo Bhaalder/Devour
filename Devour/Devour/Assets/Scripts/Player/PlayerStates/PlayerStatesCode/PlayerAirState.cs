@@ -25,7 +25,6 @@ public class PlayerAirState : PlayerBaseState {
         //    owner.IsAttackingDown = false;
         //    owner.Animator.SetBool("IsAttackingDown", false);
         //}
-        
         if (owner.IsGrounded) {
             if (Input.GetButton("Horizontal")) {
                 owner.Transition<PlayerWalkState>();

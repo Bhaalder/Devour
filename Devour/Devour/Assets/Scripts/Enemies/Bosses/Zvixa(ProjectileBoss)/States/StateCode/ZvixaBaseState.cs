@@ -38,33 +38,35 @@ public class ZvixaBaseState : State {
     }
 
     protected virtual void Movement() {
-        if(timeUntilNextMove > 0) {
-            timeUntilNextMove -= Time.deltaTime;
-            return;
-        }
-        timeUntilNextMove = Random.Range(minimumTimeUntilMove, maximumTimeUntilMove);
-        while(lastTeleport == teleportLocation) {
-            int position = Random.Range(0, 3) + 1;
-            switch (position) {
-                case 1:
-                    teleportLocation = owner.TeleportAreaLeft;
-                    break;
-                case 2:
-                    teleportLocation = owner.TeleportAreaMiddle;
-                    break;
-                case 3:
-                    teleportLocation = owner.TeleportAreaRight;
-                    break;
+        if(owner.State != BossZvixaState.NONE) {
+            if (timeUntilNextMove > 0) {
+                timeUntilNextMove -= Time.deltaTime;
+                return;
             }
-        }
-        if(lastTeleport == null || teleportLocation == null) {
-            lastTeleport = owner.TeleportAreaMiddle;
-            teleportLocation = owner.TeleportAreaMiddle;
-        }
-        //owner.Rb2d.MovePosition(teleportLocation.position);
-        owner.rb.velocity = new Vector2(0, 0);
-        owner.transform.position = teleportLocation.position;
-        lastTeleport = teleportLocation;
+            timeUntilNextMove = Random.Range(minimumTimeUntilMove, maximumTimeUntilMove);
+            while (lastTeleport == teleportLocation) {
+                int position = Random.Range(0, 3) + 1;
+                switch (position) {
+                    case 1:
+                        teleportLocation = owner.TeleportAreaLeft;
+                        break;
+                    case 2:
+                        teleportLocation = owner.TeleportAreaMiddle;
+                        break;
+                    case 3:
+                        teleportLocation = owner.TeleportAreaRight;
+                        break;
+                }
+            }
+            if (lastTeleport == null || teleportLocation == null) {
+                lastTeleport = owner.TeleportAreaMiddle;
+                teleportLocation = owner.TeleportAreaMiddle;
+            }
+            //owner.Rb2d.MovePosition(teleportLocation.position);
+            owner.rb.velocity = new Vector2(0, 0);
+            owner.transform.position = teleportLocation.position;
+            lastTeleport = teleportLocation;
+        }       
     }
 
     private bool PlayerIsInsideBossRoom() {
