@@ -88,6 +88,7 @@ public class Zvixa : Boss{
             boss = this
         };
         zvixaDied.FireEvent();
+        Destroy(LowArea.gameObject);
         Destroy(gameObject);//FÖR TILLFÄLLET
     }
 
