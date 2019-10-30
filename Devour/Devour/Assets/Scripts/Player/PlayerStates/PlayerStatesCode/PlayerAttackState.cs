@@ -28,7 +28,9 @@ public class PlayerAttackState : PlayerBaseState {
                 owner.Transition<PlayerAirState>();
                 return;
             }
-            owner.Transition<PlayerIdleState>();
+            if (owner.IsGrounded) {
+                owner.Transition<PlayerIdleState>();
+            }   
         }
         base.HandleUpdate();
     }
