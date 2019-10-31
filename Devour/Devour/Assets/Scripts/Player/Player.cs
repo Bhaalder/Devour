@@ -323,7 +323,7 @@ public class Player : StateMachine {
         switch (sound) {
             case "Walk":
                 soundList.Add("Step1");
-                soundList.Add("Step2");
+                //soundList.Add("Step2");
                 break;
             default:
                 break;

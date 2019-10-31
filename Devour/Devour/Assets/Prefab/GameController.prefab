@@ -77,9 +77,19 @@ MonoBehaviour:
     maxDistance: 0
     loop: 0
     source: {fileID: 0}
-  - name: Walk
+  - name: Step1
     clip: {fileID: 8300000, guid: 575e6e850dbba2842b22a5663c1340e5, type: 3}
-    volume: 1
+    volume: 0.3
+    pitch: 1
+    spatialBlend_2D_3D: 0
+    rolloffMode: 0
+    minDistance: 0
+    maxDistance: 0
+    loop: 0
+    source: {fileID: 0}
+  - name: Step2
+    clip: {fileID: 8300000, guid: 0271a6fe98c4a864989a72a720537b5c, type: 3}
+    volume: 0.3
     pitch: 1
     spatialBlend_2D_3D: 0
     rolloffMode: 0
