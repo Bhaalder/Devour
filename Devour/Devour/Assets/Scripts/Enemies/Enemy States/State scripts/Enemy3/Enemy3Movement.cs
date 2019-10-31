@@ -7,27 +7,32 @@ using UnityEngine;
 public class Enemy3Movement : EnemyMovement
 {
     [SerializeField] private float enemySpeed = 400f;
-    [SerializeField] private float distanceBeforeTurning = 3f;
+    [SerializeField] protected float distanceBeforeTurning = 3f;
     [SerializeField] private float newPositionCooldownTime = 5f;
     [SerializeField] protected float attackDistance = 15f;
+    [SerializeField] private float iWasStuckCooldown = 5f;
+
 
     protected Vector2 force;
     protected Vector2 direction;
+    protected Vector2 noGroundAhead;
+
     private Vector2 startingPosition;
     private Vector2 newPosition;
-    private Vector2 noGroundAhead;
 
-    private bool movingRight = true;
+    protected bool movingRight = true;
     private bool startPositionSet = false;
     private bool movingToNewPosition = false;
 
     private float currentPositionCooldown;
     private float patrolMoveRange;
+    private float iWasStuckCurrentCooldown;
 
 
     public override void Enter()
     {
         base.Enter();
+        iWasStuckCurrentCooldown = iWasStuckCooldown;
     }
 
     public override void HandleUpdate()
@@ -149,6 +154,19 @@ public class Enemy3Movement : EnemyMovement
         currentPositionCooldown = newPositionCooldownTime;
     }
 
+    private void IWasStuckCooldown()
+    {
+        iWasStuckCurrentCooldown -= Time.deltaTime;
+
+        if (iWasStuckCurrentCooldown > 0)
+        {
+            return;
+        }
+
+        owner.GetComponent<Enemy3>().IWasStuck = false;
+        iWasStuckCurrentCooldown = iWasStuckCooldown;
+    }
+
     private void setNewPosition()
     {
         patrolMoveRange = owner.GetComponent<Enemy3>().PatrolMoveRange;
@@ -158,17 +176,24 @@ public class Enemy3Movement : EnemyMovement
 
     private void CheckAttackDistance()
     {
-        if (CanSeePlayer() && Vector2.Distance(owner.rb.position, target.position) < attackDistance)
+        if (owner.GetComponent<Enemy3>().IWasStuck == false)
         {
-            if (owner.GetComponent<Enemy3>().ChargeEnemy == true)
+            if (CanSeePlayer() && Vector2.Distance(owner.rb.position, target.position) < attackDistance)
             {
-                SetChargeTarget();
-                owner.Transition<Enemy3TelegraphCharge>();
+                if (owner.GetComponent<Enemy3>().ChargeEnemy == true)
+                {
+                    SetChargeTarget();
+                    owner.Transition<Enemy3TelegraphCharge>();
+                }
+                else
+                {
+                    owner.Transition<Enemy3FollowAttack>();
+                }
             }
-            else
-            {
-                owner.Transition<Enemy3FollowAttack>();
-            }
+        }
+        else
+        {
+            IWasStuckCooldown();
         }
     }
 
@@ -190,5 +215,6 @@ public class Enemy3Movement : EnemyMovement
             owner.setGFX(v);
         }
     }
+
 }
 

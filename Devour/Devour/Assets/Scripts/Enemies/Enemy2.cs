@@ -5,11 +5,14 @@ using Pathfinding;
 
 public class Enemy2 : Enemy
 {
+    [SerializeField] private bool idleOnly;
     public Vector2 StartPosition { get; set; }
+    public bool IdleOnly { get; set; }
 
     protected override void Awake() {
         base.Awake();
         StartPosition = rb.position;
+        IdleOnly = idleOnly;
     }
     // Start is called before the first frame update
     void Start()

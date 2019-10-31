@@ -25,7 +25,6 @@ public class Enemy2IdleState : EnemyBaseState
     {
         base.Enter();
         target = FindObjectOfType<Player>().transform;
-        //target = owner.Player.transform;
     }
 
     public override void HandleUpdate()
@@ -49,15 +48,20 @@ public class Enemy2IdleState : EnemyBaseState
             setNewPosition();
         }
 
-        try {
-            if (Vector2.Distance(owner.rb.position, target.position) <= attackDistance) {
-                owner.Transition<Enemy2MovementState>();
+        if (!owner.GetComponent<Enemy2>().IdleOnly)
+        {
+            try
+            {
+                if (Vector2.Distance(owner.rb.position, target.position) <= attackDistance)
+                {
+                    owner.Transition<Enemy2MovementState>();
+                }
             }
-        } catch (MissingReferenceException) {
-            target = FindObjectOfType<Player>().transform;
+            catch (MissingReferenceException)
+            {
+                target = FindObjectOfType<Player>().transform;
+            }
         }
-
-
 
     }
     public override void HandleFixedUpdate()

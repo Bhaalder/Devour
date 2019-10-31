@@ -8,6 +8,7 @@ public class Enemy3 : Enemy
     public bool PatrolEnemy { get; set; }
     public Vector2 ChargeTarget { get; set; }
     public float PatrolMoveRange { get; set; }
+    public bool IWasStuck { get; set; }
 
     [SerializeField] private bool chargeEnemy = false;
     [SerializeField] private bool patrolEnemy = false;
@@ -20,6 +21,7 @@ public class Enemy3 : Enemy
         ChargeEnemy = chargeEnemy;
         PatrolEnemy = patrolEnemy;
         PatrolMoveRange = patrolMoveRange;
+        IWasStuck = false;
     }
 
     protected override void Update()

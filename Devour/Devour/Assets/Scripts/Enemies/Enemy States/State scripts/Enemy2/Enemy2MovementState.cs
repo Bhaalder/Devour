@@ -137,6 +137,7 @@ public class Enemy2MovementState : EnemyMovement
             {
                 Vector2 cp = new Vector2(Mathf.Round(owner.rb.position.x), Mathf.Round(owner.rb.position.y));
                 Vector2 op = new Vector2(Mathf.Round(startPosition.x), Mathf.Round(startPosition.y));
+
                 if(cp == op)
                 {
                     owner.Transition<Enemy2IdleState>();
