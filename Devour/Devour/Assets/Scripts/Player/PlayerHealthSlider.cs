@@ -17,7 +17,6 @@ public class PlayerHealthSlider : MonoBehaviour{
     private void Start() {
         healthSlider = GetComponent<Slider>();
         healthSlider.maxValue = GameController.Instance.Player.MaxHealth;
-        Debug.Log(GameController.Instance.Player.MaxHealth);
         healthSlider.value = GameController.Instance.Player.MaxHealth;
     }
 
