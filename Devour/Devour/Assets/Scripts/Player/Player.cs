@@ -318,6 +318,26 @@ public class Player : StateMachine {
         Respawn();//FÖR TILLFÄLLET
     }
 
+    public void PlaySound(string sound) {
+        List<string> soundList = new List<string>();
+        switch (sound) {
+            case "Walk":
+                soundList.Add("Step1");
+                soundList.Add("Step2");
+                break;
+            default:
+                break;
+        }
+        AudioPlayRandomSoundEvent soundEvent = new AudioPlayRandomSoundEvent {
+            name = soundList.ToArray(),
+            soundType = SoundType.SFX,
+            isRandomPitch = true,
+            minPitch = 0.9f,
+            maxPitch = 1f
+        };
+        soundEvent.FireEvent();
+    }
+
     public void PlayerLog(string message) {
         Debug.Log("PLAYER: " + message);
     }

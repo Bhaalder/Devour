@@ -69,18 +69,22 @@ public class Enemy : StateMachine
                             return;
                         }
                         if (attackEvent.player.IsAttackingUp) {
-                            knockBack = new Vector2(0, attackEvent.player.KnockbackForce);
+                            knockBack = KnockBack(new Vector2(0, attackEvent.player.KnockbackForce));
                             rb.velocity = knockBack;
                             return;
                         }
                     }
-                    knockBack = new Vector2(attackEvent.player.FacingDirection * attackEvent.player.KnockbackForce, 0);
+                    knockBack = KnockBack(new Vector2(attackEvent.player.FacingDirection * attackEvent.player.KnockbackForce, 0));
                     rb.velocity = knockBack;
                 }
             } catch (NullReferenceException) {
                 Debug.LogWarning("A missing reference in PlayerAttackEvent, check Log!");
             }
         }
+    }
+
+    public virtual Vector2 KnockBack(Vector2 knockback) {
+        return knockback;
     }
 
     public virtual void ChangeEnemyHealth(float amount) {

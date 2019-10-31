@@ -44,7 +44,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9b4cc3bc5174104f9d6541525374d2a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
 --- !u!114 &576137534
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -70,6 +69,16 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: Dash
     clip: {fileID: 8300000, guid: 388b67ec59fcb9d4cad6655a0d8ba7c8, type: 3}
+    volume: 1
+    pitch: 1
+    spatialBlend_2D_3D: 0
+    rolloffMode: 0
+    minDistance: 0
+    maxDistance: 0
+    loop: 0
+    source: {fileID: 0}
+  - name: Walk
+    clip: {fileID: 8300000, guid: 575e6e850dbba2842b22a5663c1340e5, type: 3}
     volume: 1
     pitch: 1
     spatialBlend_2D_3D: 0

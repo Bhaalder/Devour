@@ -22,4 +22,9 @@ public class Enemy2 : Enemy
     {
         base.Update();
     }
+
+    public override Vector2 KnockBack(Vector2 knockback) {
+        return knockback/2;
+    }
+
 }
