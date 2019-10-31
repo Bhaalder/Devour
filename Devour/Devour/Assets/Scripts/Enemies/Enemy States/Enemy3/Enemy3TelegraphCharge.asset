@@ -18,6 +18,6 @@ MonoBehaviour:
     m_Bits: 256
   enemySpeed: 700
   distanceBeforeTurning: 3
-  newPositionCooldownTime: 5
+  newPositionCooldownTime: 3
   attackDistance: 15
   telegraphTime: 3
