@@ -479,10 +479,10 @@ MonoBehaviour:
   projectileDamage: 50
   projectileHealthcost: 10
   projectileCooldown: 1
-  knockbackForce: 5
+  knockbackForce: 10
   bounceForce: 20
   invulnerableStateTime: 1
-  playerHurtKnockbackForce: {x: 5, y: 14}
+  hurtKnockbackForce: {x: 0, y: 0}
   cameraShakeDuration: 0.5
   cameraShakeValue: 0.5
   movementSpeed: 10
