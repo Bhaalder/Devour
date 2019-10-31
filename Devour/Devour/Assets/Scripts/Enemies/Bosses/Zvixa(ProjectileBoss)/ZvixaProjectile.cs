@@ -37,11 +37,11 @@ public class ZvixaProjectile : MonoBehaviour{
         if (attackEvent.attackCollider.bounds.Intersects(circleCollider2D.bounds)) {
             Vector2 knockBack;
             if (attackEvent.player.IsAttackingDown) {
-                knockBack = new Vector2(0, -attackEvent.player.KnockbackForce);
+                knockBack = new Vector2(0, -attackEvent.player.KnockbackForce * 1.3f);
             } else if (attackEvent.player.IsAttackingUp) {
-                knockBack = new Vector2(0, attackEvent.player.KnockbackForce);
+                knockBack = new Vector2(0, attackEvent.player.KnockbackForce * 1.3f);
             } else {
-                knockBack = new Vector2(attackEvent.player.FacingDirection * attackEvent.player.KnockbackForce, 0);
+                knockBack = new Vector2(attackEvent.player.FacingDirection * attackEvent.player.KnockbackForce * 1.3f, 0);
             }
             gotHit = true;
             rb.velocity = Vector2.zero;
