@@ -4,6 +4,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+public class ZvixaSelfDamageEvent : Event<ZvixaSelfDamageEvent> {
+
+    public float damage;
+    public CircleCollider2D circleCollider2D;
+
+}
+
 public class EnemyHealEvent : Event<EnemyHealEvent> {
 
     public bool isLifeLeech;

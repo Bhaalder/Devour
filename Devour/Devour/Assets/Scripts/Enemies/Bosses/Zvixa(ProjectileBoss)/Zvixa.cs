@@ -50,6 +50,7 @@ public class Zvixa : Boss{
         BossDoor = bossDoor;
 
         PlayerDiedEvent.RegisterListener(Reset);
+        ZvixaSelfDamageEvent.RegisterListener(SelfDamage);
     }
 
     protected override void Update() {
@@ -71,6 +72,10 @@ public class Zvixa : Boss{
             ptde.FireEvent();
         }
         rb.velocity = new Vector2(0, 0);
+    }
+
+    public virtual void SelfDamage(ZvixaSelfDamageEvent selfDamageEvent) {
+        ChangeEnemyHealth(-selfDamageEvent.damage);
     }
 
     private void Reset(PlayerDiedEvent playerDied) {
@@ -96,5 +101,6 @@ public class Zvixa : Boss{
         BossDoor.SetActive(false);
         PlayerAttackEvent.UnRegisterListener(TakeDamage);
         PlayerDiedEvent.UnRegisterListener(Reset);
+        ZvixaSelfDamageEvent.UnRegisterListener(SelfDamage);
     }
 }

@@ -16,6 +16,7 @@ MonoBehaviour:
   basicAttackTimeWindUp: 1
   basicAttackTime: 3
   ballDamage: 25
+  ballSelfDamage: 50
   ballSpeed: 8
   ballLifespan: 5
   ballAttackPrefab: {fileID: 8366722612317318571, guid: de3e08cf94d24774498e3927ef652b12,

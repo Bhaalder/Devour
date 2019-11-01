@@ -128,15 +128,15 @@ public class PlayerBaseState : State {
                     player = owner.GetComponent<Player>(),
                     isMeleeAttack = true
                 };
-                AudioPlaySoundEvent attackAudio = new AudioPlaySoundEvent {
-                    name = "Attack",
-                    soundType = SoundType.SFX,
-                    isRandomPitch = true,
-                    minPitch = 0.95f,
-                    maxPitch = 1f
-                };
+                //AudioPlaySoundEvent attackAudio = new AudioPlaySoundEvent {
+                //    name = "Attack",
+                //    soundType = SoundType.SFX,
+                //    isRandomPitch = true,
+                //    minPitch = 0.95f,
+                //    maxPitch = 1f
+                //};
                 playerAttack.FireEvent();
-                attackAudio.FireEvent();
+                //attackAudio.FireEvent();
                 owner.Transition<PlayerAttackState>();
             }
         }

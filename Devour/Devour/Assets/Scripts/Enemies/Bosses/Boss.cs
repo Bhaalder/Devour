@@ -59,8 +59,7 @@ public class Boss : Enemy{
     }
 
     public override void EnemyDeath() {
-        //Bossen gör en animation som tar X lång tid
-        //Bossen dör
+        //Basic ifall bossen inte har en egen deathstate
         Destroy(gameObject);
     }
 

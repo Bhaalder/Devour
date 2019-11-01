@@ -5,6 +5,7 @@ using UnityEngine;
 public class ZvixaProjectile : MonoBehaviour{
 
     public float Damage { get; set; }
+    public float SelfDamage { get; set; }
     public float LifeSpan { get; set; }
     public float Speed { get; set; }
 
@@ -52,11 +53,19 @@ public class ZvixaProjectile : MonoBehaviour{
     private void OnCollisionEnter2D(Collision2D collision) {
         if (collision.gameObject.tag == "Player") {
             Debug.Log("Collided with Player");
-            PlayerTakeDamageEvent ptde = new PlayerTakeDamageEvent {
+            PlayerTakeDamageEvent playerTakeDamage = new PlayerTakeDamageEvent {
                 damage = Damage,
                 enemyPosition = GetComponent<Rigidbody2D>().position
             };
-            ptde.FireEvent();
+            playerTakeDamage.FireEvent();
+            Destroy(gameObject);
+        }
+        if(gotHit && collision.gameObject.tag == "Enemy") {
+            ZvixaSelfDamageEvent zvixaSelfDamage = new ZvixaSelfDamageEvent {
+                circleCollider2D = circleCollider2D,
+                damage = SelfDamage
+            };
+            zvixaSelfDamage.FireEvent();
             Destroy(gameObject);
         }
     }

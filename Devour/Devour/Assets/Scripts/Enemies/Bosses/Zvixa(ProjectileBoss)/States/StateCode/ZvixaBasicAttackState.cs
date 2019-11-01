@@ -10,8 +10,10 @@ public class ZvixaBasicAttackState : ZvixaBaseState {
     [SerializeField] private float basicAttackTimeWindUp;
     [Tooltip("How long time the basic attack lasts")]
     [SerializeField] private float basicAttackTime;
-    [Tooltip("How much damage the ball does on contact")]
+    [Tooltip("How much damage the ball does on contact to player")]
     [SerializeField] private float ballDamage;
+    [Tooltip("How much damage the ball does on contact to Zvixa (if the player bounces the ball back)")]
+    [SerializeField] private float ballSelfDamage;
     [Tooltip("How fast the ball moves")]
     [SerializeField] private float ballSpeed;
     [Tooltip("How long the ball is out before disappearing")]
@@ -55,6 +57,7 @@ public class ZvixaBasicAttackState : ZvixaBaseState {
         projectile = Instantiate(ballAttackPrefab, owner.transform.position + new Vector3(owner.FacingDirection * 6, 2, 0), Quaternion.identity);
         zvixaProjectile = projectile.GetComponent<ZvixaProjectile>();
         zvixaProjectile.Damage = ballDamage;
+        zvixaProjectile.SelfDamage = ballSelfDamage;
         zvixaProjectile.Speed = ballSpeed;
         zvixaProjectile.LifeSpan = ballLifespan;
     }

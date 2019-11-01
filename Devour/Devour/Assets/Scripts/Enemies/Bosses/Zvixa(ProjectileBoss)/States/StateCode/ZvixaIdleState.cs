@@ -10,9 +10,9 @@ public class ZvixaIdleState : ZvixaBaseState {
     [SerializeField] protected float minIdle;
     [Tooltip("The maximum amount of Idle time between actions")]
     [SerializeField] protected float maxIdle;
-    [Tooltip("The chance in % that the boss will act immediately again after an action")]
+    [Tooltip("The chance in % that the boss will act immediately again after an action (whole number)")]
     [SerializeField] protected int actAgainPercentage;
-    [Tooltip("The chance in % that the boss will do the basic attack")]
+    [Tooltip("The chance in % that the boss will do the basic attack (whole number)")]
     [SerializeField] protected int basicAttackPercentage;
     private float untilNextAction;
     private int actAgain;

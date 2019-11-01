@@ -10,6 +10,14 @@ public class PlayerAttackState : PlayerBaseState {
         //owner.PlayerLog("AttackState");
         owner.PlayerState = PlayerState.ATTACK;
         owner.UntilNextMeleeAttack = owner.MeleeCooldown;
+        AudioPlaySoundEvent attackAudio = new AudioPlaySoundEvent {
+            name = "Attack",
+            soundType = SoundType.SFX,
+            isRandomPitch = true,
+            minPitch = 0.95f,
+            maxPitch = 1f
+        };
+        attackAudio.FireEvent();
     }
 
     public override void HandleFixedUpdate() {
@@ -36,6 +44,17 @@ public class PlayerAttackState : PlayerBaseState {
     public override void Exit() {
         owner.IsAttackingUp = false;
         owner.Animator.SetBool("IsAttackingUp", false);
+        //AudioStopSoundEvent stopSwoosh = new AudioStopSoundEvent {
+        //    name = "Attack",
+        //};
+        //stopSwoosh.FireEvent();
+        AudioFadeSoundEvent fadeSwoosh = new AudioFadeSoundEvent {
+            name = "Attack",
+            isFadeOut = true,
+            fadeDuration = 0.08f,
+            soundVolumePercentage = 0
+        };
+        fadeSwoosh.FireEvent();
         base.Exit();
     }
 
