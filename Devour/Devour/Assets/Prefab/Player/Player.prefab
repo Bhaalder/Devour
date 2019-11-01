@@ -490,7 +490,8 @@ MonoBehaviour:
   extraJumps: 1
   variableJumpHeight: 0.1
   numberOfDashes: 1
-  dashCooldown: 0.5
+  dashCooldown: 1
+  fallSpeed: -35
   groundCheckDistance: 0.85
   wallCheckDistance: 0.94
   horizontalAttack: {fileID: 4050920186006892272}

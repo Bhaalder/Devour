@@ -50,6 +50,7 @@ public class Player : StateMachine {
     public int DashesLeft { get; set; }
     public float DashCooldown { get; set; }
     public float UntilNextDash { get; set; }
+    public float FallSpeed { get; set; }
 
     public float XInput { get; set; }
     public float YInput { get; set; }
@@ -117,6 +118,8 @@ public class Player : StateMachine {
     [SerializeField] private int numberOfDashes;
     [Tooltip("The cooldown between dashes")]
     [SerializeField] private float dashCooldown;
+    [Tooltip("The maxvalue the player can fall")]
+    [SerializeField] private float fallSpeed;
 
     [Header("MovementCheckVariables")]
     [Tooltip("The area of the groundcheck, to see if the player is touching the ground")]
@@ -180,6 +183,7 @@ public class Player : StateMachine {
         PermanentVariableJumpHeight = variableJumpHeight;
         NumberOfDashes = numberOfDashes;
         DashCooldown = dashCooldown;
+        FallSpeed = fallSpeed;
         XScale = transform.localScale.x;
         GroundCheckDistance = groundCheckDistance;
         WallCheckDistance = wallCheckDistance;

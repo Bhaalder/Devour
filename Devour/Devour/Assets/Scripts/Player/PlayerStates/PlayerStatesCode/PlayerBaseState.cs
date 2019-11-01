@@ -21,6 +21,7 @@ public class PlayerBaseState : State {
     public override void HandleFixedUpdate() {
         MovePlayer();       
         FacingDirection();
+        FallspeedCheck();
         base.HandleFixedUpdate();
     }
 
@@ -128,19 +129,16 @@ public class PlayerBaseState : State {
                     player = owner.GetComponent<Player>(),
                     isMeleeAttack = true
                 };
-                //AudioPlaySoundEvent attackAudio = new AudioPlaySoundEvent {
-                //    name = "Attack",
-                //    soundType = SoundType.SFX,
-                //    isRandomPitch = true,
-                //    minPitch = 0.95f,
-                //    maxPitch = 1f
-                //};
                 playerAttack.FireEvent();
-                //attackAudio.FireEvent();
                 owner.Transition<PlayerAttackState>();
             }
+        }        
+    }
+
+    private void FallspeedCheck() {
+        if(owner.Rb2D.velocity.y <= owner.FallSpeed) {
+            owner.Rb2D.velocity = new Vector2(owner.Rb2D.velocity.x, owner.FallSpeed);
         }
-        
     }
 
     protected void GetProjectileInput() {
