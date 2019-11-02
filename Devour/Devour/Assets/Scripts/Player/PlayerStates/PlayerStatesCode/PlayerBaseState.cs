@@ -88,6 +88,13 @@ public class PlayerBaseState : State {
 
     protected virtual void GetMovementInput() {
         owner.XInput = Input.GetAxisRaw("Horizontal");
+        if(owner.XInput < -0.35f) {
+            owner.XInput = -1;
+        } else if(owner.XInput > 0.35f) {
+            owner.XInput = 1;
+        } else {
+            owner.XInput = 0;
+        }
     }
 
     protected void GetCombatInput() {
@@ -106,12 +113,12 @@ public class PlayerBaseState : State {
                 attackCollider = owner.HorizontalMeleeCollider;
                 owner.IsAttackingUp = false;
                 owner.Animator.SetBool("IsAttackingUp", false);
-                if (Input.GetAxisRaw("Vertical") > 0.15f) {
+                if (Input.GetAxisRaw("Vertical") > 0.35f) {
                     attackCollider = owner.UpMeleeCollider;
                     owner.IsAttackingUp = true;
                     owner.Animator.SetBool("IsAttackingUp", true);
                 }
-                if (Input.GetAxisRaw("Vertical") < -0.15f && !owner.IsGrounded) {
+                if (Input.GetAxisRaw("Vertical") < -0.35f && !owner.IsGrounded) {
                     attackCollider = owner.DownMeleeCollider;
                     owner.IsAttackingDown = true;
                     owner.Animator.SetBool("IsAttackingDown", true);

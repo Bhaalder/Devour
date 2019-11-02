@@ -16,7 +16,7 @@ public class PlayerIdleState : PlayerBaseState {
     }
 
     public override void HandleUpdate() {
-        if(Input.GetAxisRaw("Horizontal") != 0 && owner.IsGrounded) {
+        if(owner.XInput != 0 && owner.IsGrounded) {
             owner.Transition<PlayerWalkState>();
         }
         if (!owner.IsGrounded) {
