@@ -14,10 +14,12 @@ public class PlayerProjectile : MonoBehaviour{
 
     private float lifespan = 4f;
     private bool hitObject;
+    private bool canDealDamage;
 
     private BoxCollider2D boxCollider2D;
 
     private void Awake() {
+        canDealDamage = true;
         boxCollider2D = GetComponent<BoxCollider2D>();
         AudioPlaySoundAtLocationEvent projectileSound = new AudioPlaySoundAtLocationEvent {
             name = "Projectile",
@@ -43,15 +45,17 @@ public class PlayerProjectile : MonoBehaviour{
 
     private void OnTriggerEnter2D(Collider2D collision) {
         try {
-            PlayerAttackEvent playerAttack = new PlayerAttackEvent {
-                attackCollider = boxCollider2D,
-                isMeleeAttack = false,
-                damage = Damage,
-                player = Player,
-                playerPosition = Player.transform.position
-            };
-            playerAttack.FireEvent();
-        } catch (System.Exception) {
+            if (canDealDamage) {
+                PlayerAttackEvent playerAttack = new PlayerAttackEvent {
+                    attackCollider = boxCollider2D,
+                    isMeleeAttack = false,
+                    damage = Damage,
+                    player = Player,
+                    playerPosition = Player.transform.position
+                };
+                playerAttack.FireEvent();
+            }
+        } catch (System.NullReferenceException) {
 
         }
         if (!isBounce) {
@@ -64,15 +68,10 @@ public class PlayerProjectile : MonoBehaviour{
                     soundVolumePercentage = 0
                 };
                 fadeSound.FireEvent();
-                Destroy(gameObject);
+                Destroy(transform.GetChild(0).gameObject);
+                hitObject = true;
+                canDealDamage = false;
             }
         }
     }
-
-    private void OnCollisionEnter2D(Collision2D collision) {
-        if(collision.gameObject.tag != "Player") {
-            hitObject = true;
-        }        
-    }
-
 }

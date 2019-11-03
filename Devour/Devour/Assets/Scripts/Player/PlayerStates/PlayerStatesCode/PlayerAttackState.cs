@@ -48,13 +48,13 @@ public class PlayerAttackState : PlayerBaseState {
         //    name = "Attack",
         //};
         //stopSwoosh.FireEvent();
-        AudioFadeSoundEvent fadeSwoosh = new AudioFadeSoundEvent {
-            name = "Attack",
-            isFadeOut = true,
-            fadeDuration = 0.08f,
-            soundVolumePercentage = 0
-        };
-        fadeSwoosh.FireEvent();
+        //AudioFadeSoundEvent fadeSwoosh = new AudioFadeSoundEvent {
+        //    name = "Attack",
+        //    isFadeOut = true,
+        //    fadeDuration = 0.08f,
+        //    soundVolumePercentage = 0
+        //};
+        //fadeSwoosh.FireEvent();
         base.Exit();
     }
 
