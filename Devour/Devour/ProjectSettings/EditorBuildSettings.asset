@@ -29,4 +29,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/World/Scene05.unity
     guid: bab92766644ddfc49aa83e385dedafae
+  - enabled: 1
+    path: Assets/Scenes/World/BossArea2.unity
+    guid: 972a3e45495f9ef47aacd60b93dc1c04
   m_configObjects: {}
