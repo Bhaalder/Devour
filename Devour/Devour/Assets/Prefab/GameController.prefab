@@ -101,10 +101,10 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: fb94529655a65c34199da4e3de62ed48, type: 3}
     volume: 1
     pitch: 1
-    spatialBlend_2D_3D: 0
-    rolloffMode: 0
-    minDistance: 0
-    maxDistance: 0
+    spatialBlend_2D_3D: 1
+    rolloffMode: 1
+    minDistance: 1
+    maxDistance: 50
     loop: 0
     source: {fileID: 0}
   enemySounds:
