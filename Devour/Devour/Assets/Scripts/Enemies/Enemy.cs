@@ -1,5 +1,5 @@
 ﻿//Main Author: Marcus Söderberg
-//Secondary Author: Patrik Ahlgren (TakeDamage(), ChangeEnemyHealth(), invulnerability, lade till get/set på health & damage, lade till Player)
+//Secondary Author: Patrik Ahlgren (TakeDamage(), ChangeEnemyHealth(), DeathSound(), invulnerability, lade till get/set på health & damage, lade till Player)
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -98,12 +98,13 @@ public class Enemy : StateMachine
 
     protected void HurtSound() {
         string[] soundNames = { "Hit1", "Hit2", "Hit3" };
-        AudioPlayRandomSoundEvent hurtSound = new AudioPlayRandomSoundEvent {
+        AudioPlayRandomSoundAtLocationEvent hurtSound = new AudioPlayRandomSoundAtLocationEvent {
             name = soundNames,
             isRandomPitch = true,
             minPitch = 0.96f,
             maxPitch = 1.0f,
-            soundType = SoundType.SFX
+            soundType = SoundType.SFX,
+            gameObject = gameObject
         };
         hurtSound.FireEvent();
         AudioFadeSoundEvent fadeSwoosh = new AudioFadeSoundEvent {
@@ -116,13 +117,26 @@ public class Enemy : StateMachine
     }
 
     public virtual void EnemyDeath()
-    {
+    {     
         Destroy(gameObject);
     }
 
     public void setGFX(Vector3 v)
     {
         enemyGFX.localScale = v;
+    }
+
+    protected virtual void DeathSound() {
+        string[] soundNames = { "Enemy134Death1", "Enemy134Death2", "Enemy134Death3" };
+        AudioPlayRandomSoundAtLocationEvent enemyDie = new AudioPlayRandomSoundAtLocationEvent {
+            name = soundNames,
+            isRandomPitch = true,
+            minPitch = 0.95f,
+            maxPitch = 1,
+            soundType = SoundType.SFX,
+            gameObject = gameObject
+        };
+        enemyDie.FireEvent();
     }
 
     protected virtual void OnCollisionStay2D(Collision2D collision)

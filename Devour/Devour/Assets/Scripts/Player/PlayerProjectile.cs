@@ -5,12 +5,15 @@ using UnityEngine;
 
 public class PlayerProjectile : MonoBehaviour{
 
+    [SerializeField] private bool isBounce;
+
     public float Damage { get; set; }
     public Player Player { get; set; }
     public Vector2 Direction { get; set; }
     public float Speed { get; set; }
 
     private float lifespan = 4f;
+    private bool hitObject;
 
     private BoxCollider2D boxCollider2D;
 
@@ -19,8 +22,10 @@ public class PlayerProjectile : MonoBehaviour{
     }
 
     private void Update() {
-        transform.position += (Vector3)Direction * Speed * Time.deltaTime;
-        if(lifespan > 0) {
+        if (!hitObject) {
+            transform.position += (Vector3)Direction * Speed * Time.deltaTime;
+        }
+        if (lifespan > 0) {
             lifespan -= Time.deltaTime;
             return;
         }
@@ -40,9 +45,18 @@ public class PlayerProjectile : MonoBehaviour{
         } catch (System.Exception) {
 
         }
-        if (collision.gameObject.layer == 8) {
-            Destroy(gameObject);
+        if (!isBounce) {
+            if (collision.gameObject.layer == 8) {
+                Destroy(gameObject);
+            }
         }
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision) {
+        if(collision.gameObject.tag != "Player") {
+            hitObject = true;
+        }
+        
     }
 
 }

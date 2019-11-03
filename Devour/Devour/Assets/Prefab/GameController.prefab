@@ -102,30 +102,60 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: 4b441940730ed9b47b75367b65eeaf3d, type: 3}
     volume: 1
     pitch: 1
-    spatialBlend_2D_3D: 0
-    rolloffMode: 0
-    minDistance: 0
-    maxDistance: 0
+    spatialBlend_2D_3D: 1
+    rolloffMode: 1
+    minDistance: 1
+    maxDistance: 50
     loop: 0
     source: {fileID: 0}
   - name: Hit2
     clip: {fileID: 8300000, guid: 74cbaa6f43623ba40b4168390eaf0009, type: 3}
     volume: 1
     pitch: 1
-    spatialBlend_2D_3D: 0
-    rolloffMode: 0
-    minDistance: 0
-    maxDistance: 0
+    spatialBlend_2D_3D: 1
+    rolloffMode: 1
+    minDistance: 1
+    maxDistance: 50
     loop: 0
     source: {fileID: 0}
   - name: Hit3
     clip: {fileID: 8300000, guid: 92dfb696ae3b03b4eaedea55e165d280, type: 3}
     volume: 1
     pitch: 1
-    spatialBlend_2D_3D: 0
-    rolloffMode: 0
-    minDistance: 0
-    maxDistance: 0
+    spatialBlend_2D_3D: 1
+    rolloffMode: 1
+    minDistance: 1
+    maxDistance: 50
+    loop: 0
+    source: {fileID: 0}
+  - name: Enemy134Death1
+    clip: {fileID: 8300000, guid: 8bb0bc882de88954bb00f0f3967bd6ab, type: 3}
+    volume: 1
+    pitch: 1
+    spatialBlend_2D_3D: 1
+    rolloffMode: 1
+    minDistance: 0.1
+    maxDistance: 50
+    loop: 0
+    source: {fileID: 0}
+  - name: Enemy134Death2
+    clip: {fileID: 8300000, guid: a41c14d908e891b4d98f9ae71abea174, type: 3}
+    volume: 1
+    pitch: 1
+    spatialBlend_2D_3D: 1
+    rolloffMode: 1
+    minDistance: 0.1
+    maxDistance: 50
+    loop: 0
+    source: {fileID: 0}
+  - name: Enemy134Death3
+    clip: {fileID: 8300000, guid: 431b28cc442615c4ab794fe447865e4f, type: 3}
+    volume: 1
+    pitch: 1
+    spatialBlend_2D_3D: 1
+    rolloffMode: 1
+    minDistance: 0.1
+    maxDistance: 50
     loop: 0
     source: {fileID: 0}
   environmentSounds: []
