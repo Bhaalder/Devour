@@ -13,6 +13,7 @@ public class DestructibleObject : MonoBehaviour
     [SerializeField] GameObject halfHealth;
     [SerializeField] GameObject particles;
     [SerializeField] float destroyCooldown = 2f;
+    [SerializeField] Animator anim;
 
     private BoxCollider2D boxCollider2D;
 
@@ -28,6 +29,7 @@ public class DestructibleObject : MonoBehaviour
         originalHealth = health;
         currentCooldown = destroyCooldown;
         isOnCooldown = false;
+        anim = gameObject.GetComponent<Animator>();
     }
 
     private void Update()
@@ -43,6 +45,7 @@ public class DestructibleObject : MonoBehaviour
         if (attackEvent.attackCollider.bounds.Intersects(boxCollider2D.bounds))
         {
             health -= attackEvent.damage;
+            anim.Play("DestructibleWall1");
 
             if (particles != null)
             {

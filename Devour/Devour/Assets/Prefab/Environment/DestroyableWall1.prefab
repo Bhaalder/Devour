@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 6150762992789876701}
   - component: {fileID: 6317056460727124628}
   - component: {fileID: 6317056460727124633}
+  - component: {fileID: 422665820}
   m_Layer: 8
   m_Name: DestroyableWall1
   m_TagString: Untagged
@@ -26,9 +27,9 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6317516634344077783}
-  m_LocalRotation: {x: -0, y: -0, z: -0.713236, w: 0.70092404}
+  m_LocalRotation: {x: 0, y: 0, z: -0.7132382, w: 0.7009218}
   m_LocalPosition: {x: 19.9, y: -5.26, z: 0}
-  m_LocalScale: {x: 1.7326308, y: 1.7326308, z: 1.7326308}
+  m_LocalScale: {x: 1.732631, y: 1.7326313, z: 1.732631}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -127,5 +128,25 @@ MonoBehaviour:
   fullHealth: {fileID: 0}
   damagedHealth: {fileID: 0}
   halfHealth: {fileID: 0}
-  particles: {fileID: 0}
+  particles: {fileID: 1315949759934820, guid: 881529e39010b184faa7778afc00317e, type: 3}
   destroyCooldown: 2
+  anim: {fileID: 422665820}
+--- !u!95 &422665820
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6317516634344077783}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: f30c604247d94064995f11215a4288d1, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
