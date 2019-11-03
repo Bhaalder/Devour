@@ -25,6 +25,14 @@ public class PlayerProjectileAttackState : PlayerBaseState {
         };
         playerTakeDamage.FireEvent();
         //owner.Health -= owner.ProjectileHealthcost;
+        //AudioPlaySoundEvent projectileSound = new AudioPlaySoundEvent {
+        //    name = "Projectile",
+        //    isRandomPitch = true,
+        //    minPitch = 0.95f,
+        //    maxPitch = 1,
+        //    soundType = SoundType.SFX
+        //};
+        //projectileSound.FireEvent();
         Shoot();
     }
 

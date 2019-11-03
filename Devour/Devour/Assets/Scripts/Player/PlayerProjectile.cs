@@ -19,6 +19,15 @@ public class PlayerProjectile : MonoBehaviour{
 
     private void Awake() {
         boxCollider2D = GetComponent<BoxCollider2D>();
+        AudioPlaySoundAtLocationEvent projectileSound = new AudioPlaySoundAtLocationEvent {
+            name = "Projectile",
+            isRandomPitch = true,
+            minPitch = 0.95f,
+            maxPitch = 1,
+            soundType = SoundType.SFX,
+            gameObject = gameObject
+        };
+        projectileSound.FireEvent();
     }
 
     private void Update() {
@@ -47,6 +56,14 @@ public class PlayerProjectile : MonoBehaviour{
         }
         if (!isBounce) {
             if (collision.gameObject.layer == 8) {
+                AudioFadeSoundEvent fadeSound = new AudioFadeSoundEvent {
+                    name = "Projectile",
+                    soundType = SoundType.SFX,
+                    isFadeOut = true,
+                    fadeDuration = 0.05f,
+                    soundVolumePercentage = 0
+                };
+                fadeSound.FireEvent();
                 Destroy(gameObject);
             }
         }
@@ -55,8 +72,7 @@ public class PlayerProjectile : MonoBehaviour{
     private void OnCollisionEnter2D(Collision2D collision) {
         if(collision.gameObject.tag != "Player") {
             hitObject = true;
-        }
-        
+        }        
     }
 
 }

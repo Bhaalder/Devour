@@ -97,6 +97,16 @@ MonoBehaviour:
     maxDistance: 0
     loop: 0
     source: {fileID: 0}
+  - name: Projectile
+    clip: {fileID: 8300000, guid: fb94529655a65c34199da4e3de62ed48, type: 3}
+    volume: 1
+    pitch: 1
+    spatialBlend_2D_3D: 0
+    rolloffMode: 0
+    minDistance: 0
+    maxDistance: 0
+    loop: 0
+    source: {fileID: 0}
   enemySounds:
   - name: Hit1
     clip: {fileID: 8300000, guid: 4b441940730ed9b47b75367b65eeaf3d, type: 3}
