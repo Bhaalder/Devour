@@ -98,7 +98,7 @@ MonoBehaviour:
     loop: 0
     source: {fileID: 0}
   - name: Projectile
-    clip: {fileID: 8300000, guid: fb94529655a65c34199da4e3de62ed48, type: 3}
+    clip: {fileID: 8300000, guid: 75b31c37b11fb3445953676206465729, type: 3}
     volume: 1
     pitch: 1
     spatialBlend_2D_3D: 1
