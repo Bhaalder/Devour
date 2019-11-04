@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17eab45e6e1f01f4c9823fd5de62ddbb, type: 3}
+  m_Name: BnathClimbDash
+  m_EditorClassIdentifier: 
+  bossSprite: {fileID: 0}
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 256
+  voidAssaultPercentage: 50
+  playerSidePercentage: 50
+  Count: 1
+  hangTime: 1
+  middlePointCurve: 0
+  endPointY: 10
+  dashTime: 1
+  particles: {fileID: 1315949759934820, guid: fca14c8b8acf1d54ca68a2ca7f53d1c5, type: 3}
+  xRightOffset: -1
+  xLeftOffset: 1
+  targetYOffset: -1.5
+  dashSpeed: 5000
+  groundMargin: 3
