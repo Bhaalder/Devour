@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   colorTest: {r: 1, g: 0, b: 0, a: 1}
   spikeDamage: 25
-  spikeAttackWindUpTime: 0.75
-  spikeAttackTime: 2
+  spikeAttackWindUpTime: 1.3
+  spikeAttackTime: 1.8

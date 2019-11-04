@@ -19,6 +19,6 @@ MonoBehaviour:
   growthTime: 2.55
   growth: 1.03
   spikeFollowUpPercentage: 50
-  spikeFollowUpTime: 2.35
+  spikeFollowUpTime: 2.41
   sonarExpelPrefab: {fileID: 1428199886155703915, guid: 8c88f5086db27d440a02e3f9120bd66f,
     type: 3}

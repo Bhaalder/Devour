@@ -14,10 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   colorTest: {r: 0.44359136, g: 1, b: 0, a: 1}
   basicAttackTimeWindUp: 1
-  basicAttackTime: 3
+  basicAttackTime: 2.5
   ballDamage: 25
   ballSelfDamage: 50
   ballSpeed: 8
-  ballLifespan: 5
+  ballLifespan: 4
   ballAttackPrefab: {fileID: 8366722612317318571, guid: de3e08cf94d24774498e3927ef652b12,
     type: 3}
