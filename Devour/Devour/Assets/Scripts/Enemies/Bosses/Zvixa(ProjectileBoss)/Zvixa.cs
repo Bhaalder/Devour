@@ -21,7 +21,6 @@ public class Zvixa : Boss{
 
     public int FacingDirection { get; set; }
 
-    
     public float DistanceToPlayer { get; set; }
 
     [SerializeField] private BoxCollider2D highArea;
@@ -31,8 +30,6 @@ public class Zvixa : Boss{
     [SerializeField] private Transform teleportAreaMiddle;
     [SerializeField] private Transform teleportAreaRight;
     [SerializeField] private GameObject bossDoor;
-
-    
 
     private static bool isDead;
 

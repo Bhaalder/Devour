@@ -39,11 +39,12 @@ public class PlayerProjectileAttackState : PlayerBaseState {
 
     public override void HandleFixedUpdate() {
         if (Input.GetButton("Projectile")) {
+
             float horizontalInput = Input.GetAxis("Horizontal");
-            if(owner.FacingDirection == -1 && Input.GetAxis("Horizontal") == 0) {
+            if (owner.FacingDirection == -1 && Input.GetAxis("Horizontal") == 0) {
                 horizontalInput *= -1;
             }
-            owner.transform.eulerAngles = new Vector3(0, 0, (Mathf.Atan2(Input.GetAxis("Vertical"), (horizontalInput * owner.FacingDirection)) * 180 / Mathf.PI)*owner.FacingDirection);
+            owner.transform.eulerAngles = new Vector3(0, 0, (Mathf.Atan2(Input.GetAxis("Vertical"), (horizontalInput * owner.FacingDirection)) * 180 / Mathf.PI) * owner.FacingDirection);
         }
         //base.HandleFixedUpdate();
     }

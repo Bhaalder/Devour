@@ -22,6 +22,14 @@ public class DestructibleObject : MonoBehaviour
     private float originalHealth;
     private float currentCooldown;
 
+    private static bool isDestroyed;
+
+    private void Awake() {
+        if (isDestroyed) {
+            Destroy(gameObject);
+        }
+    }
+
     void Start()
     {
         PlayerAttackEvent.RegisterListener(TakeDamage);
@@ -99,6 +107,7 @@ public class DestructibleObject : MonoBehaviour
             GameObject instantiatedParticle = Instantiate(particles, null);
             instantiatedParticle.transform.position = transform.position;
         }
+        isDestroyed = true;
         Destroy(gameObject);
     }
 
