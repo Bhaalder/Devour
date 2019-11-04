@@ -20,7 +20,7 @@ MonoBehaviour:
   playerSidePercentage: 50
   Count: 1
   hangTime: 1
-  middlePointCurve: 0
+  middlePointCurve: 10
   endPointY: 10
   dashTime: 1
   particles: {fileID: 1315949759934820, guid: fca14c8b8acf1d54ca68a2ca7f53d1c5, type: 3}

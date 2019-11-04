@@ -32,6 +32,7 @@ public class BnathClimbDash : BnathBaseState
     private bool dashTelegraph;
     private bool particleInstantiated;
     private bool isChoosingAttack;
+    private bool voidAssaultAttack = false;
 
     private Vector2 rightSide;
     private Vector2 leftSide;
@@ -153,6 +154,7 @@ public class BnathClimbDash : BnathBaseState
             owner.rb.velocity = new Vector2(0, 0);
             owner.rb.gravityScale = 6;
             isChoosingAttack = true;
+            voidAssaultAttack = false;
             owner.Transition<BnathBaseState>();
 
         }
@@ -205,7 +207,9 @@ public class BnathClimbDash : BnathBaseState
         if (chooseAttack <= voidAssaultPercentage)
         {
             isChoosingAttack = true;
+
             owner.Transition<BnathVoidAssault>();
+            voidAssaultAttack = true;
         }
         else
         {
