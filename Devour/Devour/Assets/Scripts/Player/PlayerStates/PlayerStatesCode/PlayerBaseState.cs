@@ -203,7 +203,7 @@ public class PlayerBaseState : State {
     }
 
     protected virtual void Jump(float extra) {
-        if (owner.PlayerState != PlayerState.AIR) {
+        if (owner.PlayerState != PlayerState.JUMP) {
             owner.Transition<PlayerJumpState>();
         }
         if (!owner.IsWallSliding) {

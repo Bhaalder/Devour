@@ -21,7 +21,7 @@ public class PlayerIdleState : PlayerBaseState {
             owner.Transition<PlayerWalkState>();
         }
         if (!owner.IsGrounded) {
-            owner.Transition<PlayerAirState>();
+            owner.Transition<PlayerJumpState>();
         }
         base.HandleUpdate();
     }
