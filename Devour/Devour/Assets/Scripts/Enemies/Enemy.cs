@@ -107,13 +107,13 @@ public class Enemy : StateMachine
             gameObject = gameObject
         };
         hurtSound.FireEvent();
-        AudioFadeSoundEvent fadeSwoosh = new AudioFadeSoundEvent {
-            name = "Attack",
-            isFadeOut = true,
-            fadeDuration = 0.1f,
-            soundVolumePercentage = 0
-        };
-        fadeSwoosh.FireEvent();
+        //AudioFadeSoundEvent fadeSwoosh = new AudioFadeSoundEvent {
+        //    name = "Attack",
+        //    isFadeOut = true,
+        //    fadeDuration = 0.1f,
+        //    soundVolumePercentage = 0
+        //};
+        //fadeSwoosh.FireEvent();
     }
 
     public virtual void EnemyDeath()

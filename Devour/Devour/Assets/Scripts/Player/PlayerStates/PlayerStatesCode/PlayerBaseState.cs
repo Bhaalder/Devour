@@ -25,7 +25,7 @@ public class PlayerBaseState : State {
         base.HandleFixedUpdate();
     }
 
-    private void FacingDirection() {
+    protected void FacingDirection() {
         if (owner.XInput < 0) {
             Flip(-owner.XScale);
             owner.FacingDirection = -1;
@@ -75,7 +75,7 @@ public class PlayerBaseState : State {
         }
     }
 
-    private void CooldownTimers() {
+    protected void CooldownTimers() {
         owner.UntilNextDash -= Time.deltaTime;
         owner.UntilNextProjectileAttack -= Time.deltaTime;
         if (owner.UntilNextDash <= 0) {

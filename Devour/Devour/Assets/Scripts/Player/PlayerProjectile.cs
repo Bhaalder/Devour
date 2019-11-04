@@ -21,6 +21,7 @@ public class PlayerProjectile : MonoBehaviour{
     private void Awake() {
         canDealDamage = true;
         boxCollider2D = GetComponent<BoxCollider2D>();
+        
         AudioPlaySoundAtLocationEvent projectileSound = new AudioPlaySoundAtLocationEvent {
             name = "Projectile",
             isRandomPitch = true,

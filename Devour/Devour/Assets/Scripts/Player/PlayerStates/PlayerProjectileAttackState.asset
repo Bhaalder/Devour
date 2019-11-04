@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72334ef3cecc125478d93b20b150726b, type: 3}
   m_Name: PlayerProjectileAttackState
   m_EditorClassIdentifier: 
-  startAttackTime: 0.5
+  startAttackTime: 5
   playerProjectilePrefab: {fileID: 4936096132819932207, guid: d8c6c5d239828b74e925ed951ba3f114,
     type: 3}
   projectileSpeed: 35

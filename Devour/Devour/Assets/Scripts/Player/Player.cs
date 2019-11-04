@@ -67,6 +67,7 @@ public class Player : StateMachine {
 
     public Transform GroundCheck { get; set; }
     public Transform WallCheck { get; set; }
+    public Transform Aim { get; set; }
     public LayerMask WhatIsGround { get; set; }
     public Animator Animator { get; set; }
 
@@ -132,6 +133,7 @@ public class Player : StateMachine {
     [SerializeField] private Transform horizontalAttack;
     [SerializeField] private Transform upAttack;
     [SerializeField] private Transform downAttack;
+    [SerializeField] private Transform aim;
     [SerializeField] private Transform groundCheck;
     [SerializeField] private Transform wallCheck;
     [SerializeField] private LayerMask whatIsGround;
@@ -191,6 +193,7 @@ public class Player : StateMachine {
 
         GroundCheck = groundCheck;
         WallCheck = wallCheck;
+        Aim = aim;
         WhatIsGround = whatIsGround;
         Animator = GetComponent<Animator>();
 
