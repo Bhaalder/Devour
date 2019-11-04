@@ -14,8 +14,8 @@ public class PlayerAttackState : PlayerBaseState {
             name = "Attack",
             soundType = SoundType.SFX,
             isRandomPitch = true,
-            minPitch = 0.95f,
-            maxPitch = 1f
+            minPitch = 0.96f,
+            maxPitch = 1.02f
         };
         attackAudio.FireEvent();
     }
@@ -36,7 +36,7 @@ public class PlayerAttackState : PlayerBaseState {
             }
             if (owner.IsGrounded) {
                 owner.Transition<PlayerIdleState>();
-            }   
+            }
         }
         base.HandleUpdate();
     }

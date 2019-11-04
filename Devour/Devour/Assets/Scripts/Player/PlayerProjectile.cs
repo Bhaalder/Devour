@@ -11,6 +11,7 @@ public class PlayerProjectile : MonoBehaviour{
     public Player Player { get; set; }
     public Vector2 Direction { get; set; }
     public float Speed { get; set; }
+    public float ProjectileHealthcost { get; set; }
 
     private float lifespan = 4f;
     private bool hitObject;
@@ -21,7 +22,6 @@ public class PlayerProjectile : MonoBehaviour{
     private void Awake() {
         canDealDamage = true;
         boxCollider2D = GetComponent<BoxCollider2D>();
-        
         AudioPlaySoundAtLocationEvent projectileSound = new AudioPlaySoundAtLocationEvent {
             name = "Projectile",
             isRandomPitch = true,
@@ -31,6 +31,14 @@ public class PlayerProjectile : MonoBehaviour{
             gameObject = gameObject
         };
         projectileSound.FireEvent();
+    }
+
+    private void Start() {
+        PlayerTakeDamageEvent playerTakeDamage = new PlayerTakeDamageEvent {
+            damage = ProjectileHealthcost,
+            isSelfInflicted = true
+        };
+        playerTakeDamage.FireEvent();
     }
 
     private void Update() {

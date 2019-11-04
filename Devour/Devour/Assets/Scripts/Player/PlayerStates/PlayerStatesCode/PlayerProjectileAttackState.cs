@@ -20,11 +20,6 @@ public class PlayerProjectileAttackState : PlayerBaseState {
         owner.PlayerState = PlayerState.PROJECTILEATTACK;
         attackTime = startAttackTime;
         owner.UntilNextProjectileAttack = owner.ProjectileCooldown;
-        PlayerTakeDamageEvent playerTakeDamage = new PlayerTakeDamageEvent {
-            damage = owner.ProjectileHealthcost,
-            isSelfInflicted = true
-        };
-        playerTakeDamage.FireEvent();
         owner.Rb2D.gravityScale = 0;
         owner.Rb2D.freezeRotation = false;
         owner.Aim.GetComponent<SpriteRenderer>().enabled = true;        
@@ -36,6 +31,7 @@ public class PlayerProjectileAttackState : PlayerBaseState {
         projectile = Instantiate(playerProjectilePrefab, owner.Aim.position, Quaternion.identity);
         playerProjectile = projectile.GetComponent<PlayerProjectile>();
         playerProjectile.Damage = owner.ProjectileDamage;
+        playerProjectile.ProjectileHealthcost = owner.ProjectileHealthcost;
         playerProjectile.Direction = owner.Aim.right * owner.FacingDirection;
         playerProjectile.Player = owner;
         playerProjectile.Speed = projectileSpeed;
@@ -47,7 +43,7 @@ public class PlayerProjectileAttackState : PlayerBaseState {
             if(owner.FacingDirection == -1 && Input.GetAxis("Horizontal") == 0) {
                 horizontalInput *= -1;
             }
-            owner.transform.eulerAngles = new Vector3(0, 0, (Mathf.Atan2(Input.GetAxis("Vertical"), (horizontalInput * owner.FacingDirection)) * 180/ Mathf.PI)*owner.FacingDirection);
+            owner.transform.eulerAngles = new Vector3(0, 0, (Mathf.Atan2(Input.GetAxis("Vertical"), (horizontalInput * owner.FacingDirection)) * 180 / Mathf.PI)*owner.FacingDirection);
         }
         //base.HandleFixedUpdate();
     }
