@@ -87,6 +87,12 @@ public class Enemy : StateMachine
         return knockback;
     }
 
+    private void EnemyTouchKillzone(EnemyTouchKillzoneEvent killzoneEvent) {
+        if(killzoneEvent.enemy == this) {
+            EnemyDeath();
+        }
+    }
+
     public virtual void ChangeEnemyHealth(float amount) {
         Debug.Log("I took " + amount + " damage! (" + gameObject.name +")");
         Health += amount;
@@ -107,13 +113,6 @@ public class Enemy : StateMachine
             gameObject = gameObject
         };
         hurtSound.FireEvent();
-        //AudioFadeSoundEvent fadeSwoosh = new AudioFadeSoundEvent {
-        //    name = "Attack",
-        //    isFadeOut = true,
-        //    fadeDuration = 0.1f,
-        //    soundVolumePercentage = 0
-        //};
-        //fadeSwoosh.FireEvent();
     }
 
     public virtual void EnemyDeath()
@@ -139,8 +138,7 @@ public class Enemy : StateMachine
         enemyDie.FireEvent();
     }
 
-    protected virtual void OnCollisionStay2D(Collision2D collision)
-    {
+    protected virtual void OnCollisionStay2D(Collision2D collision)    {
         if (collision.gameObject.tag == "Player")
         {
             PlayerTakeDamageEvent ptde = new PlayerTakeDamageEvent
