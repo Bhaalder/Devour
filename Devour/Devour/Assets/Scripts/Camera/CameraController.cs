@@ -41,7 +41,6 @@ public class CameraController : MonoBehaviour{
     }
 
     private void FixedUpdate() {
-
         Vector3 currentPosition = transform.position;
 
         transform.position = Vector3.SmoothDamp(currentPosition, DesiredPosition(), ref velocity, delay);
@@ -64,6 +63,10 @@ public class CameraController : MonoBehaviour{
     }
 
     #endregion
+
+    public void SetCameraToPlayer() {
+        transform.position = DesiredPosition();
+    }
 
     private void OnDestroy() {
         CameraBoundsChangeEvent.UnRegisterListener(SetCameraBounds);
