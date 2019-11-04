@@ -17,6 +17,9 @@ public class DestructibleObject : MonoBehaviour
     [SerializeField] float destroyCooldown = 2f;
     [SerializeField] Animator anim;
 
+    [SerializeField] bool isWall;
+    [SerializeField] bool isFloor;
+
     private BoxCollider2D boxCollider2D;
 
     private bool isOnCooldown;
@@ -55,7 +58,15 @@ public class DestructibleObject : MonoBehaviour
         if (attackEvent.attackCollider.bounds.Intersects(boxCollider2D.bounds))
         {
             health -= attackEvent.damage;
-            anim.Play("DestructibleWall1");
+            if (isWall)
+            {
+                anim.Play("DestructibleWall1");
+            }
+            if (isFloor)
+            {
+                anim.Play("floorbreak");
+            }
+            
 
             if (particles != null)
             {
