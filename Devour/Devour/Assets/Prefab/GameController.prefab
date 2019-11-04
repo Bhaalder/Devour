@@ -119,16 +119,6 @@ MonoBehaviour:
     source: {fileID: 0}
   enemySounds:
   - name: Hit1
-    clip: {fileID: 8300000, guid: 4b441940730ed9b47b75367b65eeaf3d, type: 3}
-    volume: 1
-    pitch: 1
-    spatialBlend_2D_3D: 1
-    rolloffMode: 1
-    minDistance: 1
-    maxDistance: 50
-    loop: 0
-    source: {fileID: 0}
-  - name: Hit2
     clip: {fileID: 8300000, guid: 74cbaa6f43623ba40b4168390eaf0009, type: 3}
     volume: 1
     pitch: 1
@@ -138,7 +128,7 @@ MonoBehaviour:
     maxDistance: 50
     loop: 0
     source: {fileID: 0}
-  - name: Hit3
+  - name: Hit2
     clip: {fileID: 8300000, guid: 92dfb696ae3b03b4eaedea55e165d280, type: 3}
     volume: 1
     pitch: 1

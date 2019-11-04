@@ -1,4 +1,6 @@
-﻿using System.Collections;
+﻿//Main Author: Marcus Söderberg
+//Secondary Author: Patrik Ahlgren (isDestroyed)
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 

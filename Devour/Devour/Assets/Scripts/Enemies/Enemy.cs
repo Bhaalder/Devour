@@ -1,5 +1,5 @@
 ﻿//Main Author: Marcus Söderberg
-//Secondary Author: Patrik Ahlgren (TakeDamage(), ChangeEnemyHealth(), DeathSound(), invulnerability, lade till get/set på health & damage, lade till Player)
+//Secondary Author: Patrik Ahlgren (TakeDamage(), ChangeEnemyHealth(), DeathSound(), HurtSound(), invulnerability, lade till get/set på health & damage, lade till Player)
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -97,12 +97,12 @@ public class Enemy : StateMachine
     }
 
     protected void HurtSound() {
-        string[] soundNames = { "Hit1", "Hit2", "Hit3" };
+        string[] soundNames = { "Hit1", "Hit2"};
         AudioPlayRandomSoundAtLocationEvent hurtSound = new AudioPlayRandomSoundAtLocationEvent {
             name = soundNames,
             isRandomPitch = true,
-            minPitch = 0.96f,
-            maxPitch = 1.0f,
+            minPitch = 0.95f,
+            maxPitch = 1f,
             soundType = SoundType.SFX,
             gameObject = gameObject
         };
