@@ -563,7 +563,7 @@ MonoBehaviour:
   knockbackForce: 10
   bounceForce: 20
   invulnerableStateTime: 1
-  hurtKnockbackForce: {x: 0, y: 0}
+  hurtKnockbackForce: {x: 4, y: 10}
   cameraShakeDuration: 0.5
   cameraShakeValue: 0.5
   movementSpeed: 10

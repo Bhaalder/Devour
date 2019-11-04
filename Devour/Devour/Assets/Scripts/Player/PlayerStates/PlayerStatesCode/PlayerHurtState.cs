@@ -15,6 +15,14 @@ public class PlayerHurtState : PlayerBaseState {
         owner.IsInvulnerable = true;
         owner.PlayerState = PlayerState.HURT;
         hurtTime = startHurtTime;
+        AudioPlaySoundEvent hurtAudio = new AudioPlaySoundEvent {
+            name = "Hurt",
+            soundType = SoundType.SFX,
+            isRandomPitch = true,
+            minPitch = 0.95f,
+            maxPitch = 1f
+        };
+        hurtAudio.FireEvent();
     }
 
     public override void HandleFixedUpdate() {

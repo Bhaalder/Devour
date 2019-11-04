@@ -67,6 +67,16 @@ MonoBehaviour:
     maxDistance: 0
     loop: 0
     source: {fileID: 0}
+  - name: Hurt
+    clip: {fileID: 8300000, guid: 884f8a8f85b49b84db24309deb91541d, type: 3}
+    volume: 1
+    pitch: 1
+    spatialBlend_2D_3D: 0
+    rolloffMode: 0
+    minDistance: 0
+    maxDistance: 0
+    loop: 0
+    source: {fileID: 0}
   - name: Dash
     clip: {fileID: 8300000, guid: 388b67ec59fcb9d4cad6655a0d8ba7c8, type: 3}
     volume: 1
