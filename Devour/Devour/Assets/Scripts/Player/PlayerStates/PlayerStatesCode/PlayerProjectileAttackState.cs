@@ -27,26 +27,16 @@ public class PlayerProjectileAttackState : PlayerBaseState {
         playerTakeDamage.FireEvent();
         owner.Rb2D.gravityScale = 0;
         owner.Rb2D.freezeRotation = false;
-        owner.Aim.GetComponent<SpriteRenderer>().enabled = true;
-        //owner.Health -= owner.ProjectileHealthcost;
-        //AudioPlaySoundEvent projectileSound = new AudioPlaySoundEvent {
-        //    name = "Projectile",
-        //    isRandomPitch = true,
-        //    minPitch = 0.95f,
-        //    maxPitch = 1,
-        //    soundType = SoundType.SFX
-        //};
-        //projectileSound.FireEvent();
-        
+        owner.Aim.GetComponent<SpriteRenderer>().enabled = true;        
     }
 
     private void Shoot() {
         GameObject projectile;
         PlayerProjectile playerProjectile;
-        projectile = Instantiate(playerProjectilePrefab, owner.Aim.position, Quaternion.identity);//owner.transform.position + new Vector3(owner.FacingDirection*2, 0, owner.transform.position.z), Quaternion.identity);
+        projectile = Instantiate(playerProjectilePrefab, owner.Aim.position, Quaternion.identity);
         playerProjectile = projectile.GetComponent<PlayerProjectile>();
         playerProjectile.Damage = owner.ProjectileDamage;
-        playerProjectile.Direction = owner.Aim.right * owner.FacingDirection;//new Vector2(owner.FacingDirection, 0);
+        playerProjectile.Direction = owner.Aim.right * owner.FacingDirection;
         playerProjectile.Player = owner;
         playerProjectile.Speed = projectileSpeed;
     }
@@ -85,25 +75,7 @@ public class PlayerProjectileAttackState : PlayerBaseState {
         attackTime -= Time.deltaTime;
     }
 
-    //protected override void GetMovementInput() {
-    //    owner.XInput = 0;
-    //}
-
-    protected override void MovePlayer() {
-
-    }
-
-    protected override void Jump(float extra) {
-
-    }
-
     public override void Exit() {
-        if(owner.transform.rotation.z < -90) {
-            //Flip(-owner.XScale);
-            Flip(owner.XScale *= -owner.XScale);
-            owner.FacingDirection *= -owner.FacingDirection;
-        } else {
-        }
         owner.transform.rotation = Quaternion.Euler(0, 0, 0);
         owner.Rb2D.gravityScale = 6;
         owner.Rb2D.freezeRotation = true;
