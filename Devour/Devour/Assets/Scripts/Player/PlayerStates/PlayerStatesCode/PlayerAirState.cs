@@ -11,7 +11,6 @@ public class PlayerAirState : PlayerBaseState {
         owner.PlayerState = PlayerState.AIR;
         owner.IsAttackingUp = false;
         owner.Animator.SetBool("IsAttackingUp", false);
-        owner.Animator.SetBool("IsDJ", false);
     }
 
     public override void HandleFixedUpdate() {

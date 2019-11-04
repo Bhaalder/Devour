@@ -194,7 +194,6 @@ public class PlayerBaseState : State {
                 owner.ExtraJumpsLeft = owner.ExtraJumps;
             }
             if (!owner.IsGrounded && owner.ExtraJumpsLeft > 0 && Input.GetButtonDown("Jump")) {
-                owner.Animator.SetBool("IsDJ", true);
                 owner.ExtraJumpsLeft--;
                 owner.Rb2D.velocity = new Vector2(0, 0);
                 Jump(0);
