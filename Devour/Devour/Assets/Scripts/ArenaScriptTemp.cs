@@ -12,6 +12,7 @@ public class ArenaScriptTemp : MonoBehaviour
     {
         lockedEnterWall.SetActive(false);
         enemiesParent.SetActive(false);
+        lockedExitWall.SetActive(false);
     }
 
     // Update is called once per frame
@@ -44,6 +45,7 @@ public class ArenaScriptTemp : MonoBehaviour
     IEnumerator activateArena()
     {
         lockedEnterWall.SetActive(true);
+        lockedExitWall.SetActive(true);
 
         yield return new WaitForSeconds(3);
         
