@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public enum PlayerState {
-    NONE, IDLE, WALK, AIR, DASH, WALLSLIDE, WALLJUMP, HURT, ATTACK, PROJECTILEATTACK
+    NONE, IDLE, WALK, AIR, DASH, WALLSLIDE, WALLJUMP, HURT, ATTACK, PROJECTILEATTACK, JUMP
 }
 
 public enum PlayerAbility {

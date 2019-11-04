@@ -9,6 +9,7 @@ public class PlayerWalkState : PlayerBaseState {
     public override void Enter() {
         //owner.PlayerLog("WalkState");
         owner.PlayerState = PlayerState.WALK;
+        owner.Animator.SetBool("IsLanding", false);
     }
 
     public override void HandleFixedUpdate() {

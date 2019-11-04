@@ -551,6 +551,9 @@ AnimatorStateTransition:
   - m_ConditionMode: 6
     m_ConditionEvent: State
     m_EventTreshold: 3
+  - m_ConditionMode: 2
+    m_ConditionEvent: IsDJ
+    m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 9210017217991242733}
   m_Solo: 0
@@ -1084,7 +1087,7 @@ AnimatorStateMachine:
     m_Position: {x: 160, y: 190, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 8655044257065590623}
-    m_Position: {x: 230, y: 500, z: 0}
+    m_Position: {x: 170, y: 570, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -2012606342893853361}
     m_Position: {x: 0, y: 340, z: 0}
@@ -1093,7 +1096,7 @@ AnimatorStateMachine:
     m_Position: {x: 680, y: 510, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -7703553142397575480}
-    m_Position: {x: 370, y: 630, z: 0}
+    m_Position: {x: 440, y: 610, z: 0}
   m_ChildStateMachines: []
   m_AnyStateTransitions: []
   m_EntryTransitions: []
@@ -1146,31 +1149,31 @@ AnimatorController:
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: IsAttackingUp
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: IsAttackingDown
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: IsLanding
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: IsDJ
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   m_AnimatorLayers:
   - serializedVersion: 5
     m_Name: Base Layer
@@ -1303,6 +1306,9 @@ AnimatorStateTransition:
   - m_ConditionMode: 6
     m_ConditionEvent: State
     m_EventTreshold: 8
+  - m_ConditionMode: 2
+    m_ConditionEvent: IsAttackingUp
+    m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 7981460060962711688}
   m_Solo: 0

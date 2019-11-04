@@ -11,6 +11,7 @@ public class PlayerAirState : PlayerBaseState {
         owner.PlayerState = PlayerState.AIR;
         owner.IsAttackingUp = false;
         owner.Animator.SetBool("IsAttackingUp", false);
+        owner.Animator.SetBool("IsDJ", false);
     }
 
     public override void HandleFixedUpdate() {
@@ -25,7 +26,9 @@ public class PlayerAirState : PlayerBaseState {
         //    owner.IsAttackingDown = false;
         //    owner.Animator.SetBool("IsAttackingDown", false);
         //}
+
         if (owner.IsGrounded) {
+            owner.Animator.SetBool("IsLanding", true);
             if (Input.GetButton("Horizontal")) {
                 owner.Transition<PlayerWalkState>();
             } else {

@@ -9,6 +9,7 @@ public class PlayerIdleState : PlayerBaseState {
     public override void Enter() {
         //owner.PlayerLog("IdleState");
         owner.PlayerState = PlayerState.IDLE;
+        owner.Animator.SetBool("IsLanding", false);
     }
 
     public override void HandleFixedUpdate() {

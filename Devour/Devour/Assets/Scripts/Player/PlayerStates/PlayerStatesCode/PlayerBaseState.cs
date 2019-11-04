@@ -194,6 +194,7 @@ public class PlayerBaseState : State {
                 owner.ExtraJumpsLeft = owner.ExtraJumps;
             }
             if (!owner.IsGrounded && owner.ExtraJumpsLeft > 0 && Input.GetButtonDown("Jump")) {
+                owner.Animator.SetBool("IsDJ", true);
                 owner.ExtraJumpsLeft--;
                 owner.Rb2D.velocity = new Vector2(0, 0);
                 Jump(0);
@@ -203,7 +204,7 @@ public class PlayerBaseState : State {
 
     protected virtual void Jump(float extra) {
         if (owner.PlayerState != PlayerState.AIR) {
-            owner.Transition<PlayerAirState>();
+            owner.Transition<PlayerJumpState>();
         }
         if (!owner.IsWallSliding) {
             owner.Rb2D.velocity = Vector2.up * (owner.JumpForce + extra);
