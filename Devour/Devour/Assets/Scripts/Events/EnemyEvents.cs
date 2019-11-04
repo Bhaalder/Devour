@@ -20,7 +20,7 @@ public class EnemyHealEvent : Event<EnemyHealEvent> {
 
 public class EnemyTouchKillzoneEvent : Event<EnemyTouchKillzoneEvent> {
 
-    public float damage;
+    public Enemy enemy;
 
 }
 
