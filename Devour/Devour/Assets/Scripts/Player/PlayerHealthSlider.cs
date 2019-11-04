@@ -12,6 +12,7 @@ public class PlayerHealthSlider : MonoBehaviour{
     private void Awake() {
         PlayerTakeDamageEvent.RegisterListener(TakeDamage);
         PlayerHealEvent.RegisterListener(GainHealth);
+        PlayerTouchKillzoneEvent.RegisterListener(TouchKillzone);
     }
 
     private void Start() {
@@ -20,26 +21,38 @@ public class PlayerHealthSlider : MonoBehaviour{
         healthSlider.value = GameController.Instance.Player.MaxHealth;
     }
 
+    private void TouchKillzone(PlayerTouchKillzoneEvent touchKillzoneEvent) {
+        ChangeSlider(touchKillzoneEvent.damage);
+    }
+
     private void TakeDamage(PlayerTakeDamageEvent takeDamageEvent) {
         if (takeDamageEvent.isSelfInflicted) {
-            healthSlider.value -= takeDamageEvent.damage;
+            ChangeSlider(takeDamageEvent.damage);
+            //healthSlider.value -= takeDamageEvent.damage;
             return;
         }
         if (!GameController.Instance.Player.IsInvulnerable) {
-            healthSlider.value -= takeDamageEvent.damage;
+            ChangeSlider(takeDamageEvent.damage);
+            //healthSlider.value -= takeDamageEvent.damage;
         }     
+    }
+
+    private void ChangeSlider(float amount) {
+        healthSlider.value -= amount;
     }
 
     private void GainHealth(PlayerHealEvent healEvent) {
         if (healEvent.isLifeLeech) {
             healEvent.amount = GameController.Instance.Player.MeleeLifeLeech;
         }
-        healthSlider.value += healEvent.amount;
+        ChangeSlider(-healEvent.amount);
+        //healthSlider.value += healEvent.amount;
     }
 
     private void OnDestroy() {
         PlayerTakeDamageEvent.UnRegisterListener(TakeDamage);
         PlayerHealEvent.UnRegisterListener(GainHealth);
+        PlayerTouchKillzoneEvent.UnRegisterListener(TouchKillzone);
     }
 
 }

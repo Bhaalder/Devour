@@ -99,5 +99,6 @@ public class Zvixa : Boss{
         PlayerAttackEvent.UnRegisterListener(TakeDamage);
         PlayerDiedEvent.UnRegisterListener(Reset);
         ZvixaSelfDamageEvent.UnRegisterListener(SelfDamage);
+        EnemyTouchKillzoneEvent.UnRegisterListener(EnemyTouchKillzone);
     }
 }

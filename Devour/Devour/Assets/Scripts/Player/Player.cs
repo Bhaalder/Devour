@@ -230,6 +230,11 @@ public class Player : StateMachine {
     }
 
     private void OnTouchKillzone(PlayerTouchKillzoneEvent killzone) {
+        CameraShakeEvent cse = new CameraShakeEvent {
+            startDuration = cameraShakeDuration,
+            startValue = cameraShakeValue
+        };
+        cse.FireEvent();
         ChangeHealth(-killzone.damage);
         if (DamageWasDeadly()) {
             Die();
@@ -304,6 +309,7 @@ public class Player : StateMachine {
 
     private void Respawn() {
         Transition<PlayerHurtState>();
+        Rb2D.velocity = new Vector2(0, 0);
         untilInvulnerableEnds = invulnerableStateTime + 1f; //längre invulnerable när man fallit ner i killzone?
         try {
             transform.position = GameController.Instance.SceneCheckpoint;

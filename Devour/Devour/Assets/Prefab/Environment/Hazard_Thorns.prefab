@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 8626273439061701916}
   - component: {fileID: 2040529186516026236}
   - component: {fileID: 2774572821012038302}
+  - component: {fileID: 2907946542738182319}
   m_Layer: 0
   m_Name: Hazard_Thorns
   m_TagString: Untagged
@@ -26,7 +27,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4467720821975787780}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 32.420776, y: 28.697351, z: -2.34375}
+  m_LocalPosition: {x: 32.420776, y: 28.697351, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -94,3 +95,30 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerDamage: 25
+--- !u!68 &2907946542738182319
+EdgeCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4467720821975787780}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_EdgeRadius: 0
+  m_Points:
+  - {x: -4.0457897, y: -1.5591469}
+  - {x: -3.8376102, y: 1.937912}
+  - {x: -2.2128525, y: 2.7278366}
+  - {x: -1.0149612, y: 2.3819714}
+  - {x: 1.3826637, y: 0.41147804}
+  - {x: 2.2930145, y: 0.55913544}
+  - {x: 2.524475, y: 1.0882168}
+  - {x: 3.981388, y: 1.1972008}
+  - {x: 3.8889427, y: -2.076744}
+  - {x: -0.32538605, y: -1.9210911}
+  - {x: -4.0840435, y: -1.5869884}

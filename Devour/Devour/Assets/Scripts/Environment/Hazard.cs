@@ -8,7 +8,7 @@ public class Hazard : MonoBehaviour{
     [Tooltip("How much damage the player takes on contact")]
     [SerializeField] private float playerDamage;
 
-    private void OnCollisionStay2D(Collision2D collision) {
+    private void OnTriggerEnter2D(Collider2D collision) {
         if (collision.gameObject.tag == "Player") {
             PlayerTouchKillzoneEvent playerTouchKillzone = new PlayerTouchKillzoneEvent {
                 damage = playerDamage

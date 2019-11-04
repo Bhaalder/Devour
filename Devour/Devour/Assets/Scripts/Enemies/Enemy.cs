@@ -36,6 +36,7 @@ public class Enemy : StateMachine
         Stunned = false;
 
         PlayerAttackEvent.RegisterListener(TakeDamage);
+        EnemyTouchKillzoneEvent.RegisterListener(EnemyTouchKillzone);
     }
 
     protected override void Update(){
@@ -87,7 +88,7 @@ public class Enemy : StateMachine
         return knockback;
     }
 
-    private void EnemyTouchKillzone(EnemyTouchKillzoneEvent killzoneEvent) {
+    protected void EnemyTouchKillzone(EnemyTouchKillzoneEvent killzoneEvent) {
         if(killzoneEvent.enemy == this) {
             EnemyDeath();
         }
@@ -153,6 +154,7 @@ public class Enemy : StateMachine
 
     protected virtual void OnDestroy() {
         PlayerAttackEvent.UnRegisterListener(TakeDamage);
+        EnemyTouchKillzoneEvent.UnRegisterListener(EnemyTouchKillzone);
     }
 
 }
