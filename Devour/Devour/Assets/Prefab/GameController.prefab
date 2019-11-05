@@ -89,7 +89,7 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: Step1
     clip: {fileID: 8300000, guid: 575e6e850dbba2842b22a5663c1340e5, type: 3}
-    volume: 0.3
+    volume: 0.15
     pitch: 1
     spatialBlend_2D_3D: 0
     rolloffMode: 0
@@ -99,7 +99,7 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: Step2
     clip: {fileID: 8300000, guid: 0271a6fe98c4a864989a72a720537b5c, type: 3}
-    volume: 0.3
+    volume: 0.15
     pitch: 1
     spatialBlend_2D_3D: 0
     rolloffMode: 0
