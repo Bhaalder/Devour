@@ -178,8 +178,7 @@ public class PlayerBaseState : State {
 
     private void JumpCheck() {
         if (owner.IsWallSliding && Input.GetButtonDown("Jump")) {
-            Jump(0);
-            
+            Jump(0);   
             return;
         }
         if (owner.IsGrounded && Input.GetButtonDown("Jump")) {
@@ -202,6 +201,16 @@ public class PlayerBaseState : State {
     }
 
     protected virtual void Jump(float extra) {
+        if(owner.ExtraJumpsLeft > 0) {
+            AudioPlaySoundEvent jumpSound = new AudioPlaySoundEvent {
+                name = "Step2",
+                soundType = SoundType.SFX,
+                isRandomPitch = true,
+                minPitch = 0.9f,
+                maxPitch = 1f
+            };
+            jumpSound.FireEvent();
+        } 
         if (owner.PlayerState != PlayerState.JUMP) {
             owner.Transition<PlayerJumpState>();
         }

@@ -168,6 +168,16 @@ MonoBehaviour:
     maxDistance: 50
     loop: 0
     source: {fileID: 0}
+  - name: Enemy2Fly
+    clip: {fileID: 8300000, guid: 1fdd7e49147c1a047a88420d4f52d4df, type: 3}
+    volume: 0.1
+    pitch: 1
+    spatialBlend_2D_3D: 1
+    rolloffMode: 1
+    minDistance: 0.1
+    maxDistance: 25
+    loop: 1
+    source: {fileID: 0}
   environmentSounds: []
   musicSounds: []
   voiceSounds: []
