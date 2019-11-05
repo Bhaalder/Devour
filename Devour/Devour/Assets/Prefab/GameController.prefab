@@ -68,7 +68,7 @@ MonoBehaviour:
     loop: 0
     source: {fileID: 0}
   - name: Hurt
-    clip: {fileID: 8300000, guid: 884f8a8f85b49b84db24309deb91541d, type: 3}
+    clip: {fileID: 8300000, guid: 430fa1a3c7d58ed438dd8c0a4321b7aa, type: 3}
     volume: 1
     pitch: 1
     spatialBlend_2D_3D: 0
