@@ -10,6 +10,7 @@ public class Bnath : Boss
     
     public GameObject[] VoidGroundLocation { get; set; }
     public bool BossFightStart { get; set; } = false;
+    public GameObject Blocker { get; set; }
 
     private static bool isDead;
 
@@ -22,6 +23,7 @@ public class Bnath : Boss
         VoidGroundLocation = voidGroundLocation;
         base.Awake();
         BossFightStart = false;
+        Blocker = bossFightBlock;
 
     }
 

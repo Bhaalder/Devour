@@ -284,7 +284,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   states:
-  - {fileID: 11400000, guid: 29db6442e8eb4124caadbff764649c50, type: 2}
+  - {fileID: 11400000, guid: 0da13ebe58f130042b0e1414d8beae81, type: 2}
   - {fileID: 11400000, guid: e61bc440bb81536468a0fb73833433c5, type: 2}
   - {fileID: 11400000, guid: 3d96839b67077f84ca71b1705c412133, type: 2}
   - {fileID: 11400000, guid: e8b111aa356df32438b452ce93f82b56, type: 2}
@@ -299,6 +299,7 @@ MonoBehaviour:
   - {fileID: 1100887299}
   - {fileID: 168866191}
   - {fileID: 1525332608}
+  bossFightBlock: {fileID: 0}
 --- !u!50 &6423004830342552700
 Rigidbody2D:
   serializedVersion: 4
