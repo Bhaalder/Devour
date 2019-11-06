@@ -554,6 +554,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 5f4f4f05304de8946a2b1844281e6897, type: 2}
   maxHealth: 100
   health: 100
+  maxPlayerVoid: 25
+  playerVoid: 25
   damageReduction: 0
   meleeDamage: 25
   meleeLifeLeech: 2.5

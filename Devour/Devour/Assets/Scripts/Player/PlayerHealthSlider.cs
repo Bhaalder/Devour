@@ -20,7 +20,7 @@ public class PlayerHealthSlider : MonoBehaviour{
     }
 
     private void TouchKillzone(PlayerTouchKillzoneEvent touchKillzoneEvent) {
-        healthSlider.value = GameController.Instance.Player.Health;
+        ChangeSlider(touchKillzoneEvent.damage);
     }
 
     private void TakeDamage(PlayerTakeDamageEvent takeDamageEvent) {
