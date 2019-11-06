@@ -128,8 +128,8 @@ public class Enemy : StateMachine
     }
 
     public virtual void EnemyDeath()
-    {     
-        Destroy(gameObject);
+    {
+        Transition<EnemyDeathState>();
     }
 
     public void setGFX(Vector3 v)

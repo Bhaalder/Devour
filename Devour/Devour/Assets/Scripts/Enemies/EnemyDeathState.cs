@@ -9,7 +9,7 @@ public class EnemyDeathState : EnemyBaseState
 {
 
     [SerializeField] private GameObject particleOnDeath;
-    private float deathTimer = 0.5f;
+    private float deathTimer = 1f;
     private float currentCooldown;
     private GameObject[] childrenToDisable;
 
