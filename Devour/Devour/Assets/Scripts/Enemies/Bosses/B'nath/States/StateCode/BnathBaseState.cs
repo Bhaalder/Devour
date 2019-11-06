@@ -29,7 +29,6 @@ public class BnathBaseState : State
     public override void HandleFixedUpdate()
     {
         base.HandleFixedUpdate();
-        Movement();
     }
 
     protected virtual void Movement()

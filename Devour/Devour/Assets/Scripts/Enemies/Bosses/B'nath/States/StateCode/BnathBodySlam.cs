@@ -41,7 +41,7 @@ public class BnathBodySlam : BnathBaseState
     {
         if(DistanceToPlayer() <= minDistance)
         {
-            owner.Transition<BnathBaseState>();
+            owner.Transition<BnathIdle>();
         }
 
         if (!initializeState)
@@ -80,7 +80,7 @@ public class BnathBodySlam : BnathBaseState
         }
         else
         {
-            owner.Transition<BnathBaseState>();
+            owner.Transition<BnathIdle>();
         }
     }
 

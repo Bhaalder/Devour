@@ -6,8 +6,10 @@ public class Bnath : Boss
 {
 
     [SerializeField] private GameObject[] voidGroundLocation;
-
+    [SerializeField] private GameObject bossFightBlock;
+    
     public GameObject[] VoidGroundLocation { get; set; }
+    public bool BossFightStart { get; set; } = false;
 
     private static bool isDead;
 
@@ -19,6 +21,7 @@ public class Bnath : Boss
         }
         VoidGroundLocation = voidGroundLocation;
         base.Awake();
+        BossFightStart = false;
 
     }
 
@@ -56,6 +59,6 @@ public class Bnath : Boss
 
     protected override void OnDestroy()
     {
-
+        bossFightBlock.SetActive(false);
     }
 }

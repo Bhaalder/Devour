@@ -155,7 +155,7 @@ public class BnathClimbDash : BnathBaseState
             owner.rb.gravityScale = 6;
             isChoosingAttack = true;
             voidAssaultAttack = false;
-            owner.Transition<BnathBaseState>();
+            owner.Transition<BnathIdle>();
 
         }
         direction = (endPoint - startPoint).normalized;
