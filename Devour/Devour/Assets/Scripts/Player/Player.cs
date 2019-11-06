@@ -212,6 +212,7 @@ public class Player : StateMachine {
         PlayerTakeDamageEvent.RegisterListener(OnTakeDamage);
         PlayerHealEvent.RegisterListener(OnHeal);
         PlayerTouchKillzoneEvent.RegisterListener(OnTouchKillzone);
+        PlayerGetAbilityEvent.RegisterListener(GetAbility);
         foreach (PlayerAbility ability in playerAbilities) {//TEST
             PlayerAbilities.Add(ability);
         }//TEST
@@ -355,8 +356,13 @@ public class Player : StateMachine {
         soundEvent.FireEvent();
     }
 
-    public void PlayerLog(string message) {
-        Debug.Log("PLAYER: " + message);
+    private void GetAbility(PlayerGetAbilityEvent abilityEvent) {
+        if (!HasAbility(abilityEvent.playerAbility)) {
+            PlayerAbilities.Add(abilityEvent.playerAbility);
+        } else {
+            PlayerLog("Already has " + abilityEvent.playerAbility.ToString());
+        }
+        
     }
 
     public bool HasAbility(PlayerAbility playerAbility) {
@@ -372,6 +378,11 @@ public class Player : StateMachine {
         PlayerTakeDamageEvent.UnRegisterListener(OnTakeDamage);
         PlayerHealEvent.UnRegisterListener(OnHeal);
         PlayerTouchKillzoneEvent.UnRegisterListener(OnTouchKillzone);
+        PlayerGetAbilityEvent.UnRegisterListener(GetAbility);
+    }
+
+    public void PlayerLog(string message) {
+        Debug.Log("PLAYER: " + message);
     }
 
     private void OnDrawGizmos() {

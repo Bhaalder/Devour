@@ -8,16 +8,27 @@ public class PlayerVoidSlider : MonoBehaviour {
     private Slider voidSlider;
 
     private void Awake() {
-        PlayerVoidEvent.RegisterListener(VoidEvent);
+        PlayerGainVoidEvent.RegisterListener(VoidEvent);
+        PlayerGetAbilityEvent.RegisterListener(GetVoidMend);
     }
 
     private void Start() {
         voidSlider = GetComponent<Slider>();
-        voidSlider.maxValue = GameController.Instance.Player.MaxPlayerVoid;
-        voidSlider.value = GameController.Instance.Player.MaxPlayerVoid;
+        if (GameController.Instance.Player.HasAbility(PlayerAbility.VOIDMEND)) {
+            voidSlider.maxValue = GameController.Instance.Player.MaxPlayerVoid;
+            voidSlider.value = 0;
+        } else {
+            gameObject.SetActive(false);
+        }      
     }
 
-    private void VoidEvent(PlayerVoidEvent voidEvent) {
+    private void GetVoidMend(PlayerGetAbilityEvent abilityEvent) {
+        if(abilityEvent.playerAbility == PlayerAbility.VOIDMEND) {
+            gameObject.SetActive(true);
+        }
+    }
+
+    private void VoidEvent(PlayerGainVoidEvent voidEvent) {
         ChangeSlider(voidEvent.amount);
     }
 
@@ -26,7 +37,8 @@ public class PlayerVoidSlider : MonoBehaviour {
     }
 
     private void OnDestroy() {
-        PlayerVoidEvent.UnRegisterListener(VoidEvent);
+        PlayerGainVoidEvent.UnRegisterListener(VoidEvent);
+        PlayerGetAbilityEvent.UnRegisterListener(GetVoidMend);
     }
 
 }

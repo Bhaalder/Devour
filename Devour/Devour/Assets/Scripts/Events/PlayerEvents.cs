@@ -29,7 +29,13 @@ public class PlayerHealEvent : Event<PlayerHealEvent> {
 
 }
 
-public class PlayerVoidEvent : Event<PlayerVoidEvent> {
+public class PlayerGetAbilityEvent : Event<PlayerGetAbilityEvent> {
+
+    public PlayerAbility playerAbility;
+
+}
+
+public class PlayerGainVoidEvent : Event<PlayerGainVoidEvent> {
 
     public float amount;
 
