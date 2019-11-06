@@ -1,5 +1,5 @@
 ﻿//Main Author: Marcus Söderberg
-//Secondary Author: Patrik Ahlgren (TakeDamage(), ChangeEnemyHealth(), DeathSound(), HurtSound(), invulnerability, lade till get/set på health & damage, lade till Player)
+//Secondary Author: Patrik Ahlgren (TakeDamage(), ChangeEnemyHealth(), DeathSound(), HurtSound(), EnemyTouchKillzone(), invulnerability, deathsounds, lade till get/set på health & damage, lade till Player)
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -21,6 +21,7 @@ public class Enemy : StateMachine
 
     [SerializeField] private Transform enemyGFX;
     [SerializeField] private GameObject[] childrenToDisable;
+    [SerializeField] private string[] deathSounds;
 
     protected BoxCollider2D boxCollider2D;
     protected float startInvulnerability = 0.2f;
@@ -140,15 +141,14 @@ public class Enemy : StateMachine
         enemyGFX.localScale = v;
     }
 
-    protected virtual void DeathSound() {
-        string[] soundNames = { "Enemy134Death1", "Enemy134Death2", "Enemy134Death3" };
+    public void DeathSound() {
         AudioPlayRandomSoundAtLocationEvent enemyDie = new AudioPlayRandomSoundAtLocationEvent {
-            name = soundNames,
+            name = deathSounds,
             isRandomPitch = true,
             minPitch = 0.95f,
             maxPitch = 1,
             soundType = SoundType.SFX,
-            gameObject = gameObject
+            gameObject = transform.Find("DeathAudio").gameObject
         };
         enemyDie.FireEvent();
     }

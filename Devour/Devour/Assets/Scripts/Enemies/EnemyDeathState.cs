@@ -32,6 +32,12 @@ public class EnemyDeathState : EnemyBaseState
 
         GameObject instantiatedParticle = Instantiate(particleOnDeath, null);
         instantiatedParticle.transform.position = owner.rb.position;
+        try {
+            owner.DeathSound();
+        } catch (System.IndexOutOfRangeException) {
+            Debug.Log("This enemy does not have a deathsound declared");
+        }
+        
     }
 
     public override void HandleUpdate()
