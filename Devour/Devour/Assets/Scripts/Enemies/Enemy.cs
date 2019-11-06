@@ -1,5 +1,5 @@
 ﻿//Main Author: Marcus Söderberg
-//Secondary Author: Patrik Ahlgren (TakeDamage(), ChangeEnemyHealth(), DeathSound(), HurtSound(), invulnerability, lade till get/set på health & damage, lade till Player)
+//Secondary Author: Patrik Ahlgren (TakeDamage(), ChangeEnemyHealth(), DeathSound(), HurtSound(), EnemyTouchKillzone(), invulnerability, deathsounds, lade till get/set på health & damage, lade till Player)
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
