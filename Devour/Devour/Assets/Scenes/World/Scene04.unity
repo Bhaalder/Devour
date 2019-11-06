@@ -187,21 +187,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8805992872226363390, guid: d8bff41469b9d7f4bb13e60b196536d0,
-        type: 3}
-      propertyPath: sceneToLoad
-      value: Scene05
-      objectReference: {fileID: 0}
-    - target: {fileID: 8805992872226363390, guid: d8bff41469b9d7f4bb13e60b196536d0,
-        type: 3}
-      propertyPath: sceneSpawnPointID
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 8805992872226363390, guid: d8bff41469b9d7f4bb13e60b196536d0,
-        type: 3}
-      propertyPath: setSceneSpawnPointID
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 9007587208266834560, guid: d8bff41469b9d7f4bb13e60b196536d0,
         type: 3}
       propertyPath: m_LocalPosition.y
@@ -231,6 +216,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Size.y
       value: 8.293911
+      objectReference: {fileID: 0}
+    - target: {fileID: 8805992872226363390, guid: d8bff41469b9d7f4bb13e60b196536d0,
+        type: 3}
+      propertyPath: sceneToLoad
+      value: Scene05
+      objectReference: {fileID: 0}
+    - target: {fileID: 8805992872226363390, guid: d8bff41469b9d7f4bb13e60b196536d0,
+        type: 3}
+      propertyPath: sceneSpawnPointID
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8805992872226363390, guid: d8bff41469b9d7f4bb13e60b196536d0,
+        type: 3}
+      propertyPath: setSceneSpawnPointID
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d8bff41469b9d7f4bb13e60b196536d0, type: 3}
@@ -6587,21 +6587,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8805992872226363390, guid: d8bff41469b9d7f4bb13e60b196536d0,
-        type: 3}
-      propertyPath: sceneToLoad
-      value: Scene03
-      objectReference: {fileID: 0}
-    - target: {fileID: 8805992872226363390, guid: d8bff41469b9d7f4bb13e60b196536d0,
-        type: 3}
-      propertyPath: sceneSpawnPointID
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8805992872226363390, guid: d8bff41469b9d7f4bb13e60b196536d0,
-        type: 3}
-      propertyPath: setSceneSpawnPointID
-      value: 2
-      objectReference: {fileID: 0}
     - target: {fileID: 9007587208266834560, guid: d8bff41469b9d7f4bb13e60b196536d0,
         type: 3}
       propertyPath: m_LocalPosition.y
@@ -6631,6 +6616,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Size.y
       value: 1.8428383
+      objectReference: {fileID: 0}
+    - target: {fileID: 8805992872226363390, guid: d8bff41469b9d7f4bb13e60b196536d0,
+        type: 3}
+      propertyPath: sceneToLoad
+      value: Scene03
+      objectReference: {fileID: 0}
+    - target: {fileID: 8805992872226363390, guid: d8bff41469b9d7f4bb13e60b196536d0,
+        type: 3}
+      propertyPath: sceneSpawnPointID
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8805992872226363390, guid: d8bff41469b9d7f4bb13e60b196536d0,
+        type: 3}
+      propertyPath: setSceneSpawnPointID
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d8bff41469b9d7f4bb13e60b196536d0, type: 3}
@@ -7214,6 +7214,11 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5040568894623755219, guid: b4498a2d079c47e42ae6dad210326b58,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b4498a2d079c47e42ae6dad210326b58, type: 3}
 --- !u!1001 &1865782457
@@ -7283,21 +7288,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8805992872226363390, guid: d8bff41469b9d7f4bb13e60b196536d0,
-        type: 3}
-      propertyPath: sceneToLoad
-      value: BossArea2
-      objectReference: {fileID: 0}
-    - target: {fileID: 8805992872226363390, guid: d8bff41469b9d7f4bb13e60b196536d0,
-        type: 3}
-      propertyPath: sceneSpawnPointID
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 8805992872226363390, guid: d8bff41469b9d7f4bb13e60b196536d0,
-        type: 3}
-      propertyPath: setSceneSpawnPointID
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 9007587208266834560, guid: d8bff41469b9d7f4bb13e60b196536d0,
         type: 3}
       propertyPath: m_LocalPosition.y
@@ -7327,6 +7317,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Size.y
       value: 8.293911
+      objectReference: {fileID: 0}
+    - target: {fileID: 8805992872226363390, guid: d8bff41469b9d7f4bb13e60b196536d0,
+        type: 3}
+      propertyPath: sceneToLoad
+      value: BossArea2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8805992872226363390, guid: d8bff41469b9d7f4bb13e60b196536d0,
+        type: 3}
+      propertyPath: sceneSpawnPointID
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8805992872226363390, guid: d8bff41469b9d7f4bb13e60b196536d0,
+        type: 3}
+      propertyPath: setSceneSpawnPointID
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d8bff41469b9d7f4bb13e60b196536d0, type: 3}
