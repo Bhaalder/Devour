@@ -178,8 +178,8 @@ MonoBehaviour:
     maxDistance: 50
     loop: 0
     source: {fileID: 0}
-  - name: Enemy134Death3
-    clip: {fileID: 8300000, guid: 431b28cc442615c4ab794fe447865e4f, type: 3}
+  - name: Enemy2Death
+    clip: {fileID: 8300000, guid: 393e32198452b8c498ec83ea447e6bb7, type: 3}
     volume: 1
     pitch: 1
     spatialBlend_2D_3D: 1

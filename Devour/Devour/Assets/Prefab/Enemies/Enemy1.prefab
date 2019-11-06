@@ -572,7 +572,6 @@ MonoBehaviour:
   deathSounds:
   - Enemy134Death1
   - Enemy134Death2
-  - Enemy134Death3
 --- !u!58 &5264885074668572414
 CircleCollider2D:
   m_ObjectHideFlags: 0
