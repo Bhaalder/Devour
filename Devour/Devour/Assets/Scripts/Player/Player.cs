@@ -213,7 +213,7 @@ public class Player : StateMachine {
         PlayerHealEvent.RegisterListener(OnHeal);
         PlayerVoidEvent.RegisterListener(OnVoidEvent);
         PlayerTouchKillzoneEvent.RegisterListener(OnTouchKillzone);
-        PlayerGetAbilityEvent.RegisterListener(GetAbility);
+        PlayerGetAbilityEvent.RegisterListener(OnGetAbility);
         foreach (PlayerAbility ability in playerAbilities) {//TEST
             PlayerAbilities.Add(ability);
         }//TEST
@@ -361,7 +361,7 @@ public class Player : StateMachine {
         soundEvent.FireEvent();
     }
 
-    private void GetAbility(PlayerGetAbilityEvent abilityEvent) {
+    private void OnGetAbility(PlayerGetAbilityEvent abilityEvent) {
         if (!HasAbility(abilityEvent.playerAbility)) {
             PlayerAbilities.Add(abilityEvent.playerAbility);
         } else {
@@ -382,8 +382,9 @@ public class Player : StateMachine {
     private void OnDestroy() {
         PlayerTakeDamageEvent.UnRegisterListener(OnTakeDamage);
         PlayerHealEvent.UnRegisterListener(OnHeal);
+        PlayerVoidEvent.UnRegisterListener(OnVoidEvent);
         PlayerTouchKillzoneEvent.UnRegisterListener(OnTouchKillzone);
-        PlayerGetAbilityEvent.UnRegisterListener(GetAbility);
+        PlayerGetAbilityEvent.UnRegisterListener(OnGetAbility);
     }
 
     public void PlayerLog(string message) {
