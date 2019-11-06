@@ -275,6 +275,9 @@ public class Player : StateMachine {
     }
 
     private void OnVoidEvent(PlayerVoidEvent voidEvent) {
+        if(PlayerVoid >= MaxPlayerVoid) {
+            voidEvent.amount = 0;
+        }
         PlayerVoid += voidEvent.amount;
     }
 
