@@ -61,6 +61,8 @@ public class Bnath : Boss
 
     protected override void OnDestroy()
     {
+        PlayerAttackEvent.UnRegisterListener(TakeDamage);
+        EnemyTouchKillzoneEvent.UnRegisterListener(EnemyTouchKillzone);
         bossFightBlock.SetActive(false);
     }
 }

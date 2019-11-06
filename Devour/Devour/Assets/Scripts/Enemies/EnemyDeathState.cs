@@ -19,9 +19,13 @@ public class EnemyDeathState : EnemyBaseState
         currentCooldown = deathTimer;
 
         childrenToDisable = owner.ChildrenToDisable;
-        foreach (GameObject gameObject in childrenToDisable)
+
+        if (childrenToDisable != null)
         {
-            gameObject.SetActive(false);
+            foreach (GameObject gameObject in childrenToDisable)
+            {
+                gameObject.SetActive(false);
+            }
         }
 
         owner.IsAlive = false;
