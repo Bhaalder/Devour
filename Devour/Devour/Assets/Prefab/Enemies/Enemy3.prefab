@@ -389,7 +389,6 @@ MonoBehaviour:
   deathSounds:
   - Enemy134Death1
   - Enemy134Death2
-  - Enemy134Death3
   chargeEnemy: 0
   patrolEnemy: 0
   patrolMoveRange: 5

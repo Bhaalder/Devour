@@ -294,7 +294,6 @@ MonoBehaviour:
   deathSounds:
   - Enemy134Death1
   - Enemy134Death2
-  - Enemy134Death3
   isIdle: 0
 --- !u!58 &4665437243376551248
 CircleCollider2D:

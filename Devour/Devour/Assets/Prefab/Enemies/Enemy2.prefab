@@ -83,7 +83,8 @@ MonoBehaviour:
   - {fileID: 8132305593187800782}
   - {fileID: 6422583707672679076}
   - {fileID: 1406073250510792712}
-  deathSounds: []
+  deathSounds:
+  - Enemy2Death
   idleOnly: 0
 --- !u!114 &1325847437710850820
 MonoBehaviour:
