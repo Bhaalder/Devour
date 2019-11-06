@@ -8,7 +8,7 @@ public enum PlayerState {
 }
 
 public enum PlayerAbility {
-    DOUBLEJUMP, WALLSLIDE, DASH, PROJECTILE, VOIDMEND
+    DOUBLEJUMP = 1, WALLSLIDE, DASH, PROJECTILE, VOIDMEND
 }
 
 public class Player : StateMachine {
@@ -277,6 +277,7 @@ public class Player : StateMachine {
     private void OnVoidEvent(PlayerVoidEvent voidEvent) {
         if(PlayerVoid >= MaxPlayerVoid) {
             voidEvent.amount = 0;
+            PlayerVoid = MaxPlayerVoid;
         }
         PlayerVoid += voidEvent.amount;
     }
