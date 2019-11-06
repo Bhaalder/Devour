@@ -15,12 +15,8 @@ public class PlayerVoidSlider : MonoBehaviour {
 
     private void Start() {
         voidSlider = GetComponent<Slider>();
-        voidSlider.maxValue = GameController.Instance.Player.MaxHealth;
-        voidSlider.value = GameController.Instance.Player.MaxHealth;
-    }
-
-    private void TouchKillzone(PlayerTouchKillzoneEvent touchKillzoneEvent) {
-        ChangeSlider(touchKillzoneEvent.damage);
+        voidSlider.maxValue = GameController.Instance.Player.MaxPlayerVoid;
+        voidSlider.value = GameController.Instance.Player.MaxPlayerVoid;
     }
 
     private void TakeDamage(PlayerTakeDamageEvent takeDamageEvent) {
@@ -39,7 +35,7 @@ public class PlayerVoidSlider : MonoBehaviour {
         voidSlider.value -= amount;
     }
 
-    private void GainHealth(PlayerHealEvent healEvent) {
+    private void GainVoid(PlayerHealEvent healEvent) {
         if (healEvent.isLifeLeech) {
             healEvent.amount = GameController.Instance.Player.MeleeLifeLeech;
         }
@@ -48,9 +44,7 @@ public class PlayerVoidSlider : MonoBehaviour {
     }
 
     private void OnDestroy() {
-        PlayerTakeDamageEvent.UnRegisterListener(TakeDamage);
-        PlayerHealEvent.UnRegisterListener(GainHealth);
-        PlayerTouchKillzoneEvent.UnRegisterListener(TouchKillzone);
+
     }
 
 }
