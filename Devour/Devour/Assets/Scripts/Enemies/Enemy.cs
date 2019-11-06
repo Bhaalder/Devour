@@ -11,6 +11,8 @@ public class Enemy : StateMachine
     public float Health { get; set; }
     public float Damage { get; set; }
     public bool Stunned { get; set; }
+    public bool IsAlive { get; set; }
+    public GameObject[] ChildrenToDisable { get; set; }
 
     [SerializeField] protected float enemyHealth;
     [SerializeField] protected float damageToPlayerOnContact = 5;
@@ -18,6 +20,7 @@ public class Enemy : StateMachine
     [SerializeField] public Rigidbody2D rb { get; set; }
 
     [SerializeField] private Transform enemyGFX;
+    [SerializeField] private GameObject[] childrenToDisable;
 
     protected BoxCollider2D boxCollider2D;
     protected float startInvulnerability = 0.2f;
@@ -33,7 +36,9 @@ public class Enemy : StateMachine
         boxCollider2D = GetComponent<BoxCollider2D>();
         Health = enemyHealth;
         Damage = damageToPlayerOnContact;
+        ChildrenToDisable = childrenToDisable;
         Stunned = false;
+        IsAlive = true;
 
         PlayerAttackEvent.RegisterListener(TakeDamage);
         EnemyTouchKillzoneEvent.RegisterListener(EnemyTouchKillzone);
@@ -146,7 +151,7 @@ public class Enemy : StateMachine
     }
 
     protected virtual void OnCollisionStay2D(Collision2D collision)    {
-        if (collision.gameObject.tag == "Player")
+        if (collision.gameObject.tag == "Player" && IsAlive)
         {
             PlayerTakeDamageEvent ptde = new PlayerTakeDamageEvent
             {

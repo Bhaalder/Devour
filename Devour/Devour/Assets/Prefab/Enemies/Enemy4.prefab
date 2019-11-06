@@ -151,9 +151,17 @@ MonoBehaviour:
   states:
   - {fileID: 11400000, guid: a186ccb5ed75e674dba3c4e83c113b03, type: 2}
   - {fileID: 11400000, guid: 8080c1a638088594e80ecf77f18d372a, type: 2}
+  - {fileID: 11400000, guid: 02be2d18149b79d4a96dd4364926ee71, type: 2}
   enemyHealth: 75
   damageToPlayerOnContact: 25
   enemyGFX: {fileID: 4665437243376551251}
+  childrenToDisable:
+  - {fileID: 4665437243542778321}
+  - {fileID: 3099092543612127518}
+  - {fileID: 5336260239791350147}
+  - {fileID: 5325297921453999162}
+  - {fileID: 6880635037148353030}
+  - {fileID: 4880915822959021485}
   isIdle: 0
 --- !u!58 &4665437243376551248
 CircleCollider2D:

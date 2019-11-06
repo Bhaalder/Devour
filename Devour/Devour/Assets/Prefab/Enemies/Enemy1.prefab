@@ -429,9 +429,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   states:
   - {fileID: 11400000, guid: ac0d3dd5f11cb9b46a5ed8ae69dcc307, type: 2}
+  - {fileID: 11400000, guid: 02be2d18149b79d4a96dd4364926ee71, type: 2}
   enemyHealth: 50
   damageToPlayerOnContact: 25
   enemyGFX: {fileID: 5264885074668572413}
+  childrenToDisable:
+  - {fileID: 5264885074495060607}
+  - {fileID: 2498485552406725296}
+  - {fileID: 4873003694275947053}
+  - {fileID: 4632257186487226260}
+  - {fileID: 6256267876490254760}
+  - {fileID: 5337372988439807491}
 --- !u!58 &5264885074668572414
 CircleCollider2D:
   m_ObjectHideFlags: 0
