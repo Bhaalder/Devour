@@ -14,6 +14,14 @@ public class PlayerWallJumpState : PlayerWallslideState {
         //owner.PlayerLog("WallJumpState");
         owner.PlayerState = PlayerState.WALLJUMP;
         jumpTime = startJumpTime;
+        AudioPlaySoundEvent capeJumpSound = new AudioPlaySoundEvent {
+            name = "Jump1",
+            soundType = SoundType.SFX,
+            isRandomPitch = true,
+            minPitch = 0.93f,
+            maxPitch = 1.03f
+        };
+        capeJumpSound.FireEvent();
     }
 
     public override void HandleFixedUpdate() {

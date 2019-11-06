@@ -210,7 +210,15 @@ public class PlayerBaseState : State {
                 maxPitch = 1f
             };
             jumpSound.FireEvent();
-        } 
+        }
+        AudioPlaySoundEvent capeJumpSound = new AudioPlaySoundEvent {
+            name = "Jump2",
+            soundType = SoundType.SFX,
+            isRandomPitch = true,
+            minPitch = 0.93f,
+            maxPitch = 1.03f
+        };
+        capeJumpSound.FireEvent();
         if (owner.PlayerState != PlayerState.JUMP) {
             owner.Transition<PlayerJumpState>();
         }

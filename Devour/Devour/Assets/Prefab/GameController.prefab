@@ -79,7 +79,7 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: Dash
     clip: {fileID: 8300000, guid: 388b67ec59fcb9d4cad6655a0d8ba7c8, type: 3}
-    volume: 1
+    volume: 0.8
     pitch: 1
     spatialBlend_2D_3D: 0
     rolloffMode: 0
@@ -107,9 +107,29 @@ MonoBehaviour:
     maxDistance: 0
     loop: 0
     source: {fileID: 0}
+  - name: Jump1
+    clip: {fileID: 8300000, guid: 5b9d48d50999aa7428a8e590a9077eac, type: 3}
+    volume: 0.35
+    pitch: 1
+    spatialBlend_2D_3D: 0
+    rolloffMode: 0
+    minDistance: 0
+    maxDistance: 0
+    loop: 0
+    source: {fileID: 0}
+  - name: Jump2
+    clip: {fileID: 8300000, guid: fa5e2401cf2535843b09942a5e43ab3d, type: 3}
+    volume: 0.4
+    pitch: 1
+    spatialBlend_2D_3D: 0
+    rolloffMode: 0
+    minDistance: 0
+    maxDistance: 0
+    loop: 0
+    source: {fileID: 0}
   - name: Projectile
     clip: {fileID: 8300000, guid: 75b31c37b11fb3445953676206465729, type: 3}
-    volume: 1
+    volume: 0.8
     pitch: 1
     spatialBlend_2D_3D: 1
     rolloffMode: 1

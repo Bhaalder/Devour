@@ -8,7 +8,7 @@ public enum PlayerState {
 }
 
 public enum PlayerAbility {
-    DOUBLEJUMP, WALLSLIDE, DASH, PROJECTILE
+    DOUBLEJUMP, WALLSLIDE, DASH, PROJECTILE, VOIDMEND
 }
 
 public class Player : StateMachine {
