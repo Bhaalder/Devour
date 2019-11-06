@@ -35,7 +35,7 @@ public class PlayerGetAbilityEvent : Event<PlayerGetAbilityEvent> {
 
 }
 
-public class PlayerGainVoidEvent : Event<PlayerGainVoidEvent> {
+public class PlayerVoidEvent : Event<PlayerVoidEvent> {
 
     public float amount;
 

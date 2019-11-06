@@ -47,6 +47,7 @@ public class PlayerBaseState : State {
 
     public override void HandleUpdate() {
         JumpCheck();
+        VoidMendCheck();
         CooldownTimers();
         CollisionCheck();
         DashCheck();
@@ -54,6 +55,79 @@ public class PlayerBaseState : State {
         GetCombatInput();
 
         base.HandleUpdate();
+    }
+
+    private void JumpCheck() {
+        if (owner.IsWallSliding && Input.GetButtonDown("Jump")) {
+            Jump(0);
+            return;
+        }
+        if (owner.IsGrounded && Input.GetButtonDown("Jump")) {
+            Jump(0);
+            return;
+        }
+        if (Input.GetButtonUp("Jump") && owner.Rb2D.velocity.y > 0) {
+            owner.Rb2D.velocity = new Vector2(owner.Rb2D.velocity.x, owner.Rb2D.velocity.y * owner.VariableJumpHeight);
+        }
+        if (owner.HasAbility(PlayerAbility.DOUBLEJUMP)) {
+            if (owner.IsGrounded || owner.IsWallSliding) {
+                owner.ExtraJumpsLeft = owner.ExtraJumps;
+            }
+            if (!owner.IsGrounded && owner.ExtraJumpsLeft > 0 && Input.GetButtonDown("Jump")) {
+                owner.ExtraJumpsLeft--;
+                owner.Rb2D.velocity = new Vector2(0, 0);
+                Jump(0);
+            }
+        }
+    }
+
+    protected virtual void Jump(float extra) {
+        if (owner.ExtraJumpsLeft > 0) {
+            AudioPlaySoundEvent jumpSound = new AudioPlaySoundEvent {
+                name = "Step2",
+                soundType = SoundType.SFX,
+                isRandomPitch = true,
+                minPitch = 0.9f,
+                maxPitch = 1f
+            };
+            jumpSound.FireEvent();
+        }
+        AudioPlaySoundEvent capeJumpSound = new AudioPlaySoundEvent {
+            name = "Jump2",
+            soundType = SoundType.SFX,
+            isRandomPitch = true,
+            minPitch = 0.93f,
+            maxPitch = 1.03f
+        };
+        capeJumpSound.FireEvent();
+        if (owner.PlayerState != PlayerState.JUMP) {
+            owner.Transition<PlayerJumpState>();
+        }
+        if (!owner.IsWallSliding) {
+            owner.Rb2D.velocity = Vector2.up * (owner.JumpForce + extra);
+        }
+    }
+
+    public void VoidMendCheck() {
+        if (Input.GetButtonDown("VoidMend") && owner.HasAbility(PlayerAbility.VOIDMEND)) {
+            if(owner.PlayerVoid == owner.MaxPlayerVoid) {
+                if(owner.Health != owner.MaxHealth) {
+                    float voidUse = owner.MaxHealth - owner.Health;
+                    if(voidUse > owner.MaxPlayerVoid) {
+                        voidUse = owner.MaxPlayerVoid;
+                    }
+                    PlayerVoidEvent voidEvent = new PlayerVoidEvent {
+                        amount = -voidUse
+                    };
+                    PlayerHealEvent healEvent = new PlayerHealEvent {
+                        amount = voidUse
+                    };
+                    voidEvent.FireEvent();
+                    healEvent.FireEvent();
+                }
+            }
+            return;
+        }
     }
 
     public void CollisionCheck() {
@@ -176,56 +250,7 @@ public class PlayerBaseState : State {
         }
     }
 
-    private void JumpCheck() {
-        if (owner.IsWallSliding && Input.GetButtonDown("Jump")) {
-            Jump(0);   
-            return;
-        }
-        if (owner.IsGrounded && Input.GetButtonDown("Jump")) {
-            Jump(0);
-            return;
-        }
-        if (Input.GetButtonUp("Jump") && owner.Rb2D.velocity.y > 0) {
-            owner.Rb2D.velocity = new Vector2(owner.Rb2D.velocity.x, owner.Rb2D.velocity.y * owner.VariableJumpHeight);
-        }
-        if (owner.HasAbility(PlayerAbility.DOUBLEJUMP)) {
-            if (owner.IsGrounded || owner.IsWallSliding) {
-                owner.ExtraJumpsLeft = owner.ExtraJumps;
-            }
-            if (!owner.IsGrounded && owner.ExtraJumpsLeft > 0 && Input.GetButtonDown("Jump")) {
-                owner.ExtraJumpsLeft--;
-                owner.Rb2D.velocity = new Vector2(0, 0);
-                Jump(0);
-            }
-        }
-    }
-
-    protected virtual void Jump(float extra) {
-        if(owner.ExtraJumpsLeft > 0) {
-            AudioPlaySoundEvent jumpSound = new AudioPlaySoundEvent {
-                name = "Step2",
-                soundType = SoundType.SFX,
-                isRandomPitch = true,
-                minPitch = 0.9f,
-                maxPitch = 1f
-            };
-            jumpSound.FireEvent();
-        }
-        AudioPlaySoundEvent capeJumpSound = new AudioPlaySoundEvent {
-            name = "Jump2",
-            soundType = SoundType.SFX,
-            isRandomPitch = true,
-            minPitch = 0.93f,
-            maxPitch = 1.03f
-        };
-        capeJumpSound.FireEvent();
-        if (owner.PlayerState != PlayerState.JUMP) {
-            owner.Transition<PlayerJumpState>();
-        }
-        if (!owner.IsWallSliding) {
-            owner.Rb2D.velocity = Vector2.up * (owner.JumpForce + extra);
-        }      
-    }
+    
 
     public override void Initialize(StateMachine owner) {
         this.owner = (Player)owner;

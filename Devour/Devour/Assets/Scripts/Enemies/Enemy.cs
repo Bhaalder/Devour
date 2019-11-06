@@ -67,7 +67,7 @@ public class Enemy : StateMachine
                             isLifeLeech = true
                         };
                         if (attackEvent.player.HasAbility(PlayerAbility.VOIDMEND)) {
-                            PlayerGainVoidEvent voidEvent = new PlayerGainVoidEvent {
+                            PlayerVoidEvent voidEvent = new PlayerVoidEvent {
                                 amount = attackEvent.player.MeleeVoidLeech
                             };
                             voidEvent.FireEvent();

@@ -555,7 +555,7 @@ MonoBehaviour:
   maxHealth: 100
   health: 100
   maxPlayerVoid: 25
-  playerVoid: 25
+  playerVoid: 0
   damageReduction: 0
   meleeDamage: 25
   meleeLifeLeech: 2.5
@@ -588,7 +588,7 @@ MonoBehaviour:
   whatIsGround:
     serializedVersion: 2
     m_Bits: 256
-  playerAbilities: 00000000010000000200000003000000
+  playerAbilities: 0000000001000000020000000300000004000000
   PlayerVelocity: {x: 0, y: 0}
 --- !u!95 &8357399058647830924
 Animator:

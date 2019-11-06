@@ -211,6 +211,7 @@ public class Player : StateMachine {
 
         PlayerTakeDamageEvent.RegisterListener(OnTakeDamage);
         PlayerHealEvent.RegisterListener(OnHeal);
+        PlayerVoidEvent.RegisterListener(OnVoidEvent);
         PlayerTouchKillzoneEvent.RegisterListener(OnTouchKillzone);
         PlayerGetAbilityEvent.RegisterListener(GetAbility);
         foreach (PlayerAbility ability in playerAbilities) {//TEST
@@ -271,6 +272,10 @@ public class Player : StateMachine {
             Die();
             return;
         }  
+    }
+
+    private void OnVoidEvent(PlayerVoidEvent voidEvent) {
+        PlayerVoid += voidEvent.amount;
     }
 
     private void KnockBack(Vector3 enemyPosition, float amount) {
