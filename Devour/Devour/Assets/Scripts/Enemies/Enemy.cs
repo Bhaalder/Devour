@@ -129,7 +129,10 @@ public class Enemy : StateMachine
 
     public virtual void EnemyDeath()
     {
-        Transition<EnemyDeathState>();
+        if (IsAlive)
+        {
+            Transition<EnemyDeathState>();
+        }
     }
 
     public void setGFX(Vector3 v)
