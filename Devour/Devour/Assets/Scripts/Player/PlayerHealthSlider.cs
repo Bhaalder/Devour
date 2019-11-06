@@ -6,8 +6,6 @@ using UnityEngine.UI;
 public class PlayerHealthSlider : MonoBehaviour{
 
     private Slider healthSlider;
-    private float playerMaxHealth;
-    private float playerHealth;
 
     private void Awake() {
         PlayerTakeDamageEvent.RegisterListener(TakeDamage);

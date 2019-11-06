@@ -212,6 +212,9 @@ public class Player : StateMachine {
         PlayerTakeDamageEvent.RegisterListener(OnTakeDamage);
         PlayerHealEvent.RegisterListener(OnHeal);
         PlayerTouchKillzoneEvent.RegisterListener(OnTouchKillzone);
+        foreach (PlayerAbility ability in playerAbilities) {//TEST
+            PlayerAbilities.Add(ability);
+        }//TEST
         base.Awake();
     }
 
@@ -226,16 +229,6 @@ public class Player : StateMachine {
     protected override void Update() {
         PlayerVelocity = Rb2D.velocity;//TEST
         health = Health;//TEST
-        if (Input.GetKeyDown(KeyCode.P)) {//TEST
-            if (PlayerAbilities.Count > 0) {
-                PlayerAbilities.Clear();
-                return;
-            } else {
-                foreach (PlayerAbility ability in playerAbilities) {
-                    PlayerAbilities.Add(ability);
-                }
-            }
-        }//TEST
         InvulnerableTimeCheck();
         Animator.SetInteger("State", (int)PlayerState);//Ska bytas senare
         base.Update();
