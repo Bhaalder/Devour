@@ -29,6 +29,12 @@ public class PlayerHealEvent : Event<PlayerHealEvent> {
 
 }
 
+public class PlayerVoidEvent : Event<PlayerVoidEvent> {
+
+    public float amount;
+
+}
+
 public class PlayerTouchKillzoneEvent : Event<PlayerTouchKillzoneEvent> {
 
     public float damage;

@@ -556,7 +556,8 @@ MonoBehaviour:
   health: 100
   damageReduction: 0
   meleeDamage: 25
-  meleeLifeLeech: 5
+  meleeLifeLeech: 2.5
+  meleeVoidLeech: 2.5
   meleeCooldown: 0.4
   projectileDamage: 50
   projectileHealthcost: 10

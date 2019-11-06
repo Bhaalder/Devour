@@ -20,6 +20,8 @@ public class Player : StateMachine {
 
     public float MaxHealth { get; set; }
     public float Health { get; set; }
+    public float MaxPlayerVoid { get; set; }
+    public float PlayerVoid { get; set; }
     public float DamageReduction { get; set; }
     public float MeleeDamage { get; set; }
     public float ProjectileDamage { get; set; }
@@ -28,6 +30,7 @@ public class Player : StateMachine {
     public float MeleeCooldown { get; set; }
     public float UntilNextMeleeAttack { get; set; }
     public float MeleeLifeLeech { get; set; }
+    public float MeleeVoidLeech { get; set; }
     public float ProjectileCooldown { get; set; }
     public float UntilNextProjectileAttack { get; set; }
     public float ProjectileHealthcost { get; set; }
@@ -76,12 +79,18 @@ public class Player : StateMachine {
     [SerializeField] private float maxHealth;
     [Tooltip("Player current health")]
     [SerializeField] private float health;
+    [Tooltip("Player maxHealth")]
+    [SerializeField] private float maxPlayerVoid;
+    [Tooltip("Player current health")]
+    [SerializeField] private float playerVoid;
     [Tooltip("How much less damage the player takes from enemy attacks")]
     [SerializeField] private float damageReduction;
     [Tooltip("Player damage (close combat)")]
     [SerializeField] private float meleeDamage;
-    [Tooltip("How much health the close combat attack leeches")]
+    [Tooltip("How much health the close combat attack leeches in health")]
     [SerializeField] private float meleeLifeLeech;
+    [Tooltip("How much health the close combat attack leeches void")]
+    [SerializeField] private float meleeVoidLeech;
     [Tooltip("Cooldown between attacks (close combat)")]
     [SerializeField] private float meleeCooldown;
     [Tooltip("Player damage (projectile)")]
@@ -167,10 +176,13 @@ public class Player : StateMachine {
 
         MaxHealth = maxHealth;
         Health = maxHealth;
+        MaxPlayerVoid = maxPlayerVoid;
+        PlayerVoid = playerVoid;
         DamageReduction = damageReduction;
         MeleeDamage = meleeDamage;
         MeleeCooldown = meleeCooldown;
         MeleeLifeLeech = meleeLifeLeech;
+        MeleeVoidLeech = meleeVoidLeech;
         ProjectileDamage = projectileDamage;
         ProjectileCooldown = projectileCooldown;
         ProjectileHealthcost = projectileHealthcost;
