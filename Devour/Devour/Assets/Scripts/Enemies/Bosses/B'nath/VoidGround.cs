@@ -74,7 +74,7 @@ public class VoidGround : MonoBehaviour
             particleInstantiated = true;
             GameObject instantiatedParticle = Instantiate(telegraphPartice, null);
             instantiatedParticle.transform.position = transform.position;
-            instantiatedParticle.GetComponent<TimedObjectDestructor>().onWakeTimeOut = currentStartCooldown;
+            instantiatedParticle.GetComponent<DestroyTimer>().DestructionTime = currentStartCooldown;
         }
 
         if (currentStartCooldown > 0)
