@@ -87,6 +87,7 @@ public class Bnath : Boss
         PlayerAttackEvent.UnRegisterListener(TakeDamage);
         EnemyTouchKillzoneEvent.UnRegisterListener(EnemyTouchKillzone);
         PlayerDiedEvent.UnRegisterListener(Reset);
+        SpawnAbilityEssence();
         if(bossFightBlock != null)
         {
             Destroy(bossFightBlock);
