@@ -734,6 +734,13 @@ PrefabInstance:
       propertyPath: m_fontColor32.rgba
       value: 4278190079
       objectReference: {fileID: 0}
+    - target: {fileID: 4210575543304725968, guid: 3211bdc6100f8e34cb8adfa1cfb6b5f7,
+        type: 3}
+      propertyPath: m_text
+      value: "You do not know who you are.\n\nYou do not know what you are. \n\nYou
+        know only one thing: others like you have awakened. \n\nYou need to devour
+        them."
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3211bdc6100f8e34cb8adfa1cfb6b5f7, type: 3}
 --- !u!224 &185869100 stripped
