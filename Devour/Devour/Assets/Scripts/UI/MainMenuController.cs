@@ -27,9 +27,9 @@ public class MainMenuController : MonoBehaviour{
         } catch (System.NullReferenceException) {
 
         }
-        newGameButton.onClick.AddListener(() => { SetSceneAndPlayAnimation("newGame"); });
+        
         if (newGameButton != null) {
-            
+            newGameButton.onClick.AddListener(() => { SetSceneAndPlayAnimation("newGame"); });
         }
         if (loadGameButton != null) {
             loadGameButton.onClick.AddListener(() => { SetSceneAndPlayAnimation("loadGame"); });
