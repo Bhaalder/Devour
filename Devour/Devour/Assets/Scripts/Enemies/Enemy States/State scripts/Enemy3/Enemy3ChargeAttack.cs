@@ -33,7 +33,7 @@ public class Enemy3ChargeAttack : Enemy3Movement
     {
         if(Mathf.Approximately( (int)owner.rb.position.x, (int)owner.GetComponent<Enemy3>().ChargeTarget.x))
         {
-            owner.rb.velocity = new Vector2(0f,0f);
+            owner.rb.velocity = new Vector2(0f,owner.rb.velocity.y);
             owner.Stunned = true;
             owner.Transition<Enemy3Movement>();
         }
