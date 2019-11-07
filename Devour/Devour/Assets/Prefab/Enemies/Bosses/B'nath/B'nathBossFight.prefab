@@ -713,10 +713,19 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 3d96839b67077f84ca71b1705c412133, type: 2}
   - {fileID: 11400000, guid: e8b111aa356df32438b452ce93f82b56, type: 2}
   - {fileID: 11400000, guid: 83c909af3420e7d4a9554c0c1efd0d8a, type: 2}
+  - {fileID: 11400000, guid: 4953b263cca1c674583dff16d056d5c1, type: 2}
   enemyHealth: 750
   damageToPlayerOnContact: 25
   enemyGFX: {fileID: 6423004830342552698}
-  childrenToDisable: []
+  childrenToDisable:
+  - {fileID: 4102159071333252545}
+  - {fileID: 8337543404113584946}
+  - {fileID: 3986306986666206940}
+  - {fileID: 7242112852168138869}
+  - {fileID: 7072090367639583549}
+  - {fileID: 4885727378965127028}
+  - {fileID: 260181907137013442}
+  - {fileID: 5490455136399410609}
   deathSounds: []
   bossName: B'nath
   maxHealth: 750
