@@ -15,3 +15,4 @@ MonoBehaviour:
   bossSprite: {fileID: 0}
   voidGround: {fileID: 5104333781211829874, guid: de0043ae1b84bb545a0ec1a0e2ea81d1,
     type: 3}
+  hangTime: 3

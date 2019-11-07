@@ -16,7 +16,7 @@ MonoBehaviour:
   layerMask:
     serializedVersion: 2
     m_Bits: 256
-  voidAssaultPercentage: 50
+  voidAssaultPercentage: 100
   playerSidePercentage: 50
   Count: 1
   hangTime: 1

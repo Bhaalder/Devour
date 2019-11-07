@@ -50,13 +50,16 @@ public class BnathClimbDash : BnathBaseState
         countUp = 0f;
 
         PlayerSideCheck();
-        ChooseSide();
+        if (!voidAssaultAttack)
+        {
+            ChooseSide();
+        }
 
     }
 
     public override void HandleUpdate()
     {
-        if (isClimbing)
+        if (isClimbing && !voidAssaultAttack)
         {
             owner.State = BossBnathState.CLIMBING;
             SideClimb();
@@ -216,6 +219,7 @@ public class BnathClimbDash : BnathBaseState
         else
         {
             isChoosingAttack = false;
+            voidAssaultAttack = false;
             ClimbDash();
         }
 

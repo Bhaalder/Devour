@@ -7,12 +7,20 @@ using UnityEngine;
 public class BnathVoidAssault : BnathBaseState
 {
     [SerializeField] GameObject voidGround;
+    [SerializeField] private float hangTime = 3f;
 
     private int voidGroundLocation;
+    private float startCooldown = 1f;
+    private float betweenCooldown = 1f;
+    private float currentCooldown;
 
     public override void Enter()
     {
+        Debug.Log("startCooldown: " + startCooldown);
         owner.State = BossBnathState.VOID_ASSAULT;
+
+        currentCooldown = hangTime;
+        startCooldown = 1f;
 
         voidGroundLocation = owner.GetComponent<Bnath>().VoidGroundLocation.Length;
         int safeLocation = (int)Random.Range(0, voidGroundLocation-1);
@@ -28,17 +36,32 @@ public class BnathVoidAssault : BnathBaseState
             {
                 GameObject voidG = Instantiate(voidGround, null);
                 voidG.transform.position = gameObject.transform.position;
+                voidG.GetComponent<VoidGround>().StartCooldown = startCooldown;
+                startCooldown += betweenCooldown;
             }
         }
-        owner.Transition<BnathClimbDash>();
     }
 
     public override void HandleUpdate()
     {
         base.HandleUpdate();
+        HangTime();
     }
     public override void HandleFixedUpdate()
     {
         base.HandleFixedUpdate();
+    }
+
+    private void HangTime()
+    {
+        currentCooldown -= Time.deltaTime;
+
+        if (currentCooldown > 0)
+        {
+            return;
+        }
+
+        owner.Transition<BnathClimbDash>();
+
     }
 }

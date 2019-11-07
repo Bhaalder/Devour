@@ -7,22 +7,43 @@ public class VoidGround : MonoBehaviour
 
     [SerializeField] private float timeBeforeDestruction = 2f;
     [SerializeField] private float damageToPlayerOnContact;
+    [SerializeField] private GameObject telegraphPartice;
     private float currentCooldown;
+    private float currentStartCooldown;
+
+    private SpriteRenderer sprite;
+
+    private bool particleInstantiated;
+    private bool canDoDamage;
+
+    public float StartCooldown { get; set; }
 
 
     private void Start()
     {
         currentCooldown = timeBeforeDestruction;
+        currentStartCooldown = StartCooldown;
+        sprite = GetComponentInChildren<SpriteRenderer>();
+        sprite.enabled = false;
+        particleInstantiated = false;
+        canDoDamage = false;
     }
     private void Update()
     {
-        DestroyTimer();
+        if (!canDoDamage)
+        {
+            StartTimer();
+        }
+        else if (canDoDamage)
+        {
+            DestroyTimer();
+        }
     }
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        Debug.Log("Collision:" + collision.gameObject.tag);
-        if (collision.gameObject.tag == "Player")
+
+        if (collision.gameObject.tag == "Player" && canDoDamage == true)
         {
             PlayerTakeDamageEvent ptde = new PlayerTakeDamageEvent
             {
@@ -43,5 +64,26 @@ public class VoidGround : MonoBehaviour
         }
 
         Destroy(gameObject);
+    }
+
+    private void StartTimer()
+    {
+        currentStartCooldown -= Time.deltaTime;
+        if (!particleInstantiated)
+        {
+            particleInstantiated = true;
+            GameObject instantiatedParticle = Instantiate(telegraphPartice, null);
+            instantiatedParticle.transform.position = transform.position;
+            instantiatedParticle.GetComponent<TimedObjectDestructor>().onWakeTimeOut = currentStartCooldown;
+        }
+
+        if (currentStartCooldown > 0)
+        {
+            return;
+        }
+
+        canDoDamage = true;
+        sprite.enabled = true;
+        
     }
 }

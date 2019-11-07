@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: BnathIdle
   m_EditorClassIdentifier: 
   bossSprite: {fileID: 0}
-  bodySlamPercentage: 60
+  bodySlamPercentage: 1
   pauseBetweenAttacks: 1
