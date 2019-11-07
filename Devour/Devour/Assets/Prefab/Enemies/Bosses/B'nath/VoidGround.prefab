@@ -153,5 +153,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timeBeforeDestruction: 1
   damageToPlayerOnContact: 25
-  telegraphPartice: {fileID: 1315949759934820, guid: ecedaa35545140b4ca9f549d1bd8de67,
+  telegraphPartice: {fileID: 1609845037211932075, guid: d4a67be1089105f4f8db2b80fdb7ae9d,
     type: 3}
