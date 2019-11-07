@@ -12,6 +12,12 @@ EditorBuildSettings:
     path: Assets/Scenes/TestStuff/CharacterTestScene.unity
     guid: 5650ca50ddf9d124c884cc1649405095
   - enabled: 1
+    path: Assets/Scenes/MainMenu.unity
+    guid: 46b3c94bec8c90e40a9f0ca2f9495d55
+  - enabled: 1
+    path: Assets/Scenes/NewGameIntro.unity
+    guid: 5f49918de5b5f0c4abf617e3c5da18c6
+  - enabled: 1
     path: Assets/Scenes/World/Scene01.unity
     guid: 555593f66b5c01844a7dc472e469a540
   - enabled: 1

@@ -30,7 +30,7 @@ public class SceneTrigger : MonoBehaviour {
             if (scenePointID == sceneSpawnPointID) {
                 switchedScene = false;
                 GameController.Instance.Player.transform.position = transform.GetChild(0).position;
-                GameController.Instance.Camera.position = transform.GetChild(0).position + new Vector3(0, 0, GameController.Instance.Camera.position.z);
+                Camera.main.transform.parent.position = transform.GetChild(0).position + new Vector3(0, 0, Camera.main.transform.parent.position.z);
                 GameController.Instance.SceneCheckpoint = transform.GetChild(0).position;
             }
         }

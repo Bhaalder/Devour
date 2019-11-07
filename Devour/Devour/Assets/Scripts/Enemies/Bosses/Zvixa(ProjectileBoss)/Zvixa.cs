@@ -9,7 +9,7 @@ public enum BossZvixaState {
 
 public class Zvixa : Boss{
     public BossZvixaState State { get; set; }
-    
+
     public BoxCollider2D HighArea { get; set; }
     public BoxCollider2D LowArea { get; set; }
     public BoxCollider2D StartFightArea { get; set; }
@@ -90,6 +90,7 @@ public class Zvixa : Boss{
             boss = this
         };
         zvixaDied.FireEvent();
+        SpawnAbilityEssence();
         Destroy(LowArea.gameObject); 
         Destroy(gameObject);//FÖR TILLFÄLLET
     }

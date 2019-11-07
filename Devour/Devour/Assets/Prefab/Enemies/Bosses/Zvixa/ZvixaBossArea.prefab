@@ -364,6 +364,11 @@ MonoBehaviour:
   enemyHealth: 1000
   damageToPlayerOnContact: 25
   enemyGFX: {fileID: 8700264559197275829}
+  childrenToDisable: []
+  deathSounds: []
+  bossGivesAbility: 4
+  abilityEssence: {fileID: 7475380705934021547, guid: 19f0fdacf1a22684da9a3fbaa343b982,
+    type: 3}
   bossName: Zvixa the Meticulous
   maxHealth: 1000
   highArea: {fileID: 8700264558789018875}

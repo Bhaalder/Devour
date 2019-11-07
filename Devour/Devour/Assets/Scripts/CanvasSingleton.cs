@@ -15,5 +15,6 @@ public class CanvasSingleton : MonoBehaviour{
             Debug.LogWarning("Destroyed other Singleton with name: " + gameObject.name);
             return;
         }
+        GameController.Instance.Canvas = gameObject.transform;
     }
 }
