@@ -133,6 +133,17 @@ public class BnathClimbDash : BnathBaseState
         middlePoint = startPoint + (endPoint - startPoint) / 2 + Vector2.up * middlePointCurve;
 
         owner.rb.gravityScale = 0;
+
+        if (endPoint.x < owner.rb.position.x)
+        {
+            Vector3 v = new Vector3(-1f, 1f, 1f);
+            owner.setGFX(v);
+        }
+        else
+        {
+            Vector3 v = new Vector3(1f, 1f, 1f);
+            owner.setGFX(v);
+        }
     }
 
     private void SideClimb()
@@ -148,6 +159,7 @@ public class BnathClimbDash : BnathBaseState
         else
         {
             isClimbing = false;
+            TurnedRight();
         }
     }
 
