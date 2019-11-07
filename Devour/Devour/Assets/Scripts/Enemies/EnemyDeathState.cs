@@ -37,6 +37,16 @@ public class EnemyDeathState : EnemyBaseState
         } catch (System.IndexOutOfRangeException) {
             Debug.Log("This enemy does not have a deathsound declared");
         }
+
+        if(owner.GetComponent<BoxCollider2D>() != null)
+        {
+            owner.GetComponent<BoxCollider2D>().enabled = false;
+        }
+
+        if(owner.GetComponent<CircleCollider2D>() != null)
+        {
+            owner.GetComponent<CircleCollider2D>().enabled = false;
+        }
         
     }
 
