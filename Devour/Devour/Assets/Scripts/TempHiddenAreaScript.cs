@@ -5,7 +5,7 @@ using UnityEngine;
 public class TempHiddenAreaScript : MonoBehaviour
 {
 
-    public GameObject theSprite;
+    public GameObject [] theSprite;
     public bool isPermanent;
     
     // Start is called before the first frame update
@@ -26,7 +26,12 @@ public class TempHiddenAreaScript : MonoBehaviour
 
         if (collision.CompareTag("Player"))
         {
-            theSprite.SetActive(false);
+
+            for (int i = 0; i < theSprite.Length; i++)
+            {
+                theSprite[i].SetActive(false);
+            }
+            
             Debug.Log("Enter");
         }
         
@@ -36,7 +41,10 @@ public class TempHiddenAreaScript : MonoBehaviour
 
         if (collision.CompareTag("Player") && !isPermanent)
         {
-            theSprite.SetActive(true);
+            for (int i = 0; i < theSprite.Length; i++)
+            {
+                theSprite[i].SetActive(true);
+            }
             Debug.Log("Exit");
         }
         
