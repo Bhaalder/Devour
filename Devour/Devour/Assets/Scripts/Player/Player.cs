@@ -308,6 +308,7 @@ public class Player : StateMachine {
 
     public bool DamageWasDeadly() {
         if (Health <= 0) {
+            Health = 0;
             return true;
         }
         return false;

@@ -24,7 +24,10 @@ public class BossRoomBlock : MonoBehaviour
     {
         if(collision.gameObject.tag == "Player")
         {
-            boss.GetComponent<Bnath>().BossFightStart = true;
+            if (boss != null)
+            {
+                boss.GetComponent<Bnath>().BossFightStart = true;
+            }
             blocker.SetActive(true);
         }
     }
