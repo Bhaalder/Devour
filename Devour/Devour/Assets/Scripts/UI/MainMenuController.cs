@@ -15,6 +15,9 @@ public class MainMenuController : MonoBehaviour{
     [SerializeField] private string loadGameScene;
     [SerializeField] private float loadingSequenceLength;
 
+    [SerializeField] private Animator cameraAnim;
+    [SerializeField] private Animator buttonAnim;
+
     private string sceneToLoad;
 
     private void Awake() {
@@ -50,6 +53,9 @@ public class MainMenuController : MonoBehaviour{
             case "newGame":
                 sceneToLoad = newGameScene;
                 Invoke("FadeScene", loadingSequenceLength);
+                cameraAnim.Play("GameStartAnim");
+                buttonAnim.Play("MenuAnim");
+
                 break;
             case "loadGame":
                 sceneToLoad = loadGameScene;
