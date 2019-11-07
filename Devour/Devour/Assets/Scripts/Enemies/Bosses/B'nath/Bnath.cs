@@ -72,6 +72,7 @@ public class Bnath : Boss
     {
         //Transition till DeathState
         isDead = true;
+        SpawnAbilityEssence();
         Transition<BnathDeathState>();
     }
     private void Reset(PlayerDiedEvent playerDied)
@@ -87,7 +88,7 @@ public class Bnath : Boss
         PlayerAttackEvent.UnRegisterListener(TakeDamage);
         EnemyTouchKillzoneEvent.UnRegisterListener(EnemyTouchKillzone);
         PlayerDiedEvent.UnRegisterListener(Reset);
-        if(bossFightBlock != null)
+        if (bossFightBlock != null)
         {
             Destroy(bossFightBlock);
         }

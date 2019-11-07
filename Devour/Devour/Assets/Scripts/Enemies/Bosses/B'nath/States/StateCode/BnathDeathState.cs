@@ -7,14 +7,9 @@ using UnityEngine;
 public class BnathDeathState : EnemyDeathState
 {
 
-    [SerializeField] GameObject abilityEssence;
-    [SerializeField] PlayerAbility Ability;
-
     public override void Enter()
     {
-        GameObject ability = Instantiate(abilityEssence, null);
-        ability.transform.position = owner.rb.position;
-        ability.GetComponent<AbilityEssence>().Ability = Ability;
+
     }
 
     public override void HandleUpdate()
