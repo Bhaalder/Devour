@@ -38,11 +38,14 @@ public class SceneTrigger : MonoBehaviour {
 
     private void OnTriggerEnter2D(Collider2D other) {
         if (other.CompareTag("Player")) {
+            GameController.Instance.Player.IsInvulnerable = true;
+            GameController.Instance.Player.UntilInvulnerableEnds = 2;
+            
             FadeScreenEvent fadeScreen = new FadeScreenEvent {
                 isFadeOut = true
             };
             fadeScreen.FireEvent();
-            Invoke("SceneSwitch", 1f);
+            Invoke("SceneSwitch", 1f);      
         }
     }
 

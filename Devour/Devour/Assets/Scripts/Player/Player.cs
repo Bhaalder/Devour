@@ -231,6 +231,7 @@ public class Player : StateMachine {
     }
 
     protected override void Update() {
+        Debug.Log(UntilInvulnerableEnds);
         PlayerVelocity = Rb2D.velocity;//TEST
         health = Health;//TEST
         InvulnerableTimeCheck();
