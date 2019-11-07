@@ -55,6 +55,7 @@ public class Player : StateMachine {
     public float DashCooldown { get; set; }
     public float UntilNextDash { get; set; }
     public float FallSpeed { get; set; }
+    public bool MovementIsStopped { get; set; }
 
     public float XInput { get; set; }
     public float YInput { get; set; }
@@ -110,6 +111,8 @@ public class Player : StateMachine {
     [SerializeField] private float invulnerableStateTime;
     [Tooltip("Knockbackvalue applied to player when hurt by enemies")]
     [SerializeField] private Vector2 hurtKnockbackForce;
+   
+
 
     [Header("Camera")]
     [Tooltip("How long the camera will shake when taking damage")]
@@ -222,6 +225,7 @@ public class Player : StateMachine {
         PlayerTouchKillzoneEvent.RegisterListener(OnTouchKillzone);
         PlayerGetAbilityEvent.RegisterListener(OnGetAbility);
         PlayerGainCollectibleEvent.RegisterListener(OnGetCollectible);
+        FadeScreenEvent.RegisterListener(OnFadeScreen);
         //foreach (PlayerAbility ability in playerAbilities) {//TEST
         //    PlayerAbilities.Add(ability);
         //}//TEST
@@ -249,6 +253,15 @@ public class Player : StateMachine {
         InvulnerableTimeCheck();
         Animator.SetInteger("State", (int)PlayerState);
         base.Update();
+    }
+
+    private void OnFadeScreen(FadeScreenEvent screenEvent) {
+        if (screenEvent.isFadeOut) {
+            MovementIsStopped = true;
+        }
+        if (screenEvent.isFadeIn) {
+            MovementIsStopped = false;
+        }
     }
 
     private void OnTouchKillzone(PlayerTouchKillzoneEvent killzone) {
@@ -409,6 +422,7 @@ public class Player : StateMachine {
         PlayerTouchKillzoneEvent.UnRegisterListener(OnTouchKillzone);
         PlayerGetAbilityEvent.UnRegisterListener(OnGetAbility);
         PlayerGainCollectibleEvent.UnRegisterListener(OnGetCollectible);
+        FadeScreenEvent.UnRegisterListener(OnFadeScreen);
     }
 
     public void PlayerLog(string message) {

@@ -19,10 +19,14 @@ public class PlayerBaseState : State {
     }
 
     public override void HandleFixedUpdate() {
-        MovePlayer();       
-        FacingDirection();
-        FallspeedCheck();
-        base.HandleFixedUpdate();
+        if (!owner.MovementIsStopped) {
+            MovePlayer();
+            FacingDirection();
+            FallspeedCheck();
+            base.HandleFixedUpdate();
+        } else {
+            owner.Rb2D.velocity = Vector2.zero;
+        }
     }
 
     protected void FacingDirection() {
