@@ -75,6 +75,8 @@ public class Player : StateMachine {
     public LayerMask WhatIsGround { get; set; }
     public Animator Animator { get; set; }
 
+    public List<Collectible> Collectibles { get; set; }
+
     [Header("Health & Combat")]
     [Tooltip("Player maxHealth")]
     [SerializeField] private float maxHealth;
@@ -209,6 +211,9 @@ public class Player : StateMachine {
         WallCheck = wallCheck;
         Aim = aim;
         WhatIsGround = whatIsGround;
+
+        Collectibles = new List<Collectible>();
+
         Animator = GetComponent<Animator>();
 
         PlayerTakeDamageEvent.RegisterListener(OnTakeDamage);
@@ -216,6 +221,7 @@ public class Player : StateMachine {
         PlayerVoidEvent.RegisterListener(OnVoidEvent);
         PlayerTouchKillzoneEvent.RegisterListener(OnTouchKillzone);
         PlayerGetAbilityEvent.RegisterListener(OnGetAbility);
+        PlayerGainCollectibleEvent.RegisterListener(OnGetCollectible);
         //foreach (PlayerAbility ability in playerAbilities) {//TEST
         //    PlayerAbilities.Add(ability);
         //}//TEST
@@ -231,12 +237,13 @@ public class Player : StateMachine {
     }
 
     protected override void Update() {
-        if (Input.GetKeyDown(KeyCode.F1)) {
+        if (Input.GetKeyDown(KeyCode.F1)) {//TEST
             PlayerTakeDamageEvent ptde = new PlayerTakeDamageEvent {
                 damage = 100
             };
             ptde.FireEvent();
-        }
+        }//TEST
+
         PlayerVelocity = Rb2D.velocity;//TEST
         health = Health;//TEST
         InvulnerableTimeCheck();
@@ -376,6 +383,16 @@ public class Player : StateMachine {
         
     }
 
+    private void OnGetCollectible(PlayerGainCollectibleEvent collectibleEvent) {
+        foreach(Collectible collectible in Collectibles) {
+            if(collectible.CollectibleType == collectibleEvent.collectible.CollectibleType) {
+                collectible.Amount += collectibleEvent.collectible.Amount;
+            }
+            return;
+        }
+        Collectibles.Add(collectibleEvent.collectible);
+    }
+
     public bool HasAbility(PlayerAbility playerAbility) {
         foreach(PlayerAbility ability in PlayerAbilities) {
             if(ability == playerAbility) {
@@ -391,6 +408,7 @@ public class Player : StateMachine {
         PlayerVoidEvent.UnRegisterListener(OnVoidEvent);
         PlayerTouchKillzoneEvent.UnRegisterListener(OnTouchKillzone);
         PlayerGetAbilityEvent.UnRegisterListener(OnGetAbility);
+        PlayerGainCollectibleEvent.UnRegisterListener(OnGetCollectible);
     }
 
     public void PlayerLog(string message) {

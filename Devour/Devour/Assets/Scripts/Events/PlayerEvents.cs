@@ -35,6 +35,12 @@ public class PlayerGetAbilityEvent : Event<PlayerGetAbilityEvent> {
 
 }
 
+public class PlayerGainCollectibleEvent : Event<PlayerGainCollectibleEvent> {
+
+    public Collectible collectible;
+
+}
+
 public class PlayerVoidEvent : Event<PlayerVoidEvent> {
 
     public float amount;
