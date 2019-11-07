@@ -14,6 +14,11 @@ public class PlayerWallslideState : PlayerBaseState {
     public override void Enter() {
         //owner.PlayerLog("WallslideState");
         owner.PlayerState = PlayerState.WALLSLIDE;
+        //AudioPlaySoundEvent wallSlidePlay = new AudioPlaySoundEvent {
+        //    name = "Wallslide",
+        //    soundType = SoundType.SFX
+        //};
+        //wallSlidePlay.FireEvent();
     }
 
     public override void HandleFixedUpdate() {
@@ -61,6 +66,10 @@ public class PlayerWallslideState : PlayerBaseState {
 
     public override void Exit() {
         owner.IsAttackingDown = false;
+        //AudioStopSoundEvent wallSlideStop = new AudioStopSoundEvent {
+        //    name = "Wallslide"
+        //};
+        //wallSlideStop.FireEvent();
         base.Exit();
     }
 

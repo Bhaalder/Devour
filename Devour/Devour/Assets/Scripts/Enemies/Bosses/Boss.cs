@@ -34,6 +34,12 @@ public class Boss : Enemy{
                         PlayerHealEvent phe = new PlayerHealEvent {
                             isLifeLeech = true
                         };
+                        if (attackEvent.player.HasAbility(PlayerAbility.VOIDMEND)) {
+                            PlayerVoidEvent voidEvent = new PlayerVoidEvent {
+                                amount = attackEvent.player.MeleeVoidLeech
+                            };
+                            voidEvent.FireEvent();
+                        }
                         phe.FireEvent();
                         if (!attackEvent.player.IsGrounded && attackEvent.player.IsAttackingDown && attackEvent.isMeleeAttack) {
                             attackEvent.player.ExtraJumpsLeft = attackEvent.player.ExtraJumps;

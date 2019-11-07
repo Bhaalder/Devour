@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public enum PlayerState {
-    NONE, IDLE, WALK, AIR, DASH, WALLSLIDE, WALLJUMP, HURT, ATTACK, PROJECTILEATTACK, JUMP
+    NONE, IDLE, WALK, AIR, DASH, WALLSLIDE, WALLJUMP, HURT, ATTACK, PROJECTILEATTACK, JUMP, DEATH
 }
 
 public enum PlayerAbility {
@@ -42,6 +42,7 @@ public class Player : StateMachine {
     public bool IsAttackingDown { get; set; }
     public bool IsAttackingUp { get; set; }
     public bool IsInvulnerable { get; set; }
+    public float UntilInvulnerableEnds { get; set; }
 
     public float MovementSpeed { get; set; }
     public float JumpForce { get; set; }
@@ -107,7 +108,6 @@ public class Player : StateMachine {
     [SerializeField] private float invulnerableStateTime;
     [Tooltip("Knockbackvalue applied to player when hurt by enemies")]
     [SerializeField] private Vector2 hurtKnockbackForce;
-    private float untilInvulnerableEnds;
 
     [Header("Camera")]
     [Tooltip("How long the camera will shake when taking damage")]
@@ -312,20 +312,20 @@ public class Player : StateMachine {
     }
 
     private void InvulnerableTimeCheck() {
-        if(untilInvulnerableEnds <= 0) {
+        if(UntilInvulnerableEnds <= 0) {
             IsInvulnerable = false;
         }
         if (IsInvulnerable) {
-            untilInvulnerableEnds -= Time.deltaTime;
+            UntilInvulnerableEnds -= Time.deltaTime;
             return;
         }
-        untilInvulnerableEnds = invulnerableStateTime;
+        UntilInvulnerableEnds = invulnerableStateTime;
     }
 
     private void Respawn() {
         Transition<PlayerHurtState>();
         Rb2D.velocity = new Vector2(0, 0);
-        untilInvulnerableEnds = invulnerableStateTime + 1f; //längre invulnerable när man fallit ner i killzone?
+        UntilInvulnerableEnds = invulnerableStateTime + 1f; //längre invulnerable när man fallit ner i killzone?
         try {
             transform.position = GameController.Instance.SceneCheckpoint;
         } catch(UnassignedReferenceException) {
@@ -335,15 +335,8 @@ public class Player : StateMachine {
 
     private void Die() { //EJ KLART, just nu gör vi bara en respawn och får fullt HP
                          //MaxHP halveras, man hamnar på senaste "RestingPlace", ens "essence" hamnar där man dog      
-        PlayerHealEvent healEvent = new PlayerHealEvent {
-            amount = 500//FÖR TILLFÄLLET
-        };
-        healEvent.FireEvent();
-        PlayerDiedEvent diedEvent = new PlayerDiedEvent {
-            Description = "Player died!"
-        };
-        diedEvent.FireEvent();
-        Respawn();//FÖR TILLFÄLLET
+        Transition<PlayerDeathState>();
+        //Respawn();//FÖR TILLFÄLLET
     }
 
     public void PlaySound(string sound) {

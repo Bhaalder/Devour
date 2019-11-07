@@ -11,6 +11,7 @@ public class GameController : MonoBehaviour {
     public bool GameIsPaused { get; set; }
 
     public Vector3 SceneCheckpoint { get; set; } //om man rör vid en "killzone"
+    public string RestingScene { get; set; } //senaste scenen man restade på
     public Vector3 RestingCheckpoint { get; set; } //senaste platsen man restade på
     public Vector3 VoidEssenceLocation { get; set; } //platsen man dog på och måste hämta sin essence
 
@@ -46,7 +47,28 @@ public class GameController : MonoBehaviour {
         Cursor.lockState = CursorLockMode.Locked;
         if (SceneCheckpoint == null) {
             SceneCheckpoint = Player.transform.position;
-        }      
+        }
+        if (RestingCheckpoint == null) {
+            SceneCheckpoint = Player.transform.position;
+        }
+        if (RestingScene == null) {
+            RestingScene = SceneManager.GetActiveScene().name;
+        }
+        PlayerDiedEvent.RegisterListener(OnPlayerDied);
+    }
+
+    private void OnPlayerDied(PlayerDiedEvent diedEvent) {
+        try {
+            if(RestingCheckpoint != null) {
+                Debug.Log("RESPAWN SUCCESS! " + RestingScene);
+                SceneManager.LoadScene(RestingScene);
+                diedEvent.player.transform.position = RestingCheckpoint;
+                return;
+            }
+        } catch (UnassignedReferenceException) {
+            Debug.LogError("No 'RestingCheckpoint' assigned in GameController to be able to respawn after death! Spawning at SceneCheckpoint...");
+        }
+        diedEvent.player.transform.position = SceneCheckpoint;
     }
 
     public void GamePaused() {
@@ -56,4 +78,9 @@ public class GameController : MonoBehaviour {
             Time.timeScale = 1f;
         }
     }
+
+    private void OnDestroy() {
+        PlayerDiedEvent.UnRegisterListener(OnPlayerDied);
+    }
+
 }

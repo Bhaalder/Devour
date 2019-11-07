@@ -49,6 +49,7 @@ public class PlayerTouchKillzoneEvent : Event<PlayerTouchKillzoneEvent> {
 
 public class PlayerDiedEvent : Event<PlayerDiedEvent> {
 
+    public Player player;
     //info var man dog (typ vilken scen m.m.)
 
 }
