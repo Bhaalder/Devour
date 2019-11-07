@@ -30,7 +30,7 @@ public class AbilityGainUI : MonoBehaviour{
             case PlayerAbility.PROJECTILE:
                 description = "Hold [RIGHT MOUSEBUTTON] or [B] and aim with the directional input to fire a void projectile";
                 break;
-            case PlayerAbility.WALLSLIDE:
+            case PlayerAbility.WALLCLIMB:
                 description = "Slide against walls and press [SPACE] or [A] to \n jump from walls";
                 break;
             case PlayerAbility.VOIDMEND:

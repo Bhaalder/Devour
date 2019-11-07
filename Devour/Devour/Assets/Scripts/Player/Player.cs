@@ -8,7 +8,7 @@ public enum PlayerState {
 }
 
 public enum PlayerAbility {
-    DOUBLEJUMP = 1, WALLSLIDE, DASH, PROJECTILE, VOIDMEND
+    DOUBLEJUMP = 1, WALLCLIMB, DASH, PROJECTILE, VOIDMEND
 }
 
 public class Player : StateMachine {
@@ -231,6 +231,12 @@ public class Player : StateMachine {
     }
 
     protected override void Update() {
+        if (Input.GetKeyDown(KeyCode.F1)) {
+            PlayerTakeDamageEvent ptde = new PlayerTakeDamageEvent {
+                damage = 100
+            };
+            ptde.FireEvent();
+        }
         PlayerVelocity = Rb2D.velocity;//TEST
         health = Health;//TEST
         InvulnerableTimeCheck();

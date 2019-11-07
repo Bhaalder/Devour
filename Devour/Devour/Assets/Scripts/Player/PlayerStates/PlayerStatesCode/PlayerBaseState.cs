@@ -133,7 +133,7 @@ public class PlayerBaseState : State {
     public void CollisionCheck() {
         owner.IsGrounded = Physics2D.OverlapCircle(owner.GroundCheck.position, owner.GroundCheckDistance, owner.WhatIsGround);
         owner.IsTouchingWall = Physics2D.Raycast(owner.WallCheck.position, owner.transform.right * owner.FacingDirection, owner.WallCheckDistance, owner.WhatIsGround);
-        if (owner.HasAbility(PlayerAbility.WALLSLIDE)) {
+        if (owner.HasAbility(PlayerAbility.WALLCLIMB)) {
             WallSlideCheck();
         }       
     }
