@@ -216,9 +216,9 @@ public class Player : StateMachine {
         PlayerVoidEvent.RegisterListener(OnVoidEvent);
         PlayerTouchKillzoneEvent.RegisterListener(OnTouchKillzone);
         PlayerGetAbilityEvent.RegisterListener(OnGetAbility);
-        foreach (PlayerAbility ability in playerAbilities) {//TEST
-            PlayerAbilities.Add(ability);
-        }//TEST
+        //foreach (PlayerAbility ability in playerAbilities) {//TEST
+        //    PlayerAbilities.Add(ability);
+        //}//TEST
         base.Awake();
     }
 

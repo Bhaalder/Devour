@@ -7,6 +7,7 @@ using UnityEngine;
 public class PlayerDeathState : PlayerBaseState {
 
     [SerializeField] private float deathAnimationTime;
+    [SerializeField] private GameObject deathParticles;
     private float timeLeft;
     private bool startedFade;
 
@@ -15,6 +16,8 @@ public class PlayerDeathState : PlayerBaseState {
         owner.PlayerState = PlayerState.DEATH;
         timeLeft = deathAnimationTime;
         owner.GetComponent<SpriteRenderer>().color = new Color32(255, 255, 255, 0);
+        GameObject deathGO;
+        deathGO = Instantiate(deathParticles, owner.transform.position, Quaternion.identity);
         owner.UntilInvulnerableEnds = deathAnimationTime + 1f;
         owner.Rb2D.gravityScale = 0;
         startedFade = false;
