@@ -28,7 +28,10 @@ public class BossRoomBlock : MonoBehaviour
             {
                 boss.GetComponent<Bnath>().BossFightStart = true;
             }
-            blocker.SetActive(true);
+            if(blocker != null)
+            {
+                blocker.SetActive(true);
+            }
         }
     }
 }
