@@ -44,6 +44,7 @@ public class MainMenuController : MonoBehaviour{
 
 
     private void SetSceneAndPlayAnimation(string buttonName) {
+        Debug.Log("KLICKADE PÅ " + buttonName);
         FadeScreenEvent fadeScreen = new FadeScreenEvent {
             isFadeOut = true
         };
