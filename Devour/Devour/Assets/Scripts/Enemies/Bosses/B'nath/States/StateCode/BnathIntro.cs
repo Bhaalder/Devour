@@ -7,9 +7,11 @@ using UnityEngine;
 
 public class BnathIntro : BnathBaseState
 {
+
     public override void Enter()
     {
         base.Enter();
+        owner.State = BossBnathState.INTRO;
     }
 
     public override void HandleUpdate()
@@ -20,6 +22,7 @@ public class BnathIntro : BnathBaseState
         {
             Movement();
         }
+        owner.rb.position = owner.GetComponent<Bnath>().StartPosition.transform.position;
     }
 
     public override void HandleFixedUpdate()

@@ -58,6 +58,7 @@ public class BnathClimbDash : BnathBaseState
     {
         if (isClimbing)
         {
+            owner.State = BossBnathState.CLIMBING;
             SideClimb();
         }
         else if (isChoosingAttack)
@@ -66,10 +67,12 @@ public class BnathClimbDash : BnathBaseState
         }
         else if (dashTelegraph)
         {
+            owner.State = BossBnathState.DASH_TELEGRAPH;
             DashTelegraph();
         }
         else if (!dashTelegraph)
         {
+            owner.State = BossBnathState.DASHING;
             ClimbDash();
         }
 
@@ -156,7 +159,6 @@ public class BnathClimbDash : BnathBaseState
             isChoosingAttack = true;
             voidAssaultAttack = false;
             owner.Transition<BnathIdle>();
-
         }
         direction = (endPoint - startPoint).normalized;
         force = direction * dashSpeed * Time.deltaTime;
@@ -207,9 +209,9 @@ public class BnathClimbDash : BnathBaseState
         if (chooseAttack <= voidAssaultPercentage)
         {
             isChoosingAttack = true;
-
-            owner.Transition<BnathVoidAssault>();
             voidAssaultAttack = true;
+            owner.Transition<BnathVoidAssault>();
+
         }
         else
         {

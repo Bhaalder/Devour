@@ -339,6 +339,21 @@ PrefabInstance:
       propertyPath: m_Size.x
       value: 8.797571
       objectReference: {fileID: 0}
+    - target: {fileID: 9022223455646385671, guid: 7d76db8930eda1042a94cc5c74c442c0,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 7.26
+      objectReference: {fileID: 0}
+    - target: {fileID: 9022223455646385671, guid: 7d76db8930eda1042a94cc5c74c442c0,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -1.37
+      objectReference: {fileID: 0}
+    - target: {fileID: 1913198817428319609, guid: 7d76db8930eda1042a94cc5c74c442c0,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7d76db8930eda1042a94cc5c74c442c0, type: 3}
 --- !u!1 &775885062

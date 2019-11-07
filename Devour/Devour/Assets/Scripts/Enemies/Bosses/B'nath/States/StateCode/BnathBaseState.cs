@@ -5,7 +5,7 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "Boss/B'nath/B'nathBaseState")]
 public class BnathBaseState : State
 {
-    protected Boss owner;
+    protected Bnath owner;
 
     protected Vector2 startPoint;
     protected Vector2 endPoint;
