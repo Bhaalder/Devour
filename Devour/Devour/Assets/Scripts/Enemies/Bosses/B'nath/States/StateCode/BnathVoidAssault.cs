@@ -12,6 +12,8 @@ public class BnathVoidAssault : BnathBaseState
 
     public override void Enter()
     {
+        owner.State = BossBnathState.VOID_ASSAULT;
+
         voidGroundLocation = owner.GetComponent<Bnath>().VoidGroundLocation.Length;
         int safeLocation = (int)Random.Range(0, voidGroundLocation-1);
 
