@@ -21,7 +21,9 @@ public class PlayerHealthSlider : MonoBehaviour{
     }
 
     private void TouchKillzone(PlayerTouchKillzoneEvent touchKillzoneEvent) {
-        ChangeSlider(touchKillzoneEvent.damage);
+        if (!GameController.Instance.Player.IsInvulnerable) {
+            ChangeSlider(touchKillzoneEvent.damage);
+        }
     }
 
     private void TakeDamage(PlayerTakeDamageEvent takeDamageEvent) {

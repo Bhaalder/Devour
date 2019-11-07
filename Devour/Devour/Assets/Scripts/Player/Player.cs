@@ -34,6 +34,7 @@ public class Player : StateMachine {
     public float ProjectileCooldown { get; set; }
     public float UntilNextProjectileAttack { get; set; }
     public float ProjectileHealthcost { get; set; }
+    public bool IsDead { get; set; }
 
     public BoxCollider2D BoxCollider2D { get; set; }
     public BoxCollider2D HorizontalMeleeCollider { get; set; }
@@ -111,8 +112,6 @@ public class Player : StateMachine {
     [SerializeField] private float invulnerableStateTime;
     [Tooltip("Knockbackvalue applied to player when hurt by enemies")]
     [SerializeField] private Vector2 hurtKnockbackForce;
-   
-
 
     [Header("Camera")]
     [Tooltip("How long the camera will shake when taking damage")]
@@ -270,6 +269,10 @@ public class Player : StateMachine {
             startValue = cameraShakeValue
         };
         cse.FireEvent();
+        if (IsInvulnerable) {
+            Respawn();
+            return;
+        }
         ChangeHealth(-killzone.damage);
         if (DamageWasDeadly()) {
             Die();
@@ -362,10 +365,10 @@ public class Player : StateMachine {
         }
     }
 
-    private void Die() { //EJ KLART, just nu gör vi bara en respawn och får fullt HP
-                         //MaxHP halveras, man hamnar på senaste "RestingPlace", ens "essence" hamnar där man dog      
-        Transition<PlayerDeathState>();
-        //Respawn();//FÖR TILLFÄLLET
+    private void Die() {
+        if (!IsDead) {
+            Transition<PlayerDeathState>();
+        }   
     }
 
     public void PlaySound(string sound) {

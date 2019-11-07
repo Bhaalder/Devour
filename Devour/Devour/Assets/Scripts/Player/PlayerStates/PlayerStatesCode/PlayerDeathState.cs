@@ -21,6 +21,7 @@ public class PlayerDeathState : PlayerBaseState {
         owner.UntilInvulnerableEnds = deathAnimationTime + 1f;
         owner.Rb2D.gravityScale = 0;
         startedFade = false;
+        owner.IsDead = true;
     }
 
     public override void HandleFixedUpdate() {
@@ -56,6 +57,7 @@ public class PlayerDeathState : PlayerBaseState {
         healEvent.FireEvent();
         owner.GetComponent<SpriteRenderer>().color = new Color32(255, 255, 255, 255);
         startedFade = false;
+        owner.IsDead = false;
         base.Exit();
     }
 }
