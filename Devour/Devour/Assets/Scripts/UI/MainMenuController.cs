@@ -27,9 +27,9 @@ public class MainMenuController : MonoBehaviour{
         } catch (System.NullReferenceException) {
 
         }
-        newGameButton.onClick.AddListener(() => { SetSceneAndPlayAnimation("newGame"); });
+        
         if (newGameButton != null) {
-            
+            newGameButton.onClick.AddListener(() => { SetSceneAndPlayAnimation("newGame"); });
         }
         if (loadGameButton != null) {
             loadGameButton.onClick.AddListener(() => { SetSceneAndPlayAnimation("loadGame"); });
@@ -44,17 +44,16 @@ public class MainMenuController : MonoBehaviour{
 
 
     private void SetSceneAndPlayAnimation(string buttonName) {
-        FadeScreenEvent fadeScreen = new FadeScreenEvent {
-            isFadeOut = true
-        };
+        Debug.Log("KLICKADE PÅ " + buttonName);
+
         switch (buttonName) {
             case "newGame":
                 sceneToLoad = newGameScene;
-                Invoke("LoadScene", loadingSequenceLength);
+                Invoke("FadeScene", loadingSequenceLength);
                 break;
             case "loadGame":
                 sceneToLoad = loadGameScene;
-                Invoke("LoadScene", loadingSequenceLength);
+                Invoke("FadeScene", loadingSequenceLength);
                 break;
             case "optionsButton":
 
@@ -63,7 +62,15 @@ public class MainMenuController : MonoBehaviour{
 
                 break;
         }
+        
+    }
+
+    private void FadeScene() {
+        FadeScreenEvent fadeScreen = new FadeScreenEvent {
+            isFadeOut = true
+        };
         fadeScreen.FireEvent();
+        Invoke("LoadScene", 1.5f);
     }
 
     private void LoadScene() {
