@@ -178,7 +178,6 @@ public class BnathClimbDash : BnathBaseState
         }
         direction = (endPoint - startPoint).normalized;
         force = direction * dashSpeed * Time.deltaTime;
-
         owner.rb.AddForce(force);
 
     }
