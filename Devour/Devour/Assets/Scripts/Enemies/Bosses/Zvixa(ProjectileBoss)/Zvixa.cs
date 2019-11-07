@@ -91,7 +91,8 @@ public class Zvixa : Boss{
         };
         zvixaDied.FireEvent();
         SpawnAbilityEssence();
-        Destroy(LowArea.gameObject); 
+        Destroy(LowArea.gameObject);
+        GiveLifeforce();
         Destroy(gameObject);//FÖR TILLFÄLLET
     }
 

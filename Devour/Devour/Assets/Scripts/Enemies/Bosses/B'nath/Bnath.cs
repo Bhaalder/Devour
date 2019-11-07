@@ -73,6 +73,7 @@ public class Bnath : Boss
         //Transition till DeathState
         isDead = true;
         SpawnAbilityEssence();
+        GiveLifeforce();
         Transition<BnathDeathState>();
     }
     private void Reset(PlayerDiedEvent playerDied)

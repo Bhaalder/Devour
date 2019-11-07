@@ -16,7 +16,8 @@ public class Enemy : StateMachine
 
     [SerializeField] protected float enemyHealth;
     [SerializeField] protected float damageToPlayerOnContact = 5;
-    
+    [SerializeField] protected int lifeforceAmount;
+
     [SerializeField] public Rigidbody2D rb { get; set; }
 
     [SerializeField] private Transform enemyGFX;
@@ -134,6 +135,7 @@ public class Enemy : StateMachine
         {
             Transition<EnemyDeathState>();
         }
+        GiveLifeforce();
     }
 
     public void setGFX(Vector3 v)
@@ -164,6 +166,14 @@ public class Enemy : StateMachine
             ptde.FireEvent();
             Stunned = true;
         }
+    }
+
+    protected void GiveLifeforce() {
+        Collectible lifeForce = new Collectible(CollectibleType.LIFEFORCE, lifeforceAmount);
+        PlayerGainCollectibleEvent gainCollectibleEvent = new PlayerGainCollectibleEvent {
+            collectible = lifeForce
+        };
+        gainCollectibleEvent.FireEvent();
     }
 
     protected virtual void OnDestroy() {
