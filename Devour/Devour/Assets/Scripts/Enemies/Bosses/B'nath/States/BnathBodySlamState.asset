@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bossSprite: {fileID: 0}
   Count: 1
-  telegraphTime: 0.5
+  telegraphTime: 1
   middlePointCurve: 15
   minDistance: 3
   targetYOffset: -1.5
