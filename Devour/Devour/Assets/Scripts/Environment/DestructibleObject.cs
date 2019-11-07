@@ -1,5 +1,5 @@
 ﻿//Main Author: Marcus Söderberg
-//Secondary Author: Patrik Ahlgren (destructibleID, en stor del i DestroyObject() då den kollar om den redan har förstörts annars adderar den till dictionaryn)
+//Secondary Author: Patrik Ahlgren (destructibleID, en stor del i Start() och DestroyObject() då den kollar om den redan har förstörts annars adderar den till dictionaryn)
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -81,6 +81,15 @@ public class DestructibleObject : MonoBehaviour
             {
                 GameObject instantiatedParticle = Instantiate(particles, null);
                 instantiatedParticle.transform.position = transform.position;
+                AudioPlaySoundAtLocationEvent rockAttackSound = new AudioPlaySoundAtLocationEvent {
+                    name = "HitRockWall",
+                    isRandomPitch = true,
+                    minPitch = 0.95f,
+                    maxPitch = 1,
+                    soundType = SoundType.SFX,
+                    gameObject = instantiatedParticle
+                };
+                rockAttackSound.FireEvent();
             }
 
             if (health < originalHealth && health > originalHealth/2 && isUsingStageDamagedHealth)
@@ -128,6 +137,16 @@ public class DestructibleObject : MonoBehaviour
         {
             GameObject instantiatedParticle = Instantiate(particles, null);
             instantiatedParticle.transform.position = transform.position;
+            string[] breakRockWall = { "BreakRockWall1", "BreakRockWall1"};
+            AudioPlayRandomSoundAtLocationEvent rockBreakSound = new AudioPlayRandomSoundAtLocationEvent {
+                name = breakRockWall,
+                isRandomPitch = true,
+                minPitch = 0.95f,
+                maxPitch = 1,
+                soundType = SoundType.SFX,
+                gameObject = instantiatedParticle
+            };
+            rockBreakSound.FireEvent();
         }
         if (GameController.Instance.DestroyedDestructibles.ContainsKey(SceneManager.GetActiveScene().name)) {
             foreach (KeyValuePair<string, List<int>> destructible in GameController.Instance.DestroyedDestructibles) {
