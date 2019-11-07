@@ -666,7 +666,7 @@ PrefabInstance:
     - target: {fileID: 4210575542389459351, guid: 3211bdc6100f8e34cb8adfa1cfb6b5f7,
         type: 3}
       propertyPath: m_textInfo.characterCount
-      value: 145
+      value: 142
       objectReference: {fileID: 0}
     - target: {fileID: 4210575542389459351, guid: 3211bdc6100f8e34cb8adfa1cfb6b5f7,
         type: 3}
@@ -691,18 +691,18 @@ PrefabInstance:
     - target: {fileID: 4210575542389459351, guid: 3211bdc6100f8e34cb8adfa1cfb6b5f7,
         type: 3}
       propertyPath: m_fontColor32.rgba
-      value: 33554431
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 4210575542389459351, guid: 3211bdc6100f8e34cb8adfa1cfb6b5f7,
         type: 3}
       propertyPath: m_text
       value: "For eons you have been asleep. \nIn what seemed to be an never-ending
-        slumber.\n\nSuddenly an urge envelopes your entire being. \n\nYou have awakened."
+        slumber.\n\nA sudden urge envelopes your entire being. \n\nYou have awakened."
       objectReference: {fileID: 0}
     - target: {fileID: 4210575542389459351, guid: 3211bdc6100f8e34cb8adfa1cfb6b5f7,
         type: 3}
       propertyPath: m_firstOverflowCharacterIndex
-      value: 127
+      value: 124
       objectReference: {fileID: 0}
     - target: {fileID: 4210575543304725968, guid: 3211bdc6100f8e34cb8adfa1cfb6b5f7,
         type: 3}
