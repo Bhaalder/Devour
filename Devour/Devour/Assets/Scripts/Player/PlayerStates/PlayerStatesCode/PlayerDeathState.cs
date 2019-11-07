@@ -48,7 +48,7 @@ public class PlayerDeathState : PlayerBaseState {
         };
         diedEvent.FireEvent();
         PlayerHealEvent healEvent = new PlayerHealEvent {
-            amount = 500//FÖR TILLFÄLLET
+            amount = owner.MaxHealth//FÖR TILLFÄLLET
         };
         healEvent.FireEvent();
         owner.GetComponent<SpriteRenderer>().color = new Color32(255, 255, 255, 255);
