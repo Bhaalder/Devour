@@ -23,10 +23,18 @@ public class MainMenuController : MonoBehaviour{
             Destroy(GameController.Instance.Canvas.gameObject);
             Destroy(GameController.Instance.gameObject);
         }
-        newGameButton.onClick.AddListener(() => { SetSceneAndPlayAnimation("newGame"); });
-        loadGameButton.onClick.AddListener(() => { SetSceneAndPlayAnimation("loadGame"); });
-        optionsButton.onClick.AddListener(() => { SetSceneAndPlayAnimation("optionsButton"); });
-        exitButton.onClick.AddListener(() => { SetSceneAndPlayAnimation("exitButton"); });
+        if(newGameButton != null) {
+            newGameButton.onClick.AddListener(() => { SetSceneAndPlayAnimation("newGame"); });
+        }
+        if (loadGameButton != null) {
+            loadGameButton.onClick.AddListener(() => { SetSceneAndPlayAnimation("loadGame"); });
+        }
+        if (optionsButton != null) {
+            optionsButton.onClick.AddListener(() => { SetSceneAndPlayAnimation("optionsButton"); });
+        }
+        if (exitButton != null) {
+            exitButton.onClick.AddListener(() => { SetSceneAndPlayAnimation("exitButton"); });
+        }
     }
 
 
