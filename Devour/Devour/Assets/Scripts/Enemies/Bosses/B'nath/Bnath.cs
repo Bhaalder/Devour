@@ -14,6 +14,7 @@ public class Bnath : Boss
     [SerializeField] private GameObject[] voidGroundLocation;
     [SerializeField] private GameObject bossFightBlock;
     [SerializeField] GameObject startPosition;
+    [SerializeField] GameObject yPoint;
 
     public BossBnathState State { get; set; }
     public GameObject[] VoidGroundLocation { get; set; }
@@ -21,6 +22,7 @@ public class Bnath : Boss
     public GameObject Blocker { get; set; }
     public GameObject StartPosition { get; set; }
     public Animator Animator { get; set; }
+    public GameObject YPoint { get; set; }
 
     private static bool isDead;
 
@@ -35,6 +37,7 @@ public class Bnath : Boss
         BossFightStart = false;
         Blocker = bossFightBlock;
         StartPosition = startPosition;
+        YPoint = yPoint;
         Animator = GetComponent<Animator>();
 
         PlayerDiedEvent.RegisterListener(Reset);
