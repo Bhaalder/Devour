@@ -1,8 +1,9 @@
 ﻿//Main Author: Marcus Söderberg
-//Secondary Author: Patrik Ahlgren (isDestroyed)
+//Secondary Author: Patrik Ahlgren (destructibleID, en stor del i DestroyObject() då den kollar om den redan har förstörts annars adderar den till dictionaryn)
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class DestructibleObject : MonoBehaviour
 {
@@ -27,16 +28,24 @@ public class DestructibleObject : MonoBehaviour
     private float originalHealth;
     private float currentCooldown;
 
-    private static bool isDestroyed;
+    [SerializeField] private int destructibleID;
 
     private void Awake() {
-        if (isDestroyed) {
-            Destroy(gameObject);
-        }
+
     }
 
     void Start()
     {
+        if (GameController.Instance.DestroyedDestructibles.ContainsKey(SceneManager.GetActiveScene().name)) {
+            foreach(KeyValuePair<string, List<int>> destructible in GameController.Instance.DestroyedDestructibles) {
+                if(destructible.Key == SceneManager.GetActiveScene().name) {
+                    if (destructible.Value.Contains(destructibleID)) {
+                        Destroy(gameObject);
+                        return;
+                    }
+                }
+            }          
+        }
         PlayerAttackEvent.RegisterListener(TakeDamage);
         boxCollider2D = GetComponent<BoxCollider2D>();
         originalHealth = health;
@@ -120,7 +129,21 @@ public class DestructibleObject : MonoBehaviour
             GameObject instantiatedParticle = Instantiate(particles, null);
             instantiatedParticle.transform.position = transform.position;
         }
-        isDestroyed = true;
+        if (GameController.Instance.DestroyedDestructibles.ContainsKey(SceneManager.GetActiveScene().name)) {
+            foreach (KeyValuePair<string, List<int>> destructible in GameController.Instance.DestroyedDestructibles) {
+                if (destructible.Key == SceneManager.GetActiveScene().name) {
+                    if (destructible.Value.Contains(destructibleID)) {
+                        Debug.LogWarning("A destructible with the same ID [" + destructibleID + "] has already been destroyed in this scene [" + SceneManager.GetActiveScene().name + "]");
+                        Destroy(gameObject);
+                        return;
+                    }
+                    destructible.Value.Add(destructibleID);
+                }
+            }
+        } else {
+            List<int> newDestructibleList = new List<int> {destructibleID};
+            GameController.Instance.DestroyedDestructibles.Add(SceneManager.GetActiveScene().name, newDestructibleList);
+        }
         Destroy(gameObject);
     }
 

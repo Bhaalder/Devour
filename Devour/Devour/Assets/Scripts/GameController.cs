@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameController : MonoBehaviour {
 
@@ -12,6 +13,8 @@ public class GameController : MonoBehaviour {
     public Vector3 SceneCheckpoint { get; set; } //om man rör vid en "killzone"
     public Vector3 RestingCheckpoint { get; set; } //senaste platsen man restade på
     public Vector3 VoidEssenceLocation { get; set; } //platsen man dog på och måste hämta sin essence
+
+    public Dictionary<string, List<int>> DestroyedDestructibles { get; set; }
 
     private static GameController instance;
 
@@ -38,6 +41,7 @@ public class GameController : MonoBehaviour {
 
         Player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
         Camera = UnityEngine.Camera.main.transform.parent;
+        DestroyedDestructibles = new Dictionary<string, List<int>>();
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
         if (SceneCheckpoint == null) {
