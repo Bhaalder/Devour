@@ -695,6 +695,7 @@ MonoBehaviour:
   - {fileID: 168866191}
   - {fileID: 1525332608}
   bossFightBlock: {fileID: 0}
+  startPosition: {fileID: 0}
 --- !u!50 &6423004830342552700
 Rigidbody2D:
   serializedVersion: 4
