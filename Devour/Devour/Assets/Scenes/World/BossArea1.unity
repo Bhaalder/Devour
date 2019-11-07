@@ -4732,7 +4732,7 @@ Sprite:
         format: 0
         dimension: 0
       m_DataSize: 80
-      _typelessdata: 000000bf0000003f000000000000003f0000003f00000000000000bf000000bf000000000000003f000000bf000000000000000000000000000000000000000000000000000000000000000000000000
+      _typelessdata: 000000bf0000003f000000000000003f0000003f00000000000000bf000000bf000000000000003f000000bf00000000000000000000803f0000803f0000803f00000000000000000000803f00000000
     m_Bindpose: []
     textureRect:
       serializedVersion: 2
@@ -5265,6 +5265,11 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6032195965813599174, guid: f75d132f30d0e0348ac9d8fdcd53ffc4,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5959737133689622915, guid: f75d132f30d0e0348ac9d8fdcd53ffc4,
         type: 3}
       propertyPath: m_Offset.x
@@ -5284,11 +5289,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Size.y
       value: 71.17098
-      objectReference: {fileID: 0}
-    - target: {fileID: 6032195965813599174, guid: f75d132f30d0e0348ac9d8fdcd53ffc4,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f75d132f30d0e0348ac9d8fdcd53ffc4, type: 3}
