@@ -17,7 +17,7 @@ public class BnathIntro : BnathBaseState
     public override void HandleUpdate()
     {
         base.HandleUpdate();
-        Debug.Log("BossFightStart" + owner.GetComponent<Bnath>().BossFightStart);
+
         if (owner.GetComponent<Bnath>().BossFightStart == true)
         {
             Movement();

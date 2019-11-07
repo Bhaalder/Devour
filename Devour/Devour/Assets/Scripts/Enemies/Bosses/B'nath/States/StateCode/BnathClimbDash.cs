@@ -59,7 +59,6 @@ public class BnathClimbDash : BnathBaseState
 
     public override void HandleUpdate()
     {
-        Debug.Log("voidAssault Update: " + voidAssaultAttack);
         if (isClimbing && !voidAssaultAttack)
         {
             owner.State = BossBnathState.CLIMBING;
