@@ -28,4 +28,4 @@ MonoBehaviour:
   xLeftOffset: 1
   targetYOffset: 0
   dashSpeed: 5000
-  groundMargin: 3.5
+  groundMargin: 1

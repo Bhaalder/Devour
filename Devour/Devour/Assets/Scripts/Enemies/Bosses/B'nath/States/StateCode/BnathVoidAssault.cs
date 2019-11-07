@@ -16,7 +16,6 @@ public class BnathVoidAssault : BnathBaseState
 
     public override void Enter()
     {
-        Debug.Log("startCooldown: " + startCooldown);
         owner.State = BossBnathState.VOID_ASSAULT;
 
         currentCooldown = hangTime;

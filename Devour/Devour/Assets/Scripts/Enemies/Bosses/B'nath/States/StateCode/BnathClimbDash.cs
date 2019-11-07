@@ -48,7 +48,7 @@ public class BnathClimbDash : BnathBaseState
         dashTelegraph = true;
         currentTelegraphCooldown = hangTime;
         countUp = 0f;
-
+        Debug.Log("voidAssault: " + voidAssaultAttack);
         PlayerSideCheck();
         if (!voidAssaultAttack)
         {
@@ -59,6 +59,7 @@ public class BnathClimbDash : BnathBaseState
 
     public override void HandleUpdate()
     {
+        Debug.Log("voidAssault Update: " + voidAssaultAttack);
         if (isClimbing && !voidAssaultAttack)
         {
             owner.State = BossBnathState.CLIMBING;
@@ -219,7 +220,6 @@ public class BnathClimbDash : BnathBaseState
         else
         {
             isChoosingAttack = false;
-            voidAssaultAttack = false;
             ClimbDash();
         }
 
