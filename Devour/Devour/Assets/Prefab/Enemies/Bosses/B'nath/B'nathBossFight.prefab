@@ -273,6 +273,36 @@ Transform:
   m_Father: {fileID: 7732917379161929493}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &3292844153847086332
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6201350583143143564}
+  m_Layer: 0
+  m_Name: Yvalue
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6201350583143143564
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3292844153847086332}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 7732917379161929493}
+  m_RootOrder: 11
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3639230054996740340
 GameObject:
   m_ObjectHideFlags: 0
@@ -745,6 +775,7 @@ Transform:
   - {fileID: 5010344471044244984}
   - {fileID: 1870948275192249225}
   - {fileID: 8989739931066504984}
+  - {fileID: 6201350583143143564}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -807,6 +838,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 4953b263cca1c674583dff16d056d5c1, type: 2}
   enemyHealth: 750
   damageToPlayerOnContact: 25
+  lifeforceAmount: 0
   enemyGFX: {fileID: 6423004830342552698}
   childrenToDisable:
   - {fileID: 4102159071333252545}
@@ -834,6 +866,7 @@ MonoBehaviour:
   - {fileID: 841229694375344270}
   bossFightBlock: {fileID: 0}
   startPosition: {fileID: 3017462388622516950}
+  yPoint: {fileID: 3292844153847086332}
 --- !u!50 &6423004830342552700
 Rigidbody2D:
   serializedVersion: 4

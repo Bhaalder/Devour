@@ -190,7 +190,7 @@ public class BnathClimbDash : BnathBaseState
         {
             if (!particleInstantiated)
             {
-                endPoint = new Vector2 (owner.Player.transform.position.x, owner.Player.transform.position.y + targetYOffset);
+                endPoint = new Vector2(owner.Player.transform.position.x, owner.YPoint.transform.position.y + targetYOffset);
                 particleInstantiated = true;
                 GameObject instantiatedParticle = Instantiate(particles, null);
                 instantiatedParticle.transform.position = endPoint;
