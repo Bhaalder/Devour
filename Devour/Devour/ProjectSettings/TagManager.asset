@@ -6,6 +6,7 @@ TagManager:
   tags:
   - CameraBounds
   - Enemy
+  - Canvas
   layers:
   - Default
   - TransparentFX
