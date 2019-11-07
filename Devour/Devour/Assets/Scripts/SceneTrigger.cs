@@ -23,6 +23,10 @@ public class SceneTrigger : MonoBehaviour {
 
     private void Start() {
         if (switchedScene) {
+            FadeScreenEvent fadeScreen = new FadeScreenEvent {
+                isFadeIn = true
+            };
+            fadeScreen.FireEvent();
             if (scenePointID == sceneSpawnPointID) {
                 switchedScene = false;
                 GameController.Instance.Player.transform.position = transform.GetChild(0).position;
@@ -34,10 +38,17 @@ public class SceneTrigger : MonoBehaviour {
 
     private void OnTriggerEnter2D(Collider2D other) {
         if (other.CompareTag("Player")) {
-            SceneManager.LoadScene(sceneToLoad);
-            scenePointID = setSceneSpawnPointID;
-            switchedScene = true;
-
+            FadeScreenEvent fadeScreen = new FadeScreenEvent {
+                isFadeOut = true
+            };
+            fadeScreen.FireEvent();
+            Invoke("SceneSwitch", 1f);
         }
+    }
+
+    private void SceneSwitch() {
+        SceneManager.LoadScene(sceneToLoad);
+        scenePointID = setSceneSpawnPointID;
+        switchedScene = true;
     }
 }

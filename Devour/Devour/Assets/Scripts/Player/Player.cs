@@ -232,7 +232,7 @@ public class Player : StateMachine {
         PlayerVelocity = Rb2D.velocity;//TEST
         health = Health;//TEST
         InvulnerableTimeCheck();
-        Animator.SetInteger("State", (int)PlayerState);//Ska bytas senare
+        Animator.SetInteger("State", (int)PlayerState);
         base.Update();
     }
 

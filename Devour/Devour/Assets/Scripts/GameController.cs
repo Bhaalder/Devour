@@ -58,6 +58,10 @@ public class GameController : MonoBehaviour {
     }
 
     private void OnPlayerDied(PlayerDiedEvent diedEvent) {
+        FadeScreenEvent fadeScreen = new FadeScreenEvent {
+            isFadeIn = true
+        };
+        fadeScreen.FireEvent();
         try {
             if(RestingCheckpoint != null) {
                 Debug.Log("RESPAWN SUCCESS! " + RestingScene);
@@ -69,6 +73,7 @@ public class GameController : MonoBehaviour {
             Debug.LogError("No 'RestingCheckpoint' assigned in GameController to be able to respawn after death! Spawning at SceneCheckpoint...");
         }
         diedEvent.player.transform.position = SceneCheckpoint;
+
     }
 
     public void GamePaused() {
