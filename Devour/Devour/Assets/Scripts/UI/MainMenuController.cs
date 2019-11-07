@@ -18,10 +18,14 @@ public class MainMenuController : MonoBehaviour{
     private string sceneToLoad;
 
     private void Awake() {
-        if (GameController.Instance.gameObject) {
-            Destroy(GameController.Instance.Player.gameObject);
-            Destroy(GameController.Instance.Canvas.gameObject);
-            Destroy(GameController.Instance.gameObject);
+        try {
+            if (GameController.Instance.gameObject) {
+                Destroy(GameController.Instance.Player.gameObject);
+                Destroy(GameController.Instance.Canvas.gameObject);
+                Destroy(GameController.Instance.gameObject);
+            }
+        } catch (System.NullReferenceException) {
+
         }
         if(newGameButton != null) {
             newGameButton.onClick.AddListener(() => { SetSceneAndPlayAnimation("newGame"); });
