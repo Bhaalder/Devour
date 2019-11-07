@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6790141204950877113}
   - component: {fileID: 8468091210760783921}
+  - component: {fileID: 5379082546397341174}
   m_Layer: 0
   m_Name: VoidEssence
   m_TagString: Untagged
@@ -58,6 +59,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.6421051, y: 2.8192887}
   m_EdgeRadius: 0
+--- !u!114 &5379082546397341174
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8653176290578335179}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 470682f39bded1145a52668b6d92ce95, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &4454115842817183861
 PrefabInstance:
   m_ObjectHideFlags: 0
