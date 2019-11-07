@@ -117,7 +117,7 @@ public class PlayerBaseState : State {
                         voidUse = owner.MaxPlayerVoid;
                     }
                     PlayerVoidEvent voidEvent = new PlayerVoidEvent {
-                        amount = -voidUse
+                        amount = 0 - voidUse
                     };
                     PlayerHealEvent healEvent = new PlayerHealEvent {
                         amount = voidUse
