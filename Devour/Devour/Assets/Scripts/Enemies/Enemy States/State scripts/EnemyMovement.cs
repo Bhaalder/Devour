@@ -32,7 +32,7 @@ public class EnemyMovement : EnemyBaseState
 
     protected bool CanSeePlayer()
     {
-        bool lineHit = Physics2D.Linecast(owner.transform.position, target.position, layerMask);
+        bool lineHit = Physics2D.Linecast(owner.transform.position, owner.Player.transform.position, layerMask);
         return !lineHit;
     }
 

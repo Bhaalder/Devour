@@ -86,7 +86,7 @@ public class Enemy4Movement : EnemyMovement
 
     private void CheckAttackDistance()
     {
-        if (CanSeePlayer() && Vector2.Distance(owner.rb.position, target.position) < attackDistance)
+        if (CanSeePlayer() && Vector2.Distance(owner.rb.position, owner.Player.transform.position) < attackDistance)
         {
             owner.Transition<Enemy4RangeAttack>();
         }

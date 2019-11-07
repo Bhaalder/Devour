@@ -178,7 +178,7 @@ public class Enemy3Movement : EnemyMovement
     {
         if (owner.GetComponent<Enemy3>().IWasStuck == false)
         {
-            if (CanSeePlayer() && Vector2.Distance(owner.rb.position, target.position) < attackDistance)
+            if (CanSeePlayer() && Vector2.Distance(owner.rb.position, owner.Player.transform.position) < attackDistance)
             {
                 if (owner.GetComponent<Enemy3>().ChargeEnemy == true)
                 {
