@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Boss : Enemy{
-
+    public GameObject AbilityEssence { get; set; }
     public float MaxHealth { get; set; }
 
+    [SerializeField] protected GameObject abilityEssence;
     [SerializeField] protected string bossName;
     [SerializeField] protected float maxHealth;
 
@@ -14,6 +15,7 @@ public class Boss : Enemy{
         base.Awake();
         MaxHealth = maxHealth;
         Health = MaxHealth;
+        AbilityEssence = abilityEssence;
     }
 
     protected override void Update() {

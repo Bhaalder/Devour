@@ -164,6 +164,8 @@ public class Player : StateMachine {
             return;
         }
 
+        GameController.Instance.Player = this;
+
         PlayerAbilities = new List<PlayerAbility>();
 
         FacingDirection = 1;

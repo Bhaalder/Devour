@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 public class GameController : MonoBehaviour {
 
     public Player Player { get; set; }
-    public Transform Camera { get; set; }
+    public Transform Canvas { get; set; }
     public bool GameIsPaused { get; set; }
 
     public Vector3 SceneCheckpoint { get; set; } //om man rör vid en "killzone"
@@ -40,8 +40,8 @@ public class GameController : MonoBehaviour {
         }
         DontDestroyOnLoad(gameObject);
 
-        Player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
-        Camera = UnityEngine.Camera.main.transform.parent;
+        //Player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
+        //Canvas = GameObject.FindGameObjectWithTag("Canvas").transform;
         DestroyedDestructibles = new Dictionary<string, List<int>>();
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
