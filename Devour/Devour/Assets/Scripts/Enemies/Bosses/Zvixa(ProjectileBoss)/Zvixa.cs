@@ -95,14 +95,6 @@ public class Zvixa : Boss{
         Destroy(gameObject);//FÖR TILLFÄLLET
     }
 
-    private void SpawnAbilityEssence() {
-        GameObject essence;
-        AbilityEssence abilityEssence;
-        essence = Instantiate(AbilityEssence, transform.position, Quaternion.identity);
-        abilityEssence = essence.GetComponent<AbilityEssence>();
-        abilityEssence.Ability = PlayerAbility.PROJECTILE;
-    }
-
     protected override void OnDestroy() {
         BossDoor.SetActive(false);
         PlayerAttackEvent.UnRegisterListener(TakeDamage);

@@ -366,6 +366,7 @@ MonoBehaviour:
   enemyGFX: {fileID: 8700264559197275829}
   childrenToDisable: []
   deathSounds: []
+  bossGivesAbility: 4
   abilityEssence: {fileID: 7475380705934021547, guid: 19f0fdacf1a22684da9a3fbaa343b982,
     type: 3}
   bossName: Zvixa the Meticulous

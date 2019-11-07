@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Boss : Enemy{
+
     public GameObject AbilityEssence { get; set; }
     public float MaxHealth { get; set; }
-
+    [SerializeField] protected PlayerAbility bossGivesAbility;
     [SerializeField] protected GameObject abilityEssence;
     [SerializeField] protected string bossName;
     [SerializeField] protected float maxHealth;
@@ -69,6 +70,14 @@ public class Boss : Enemy{
     public override void EnemyDeath() {
         //Basic ifall bossen inte har en egen deathstate
         Destroy(gameObject);
+    }
+
+    protected void SpawnAbilityEssence() {
+        GameObject essence;
+        AbilityEssence abilityEssence;
+        essence = Instantiate(AbilityEssence, transform.position, Quaternion.identity);
+        abilityEssence = essence.GetComponent<AbilityEssence>();
+        abilityEssence.Ability = bossGivesAbility;
     }
 
     protected override void OnCollisionStay2D(Collision2D collision) {
