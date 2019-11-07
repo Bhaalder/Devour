@@ -213,6 +213,36 @@ SortingGroup:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
+--- !u!1 &3017462388622516950
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8989739931066504984}
+  m_Layer: 0
+  m_Name: StartPosition
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8989739931066504984
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3017462388622516950}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 7732917379161929493}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3986306986666206940
 GameObject:
   m_ObjectHideFlags: 0
@@ -618,6 +648,7 @@ Transform:
   - {fileID: 168866192}
   - {fileID: 1525332609}
   - {fileID: 1870948275192249225}
+  - {fileID: 8989739931066504984}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -684,7 +715,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 83c909af3420e7d4a9554c0c1efd0d8a, type: 2}
   enemyHealth: 750
   damageToPlayerOnContact: 25
-  enemyGFX: {fileID: 0}
+  enemyGFX: {fileID: 6423004830342552698}
   childrenToDisable: []
   deathSounds: []
   bossName: B'nath
@@ -695,7 +726,7 @@ MonoBehaviour:
   - {fileID: 168866191}
   - {fileID: 1525332608}
   bossFightBlock: {fileID: 0}
-  startPosition: {fileID: 0}
+  startPosition: {fileID: 3017462388622516950}
 --- !u!50 &6423004830342552700
 Rigidbody2D:
   serializedVersion: 4

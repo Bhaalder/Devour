@@ -262,11 +262,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6423004830342552701, guid: 7d76db8930eda1042a94cc5c74c442c0,
-        type: 3}
-      propertyPath: bossFightBlock
-      value: 
-      objectReference: {fileID: 3458176586691732264}
     - target: {fileID: 847786214, guid: 7d76db8930eda1042a94cc5c74c442c0, type: 3}
       propertyPath: m_LocalPosition.x
       value: 5.16
@@ -309,6 +304,11 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: -4.04
       objectReference: {fileID: 0}
+    - target: {fileID: 6423004830342552701, guid: 7d76db8930eda1042a94cc5c74c442c0,
+        type: 3}
+      propertyPath: bossFightBlock
+      value: 
+      objectReference: {fileID: 3458176586691732264}
     - target: {fileID: 3299620744919206126, guid: 7d76db8930eda1042a94cc5c74c442c0,
         type: 3}
       propertyPath: blocker
@@ -353,6 +353,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsTrigger
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8989739931066504984, guid: 7d76db8930eda1042a94cc5c74c442c0,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 6.37
+      objectReference: {fileID: 0}
+    - target: {fileID: 8989739931066504984, guid: 7d76db8930eda1042a94cc5c74c442c0,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -3.67
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7d76db8930eda1042a94cc5c74c442c0, type: 3}
@@ -4850,6 +4860,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2051252242966345553, guid: b4498a2d079c47e42ae6dad210326b58,
+        type: 3}
+      propertyPath: m_Name
+      value: Canvas
+      objectReference: {fileID: 0}
     - target: {fileID: 2051252242966345557, guid: b4498a2d079c47e42ae6dad210326b58,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -4954,11 +4969,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2051252242966345553, guid: b4498a2d079c47e42ae6dad210326b58,
-        type: 3}
-      propertyPath: m_Name
-      value: Canvas
       objectReference: {fileID: 0}
     - target: {fileID: 2051252244723254136, guid: b4498a2d079c47e42ae6dad210326b58,
         type: 3}

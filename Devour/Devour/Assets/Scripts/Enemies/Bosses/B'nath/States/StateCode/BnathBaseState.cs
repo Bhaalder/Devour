@@ -47,4 +47,18 @@ public class BnathBaseState : State
         return distanceToPlayer;
     }
 
+    protected void TurnedRight()
+    {
+        if (owner.Player.transform.position.x > owner.rb.position.x)
+        {
+            Vector3 v = new Vector3(1f, 1f, 1f);
+            owner.setGFX(v);
+        }
+        else if (owner.Player.transform.position.x < owner.rb.position.x)
+        {
+            Vector3 v = new Vector3(-1f, 1f, 1f);
+            owner.setGFX(v);
+        }
+    }
+
 }

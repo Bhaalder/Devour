@@ -26,7 +26,6 @@ public class BnathBodySlam : BnathBaseState
     public override void Enter()
     {
         base.Enter();
-        owner.State = BossBnathState.BODYSLAM;
         startAttack = false;
         initializeState = false;
         particleInstantiated = false;
@@ -46,6 +45,7 @@ public class BnathBodySlam : BnathBaseState
 
         if (!initializeState)
         {
+            owner.State = BossBnathState.BODYSLAM;
             startPoint = owner.rb.position;
             endPoint = new Vector2(owner.Player.transform.position.x, startPoint.y + targetYOffset);
             middlePoint = startPoint + (endPoint - startPoint) / 2 + Vector2.up * middlePointCurve;
@@ -56,6 +56,7 @@ public class BnathBodySlam : BnathBaseState
 
         if (!startAttack)
         {
+            TurnedRight();
             BodySlamTelegraph();
         }
         else
