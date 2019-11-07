@@ -4484,12 +4484,12 @@ PrefabInstance:
     - target: {fileID: 3752226931262427211, guid: ba1d249ac0a79f9429f90987bcfbee98,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 36.21
+      value: 82.11
       objectReference: {fileID: 0}
     - target: {fileID: 3752226931262427211, guid: ba1d249ac0a79f9429f90987bcfbee98,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.66
+      value: 58.79
       objectReference: {fileID: 0}
     - target: {fileID: 3752226931262427211, guid: ba1d249ac0a79f9429f90987bcfbee98,
         type: 3}
@@ -4732,7 +4732,7 @@ Sprite:
         format: 0
         dimension: 0
       m_DataSize: 80
-      _typelessdata: 000000bf0000003f000000000000003f0000003f00000000000000bf000000bf000000000000003f000000bf000000000000000000000000000000000000000000000000000000000000000000000000
+      _typelessdata: 000000bf0000003f000000000000003f0000003f00000000000000bf000000bf000000000000003f000000bf00000000000000000000803f0000803f0000803f00000000000000000000803f00000000
     m_Bindpose: []
     textureRect:
       serializedVersion: 2
@@ -5164,12 +5164,12 @@ PrefabInstance:
     - target: {fileID: 9007587208266834560, guid: d8bff41469b9d7f4bb13e60b196536d0,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2.65
+      value: -6.18
       objectReference: {fileID: 0}
     - target: {fileID: 9007587208266834560, guid: d8bff41469b9d7f4bb13e60b196536d0,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -9.24
+      value: -8.76
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d8bff41469b9d7f4bb13e60b196536d0, type: 3}
