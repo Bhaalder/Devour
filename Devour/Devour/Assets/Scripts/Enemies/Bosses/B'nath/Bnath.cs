@@ -20,6 +20,7 @@ public class Bnath : Boss
     public bool BossFightStart { get; set; } = false;
     public GameObject Blocker { get; set; }
     public GameObject StartPosition { get; set; }
+    public Animator Animator { get; set; }
 
     private static bool isDead;
 
@@ -34,6 +35,7 @@ public class Bnath : Boss
         BossFightStart = false;
         Blocker = bossFightBlock;
         StartPosition = startPosition;
+        Animator = GetComponent<Animator>();
 
         PlayerDiedEvent.RegisterListener(Reset);
 
@@ -42,6 +44,8 @@ public class Bnath : Boss
     protected override void Update()
     {
         base.Update();
+        Animator.SetInteger("State", (int)State);
+
     }
 
     protected override void FixedUpdate()
@@ -68,7 +72,7 @@ public class Bnath : Boss
     {
         //Transition till DeathState
         isDead = true;
-        Destroy(gameObject);//FÖR TILLFÄLLET
+        Transition<BnathDeathState>();
     }
     private void Reset(PlayerDiedEvent playerDied)
     {
