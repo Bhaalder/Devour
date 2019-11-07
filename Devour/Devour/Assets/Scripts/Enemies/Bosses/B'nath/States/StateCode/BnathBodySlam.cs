@@ -26,7 +26,7 @@ public class BnathBodySlam : BnathBaseState
     public override void Enter()
     {
         base.Enter();
-
+        owner.State = BossBnathState.BODYSLAM;
         startAttack = false;
         initializeState = false;
         particleInstantiated = false;

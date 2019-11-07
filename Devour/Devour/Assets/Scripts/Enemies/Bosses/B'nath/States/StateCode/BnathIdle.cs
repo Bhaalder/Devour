@@ -16,6 +16,7 @@ public class BnathIdle : BnathBaseState
 
     public override void Enter()
     {
+        owner.State = BossBnathState.IDLE;
         base.Enter();
         currentCooldown = pauseBetweenAttacks;
         isPaused = true;

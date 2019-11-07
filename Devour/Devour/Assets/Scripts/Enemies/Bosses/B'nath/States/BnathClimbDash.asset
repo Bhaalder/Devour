@@ -26,6 +26,6 @@ MonoBehaviour:
   particles: {fileID: 1315949759934820, guid: fca14c8b8acf1d54ca68a2ca7f53d1c5, type: 3}
   xRightOffset: -1
   xLeftOffset: 1
-  targetYOffset: -1.5
+  targetYOffset: 0
   dashSpeed: 5000
-  groundMargin: 3
+  groundMargin: 3.5

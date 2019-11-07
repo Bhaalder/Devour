@@ -2,15 +2,24 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
+public enum BossBnathState
+{
+    NONE, INTRO, IDLE, BODYSLAM, CLIMBING, DASH_TELEGRAPH, DASHING, VOID_ASSAULT, DEATH
+}
 public class Bnath : Boss
 {
 
+
     [SerializeField] private GameObject[] voidGroundLocation;
     [SerializeField] private GameObject bossFightBlock;
-    
+    [SerializeField] GameObject startPosition;
+
+    public BossBnathState State { get; set; }
     public GameObject[] VoidGroundLocation { get; set; }
     public bool BossFightStart { get; set; } = false;
     public GameObject Blocker { get; set; }
+    public GameObject StartPosition { get; set; }
 
     private static bool isDead;
 
@@ -24,6 +33,9 @@ public class Bnath : Boss
         base.Awake();
         BossFightStart = false;
         Blocker = bossFightBlock;
+        StartPosition = startPosition;
+
+        PlayerDiedEvent.RegisterListener(Reset);
 
     }
 
@@ -48,8 +60,8 @@ public class Bnath : Boss
                 enemyPosition = rb.position
             };
             ptde.FireEvent();
+
         }
-        //rb.velocity = new Vector2(0, 0);
     }
 
     public override void EnemyDeath()
@@ -58,11 +70,19 @@ public class Bnath : Boss
         isDead = true;
         Destroy(gameObject);//FÖR TILLFÄLLET
     }
+    private void Reset(PlayerDiedEvent playerDied)
+    {
+        Health = MaxHealth;
+        Transition<BnathIntro>();
+        bossFightBlock.SetActive(false);
+        BossFightStart = false;
+    }
 
     protected override void OnDestroy()
     {
         PlayerAttackEvent.UnRegisterListener(TakeDamage);
         EnemyTouchKillzoneEvent.UnRegisterListener(EnemyTouchKillzone);
+        PlayerDiedEvent.UnRegisterListener(Reset);
         bossFightBlock.SetActive(false);
     }
 }
