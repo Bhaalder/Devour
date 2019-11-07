@@ -335,7 +335,7 @@ SortingGroup:
   m_Enabled: 1
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -1
 --- !u!1 &4102159071333252545
 GameObject:
   m_ObjectHideFlags: 0
@@ -724,6 +724,8 @@ MonoBehaviour:
   - {fileID: 260181907137013442}
   - {fileID: 5490455136399410609}
   deathSounds: []
+  bossGivesAbility: 0
+  abilityEssence: {fileID: 0}
   bossName: B'nath
   maxHealth: 750
   voidGroundLocation:
