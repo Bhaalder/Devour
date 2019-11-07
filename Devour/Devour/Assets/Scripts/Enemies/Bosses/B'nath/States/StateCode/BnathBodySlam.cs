@@ -81,6 +81,7 @@ public class BnathBodySlam : BnathBaseState
         }
         else
         {
+            TurnedRight();
             owner.Transition<BnathIdle>();
         }
     }
