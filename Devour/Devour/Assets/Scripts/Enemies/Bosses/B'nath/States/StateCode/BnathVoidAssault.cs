@@ -7,11 +7,11 @@ using UnityEngine;
 public class BnathVoidAssault : BnathBaseState
 {
     [SerializeField] GameObject voidGround;
-    [SerializeField] private float hangTime = 1.5f;
+    [SerializeField] private float hangTime = 3f;
 
     private int voidGroundLocation;
-    private float startCooldown = 0.5f;
-    private float betweenCooldown = 0.5f;
+    private float startCooldown = 0.7f;
+    private float betweenCooldown = 0.7f;
     private float currentCooldown;
 
     public override void Enter()
