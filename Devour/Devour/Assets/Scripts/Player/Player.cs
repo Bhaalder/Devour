@@ -358,7 +358,7 @@ public class Player : StateMachine {
     private void Respawn() {
         Transition<PlayerHurtState>();
         Rb2D.velocity = new Vector2(0, 0);
-        UntilInvulnerableEnds = invulnerableStateTime + 1f; //längre invulnerable när man fallit ner i killzone?
+        UntilInvulnerableEnds = invulnerableStateTime;
         try {
             transform.position = GameController.Instance.SceneCheckpoint;
         } catch(UnassignedReferenceException) {
