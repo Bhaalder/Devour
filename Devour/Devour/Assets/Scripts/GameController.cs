@@ -44,6 +44,7 @@ public class GameController : MonoBehaviour {
         //Player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
         //Canvas = GameObject.FindGameObjectWithTag("Canvas").transform;
         DestroyedDestructibles = new Dictionary<string, List<int>>();
+        CollectedVoidEssences = new Dictionary<string, List<int>>();
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
         if (SceneCheckpoint == null) {
