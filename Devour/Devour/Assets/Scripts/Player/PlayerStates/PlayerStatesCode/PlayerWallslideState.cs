@@ -11,8 +11,8 @@ public class PlayerWallslideState : PlayerBaseState {
     [Tooltip("The force of the jump horizontally(x) and vertically(y)")]
     [SerializeField] private Vector2 wallJumpForce;
     [Tooltip("The time before letting go when holding directional button towards the opposite side")]
-    [SerializeField] private float timeBeforeLetGo;
-    private float timeLeft;
+    [SerializeField] private float gripTime;
+    private float gripTimeLeft;
 
     public override void Enter() {
         //owner.PlayerLog("WallslideState");
@@ -59,13 +59,13 @@ public class PlayerWallslideState : PlayerBaseState {
     protected override void GetMovementInput() {
         owner.XInput = Input.GetAxisRaw("Horizontal");
         if (WalljumpInputLeft()) {
-            timeLeft -= Time.deltaTime;
+            gripTimeLeft -= Time.deltaTime;
         } else if (WalljumpInputRight()) {
-            timeLeft -= Time.deltaTime;
+            gripTimeLeft -= Time.deltaTime;
         } else {
-            timeLeft = timeBeforeLetGo;
+            gripTimeLeft = gripTime;
         }
-        if(timeLeft <= 0) {
+        if(gripTimeLeft <= 0) {
             owner.XInput = Input.GetAxisRaw("Horizontal");
         }
         
