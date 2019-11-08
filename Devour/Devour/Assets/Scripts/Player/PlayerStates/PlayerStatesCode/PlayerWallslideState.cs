@@ -10,6 +10,9 @@ public class PlayerWallslideState : PlayerBaseState {
     [SerializeField] private float wallSlideSpeed;
     [Tooltip("The force of the jump horizontally(x) and vertically(y)")]
     [SerializeField] private Vector2 wallJumpForce;
+    [Tooltip("The time before letting go when holding directional button towards the opposite side")]
+    [SerializeField] private float timeBeforeLetGo;
+    private float timeLeft;
 
     public override void Enter() {
         //owner.PlayerLog("WallslideState");
@@ -51,6 +54,36 @@ public class PlayerWallslideState : PlayerBaseState {
             owner.Transition<PlayerAirState>();
         }
         base.HandleUpdate();
+    }
+
+    protected override void GetMovementInput() {
+        owner.XInput = Input.GetAxisRaw("Horizontal");
+        if (WalljumpInputLeft()) {
+            timeLeft -= Time.deltaTime;
+        } else if (WalljumpInputRight()) {
+            timeLeft -= Time.deltaTime;
+        } else {
+            timeLeft = timeBeforeLetGo;
+        }
+        if(timeLeft <= 0) {
+            owner.XInput = Input.GetAxisRaw("Horizontal");
+        }
+        
+    }
+
+    private bool WalljumpInputLeft() {
+        if (owner.XInput < -0.35f && owner.FacingDirection == 1) {
+            owner.XInput = 0;
+            return true;
+        }
+        return false;
+    }
+    private bool WalljumpInputRight() {
+        if (owner.XInput > 0.35f && owner.FacingDirection == -1) {
+            owner.XInput = 0;
+            return true;
+        }
+        return false;
     }
 
     protected override void Jump(float extra) {
