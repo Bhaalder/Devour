@@ -225,9 +225,6 @@ public class Player : StateMachine {
         PlayerGetAbilityEvent.RegisterListener(OnGetAbility);
         PlayerGainCollectibleEvent.RegisterListener(OnGetCollectible);
         FadeScreenEvent.RegisterListener(OnFadeScreen);
-        //foreach (PlayerAbility ability in playerAbilities) {//TEST
-        //    PlayerAbilities.Add(ability);
-        //}//TEST
         base.Awake();
     }
 
@@ -246,7 +243,11 @@ public class Player : StateMachine {
             };
             ptde.FireEvent();
         }//TEST
-
+        if (Input.GetKeyDown(KeyCode.F2)) {//TEST
+            foreach (PlayerAbility ability in playerAbilities) {
+                PlayerAbilities.Add(ability);
+            }
+        }//TEST
         PlayerVelocity = Rb2D.velocity;//TEST
         health = Health;//TEST
         InvulnerableTimeCheck();
