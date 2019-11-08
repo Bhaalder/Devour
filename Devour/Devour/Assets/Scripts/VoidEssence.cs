@@ -40,7 +40,7 @@ public class VoidEssence : MonoBehaviour {
                 }
             } else {
                 List<int> newEssenceList = new List<int> { voidEssenceID };
-                GameController.Instance.DestroyedDestructibles.Add(SceneManager.GetActiveScene().name, newEssenceList);
+                GameController.Instance.CollectedVoidEssences.Add(SceneManager.GetActiveScene().name, newEssenceList);
             }
             gainCollectibleEvent.FireEvent();
             Destroy(gameObject);
