@@ -25,7 +25,7 @@ public class PlayerWallslideState : PlayerBaseState {
     }
 
     public override void HandleFixedUpdate() {
-        base.HandleFixedUpdate();
+        base.HandleFixedUpdate();  
     }
 
     protected override void MovePlayer() {

@@ -9,7 +9,7 @@ public enum CollectibleType {
 
 }
 
-public class Collectible : MonoBehaviour{
+public class Collectible {
     
     public CollectibleType CollectibleType { get; set; }
     public int Amount { get; set; }
