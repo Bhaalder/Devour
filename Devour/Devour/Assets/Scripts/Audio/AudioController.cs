@@ -43,7 +43,18 @@ public class AudioController : MonoBehaviour {
 
     private Sound sound;
 
+    private static bool exists;
+
     private void Awake() {
+        if (!exists) {
+            exists = true;
+            DontDestroyOnLoad(gameObject);
+        } else {
+            Destroy(gameObject);
+            Debug.LogWarning("Destroyed other Singleton with name: " + gameObject.name);
+            return;
+        }
+
         foreach (Sound player_S in playerSounds) { allSoundsDictionary[player_S.name] = player_S; sfxDictionary[player_S.name] = player_S; }
         foreach (Sound enemy_S in enemySounds) { allSoundsDictionary[enemy_S.name] = enemy_S; sfxDictionary[enemy_S.name] = enemy_S; }
         foreach (Sound environment_S in environmentSounds) { allSoundsDictionary[environment_S.name] = environment_S; sfxDictionary[environment_S.name] = environment_S; }

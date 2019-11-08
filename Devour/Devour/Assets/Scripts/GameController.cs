@@ -16,6 +16,7 @@ public class GameController : MonoBehaviour {
     public Vector3 VoidEssenceLocation { get; set; } //platsen man dog på och måste hämta sin essence
 
     public Dictionary<string, List<int>> DestroyedDestructibles { get; set; }
+    public Dictionary<string, List<int>> CollectedVoidEssences { get; set; }
 
     private static GameController instance;
 

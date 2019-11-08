@@ -14,6 +14,11 @@ public class AbilityEssence : MonoBehaviour{
             Ability = ability;
         }
     }
+    private void Start() {
+        if (GameController.Instance.Player.HasAbility(Ability)) {
+            Destroy(gameObject);
+        }
+    }
 
     private void OnTriggerEnter2D(Collider2D collision) {
         if (collision.gameObject.tag == "Player") {

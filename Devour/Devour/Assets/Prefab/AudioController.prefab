@@ -1,0 +1,238 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &8730538841438042325
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4767457049234145475}
+  - component: {fileID: 1518240304637301661}
+  m_Layer: 0
+  m_Name: AudioController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4767457049234145475
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8730538841438042325}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1518240304637301661
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8730538841438042325}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 02fa8e99c91e5644daf9ab4389b86b0c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerSounds:
+  - name: Attack
+    clip: {fileID: 8300000, guid: dea1c4b859926614bbe0e1a7200b08dc, type: 3}
+    volume: 0.8
+    pitch: 1
+    spatialBlend_2D_3D: 0
+    rolloffMode: 0
+    minDistance: 0
+    maxDistance: 0
+    loop: 0
+    source: {fileID: 0}
+  - name: Hurt
+    clip: {fileID: 8300000, guid: 430fa1a3c7d58ed438dd8c0a4321b7aa, type: 3}
+    volume: 1
+    pitch: 1
+    spatialBlend_2D_3D: 0
+    rolloffMode: 0
+    minDistance: 0
+    maxDistance: 0
+    loop: 0
+    source: {fileID: 0}
+  - name: Dash
+    clip: {fileID: 8300000, guid: ca93fdf16309ec74b9c2735fe15e86bc, type: 3}
+    volume: 0.8
+    pitch: 1
+    spatialBlend_2D_3D: 0
+    rolloffMode: 0
+    minDistance: 0
+    maxDistance: 0
+    loop: 0
+    source: {fileID: 0}
+  - name: Step1
+    clip: {fileID: 8300000, guid: 575e6e850dbba2842b22a5663c1340e5, type: 3}
+    volume: 0.15
+    pitch: 1
+    spatialBlend_2D_3D: 0
+    rolloffMode: 0
+    minDistance: 0
+    maxDistance: 0
+    loop: 0
+    source: {fileID: 0}
+  - name: Step2
+    clip: {fileID: 8300000, guid: 0271a6fe98c4a864989a72a720537b5c, type: 3}
+    volume: 0.15
+    pitch: 1
+    spatialBlend_2D_3D: 0
+    rolloffMode: 0
+    minDistance: 0
+    maxDistance: 0
+    loop: 0
+    source: {fileID: 0}
+  - name: Jump1
+    clip: {fileID: 8300000, guid: 5b9d48d50999aa7428a8e590a9077eac, type: 3}
+    volume: 0.35
+    pitch: 1
+    spatialBlend_2D_3D: 0
+    rolloffMode: 0
+    minDistance: 0
+    maxDistance: 0
+    loop: 0
+    source: {fileID: 0}
+  - name: Jump2
+    clip: {fileID: 8300000, guid: fa5e2401cf2535843b09942a5e43ab3d, type: 3}
+    volume: 0.4
+    pitch: 1
+    spatialBlend_2D_3D: 0
+    rolloffMode: 0
+    minDistance: 0
+    maxDistance: 0
+    loop: 0
+    source: {fileID: 0}
+  - name: Wallslide
+    clip: {fileID: 0}
+    volume: 1
+    pitch: 1
+    spatialBlend_2D_3D: 0
+    rolloffMode: 0
+    minDistance: 0
+    maxDistance: 0
+    loop: 1
+    source: {fileID: 0}
+  - name: Projectile
+    clip: {fileID: 8300000, guid: 75b31c37b11fb3445953676206465729, type: 3}
+    volume: 0.8
+    pitch: 1
+    spatialBlend_2D_3D: 1
+    rolloffMode: 1
+    minDistance: 1
+    maxDistance: 50
+    loop: 0
+    source: {fileID: 0}
+  enemySounds:
+  - name: Hit1
+    clip: {fileID: 8300000, guid: 74cbaa6f43623ba40b4168390eaf0009, type: 3}
+    volume: 1
+    pitch: 1
+    spatialBlend_2D_3D: 1
+    rolloffMode: 1
+    minDistance: 1
+    maxDistance: 50
+    loop: 0
+    source: {fileID: 0}
+  - name: Hit2
+    clip: {fileID: 8300000, guid: 92dfb696ae3b03b4eaedea55e165d280, type: 3}
+    volume: 1
+    pitch: 1
+    spatialBlend_2D_3D: 1
+    rolloffMode: 1
+    minDistance: 1
+    maxDistance: 50
+    loop: 0
+    source: {fileID: 0}
+  - name: Enemy134Death1
+    clip: {fileID: 8300000, guid: 8bb0bc882de88954bb00f0f3967bd6ab, type: 3}
+    volume: 1
+    pitch: 1
+    spatialBlend_2D_3D: 1
+    rolloffMode: 1
+    minDistance: 0.1
+    maxDistance: 50
+    loop: 0
+    source: {fileID: 0}
+  - name: Enemy134Death2
+    clip: {fileID: 8300000, guid: a41c14d908e891b4d98f9ae71abea174, type: 3}
+    volume: 1
+    pitch: 1
+    spatialBlend_2D_3D: 1
+    rolloffMode: 1
+    minDistance: 0.1
+    maxDistance: 50
+    loop: 0
+    source: {fileID: 0}
+  - name: Enemy2Death
+    clip: {fileID: 8300000, guid: 393e32198452b8c498ec83ea447e6bb7, type: 3}
+    volume: 1
+    pitch: 1
+    spatialBlend_2D_3D: 1
+    rolloffMode: 1
+    minDistance: 0.1
+    maxDistance: 50
+    loop: 0
+    source: {fileID: 0}
+  - name: Enemy2Fly
+    clip: {fileID: 8300000, guid: 1fdd7e49147c1a047a88420d4f52d4df, type: 3}
+    volume: 0.1
+    pitch: 1
+    spatialBlend_2D_3D: 1
+    rolloffMode: 1
+    minDistance: 0.1
+    maxDistance: 25
+    loop: 1
+    source: {fileID: 0}
+  environmentSounds:
+  - name: HitRockWall
+    clip: {fileID: 8300000, guid: a613132998910254a93a4edf5f3e2f9e, type: 3}
+    volume: 1
+    pitch: 1
+    spatialBlend_2D_3D: 1
+    rolloffMode: 1
+    minDistance: 0.1
+    maxDistance: 50
+    loop: 0
+    source: {fileID: 0}
+  - name: BreakRockWall1
+    clip: {fileID: 8300000, guid: dd7ef59c678569641b1e1ef70347a87c, type: 3}
+    volume: 1
+    pitch: 1
+    spatialBlend_2D_3D: 1
+    rolloffMode: 1
+    minDistance: 0.1
+    maxDistance: 50
+    loop: 0
+    source: {fileID: 0}
+  - name: BreakRockWall2
+    clip: {fileID: 8300000, guid: c12ee5e1df138664fb034b1e67cddbce, type: 3}
+    volume: 1
+    pitch: 1
+    spatialBlend_2D_3D: 1
+    rolloffMode: 1
+    minDistance: 0.1
+    maxDistance: 50
+    loop: 0
+    source: {fileID: 0}
+  musicSounds: []
+  voiceSounds: []
+  audioMixer: {fileID: 24100000, guid: 6514dab25353a754e895e7c7a570fc29, type: 2}
+  masterMixerGroup: {fileID: 24300002, guid: 6514dab25353a754e895e7c7a570fc29, type: 2}
+  sfxMixerGroup: {fileID: 2131962249976066528, guid: 6514dab25353a754e895e7c7a570fc29,
+    type: 2}
+  musicMixerGroup: {fileID: -2622853438608223660, guid: 6514dab25353a754e895e7c7a570fc29,
+    type: 2}
+  voiceMixerGroup: {fileID: 2025667456246419455, guid: 6514dab25353a754e895e7c7a570fc29,
+    type: 2}

@@ -23,7 +23,7 @@ public class PlayerDashState : PlayerBaseState {
             soundType = SoundType.SFX,
             isRandomPitch = true,
             minPitch = 0.95f,
-            maxPitch = 1f
+            maxPitch = 1.05f
         };
         dashAudio.FireEvent();
     }
