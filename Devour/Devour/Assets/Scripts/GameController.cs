@@ -41,8 +41,6 @@ public class GameController : MonoBehaviour {
         }
         DontDestroyOnLoad(gameObject);
 
-        //Player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
-        //Canvas = GameObject.FindGameObjectWithTag("Canvas").transform;
         DestroyedDestructibles = new Dictionary<string, List<int>>();
         CollectedVoidEssences = new Dictionary<string, List<int>>();
         Cursor.visible = false;
@@ -77,10 +75,12 @@ public class GameController : MonoBehaviour {
         diedEvent.player.transform.position = SceneCheckpoint;
     }
 
-    public void GamePaused() {
-        if (GameIsPaused) {
+    public void GamePaused(bool gameIsPaused) {
+        if (gameIsPaused) {
+            GameIsPaused = true;
             Time.timeScale = 0f;
         } else {
+            GameIsPaused = false;
             Time.timeScale = 1f;
         }
     }

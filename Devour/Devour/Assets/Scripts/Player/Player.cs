@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public enum PlayerState {
-    NONE, IDLE, WALK, AIR, DASH, WALLSLIDE, WALLJUMP, HURT, ATTACK, PROJECTILEATTACK, JUMP, DEATH
+    NONE, IDLE, WALK, AIR, DASH, WALLSLIDE, WALLJUMP, HURT, ATTACK, PROJECTILEATTACK, JUMP, DEATH, BUSY
 }
 
 public enum PlayerAbility {
@@ -77,6 +77,16 @@ public class Player : StateMachine {
     public LayerMask WhatIsGround { get; set; }
     public Animator Animator { get; set; }
 
+    public float TalentMeleeDamage { get; set; }
+    public float TalentProjectileDamage { get; set; }
+    public float TalentHealth { get; set; }
+    public float TalentLifeLeech { get; set; }
+    public float TalentMovementSpeed { get; set; }
+    public float TalentDashCooldown { get; set; }
+    public float TalentPlayerVoid { get; set; }
+    public float TalentVoidLeech { get; set; }
+
+    public List<TalentPoint> TalentPoints { get; set; }
     public List<Collectible> Collectibles { get; set; }
 
     [Header("Health & Combat")]
@@ -201,8 +211,8 @@ public class Player : StateMachine {
         ExtraJumpsLeft = extraJumps;
         VariableJumpHeight = variableJumpHeight;
         PermanentVariableJumpHeight = variableJumpHeight;
-        NumberOfDashes = numberOfDashes;
         DashCooldown = dashCooldown;
+        NumberOfDashes = numberOfDashes;
         FallSpeed = fallSpeed;
         XScale = transform.localScale.x;
         GroundCheckDistance = groundCheckDistance;
@@ -215,6 +225,7 @@ public class Player : StateMachine {
         WhatIsGround = whatIsGround;
 
         Collectibles = new List<Collectible>();
+        TalentPoints = new List<TalentPoint>();
 
         Animator = GetComponent<Animator>();
 
@@ -224,7 +235,10 @@ public class Player : StateMachine {
         PlayerTouchKillzoneEvent.RegisterListener(OnTouchKillzone);
         PlayerGetAbilityEvent.RegisterListener(OnGetAbility);
         PlayerGainCollectibleEvent.RegisterListener(OnGetCollectible);
+        TalentPointGainEvent.RegisterListener(OnGainTalentPoint);
         FadeScreenEvent.RegisterListener(OnFadeScreen);
+        VoidTalentScreenEvent.RegisterListener(OnVoidTalentScreen);
+
         base.Awake();
     }
 
@@ -237,19 +251,35 @@ public class Player : StateMachine {
     }
 
     protected override void Update() {
-        if (Input.GetKeyDown(KeyCode.F1)) {//TEST
-            PlayerTakeDamageEvent ptde = new PlayerTakeDamageEvent {
-                damage = 100
-            };
-            ptde.FireEvent();
+        if (Input.GetKeyDown(KeyCode.F1)) {//TEST START________________________________________________
+            PlayerTakeDamageEvent ptde = new PlayerTakeDamageEvent {//
+                damage = 100//
+            };//
+            ptde.FireEvent();//
         }//TEST
-        if (Input.GetKeyDown(KeyCode.F2)) {//TEST
-            foreach (PlayerAbility ability in playerAbilities) {
-                PlayerAbilities.Add(ability);
-            }
-        }//TEST
-        PlayerVelocity = Rb2D.velocity;//TEST
-        health = Health;//TEST
+        if (Input.GetKeyDown(KeyCode.F2)) {//
+            foreach (PlayerAbility ability in playerAbilities) {//
+                PlayerAbilities.Add(ability);//
+            }//
+        }//
+        if (Input.GetKeyDown(KeyCode.F3)) {//
+            Collectible lifeForce = new Collectible(CollectibleType.LIFEFORCE, 1000);//
+            Collectible voidEssence = new Collectible(CollectibleType.VOIDESSENCE, 10);//
+            PlayerGainCollectibleEvent gainCollectibleEvent = new PlayerGainCollectibleEvent {//
+                collectible = lifeForce//
+            };//
+            PlayerGainCollectibleEvent gainCollectibleEvent2 = new PlayerGainCollectibleEvent {//
+                collectible = voidEssence//
+            };//
+            gainCollectibleEvent.FireEvent();//
+            gainCollectibleEvent2.FireEvent();//
+        }//
+        if (Input.GetKeyDown(KeyCode.E)) {//
+            VoidTalentScreenEvent e = new VoidTalentScreenEvent { };//
+            e.FireEvent();//
+        }//
+        PlayerVelocity = Rb2D.velocity;//
+        health = Health;//TEST END_____________________________________________________________________
         InvulnerableTimeCheck();
         Animator.SetInteger("State", (int)PlayerState);
         base.Update();
@@ -264,12 +294,20 @@ public class Player : StateMachine {
         }
     }
 
+    private void OnVoidTalentScreen(VoidTalentScreenEvent screenEvent) {
+        if(PlayerState != PlayerState.BUSY) {
+            Transition<PlayerBusyState>();
+        } else {
+
+        }
+    }
+
     private void OnTouchKillzone(PlayerTouchKillzoneEvent killzone) {
-        CameraShakeEvent cse = new CameraShakeEvent {
+        CameraShakeEvent cameraShake = new CameraShakeEvent {
             startDuration = cameraShakeDuration,
             startValue = cameraShakeValue
         };
-        cse.FireEvent();
+        cameraShake.FireEvent();
         if (IsInvulnerable) {
             Respawn();
             return;
@@ -296,7 +334,7 @@ public class Player : StateMachine {
                 startValue = cameraShakeValue
             };
             cse.FireEvent();
-            KnockBack(eventDamage.enemyPosition, 2);//knockback
+            KnockBack(eventDamage.enemyPosition, 2);
             Transition<PlayerHurtState>();
         }       
         ChangeHealth(-eventDamage.damage);
@@ -396,8 +434,16 @@ public class Player : StateMachine {
             PlayerAbilities.Add(abilityEvent.playerAbility);
         } else {
             PlayerLog("Already has " + abilityEvent.playerAbility.ToString());
+        }       
+    }
+
+    public bool HasAbility(PlayerAbility playerAbility) {
+        foreach (PlayerAbility ability in PlayerAbilities) {
+            if (ability == playerAbility) {
+                return true;
+            }
         }
-        
+        return false;
     }
 
     private void OnGetCollectible(PlayerGainCollectibleEvent collectibleEvent) {
@@ -410,23 +456,38 @@ public class Player : StateMachine {
         Collectibles.Add(collectibleEvent.collectible);
     }
 
-    public bool HasAbility(PlayerAbility playerAbility) {
-        foreach(PlayerAbility ability in PlayerAbilities) {
-            if(ability == playerAbility) {
-                return true;
-            }
-        }
-        return false;
+    private void OnGainTalentPoint(TalentPointGainEvent talentPointEvent) {
+        TalentPoints.Add(talentPointEvent.talentPoint);
+        AddTalentPointEffect(talentPointEvent.talentPoint);
     }
 
-    private void OnDestroy() {
-        PlayerTakeDamageEvent.UnRegisterListener(OnTakeDamage);
-        PlayerHealEvent.UnRegisterListener(OnHeal);
-        PlayerVoidEvent.UnRegisterListener(OnVoidEvent);
-        PlayerTouchKillzoneEvent.UnRegisterListener(OnTouchKillzone);
-        PlayerGetAbilityEvent.UnRegisterListener(OnGetAbility);
-        PlayerGainCollectibleEvent.UnRegisterListener(OnGetCollectible);
-        FadeScreenEvent.UnRegisterListener(OnFadeScreen);
+    private void AddTalentPointEffect(TalentPoint talentPoint) {
+        switch (talentPoint.talentPointType) {
+            case TalentPointType.DAMAGE:
+                TalentMeleeDamage += talentPoint.variablesToChange[0].amount;
+                TalentProjectileDamage += talentPoint.variablesToChange[1].amount;
+                MeleeDamage = meleeDamage + TalentMeleeDamage;
+                ProjectileDamage = projectileDamage + TalentProjectileDamage;
+                break;
+            case TalentPointType.SURVIVAL:
+                TalentHealth += talentPoint.variablesToChange[0].amount;
+                TalentLifeLeech += talentPoint.variablesToChange[1].amount;
+                MaxHealth = maxHealth + TalentHealth;
+                MeleeLifeLeech = meleeLifeLeech + TalentLifeLeech;
+                break;
+            case TalentPointType.SPEED:
+                TalentMovementSpeed += talentPoint.variablesToChange[0].amount;
+                TalentDashCooldown += talentPoint.variablesToChange[1].amount;
+                MovementSpeed = movementSpeed + TalentMovementSpeed;
+                DashCooldown = dashCooldown - TalentDashCooldown;
+                break;
+            case TalentPointType.VOID:
+                TalentPlayerVoid += talentPoint.variablesToChange[0].amount;
+                TalentVoidLeech += talentPoint.variablesToChange[1].amount;
+                MaxPlayerVoid = maxPlayerVoid + TalentPlayerVoid;
+                MeleeVoidLeech = meleeVoidLeech + TalentVoidLeech;
+                break;
+        }
     }
 
     public void PlayerLog(string message) {
@@ -436,6 +497,18 @@ public class Player : StateMachine {
     private void OnDrawGizmos() {
         Gizmos.DrawWireSphere(groundCheck.position, groundCheckDistance);
         Gizmos.DrawLine(wallCheck.position, new Vector3(wallCheck.position.x + wallCheckDistanceValue, wallCheck.position.y, wallCheck.position.z));
+    }
+
+    private void OnDestroy() {
+        PlayerTakeDamageEvent.UnRegisterListener(OnTakeDamage);
+        PlayerHealEvent.UnRegisterListener(OnHeal);
+        PlayerVoidEvent.UnRegisterListener(OnVoidEvent);
+        PlayerTouchKillzoneEvent.UnRegisterListener(OnTouchKillzone);
+        PlayerGetAbilityEvent.UnRegisterListener(OnGetAbility);
+        PlayerGainCollectibleEvent.UnRegisterListener(OnGetCollectible);
+        TalentPointGainEvent.UnRegisterListener(OnGainTalentPoint);
+        FadeScreenEvent.UnRegisterListener(OnFadeScreen);
+        VoidTalentScreenEvent.UnRegisterListener(OnVoidTalentScreen);
     }
 
 }

@@ -9,3 +9,7 @@ public class FadeScreenEvent : Event<FadeScreenEvent> {
     public bool isFadeIn;
 
 }
+
+public class VoidTalentScreenEvent : Event<VoidTalentScreenEvent> {
+
+}

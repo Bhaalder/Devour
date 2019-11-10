@@ -553,6 +553,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 9138233c29fb34246a74278928ec9be2, type: 2}
   - {fileID: 11400000, guid: 5f4f4f05304de8946a2b1844281e6897, type: 2}
   - {fileID: 11400000, guid: a6cb1b474a4729b4c9709f8d5874e710, type: 2}
+  - {fileID: 11400000, guid: 83e9d0a2f00e8b444937c787ec3098ed, type: 2}
   maxHealth: 100
   health: 100
   maxPlayerVoid: 25

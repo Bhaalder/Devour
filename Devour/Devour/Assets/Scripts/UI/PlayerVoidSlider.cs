@@ -11,6 +11,7 @@ public class PlayerVoidSlider : MonoBehaviour {
     private void Awake() {
         PlayerVoidEvent.RegisterListener(VoidEvent);
         PlayerGetAbilityEvent.RegisterListener(GetVoidMend);
+        TalentPointGainEvent.RegisterListener(OnTalentPointGain);
     }
 
     private void Start() {
@@ -37,9 +38,16 @@ public class PlayerVoidSlider : MonoBehaviour {
         voidSlider.value += amount;
     }
 
+    private void OnTalentPointGain(TalentPointGainEvent pointGainEvent) {
+        if (pointGainEvent.talentPoint.talentPointType == TalentPointType.VOID) {
+            voidSlider.maxValue += pointGainEvent.talentPoint.variablesToChange[0].amount;
+        }
+    }
+
     private void OnDestroy() {
         PlayerVoidEvent.UnRegisterListener(VoidEvent);
         PlayerGetAbilityEvent.UnRegisterListener(GetVoidMend);
+        TalentPointGainEvent.UnRegisterListener(OnTalentPointGain);
     }
 
 }

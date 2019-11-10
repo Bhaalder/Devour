@@ -12,6 +12,7 @@ public class PlayerHealthSlider : MonoBehaviour{
         PlayerTakeDamageEvent.RegisterListener(TakeDamage);
         PlayerHealEvent.RegisterListener(GainHealth);
         PlayerTouchKillzoneEvent.RegisterListener(TouchKillzone);
+        TalentPointGainEvent.RegisterListener(OnTalentPointGain);
     }
 
     private void Start() {
@@ -50,10 +51,17 @@ public class PlayerHealthSlider : MonoBehaviour{
         //healthSlider.value += healEvent.amount;
     }
 
+    private void OnTalentPointGain(TalentPointGainEvent pointGainEvent) {
+        if(pointGainEvent.talentPoint.talentPointType == TalentPointType.SURVIVAL) {
+            healthSlider.maxValue += pointGainEvent.talentPoint.variablesToChange[0].amount;
+        }
+    }
+
     private void OnDestroy() {
         PlayerTakeDamageEvent.UnRegisterListener(TakeDamage);
         PlayerHealEvent.UnRegisterListener(GainHealth);
         PlayerTouchKillzoneEvent.UnRegisterListener(TouchKillzone);
+        TalentPointGainEvent.UnRegisterListener(OnTalentPointGain);
     }
 
 }
