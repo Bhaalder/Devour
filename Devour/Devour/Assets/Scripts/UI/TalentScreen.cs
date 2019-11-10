@@ -61,7 +61,7 @@ public class TalentScreen : MonoBehaviour{
             hasVoidMend = false;
         }
         voidButton.gameObject.SetActive(hasVoidMend);
-        resetButton.enabled = false;
+        resetButton.interactable = false;
     }
 
     private void OnGUI() {     
@@ -97,7 +97,7 @@ public class TalentScreen : MonoBehaviour{
         talentButton.SetTalentButtonText(talentButton.PointsInvested + (currentPointsAdded + 1));
         currentAddedTalentPoints.Add(talentButton.TalentPoint);
         SetCollectibleCostText();
-        resetButton.enabled = true;
+        resetButton.interactable = true;
     }
 
     private void ResetButton() {
@@ -115,7 +115,7 @@ public class TalentScreen : MonoBehaviour{
         StopAllCoroutines();
         errorText.text = "";
         SetCollectibleCostText();
-        resetButton.enabled = false;
+        resetButton.interactable = false;
     }
 
     private void DoneButton() {

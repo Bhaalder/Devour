@@ -274,7 +274,7 @@ public class Player : StateMachine {
             gainCollectibleEvent.FireEvent();//
             gainCollectibleEvent2.FireEvent();//
         }//
-        if (Input.GetKeyDown(KeyCode.E)) {//
+        if (Input.GetKeyDown(KeyCode.F4)) {//
             VoidTalentScreenEvent e = new VoidTalentScreenEvent { };//
             e.FireEvent();//
         }//
