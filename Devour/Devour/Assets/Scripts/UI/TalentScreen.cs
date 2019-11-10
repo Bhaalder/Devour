@@ -86,7 +86,7 @@ public class TalentScreen : MonoBehaviour{
             }
         }
         if (talentButton.PointsInvested + currentPointsAdded == talentButton.MaxPointsToInvest) {
-            ErrorMessage("You cannot spend any more points in this category!");
+            ErrorMessage("You cannot spend any more points in the '" + talentButton.TalentPoint.talentPointType + "' category!");
             return;
         }
         talentButton.SetTalentButtonText(talentButton.PointsInvested + (currentPointsAdded + 1));
@@ -105,10 +105,13 @@ public class TalentScreen : MonoBehaviour{
             talentPointButtons[i].SetTalentButtonText(talentPointButtons[i].PointsInvested);
         }
         currentAddedTalentPoints.Clear();
+        StopAllCoroutines();
+        errorText.text = "";
     }
 
     private void DoneButton() {
-        //KOLLA OM MAN HAR RÅD
+        //KOLLA OM MAN HAR RÅD annars Return
+        //DRA AV OM MAN HAR RÅD
         foreach(TalentPoint point in currentAddedTalentPoints) {
             TalentPointGainEvent talentGain = new TalentPointGainEvent {
                 talentPoint = point
