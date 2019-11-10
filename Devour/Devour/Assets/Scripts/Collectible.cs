@@ -9,14 +9,15 @@ public enum CollectibleType {
 
 }
 
+[System.Serializable]
 public class Collectible {
-    
-    public CollectibleType CollectibleType { get; set; }
-    public int Amount { get; set; }
+
+    public CollectibleType collectibleType;
+    public int amount;
 
     public Collectible(CollectibleType collectibleType, int amount) {
-        CollectibleType = collectibleType;
-        Amount = amount;
+        this.collectibleType = collectibleType;
+        this.amount = amount;
     }
 
 }

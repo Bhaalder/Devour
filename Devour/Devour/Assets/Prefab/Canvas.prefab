@@ -450,6 +450,11 @@ MonoBehaviour:
     - variableChangeName: VoidLeech
       amount: 0.5
     description: Voidboiii
+    collectibleCost:
+    - collectibleType: 0
+      amount: 1
+    - collectibleType: 1
+      amount: 200
 --- !u!1 &1460237154175492929
 GameObject:
   m_ObjectHideFlags: 0
@@ -2730,6 +2735,11 @@ MonoBehaviour:
     - variableChangeName: DashCooldownReduction
       amount: 0.2
     description: Speedboiiiiii
+    collectibleCost:
+    - collectibleType: 0
+      amount: 1
+    - collectibleType: 1
+      amount: 200
 --- !u!1 &5079840277392815378
 GameObject:
   m_ObjectHideFlags: 0
@@ -3921,6 +3931,11 @@ MonoBehaviour:
     - variableChangeName: LifeLeech
       amount: 0.5
     description: Toughness
+    collectibleCost:
+    - collectibleType: 0
+      amount: 1
+    - collectibleType: 1
+      amount: 200
 --- !u!1 &7024090309999947006
 GameObject:
   m_ObjectHideFlags: 0
@@ -4446,6 +4461,11 @@ MonoBehaviour:
     - variableChangeName: ProjectileDamage
       amount: 10
     description: Deal more damage
+    collectibleCost:
+    - collectibleType: 0
+      amount: 1
+    - collectibleType: 1
+      amount: 200
 --- !u!1 &7688289451284841238
 GameObject:
   m_ObjectHideFlags: 0

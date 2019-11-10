@@ -234,7 +234,7 @@ public class Player : StateMachine {
         PlayerVoidEvent.RegisterListener(OnVoidEvent);
         PlayerTouchKillzoneEvent.RegisterListener(OnTouchKillzone);
         PlayerGetAbilityEvent.RegisterListener(OnGetAbility);
-        PlayerGainCollectibleEvent.RegisterListener(OnGetCollectible);
+        PlayerCollectibleChange.RegisterListener(OnChangeCollectible);
         TalentPointGainEvent.RegisterListener(OnGainTalentPoint);
         FadeScreenEvent.RegisterListener(OnFadeScreen);
         VoidTalentScreenEvent.RegisterListener(OnVoidTalentScreen);
@@ -265,10 +265,10 @@ public class Player : StateMachine {
         if (Input.GetKeyDown(KeyCode.F3)) {//
             Collectible lifeForce = new Collectible(CollectibleType.LIFEFORCE, 1000);//
             Collectible voidEssence = new Collectible(CollectibleType.VOIDESSENCE, 10);//
-            PlayerGainCollectibleEvent gainCollectibleEvent = new PlayerGainCollectibleEvent {//
+            PlayerCollectibleChange gainCollectibleEvent = new PlayerCollectibleChange {//
                 collectible = lifeForce//
             };//
-            PlayerGainCollectibleEvent gainCollectibleEvent2 = new PlayerGainCollectibleEvent {//
+            PlayerCollectibleChange gainCollectibleEvent2 = new PlayerCollectibleChange {//
                 collectible = voidEssence//
             };//
             gainCollectibleEvent.FireEvent();//
@@ -446,12 +446,12 @@ public class Player : StateMachine {
         return false;
     }
 
-    private void OnGetCollectible(PlayerGainCollectibleEvent collectibleEvent) {
+    private void OnChangeCollectible(PlayerCollectibleChange collectibleEvent) {
         foreach(Collectible collectible in Collectibles) {
-            if(collectible.CollectibleType == collectibleEvent.collectible.CollectibleType) {
-                collectible.Amount += collectibleEvent.collectible.Amount;
+            if(collectible.collectibleType == collectibleEvent.collectible.collectibleType) {
+                collectible.amount += collectibleEvent.collectible.amount;
+                return;
             }
-            return;
         }
         Collectibles.Add(collectibleEvent.collectible);
     }
@@ -505,7 +505,7 @@ public class Player : StateMachine {
         PlayerVoidEvent.UnRegisterListener(OnVoidEvent);
         PlayerTouchKillzoneEvent.UnRegisterListener(OnTouchKillzone);
         PlayerGetAbilityEvent.UnRegisterListener(OnGetAbility);
-        PlayerGainCollectibleEvent.UnRegisterListener(OnGetCollectible);
+        PlayerCollectibleChange.UnRegisterListener(OnChangeCollectible);
         TalentPointGainEvent.UnRegisterListener(OnGainTalentPoint);
         FadeScreenEvent.UnRegisterListener(OnFadeScreen);
         VoidTalentScreenEvent.UnRegisterListener(OnVoidTalentScreen);

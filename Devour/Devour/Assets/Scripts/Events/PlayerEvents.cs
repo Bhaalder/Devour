@@ -35,7 +35,7 @@ public class PlayerGetAbilityEvent : Event<PlayerGetAbilityEvent> {
 
 }
 
-public class PlayerGainCollectibleEvent : Event<PlayerGainCollectibleEvent> {
+public class PlayerCollectibleChange : Event<PlayerCollectibleChange> {
 
     public Collectible collectible;
 

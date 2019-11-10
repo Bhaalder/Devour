@@ -25,6 +25,7 @@ public class TalentPoint {
     public TalentPointChange[] variablesToChange;
     [TextArea(0, 5)]
     public string description;
+    public Collectible[] collectibleCost;
 
     public TalentPoint(TalentPointType talentPointType, TalentPointChange[] variablesToChange) {
         this.talentPointType = talentPointType;

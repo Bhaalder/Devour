@@ -19,28 +19,28 @@ public class CollectibleListener : MonoBehaviour{
         }
         voidEssenceText.text = voidEssenceCount + "";
         lifeforceText.text = lifeforceCount + "";
-        PlayerGainCollectibleEvent.RegisterListener(OnPlayerGainCollectible);
+        PlayerCollectibleChange.RegisterListener(OnPlayerGainCollectible);
     }
 
-    private void OnPlayerGainCollectible(PlayerGainCollectibleEvent collectibleEvent) {
+    private void OnPlayerGainCollectible(PlayerCollectibleChange collectibleEvent) {
         CheckCollectible(collectibleEvent.collectible);
     }
 
     private void CheckCollectible(Collectible collectible) {
-        switch (collectible.CollectibleType) {
+        switch (collectible.collectibleType) {
             case CollectibleType.VOIDESSENCE:
-                voidEssenceCount += collectible.Amount;
+                voidEssenceCount += collectible.amount;
                 voidEssenceText.text = voidEssenceCount + "";
                 break;
             case CollectibleType.LIFEFORCE:
-                lifeforceCount += collectible.Amount;
+                lifeforceCount += collectible.amount;
                 lifeforceText.text = lifeforceCount + "";
                 break;
         } 
     }
 
     private void OnDestroy() {
-        PlayerGainCollectibleEvent.UnRegisterListener(OnPlayerGainCollectible);
+        PlayerCollectibleChange.UnRegisterListener(OnPlayerGainCollectible);
     }
 
 }
