@@ -159,7 +159,6 @@ public class BnathClimbDash : BnathBaseState
         else
         {
             isClimbing = false;
-            TurnedRight();
         }
     }
 
