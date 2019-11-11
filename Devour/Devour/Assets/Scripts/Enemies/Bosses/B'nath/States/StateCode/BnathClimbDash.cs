@@ -79,6 +79,7 @@ public class BnathClimbDash : BnathBaseState
         {
             owner.State = BossBnathState.DASHING;
             ClimbDash();
+            isClimbing = false;
         }
 
     }
@@ -177,10 +178,12 @@ public class BnathClimbDash : BnathBaseState
 
     private void ClimbDash()
     {
+        Debug.Log("IsDashing: " + isDashing);
         if (!isDashing)
         {
-            TurnedRight();
+            //TurnedRight();
             isDashing = true;
+            Debug.Log("Turning Right");
         }
 
         RaycastHit2D ground = Physics2D.Raycast(owner.rb.position, Vector2.down, groundMargin, layerMask);
@@ -194,10 +197,21 @@ public class BnathClimbDash : BnathBaseState
             isDashing = false;
             TurnedRight();
             owner.Transition<BnathIdle>();
+            Debug.Log("STOPPED DASHING");
         }
         direction = (endPoint - startPoint).normalized;
         force = direction * dashSpeed * Time.deltaTime;
         owner.rb.AddForce(force);
+        if (startPoint.x < endPoint.x)
+        {
+            Vector3 v = new Vector3(1f, 1f, 1f);
+            owner.setGFX(v);
+        }
+        else if (startPoint.x > endPoint.x)
+        {
+            Vector3 v = new Vector3(-1f, 1f, 1f);
+            owner.setGFX(v);
+        }
 
     }
 
@@ -223,14 +237,14 @@ public class BnathClimbDash : BnathBaseState
             {
                 bossSprite.color = new Color(255, 255, 255);
             }
-            if (startPoint.x < endPoint.x)
-            {
-                Vector3 v = new Vector3(1f, 1f, 1f);
-                owner.setGFX(v);
-            }
-            else if (startPoint.x > endPoint.x)
+            if (owner.Player.transform.position.x > owner.rb.position.x)
             {
                 Vector3 v = new Vector3(-1f, 1f, 1f);
+                owner.setGFX(v);
+            }
+            else if (owner.Player.transform.position.x < owner.rb.position.x)
+            {
+                Vector3 v = new Vector3(1f, 1f, 1f);
                 owner.setGFX(v);
             }
 
