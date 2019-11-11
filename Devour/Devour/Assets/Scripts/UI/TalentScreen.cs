@@ -91,8 +91,21 @@ public class TalentScreen : MonoBehaviour{
             ErrorMessage("You cannot spend any more points in the " + talentButton.TalentPoint.talentPointType + " category!");
             return;
         }
-        foreach(Collectible collectibleCost in talentButton.TalentPoint.collectibleCost) {
+        foreach (Collectible collectibleCost in talentButton.TalentPoint.collectibleCost) {
             currentCollectibleCosts.Add(collectibleCost);
+        }
+        if (CalculatePlayerCollectible(CollectibleType.VOIDESSENCE) < CalculateCollectibleCost(CollectibleType.VOIDESSENCE)) {
+            ErrorMessage("You cannot afford this! You have: " + CalculatePlayerCollectible(CollectibleType.VOIDESSENCE) + " Void Essence(s), You need: " + CalculateCollectibleCost(CollectibleType.VOIDESSENCE));
+            foreach (Collectible collectibleCost in talentButton.TalentPoint.collectibleCost) {
+                currentCollectibleCosts.Remove(collectibleCost);
+            }
+            return;
+        } else if (CalculatePlayerCollectible(CollectibleType.LIFEFORCE) < CalculateCollectibleCost(CollectibleType.LIFEFORCE)) {
+            ErrorMessage("You cannot afford this! You have: " + CalculatePlayerCollectible(CollectibleType.LIFEFORCE) + " Lifeforce, You need: " + CalculateCollectibleCost(CollectibleType.LIFEFORCE));
+            foreach (Collectible collectibleCost in talentButton.TalentPoint.collectibleCost) {
+                currentCollectibleCosts.Remove(collectibleCost);
+            }
+            return;
         }
         talentButton.SetTalentButtonText(talentButton.PointsInvested + (currentPointsAdded + 1));
         currentAddedTalentPoints.Add(talentButton.TalentPoint);
@@ -119,15 +132,7 @@ public class TalentScreen : MonoBehaviour{
     }
 
     private void DoneButton() {
-        if (CalculatePlayerCollectible(CollectibleType.VOIDESSENCE) < CalculateCollectibleCost(CollectibleType.VOIDESSENCE)) {
-            ErrorMessage("You cannot afford this! You have: " + CalculatePlayerCollectible(CollectibleType.VOIDESSENCE) + "Void Essence(s), You need: " + CalculateCollectibleCost(CollectibleType.VOIDESSENCE));
-            return;
-        } else if (CalculatePlayerCollectible(CollectibleType.LIFEFORCE) < CalculateCollectibleCost(CollectibleType.LIFEFORCE)) {
-            ErrorMessage("You cannot afford this! You have: " + CalculatePlayerCollectible(CollectibleType.LIFEFORCE) + "Lifeforce, You need: " + CalculateCollectibleCost(CollectibleType.LIFEFORCE));
-            return;
-        } else {
-            Debug.Log("PLAYER! " + CalculatePlayerCollectible(CollectibleType.VOIDESSENCE) + "/" + CalculatePlayerCollectible(CollectibleType.LIFEFORCE));
-            Debug.Log("COST! " + CalculateCollectibleCost(CollectibleType.VOIDESSENCE) + "/" + CalculateCollectibleCost(CollectibleType.LIFEFORCE));
+         
             Collectible voidReduction = new Collectible(CollectibleType.VOIDESSENCE, -CalculateCollectibleCost(CollectibleType.VOIDESSENCE));
             Collectible lifeForceReduction = new Collectible(CollectibleType.LIFEFORCE, -CalculateCollectibleCost(CollectibleType.LIFEFORCE));
             PlayerCollectibleChange voidChange = new PlayerCollectibleChange {
@@ -138,7 +143,7 @@ public class TalentScreen : MonoBehaviour{
             };
             voidChange.FireEvent();
             lifeForceChange.FireEvent();
-        }
+        
         foreach (TalentPoint point in currentAddedTalentPoints) {
             TalentPointGainEvent talentGain = new TalentPointGainEvent {
                 talentPoint = point
