@@ -65,8 +65,8 @@ MonoBehaviour:
     loop: 0
     source: {fileID: 0}
   - name: Dash
-    clip: {fileID: 8300000, guid: ca93fdf16309ec74b9c2735fe15e86bc, type: 3}
-    volume: 0.8
+    clip: {fileID: 8300000, guid: 378084ad56c554d49aaa950bbb2b1701, type: 3}
+    volume: 0.7
     pitch: 1
     spatialBlend_2D_3D: 0
     rolloffMode: 0
