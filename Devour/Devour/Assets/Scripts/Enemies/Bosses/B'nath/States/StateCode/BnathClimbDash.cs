@@ -223,6 +223,16 @@ public class BnathClimbDash : BnathBaseState
             {
                 bossSprite.color = new Color(255, 255, 255);
             }
+            if (startPoint.x < endPoint.x)
+            {
+                Vector3 v = new Vector3(1f, 1f, 1f);
+                owner.setGFX(v);
+            }
+            else if (startPoint.x > endPoint.x)
+            {
+                Vector3 v = new Vector3(-1f, 1f, 1f);
+                owner.setGFX(v);
+            }
 
             return;
         }
