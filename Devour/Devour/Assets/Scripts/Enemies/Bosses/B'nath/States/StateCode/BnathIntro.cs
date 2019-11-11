@@ -22,7 +22,6 @@ public class BnathIntro : BnathBaseState
         {
             Movement();
         }
-        owner.rb.position = owner.StartPosition.transform.position;
     }
 
     public override void HandleFixedUpdate()
