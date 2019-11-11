@@ -60,7 +60,7 @@ public class BnathVoidAssault : BnathBaseState
             return;
         }
 
-        owner.State = BossBnathState.DASHING;
+        owner.State = BossBnathState.DASH_TELEGRAPH;
         owner.Transition<BnathClimbDash>();
 
     }

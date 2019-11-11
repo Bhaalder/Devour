@@ -162,6 +162,17 @@ public class BnathClimbDash : BnathBaseState
         {
             isClimbing = false;
         }
+
+        if(startPoint.x < endPoint.x)
+        {
+            Vector3 v = new Vector3(1f, 1f, 1f);
+            owner.setGFX(v);
+        }
+        else if(startPoint.x > endPoint.x)
+        {
+            Vector3 v = new Vector3(-1f, 1f, 1f);
+            owner.setGFX(v);
+        }
     }
 
     private void ClimbDash()
