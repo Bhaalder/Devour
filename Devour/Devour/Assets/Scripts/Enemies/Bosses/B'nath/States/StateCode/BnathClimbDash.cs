@@ -33,6 +33,7 @@ public class BnathClimbDash : BnathBaseState
     private bool particleInstantiated;
     private bool isChoosingAttack;
     private bool voidAssaultAttack = false;
+    private bool isDashing;
 
     private Vector2 rightSide;
     private Vector2 leftSide;
@@ -46,6 +47,7 @@ public class BnathClimbDash : BnathBaseState
         base.Enter();
         isClimbing = true;
         dashTelegraph = true;
+        isDashing = false;
         currentTelegraphCooldown = hangTime;
         countUp = 0f;
         Debug.Log("voidAssault: " + voidAssaultAttack);
@@ -164,6 +166,12 @@ public class BnathClimbDash : BnathBaseState
 
     private void ClimbDash()
     {
+        if (!isDashing)
+        {
+            TurnedRight();
+            isDashing = true;
+        }
+
         RaycastHit2D ground = Physics2D.Raycast(owner.rb.position, Vector2.down, groundMargin, layerMask);
 
         if (ground.collider == true)
@@ -172,6 +180,7 @@ public class BnathClimbDash : BnathBaseState
             owner.rb.gravityScale = 6;
             isChoosingAttack = true;
             voidAssaultAttack = false;
+            isDashing = false;
             TurnedRight();
             owner.Transition<BnathIdle>();
         }
