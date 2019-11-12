@@ -1046,7 +1046,13 @@ PrefabInstance:
       propertyPath: boss
       value: 
       objectReference: {fileID: 7227144329047398490}
-    m_RemovedComponents: []
+    - target: {fileID: 9217518114712663821, guid: a2bf8143a4797b4439f4826e5d0724a0,
+        type: 3}
+      propertyPath: boss
+      value: 
+      objectReference: {fileID: 7227144329047398490}
+    m_RemovedComponents:
+    - {fileID: 2324068886425042611, guid: a2bf8143a4797b4439f4826e5d0724a0, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: a2bf8143a4797b4439f4826e5d0724a0, type: 3}
 --- !u!1 &8560368570429801807 stripped
 GameObject:

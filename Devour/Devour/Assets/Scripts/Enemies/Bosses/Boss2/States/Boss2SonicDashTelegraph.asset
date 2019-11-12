@@ -12,7 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e7bdb1284906374b82e6abd665ed064, type: 3}
   m_Name: Boss2SonicDashTelegraph
   m_EditorClassIdentifier: 
-  bossSprite: {fileID: 0}
   positionTelegraph: {fileID: 1609845037211932075, guid: d4a67be1089105f4f8db2b80fdb7ae9d,
     type: 3}
   telegraphTime: 2

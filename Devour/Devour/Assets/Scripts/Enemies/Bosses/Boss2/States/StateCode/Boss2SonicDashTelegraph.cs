@@ -24,6 +24,7 @@ public class Boss2SonicDashTelegraph : Boss2BaseState
     {
         base.HandleUpdate();
         TelegraphTime();
+
     }
     public override void HandleFixedUpdate()
     {
@@ -38,15 +39,12 @@ public class Boss2SonicDashTelegraph : Boss2BaseState
         switch (pattern)
         {
             case 3:
-                chosenPattern = owner.DashPattern2;
+                chosenPattern = owner.DashPattern3;
                 break;
             case 2:
                 chosenPattern = owner.DashPattern2;
                 break;
             case 1:
-                chosenPattern = owner.DashPattern1;
-                break;
-            default:
                 chosenPattern = owner.DashPattern1;
                 break;
         }
@@ -58,7 +56,7 @@ public class Boss2SonicDashTelegraph : Boss2BaseState
         foreach (GameObject gameObject in chosenPattern.GetComponent<SonicDashPositions>().Positions)
         {
             GameObject position = Instantiate(positionTelegraph, null);
-            positionTelegraph.transform.position = gameObject.transform.position;
+            position.transform.position = gameObject.transform.position;
         }
     }
 

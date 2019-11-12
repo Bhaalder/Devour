@@ -12,7 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b998c549f3fff1d4a99b5d7c40052f0f, type: 3}
   m_Name: Boss2Idle
   m_EditorClassIdentifier: 
-  bossSprite: {fileID: 0}
-  timeBetweenAttacks: 3
-  sonicThrustPercentage: 60
-  sonicSnipePercentage: 50
+  timeBetweenAttacks: 1
+  sonicThrustPercentage: 0
+  sonicSnipePercentage: 0

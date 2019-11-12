@@ -11,7 +11,6 @@ public class Boss2IntroTrigger : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
-            Debug.Log("TRIGGERED");
             boss.GetComponent<Boss2>().IntroStarted = true;
             GetComponent<BoxCollider2D>().enabled = false;
         }
