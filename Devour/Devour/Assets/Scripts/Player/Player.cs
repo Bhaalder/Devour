@@ -229,6 +229,7 @@ public class Player : StateMachine {
 
         Animator = GetComponent<Animator>();
 
+        PlayerBounceEvent.RegisterListener(OnBounce);
         PlayerTakeDamageEvent.RegisterListener(OnTakeDamage);
         PlayerHealEvent.RegisterListener(OnHeal);
         PlayerVoidEvent.RegisterListener(OnVoidEvent);
@@ -499,7 +500,12 @@ public class Player : StateMachine {
         Gizmos.DrawLine(wallCheck.position, new Vector3(wallCheck.position.x + wallCheckDistanceValue, wallCheck.position.y, wallCheck.position.z));
     }
 
+    private void OnBounce(PlayerBounceEvent bounceEvent) {
+        Rb2D.AddForce(bounceEvent.amountOfForce, ForceMode2D.Impulse);
+    }
+
     private void OnDestroy() {
+        PlayerBounceEvent.UnRegisterListener(OnBounce);
         PlayerTakeDamageEvent.UnRegisterListener(OnTakeDamage);
         PlayerHealEvent.UnRegisterListener(OnHeal);
         PlayerVoidEvent.UnRegisterListener(OnVoidEvent);

@@ -19,7 +19,7 @@ public class TimedPlatform : MonoBehaviour{
     }
 
     private void OnTriggerStay2D(Collider2D collision) {
-        if (collision.gameObject.name == "Player" && !startToBreak) {
+        if (collision.gameObject.tag == "Player" && !startToBreak) {
             GameObject instantiatedParticle = Instantiate(aboutToBreakParticles, transform.position, Quaternion.identity);
             AudioPlaySoundAtLocationEvent rockBreakingSound = new AudioPlaySoundAtLocationEvent {
                 name = "HitRockWall",

@@ -47,6 +47,12 @@ public class PlayerVoidEvent : Event<PlayerVoidEvent> {
 
 }
 
+public class PlayerBounceEvent : Event<PlayerBounceEvent> {
+
+    public Vector2 amountOfForce;
+
+}
+
 public class PlayerTouchKillzoneEvent : Event<PlayerTouchKillzoneEvent> {
 
     public float damage;
@@ -57,5 +63,4 @@ public class PlayerDiedEvent : Event<PlayerDiedEvent> {
 
     public Player player;
     //info var man dog (typ vilken scen m.m.)
-
 }
