@@ -39,6 +39,21 @@ EditorBuildSettings:
     path: Assets/Scenes/World/Scene07.unity
     guid: db1150e8051acb44d928d4ce0f749899
   - enabled: 1
+    path: Assets/Scenes/World/Scene08.unity
+    guid: 8f1b16f4474d9ea4dab20f574763a441
+  - enabled: 1
+    path: Assets/Scenes/World/Scene09.unity
+    guid: b4838fa54e11fe94c9eadc72fc519c55
+  - enabled: 1
+    path: Assets/Scenes/World/Scene10.unity
+    guid: fb8f168fb99f0f641b8ea1f08d6c80ad
+  - enabled: 1
+    path: Assets/Scenes/World/Scene11.unity
+    guid: ef872cbb31582f743aac10a69afcd2e7
+  - enabled: 1
+    path: Assets/Scenes/World/Scene12.unity
+    guid: 167df6c6ffb904148b81726ccc2f670f
+  - enabled: 1
     path: Assets/Scenes/World/BossArea1.unity
     guid: 1faf1f8990ded7c40a4808f492f99558
   - enabled: 1
@@ -47,4 +62,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/World/BossArea3.unity
     guid: 6db3bffe01e6f3a4e92fa26a8004efbd
+  - enabled: 1
+    path: Assets/Scenes/World/BossArea4.unity
+    guid: b67a0479c2eb1894e9d5546d6b0ca97e
   m_configObjects: {}

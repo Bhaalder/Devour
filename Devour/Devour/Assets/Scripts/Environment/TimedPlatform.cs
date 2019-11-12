@@ -29,6 +29,7 @@ public class TimedPlatform : MonoBehaviour{
                 soundType = SoundType.SFX,
                 gameObject = instantiatedParticle
             };
+            //Animation
             rockBreakingSound.FireEvent();
             startToBreak = true;
             StartCoroutine(Break());
