@@ -2,13 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Boss2SonicSnipeBeam : Boss2
+public class Boss2SonicSnipeBeam : MonoBehaviour
 {
+    [SerializeField] private GameObject boss;
     private float beamDamage;
 
-    protected override void Awake()
+    private void Start()
     {
-        beamDamage = SonicSnipeBeamDamage;
+        beamDamage = boss.GetComponent<Boss2>().SonicSnipeBeamDamage;
     }
 
     private void OnTriggerStay2D(Collider2D collision)

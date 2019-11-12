@@ -753,7 +753,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 7a281e508e58d934a90429406c8a0291, type: 2}
   particlesOnHurt: {fileID: 0}
   enemyHealth: 500
-  damageToPlayerOnContact: 5
+  damageToPlayerOnContact: 25
   lifeforceAmount: 100
   enemyGFX: {fileID: 7227144329047398489}
   childrenToDisable: []

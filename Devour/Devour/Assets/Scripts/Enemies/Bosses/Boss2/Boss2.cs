@@ -30,7 +30,10 @@ public class Boss2 : Boss
     protected override void Awake()
     {
         base.Awake();
-
+        if (isDead)
+        {
+            Destroy(gameObject);
+        }
         Animator = GetComponent<Animator>();
         DashPattern1 = dashPattern1;
         DashPattern2 = dashPattern2;
@@ -83,7 +86,7 @@ public class Boss2 : Boss
     private void Reset(PlayerDiedEvent playerDied)
     {
         Health = MaxHealth;
-        Transition<BnathIntro>();
+        Transition<Boss2Intro>();
     }
 
     protected override void OnDestroy()

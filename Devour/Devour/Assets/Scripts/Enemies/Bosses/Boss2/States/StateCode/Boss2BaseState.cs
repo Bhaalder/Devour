@@ -10,13 +10,9 @@ public class Boss2BaseState : State
 
     private float distanceToPlayer;
 
-    public SpriteRenderer bossSprite; //För tillfället för test
-
-
     public override void Enter()
     {
         base.Enter();
-        bossSprite = owner.GetComponentInChildren<SpriteRenderer>(); //TEST
     }
 
     public override void HandleUpdate()
