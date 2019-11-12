@@ -32,7 +32,7 @@ public class Boss : Enemy{
             try {
                 if (attackEvent.attackCollider.bounds.Intersects(boxCollider2D.bounds)) {
                     ChangeEnemyHealth(-attackEvent.damage);
-                    HurtSound();
+                    HurtSoundAndParticles();
                     if (attackEvent.isMeleeAttack) {
                         PlayerHealEvent phe = new PlayerHealEvent {
                             isLifeLeech = true

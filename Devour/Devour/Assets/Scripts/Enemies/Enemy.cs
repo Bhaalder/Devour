@@ -1,5 +1,5 @@
 ﻿//Main Author: Marcus Söderberg
-//Secondary Author: Patrik Ahlgren (TakeDamage(), ChangeEnemyHealth(), DeathSound(), HurtSound(), EnemyTouchKillzone(), GiveLifeforce(), invulnerability, deathsounds, lade till get/set på health & damage, lade till Player)
+//Secondary Author: Patrik Ahlgren (TakeDamage(), ChangeEnemyHealth(), DeathSound(), HurtSoundAndParticles(), EnemyTouchKillzone(), GiveLifeforce(), invulnerability, deathsounds, lade till get/set på health & damage, lade till Player)
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -14,6 +14,7 @@ public class Enemy : StateMachine
     public bool IsAlive { get; set; }
     public GameObject[] ChildrenToDisable { get; set; }
 
+    [SerializeField] protected GameObject particlesOnHurt;
     [SerializeField] protected float enemyHealth;
     [SerializeField] protected float damageToPlayerOnContact = 5;
     [SerializeField] protected int lifeforceAmount;
@@ -63,7 +64,7 @@ public class Enemy : StateMachine
                 if (attackEvent.attackCollider.bounds.Intersects(boxCollider2D.bounds)) {
                     Vector2 knockBack;
                     ChangeEnemyHealth(-attackEvent.damage);
-                    HurtSound();
+                    HurtSoundAndParticles();
                     if (attackEvent.isMeleeAttack) {
                         PlayerHealEvent phe = new PlayerHealEvent {
                             isLifeLeech = true
@@ -116,7 +117,11 @@ public class Enemy : StateMachine
         invulnerabilityTimer = startInvulnerability;
     }
 
-    protected void HurtSound() {
+    protected void HurtSoundAndParticles() {
+        if(particlesOnHurt != null) {
+            GameObject instantiatedParticle = Instantiate(particlesOnHurt, transform.position, Quaternion.identity);
+            Destroy(instantiatedParticle, 1);
+        }     
         string[] soundNames = { "Hit1", "Hit2"};
         AudioPlayRandomSoundAtLocationEvent hurtSound = new AudioPlayRandomSoundAtLocationEvent {
             name = soundNames,
@@ -126,7 +131,7 @@ public class Enemy : StateMachine
             soundType = SoundType.SFX,
             gameObject = gameObject
         };
-        hurtSound.FireEvent();
+        hurtSound.FireEvent();     
     }
 
     public virtual void EnemyDeath()
