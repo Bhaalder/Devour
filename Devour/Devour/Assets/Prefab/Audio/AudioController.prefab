@@ -236,7 +236,17 @@ MonoBehaviour:
     maxDistance: 50
     loop: 1
     source: {fileID: 0}
-  musicSounds: []
+  musicSounds:
+  - name: CalmOceanLoop
+    clip: {fileID: 8300000, guid: e6fc6289af280de40abcb3213827bd2e, type: 3}
+    volume: 1
+    pitch: 1
+    spatialBlend_2D_3D: 0
+    rolloffMode: 0
+    minDistance: 0
+    maxDistance: 0
+    loop: 1
+    source: {fileID: 0}
   voiceSounds: []
   audioMixer: {fileID: 24100000, guid: 6514dab25353a754e895e7c7a570fc29, type: 2}
   masterMixerGroup: {fileID: 24300002, guid: 6514dab25353a754e895e7c7a570fc29, type: 2}

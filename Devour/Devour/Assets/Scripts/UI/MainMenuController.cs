@@ -56,7 +56,14 @@ public class MainMenuController : MonoBehaviour{
                 Invoke("FadeScene", loadingSequenceLength);
                 cameraAnim.Play("GameStartAnim");
                 buttonAnim.Play("MenuAnim");
-
+                AudioFadeSoundEvent fadeSoundEvent = new AudioFadeSoundEvent {
+                    name = "CalmOceanLoop",
+                    isFadeOut = true,
+                    fadeDuration = 4,
+                    soundType = SoundType.MUSIC,
+                    soundVolumePercentage = 0
+                };
+                fadeSoundEvent.FireEvent();
                 break;
             case "loadGame":
                 sceneToLoad = loadGameScene;
