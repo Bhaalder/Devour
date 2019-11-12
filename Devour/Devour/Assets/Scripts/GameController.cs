@@ -43,6 +43,7 @@ public class GameController : MonoBehaviour {
         DontDestroyOnLoad(gameObject);
 
         DestroyedDestructibles = new Dictionary<string, List<int>>();
+        DestroyedPlatforms = new Dictionary<string, List<int>>();
         CollectedVoidEssences = new Dictionary<string, List<int>>();
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
