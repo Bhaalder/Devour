@@ -9,8 +9,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2da980ffc84c17e47a0e9517543e35f5, type: 3}
-  m_Name: BnathDeathState
+  m_Script: {fileID: 11500000, guid: 6bea1b6d4e9770f4db2ffd064448e4b3, type: 3}
+  m_Name: Boss2SonicThrustAttack
   m_EditorClassIdentifier: 
-  particleOnDeath: {fileID: 1315949759934820, guid: a4bff1f9c9bdea54290d41a23227749f,
-    type: 3}
+  bossSprite: {fileID: 0}
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 256
+  rayCastLength: 3
+  dashForce: 20
+  startDashTime: 0.6
