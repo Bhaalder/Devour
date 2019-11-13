@@ -18,7 +18,8 @@ public class GameController : MonoBehaviour {
     public Dictionary<string, List<int>> DestroyedDestructibles { get; set; }
     public Dictionary<string, List<int>> DestroyedPlatforms { get; set; }
     public Dictionary<string, List<int>> CollectedVoidEssences { get; set; }
-    
+    public Dictionary<string, List<int>> DestroyedVoidGenerators { get; set; }
+
     private static GameController instance;
 
     public static GameController Instance {
@@ -45,6 +46,7 @@ public class GameController : MonoBehaviour {
         DestroyedDestructibles = new Dictionary<string, List<int>>();
         DestroyedPlatforms = new Dictionary<string, List<int>>();
         CollectedVoidEssences = new Dictionary<string, List<int>>();
+        DestroyedVoidGenerators = new Dictionary<string, List<int>>();
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
         if (SceneCheckpoint == null) {
