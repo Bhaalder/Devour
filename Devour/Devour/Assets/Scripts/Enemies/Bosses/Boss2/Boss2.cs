@@ -26,6 +26,7 @@ public class Boss2 : Boss
     public SpriteRenderer SnipeBeamSprite { get; set; }
     public float SonicSnipeBeamDamage { get; set; }
     public bool IntroStarted { get; set; }
+    public Vector2 dashStartDirection { get; set; }
 
     private static bool isDead;
 

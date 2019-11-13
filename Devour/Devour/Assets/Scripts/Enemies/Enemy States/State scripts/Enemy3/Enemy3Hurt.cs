@@ -2,23 +2,29 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "Enemy/Enemy1IdleState")]
-public class Enemy1Idle : EnemyMovement
+[CreateAssetMenu(menuName = "Enemy/Enemy3HurtState")]
+
+public class Enemy3Hurt : EnemyMovement
 {
     public override void Enter()
     {
         base.Enter();
-        owner.GetComponent<Enemy1>().State = Enemy1State.IDLE;
+        owner.GetComponent<Enemy3>().State = Enemy3State.HURT;
     }
-
     public override void HandleUpdate()
     {
         base.HandleUpdate();
+        if (owner.Stunned)
+        {
+            StunnedCooldown();
+        }
+        else
+        {
+            owner.Transition<Enemy3Movement>();
+        }
     }
-
     public override void HandleFixedUpdate()
     {
         base.HandleFixedUpdate();
     }
-
 }

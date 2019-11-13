@@ -22,6 +22,7 @@ public class Boss2SonicThrustTelegraph : Boss2BaseState
         owner.State = Boss2State.SONIC_THRUST_TELEGRAPH;
 
         FindTargetDirection();
+        owner.dashStartDirection = direction;
         telegraphStartPosition = owner.rb.position;
         currentCooldown = telegraphTime;
         telegraphCurrentCooldown = 0;

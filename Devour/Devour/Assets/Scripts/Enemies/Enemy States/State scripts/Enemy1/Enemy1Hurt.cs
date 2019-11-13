@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[CreateAssetMenu(menuName = "Enemy/Enemy1HurtState")]
 public class Enemy1Hurt : EnemyMovement
 {
     public override void Enter()
@@ -20,7 +21,6 @@ public class Enemy1Hurt : EnemyMovement
         else
         {
             owner.Transition<Enemy1MovementState>();
-
         }
     }
 

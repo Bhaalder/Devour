@@ -17,8 +17,8 @@ public class Boss2SonicThrustAttack : Boss2BaseState
     public override void Enter()
     {
         base.Enter();
-        FindTargetDirection();
         dashTime = startDashTime;
+        direction = owner.dashStartDirection;
         owner.State = Boss2State.SONIC_THRUST_ATTACK;
     }
 
