@@ -35,6 +35,7 @@ public class Enemy2MovementState : EnemyMovement
         seeker = owner.GetComponent<Seeker>();
         currentPathUpdateCooldown = cooldownTime;
         startPosition = owner.GetComponent<Enemy2>().StartPosition;
+        owner.GetComponent<Enemy2>().State = Enemy2State.MOVEMENT;
     }
 
     public override void HandleUpdate()

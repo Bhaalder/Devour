@@ -28,6 +28,7 @@ public class Enemy4RangeAttack : EnemyBaseState
     {
         base.Enter();
         target = FindObjectOfType<Player>().transform;
+        owner.GetComponent<Enemy4>().State = Enemy4State.RANGE_ATTACK;
 
     }
 

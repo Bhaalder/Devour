@@ -11,6 +11,7 @@ public class Enemy3ChargeAttack : Enemy3Movement
     public override void Enter()
     {
         base.Enter();
+        owner.GetComponent<Enemy3>().State = Enemy3State.CHARGE;
     }
 
     public override void HandleUpdate()

@@ -25,6 +25,7 @@ public class Enemy2IdleState : EnemyBaseState
     {
         base.Enter();
         target = FindObjectOfType<Player>().transform;
+        owner.GetComponent<Enemy2>().State = Enemy2State.IDLE;
     }
 
     public override void HandleUpdate()

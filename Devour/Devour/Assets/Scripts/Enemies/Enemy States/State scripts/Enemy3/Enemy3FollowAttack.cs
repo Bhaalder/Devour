@@ -21,6 +21,7 @@ public class Enemy3FollowAttack : Enemy3Movement
     {
         base.Enter();
         currentStuckCooldown = stuckCooldown;
+        owner.GetComponent<Enemy3>().State = Enemy3State.MOVEMENT;
     }
 
     public override void HandleUpdate()

@@ -7,7 +7,7 @@ public class Enemy1Hurt : EnemyMovement
     public override void Enter()
     {
         base.Enter();
-        //owner.State = Enemy1State.HURT;
+        owner.GetComponent<Enemy1>().State = Enemy1State.HURT;
     }
 
     public override void HandleUpdate()
@@ -28,4 +28,5 @@ public class Enemy1Hurt : EnemyMovement
     {
         base.HandleFixedUpdate();
     }
+
 }

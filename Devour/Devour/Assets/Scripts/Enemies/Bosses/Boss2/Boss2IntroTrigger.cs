@@ -16,6 +16,12 @@ public class Boss2IntroTrigger : MonoBehaviour
     {
         currentCooldown = timeBeforeBoss;
         isTriggered = false;
+        boss.SetActive(true);
+        if (boss.GetComponent<Boss2>().IsAlive)
+        {
+            blocker.SetActive(true);
+        }
+        boss.SetActive(false);
     }
     private void Update()
     {
@@ -30,7 +36,6 @@ public class Boss2IntroTrigger : MonoBehaviour
         {
             if (blocker != null)
             {
-                blocker.SetActive(true);
                 isTriggered = true;
             }
         }

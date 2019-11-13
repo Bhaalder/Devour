@@ -11,6 +11,7 @@ public class Enemy4Idle : EnemyMovement
     public override void Enter()
     {
         base.Enter();
+        owner.GetComponent<Enemy4>().State = Enemy4State.IDLE;
     }
 
     public override void HandleUpdate()

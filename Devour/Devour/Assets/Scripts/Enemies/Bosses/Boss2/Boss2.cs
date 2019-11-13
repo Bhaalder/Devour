@@ -12,7 +12,9 @@ public class Boss2 : Boss
     [SerializeField] private GameObject dashPattern2;
     [SerializeField] private GameObject dashPattern3;
     [SerializeField] private GameObject sonicSnipeBeam;
+    [SerializeField] private GameObject bossFightBlock;
     [SerializeField] private float sonicSnipeBeamDamage = 25f;
+
 
     public Boss2State State { get; set; }
     public Animator Animator { get; set; }
@@ -32,6 +34,7 @@ public class Boss2 : Boss
         base.Awake();
         if (isDead)
         {
+            Destroy(bossFightBlock);
             Destroy(gameObject);
         }
         Animator = GetComponent<Animator>();
@@ -44,6 +47,8 @@ public class Boss2 : Boss
         IntroStarted = false;
         PlayerDiedEvent.RegisterListener(Reset);
         Transition<Boss2Intro>();
+        bossFightBlock.SetActive(true);
+        IsAlive = !isDead;
     }
 
     protected override void Update()
@@ -93,5 +98,9 @@ public class Boss2 : Boss
         PlayerAttackEvent.UnRegisterListener(TakeDamage);
         EnemyTouchKillzoneEvent.UnRegisterListener(EnemyTouchKillzone);
         PlayerDiedEvent.UnRegisterListener(Reset);
+        if (bossFightBlock != null)
+        {
+            Destroy(bossFightBlock);
+        }
     }
 }

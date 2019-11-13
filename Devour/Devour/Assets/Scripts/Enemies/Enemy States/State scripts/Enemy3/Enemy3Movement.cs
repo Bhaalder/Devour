@@ -33,6 +33,7 @@ public class Enemy3Movement : EnemyMovement
     {
         base.Enter();
         iWasStuckCurrentCooldown = iWasStuckCooldown;
+        owner.GetComponent<Enemy3>().State = Enemy3State.MOVEMENT;
     }
 
     public override void HandleUpdate()

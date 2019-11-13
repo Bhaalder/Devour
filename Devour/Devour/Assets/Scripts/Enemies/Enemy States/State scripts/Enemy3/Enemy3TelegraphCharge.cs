@@ -14,7 +14,7 @@ public class Enemy3TelegraphCharge : Enemy3Movement
         base.Enter();
         currentTCooldown = telegraphTime;
         owner.rb.velocity = new Vector2(0f, 0f);
-        //start telegraph visuals
+        owner.GetComponent<Enemy3>().State = Enemy3State.CHARGE_TELEGRAPH;
     }
     public override void HandleUpdate()
     {

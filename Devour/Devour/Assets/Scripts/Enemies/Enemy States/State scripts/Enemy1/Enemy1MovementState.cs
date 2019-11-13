@@ -19,6 +19,7 @@ public class Enemy1MovementState : EnemyMovement
     public override void Enter()
     {
         base.Enter();
+        owner.GetComponent<Enemy1>().State = Enemy1State.MOVEMENT;
     }
 
     public override void HandleUpdate()
