@@ -9,9 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b998c549f3fff1d4a99b5d7c40052f0f, type: 3}
-  m_Name: Boss2Idle
+  m_Script: {fileID: 11500000, guid: d2390aaf6ba2f4a49b7392c6468bfee8, type: 3}
+  m_Name: Boss2SonicThrustTelegraph
   m_EditorClassIdentifier: 
-  timeBetweenAttacks: 1
-  sonicThrustPercentage: 100
-  sonicSnipePercentage: 50
+  telegraphTime: 1
+  telegraph: {fileID: 1609845037211932075, guid: 69fa643ec721f4849846b379bc69bd36,
+    type: 3}
+  telegraphLength: 10

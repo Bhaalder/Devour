@@ -22,7 +22,7 @@ public class Boss2SonicThrustMovement : Boss2BaseState
 
         if (DistanceToPlayer() <= thrustDistance)
         {
-            owner.Transition<Boss2SonicThrustAttack>();
+            owner.Transition<Boss2SonicThrustTelegraph>();
         }
 
     }

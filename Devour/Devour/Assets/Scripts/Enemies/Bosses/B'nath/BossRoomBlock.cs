@@ -35,7 +35,6 @@ public class BossRoomBlock : MonoBehaviour
         {
             if(blocker != null)
             {
-                blocker.SetActive(true);
                 isTriggered = true;
             }
         }
