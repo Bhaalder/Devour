@@ -68,6 +68,7 @@ public class Boss2SonicDashAttack : Boss2BaseState
         currentPosition++;
         startPosition = owner.rb.position;
         countUp = 0;
+        FindTargetDirection();
         if(currentPosition >= 3)
         {
             currentPosition = 0;

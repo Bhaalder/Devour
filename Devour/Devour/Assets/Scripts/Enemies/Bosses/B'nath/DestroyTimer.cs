@@ -7,8 +7,6 @@ public class DestroyTimer : MonoBehaviour
     [SerializeField] private float destructionTime;
     public float DestructionTime { get; set; } = 1f;
 
-    private float currentCooldown;
-
     void Start()
     {
         if(destructionTime > 0)
@@ -19,11 +17,8 @@ public class DestroyTimer : MonoBehaviour
         {
             destructionTime = DestructionTime;
         }
-
-        currentCooldown = destructionTime;
     }
 
-    // Update is called once per frame
     void Update()
     {
         DestroyCooldown();

@@ -7,9 +7,11 @@ public class Boss2SonicDashTelegraph : Boss2BaseState
 {
     [SerializeField] private GameObject positionTelegraph;
     [SerializeField] private float telegraphTime = 2f;
+    [SerializeField] private float telegraphDelay = 0.3f;
 
     private GameObject chosenPattern;
     private float currentCooldown;
+    private float tempTelegraphDelay;
 
     public override void Enter()
     {
@@ -18,6 +20,8 @@ public class Boss2SonicDashTelegraph : Boss2BaseState
         ChooseDashPattern();
         DashTelegraph();
         currentCooldown = telegraphTime;
+        tempTelegraphDelay = 0;
+
     }
 
     public override void HandleUpdate()
@@ -57,7 +61,12 @@ public class Boss2SonicDashTelegraph : Boss2BaseState
         {
             GameObject position = Instantiate(positionTelegraph, null);
             position.transform.position = gameObject.transform.position;
+            position.GetComponent<ParticleStartTimer>().StartTimer = tempTelegraphDelay;
+            position.GetComponent<DestroyTimer>().DestructionTime = tempTelegraphDelay + 1f;
+            tempTelegraphDelay += 0.3f;
         }
+
+        tempTelegraphDelay = 0;
     }
 
     private void TelegraphTime()

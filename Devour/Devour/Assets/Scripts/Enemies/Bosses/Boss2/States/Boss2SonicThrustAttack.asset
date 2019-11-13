@@ -12,10 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6bea1b6d4e9770f4db2ffd064448e4b3, type: 3}
   m_Name: Boss2SonicThrustAttack
   m_EditorClassIdentifier: 
-  bossSprite: {fileID: 0}
   layerMask:
     serializedVersion: 2
     m_Bits: 256
   rayCastLength: 3
   dashForce: 20
-  startDashTime: 0.6
+  startDashTime: 0.3

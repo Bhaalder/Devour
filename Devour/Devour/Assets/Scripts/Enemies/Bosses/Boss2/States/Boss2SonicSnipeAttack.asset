@@ -12,5 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 82a99f01a0c204f4ab7b54133abfc7e1, type: 3}
   m_Name: Boss2SonicSnipeAttack
   m_EditorClassIdentifier: 
-  bossSprite: {fileID: 0}
   attackTime: 1
