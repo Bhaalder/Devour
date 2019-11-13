@@ -17,7 +17,7 @@ public class MenuAudioSliders : MonoBehaviour {
         sfxVolumeSlider.onValueChanged.AddListener(delegate { SFXValueChangeCheck(); });
         voiceVolumeSlider.onValueChanged.AddListener(delegate { VoiceValueChangeCheck(); });
     }
-    //alla sliders ska vara mellan -80 till 0 i valuerange
+    //alla sliders ska vara mellan -80 till 20 i valuerange
     public void MasterValueChangeCheck() {
         AudioMixerVolumeEvent masterVolumeEvent = new AudioMixerVolumeEvent {
             soundMixerType = SoundMixerType.MASTER,
