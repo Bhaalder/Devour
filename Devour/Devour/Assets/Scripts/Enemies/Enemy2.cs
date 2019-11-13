@@ -3,29 +3,35 @@ using System.Collections.Generic;
 using UnityEngine;
 using Pathfinding;
 
+public enum Enemy2State
+{
+    NONE, IDLE, MOVEMENT, HURT, DEATH
+}
 public class Enemy2 : Enemy
 {
     [SerializeField] private bool idleOnly;
     public Vector2 StartPosition { get; set; }
     public bool IdleOnly { get; set; }
     public AudioSource FlySoundAudioSource { get; set; }
+    public Enemy2State State { get; set; }
+    public Animator Animator { get; set; }
 
     protected override void Awake() {
         base.Awake();
         StartPosition = rb.position;
         IdleOnly = idleOnly;
+        Animator = GetComponent<Animator>();
     }
-    // Start is called before the first frame update
     void Start()
     {
         FlySoundAudioSource = GetComponentInChildren<AudioSource>();
         Invoke("FlySound", Random.Range(0.2f, 0.9f));
     }
 
-    // Update is called once per frame
     protected override void Update()
     {
         base.Update();
+        //Animator.SetInteger("State", (int)State);
     }
 
     public override Vector2 KnockBack(Vector2 knockback) {

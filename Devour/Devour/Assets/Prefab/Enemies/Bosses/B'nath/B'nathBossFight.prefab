@@ -892,7 +892,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &6423004830342552698
 Transform:
   m_ObjectHideFlags: 0
@@ -1356,6 +1356,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   blocker: {fileID: 0}
   boss: {fileID: 0}
+  timeBeforeBoss: 2
 --- !u!61 &5501138560207074932
 BoxCollider2D:
   m_ObjectHideFlags: 0

@@ -5,6 +5,8 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "Boss/Boss2/Boss2DeathState")]
 public class Boss2DeathState : EnemyDeathState
 {
+
+    [SerializeField] float deathDelay = 2f;
     public override void Enter()
     {
         if (owner.GetComponent<BoxCollider2D>() != null)

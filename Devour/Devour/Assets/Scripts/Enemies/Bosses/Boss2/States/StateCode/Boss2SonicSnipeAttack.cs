@@ -21,6 +21,7 @@ public class Boss2SonicSnipeAttack : Boss2BaseState
     public override void HandleUpdate()
     {
         AttackTime();
+        owner.rb.velocity = new Vector2(0, 0);
     }
     public override void HandleFixedUpdate()
     {

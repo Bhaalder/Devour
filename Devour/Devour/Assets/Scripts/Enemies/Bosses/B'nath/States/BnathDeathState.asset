@@ -14,3 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   particleOnDeath: {fileID: 1315949759934820, guid: a4bff1f9c9bdea54290d41a23227749f,
     type: 3}
+  deathTimer: 3

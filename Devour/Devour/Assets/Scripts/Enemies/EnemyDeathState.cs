@@ -8,8 +8,8 @@ using UnityEngine;
 public class EnemyDeathState : EnemyBaseState
 {
 
-    [SerializeField] private GameObject particleOnDeath;
-    private float deathTimer = 1f;
+    [SerializeField] protected GameObject particleOnDeath;
+    [SerializeField] protected float deathTimer = 1f;
     private float currentCooldown;
     private GameObject[] childrenToDisable;
 
@@ -60,7 +60,7 @@ public class EnemyDeathState : EnemyBaseState
         base.HandleFixedUpdate();
     }
 
-    private void  DestroyTimer()
+    protected void DestroyTimer()
     {
         currentCooldown -= Time.deltaTime;
 

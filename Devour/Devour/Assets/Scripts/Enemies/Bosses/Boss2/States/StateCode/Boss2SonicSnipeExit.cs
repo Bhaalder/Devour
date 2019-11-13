@@ -18,6 +18,7 @@ public class Boss2SonicSnipeExit : Boss2BaseState
     public override void HandleUpdate()
     {
         base.HandleUpdate();
+        owner.rb.velocity = new Vector2(0, 0);
     }
     public override void HandleFixedUpdate()
     {

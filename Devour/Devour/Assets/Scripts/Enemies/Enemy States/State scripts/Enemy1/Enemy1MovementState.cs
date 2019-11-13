@@ -35,33 +35,26 @@ public class Enemy1MovementState : EnemyMovement
     private void Movement()
     {
 
-        if (!owner.Stunned)
+        currentCooldown = timeStunned;
+
+        if (movingRight)
         {
-            currentCooldown = timeStunned;
-
-            if (movingRight)
-            {
-                direction = new Vector2(1f, 0f);
-                Vector3 v = new Vector3(1f, 1f, 1f);
-                owner.setGFX(v);
-            }
-            else if (!movingRight)
-            {
-                direction = new Vector2(-1f, 0f);
-                Vector3 v = new Vector3(-1f, 1f, 1f);
-                owner.setGFX(v);
-            }
-
-            force = direction.normalized * enemySpeed * Time.deltaTime;
-
-            owner.rb.AddForce(force);
-
-            CheckGround();
+            direction = new Vector2(1f, 0f);
+            Vector3 v = new Vector3(1f, 1f, 1f);
+            owner.setGFX(v);
         }
-        else if (owner.Stunned)
+        else if (!movingRight)
         {
-            StunnedCooldown();
+            direction = new Vector2(-1f, 0f);
+            Vector3 v = new Vector3(-1f, 1f, 1f);
+            owner.setGFX(v);
         }
+
+        force = direction.normalized * enemySpeed * Time.deltaTime;
+
+        owner.rb.AddForce(force);
+
+        CheckGround();
 
     }
 
