@@ -164,7 +164,7 @@ public class Enemy : StateMachine
     }
 
     public void PlaySound(string sound) {
-        if (IsAlive) {
+        if (IsAlive && !AudioGO.GetComponent<AudioSource>().isPlaying) {
             AudioPlaySoundAtLocationEvent soundEvent = new AudioPlaySoundAtLocationEvent {
                 name = sound,
                 soundType = SoundType.SFX,
