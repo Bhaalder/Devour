@@ -9,6 +9,7 @@ public class Boss2DeathState : EnemyDeathState
     [SerializeField] float deathDelay = 2f;
     public override void Enter()
     {
+        owner.rb.gravityScale = 0;
         if (owner.GetComponent<BoxCollider2D>() != null)
         {
             owner.GetComponent<BoxCollider2D>().enabled = false;

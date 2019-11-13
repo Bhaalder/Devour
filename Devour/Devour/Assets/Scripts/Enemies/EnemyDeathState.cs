@@ -10,8 +10,8 @@ public class EnemyDeathState : EnemyBaseState
 
     [SerializeField] protected GameObject particleOnDeath;
     [SerializeField] protected float deathTimer = 1f;
-    private float currentCooldown;
-    private GameObject[] childrenToDisable;
+    protected float currentCooldown;
+    protected GameObject[] childrenToDisable;
 
     public override void Enter()
     {
