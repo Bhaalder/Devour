@@ -67,6 +67,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: a1533498c36b89d4f93b62106f912197, type: 2}
   - {fileID: 11400000, guid: f4be1189cf461d7468506831ea166cd4, type: 2}
   - {fileID: 11400000, guid: 02be2d18149b79d4a96dd4364926ee71, type: 2}
+  particlesOnHurt: {fileID: 0}
   enemyHealth: 50
   damageToPlayerOnContact: 25
   lifeforceAmount: 10
@@ -1344,7 +1345,7 @@ GameObject:
   - component: {fileID: 3740652272824169755}
   - component: {fileID: 5061566205219750442}
   m_Layer: 9
-  m_Name: DeathAudio
+  m_Name: Audio
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

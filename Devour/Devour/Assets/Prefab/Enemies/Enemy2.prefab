@@ -1439,7 +1439,7 @@ GameObject:
   - component: {fileID: 7249580051189109700}
   - component: {fileID: 8775210525184042864}
   m_Layer: 9
-  m_Name: DeathAudio
+  m_Name: Audio
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
