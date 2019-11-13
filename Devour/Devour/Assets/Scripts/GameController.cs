@@ -19,6 +19,7 @@ public class GameController : MonoBehaviour {
     public Dictionary<string, List<int>> DestroyedPlatforms { get; set; }
     public Dictionary<string, List<int>> CollectedVoidEssences { get; set; }
     public Dictionary<string, List<int>> DestroyedVoidGenerators { get; set; }
+    public List<string> KilledBosses { get; set; }
 
     private static GameController instance;
 
@@ -42,7 +43,7 @@ public class GameController : MonoBehaviour {
             Debug.LogWarning("Destroyed other Singleton with name: " + gameObject.name);
         }
         DontDestroyOnLoad(gameObject);
-
+        KilledBosses = new List<string>();
         DestroyedDestructibles = new Dictionary<string, List<int>>();
         DestroyedPlatforms = new Dictionary<string, List<int>>();
         CollectedVoidEssences = new Dictionary<string, List<int>>();
@@ -59,9 +60,10 @@ public class GameController : MonoBehaviour {
             RestingScene = SceneManager.GetActiveScene().name;
         }
         PlayerDiedEvent.RegisterListener(OnPlayerDied);
+        BossDiedEvent.RegisterListener(OnBossDied);
     }
 
-    private void OnPlayerDied(PlayerDiedEvent diedEvent) {
+    private void OnPlayerDied(PlayerDiedEvent playerDiedEvent) {
         FadeScreenEvent fadeScreen = new FadeScreenEvent {
             isFadeIn = true
         };
@@ -70,13 +72,21 @@ public class GameController : MonoBehaviour {
             if(RestingCheckpoint != null) {
                 Debug.Log("RESPAWN SUCCESS! " + RestingScene);
                 SceneManager.LoadScene(RestingScene);
-                diedEvent.player.transform.position = RestingCheckpoint;
+                playerDiedEvent.player.transform.position = RestingCheckpoint;
                 return;
             }
         } catch (UnassignedReferenceException) {
             Debug.LogError("No 'RestingCheckpoint' assigned in GameController to be able to respawn after death! Spawning at SceneCheckpoint...");
         }
-        diedEvent.player.transform.position = SceneCheckpoint;
+        playerDiedEvent.player.transform.position = SceneCheckpoint;
+    }
+
+    private void OnBossDied(BossDiedEvent bossDiedEvent) {
+        if (KilledBosses.Contains(bossDiedEvent.boss.name)) {
+            Debug.LogWarning("Boss with name '" + bossDiedEvent.boss.name + "' has already been killed");
+            return;
+        }
+        KilledBosses.Add(bossDiedEvent.boss.BossName);
     }
 
     public void GamePaused(bool gameIsPaused) {
@@ -91,6 +101,7 @@ public class GameController : MonoBehaviour {
 
     private void OnDestroy() {
         PlayerDiedEvent.UnRegisterListener(OnPlayerDied);
+        BossDiedEvent.UnRegisterListener(OnBossDied);
     }
 
 }

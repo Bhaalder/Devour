@@ -6,17 +6,25 @@ using UnityEngine;
 public class Boss : Enemy{
 
     public GameObject AbilityEssence { get; set; }
+    public string BossName { get; set; }
     public float MaxHealth { get; set; }
     [SerializeField] protected PlayerAbility bossGivesAbility;
     [SerializeField] protected GameObject abilityEssence;
     [SerializeField] protected string bossName;
     [SerializeField] protected float maxHealth;
 
+    private void OnEnable() {
+        if (GameController.Instance.KilledBosses.Contains(BossName)){
+            Destroy(gameObject);
+        }
+    }
+
     protected override void Awake() {
         base.Awake();
         MaxHealth = maxHealth;
         Health = MaxHealth;
         AbilityEssence = abilityEssence;
+        BossName = bossName;
     }
 
     protected override void Update() {

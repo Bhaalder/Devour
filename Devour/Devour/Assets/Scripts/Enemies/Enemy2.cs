@@ -24,6 +24,8 @@ public class Enemy2 : Enemy
     }
     void Start()
     {
+        Player = GameController.Instance.Player;
+        AudioGO = transform.Find("Audio").gameObject;
         FlySoundAudioSource = GetComponentInChildren<AudioSource>();
         Invoke("FlySound", Random.Range(0.2f, 0.9f));
     }
