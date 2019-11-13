@@ -66,6 +66,15 @@ public class Enemy4RangeAttack : EnemyBaseState
 
     private void Attack()
     {
+        AudioPlaySoundAtLocationEvent soundEvent = new AudioPlaySoundAtLocationEvent {
+            name = "Enemy4Spit",
+            soundType = SoundType.SFX,
+            isRandomPitch = true,
+            minPitch = 0.9f,
+            maxPitch = 1f,
+            gameObject = owner.transform.Find("DeathAudio").gameObject
+        };
+        soundEvent.FireEvent();
         GameObject enemy4Proj = Instantiate(enemy4Projectile, owner.rb.position + projectileOffset, Quaternion.identity);
         enemy4Proj.GetComponent<Enemy4Projectile>().StartPoint = startPoint;
         enemy4Proj.GetComponent<Enemy4Projectile>().MiddlePoint = middlePoint;

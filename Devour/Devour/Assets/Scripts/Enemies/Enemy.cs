@@ -160,6 +160,20 @@ public class Enemy : StateMachine
         enemyDie.FireEvent();
     }
 
+    public void PlaySound(string sound) {
+        if (IsAlive) {
+            AudioPlaySoundAtLocationEvent soundEvent = new AudioPlaySoundAtLocationEvent {
+                name = sound,
+                soundType = SoundType.SFX,
+                isRandomPitch = true,
+                minPitch = 0.9f,
+                maxPitch = 1f,
+                gameObject = transform.Find("DeathAudio").gameObject
+            };
+            soundEvent.FireEvent();
+        }
+    }
+
     protected virtual void OnCollisionStay2D(Collision2D collision)    {
         if (collision.gameObject.tag == "Player" && IsAlive)
         {

@@ -195,6 +195,26 @@ MonoBehaviour:
     maxDistance: 25
     loop: 1
     source: {fileID: 0}
+  - name: Enemy134Step
+    clip: {fileID: 8300000, guid: 92833fec3ac0f064cb94678f911d7d13, type: 3}
+    volume: 0.8
+    pitch: 1
+    spatialBlend_2D_3D: 1
+    rolloffMode: 1
+    minDistance: 0.1
+    maxDistance: 35
+    loop: 0
+    source: {fileID: 0}
+  - name: Enemy4Spit
+    clip: {fileID: 8300000, guid: 2e36bb3336a069d4f8afd84e4a8ee4fe, type: 3}
+    volume: 1
+    pitch: 1
+    spatialBlend_2D_3D: 1
+    rolloffMode: 1
+    minDistance: 0.1
+    maxDistance: 50
+    loop: 0
+    source: {fileID: 0}
   environmentSounds:
   - name: HitRockWall
     clip: {fileID: 8300000, guid: a613132998910254a93a4edf5f3e2f9e, type: 3}
