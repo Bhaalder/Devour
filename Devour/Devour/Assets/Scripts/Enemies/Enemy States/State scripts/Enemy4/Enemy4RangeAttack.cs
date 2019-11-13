@@ -72,7 +72,7 @@ public class Enemy4RangeAttack : EnemyBaseState
             isRandomPitch = true,
             minPitch = 0.9f,
             maxPitch = 1f,
-            gameObject = owner.transform.Find("DeathAudio").gameObject
+            gameObject = owner.AudioGO
         };
         soundEvent.FireEvent();
         GameObject enemy4Proj = Instantiate(enemy4Projectile, owner.rb.position + projectileOffset, Quaternion.identity);

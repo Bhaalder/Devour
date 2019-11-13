@@ -13,6 +13,7 @@ public class Enemy : StateMachine
     public bool Stunned { get; set; }
     public bool IsAlive { get; set; }
     public GameObject[] ChildrenToDisable { get; set; }
+    public GameObject AudioGO { get; set; }
 
     [SerializeField] protected GameObject particlesOnHurt;
     [SerializeField] protected float enemyHealth;
@@ -25,14 +26,14 @@ public class Enemy : StateMachine
     [SerializeField] private GameObject[] childrenToDisable;
     [SerializeField] private string[] deathSounds;
 
-    protected GameObject audioGO;
+    
     protected BoxCollider2D boxCollider2D;
     protected float startInvulnerability = 0.2f;
     protected float invulnerabilityTimer;
 
     private void Start() {
         Player = GameController.Instance.Player;
-        audioGO = transform.Find("Audio").gameObject;
+        AudioGO = transform.Find("Audio").gameObject;
     }
 
     protected override void Awake(){
@@ -157,7 +158,7 @@ public class Enemy : StateMachine
             minPitch = 0.95f,
             maxPitch = 1,
             soundType = SoundType.SFX,
-            gameObject = audioGO
+            gameObject = AudioGO
         };
         enemyDie.FireEvent();
     }
@@ -170,7 +171,7 @@ public class Enemy : StateMachine
                 isRandomPitch = true,
                 minPitch = 0.9f,
                 maxPitch = 1f,
-                gameObject = audioGO
+                gameObject = AudioGO
             };
             soundEvent.FireEvent();
         }
