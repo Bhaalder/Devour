@@ -12,6 +12,7 @@ public class BnathDeathState : EnemyDeathState
         owner.GetComponent<Bnath>().State = BossBnathState.DEATH;
         currentCooldown = deathTimer;
         owner.BoxCollider2D.enabled = false;
+        owner.rb.gravityScale = 0;
     }
 
     public override void HandleUpdate()
