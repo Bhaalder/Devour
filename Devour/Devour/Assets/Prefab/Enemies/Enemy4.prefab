@@ -280,6 +280,7 @@ MonoBehaviour:
   states:
   - {fileID: 11400000, guid: a186ccb5ed75e674dba3c4e83c113b03, type: 2}
   - {fileID: 11400000, guid: 8080c1a638088594e80ecf77f18d372a, type: 2}
+  - {fileID: 11400000, guid: 798280e8dfc980f48857b73c902d23f6, type: 2}
   - {fileID: 11400000, guid: 02be2d18149b79d4a96dd4364926ee71, type: 2}
   particlesOnHurt: {fileID: 0}
   enemyHealth: 75

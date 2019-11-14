@@ -20,7 +20,7 @@ public class BnathIdle : BnathBaseState
         base.Enter();
         currentCooldown = pauseBetweenAttacks;
         isPaused = true;
-        owner.GetComponent<Bnath>().Blocker.SetActive(true);
+        //owner.GetComponent<Bnath>().Blocker.SetActive(true);
     }
 
     public override void HandleUpdate()

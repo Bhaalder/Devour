@@ -37,6 +37,7 @@ public class Bnath : Boss
         Blocker = bossFightBlock;
         StartPosition = startPosition;
         YPoint = yPoint;
+        IsAlive = !isDead;
 
         PlayerDiedEvent.RegisterListener(Reset);
 

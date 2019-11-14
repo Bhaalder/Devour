@@ -10,12 +10,11 @@ public class TriggerEnemySpawner : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("InteractionPlayer"))
+        if (other.gameObject.tag == "Player")
         {
       
             spawnerScript.GetComponent<SpawnManager>().InitializeSpawner();
-            Destroy(gameObject);
-
+            GetComponent<BoxCollider2D>().enabled = false;
         }
 
     }
