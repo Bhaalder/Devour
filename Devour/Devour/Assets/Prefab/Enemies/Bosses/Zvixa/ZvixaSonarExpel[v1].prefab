@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 1428199886155703913}
   - component: {fileID: 5446512066850310569}
   - component: {fileID: 8525277552665733719}
+  - component: {fileID: 3125271624763762409}
   m_Layer: 0
   m_Name: ZvixaSonarExpel[v1]
   m_TagString: Untagged
@@ -132,3 +133,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f56f8876cab46149830c68e06519d60, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!210 &3125271624763762409
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1428199886155703915}
+  m_Enabled: 1
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 5

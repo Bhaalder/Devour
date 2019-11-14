@@ -23,6 +23,8 @@ public class Zvixa : Boss{
 
     public float DistanceToPlayer { get; set; }
 
+    public float XScale { get; set; }
+
     [SerializeField] private BoxCollider2D highArea;
     [SerializeField] private BoxCollider2D lowArea;
     [SerializeField] private BoxCollider2D startFightArea;
@@ -37,6 +39,7 @@ public class Zvixa : Boss{
         if (IsDead) {
             Destroy(gameObject);
         }
+        XScale = transform.localScale.x;
         base.Awake();
         HighArea = highArea;
         LowArea = lowArea;

@@ -16,7 +16,7 @@ public class ZvixaBaseState : State {
     protected Transform teleportLocation;
 
     public override void Enter() {
-        base.Enter();    
+        base.Enter();
     }
 
     public override void HandleFixedUpdate() {
@@ -86,10 +86,10 @@ public class ZvixaBaseState : State {
 
     private void FacingDirection() {
         if (owner.Player.transform.position.x < owner.transform.position.x) {
-            Flip(-1);
+            Flip(-owner.XScale);
             owner.FacingDirection = -1;
         } else {
-            Flip(1);
+            Flip(owner.XScale);
             owner.FacingDirection = 1;
         }
     }
