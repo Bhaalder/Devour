@@ -1065,11 +1065,11 @@ GameObject:
   m_Component:
   - component: {fileID: 8700264559197275829}
   - component: {fileID: 8700264559197275831}
-  - component: {fileID: 8700264559197275832}
   - component: {fileID: 8700264559197275830}
   - component: {fileID: 8700264559197275828}
   - component: {fileID: 1441184393443467787}
   - component: {fileID: 6025685492786705470}
+  - component: {fileID: 5304301899632455379}
   m_Layer: 0
   m_Name: Zvixa
   m_TagString: Enemy
@@ -1085,8 +1085,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8700264559197275826}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 7.57, y: 14.54, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 7.57, y: 48.9, z: 0}
+  m_LocalScale: {x: 2, y: 2, z: 1}
   m_Children:
   - {fileID: 979514767017546291}
   - {fileID: 4209219747121675289}
@@ -1116,22 +1116,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 6
---- !u!58 &8700264559197275832
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8700264559197275826}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: -0.00000011920929, y: -0.0938921}
-  serializedVersion: 2
-  m_Radius: 0.75144887
 --- !u!61 &8700264559197275830
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1145,7 +1129,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: -0.10587263}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -1156,7 +1140,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.5, y: 1.81}
+  m_Size: {x: 2.23718, y: 4.6873217}
   m_EdgeRadius: 0
 --- !u!114 &8700264559197275828
 MonoBehaviour:
@@ -1313,6 +1297,22 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!70 &5304301899632455379
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8700264559197275826}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.03565049, y: 0.05117798}
+  m_Size: {x: 1.7791362, y: 4.0411663}
+  m_Direction: 0
 --- !u!1 &8700264559316936148
 GameObject:
   m_ObjectHideFlags: 0
