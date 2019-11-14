@@ -17,7 +17,6 @@ public class Boss2 : Boss
 
 
     public Boss2State State { get; set; }
-    public Animator Animator { get; set; }
     public GameObject DashPattern1 { get; set; }
     public GameObject DashPattern2 { get; set; }
     public GameObject DashPattern3 { get; set; }

@@ -66,7 +66,7 @@ public class Bnath : Boss
                 enemyPosition = rb.position
             };
             ptde.FireEvent();
-
+            rb.velocity = new Vector2(0, rb.velocity.y);
         }
     }
 
