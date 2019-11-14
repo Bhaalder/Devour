@@ -127,7 +127,10 @@ public class SpawnManager : MonoBehaviour
 
                 try
                 {
-                    door.SetActive(false);
+                    
+                        door.SetActive(false);
+                    
+                    
                 }
                 catch (NullReferenceException)
                 {
