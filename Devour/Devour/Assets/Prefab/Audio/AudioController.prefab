@@ -115,14 +115,24 @@ MonoBehaviour:
     loop: 0
     source: {fileID: 0}
   - name: Wallslide
-    clip: {fileID: 0}
-    volume: 1
+    clip: {fileID: 8300000, guid: 52e0eed502cbe70428b618ec68c5b17c, type: 3}
+    volume: 0.5
     pitch: 1
     spatialBlend_2D_3D: 0
     rolloffMode: 0
     minDistance: 0
     maxDistance: 0
     loop: 1
+    source: {fileID: 0}
+  - name: WallJump
+    clip: {fileID: 8300000, guid: 90eae659c124a3d4aa036a72c0b96e60, type: 3}
+    volume: 0.5
+    pitch: 1
+    spatialBlend_2D_3D: 0
+    rolloffMode: 0
+    minDistance: 0
+    maxDistance: 0
+    loop: 0
     source: {fileID: 0}
   - name: Projectile
     clip: {fileID: 8300000, guid: 75b31c37b11fb3445953676206465729, type: 3}

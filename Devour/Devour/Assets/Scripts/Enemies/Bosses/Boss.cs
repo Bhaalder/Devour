@@ -14,8 +14,10 @@ public class Boss : Enemy{
     [SerializeField] protected float maxHealth;
 
     private void OnEnable() {
-        if (GameController.Instance.KilledBosses.Contains(BossName)){
-            Destroy(gameObject);
+        if(GameController.Instance.KilledBosses != null) {
+            if (GameController.Instance.KilledBosses.Contains(BossName)) {
+                Destroy(gameObject);
+            }
         }
     }
 

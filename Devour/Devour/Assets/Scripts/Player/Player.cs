@@ -252,6 +252,13 @@ public class Player : StateMachine {
     }
 
     protected override void Update() {
+        TEST();//TEST
+        InvulnerableTimeCheck();
+        Animator.SetInteger("State", (int)PlayerState);
+        base.Update();
+    }
+
+    private void TEST() {
         if (Input.GetKeyDown(KeyCode.F1)) {//TEST START________________________________________________
             PlayerTakeDamageEvent ptde = new PlayerTakeDamageEvent {//
                 damage = 100//
@@ -262,6 +269,10 @@ public class Player : StateMachine {
             foreach (PlayerAbility ability in playerAbilities) {//
                 PlayerAbilities.Add(ability);//
             }//
+            PlayerGetAbilityEvent voidAbility = new PlayerGetAbilityEvent {
+                playerAbility = PlayerAbility.VOIDMEND
+            };
+            voidAbility.FireEvent();
         }//
         if (Input.GetKeyDown(KeyCode.F3)) {//
             Collectible lifeForce = new Collectible(CollectibleType.LIFEFORCE, 1000);//
@@ -281,9 +292,6 @@ public class Player : StateMachine {
         }//
         PlayerVelocity = Rb2D.velocity;//
         health = Health;//TEST END_____________________________________________________________________
-        InvulnerableTimeCheck();
-        Animator.SetInteger("State", (int)PlayerState);
-        base.Update();
     }
 
     private void OnFadeScreen(FadeScreenEvent screenEvent) {

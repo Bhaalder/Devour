@@ -20,7 +20,7 @@ public class TimedPlatform : MonoBehaviour{
 
     private void OnTriggerStay2D(Collider2D collision) {
         if (collision.gameObject.tag == "Player" && !startToBreak) {
-            GameObject instantiatedParticle = Instantiate(aboutToBreakParticles, transform.position, Quaternion.identity);
+            GameObject instantiatedParticle = Instantiate(aboutToBreakParticles, transform.GetChild(0).position, Quaternion.identity);
             AudioPlaySoundAtLocationEvent rockBreakingSound = new AudioPlaySoundAtLocationEvent {
                 name = "HitRockWall",
                 isRandomPitch = true,
@@ -38,7 +38,7 @@ public class TimedPlatform : MonoBehaviour{
 
     private IEnumerator Break() {
         yield return new WaitForSecondsRealtime(timeUntilDestroyed);
-        GameObject instantiatedParticle = Instantiate(brokenParticles, transform.position, Quaternion.identity);
+        GameObject instantiatedParticle = Instantiate(brokenParticles, transform.GetChild(0).position, Quaternion.identity);
         string[] breakRockWall = { "BreakRockWall1", "BreakRockWall1" };
         AudioPlayRandomSoundAtLocationEvent rockBreakSound = new AudioPlayRandomSoundAtLocationEvent {
             name = breakRockWall,

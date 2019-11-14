@@ -22,6 +22,15 @@ public class PlayerWallJumpState : PlayerWallslideState {
             maxPitch = 1.03f
         };
         capeJumpSound.FireEvent();
+        AudioPlaySoundEvent wallJumpSound = new AudioPlaySoundEvent {
+            name = "WallJump",
+            soundType = SoundType.SFX,
+            isRandomPitch = true,
+            minPitch = 0.93f,
+            maxPitch = 1.03f
+        };
+        wallJumpSound.FireEvent();
+        
     }
 
     public override void HandleFixedUpdate() {

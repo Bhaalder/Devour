@@ -8,7 +8,6 @@ using UnityEngine;
 public class ZvixaBaseState : State {
 
     protected Zvixa owner;
-    public Color colorTest; //För tillfället för test
     protected bool battleStart;
     private float minimumTimeUntilMove = 1.5f;
     private float maximumTimeUntilMove = 3.5f;
@@ -17,8 +16,7 @@ public class ZvixaBaseState : State {
     protected Transform teleportLocation;
 
     public override void Enter() {
-        base.Enter();
-        owner.GetComponent<SpriteRenderer>().color = colorTest;//TEST       
+        base.Enter();    
     }
 
     public override void HandleFixedUpdate() {
@@ -88,10 +86,10 @@ public class ZvixaBaseState : State {
 
     private void FacingDirection() {
         if (owner.Player.transform.position.x < owner.transform.position.x) {
-            Flip(-4);
+            Flip(-1);
             owner.FacingDirection = -1;
         } else {
-            Flip(4);
+            Flip(1);
             owner.FacingDirection = 1;
         }
     }

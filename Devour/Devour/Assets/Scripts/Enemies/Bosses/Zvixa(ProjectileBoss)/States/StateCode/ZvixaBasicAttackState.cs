@@ -54,7 +54,7 @@ public class ZvixaBasicAttackState : ZvixaBaseState {
     private void SpawnBall() {
         GameObject projectile;
         ZvixaProjectile zvixaProjectile;
-        projectile = Instantiate(ballAttackPrefab, owner.transform.position + new Vector3(owner.FacingDirection * 6, 2, 0), Quaternion.identity);
+        projectile = Instantiate(ballAttackPrefab, owner.transform.position + new Vector3(owner.FacingDirection * 4, 0, 0), Quaternion.identity);
         zvixaProjectile = projectile.GetComponent<ZvixaProjectile>();
         zvixaProjectile.Damage = ballDamage;
         zvixaProjectile.SelfDamage = ballSelfDamage;
