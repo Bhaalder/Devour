@@ -30,12 +30,10 @@ public class PlayerHealthSlider : MonoBehaviour{
     private void TakeDamage(PlayerTakeDamageEvent takeDamageEvent) {
         if (takeDamageEvent.isSelfInflicted) {
             ChangeSlider(takeDamageEvent.damage);
-            //healthSlider.value -= takeDamageEvent.damage;
             return;
         }
         if (!GameController.Instance.Player.IsInvulnerable) {
             ChangeSlider(takeDamageEvent.damage);
-            //healthSlider.value -= takeDamageEvent.damage;
         }     
     }
 
@@ -48,7 +46,6 @@ public class PlayerHealthSlider : MonoBehaviour{
             healEvent.amount = GameController.Instance.Player.MeleeLifeLeech;
         }
         ChangeSlider(-healEvent.amount);
-        //healthSlider.value += healEvent.amount;
     }
 
     private void OnTalentPointGain(TalentPointGainEvent pointGainEvent) {
