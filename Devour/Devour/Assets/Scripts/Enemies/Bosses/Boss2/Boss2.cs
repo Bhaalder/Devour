@@ -85,6 +85,11 @@ public class Boss2 : Boss
         SpawnAbilityEssence();
         GiveLifeforce();
         State = Boss2State.DEATH;
+        BossDiedEvent boss2Died = new BossDiedEvent
+        {
+            boss = this
+        };
+        boss2Died.FireEvent();
         Transition<Boss2DeathState>();
     }
     private void Reset(PlayerDiedEvent playerDied)
