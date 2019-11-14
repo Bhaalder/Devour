@@ -175,6 +175,7 @@ public class BnathClimbDash : BnathBaseState
             Vector3 v = new Vector3(-1f, 1f, 1f);
             owner.setGFX(v);
         }
+        owner.rb.velocity = new Vector2(0, 0);
     }
 
     private void ClimbDash()
