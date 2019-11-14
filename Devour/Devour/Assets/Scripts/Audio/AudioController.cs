@@ -225,7 +225,7 @@ public class AudioController : MonoBehaviour {
         if (mixerVolumeEvent.volume == -80) {
             audioMixer.SetFloat(mixerName, mixerVolumeEvent.volume);
         } else {
-            audioMixer.SetFloat(mixerName, (mixerVolumeEvent.volume / 4));
+            audioMixer.SetFloat(mixerName, (mixerVolumeEvent.volume/2));
         }
     }
 
