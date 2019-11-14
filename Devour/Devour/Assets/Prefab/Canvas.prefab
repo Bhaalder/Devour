@@ -522,7 +522,7 @@ MonoBehaviour:
       amount: 5
     - variableChangeName: VoidLeech
       amount: 0.5
-    description: Voidboiii
+    description: Become more adept with the void.
     collectibleCost:
     - collectibleType: 0
       amount: 1
@@ -2808,7 +2808,7 @@ MonoBehaviour:
       amount: 1
     - variableChangeName: DashCooldownReduction
       amount: 0.2
-    description: Speedboiiiiii
+    description: Become more Agile.
     collectibleCost:
     - collectibleType: 0
       amount: 1
@@ -4004,7 +4004,7 @@ MonoBehaviour:
       amount: 25
     - variableChangeName: LifeLeech
       amount: 0.5
-    description: Toughness
+    description: Survive more damage taken.
     collectibleCost:
     - collectibleType: 0
       amount: 1
@@ -5339,11 +5339,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2051252243704120869}
     m_Modifications:
-    - target: {fileID: 840294480015153591, guid: 3c93c1f5d80d2bf49a12a1c67bc02284,
-        type: 3}
-      propertyPath: m_Name
-      value: FadeScreen
-      objectReference: {fileID: 0}
     - target: {fileID: 5400650760061075825, guid: 3c93c1f5d80d2bf49a12a1c67bc02284,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -5448,6 +5443,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 840294480015153591, guid: 3c93c1f5d80d2bf49a12a1c67bc02284,
+        type: 3}
+      propertyPath: m_Name
+      value: FadeScreen
       objectReference: {fileID: 0}
     - target: {fileID: 3960688535492773239, guid: 3c93c1f5d80d2bf49a12a1c67bc02284,
         type: 3}

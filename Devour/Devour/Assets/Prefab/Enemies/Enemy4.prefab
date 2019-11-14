@@ -286,7 +286,7 @@ MonoBehaviour:
     type: 3}
   enemyHealth: 75
   damageToPlayerOnContact: 25
-  lifeforceAmount: 15
+  lifeforceAmount: 25
   enemyGFX: {fileID: 4665437243376551251}
   childrenToDisable:
   - {fileID: 4665437243542778321}
