@@ -73,7 +73,6 @@ public class Bnath : Boss
     public override void EnemyDeath()
     {
         //Transition till DeathState
-        isDead = true;
         SpawnAbilityEssence();
         GiveLifeforce();
         BossDiedEvent bnathDied = new BossDiedEvent
