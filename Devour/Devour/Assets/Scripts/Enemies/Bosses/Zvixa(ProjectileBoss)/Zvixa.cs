@@ -52,6 +52,7 @@ public class Zvixa : Boss{
 
     protected override void Update() {
         base.Update();
+        Animator.SetInteger("State", (int)State);
     }
 
     protected override void FixedUpdate() {
@@ -86,13 +87,12 @@ public class Zvixa : Boss{
     }
 
     public override void EnemyDeath() {
-        IsDead = true;
-        BossDiedEvent zvixaDied = new BossDiedEvent {
-            boss = this
-        };
-        zvixaDied.FireEvent();
-        Destroy(LowArea.gameObject);
-        Transition<ZvixaDeathState>();
+        if (!IsDead) {
+            IsDead = true;
+        }
+        if(State != BossZvixaState.DEATH) {
+            Transition<ZvixaDeathState>();
+        }
     }
 
     protected override void OnDestroy() {

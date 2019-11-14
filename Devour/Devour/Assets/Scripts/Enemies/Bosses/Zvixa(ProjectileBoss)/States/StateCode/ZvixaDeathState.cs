@@ -14,6 +14,11 @@ public class ZvixaDeathState : ZvixaBaseState {
         owner.State = BossZvixaState.DEATH;
         owner.BossLog("DeathState");
         deathTimeLeft = deathTime;
+        BossDiedEvent zvixaDied = new BossDiedEvent {
+            boss = owner
+        };
+        zvixaDied.FireEvent();
+        Destroy(owner.LowArea.gameObject);
         base.Enter();
     }
 

@@ -14,6 +14,7 @@ public class Enemy : StateMachine
     public bool IsAlive { get; set; }
     public GameObject[] ChildrenToDisable { get; set; }
     public GameObject AudioGO { get; set; }
+    public BoxCollider2D BoxCollider2D { get; set; }
 
     [SerializeField] protected GameObject particlesOnHurt;
     [SerializeField] protected float enemyHealth;
@@ -40,6 +41,7 @@ public class Enemy : StateMachine
         base.Awake();
         rb = GetComponent<Rigidbody2D>();
         boxCollider2D = GetComponent<BoxCollider2D>();
+        BoxCollider2D = boxCollider2D;
         Health = enemyHealth;
         Damage = damageToPlayerOnContact;
         ChildrenToDisable = childrenToDisable;

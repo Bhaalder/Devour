@@ -21,7 +21,6 @@ public class Bnath : Boss
     public bool BossFightStart { get; set; } = false;
     public GameObject Blocker { get; set; }
     public GameObject StartPosition { get; set; }
-    public Animator Animator { get; set; }
     public GameObject YPoint { get; set; }
 
     private static bool isDead;
@@ -38,7 +37,6 @@ public class Bnath : Boss
         Blocker = bossFightBlock;
         StartPosition = startPosition;
         YPoint = yPoint;
-        Animator = GetComponent<Animator>();
 
         PlayerDiedEvent.RegisterListener(Reset);
 

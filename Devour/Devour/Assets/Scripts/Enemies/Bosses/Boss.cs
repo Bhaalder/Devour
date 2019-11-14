@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class Boss : Enemy{
 
+    public Animator Animator { get; set; }
     public GameObject AbilityEssence { get; set; }
     public string BossName { get; set; }
     public float MaxHealth { get; set; }
@@ -27,6 +28,7 @@ public class Boss : Enemy{
         Health = MaxHealth;
         AbilityEssence = abilityEssence;
         BossName = bossName;
+        Animator = GetComponent<Animator>();
     }
 
     protected override void Update() {
