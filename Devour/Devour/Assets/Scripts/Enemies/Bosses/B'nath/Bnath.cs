@@ -81,7 +81,12 @@ public class Bnath : Boss
             boss = this
         };
         bnathDied.FireEvent();
-        Transition<BnathDeathState>();
+        if (!isDead)
+        {
+            isDead = true;
+            Transition<BnathDeathState>();
+        }
+        
     }
     private void Reset(PlayerDiedEvent playerDied)
     {
