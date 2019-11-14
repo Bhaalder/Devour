@@ -68,7 +68,7 @@ public class EnemyDeathState : EnemyBaseState
         {
             return;
         }
-
+        
         Destroy(owner.gameObject);
     }
 }

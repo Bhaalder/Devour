@@ -4,10 +4,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using UnityEngine.EventSystems;
 
 public class MainMenuController : MonoBehaviour{
 
     [Header("MainMenu")]
+    [SerializeField] private GameObject mainMenuGO;
     [SerializeField] private Button newGameButton;
     [SerializeField] private Button loadGameButton;
     [SerializeField] private Button optionsButton;
@@ -18,12 +20,16 @@ public class MainMenuController : MonoBehaviour{
     [SerializeField] private float loadingSequenceLength;
 
     [Header("Options")]
+    [SerializeField] private GameObject optionsGO;
     [SerializeField] private Button soundButton;
     [SerializeField] private Button backButton;
 
     [Header("Sound")]
+    [SerializeField] private GameObject soundOptionsGO;
+    [SerializeField] private MenuAudioSliders audioSliders;
+    [SerializeField] private Button soundBackButton;
 
-
+    [Header("Animations")]
     [SerializeField] private Animator cameraAnim;
     [SerializeField] private Animator buttonAnim;
 
@@ -40,24 +46,29 @@ public class MainMenuController : MonoBehaviour{
 
         }
         
-        if (newGameButton != null) {
-            newGameButton.onClick.AddListener(() => { SetSceneAndPlayAnimation("newGame"); });
-        }
-        if (loadGameButton != null) {
-            loadGameButton.onClick.AddListener(() => { SetSceneAndPlayAnimation("loadGame"); });
-        }
-        if (optionsButton != null) {
-            optionsButton.onClick.AddListener(() => { SetSceneAndPlayAnimation("optionsButton"); });
-        }
-        if (exitButton != null) {
-            exitButton.onClick.AddListener(() => { SetSceneAndPlayAnimation("exitButton"); });
+        AddListener(newGameButton, "newGame");
+        AddListener(loadGameButton, "loadGame");
+        AddListener(optionsButton, optionsGO, mainMenuGO);
+        AddListener(exitButton, "exitButton");
+        AddListener(soundButton, soundOptionsGO, optionsGO);
+        AddListener(soundBackButton, optionsGO, soundOptionsGO);
+        AddListener(backButton, mainMenuGO, optionsGO);
+    }
+
+    private void AddListener(Button button, string buttonName) {
+        if(button != null) {
+            button.onClick.AddListener(() => { SetSceneAndPlayAnimation(buttonName); });
         }
     }
 
+    private void AddListener(Button button, GameObject gameObjectSetActive, GameObject gameObjectSetInactive) {
+        if (button != null) {
+            button.onClick.AddListener(() => { MenuNavigation(gameObjectSetActive, gameObjectSetInactive); });
+        }
+    }
 
     private void SetSceneAndPlayAnimation(string buttonName) {
         Debug.Log("KLICKADE PÅ " + buttonName);
-
         switch (buttonName) {
             case "newGame":
                 sceneToLoad = newGameScene;
@@ -77,14 +88,16 @@ public class MainMenuController : MonoBehaviour{
                 sceneToLoad = loadGameScene;
                 Invoke("FadeScene", loadingSequenceLength);
                 break;
-            case "optionsButton":
-
-                break;
             case "exitButton":
 
                 break;
         }
         
+    }
+
+    private void MenuNavigation(GameObject gameObjectSetActive, GameObject gameObjectSetInactive) {
+        gameObjectSetActive.SetActive(true);
+        gameObjectSetInactive.SetActive(false);
     }
 
     private void FadeScene() {
