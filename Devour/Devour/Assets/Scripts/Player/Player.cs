@@ -122,6 +122,7 @@ public class Player : StateMachine {
     [SerializeField] private float invulnerableStateTime;
     [Tooltip("Knockbackvalue applied to player when hurt by enemies")]
     [SerializeField] private Vector2 hurtKnockbackForce;
+    private bool lowHealthSoundIsPlaying;
 
     [Header("Camera")]
     [Tooltip("How long the camera will shake when taking damage")]
@@ -381,8 +382,23 @@ public class Player : StateMachine {
 
     public void ChangeHealth(float amount) {
         Health += amount;
-        if(Health < MaxHealth * 0.2f && Health >= 0) {
-            
+        if(Health <= 25 && Health >= 0) {
+            if (!lowHealthSoundIsPlaying) {
+                AudioPlaySoundEvent startLowHealthSound = new AudioPlaySoundEvent {
+                    name = "LowHealth",
+                    soundType = SoundType.SFX
+                };
+                startLowHealthSound.FireEvent();
+                lowHealthSoundIsPlaying = true;
+            }
+        } else {
+            if (lowHealthSoundIsPlaying) {
+                AudioStopSoundEvent stopLowHealthSound = new AudioStopSoundEvent {
+                    name = "LowHealth"
+                };
+                stopLowHealthSound.FireEvent();
+                lowHealthSoundIsPlaying = false;
+            }
         }
     }
 
