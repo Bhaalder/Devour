@@ -46,13 +46,27 @@ public class PlayerDeathState : PlayerBaseState {
 
     public override void Exit() {
         owner.Rb2D.gravityScale = 6;
+        int amountOfLifeforceLost = 0;
+        
+        foreach(Collectible collectible in owner.Collectibles) {
+            if(collectible.collectibleType == CollectibleType.LIFEFORCE) {
+                amountOfLifeforceLost = collectible.amount/2;
+                break;
+            }
+        }
+        
+        PlayerCollectibleChange lifeForceLossEvent = new PlayerCollectibleChange {
+            collectible = new Collectible(CollectibleType.LIFEFORCE, -amountOfLifeforceLost)
+        };
+        lifeForceLossEvent.FireEvent();
         PlayerDiedEvent diedEvent = new PlayerDiedEvent {
             Description = "Player died!",
-            player = owner
+            player = owner,
+            collectibleLifeforceLost = new Collectible(CollectibleType.LIFEFORCE, amountOfLifeforceLost)
         };
         diedEvent.FireEvent();
         PlayerHealEvent healEvent = new PlayerHealEvent {
-            amount = owner.MaxHealth//FÖR TILLFÄLLET
+            amount = owner.MaxHealth
         };
         healEvent.FireEvent();
         owner.GetComponent<SpriteRenderer>().color = new Color32(255, 255, 255, 255);

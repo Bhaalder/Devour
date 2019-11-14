@@ -19,10 +19,10 @@ public class CollectibleListener : MonoBehaviour{
         }
         voidEssenceText.text = voidEssenceCount + "";
         lifeforceText.text = lifeforceCount + "";
-        PlayerCollectibleChange.RegisterListener(OnPlayerGainCollectible);
+        PlayerCollectibleChange.RegisterListener(OnPlayerCollectibleChange);
     }
 
-    private void OnPlayerGainCollectible(PlayerCollectibleChange collectibleEvent) {
+    private void OnPlayerCollectibleChange(PlayerCollectibleChange collectibleEvent) {
         CheckCollectible(collectibleEvent.collectible);
     }
 
@@ -40,7 +40,7 @@ public class CollectibleListener : MonoBehaviour{
     }
 
     private void OnDestroy() {
-        PlayerCollectibleChange.UnRegisterListener(OnPlayerGainCollectible);
+        PlayerCollectibleChange.UnRegisterListener(OnPlayerCollectibleChange);
     }
 
 }
