@@ -75,6 +75,7 @@ public class Player : StateMachine {
     public Transform WallCheck { get; set; }
     public Transform Aim { get; set; }
     public LayerMask WhatIsGround { get; set; }
+    public RectTransform PlayerCanvas { get; set; }
     public Animator Animator { get; set; }
 
     public float TalentMeleeDamage { get; set; }
@@ -160,6 +161,7 @@ public class Player : StateMachine {
     [SerializeField] private Transform aim;
     [SerializeField] private Transform groundCheck;
     [SerializeField] private Transform wallCheck;
+    [SerializeField] private RectTransform playerCanvas;
     [SerializeField] private LayerMask whatIsGround;
 
     [Header("Testing")]//TESTING
@@ -223,6 +225,7 @@ public class Player : StateMachine {
         GroundCheck = groundCheck;
         WallCheck = wallCheck;
         Aim = aim;
+        PlayerCanvas = playerCanvas;
         WhatIsGround = whatIsGround;
 
         Collectibles = new List<Collectible>();

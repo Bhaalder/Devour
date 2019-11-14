@@ -37,6 +37,12 @@ public class PlayerBaseState : State {
             Flip(owner.XScale);
             owner.FacingDirection = 1;
         }
+        if(owner.FacingDirection == -1 && owner.PlayerCanvas.rotation.y == 0 ) {
+            owner.PlayerCanvas.Rotate(new Vector3(0, 180, 0));
+        }
+        if (owner.FacingDirection != -1 && owner.PlayerCanvas.rotation.y == 180) {
+            owner.PlayerCanvas.Rotate(new Vector3(0, 0, 0));
+        }
     }
 
     protected void Flip(float direction) {
