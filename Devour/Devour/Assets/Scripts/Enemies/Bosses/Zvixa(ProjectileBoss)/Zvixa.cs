@@ -33,12 +33,9 @@ public class Zvixa : Boss{
     [SerializeField] private Transform teleportAreaRight;
     [SerializeField] private GameObject bossDoor;
 
-    public static bool IsDead { get; set; }
+    
 
     protected override void Awake() {
-        if (IsDead) {
-            Destroy(gameObject);
-        }
         XScale = transform.localScale.x;
         base.Awake();
         HighArea = highArea;
