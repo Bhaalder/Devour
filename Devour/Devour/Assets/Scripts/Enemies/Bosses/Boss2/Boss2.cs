@@ -90,6 +90,7 @@ public class Boss2 : Boss
     private void Reset(PlayerDiedEvent playerDied)
     {
         Health = MaxHealth;
+        SnipeBeamSprite.enabled = false;
         Transition<Boss2Intro>();
     }
 

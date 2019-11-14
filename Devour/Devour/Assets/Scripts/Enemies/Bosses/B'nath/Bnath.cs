@@ -74,6 +74,11 @@ public class Bnath : Boss
         IsDead = true;
         SpawnAbilityEssence();
         GiveLifeforce();
+        BossDiedEvent bnathDied = new BossDiedEvent
+        {
+            boss = this
+        };
+        bnathDied.FireEvent();
         Transition<BnathDeathState>();
     }
     private void Reset(PlayerDiedEvent playerDied)

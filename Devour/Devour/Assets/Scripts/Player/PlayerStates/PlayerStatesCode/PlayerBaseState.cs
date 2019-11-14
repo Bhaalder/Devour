@@ -41,7 +41,8 @@ public class PlayerBaseState : State {
             owner.PlayerCanvas.Rotate(new Vector3(0, 180, 0));
         }
         if (owner.FacingDirection != -1 && owner.PlayerCanvas.rotation.y == 180) {
-            owner.PlayerCanvas.Rotate(new Vector3(0, 0, 0));
+            Debug.Log("vänd");
+            owner.PlayerCanvas.Rotate(new Vector3(0, 180, 0));
         }
     }
 
