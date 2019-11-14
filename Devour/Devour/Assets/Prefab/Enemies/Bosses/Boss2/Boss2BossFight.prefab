@@ -756,7 +756,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 176ca11ed24ec0b44ba45954b236b32c, type: 2}
   - {fileID: 11400000, guid: 7a281e508e58d934a90429406c8a0291, type: 2}
   - {fileID: 11400000, guid: a980ec5646af2b84d9b065987355d78b, type: 2}
-  particlesOnHurt: {fileID: 0}
+  particlesOnHurt: {fileID: 1315949759934820, guid: 902fd6b6a8d230c4a91b7d58e16a36ce,
+    type: 3}
   enemyHealth: 500
   damageToPlayerOnContact: 25
   lifeforceAmount: 100
