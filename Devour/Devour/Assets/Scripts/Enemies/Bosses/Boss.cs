@@ -9,10 +9,13 @@ public class Boss : Enemy{
     public GameObject AbilityEssence { get; set; }
     public string BossName { get; set; }
     public float MaxHealth { get; set; }
+
     [SerializeField] protected PlayerAbility bossGivesAbility;
     [SerializeField] protected GameObject abilityEssence;
     [SerializeField] protected string bossName;
     [SerializeField] protected float maxHealth;
+
+    public static bool IsDead { get; set; }
 
     private void OnEnable() {
         if(GameController.Instance.KilledBosses != null) {
@@ -23,6 +26,9 @@ public class Boss : Enemy{
     }
 
     protected override void Awake() {
+        if (IsDead) {
+            Destroy(gameObject);
+        }
         base.Awake();
         MaxHealth = maxHealth;
         Health = MaxHealth;
