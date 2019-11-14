@@ -253,6 +253,7 @@ public class Player : StateMachine {
 
     protected override void FixedUpdate() {
         base.FixedUpdate();
+        CanvasRotation();
     }
 
     protected override void Update() {
@@ -296,6 +297,17 @@ public class Player : StateMachine {
         }//
         PlayerVelocity = Rb2D.velocity;//
         health = Health;//TEST END_____________________________________________________________________
+    }
+
+    protected void CanvasRotation() {
+        if (FacingDirection == -1 && PlayerCanvas.eulerAngles.y == 0) {
+            Debug.Log("vänster");
+            PlayerCanvas.Rotate(new Vector3(0, 180, 0));
+        }
+        if (FacingDirection == 1 && PlayerCanvas.eulerAngles.y == 180) {
+            Debug.Log("höger");
+            PlayerCanvas.Rotate(new Vector3(0, -180, 0));
+        }
     }
 
     private void OnFadeScreen(FadeScreenEvent screenEvent) {

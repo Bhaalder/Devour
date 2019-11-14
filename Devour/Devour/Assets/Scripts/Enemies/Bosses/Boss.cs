@@ -15,8 +15,6 @@ public class Boss : Enemy{
     [SerializeField] protected string bossName;
     [SerializeField] protected float maxHealth;
 
-    public static bool IsDead { get; set; }
-
     private void OnEnable() {
         if(GameController.Instance.KilledBosses != null) {
             if (GameController.Instance.KilledBosses.Contains(BossName)) {
@@ -26,9 +24,6 @@ public class Boss : Enemy{
     }
 
     protected override void Awake() {
-        if (IsDead) {
-            Destroy(gameObject);
-        }
         base.Awake();
         MaxHealth = maxHealth;
         Health = MaxHealth;

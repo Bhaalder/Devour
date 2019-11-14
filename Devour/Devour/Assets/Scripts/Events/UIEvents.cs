@@ -13,3 +13,10 @@ public class FadeScreenEvent : Event<FadeScreenEvent> {
 public class VoidTalentScreenEvent : Event<VoidTalentScreenEvent> {
 
 }
+
+public class TipTextEvent : Event<TipTextEvent> {
+
+    public string tipText;
+    public float tipDuration;
+
+}
