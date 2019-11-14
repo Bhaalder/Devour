@@ -9,6 +9,7 @@ public class BnathDeathState : EnemyDeathState
 
     public override void Enter()
     {
+        owner.GetComponent<Bnath>().State = BossBnathState.DEATH;
         currentCooldown = deathTimer;
         owner.BoxCollider2D.enabled = false;
     }
