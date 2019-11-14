@@ -190,7 +190,7 @@ public class Enemy : StateMachine
         }
     }
 
-    protected void GiveLifeforce() {
+    public void GiveLifeforce() {
         Collectible lifeForce = new Collectible(CollectibleType.LIFEFORCE, lifeforceAmount);
         PlayerCollectibleChange gainCollectibleEvent = new PlayerCollectibleChange {
             collectible = lifeForce

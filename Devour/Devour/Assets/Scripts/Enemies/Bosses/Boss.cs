@@ -82,7 +82,7 @@ public class Boss : Enemy{
         Destroy(gameObject);
     }
 
-    protected void SpawnAbilityEssence() {
+    public void SpawnAbilityEssence() {
         GameObject essence;
         AbilityEssence abilityEssence;
         essence = Instantiate(AbilityEssence, transform.position, Quaternion.identity);

@@ -26,6 +26,8 @@ public class ZvixaDeathState : ZvixaBaseState {
             deathTimeLeft -= Time.deltaTime;
             return;
         }
+        owner.SpawnAbilityEssence();
+        owner.GiveLifeforce();
         Destroy(owner.gameObject);//FÖR TILLFÄLLET
 
         base.HandleUpdate();

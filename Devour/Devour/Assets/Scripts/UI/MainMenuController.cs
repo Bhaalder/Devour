@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 
 public class MainMenuController : MonoBehaviour{
 
+    [Header("MainMenu")]
     [SerializeField] private Button newGameButton;
     [SerializeField] private Button loadGameButton;
     [SerializeField] private Button optionsButton;
@@ -15,6 +16,13 @@ public class MainMenuController : MonoBehaviour{
     [SerializeField] private string newGameScene;
     [SerializeField] private string loadGameScene;
     [SerializeField] private float loadingSequenceLength;
+
+    [Header("Options")]
+    [SerializeField] private Button soundButton;
+    [SerializeField] private Button backButton;
+
+    [Header("Sound")]
+
 
     [SerializeField] private Animator cameraAnim;
     [SerializeField] private Animator buttonAnim;
