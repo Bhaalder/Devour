@@ -23,11 +23,9 @@ public class Bnath : Boss
     public GameObject StartPosition { get; set; }
     public GameObject YPoint { get; set; }
 
-    private static bool isDead;
-
     protected override void Awake()
     {
-        if (isDead)
+        if (IsDead)
         {
             Destroy(gameObject);
         }
@@ -37,7 +35,7 @@ public class Bnath : Boss
         Blocker = bossFightBlock;
         StartPosition = startPosition;
         YPoint = yPoint;
-        IsAlive = !isDead;
+        IsAlive = !IsDead;
 
         PlayerDiedEvent.RegisterListener(Reset);
 
@@ -73,7 +71,7 @@ public class Bnath : Boss
     public override void EnemyDeath()
     {
         //Transition till DeathState
-        isDead = true;
+        IsDead = true;
         SpawnAbilityEssence();
         GiveLifeforce();
         Transition<BnathDeathState>();

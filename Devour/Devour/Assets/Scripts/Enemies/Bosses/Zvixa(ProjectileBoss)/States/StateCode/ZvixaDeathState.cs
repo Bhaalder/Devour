@@ -18,6 +18,7 @@ public class ZvixaDeathState : ZvixaBaseState {
             boss = owner
         };
         zvixaDied.FireEvent();
+        owner.BoxCollider2D.enabled = false;
         Destroy(owner.LowArea.gameObject);
         base.Enter();
     }
