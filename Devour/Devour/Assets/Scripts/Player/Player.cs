@@ -301,11 +301,9 @@ public class Player : StateMachine {
 
     protected void CanvasRotation() {
         if (FacingDirection == -1 && PlayerCanvas.eulerAngles.y == 0) {
-            Debug.Log("vänster");
             PlayerCanvas.Rotate(new Vector3(0, 180, 0));
         }
         if (FacingDirection == 1 && PlayerCanvas.eulerAngles.y == 180) {
-            Debug.Log("höger");
             PlayerCanvas.Rotate(new Vector3(0, -180, 0));
         }
     }
