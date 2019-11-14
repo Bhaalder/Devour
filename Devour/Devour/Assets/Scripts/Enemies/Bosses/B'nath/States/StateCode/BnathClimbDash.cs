@@ -56,6 +56,7 @@ public class BnathClimbDash : BnathBaseState
         {
             ChooseSide();
         }
+        owner.rb.velocity = new Vector2(0, 0);
 
     }
 

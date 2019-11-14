@@ -16,6 +16,7 @@ public class BossRoomBlock : MonoBehaviour
     void Start()
     {
         blocker.SetActive(false);
+
         currentCooldown = timeBeforeBoss;
         isTriggered = false;
     }
@@ -33,7 +34,13 @@ public class BossRoomBlock : MonoBehaviour
     {
         if(collision.gameObject.tag == "Player")
         {
-            if(blocker != null)
+            boss.SetActive(true);
+            if (boss.GetComponent<Bnath>().IsAlive)
+            {
+                blocker.SetActive(true);
+            }
+            boss.SetActive(false);
+            if (blocker != null)
             {
                 isTriggered = true;
             }
