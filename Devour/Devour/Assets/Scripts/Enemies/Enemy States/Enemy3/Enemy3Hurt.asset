@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 892583e3fb1c47740956b118632de383, type: 3}
   m_Name: Enemy3Hurt
   m_EditorClassIdentifier: 
-  timeStunned: 2
+  timeStunned: 1
   layerMask:
     serializedVersion: 2
     m_Bits: 256

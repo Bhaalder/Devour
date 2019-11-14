@@ -14,5 +14,11 @@ public class DeathZone : MonoBehaviour
             };
             playerTouchKillzone.FireEvent();
         }
+        if (collision.gameObject.tag == "Enemy") {
+            PlayerTouchKillzoneEvent playerTouchKillzone = new PlayerTouchKillzoneEvent {
+                damage = 5000
+            };
+            playerTouchKillzone.FireEvent();
+        }
     }
 }

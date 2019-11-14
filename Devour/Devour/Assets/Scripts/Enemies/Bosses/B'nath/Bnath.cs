@@ -37,6 +37,7 @@ public class Bnath : Boss
         Blocker = bossFightBlock;
         StartPosition = startPosition;
         YPoint = yPoint;
+        IsAlive = !isDead;
 
         PlayerDiedEvent.RegisterListener(Reset);
 
@@ -65,7 +66,7 @@ public class Bnath : Boss
                 enemyPosition = rb.position
             };
             ptde.FireEvent();
-
+            rb.velocity = new Vector2(0, rb.velocity.y);
         }
     }
 

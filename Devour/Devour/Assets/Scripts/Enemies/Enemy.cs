@@ -203,6 +203,10 @@ public class Enemy : StateMachine
     protected virtual void OnDestroy() {
         PlayerAttackEvent.UnRegisterListener(TakeDamage);
         EnemyTouchKillzoneEvent.UnRegisterListener(EnemyTouchKillzone);
+        if (GetComponentInParent<SpawnManager>())
+        {
+            GetComponentInParent<SpawnManager>().EnemyDefeated();
+        }
     }
 
 }

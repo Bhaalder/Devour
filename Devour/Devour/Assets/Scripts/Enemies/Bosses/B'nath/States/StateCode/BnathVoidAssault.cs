@@ -20,6 +20,7 @@ public class BnathVoidAssault : BnathBaseState
 
         currentCooldown = hangTime;
         startCooldown = 1f;
+        owner.rb.velocity = new Vector2(0, 0);
 
         voidGroundLocation = owner.GetComponent<Bnath>().VoidGroundLocation.Length;
         int safeLocation = (int)Random.Range(0, voidGroundLocation-1);

@@ -38,9 +38,9 @@ public class BnathBodySlam : BnathBaseState
 
     public override void HandleUpdate()
     {
-        if(DistanceToPlayer() <= minDistance)
+        if(!startAttack && DistanceToPlayer() <= minDistance)
         {
-            owner.Transition<BnathIdle>();
+            owner.Transition<BnathClimbDash>();
         }
 
         if (!initializeState)

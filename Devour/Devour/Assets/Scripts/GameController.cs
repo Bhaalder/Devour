@@ -13,7 +13,7 @@ public class GameController : MonoBehaviour {
     public Vector3 SceneCheckpoint { get; set; } //om man rör vid en "killzone"
     public string RestingScene { get; set; } //senaste scenen man restade på
     public Vector3 RestingCheckpoint { get; set; } //senaste platsen man restade på
-    public Vector3 VoidEssenceLocation { get; set; } //platsen man dog på och måste hämta sin essence
+    public PlayerLifeForce PlayerLifeForce { get; set; } //platsen man dog på och måste hämta sin lifeForce
 
     public Dictionary<string, List<int>> DestroyedDestructibles { get; set; }
     public Dictionary<string, List<int>> DestroyedPlatforms { get; set; }
@@ -64,6 +64,7 @@ public class GameController : MonoBehaviour {
     }
 
     private void OnPlayerDied(PlayerDiedEvent playerDiedEvent) {
+        PlayerLifeForce = new PlayerLifeForce(SceneManager.GetActiveScene().name, playerDiedEvent.player.transform.position, playerDiedEvent.collectibleLifeforceLost);
         FadeScreenEvent fadeScreen = new FadeScreenEvent {
             isFadeIn = true
         };
