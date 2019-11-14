@@ -381,6 +381,9 @@ public class Player : StateMachine {
 
     public void ChangeHealth(float amount) {
         Health += amount;
+        if(Health < MaxHealth * 0.2f && Health >= 0) {
+            
+        }
     }
 
     public bool DamageWasDeadly() {

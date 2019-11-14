@@ -36,7 +36,7 @@ public class ZvixaBaseState : State {
     }
 
     protected virtual void Movement() {
-        if(owner.State != BossZvixaState.NONE) {
+        if(owner.State != BossZvixaState.NONE && owner.State != BossZvixaState.DEATH) {
             if (timeUntilNextMove > 0) {
                 timeUntilNextMove -= Time.deltaTime;
                 return;

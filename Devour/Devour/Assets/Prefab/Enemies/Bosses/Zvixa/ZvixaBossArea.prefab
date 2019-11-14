@@ -1177,6 +1177,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 44aaf21abd138d54799636150038bcc4, type: 2}
   - {fileID: 11400000, guid: b326545ecc90eb34a98f5c05639bfb33, type: 2}
   - {fileID: 11400000, guid: 477136a08a764ca4cbecf82fda63d8aa, type: 2}
+  - {fileID: 11400000, guid: 4db046d4eddf8804691cd516f7c80414, type: 2}
   particlesOnHurt: {fileID: 1315949759934820, guid: 9907afeacb944384ba81ef307601e7db,
     type: 3}
   enemyHealth: 1000

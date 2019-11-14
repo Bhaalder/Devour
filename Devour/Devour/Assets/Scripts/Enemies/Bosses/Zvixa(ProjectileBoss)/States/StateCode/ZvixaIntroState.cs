@@ -16,11 +16,20 @@ public class ZvixaIntroState : ZvixaBaseState {
         owner.BossDoor.SetActive(true);
         introTimeLeft = introTime;
         battleStart = false;
+        if (teleportLocation != owner.TeleportAreaMiddle) {
+            owner.rb.velocity = new Vector2(0, 0);
+            owner.transform.position = owner.TeleportAreaMiddle.position;
+            lastTeleport = owner.TeleportAreaMiddle;
+        }
         base.Enter();
     }
 
     public override void HandleFixedUpdate() {
         base.HandleFixedUpdate();
+    }
+
+    protected override void Movement() {
+
     }
 
     public override void HandleUpdate() {

@@ -134,6 +134,16 @@ MonoBehaviour:
     maxDistance: 0
     loop: 0
     source: {fileID: 0}
+  - name: LowHealth
+    clip: {fileID: 8300000, guid: f192216f356a0ac40a2f5d2dadef7d14, type: 3}
+    volume: 1
+    pitch: 1
+    spatialBlend_2D_3D: 0
+    rolloffMode: 0
+    minDistance: 0
+    maxDistance: 0
+    loop: 1
+    source: {fileID: 0}
   - name: Projectile
     clip: {fileID: 8300000, guid: 75b31c37b11fb3445953676206465729, type: 3}
     volume: 0.8

@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public enum BossZvixaState {
-    NONE, INTRO, IDLE, BASICATTACK, SONAR_EXPEL, SPIKE_ATTACK, STAGGER, DEATH
+    NONE, INTRO, IDLE, BASICATTACK, SONAR_EXPEL, SPIKE_ATTACK, DEATH
 }
 
 public class Zvixa : Boss{
@@ -31,10 +31,10 @@ public class Zvixa : Boss{
     [SerializeField] private Transform teleportAreaRight;
     [SerializeField] private GameObject bossDoor;
 
-    private static bool isDead;
+    public static bool IsDead { get; set; }
 
     protected override void Awake() {
-        if (isDead) {
+        if (IsDead) {
             Destroy(gameObject);
         }
         base.Awake();
@@ -61,12 +61,14 @@ public class Zvixa : Boss{
 
     protected override void OnCollisionStay2D(Collision2D collision) {
         if (collision.gameObject.tag == "Player") {
-            Debug.Log("Collided with Player");
-            PlayerTakeDamageEvent ptde = new PlayerTakeDamageEvent {
-                damage = damageToPlayerOnContact,
-                enemyPosition = rb.position
-            };
-            ptde.FireEvent();
+            if (!IsDead) {
+                Debug.Log("Collided with Player");
+                PlayerTakeDamageEvent ptde = new PlayerTakeDamageEvent {
+                    damage = damageToPlayerOnContact,
+                    enemyPosition = rb.position
+                };
+                ptde.FireEvent();
+            }
         }
         rb.velocity = new Vector2(0, 0);
     }
@@ -84,8 +86,7 @@ public class Zvixa : Boss{
     }
 
     public override void EnemyDeath() {
-        //Transition till DeathState
-        isDead = true;
+        IsDead = true;
         BossDiedEvent zvixaDied = new BossDiedEvent {
             boss = this
         };
@@ -93,7 +94,7 @@ public class Zvixa : Boss{
         SpawnAbilityEssence();
         Destroy(LowArea.gameObject);
         GiveLifeforce();
-        Destroy(gameObject);//FÖR TILLFÄLLET
+        Transition<ZvixaDeathState>();
     }
 
     protected override void OnDestroy() {
