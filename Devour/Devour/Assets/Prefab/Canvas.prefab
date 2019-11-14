@@ -4813,7 +4813,7 @@ MonoBehaviour:
   voidEssenceCostText: {fileID: 2012695021079691434}
   lifeForceCostText: {fileID: 240719129258033680}
   resetButtonInfo: Reset currently added points
-  doneButtonInfo: Done boiii
+  doneButtonInfo: 'Done '
 --- !u!1 &8795892844240478600
 GameObject:
   m_ObjectHideFlags: 0
@@ -5353,11 +5353,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2051252243704120869}
     m_Modifications:
-    - target: {fileID: 840294480015153591, guid: 3c93c1f5d80d2bf49a12a1c67bc02284,
-        type: 3}
-      propertyPath: m_Name
-      value: FadeScreen
-      objectReference: {fileID: 0}
     - target: {fileID: 5400650760061075825, guid: 3c93c1f5d80d2bf49a12a1c67bc02284,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -5462,6 +5457,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 840294480015153591, guid: 3c93c1f5d80d2bf49a12a1c67bc02284,
+        type: 3}
+      propertyPath: m_Name
+      value: FadeScreen
       objectReference: {fileID: 0}
     - target: {fileID: 3960688535492773239, guid: 3c93c1f5d80d2bf49a12a1c67bc02284,
         type: 3}
