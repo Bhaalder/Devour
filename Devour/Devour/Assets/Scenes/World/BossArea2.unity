@@ -626,6 +626,16 @@ PrefabInstance:
       propertyPath: setSceneSpawnPointID
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 9007587208266834560, guid: d8bff41469b9d7f4bb13e60b196536d0,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 9007587208266834560, guid: d8bff41469b9d7f4bb13e60b196536d0,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -3.61
+      objectReference: {fileID: 0}
     - target: {fileID: 7499993955649696246, guid: d8bff41469b9d7f4bb13e60b196536d0,
         type: 3}
       propertyPath: m_Offset.x
@@ -645,16 +655,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Size.y
       value: 11.224569
-      objectReference: {fileID: 0}
-    - target: {fileID: 9007587208266834560, guid: d8bff41469b9d7f4bb13e60b196536d0,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -0.4
-      objectReference: {fileID: 0}
-    - target: {fileID: 9007587208266834560, guid: d8bff41469b9d7f4bb13e60b196536d0,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -3.61
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d8bff41469b9d7f4bb13e60b196536d0, type: 3}
@@ -113915,6 +113915,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2051252242966345553, guid: b4498a2d079c47e42ae6dad210326b58,
+        type: 3}
+      propertyPath: m_Name
+      value: Canvas
+      objectReference: {fileID: 0}
     - target: {fileID: 2051252242966345557, guid: b4498a2d079c47e42ae6dad210326b58,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -114019,11 +114024,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2051252242966345553, guid: b4498a2d079c47e42ae6dad210326b58,
-        type: 3}
-      propertyPath: m_Name
-      value: Canvas
       objectReference: {fileID: 0}
     - target: {fileID: 2051252244723254136, guid: b4498a2d079c47e42ae6dad210326b58,
         type: 3}
