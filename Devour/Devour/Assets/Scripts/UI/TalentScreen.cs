@@ -128,6 +128,7 @@ public class TalentScreen : MonoBehaviour{
         StopAllCoroutines();
         errorText.text = "";
         SetCollectibleCostText();
+        EventSystem.current.SetSelectedGameObject(doneButton.gameObject);
         resetButton.interactable = false;
     }
 

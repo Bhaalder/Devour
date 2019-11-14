@@ -2,14 +2,25 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
 
 public class UIController : MonoBehaviour{
 
     [SerializeField] private GameObject VoidTalentScreen;
 
+    private TextMeshProUGUI tipText;
+    private Player player;
 
     private void Awake() {
         VoidTalentScreenEvent.RegisterListener(OnVoidTalentScreen);
+        ShowTipTextEvent.RegisterListener(OnShowTipText);
+        HideTipTextEvent.RegisterListener(OnHideTipText);
+    }
+
+    private void Start() {
+        player = GameController.Instance.Player;
+        tipText = player.PlayerCanvas.GetComponentInChildren<TextMeshProUGUI>();
     }
 
     private void OnVoidTalentScreen(VoidTalentScreenEvent screenEvent) {
@@ -24,7 +35,17 @@ public class UIController : MonoBehaviour{
         
     }
 
+    private void OnShowTipText(ShowTipTextEvent showTextEvent) {
+        tipText.text = showTextEvent.tipText;
+    }
+
+    private void OnHideTipText(HideTipTextEvent hideTextEvent) {
+        tipText.text = "";
+    }
+
     private void OnDestroy() {
         VoidTalentScreenEvent.UnRegisterListener(OnVoidTalentScreen);
+        ShowTipTextEvent.UnRegisterListener(OnShowTipText);
+        HideTipTextEvent.UnRegisterListener(OnHideTipText);
     }
 }

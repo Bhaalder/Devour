@@ -14,9 +14,14 @@ public class VoidTalentScreenEvent : Event<VoidTalentScreenEvent> {
 
 }
 
-public class TipTextEvent : Event<TipTextEvent> {
+public class ShowTipTextEvent : Event<ShowTipTextEvent> {
 
     public string tipText;
     public float tipDuration;
+    public bool isOneTimeTip;
+
+}
+
+public class HideTipTextEvent : Event<HideTipTextEvent> {
 
 }
