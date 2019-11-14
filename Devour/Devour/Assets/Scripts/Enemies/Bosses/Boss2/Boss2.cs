@@ -81,16 +81,22 @@ public class Boss2 : Boss
     public override void EnemyDeath()
     {
         //Transition till DeathState
-        isDead = true;
+        
         SpawnAbilityEssence();
         GiveLifeforce();
-        State = Boss2State.DEATH;
+        
         BossDiedEvent boss2Died = new BossDiedEvent
         {
             boss = this
         };
         boss2Died.FireEvent();
-        Transition<Boss2DeathState>();
+        if (!isDead)
+        {
+            isDead = true;
+            State = Boss2State.DEATH;
+            Transition<Boss2DeathState>();            
+        }
+        
     }
     private void Reset(PlayerDiedEvent playerDied)
     {
