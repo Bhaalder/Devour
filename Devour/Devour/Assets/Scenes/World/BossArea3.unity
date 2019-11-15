@@ -98710,7 +98710,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 306f9a69a2e757b48b5db7bae98c70ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerDamage: 0
+  playerDamage: 25
 --- !u!483693784 &1275666343
 TilemapRenderer:
   m_ObjectHideFlags: 0
