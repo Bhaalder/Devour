@@ -83,6 +83,7 @@ public class Bnath : Boss
         if (!isDead)
         {
             isDead = true;
+            State = BossBnathState.DEATH;
             Transition<BnathDeathState>();
         }
         

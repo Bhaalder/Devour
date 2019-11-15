@@ -99,15 +99,6 @@ public class BnathBodySlam : BnathBaseState
                 instantiatedParticle.transform.position = endPoint;
             }
 
-            if (bossSprite.color == new Color(255, 255, 255))
-            {
-                bossSprite.color = new Color(0, 0, 0);
-            }
-            else
-            {
-                bossSprite.color = new Color(255, 255, 255);
-            }
-
             return;
         }
 
