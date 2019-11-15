@@ -164,7 +164,7 @@ public class Player : StateMachine {
     [SerializeField] private RectTransform playerCanvas;
     [SerializeField] private LayerMask whatIsGround;
 
-    [Header("Testing")]//TESTING
+    [Header("Testing")]//TEST
     [Tooltip("For testing if the player has certain abilities")]//
     [SerializeField] private PlayerAbility[] playerAbilities;//
     public Vector2 PlayerVelocity;//

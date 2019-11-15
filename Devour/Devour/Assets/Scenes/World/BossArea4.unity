@@ -120,6 +120,107 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1001 &327413309
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3500634766338294519, guid: d4a743c204e396142aad587bfb0f9146,
+        type: 3}
+      propertyPath: m_Name
+      value: TipTrigger
+      objectReference: {fileID: 0}
+    - target: {fileID: 3500634766338294512, guid: d4a743c204e396142aad587bfb0f9146,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 77.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 3500634766338294512, guid: d4a743c204e396142aad587bfb0f9146,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -41.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3500634766338294512, guid: d4a743c204e396142aad587bfb0f9146,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -70.51571
+      objectReference: {fileID: 0}
+    - target: {fileID: 3500634766338294512, guid: d4a743c204e396142aad587bfb0f9146,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3500634766338294512, guid: d4a743c204e396142aad587bfb0f9146,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3500634766338294512, guid: d4a743c204e396142aad587bfb0f9146,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3500634766338294512, guid: d4a743c204e396142aad587bfb0f9146,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3500634766338294512, guid: d4a743c204e396142aad587bfb0f9146,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 3500634766338294512, guid: d4a743c204e396142aad587bfb0f9146,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3500634766338294512, guid: d4a743c204e396142aad587bfb0f9146,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3500634766338294512, guid: d4a743c204e396142aad587bfb0f9146,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3500634766338294513, guid: d4a743c204e396142aad587bfb0f9146,
+        type: 3}
+      propertyPath: m_Offset.x
+      value: 0.60718155
+      objectReference: {fileID: 0}
+    - target: {fileID: 3500634766338294513, guid: d4a743c204e396142aad587bfb0f9146,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 32.944572
+      objectReference: {fileID: 0}
+    - target: {fileID: 3500634766338294513, guid: d4a743c204e396142aad587bfb0f9146,
+        type: 3}
+      propertyPath: m_Offset.y
+      value: -0.26984406
+      objectReference: {fileID: 0}
+    - target: {fileID: 3500634766338294513, guid: d4a743c204e396142aad587bfb0f9146,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 19.857178
+      objectReference: {fileID: 0}
+    - target: {fileID: 3500634766338294518, guid: d4a743c204e396142aad587bfb0f9146,
+        type: 3}
+      propertyPath: tipText
+      value: 'End of Alpha
+
+        Thanks for playing!'
+      objectReference: {fileID: 0}
+    - target: {fileID: 3500634766338294518, guid: d4a743c204e396142aad587bfb0f9146,
+        type: 3}
+      propertyPath: isWithinBoundsTip
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: d4a743c204e396142aad587bfb0f9146, type: 3}
 --- !u!1001 &739618195
 PrefabInstance:
   m_ObjectHideFlags: 0
