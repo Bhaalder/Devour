@@ -179,11 +179,9 @@ public class Enemy : StateMachine
         }
     }
 
-    protected virtual void OnCollisionStay2D(Collision2D collision)    {
-        if (collision.gameObject.tag == "Player" && IsAlive)
-        {
-            PlayerTakeDamageEvent ptde = new PlayerTakeDamageEvent
-            {
+    protected virtual void OnTriggerStay2D(Collider2D collision) {
+        if (collision.gameObject.tag == "Player" && IsAlive) {
+            PlayerTakeDamageEvent ptde = new PlayerTakeDamageEvent {
                 damage = damageToPlayerOnContact,
                 enemyPosition = rb.position
             };
@@ -191,6 +189,19 @@ public class Enemy : StateMachine
             Stunned = true;
         }
     }
+
+    //protected virtual void OnCollisionStay2D(Collision2D collision)    {
+    //    if (collision.gameObject.tag == "Player" && IsAlive)
+    //    {
+    //        PlayerTakeDamageEvent ptde = new PlayerTakeDamageEvent
+    //        {
+    //            damage = damageToPlayerOnContact,
+    //            enemyPosition = rb.position
+    //        };
+    //        ptde.FireEvent();
+    //        Stunned = true;
+    //    }
+    //}
 
     public void GiveLifeforce() {
         Collectible lifeForce = new Collectible(CollectibleType.LIFEFORCE, lifeforceAmount);

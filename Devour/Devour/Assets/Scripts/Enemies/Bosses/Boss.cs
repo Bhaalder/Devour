@@ -93,7 +93,7 @@ public class Boss : Enemy{
         abilityEssence.Ability = bossGivesAbility;
     }
 
-    protected override void OnCollisionStay2D(Collision2D collision) {
+    protected override void OnTriggerStay2D(Collider2D collision) {
         if (collision.gameObject.tag == "Player") {
             PlayerTakeDamageEvent ptde = new PlayerTakeDamageEvent {
                 damage = damageToPlayerOnContact,
@@ -102,6 +102,16 @@ public class Boss : Enemy{
             ptde.FireEvent();
         }
     }
+
+    //protected override void OnCollisionStay2D(Collision2D collision) {
+    //    if (collision.gameObject.tag == "Player") {
+    //        PlayerTakeDamageEvent ptde = new PlayerTakeDamageEvent {
+    //            damage = damageToPlayerOnContact,
+    //            enemyPosition = rb.position
+    //        };
+    //        ptde.FireEvent();
+    //    }
+    //}
 
     public void BossLog(string message) {
         Debug.Log(bossName + ": " + message);

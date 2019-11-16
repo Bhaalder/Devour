@@ -63,7 +63,7 @@ public class Zvixa : Boss{
         base.FixedUpdate();
     }
 
-    protected override void OnCollisionStay2D(Collision2D collision) {
+    protected override void OnTriggerStay2D(Collider2D collision) {
         if (collision.gameObject.tag == "Player") {
             if (!IsDead) {
                 Debug.Log("Collided with Player");
@@ -76,6 +76,20 @@ public class Zvixa : Boss{
         }
         rb.velocity = new Vector2(0, 0);
     }
+
+    //protected override void OnCollisionStay2D(Collision2D collision) {
+    //    if (collision.gameObject.tag == "Player") {
+    //        if (!IsDead) {
+    //            Debug.Log("Collided with Player");
+    //            PlayerTakeDamageEvent ptde = new PlayerTakeDamageEvent {
+    //                damage = damageToPlayerOnContact,
+    //                enemyPosition = rb.position
+    //            };
+    //            ptde.FireEvent();
+    //        }
+    //    }
+    //    rb.velocity = new Vector2(0, 0);
+    //}
 
     public virtual void SelfDamage(ZvixaSelfDamageEvent selfDamageEvent) {
         ChangeEnemyHealth(-selfDamageEvent.damage);

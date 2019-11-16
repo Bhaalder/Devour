@@ -63,13 +63,10 @@ public class Boss2 : Boss
         base.FixedUpdate();
     }
 
-    protected override void OnCollisionStay2D(Collision2D collision)
-    {
-        if (collision.gameObject.tag == "Player")
-        {
+    protected override void OnTriggerStay2D(Collider2D collision) {
+        if (collision.gameObject.tag == "Player") {
             Debug.Log("Collided with Player");
-            PlayerTakeDamageEvent ptde = new PlayerTakeDamageEvent
-            {
+            PlayerTakeDamageEvent ptde = new PlayerTakeDamageEvent {
                 damage = damageToPlayerOnContact,
                 enemyPosition = rb.position
             };
@@ -77,6 +74,21 @@ public class Boss2 : Boss
 
         }
     }
+
+    //protected override void OnCollisionStay2D(Collision2D collision)
+    //{
+    //    if (collision.gameObject.tag == "Player")
+    //    {
+    //        Debug.Log("Collided with Player");
+    //        PlayerTakeDamageEvent ptde = new PlayerTakeDamageEvent
+    //        {
+    //            damage = damageToPlayerOnContact,
+    //            enemyPosition = rb.position
+    //        };
+    //        ptde.FireEvent();
+
+    //    }
+    //}
 
     public override void EnemyDeath()
     {
