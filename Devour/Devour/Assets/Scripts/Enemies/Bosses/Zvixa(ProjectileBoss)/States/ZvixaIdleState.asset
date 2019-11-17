@@ -12,8 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 43f4ca67be2bf1743a6439e54bbd3d34, type: 3}
   m_Name: ZvixaIdleState
   m_EditorClassIdentifier: 
-  colorTest: {r: 1, g: 1, b: 1, a: 1}
-  minIdle: 3
-  maxIdle: 5
-  actAgainPercentage: 20
-  basicAttackPercentage: 60
+  minIdle: 2
+  maxIdle: 4
+  actAgainPercentage: 25
+  basicAttackPercentage: 55
