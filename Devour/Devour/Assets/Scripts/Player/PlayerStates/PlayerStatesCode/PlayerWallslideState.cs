@@ -74,14 +74,14 @@ public class PlayerWallslideState : PlayerBaseState {
     }
 
     private bool WalljumpInputLeft() {
-        if (owner.XInput < -0.65f && owner.FacingDirection == 1) {
+        if (owner.XInput < 0f && owner.FacingDirection == 1) {
             owner.XInput = 0;
             return true;
         }
         return false;
     }
     private bool WalljumpInputRight() {
-        if (owner.XInput > 0.65f && owner.FacingDirection == -1) {
+        if (owner.XInput > 0f && owner.FacingDirection == -1) {
             owner.XInput = 0;
             return true;
         }
