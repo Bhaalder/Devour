@@ -165,7 +165,7 @@ public class PlayerBaseState : State {
     }
 
     protected virtual void GetMovementInput() {
-        owner.XInput = Input.GetAxisRaw("Horizontal");
+        owner.XInput = Input.GetAxis("Horizontal");
         if(owner.XInput < -0.35f) {
             owner.XInput = -1;
         } else if(owner.XInput > 0.35f) {

@@ -57,7 +57,7 @@ public class PlayerWallslideState : PlayerBaseState {
     }
 
     protected override void GetMovementInput() {
-        owner.XInput = Input.GetAxisRaw("Horizontal");
+        owner.XInput = Input.GetAxis("Horizontal");
         if (WalljumpInputLeft()) {
             gripTimeLeft -= Time.deltaTime;
             Debug.Log("LEFT");
@@ -68,7 +68,7 @@ public class PlayerWallslideState : PlayerBaseState {
             gripTimeLeft = gripTime;
         }
         if(gripTimeLeft <= 0) {
-            owner.XInput = Input.GetAxisRaw("Horizontal");
+            owner.XInput = Input.GetAxis("Horizontal");
         }
         Debug.Log(owner.XInput);
     }
