@@ -14,7 +14,7 @@ public class PlayerAttackState : PlayerBaseState {
             name = "Attack",
             soundType = SoundType.SFX,
             isRandomPitch = true,
-            minPitch = 0.96f,
+            minPitch = 0.93f,
             maxPitch = 1.02f
         };
         attackAudio.FireEvent();
