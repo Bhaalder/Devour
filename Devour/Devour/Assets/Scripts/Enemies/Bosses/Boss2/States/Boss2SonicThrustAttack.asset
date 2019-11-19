@@ -16,5 +16,5 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 256
   rayCastLength: 3
-  dashForce: 20
-  startDashTime: 0.3
+  dashForce: 12
+  startDashTime: 0.6

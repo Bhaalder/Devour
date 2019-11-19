@@ -758,7 +758,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: a980ec5646af2b84d9b065987355d78b, type: 2}
   particlesOnHurt: {fileID: 1315949759934820, guid: 902fd6b6a8d230c4a91b7d58e16a36ce,
     type: 3}
-  enemyHealth: 500
+  enemyHealth: 1200
   damageToPlayerOnContact: 25
   lifeforceAmount: 100
   enemyGFX: {fileID: 7227144329047398489}
@@ -768,7 +768,7 @@ MonoBehaviour:
   abilityEssence: {fileID: 7475380705934021547, guid: 19f0fdacf1a22684da9a3fbaa343b982,
     type: 3}
   bossName: Boss2
-  maxHealth: 500
+  maxHealth: 1200
   dashPattern1: {fileID: 7227144328493117893}
   dashPattern2: {fileID: 7227144328210098876}
   dashPattern3: {fileID: 7227144328521127331}
@@ -1219,6 +1219,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: -90.034004
+      objectReference: {fileID: 0}
+    - target: {fileID: 2331087737357621464, guid: 4413c4ddd8bee6f4188288806a810eab,
+        type: 3}
+      propertyPath: m_Offset.y
+      value: 0.09110308
+      objectReference: {fileID: 0}
+    - target: {fileID: 2331087737357621464, guid: 4413c4ddd8bee6f4188288806a810eab,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 3.5363612
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4413c4ddd8bee6f4188288806a810eab, type: 3}

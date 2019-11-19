@@ -12,6 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e85b522d448e403439f4430a5462ca83, type: 3}
   m_Name: Boss2SonicThrustMovement
   m_EditorClassIdentifier: 
-  bossSprite: {fileID: 0}
-  thrustDistance: 10
-  followSpeed: 1300
+  thrustDistance: 12
+  followSpeed: 1600

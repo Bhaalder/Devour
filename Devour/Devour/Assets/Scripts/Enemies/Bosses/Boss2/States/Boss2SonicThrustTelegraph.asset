@@ -15,4 +15,4 @@ MonoBehaviour:
   telegraphTime: 1
   telegraph: {fileID: 1609845037211932075, guid: 69fa643ec721f4849846b379bc69bd36,
     type: 3}
-  telegraphLength: 10
+  telegraphLength: 12

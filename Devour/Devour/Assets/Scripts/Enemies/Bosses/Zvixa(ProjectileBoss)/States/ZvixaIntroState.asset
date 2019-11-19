@@ -12,5 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4355e325ba7f0ea428a071ba154b9b98, type: 3}
   m_Name: ZvixaIntroState
   m_EditorClassIdentifier: 
-  colorTest: {r: 1, g: 1, b: 1, a: 1}
-  introTime: 3
+  introTime: 1

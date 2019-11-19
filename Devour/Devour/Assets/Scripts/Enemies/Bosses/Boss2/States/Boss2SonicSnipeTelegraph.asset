@@ -12,6 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d766af66ff94b794fa8721f08f3bbd76, type: 3}
   m_Name: Boss2SonicSnipeTelegraph
   m_EditorClassIdentifier: 
-  bossSprite: {fileID: 0}
-  telegraphTime: 2
+  telegraphTime: 3
   snipeBeamOffset: {x: 17, y: 0}
