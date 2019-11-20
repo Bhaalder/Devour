@@ -60,17 +60,17 @@ public class PlayerWallslideState : PlayerBaseState {
         owner.XInput = Input.GetAxis("Horizontal");
         if (WalljumpInputLeft()) {
             gripTimeLeft -= Time.deltaTime;
-            Debug.Log("LEFT");
+            //Debug.Log("LEFT");
         } else if (WalljumpInputRight()) {
             gripTimeLeft -= Time.deltaTime;
-            Debug.Log("RIGHT");
+            //Debug.Log("RIGHT");
         } else {
             gripTimeLeft = gripTime;
         }
         if(gripTimeLeft <= 0) {
             owner.XInput = Input.GetAxis("Horizontal");
         }
-        Debug.Log(owner.XInput);
+        //Debug.Log(owner.XInput);
     }
 
     private bool WalljumpInputLeft() {
