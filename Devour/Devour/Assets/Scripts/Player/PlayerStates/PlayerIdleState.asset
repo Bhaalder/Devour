@@ -12,3 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e302b0f1cda0cab4382605e9438683de, type: 3}
   m_Name: PlayerIdleState
   m_EditorClassIdentifier: 
+  cameraTiltValue: 5
+  cameraTiltTime: 0.5
