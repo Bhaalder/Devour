@@ -15,3 +15,9 @@ public class CameraBoundsChangeEvent : Event<CameraBoundsChangeEvent> {
     public BoxCollider2D cameraBounds;
 
 }
+
+public class CameraTiltEvent : Event<CameraTiltEvent> {
+
+    public float tiltValue;
+
+}

@@ -12,6 +12,7 @@ public class CameraController : MonoBehaviour{
 
     private Transform playerTransform;
     private Vector3 velocity;
+    private float cameraTiltValue;
 
     public BoxCollider2D sceneBoxCollider;
     private bool cameraBoundsIsFound;
@@ -28,6 +29,7 @@ public class CameraController : MonoBehaviour{
             return;
         }
         CameraBoundsChangeEvent.RegisterListener(SetCameraBounds);
+        CameraTiltEvent.RegisterListener(OnTiltCamera);
     }
 
     private void Start() {
@@ -40,6 +42,10 @@ public class CameraController : MonoBehaviour{
         cameraBoundsIsFound = true;
     }
 
+    private void OnTiltCamera(CameraTiltEvent cameraTilt) {
+        cameraTiltValue = cameraTilt.tiltValue;
+    }
+
     private void FixedUpdate() {
         Vector3 currentPosition = transform.position;
 
@@ -50,7 +56,7 @@ public class CameraController : MonoBehaviour{
     }
 
     private Vector3 DesiredPosition() {
-        return new Vector3(playerTransform.position.x + (cameraOffset.x * player.FacingDirection), playerTransform.position.y + cameraOffset.y, cameraOffset.z);
+        return new Vector3(playerTransform.position.x + (cameraOffset.x * player.FacingDirection), playerTransform.position.y + cameraOffset.y + cameraTiltValue, cameraOffset.z);
     }
 
     #region CameraBounds
@@ -70,5 +76,6 @@ public class CameraController : MonoBehaviour{
 
     private void OnDestroy() {
         CameraBoundsChangeEvent.UnRegisterListener(SetCameraBounds);
+        CameraTiltEvent.UnRegisterListener(OnTiltCamera);
     }
 }
