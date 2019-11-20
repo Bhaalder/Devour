@@ -288,7 +288,27 @@ MonoBehaviour:
     loop: 1
     source: {fileID: 0}
   - name: Mystic
+    clip: {fileID: 8300000, guid: 9c301a75ab3400245a4ca2b409099816, type: 3}
+    volume: 0.2
+    pitch: 1
+    spatialBlend_2D_3D: 0
+    rolloffMode: 0
+    minDistance: 0
+    maxDistance: 0
+    loop: 1
+    source: {fileID: 0}
+  - name: Mystic2
     clip: {fileID: 8300000, guid: 68e111f78a6462b41ac767e6aa6a784d, type: 3}
+    volume: 0.2
+    pitch: 1
+    spatialBlend_2D_3D: 0
+    rolloffMode: 0
+    minDistance: 0
+    maxDistance: 0
+    loop: 1
+    source: {fileID: 0}
+  - name: Mystic3
+    clip: {fileID: 8300000, guid: ed318bf0c7a828045a2c11ad9ca537bc, type: 3}
     volume: 0.2
     pitch: 1
     spatialBlend_2D_3D: 0
