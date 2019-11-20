@@ -198,6 +198,11 @@ public class BnathClimbDash : BnathBaseState
             voidAssaultAttack = false;
             isDashing = false;
             TurnedRight();
+            CameraShakeEvent shakeEvent = new CameraShakeEvent {
+                startDuration = 0.4f,
+                startValue = 0.35f
+            };
+            shakeEvent.FireEvent();
             owner.Transition<BnathIdle>();
             Debug.Log("STOPPED DASHING");
         }
