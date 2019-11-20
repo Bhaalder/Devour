@@ -50,7 +50,7 @@ public class ZvixaProjectile : MonoBehaviour{
         }
     }
 
-    private void OnCollisionEnter2D(Collision2D collision) {
+    private void OnTriggerEnter2D(Collider2D collision) {
         if (collision.gameObject.tag == "Player") {
             Debug.Log("Collided with Player");
             PlayerTakeDamageEvent playerTakeDamage = new PlayerTakeDamageEvent {
@@ -60,7 +60,7 @@ public class ZvixaProjectile : MonoBehaviour{
             playerTakeDamage.FireEvent();
             Destroy(gameObject);
         }
-        if(gotHit && collision.gameObject.tag == "Enemy") {
+        if (gotHit && collision.gameObject.tag == "Enemy") {
             ZvixaSelfDamageEvent zvixaSelfDamage = new ZvixaSelfDamageEvent {
                 circleCollider2D = circleCollider2D,
                 damage = SelfDamage
