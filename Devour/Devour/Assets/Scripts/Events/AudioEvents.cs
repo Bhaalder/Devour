@@ -71,6 +71,17 @@ public class AudioPlayRandomSoundAtLocationEvent : Event<AudioPlayRandomSoundAtL
 
 }
 
+public class AudioSwitchBackgroundSoundEvent : Event<AudioSwitchBackgroundSoundEvent> {
+
+    public string backgroundSoundNameToFadeOut;
+    public SoundType backgroundSoundTypeToFadeOut;
+    public float fadeDuration;
+    public float soundVolumePercentage;
+    public string backgroundSoundNametoStart;
+    public SoundType backgroundSoundTypeToStart;
+
+}
+
 public class AudioPlaySequence : Event<AudioPlaySequence> {
 
     public string[] name;

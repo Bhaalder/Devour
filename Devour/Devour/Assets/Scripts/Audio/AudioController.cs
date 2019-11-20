@@ -97,6 +97,7 @@ public class AudioController : MonoBehaviour {
         AudioSoundVolumeEvent.RegisterListener(SoundSetVolume);
         AudioMixerVolumeEvent.RegisterListener(MixerSetVolume);
         AudioMixerPitchEvent.RegisterListener(MixerSetPitch);
+        AudioSwitchBackgroundSoundEvent.RegisterListener(SwitchSound);
     }
 
     #region Play/Stop Methods
@@ -356,6 +357,7 @@ public class AudioController : MonoBehaviour {
             }
         } catch (System.NullReferenceException) {
             AudioNotFound(fadeEvent.name);
+            return;
         }
         Debug.LogWarning("A sound fademethod was called but not declared as fadeIn or fadeOut, soundName: " + fadeEvent.name);
     }
@@ -391,7 +393,16 @@ public class AudioController : MonoBehaviour {
     }
     #endregion
 
-    #region FindSound, InWorldSpaceRoutine
+    #region SwitchBackgroundSound, FindSound, InWorldSpaceRoutine
+
+    private void SwitchSound(AudioSwitchBackgroundSoundEvent audioSwitch) {
+        FindSound(audioSwitch.backgroundSoundNameToFadeOut, audioSwitch.backgroundSoundTypeToFadeOut);
+        if (sound.source.isPlaying) {
+            FadeOutAudio(audioSwitch.fadeDuration, audioSwitch.soundVolumePercentage, sound);
+        }
+        FindSound(audioSwitch.backgroundSoundNametoStart, audioSwitch.backgroundSoundTypeToStart);
+        sound.source.Play();
+    }
 
     private void FindSound(string name, SoundType soundType) {
         try {
@@ -413,7 +424,7 @@ public class AudioController : MonoBehaviour {
                     break;
             }
         } catch (KeyNotFoundException) {
-            Debug.LogWarning("The sound with name '" + name + "' could not be found in list. Is it spelled correctly? (KeyNotFoundException)");
+            AudioNotFound(name);
         }
     }
 
@@ -562,7 +573,7 @@ public class AudioController : MonoBehaviour {
     #endregion
 
     private void AudioNotFound(string name) {
-        Debug.LogWarning("The sound with name '" + name + "' could not be found in list. Is it spelled correctly? (NullReferenceException)");
+        Debug.LogWarning("The sound with name '" + name + "' could not be found in list. Is it spelled correctly?");
     }
 
     private void OnDestroy() {
@@ -577,6 +588,7 @@ public class AudioController : MonoBehaviour {
         AudioSoundVolumeEvent.UnRegisterListener(SoundSetVolume);
         AudioMixerVolumeEvent.UnRegisterListener(MixerSetVolume);
         AudioMixerPitchEvent.UnRegisterListener(MixerSetPitch);
+        AudioSwitchBackgroundSoundEvent.UnRegisterListener(SwitchSound);
     }
 
 }

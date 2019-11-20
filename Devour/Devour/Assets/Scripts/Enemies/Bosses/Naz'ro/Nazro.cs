@@ -3,15 +3,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum BossZvixaState {
-    NONE, INTRO, IDLE, BASICATTACK, SONAR_EXPEL, SPIKE_ATTACK, DEATH
+public enum BossNazroState {
+    NONE, INTRO, IDLE, VOID_BOMB, VOID_WALL, VOID_COMET, VOID_OBS, WAIT, DEATH
 }
 
-public class Zvixa : Boss{
-    public BossZvixaState State { get; set; }
+public class Nazro : Boss {
+    public BossNazroState State { get; set; }
 
+    public BoxCollider2D RightArea { get; set; }
     public BoxCollider2D HighArea { get; set; }
-    public BoxCollider2D LowArea { get; set; }
     public BoxCollider2D StartFightArea { get; set; }
 
     public Transform TeleportAreaLeft { get; set; }
@@ -19,18 +19,11 @@ public class Zvixa : Boss{
     public Transform TeleportAreaRight { get; set; }
     public GameObject BossDoor { get; set; }
 
-    public int FacingDirection { get; set; }
-
     public float DistanceToPlayer { get; set; }
 
-    public float XScale { get; set; }
-
+    [SerializeField] private BoxCollider2D rightArea;
     [SerializeField] private BoxCollider2D highArea;
-    [SerializeField] private BoxCollider2D lowArea;
     [SerializeField] private BoxCollider2D startFightArea;
-    [SerializeField] private Transform teleportAreaLeft;
-    [SerializeField] private Transform teleportAreaMiddle;
-    [SerializeField] private Transform teleportAreaRight;
     [SerializeField] private GameObject bossDoor;
 
     public static bool IsDead { get; set; }
@@ -39,23 +32,18 @@ public class Zvixa : Boss{
         if (IsDead) {
             Destroy(gameObject);
         }
-        XScale = transform.localScale.x;
         base.Awake();
+        RightArea = rightArea;
         HighArea = highArea;
-        LowArea = lowArea;
         StartFightArea = startFightArea;
-        TeleportAreaLeft = teleportAreaLeft;
-        TeleportAreaMiddle = teleportAreaMiddle;
-        TeleportAreaRight = teleportAreaRight;
         BossDoor = bossDoor;
 
         PlayerDiedEvent.RegisterListener(Reset);
-        ZvixaSelfDamageEvent.RegisterListener(SelfDamage);
     }
 
     protected override void Update() {
         base.Update();
-        Animator.SetInteger("State", (int)State);
+        //Animator.SetInteger("State", (int)State);
     }
 
     protected override void FixedUpdate() {
@@ -63,18 +51,12 @@ public class Zvixa : Boss{
         base.FixedUpdate();
     }
 
+    protected override void EnemyTouchKillzone(EnemyTouchKillzoneEvent killzoneEvent) {
+
+    }
+
     protected override void OnTriggerStay2D(Collider2D collision) {
-        if (collision.gameObject.tag == "Player") {
-            if (!IsDead) {
-                Debug.Log("Collided with Player");
-                PlayerTakeDamageEvent ptde = new PlayerTakeDamageEvent {
-                    damage = damageToPlayerOnContact,
-                    enemyPosition = rb.position
-                };
-                ptde.FireEvent();
-            }
-        }
-        rb.velocity = new Vector2(0, 0);
+
     }
 
     public virtual void SelfDamage(ZvixaSelfDamageEvent selfDamageEvent) {
@@ -83,26 +65,21 @@ public class Zvixa : Boss{
 
     private void Reset(PlayerDiedEvent playerDied) {
         Health = MaxHealth;
-        State = BossZvixaState.NONE;
-        Transition<ZvixaBaseState>();
-        transform.position = TeleportAreaMiddle.position;
-        BossDoor.SetActive(false);
+        State = BossNazroState.NONE;
+        //Transition<ZvixaBaseState>();
     }
 
     public override void EnemyDeath() {
         if (!IsDead) {
             IsDead = true;
         }
-        if(State != BossZvixaState.DEATH) {
-            Transition<ZvixaDeathState>();
+        if (State != BossNazroState.DEATH) {
+            //Transition<ZvixaDeathState>(); DEATHSTATE
         }
     }
 
     protected override void OnDestroy() {
-        BossDoor.SetActive(false);
         PlayerAttackEvent.UnRegisterListener(TakeDamage);
         PlayerDiedEvent.UnRegisterListener(Reset);
-        ZvixaSelfDamageEvent.UnRegisterListener(SelfDamage);
-        EnemyTouchKillzoneEvent.UnRegisterListener(EnemyTouchKillzone);
     }
 }

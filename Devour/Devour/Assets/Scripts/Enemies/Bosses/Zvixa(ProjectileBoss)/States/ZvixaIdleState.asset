@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 43f4ca67be2bf1743a6439e54bbd3d34, type: 3}
   m_Name: ZvixaIdleState
   m_EditorClassIdentifier: 
-  minIdle: 2
-  maxIdle: 4
-  actAgainPercentage: 25
+  minIdle: 1
+  maxIdle: 2
+  actAgainPercentage: 50
   basicAttackPercentage: 55

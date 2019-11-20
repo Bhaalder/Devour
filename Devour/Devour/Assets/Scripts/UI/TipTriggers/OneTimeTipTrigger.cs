@@ -42,6 +42,7 @@ public class OneTimeTipTrigger : TipTrigger {
                 tipText = tipText,
             };
             showTextEvent.FireEvent();
+            StartCoroutine(HideTooltip());
         }
     }
 

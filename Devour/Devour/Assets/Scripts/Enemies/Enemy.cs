@@ -107,7 +107,7 @@ public class Enemy : StateMachine
         return knockback;
     }
 
-    protected void EnemyTouchKillzone(EnemyTouchKillzoneEvent killzoneEvent) {
+    protected virtual void EnemyTouchKillzone(EnemyTouchKillzoneEvent killzoneEvent) {
         if(killzoneEvent.enemy == this) {
             EnemyDeath();
         }
