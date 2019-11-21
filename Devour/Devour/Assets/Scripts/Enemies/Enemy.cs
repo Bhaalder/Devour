@@ -12,6 +12,7 @@ public class Enemy : StateMachine
     public float Damage { get; set; }
     public bool Stunned { get; set; }
     public bool IsAlive { get; set; }
+    public bool IsIdle { get; set; }
     public GameObject[] ChildrenToDisable { get; set; }
     public GameObject AudioGO { get; set; }
     public BoxCollider2D BoxCollider2D { get; set; }
@@ -20,6 +21,7 @@ public class Enemy : StateMachine
     [SerializeField] protected float enemyHealth;
     [SerializeField] protected float damageToPlayerOnContact = 5;
     [SerializeField] protected int lifeforceAmount;
+    [SerializeField] protected bool isIdle;
 
     [SerializeField] public Rigidbody2D rb { get; set; }
 
@@ -49,6 +51,7 @@ public class Enemy : StateMachine
         Health = enemyHealth;
         Damage = damageToPlayerOnContact;
         ChildrenToDisable = childrenToDisable;
+        IsIdle = isIdle;
         Stunned = false;
         IsAlive = true;
 

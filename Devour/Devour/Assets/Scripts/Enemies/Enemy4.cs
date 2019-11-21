@@ -9,16 +9,12 @@ public enum Enemy4State
 }
 public class Enemy4 : Enemy
 {
-    [SerializeField] private bool isIdle;
-
-    public bool IsIdle { get; set; }
     public Enemy4State State { get; set; }
     public Animator Animator { get; set; }
 
     protected override void Awake()
     {
         base.Awake();
-        IsIdle = isIdle;
         Animator = GetComponent<Animator>();
 
         if (isIdle)

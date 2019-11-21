@@ -29,6 +29,8 @@ public class Enemy5Attack : EnemyMovement
     {
         base.Enter();
 
+        owner.GetComponent<Enemy5>().State = Enemy5State.ATTACK;
+
         startAttack = false;
         initializeState = false;
         particleInstantiated = false;
@@ -42,7 +44,6 @@ public class Enemy5Attack : EnemyMovement
 
         if (!initializeState)
         {
-            owner.GetComponent<Enemy5>().State = Enemy5State.ATTACK;
             startPoint = owner.rb.position;
             endPoint = new Vector2(owner.Player.transform.position.x, startPoint.y + targetYOffset);
             middlePoint = startPoint + (endPoint - startPoint) / 2 + Vector2.up * middlePointCurve;

@@ -16,7 +16,11 @@ MonoBehaviour:
   layerMask:
     serializedVersion: 2
     m_Bits: 256
+  playerLayerMask:
+    serializedVersion: 2
+    m_Bits: 1024
   enemySpeed: 1600
   distanceBeforeTurning: 3
   newPositionCooldownTime: 3
   attackDistance: 10
+  iWasStuckCooldown: 5

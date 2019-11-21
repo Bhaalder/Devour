@@ -8,7 +8,6 @@ public class EnemyMovement : EnemyBaseState
     [SerializeField] protected float timeStunned = 2f;
     [SerializeField] protected LayerMask layerMask;
 
-
     protected float currentCooldown;
 
     protected Transform target;

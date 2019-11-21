@@ -16,6 +16,7 @@ public class Boss2SonicSnipeAttack : Boss2BaseState
         currentCooldown = attackTime;
         owner.SnipeBeamSprite.color = new Color(0, 0, 0);
         owner.SonicSnipeBeam.GetComponentInChildren<BoxCollider2D>().enabled = true;
+        owner.SonicSnipeBeam.GetComponent<BoxCollider2D>().enabled = true;
     }
 
     public override void HandleUpdate()

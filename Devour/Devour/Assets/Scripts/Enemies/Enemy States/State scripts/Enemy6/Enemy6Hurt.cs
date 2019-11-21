@@ -2,13 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "Enemy/Enemy5HurtState")]
-public class Enemy5Hurt : EnemyMovement
+[CreateAssetMenu(menuName = "Enemy/Enemy6/HurtState")]
+public class Enemy6Hurt : EnemyMovement
 {
     public override void Enter()
     {
-        owner.GetComponent<Enemy5>().State = Enemy5State.HURT;
-        base.Enter();       
+        base.Enter();
+        owner.GetComponent<Enemy6>().State = Enemy6State.HURT;
     }
     public override void HandleUpdate()
     {
@@ -18,7 +18,7 @@ public class Enemy5Hurt : EnemyMovement
         }
         else
         {
-            owner.Transition<Enemy5Idle>();
+            owner.Transition<Enemy6Idle>();
         }
     }
     public override void HandleFixedUpdate()
