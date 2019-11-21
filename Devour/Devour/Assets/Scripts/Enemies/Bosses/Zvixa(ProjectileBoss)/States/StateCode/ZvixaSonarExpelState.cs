@@ -57,6 +57,11 @@ public class ZvixaSonarExpelState : ZvixaBaseState {
         if (windUpLeft <= 0 && !expelHasStarted) {
             StartSonarExpel();
             expelHasStarted = true;
+            CameraShakeEvent shakeEvent = new CameraShakeEvent {
+                startDuration = growthTime,
+                startValue = 0.15f
+            };
+            shakeEvent.FireEvent();
         }
         if(spikeFollowUpTimeLeft <= 0 && spikeFollowUp <= spikeFollowUpPercentage) {   
             owner.Transition<ZvixaSpikeAttackState>();

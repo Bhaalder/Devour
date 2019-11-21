@@ -39,7 +39,11 @@ public class Enemy : StateMachine
 
     protected override void Awake(){
         base.Awake();
-        rb = GetComponent<Rigidbody2D>();
+        try {
+            rb = GetComponent<Rigidbody2D>();
+        } catch (NullReferenceException) {
+            Debug.Log("This enemy does not have a rigidbody");
+        }
         boxCollider2D = GetComponent<BoxCollider2D>();
         BoxCollider2D = boxCollider2D;
         Health = enemyHealth;

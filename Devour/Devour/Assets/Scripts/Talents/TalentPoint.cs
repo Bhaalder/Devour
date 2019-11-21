@@ -21,7 +21,7 @@ public class TalentPointChange {
 [System.Serializable]
 public class TalentPoint {
 
-    public TalentPointType talentPointType; //{ get; set; }
+    public TalentPointType talentPointType;
     public TalentPointChange[] variablesToChange;
     [TextArea(0, 5)]
     public string description;

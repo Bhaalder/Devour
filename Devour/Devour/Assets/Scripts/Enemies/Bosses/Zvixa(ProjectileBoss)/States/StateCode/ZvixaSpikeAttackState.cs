@@ -39,6 +39,11 @@ public class ZvixaSpikeAttackState : ZvixaBaseState {
         if (windUpLeft <= 0 && !spikesAreUp) {
             spriteRenderer.color = new Color32(255, 0, 0, 255);
             spikesAreUp = true;
+            CameraShakeEvent shakeEvent = new CameraShakeEvent {
+                startDuration = 0.4f,
+                startValue = 0.35f
+            };
+            shakeEvent.FireEvent();
         }
         if (spikesAreUp) {
             if (owner.Player.HorizontalMeleeCollider.bounds.Intersects(owner.LowArea.bounds)) {
