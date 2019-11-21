@@ -27,6 +27,7 @@ public class Enemy6 : Enemy
         AttackDistance = attackDistance;
         WeaponDamage = weaponDamage;
         Weapon.SetActive(false);
+        Transition<Enemy6Idle>();
     }
 
     protected override void Update()

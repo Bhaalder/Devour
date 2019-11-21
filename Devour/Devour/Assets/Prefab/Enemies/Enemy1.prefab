@@ -404,7 +404,7 @@ Transform:
   m_GameObject: {fileID: 5264885074668572408}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -3.35, y: -1.02, z: 0}
-  m_LocalScale: {x: 0.8, y: 0.8, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 5264885074495060604}
   - {fileID: 4786896271817837836}
@@ -438,6 +438,7 @@ MonoBehaviour:
   enemyHealth: 50
   damageToPlayerOnContact: 25
   lifeforceAmount: 15
+  isIdle: 0
   enemyGFX: {fileID: 5264885074668572413}
   childrenToDisable:
   - {fileID: 5264885074495060607}

@@ -253,7 +253,7 @@ Transform:
   m_GameObject: {fileID: 4665437243376551254}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -19.933353, y: 29.821749, z: 0}
-  m_LocalScale: {x: 0.8, y: 0.8, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4665437243542778322}
   - {fileID: 5458415168145720994}
@@ -287,6 +287,7 @@ MonoBehaviour:
   enemyHealth: 75
   damageToPlayerOnContact: 25
   lifeforceAmount: 25
+  isIdle: 0
   enemyGFX: {fileID: 4665437243376551251}
   childrenToDisable:
   - {fileID: 4665437243542778321}
@@ -298,7 +299,6 @@ MonoBehaviour:
   deathSounds:
   - Enemy134Death1
   - Enemy134Death2
-  isIdle: 0
 --- !u!58 &4665437243376551248
 CircleCollider2D:
   m_ObjectHideFlags: 0
