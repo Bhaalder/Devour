@@ -17,6 +17,7 @@ public class Enemy : StateMachine
     public GameObject AudioGO { get; set; }
     public BoxCollider2D BoxCollider2D { get; set; }
 
+    [SerializeField] protected Vector2 hurtParticleOffsetPosition;
     [SerializeField] protected GameObject particlesOnHurt;
     [SerializeField] protected float enemyHealth;
     [SerializeField] protected float damageToPlayerOnContact = 5;
@@ -131,7 +132,7 @@ public class Enemy : StateMachine
 
     protected void HurtSoundAndParticles() {
         if(particlesOnHurt != null) {
-            GameObject instantiatedParticle = Instantiate(particlesOnHurt, transform.position, Quaternion.identity);
+            GameObject instantiatedParticle = Instantiate(particlesOnHurt, transform.position + (Vector3)hurtParticleOffsetPosition, Quaternion.identity, transform);
             Destroy(instantiatedParticle, 1);
         }     
         string[] soundNames = { "Hit1", "Hit2"};
