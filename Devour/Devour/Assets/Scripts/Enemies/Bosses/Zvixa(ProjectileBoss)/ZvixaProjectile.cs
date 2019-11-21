@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿//Author: Patrik Ahlgren
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -20,8 +21,6 @@ public class ZvixaProjectile : MonoBehaviour{
         circleCollider2D = GetComponent<CircleCollider2D>();
         PlayerAttackEvent.RegisterListener(GetHit);
         BossDiedEvent.RegisterListener(BossDied);
-        // GetComponent<Rigidbody2D>().velocity += new Vector2(8, 0);
-        //transform.position = Vector2.MoveTowards(transform.position, GameController.Instance.Player.transform.position, 5 * Time.deltaTime);
     }
 
     private void FixedUpdate() {
