@@ -16,6 +16,9 @@ public class EnemyDeathState : EnemyBaseState
     public override void Enter()
     {
         base.Enter();
+
+        owner.rb.gravityScale = 0;
+
         currentCooldown = deathTimer;
 
         childrenToDisable = owner.ChildrenToDisable;
