@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Boss2Idle
   m_EditorClassIdentifier: 
   timeBetweenAttacks: 1
-  sonicThrustPercentage: 40
-  sonicSnipePercentage: 50
+  sonicThrustPercentage: 60
+  sonicSnipePercentage: 35
