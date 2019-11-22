@@ -22,6 +22,7 @@ public class Nazro : Boss {
     public GameObject HorizontalVoidWall { get; set; }
     public GameObject BossDoor { get; set; }
     public Transform[] VoidBombSpawnLocations { get; set; }
+    public Transform[] VoidCometSpawnLocations { get; set; }
     public Transform[] MoveLocations { get; set; }
 
     public int CurrentLocation { get; set; }
@@ -41,6 +42,7 @@ public class Nazro : Boss {
     [SerializeField] private GameObject horizontalVoidWall;
     [SerializeField] private GameObject bossDoor;
     [SerializeField] private Transform[] voidBombSpawnLocations;
+    [SerializeField] private Transform[] voidCombetSpawnLocations;
     [SerializeField] private Transform[] moveLocations;
 
     public static bool IsDead { get; set; }
@@ -60,6 +62,7 @@ public class Nazro : Boss {
         HorizontalVoidWall = horizontalVoidWall;
         BossDoor = bossDoor;
         VoidBombSpawnLocations = voidBombSpawnLocations;
+        VoidCometSpawnLocations = voidCombetSpawnLocations;
         MoveLocations = moveLocations;
 
         PlayerDiedEvent.RegisterListener(Reset);

@@ -172,6 +172,36 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!1 &581410672938793146
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7206648218760259893}
+  m_Layer: 0
+  m_Name: VerticalCometLocation
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7206648218760259893
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 581410672938793146}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 17, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 7187109452233525554}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &583523417542866235
 GameObject:
   m_ObjectHideFlags: 0
@@ -408,6 +438,38 @@ Transform:
   m_Father: {fileID: 4459663998044771125}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2030078702881425525
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7187109452233525554}
+  m_Layer: 0
+  m_Name: VoidCometSpawnLocations
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7187109452233525554
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2030078702881425525}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1425485103045738164}
+  - {fileID: 7206648218760259893}
+  m_Father: {fileID: 2816975204552695204}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2266503330458527075
 GameObject:
   m_ObjectHideFlags: 0
@@ -500,6 +562,36 @@ Transform:
   m_Father: {fileID: 4145948457014599973}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &4046452341196718950
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1425485103045738164}
+  m_Layer: 0
+  m_Name: HorizontalCometLocation
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1425485103045738164
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4046452341196718950}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -28.5, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 7187109452233525554}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4145492482214704768
 GameObject:
   m_ObjectHideFlags: 0
@@ -529,7 +621,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2816975204552695204}
-  m_RootOrder: 9
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &7246317553802898632
 BoxCollider2D:
@@ -716,6 +808,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 023ce5d9a07fdf545a82fd5c78a24410, type: 2}
   - {fileID: 11400000, guid: d3bf48bf558981e4fac08c6e46bd484f, type: 2}
   - {fileID: 11400000, guid: f298f8201987d0041a47ce98d8ae328e, type: 2}
+  - {fileID: 11400000, guid: d8cb3a5a639f6914085190f5975639ec, type: 2}
   hurtParticleOffsetPosition: {x: 0, y: 0}
   particlesOnHurt: {fileID: 1315949759934820, guid: 902fd6b6a8d230c4a91b7d58e16a36ce,
     type: 3}
@@ -730,6 +823,7 @@ MonoBehaviour:
   abilityEssence: {fileID: 0}
   bossName: "Naz\u2019ro the One"
   maxHealth: 2000
+  speed: 5
   leftArea: {fileID: 3252349949985474825}
   rightArea: {fileID: 6118006550420751222}
   highArea: {fileID: 8199037630513333038}
@@ -743,6 +837,15 @@ MonoBehaviour:
   - {fileID: 1357983395798487857}
   - {fileID: 6413653464415776514}
   - {fileID: 8732744619228030923}
+  voidCombetSpawnLocations:
+  - {fileID: 1425485103045738164}
+  - {fileID: 7206648218760259893}
+  moveLocations:
+  - {fileID: 1580688102}
+  - {fileID: 4099103306077954222}
+  - {fileID: 8548327686371819095}
+  - {fileID: 6202800932580912262}
+  - {fileID: 1446754270752812800}
 --- !u!61 &7127363758946561139
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1228,7 +1331,7 @@ Transform:
   - {fileID: 2217349149418321849}
   - {fileID: 280391094843978701}
   m_Father: {fileID: 2816975204552695204}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5355603329173124604
 GameObject:
@@ -1260,7 +1363,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2816975204552695204}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &2292813890065521798
 BoxCollider2D:
@@ -1369,6 +1472,7 @@ Transform:
   - {fileID: 9085365842760875585}
   - {fileID: 4676299035871208676}
   - {fileID: 4459663998044771125}
+  - {fileID: 7187109452233525554}
   - {fileID: 4145948457014599973}
   - {fileID: 7327372152966538891}
   - {fileID: 6775412012892914667}
@@ -1769,7 +1873,7 @@ Transform:
   - {fileID: 397022730214384529}
   - {fileID: 727816705752071255}
   m_Father: {fileID: 2816975204552695204}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
 --- !u!114 &5282351597098491647
 MonoBehaviour:
@@ -1881,7 +1985,7 @@ Transform:
   - {fileID: 5348131940933917400}
   - {fileID: 8895864120763560565}
   m_Father: {fileID: 2816975204552695204}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &8490744317963519879
 MonoBehaviour:

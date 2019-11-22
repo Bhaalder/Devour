@@ -12,8 +12,11 @@ public class NazroIdleState : NazroBaseState {
     [SerializeField] protected float maxIdle;
     [Tooltip("The chance in % that the boss will act immediately again after an action (whole number)")]
     [SerializeField] protected int actAgainPercentage;
+    [Tooltip("The extra chance in % that the boss will act immediately again after an action in second phase(whole number)")]
+    [SerializeField] protected int actAgainPercentageExtraSecondPhase;
     private float untilNextAction;
-    private int actAgain;
+    private int chanceToActAgain;
+    private int actAgainRoll;
 
     public override void Enter() {
         owner.State = BossNazroState.IDLE;
@@ -21,11 +24,16 @@ public class NazroIdleState : NazroBaseState {
         if (!battleStart) {
             battleStart = true;
         }
-        actAgain = Random.Range(0, 100) + 1;
-        if (actAgain <= actAgainPercentage) {
+        actAgainRoll = Random.Range(0, 100) + 1;
+        if (owner.IsSecondPhase) {
+            chanceToActAgain = actAgainPercentage + actAgainPercentageExtraSecondPhase;
+        } else {
+            chanceToActAgain = actAgainPercentage;
+        }
+        if (actAgainRoll <= actAgainPercentage) {
             untilNextAction = 0;
         } else {
-            untilNextAction = Random.Range(minIdle, maxIdle)+1;
+            untilNextAction = Random.Range(minIdle, maxIdle + 1);
         }
         base.Enter();
     }
@@ -40,6 +48,26 @@ public class NazroIdleState : NazroBaseState {
             untilNextAction -= Time.deltaTime;
             return;
         }
-        owner.Transition<NazroVoidWallState>();
+        ChooseAction();
     }
+
+    private void ChooseAction() {
+        int i = Random.Range(0, 3) + 1;
+        switch (i) {
+            case 1:
+                owner.Transition<NazroVoidWallState>();
+                break;
+            case 2:
+                owner.Transition<NazroVoidBombState>();
+                break;
+            case 3:
+                owner.Transition<NazroVoidCometState>();
+                break;
+            default:
+                Debug.Log("Inget");
+                break;
+        }
+        
+    }
+
 }
