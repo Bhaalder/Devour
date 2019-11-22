@@ -10,10 +10,6 @@ public class Boss2SonicDashAttack : Boss2BaseState
 
     private GameObject[] positions;
 
-    private GameObject position1;
-    private GameObject position2;
-    private GameObject position3;
-
     private Vector2 startPosition;
 
     private float countUp;
@@ -30,10 +26,7 @@ public class Boss2SonicDashAttack : Boss2BaseState
         dashTime = 1 / count;
         countUp = 0;
         currentDashTime = 0;
-
-        position1 = positions[0];
-        position2 = positions[1];
-        position3 = positions[2];
+        currentPosition = 0;
 
         startPosition = owner.rb.position;
         owner.rb.gravityScale = 0;
@@ -56,18 +49,7 @@ public class Boss2SonicDashAttack : Boss2BaseState
             countUp += count * Time.deltaTime;
             currentDashTime += Time.deltaTime;
 
-            if (currentPosition == 0)
-            {
-                owner.rb.position = Vector3.Lerp(startPosition, position1.transform.position, countUp);
-            }
-            else if (currentPosition == 1)
-            {
-                owner.rb.position = Vector3.Lerp(startPosition, position2.transform.position, countUp);
-            }
-            else if (currentPosition == 2)
-            {
-                owner.rb.position = Vector3.Lerp(startPosition, position3.transform.position, countUp);
-            }
+            owner.rb.position = Vector3.Lerp(startPosition, positions[currentPosition].transform.position, countUp);
             return;
         }
 
@@ -76,7 +58,7 @@ public class Boss2SonicDashAttack : Boss2BaseState
         countUp = 0;
         currentDashTime = 0;
         FindTargetDirection();
-        if(currentPosition >= 3)
+        if(currentPosition >= positions.Length)
         {
             currentPosition = 0;
             owner.rb.gravityScale = 6;
