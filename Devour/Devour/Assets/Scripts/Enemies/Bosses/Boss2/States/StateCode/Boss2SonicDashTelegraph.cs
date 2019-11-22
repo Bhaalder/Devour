@@ -38,6 +38,7 @@ public class Boss2SonicDashTelegraph : Boss2BaseState
     private void ChooseDashPattern()
     {
         int pattern = Random.Range(1, 4);
+        
         chosenPattern = null;
         owner.ChosenPattern = null;
         switch (pattern)
@@ -52,7 +53,21 @@ public class Boss2SonicDashTelegraph : Boss2BaseState
                 chosenPattern = owner.DashPattern1;
                 break;
         }
-        owner.ChosenPattern = chosenPattern;
+        
+        if(owner.DashPatterns.Length >= 1)
+        {
+            chosenPattern = null;
+            owner.ChosenPattern = null;
+            int patternNumber = Random.Range(0, owner.DashPatterns.Length);
+            Debug.Log("PatternNumber" + patternNumber);
+            chosenPattern = owner.DashPatterns[patternNumber];
+            owner.ChosenPattern = chosenPattern;
+        }
+        else
+        {
+            owner.ChosenPattern = chosenPattern;
+        } 
+
     }
 
     private void DashTelegraph()
