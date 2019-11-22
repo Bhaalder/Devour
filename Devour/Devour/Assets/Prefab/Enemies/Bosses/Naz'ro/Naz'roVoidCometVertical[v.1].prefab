@@ -110,6 +110,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 365baee5f17437d45a5c6f8ee11b0b87, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  warningParticlePrefab: {fileID: 1609845037211932075, guid: 6cab11669a0d31e4ca59e1d56d0d5601,
+    type: 3}
   direction: {x: 0, y: -1}
   lifeSpan: 5
   isVerticalComet: 1

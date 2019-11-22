@@ -109,12 +109,12 @@ public class Nazro : Boss {
                             voidEvent.FireEvent();
                         }
                         phe.FireEvent();
-                        //if (!attackEvent.player.IsGrounded && attackEvent.player.IsAttackingDown && attackEvent.isMeleeAttack) {
-                        //    attackEvent.player.ExtraJumpsLeft = attackEvent.player.ExtraJumps;
-                        //    attackEvent.player.Rb2D.velocity = new Vector2(attackEvent.player.Rb2D.velocity.x, 0);
-                        //    attackEvent.player.Rb2D.velocity = new Vector2(attackEvent.player.Rb2D.velocity.x, attackEvent.player.BounceForce);
-                        //    return;
-                        //}
+                        if (!attackEvent.player.IsGrounded && attackEvent.player.IsAttackingDown && attackEvent.isMeleeAttack) {
+                            attackEvent.player.ExtraJumpsLeft = attackEvent.player.ExtraJumps;
+                            attackEvent.player.Rb2D.velocity = new Vector2(attackEvent.player.Rb2D.velocity.x, 0);
+                            attackEvent.player.Rb2D.velocity = new Vector2(attackEvent.player.Rb2D.velocity.x, attackEvent.player.BounceForce);
+                            return;
+                        }
                     }
                 }
             } catch (System.NullReferenceException) {
@@ -127,8 +127,9 @@ public class Nazro : Boss {
         if (!IsDead) {
             IsDead = true;
         }
-        if (State != BossNazroState.DEATH) {
+        if (State != BossNazroState.DEATH) { //KOLLA SÅ ATT MAN HAR HAMNAT I SECONPHASE FÖRST OCKSÅ!
             //DEATHSTATE
+            Destroy(gameObject);//FÖR TILLFÄLLET
         }
     }
 

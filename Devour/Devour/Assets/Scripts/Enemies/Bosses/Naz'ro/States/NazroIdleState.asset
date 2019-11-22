@@ -16,4 +16,4 @@ MonoBehaviour:
   minIdle: 1.5
   maxIdle: 2.75
   actAgainPercentage: 20
-  actAgainPercentageExtraSecondPhase: 0
+  actAgainPercentageExtraSecondPhase: 20
