@@ -53,6 +53,7 @@ public class Boss2SonicSnipeMovement : Boss2BaseState
         }
         else
         {
+            TurnedRight();
             owner.Transition<Boss2SonicSnipeTelegraph>();
         }
 

@@ -9,6 +9,7 @@ public class Boss2SonicDashExit : Boss2BaseState
     {
         base.Enter();
         owner.State = Boss2State.SONIC_DASH_EXIT;
+        TurnedRight();
         owner.Transition<Boss2Idle>();
     }
 
