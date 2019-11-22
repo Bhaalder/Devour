@@ -12,14 +12,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e438764fd6f051c4398d08dd6573dfe4, type: 3}
   m_Name: NazroVoidCometState
   m_EditorClassIdentifier: 
-  color: {r: 0, g: 0, b: 0, a: 0}
-  voidCometWindUpTime: 0
-  voidCometMoveWindUpTime: 0
-  voidCometAttackTime: 0
-  cometDamage: 0
-  voidCometSpeed: 0
-  minNumberOfComets: 0
-  maxNumberOfComets: 0
-  secondPhaseAdditionalComets: 0
-  horizontalVoidCometPrefab: {fileID: 0}
-  verticalVoidCometPrefab: {fileID: 0}
+  color: {r: 0.3490566, g: 0, b: 0, a: 1}
+  voidCometWindUpTime: 0.75
+  voidCometMoveWindUpTime: 0.75
+  voidCometAttackTime: 4.5
+  cometDamage: 25
+  voidCometSpeed: 25
+  minNumberOfComets: 2
+  maxNumberOfComets: 4
+  secondPhaseAdditionalComets: 2
+  horizontalVoidCometPrefab: {fileID: 6001045238681105939, guid: 4e0dcf37c2028e84b8ea406e2505f380,
+    type: 3}
+  verticalVoidCometPrefab: {fileID: 9018514965148335077, guid: 40e70d991c0acb2448f5e073207a7b3c,
+    type: 3}

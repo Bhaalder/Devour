@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: NazroIdleState
   m_EditorClassIdentifier: 
   color: {r: 1, g: 1, b: 1, a: 1}
-  minIdle: 2
-  maxIdle: 3
+  minIdle: 1.5
+  maxIdle: 2.75
   actAgainPercentage: 20
+  actAgainPercentageExtraSecondPhase: 0
