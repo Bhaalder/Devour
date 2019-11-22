@@ -24,10 +24,6 @@ public class NazroIntroState : NazroBaseState {
         base.HandleFixedUpdate();
     }
 
-    protected override void Movement() {
-
-    }
-
     public override void HandleUpdate() {
         if (introTimeLeft > 0) {
             introTimeLeft -= Time.deltaTime;

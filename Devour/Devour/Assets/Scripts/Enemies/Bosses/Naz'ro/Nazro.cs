@@ -10,26 +10,38 @@ public enum BossNazroState {
 public class Nazro : Boss {
     public BossNazroState State { get; set; }
 
+    public float Speed { get; set; }
+
     public BoxCollider2D LeftArea { get; set; }
     public BoxCollider2D RightArea { get; set; }
     public BoxCollider2D HighArea { get; set; }
-    public BoxCollider2D LowArea { get; set; }
+    public BoxCollider2D LowCenterArea { get; set; }
     public BoxCollider2D StartFightArea { get; set; }
 
     public GameObject VerticalVoidWall { get; set; }
     public GameObject HorizontalVoidWall { get; set; }
     public GameObject BossDoor { get; set; }
+    public Transform[] VoidBombSpawnLocations { get; set; }
+    public Transform[] MoveLocations { get; set; }
+
+    public int CurrentLocation { get; set; }
+    public int NewLocation { get; set; }
 
     public float DistanceToPlayer { get; set; }
+    public bool IsSecondPhase { get; set; }
+
+    [SerializeField] private float speed;
 
     [SerializeField] private BoxCollider2D leftArea;
     [SerializeField] private BoxCollider2D rightArea;
     [SerializeField] private BoxCollider2D highArea;
-    [SerializeField] private BoxCollider2D lowArea;
+    [SerializeField] private BoxCollider2D lowCenterArea;
     [SerializeField] private BoxCollider2D startFightArea;
     [SerializeField] private GameObject verticalVoidWall;
     [SerializeField] private GameObject horizontalVoidWall;
     [SerializeField] private GameObject bossDoor;
+    [SerializeField] private Transform[] voidBombSpawnLocations;
+    [SerializeField] private Transform[] moveLocations;
 
     public static bool IsDead { get; set; }
 
@@ -38,14 +50,17 @@ public class Nazro : Boss {
             Destroy(gameObject);
         }
         base.Awake();
+        Speed = speed;
         LeftArea = leftArea;
         RightArea = rightArea;
         HighArea = highArea;
-        LowArea = lowArea;
+        LowCenterArea = lowCenterArea;
         StartFightArea = startFightArea;
         VerticalVoidWall = verticalVoidWall;
         HorizontalVoidWall = horizontalVoidWall;
         BossDoor = bossDoor;
+        VoidBombSpawnLocations = voidBombSpawnLocations;
+        MoveLocations = moveLocations;
 
         PlayerDiedEvent.RegisterListener(Reset);
     }
@@ -61,21 +76,48 @@ public class Nazro : Boss {
     }
 
     protected override void EnemyTouchKillzone(EnemyTouchKillzoneEvent killzoneEvent) {
-
+        //Can't touch killzone
     }
 
     protected override void OnTriggerStay2D(Collider2D collision) {
-
-    }
-
-    public virtual void SelfDamage(ZvixaSelfDamageEvent selfDamageEvent) {
-        ChangeEnemyHealth(-selfDamageEvent.damage);
+        //No damage on contact
     }
 
     private void Reset(PlayerDiedEvent playerDied) {
         Health = MaxHealth;
         State = BossNazroState.NONE;
-        //Transition<ZvixaBaseState>();
+        Transition<NazroBaseState>();
+    }
+
+    public override void TakeDamage(PlayerAttackEvent attackEvent) {
+        if (invulnerabilityTimer <= 0) {
+            try {
+                if (attackEvent.attackCollider.bounds.Intersects(boxCollider2D.bounds)) {
+                    ChangeEnemyHealth(-attackEvent.damage);
+                    HurtSoundAndParticles();
+                    if (attackEvent.isMeleeAttack) {
+                        PlayerHealEvent phe = new PlayerHealEvent {
+                            isLifeLeech = true
+                        };
+                        if (attackEvent.player.HasAbility(PlayerAbility.VOIDMEND)) {
+                            PlayerVoidEvent voidEvent = new PlayerVoidEvent {
+                                amount = attackEvent.player.MeleeVoidLeech
+                            };
+                            voidEvent.FireEvent();
+                        }
+                        phe.FireEvent();
+                        //if (!attackEvent.player.IsGrounded && attackEvent.player.IsAttackingDown && attackEvent.isMeleeAttack) {
+                        //    attackEvent.player.ExtraJumpsLeft = attackEvent.player.ExtraJumps;
+                        //    attackEvent.player.Rb2D.velocity = new Vector2(attackEvent.player.Rb2D.velocity.x, 0);
+                        //    attackEvent.player.Rb2D.velocity = new Vector2(attackEvent.player.Rb2D.velocity.x, attackEvent.player.BounceForce);
+                        //    return;
+                        //}
+                    }
+                }
+            } catch (System.NullReferenceException) {
+                Debug.LogWarning("A missing reference in PlayerAttackEvent, check Log!");
+            }
+        }
     }
 
     public override void EnemyDeath() {
@@ -83,7 +125,7 @@ public class Nazro : Boss {
             IsDead = true;
         }
         if (State != BossNazroState.DEATH) {
-            //Transition<ZvixaDeathState>(); DEATHSTATE
+            //DEATHSTATE
         }
     }
 

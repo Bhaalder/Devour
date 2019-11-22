@@ -9,8 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 86683e21aacab7149a51bea8407a94d5, type: 3}
-  m_Name: NazroIntroState
+  m_Script: {fileID: 11500000, guid: e881f521102a75748ac333952c679754, type: 3}
+  m_Name: NazroVoidWallState
   m_EditorClassIdentifier: 
-  color: {r: 1, g: 1, b: 1, a: 1}
-  introTime: 1
+  color: {r: 1, g: 0.5560052, b: 0, a: 1}
+  voidWallWindUpTime: 0.5
+  voidWallAttackTime: 2

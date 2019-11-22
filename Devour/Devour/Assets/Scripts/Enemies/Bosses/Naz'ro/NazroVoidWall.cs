@@ -5,48 +5,59 @@ using UnityEngine;
 
 public class NazroVoidWall : MonoBehaviour {
 
-    public float Damage { get; set; }
-    public float SelfDamage { get; set; }
-    public float LifeSpan { get; set; }
-    public float Speed { get; set; }
-
+    [Tooltip("The end location of the wall")]
+    [SerializeField] private Transform wallEndLocation;
+    [Tooltip("The minimum and maximum location of Y on the wall (min first)")]
+    [SerializeField] private Transform[] wallMinMax_YLocations;
+    [Tooltip("The minimum and maximum location of X on the wall (min first)")]
+    [SerializeField] private Transform[] wallMinMax_XLocations;
+    [SerializeField] private float timeBeforeMoving;
+    [SerializeField] private float damage;
     [SerializeField] private float speed;
     [SerializeField] private Vector2 direction;
+    [SerializeField] private bool isVerticalWall;
+    private float timeLeft;
+    private Vector3 tempPosition;
+    private Vector3 startPosition;
 
-    private BoxCollider2D boxCollider2D;
-    private bool gotHit;
+    private void OnEnable() {
+        timeLeft = timeBeforeMoving;
+        startPosition = transform.position;
+        if (isVerticalWall) {
+            tempPosition = transform.position + new Vector3(0, Random.Range(wallMinMax_YLocations[0].localPosition.y, wallMinMax_YLocations[1].localPosition.y), 0);
+        } else {
+            tempPosition = transform.position + new Vector3(Random.Range(wallMinMax_XLocations[0].localPosition.x, wallMinMax_XLocations[1].localPosition.x), 0, 0);
+        }
+        transform.position = tempPosition;
+    }
 
     private void Start() {
-        if(Speed == 0) {
-            Speed = speed;
+        foreach (Transform child in transform) {
+            child.GetComponent<NazroVoidWallCollide>().Damage = damage;
         }
-        
         BossDiedEvent.RegisterListener(BossDied);
     }
 
     private void FixedUpdate() {
-        LifeSpan -= Time.deltaTime;
-        transform.position += ((Vector3)direction * Speed) * Time.deltaTime;
-        //if (LifeSpan <= 0) {
-        //    Destroy(gameObject);
-        //}
-    }
-
-    private void OnTriggerEnter2D(Collider2D collision) {
-        if (collision.gameObject.tag == "Player") {
-            Debug.Log("Collided with Player");
-            PlayerTakeDamageEvent playerTakeDamage = new PlayerTakeDamageEvent {
-                damage = Damage,
-                enemyPosition = GetComponent<Rigidbody2D>().position
-            };
-            playerTakeDamage.FireEvent();
-            Destroy(gameObject);
+        if(timeLeft > 0) {
+            timeLeft -= Time.deltaTime;
+            return;
         }
-
+        transform.position += ((Vector3)direction * speed) * Time.deltaTime;
+        if(isVerticalWall && transform.position.x <= wallEndLocation.position.x) {
+            gameObject.SetActive(false);
+        }
+        if(!isVerticalWall && transform.position.y <= wallEndLocation.position.y) {
+            gameObject.SetActive(false);
+        }
     }
 
     private void BossDied(BossDiedEvent bossDied) {
         Destroy(gameObject);
+    }
+
+    private void OnDisable() {
+        transform.position = startPosition;
     }
 
     private void OnDestroy() {

@@ -8,8 +8,11 @@ public class NazroBaseState : State {
 
     [SerializeField] protected Color color;
 
-    [SerializeField] private Vector2 movementMax;
-    [SerializeField] private Vector2 movementMin;
+    private float minimumTimeUntilMove = 1.5f;
+    private float maximumTimeUntilMove = 3.5f;
+    private float timeUntilNextMove;
+
+    private Vector3 currentMovePosition;
 
     protected Nazro owner;
     protected bool battleStart;
@@ -33,7 +36,38 @@ public class NazroBaseState : State {
     }
 
     protected virtual void Movement() {
-        
+        if (CanMove()) {
+            owner.transform.position = Vector2.MoveTowards(owner.transform.position, currentMovePosition, owner.Speed * Time.deltaTime);
+            if (timeUntilNextMove > 0) {
+                timeUntilNextMove -= Time.deltaTime;
+                return;
+            }
+            timeUntilNextMove = Random.Range(minimumTimeUntilMove, maximumTimeUntilMove);
+            owner.NewLocation = Random.Range(0, 4);
+            while (owner.NewLocation == owner.CurrentLocation) {
+                owner.NewLocation = Random.Range(0, 4);
+            }
+            currentMovePosition = owner.MoveLocations[owner.NewLocation].position;
+            owner.CurrentLocation = owner.NewLocation;
+        }
+    }
+
+    protected bool CanMove() {
+        switch (owner.State) {
+            case BossNazroState.NONE:
+                return false;
+            case BossNazroState.INTRO:
+                return false;
+            case BossNazroState.DEATH:
+                return false;
+            case BossNazroState.WAIT:
+                return false;
+            case BossNazroState.PHASE_CHANGE:
+                return false;
+            default:
+                break;
+        }
+        return true;
     }
 
     private bool PlayerIsInsideBossRoom() {
