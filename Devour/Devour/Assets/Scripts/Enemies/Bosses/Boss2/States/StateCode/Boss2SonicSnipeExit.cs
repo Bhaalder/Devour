@@ -9,10 +9,11 @@ public class Boss2SonicSnipeExit : Boss2BaseState
     {
         base.Enter();
         owner.State = Boss2State.SONIC_SNIPE_EXIT;
-        owner.Transition<Boss2Idle>();
+        
         owner.SonicSnipeBeam.GetComponentInChildren<SpriteRenderer>().enabled = false;
         owner.SonicSnipeBeam.GetComponentInChildren<BoxCollider2D>().enabled = false;
         owner.rb.gravityScale = 6;
+        owner.Transition<Boss2Idle>();
     }
 
     public override void HandleUpdate()

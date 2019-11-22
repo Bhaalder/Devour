@@ -6,6 +6,7 @@ using UnityEngine;
 public class Boss2SonicDashAttack : Boss2BaseState
 {
     [SerializeField] private float count = 1f;
+    
 
     private GameObject[] positions;
 
@@ -16,6 +17,8 @@ public class Boss2SonicDashAttack : Boss2BaseState
     private Vector2 startPosition;
 
     private float countUp;
+    private float dashTime;
+    private float currentDashTime;
 
     private int currentPosition;
 
@@ -24,7 +27,9 @@ public class Boss2SonicDashAttack : Boss2BaseState
         base.Enter();
         owner.State = Boss2State.SONIC_DASH_ATTACK;
         positions = owner.ChosenPattern.GetComponent<SonicDashPositions>().Positions;
+        dashTime = 1 / count;
         countUp = 0;
+        currentDashTime = 0;
 
         position1 = positions[0];
         position2 = positions[1];
@@ -46,9 +51,10 @@ public class Boss2SonicDashAttack : Boss2BaseState
 
     private void DashingAttack()
     {
-        if (countUp < count)
+        if (currentDashTime < dashTime)
         {
             countUp += count * Time.deltaTime;
+            currentDashTime += Time.deltaTime;
 
             if (currentPosition == 0)
             {
@@ -68,6 +74,7 @@ public class Boss2SonicDashAttack : Boss2BaseState
         currentPosition++;
         startPosition = owner.rb.position;
         countUp = 0;
+        currentDashTime = 0;
         FindTargetDirection();
         if(currentPosition >= 3)
         {

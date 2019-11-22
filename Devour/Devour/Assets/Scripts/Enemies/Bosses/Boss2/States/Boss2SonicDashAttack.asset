@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 445b4adefb64c614d905ea2949a2ea01, type: 3}
   m_Name: Boss2SonicDashAttack
   m_EditorClassIdentifier: 
-  count: 1
+  count: 3

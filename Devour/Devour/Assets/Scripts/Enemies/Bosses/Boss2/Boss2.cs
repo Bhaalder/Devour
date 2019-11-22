@@ -42,7 +42,7 @@ public class Boss2 : Boss
         DashPattern2 = dashPattern2;
         DashPattern3 = dashPattern3;
         SonicSnipeBeam = sonicSnipeBeam;
-        sonicSnipeBeam.GetComponent<BoxCollider2D>().enabled = false;
+        sonicSnipeBeam.GetComponentInChildren<BoxCollider2D>().enabled = false;
         SonicSnipeBeamDamage = sonicSnipeBeamDamage;
         SnipeBeamSprite = SonicSnipeBeam.GetComponentInChildren<SpriteRenderer>();
         SnipeBeamSprite.enabled = false;
