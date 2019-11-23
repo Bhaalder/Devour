@@ -883,6 +883,7 @@ MonoBehaviour:
   bossName: "Naz\u2019ro the One"
   maxHealth: 2000
   speed: 5
+  maximumNumberOfVoidObstacles: 10
   leftArea: {fileID: 3252349949985474825}
   rightArea: {fileID: 6118006550420751222}
   highArea: {fileID: 8199037630513333038}

@@ -20,8 +20,6 @@ public class NazroVoidObstacleState : NazroBaseState {
     [SerializeField] private int maxNumberOfObs;
     [Tooltip("The additional number of minimum and maximum obstacles that Nazro spawns at a time")]
     [SerializeField] private int secondPhaseAdditionalObs;
-    [Tooltip("Maximum number of obstacles out at the same time")]
-    [SerializeField] private int maximumNumberOfVoidObs;
     [Tooltip("The Vertical VoidComet prefab that Nazro shoots out")]
     [SerializeField] private GameObject voidObstaclePrefab;
     private int totalNumberOfObs;
@@ -49,7 +47,9 @@ public class NazroVoidObstacleState : NazroBaseState {
         windUpLeft -= Time.deltaTime;
         attackTimeLeft -= Time.deltaTime;
         if (windUpLeft <= 0 && totalNumberOfObs > 0) {
-            SpawnObstacle();
+            if(owner.NazroVoidObstacles.Count < owner.MaximumNumberOfVoidObstacles) {
+                SpawnObstacle();
+            }
             totalNumberOfObs--;
             windUpLeft = voidObsWindUpTime;
         }

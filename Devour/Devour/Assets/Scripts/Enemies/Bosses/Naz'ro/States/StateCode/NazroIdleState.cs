@@ -64,7 +64,7 @@ public class NazroIdleState : NazroBaseState {
                 owner.Transition<NazroVoidCometState>();
                 break;
             case 4:
-                if (owner.NazroVoidObstacles.Count >= 8) {
+                if (owner.NazroVoidObstacles.Count >= owner.MaximumNumberOfVoidObstacles) {
                     ChooseAction();
                 } else {
                     owner.Transition<NazroVoidObstacleState>();

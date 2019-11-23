@@ -26,6 +26,7 @@ public class Nazro : Boss {
     public Transform[] VoidCometSpawnLocations { get; set; }
     public Transform[] MoveLocations { get; set; }
 
+    public int MaximumNumberOfVoidObstacles { get; set; }
     public int CurrentLocation { get; set; }
     public int NewLocation { get; set; }
 
@@ -35,6 +36,7 @@ public class Nazro : Boss {
     public List<GameObject> NazroVoidObstacles { get; set; }
 
     [SerializeField] private float speed;
+    [SerializeField] private int maximumNumberOfVoidObstacles;
 
     [SerializeField] private BoxCollider2D leftArea;
     [SerializeField] private BoxCollider2D rightArea;
@@ -69,6 +71,7 @@ public class Nazro : Boss {
         VoidBombSpawnLocations = voidBombSpawnLocations;
         VoidCometSpawnLocations = voidCombetSpawnLocations;
         MoveLocations = moveLocations;
+        MaximumNumberOfVoidObstacles = maximumNumberOfVoidObstacles;
         NazroVoidObstacles = new List<GameObject>();
 
         PlayerDiedEvent.RegisterListener(Reset);
