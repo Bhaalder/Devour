@@ -16,7 +16,6 @@ public class NazroBaseState : State {
 
     protected Nazro owner;
     protected bool battleStart;
-    protected bool isPhaseTwo;
 
     public override void Enter() {
         base.Enter();
@@ -33,6 +32,9 @@ public class NazroBaseState : State {
     public override void HandleUpdate() {
         base.HandleUpdate();
         Movement();
+        if (!owner.IsSecondPhase && owner.State != BossNazroState.PHASE_CHANGE) {
+            //SecondPhaseCheck();
+        }
     }
 
     protected virtual void Movement() {
@@ -68,6 +70,13 @@ public class NazroBaseState : State {
                 break;
         }
         return true;
+    }
+
+    private void SecondPhaseCheck() {
+        if(owner.Health <= owner.MaxHealth / 2) {
+            Debug.Log("SECOND PHASE!");
+            //owner.Transition<NazroPhaseChange>();
+        }
     }
 
     private bool PlayerIsInsideBossRoom() {

@@ -868,6 +868,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: f298f8201987d0041a47ce98d8ae328e, type: 2}
   - {fileID: 11400000, guid: d8cb3a5a639f6914085190f5975639ec, type: 2}
   - {fileID: 11400000, guid: ab16d1a4f26d7754e99e4015f50215e6, type: 2}
+  - {fileID: 11400000, guid: 8f1ca3e4c2124da44b657470a3dfffd6, type: 2}
   hurtParticleOffsetPosition: {x: 0, y: 0}
   particlesOnHurt: {fileID: 1315949759934820, guid: 902fd6b6a8d230c4a91b7d58e16a36ce,
     type: 3}
