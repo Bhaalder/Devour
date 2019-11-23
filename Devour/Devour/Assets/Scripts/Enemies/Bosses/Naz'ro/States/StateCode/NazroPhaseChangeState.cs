@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "Boss/Nazro/NazroPhaseChange")]
+[CreateAssetMenu(menuName = "Boss/Nazro/NazroPhaseChangeState")]
 public class NazroPhaseChangeState : NazroBaseState {
 
     [Tooltip("How fast Nazro escapes when he gets to half HP")]
@@ -13,7 +13,7 @@ public class NazroPhaseChangeState : NazroBaseState {
 
     public override void Enter() {
         owner.State = BossNazroState.PHASE_CHANGE;
-        owner.BossLog("PhaseChange");
+        owner.BossLog("PhaseChangeState");
         foreach(GameObject obs in owner.NazroVoidObstacles) {
             Destroy(obs);
         }
@@ -27,12 +27,13 @@ public class NazroPhaseChangeState : NazroBaseState {
     }
 
     public override void HandleUpdate() {
+        base.HandleUpdate();
         if (phaseChangeTime > 0) {
             phaseChangeTime -= Time.deltaTime;
             return;
         }
+        //FÖRSTÖR VÄGGEN TILL HÖGER NÄR HAN NUDDAR DEN
         //GO TO WAITSTATE AND TELEPORT
-        base.HandleUpdate();
     }
 
     protected override void Movement() {
