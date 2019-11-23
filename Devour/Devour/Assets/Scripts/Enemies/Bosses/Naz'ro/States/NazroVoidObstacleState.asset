@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1423b363fab3d8f4d8821dbf8062250b, type: 3}
+  m_Name: NazroVoidObstacleState
+  m_EditorClassIdentifier: 
+  color: {r: 0.64315224, g: 0, b: 1, a: 1}
+  voidObsWindUpTime: 0.2
+  voidObsArmingTime: 1.5
+  voidObsAttackTime: 2
+  obsDamage: 25
+  minNumberOfObs: 2
+  maxNumberOfObs: 3
+  secondPhaseAdditionalObs: 2
+  maximumNumberOfVoidObs: 10
+  voidObstaclePrefab: {fileID: 6494838859211001972, guid: c9c1a27f607cb10439489ee301a8cddf,
+    type: 3}

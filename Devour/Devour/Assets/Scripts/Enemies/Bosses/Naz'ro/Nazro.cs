@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public enum BossNazroState {
-    NONE, INTRO, IDLE, VOID_BOMB, VOID_WALL, VOID_COMET, VOID_OBS, PHASE_CHANGE, SECOND_PHASE_INTRO, WAIT, DEATH
+    NONE, INTRO, IDLE, VOID_BOMB, VOID_WALL, VOID_COMET, VOID_OBS, PHASE_CHANGE, WAIT, SECOND_PHASE_INTRO, DEATH
 }
 
 public class Nazro : Boss {
@@ -17,6 +17,7 @@ public class Nazro : Boss {
     public BoxCollider2D HighArea { get; set; }
     public BoxCollider2D LowCenterArea { get; set; }
     public BoxCollider2D StartFightArea { get; set; }
+    public BoxCollider2D VoidObsSpawnArea { get; set; }
 
     public GameObject VerticalVoidWall { get; set; }
     public GameObject HorizontalVoidWall { get; set; }
@@ -31,6 +32,8 @@ public class Nazro : Boss {
     public float DistanceToPlayer { get; set; }
     public bool IsSecondPhase { get; set; }
 
+    public List<GameObject> NazroVoidObstacles { get; set; }
+
     [SerializeField] private float speed;
 
     [SerializeField] private BoxCollider2D leftArea;
@@ -38,6 +41,7 @@ public class Nazro : Boss {
     [SerializeField] private BoxCollider2D highArea;
     [SerializeField] private BoxCollider2D lowCenterArea;
     [SerializeField] private BoxCollider2D startFightArea;
+    [SerializeField] private BoxCollider2D voidObsSpawnArea;
     [SerializeField] private GameObject verticalVoidWall;
     [SerializeField] private GameObject horizontalVoidWall;
     [SerializeField] private GameObject bossDoor;
@@ -60,10 +64,12 @@ public class Nazro : Boss {
         StartFightArea = startFightArea;
         VerticalVoidWall = verticalVoidWall;
         HorizontalVoidWall = horizontalVoidWall;
+        VoidObsSpawnArea = voidObsSpawnArea;
         BossDoor = bossDoor;
         VoidBombSpawnLocations = voidBombSpawnLocations;
         VoidCometSpawnLocations = voidCombetSpawnLocations;
         MoveLocations = moveLocations;
+        NazroVoidObstacles = new List<GameObject>();
 
         PlayerDiedEvent.RegisterListener(Reset);
     }

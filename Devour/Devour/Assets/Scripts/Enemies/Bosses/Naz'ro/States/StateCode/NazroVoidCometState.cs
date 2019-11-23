@@ -48,7 +48,6 @@ public class NazroVoidCometState : NazroBaseState {
     }
 
     public override void HandleUpdate() {
-        Debug.Log(Random.Range(minNumberOfComets, maxNumberOfComets + 1));
         windUpLeft -= Time.deltaTime;
         attackTimeLeft -= Time.deltaTime;
         if (windUpLeft <= 0 && totalNumberOfComets > 0) {

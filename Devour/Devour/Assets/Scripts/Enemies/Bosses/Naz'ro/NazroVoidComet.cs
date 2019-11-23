@@ -15,13 +15,11 @@ public class NazroVoidComet : MonoBehaviour {
     [SerializeField] private float lifeSpan;
     [SerializeField] private bool isVerticalComet;
 
-
     private bool isMoving;
     private SpriteRenderer sr;
     private Transform player;
     private GameObject warningParticle;
-    private CircleCollider2D circleCollider2D;
-    
+    private CircleCollider2D circleCollider2D;   
 
     private void Start() {
         sr = GetComponent<SpriteRenderer>();

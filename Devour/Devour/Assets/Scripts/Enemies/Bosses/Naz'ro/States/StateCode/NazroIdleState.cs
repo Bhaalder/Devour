@@ -52,7 +52,7 @@ public class NazroIdleState : NazroBaseState {
     }
 
     private void ChooseAction() {
-        int i = Random.Range(0, 3) + 1;
+        int i = Random.Range(0, 4) + 1;
         switch (i) {
             case 1:
                 owner.Transition<NazroVoidWallState>();
@@ -63,11 +63,18 @@ public class NazroIdleState : NazroBaseState {
             case 3:
                 owner.Transition<NazroVoidCometState>();
                 break;
+            case 4:
+                if (owner.NazroVoidObstacles.Count >= 8) {
+                    ChooseAction();
+                } else {
+                    owner.Transition<NazroVoidObstacleState>();
+                }
+                break;
             default:
                 Debug.Log("Inget");
                 break;
         }
-        
+
     }
 
 }
