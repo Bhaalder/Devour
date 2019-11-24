@@ -76,4 +76,10 @@ public class Enemy5Movement : EnemyMovement
             movingRight = !movingRight;
         }
     }
+
+    private bool CheckPlayer()
+    {
+        bool lineHit = Physics2D.Linecast(owner.transform.position + new Vector3(0,3,0), owner.Player.transform.position, layerMask);
+        return !lineHit;
+    }
 }

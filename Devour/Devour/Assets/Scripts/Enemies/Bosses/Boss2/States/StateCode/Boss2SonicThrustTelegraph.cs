@@ -37,6 +37,7 @@ public class Boss2SonicThrustTelegraph : Boss2BaseState
         base.HandleUpdate();
         TelegraphTime();
         Telegraph();
+        owner.rb.velocity = new Vector2(0, 0);
     }
     public override void HandleFixedUpdate()
     {
