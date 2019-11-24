@@ -16,33 +16,34 @@ public class NazroVoidComet : MonoBehaviour {
     [SerializeField] private bool isVerticalComet;
     [SerializeField] private bool isPlatformingComet;
 
+    private float windUpLeft;
+    private float lastKnownPlayerYPos;
     private bool isMoving;
-    private SpriteRenderer sr;
+    
+    private SpriteRenderer spriteRend;
     private Transform player;
     private GameObject warningParticle;
     private CircleCollider2D circleCollider2D;   
 
     private void Start() {
-        sr = GetComponent<SpriteRenderer>();
-        sr.color = new Color(sr.color.r, sr.color.g, sr.color.b, 0);
+        spriteRend = GetComponent<SpriteRenderer>();
+        spriteRend.color = new Color(spriteRend.color.r, spriteRend.color.g, spriteRend.color.b, 0);
         player = GameController.Instance.Player.transform;
         circleCollider2D = GetComponent<CircleCollider2D>();
         if (isVerticalComet) {
             transform.position = new Vector3(player.position.x, StartPosition.position.y);
-        } else if (isPlatformingComet) {
-            transform.position = PlatformCometPosition();
         } else {
             transform.position = new Vector3(StartPosition.position.x, player.position.y);
         }
         warningParticle = Instantiate(warningParticlePrefab, transform.localPosition, Quaternion.identity);
-        
+        windUpLeft = WindUp;
         PlayerAttackEvent.RegisterListener(GetHit);
         BossDiedEvent.RegisterListener(BossDied);
     }
 
     private void Update() {
-        if (WindUp > 0 && !isMoving) {
-            WindUp -= Time.deltaTime;
+        if (windUpLeft > 0 && !isMoving) {
+            windUpLeft -= Time.deltaTime;
             if (isPlatformingComet) {
                 transform.position = PlatformCometPosition();
                 warningParticle.transform.position = transform.position;
@@ -50,7 +51,7 @@ public class NazroVoidComet : MonoBehaviour {
             return;
         }
         isMoving = true;
-        sr.color = new Color(sr.color.r, sr.color.g, sr.color.b, 255);
+        spriteRend.color = new Color(spriteRend.color.r, spriteRend.color.g, spriteRend.color.b, 255);
         Destroy(warningParticle);
     }
 
@@ -85,7 +86,13 @@ public class NazroVoidComet : MonoBehaviour {
     private Vector3 PlatformCometPosition() {
         Vector3 position = Camera.main.WorldToViewportPoint(transform.position);
         position.x = Mathf.Clamp(position.x, 1, 1);
-        Vector3 cometPos = new Vector3(Camera.main.ViewportToWorldPoint(position).x, player.transform.position.y, 0);
+        Vector3 cometPos;
+        if(windUpLeft > WindUp / 2) {
+            cometPos = new Vector3(Camera.main.ViewportToWorldPoint(position).x, player.transform.position.y, 0);
+            lastKnownPlayerYPos = cometPos.y;
+            return cometPos;
+        }
+        cometPos = new Vector3(Camera.main.ViewportToWorldPoint(position).x, lastKnownPlayerYPos, 0);
         return cometPos;
     }
 
