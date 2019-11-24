@@ -1593,7 +1593,7 @@ Transform:
   m_GameObject: {fileID: 7227144329047398490}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 11.9, z: 0}
-  m_LocalScale: {x: 2, y: 2, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 636220230575543380}
   - {fileID: 2538847637229161448}
@@ -1647,6 +1647,7 @@ MonoBehaviour:
   dashPattern1: {fileID: 7227144328493117893}
   dashPattern2: {fileID: 7227144328210098876}
   dashPattern3: {fileID: 7227144328521127331}
+  dashPatterns: []
   sonicSnipeBeam: {fileID: 8560368570429801807}
   bossFightBlock: {fileID: 6516934615906536241}
   sonicSnipeBeamDamage: 25
@@ -2133,11 +2134,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7227144329047398489}
     m_Modifications:
-    - target: {fileID: 7830150882688045588, guid: f750906389f4a9a4399930e8280e4bc3,
-        type: 3}
-      propertyPath: m_Name
-      value: Audio
-      objectReference: {fileID: 0}
     - target: {fileID: 7201972724767447472, guid: f750906389f4a9a4399930e8280e4bc3,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2192,6 +2188,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7830150882688045588, guid: f750906389f4a9a4399930e8280e4bc3,
+        type: 3}
+      propertyPath: m_Name
+      value: Audio
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f750906389f4a9a4399930e8280e4bc3, type: 3}
