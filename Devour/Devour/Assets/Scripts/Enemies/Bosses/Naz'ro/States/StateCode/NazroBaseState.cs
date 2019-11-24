@@ -30,11 +30,11 @@ public class NazroBaseState : State {
     }
 
     public override void HandleUpdate() {
+        if (!owner.IsSecondPhase && owner.State != BossNazroState.PHASE_CHANGE) {
+            SecondPhaseCheck();
+        }
         base.HandleUpdate();
         Movement();
-        if (!owner.IsSecondPhase && owner.State != BossNazroState.PHASE_CHANGE) {
-            //SecondPhaseCheck();
-        }
     }
 
     protected virtual void Movement() {
@@ -73,13 +73,13 @@ public class NazroBaseState : State {
     }
 
     private void SecondPhaseCheck() {
-        if(owner.Health <= owner.MaxHealth / 2) {
+        if(owner.Health <= owner.MaxHealth / 2 && !owner.IsSecondPhase) {
             Debug.Log("SECOND PHASE!");
-            //owner.Transition<NazroPhaseChange>();
+            owner.Transition<NazroPhaseChangeState>();
         }
     }
 
-    private bool PlayerIsInsideBossRoom() {
+    protected bool PlayerIsInsideBossRoom() {
         if (owner.Player.BoxCollider2D.bounds.Intersects(owner.StartFightArea.bounds)) {
             return true;
         }

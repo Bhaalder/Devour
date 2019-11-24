@@ -3,19 +3,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "Boss/Nazro/NazroIntroState")]
-public class NazroIntroState : NazroBaseState {
+[CreateAssetMenu(menuName = "Boss/Nazro/NazroSecondPhaseIntroState")]
+public class NazroSecondPhaseIntroState : NazroBaseState {
 
-    [Tooltip("How long time the introsequence lasts")]
-    [SerializeField] private float introTime;
+    [Tooltip("How long time the secondPhaseIntro lasts")]
+    [SerializeField] private float secondPhaseIntroTime;
     private float introTimeLeft;
 
     public override void Enter() {
-        owner.State = BossNazroState.INTRO;
-        owner.BossLog("IntroState");
+        owner.State = BossNazroState.SECOND_PHASE_INTRO;
+        owner.BossLog("SecondPhaseIntroState");
         Instantiate(owner.BossDoor, owner.BossDoor.transform.position, Quaternion.identity);
-        introTimeLeft = introTime;
-        battleStart = false;
+        introTimeLeft = secondPhaseIntroTime;
+        owner.IsSecondPhase = true;
         base.Enter();
     }
 

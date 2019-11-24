@@ -10,6 +10,8 @@ public enum BossNazroState {
 public class Nazro : Boss {
     public BossNazroState State { get; set; }
 
+    public Transform BossArea { get; set; }
+
     public float Speed { get; set; }
 
     public BoxCollider2D LeftArea { get; set; }
@@ -22,9 +24,11 @@ public class Nazro : Boss {
     public GameObject VerticalVoidWall { get; set; }
     public GameObject HorizontalVoidWall { get; set; }
     public GameObject BossDoor { get; set; }
+    public GameObject RightWall { get; set; }
     public Transform[] VoidBombSpawnLocations { get; set; }
     public Transform[] VoidCometSpawnLocations { get; set; }
     public Transform[] MoveLocations { get; set; }
+    public Transform SecondPhaseLocation { get; set; }
 
     public int MaximumNumberOfVoidObstacles { get; set; }
     public int CurrentLocation { get; set; }
@@ -34,6 +38,8 @@ public class Nazro : Boss {
     public bool IsSecondPhase { get; set; }
 
     public List<GameObject> NazroVoidObstacles { get; set; }
+
+    [SerializeField] private Transform bossArea;
 
     [SerializeField] private float speed;
     [SerializeField] private int maximumNumberOfVoidObstacles;
@@ -47,9 +53,11 @@ public class Nazro : Boss {
     [SerializeField] private GameObject verticalVoidWall;
     [SerializeField] private GameObject horizontalVoidWall;
     [SerializeField] private GameObject bossDoor;
+    [SerializeField] private GameObject rightWall;
     [SerializeField] private Transform[] voidBombSpawnLocations;
     [SerializeField] private Transform[] voidCombetSpawnLocations;
     [SerializeField] private Transform[] moveLocations;
+    [SerializeField] private Transform secondPhaseLocation; 
 
     public static bool IsDead { get; set; }
 
@@ -58,6 +66,7 @@ public class Nazro : Boss {
             Destroy(gameObject);
         }
         base.Awake();
+        BossArea = bossArea;
         Speed = speed;
         LeftArea = leftArea;
         RightArea = rightArea;
@@ -68,10 +77,12 @@ public class Nazro : Boss {
         HorizontalVoidWall = horizontalVoidWall;
         VoidObsSpawnArea = voidObsSpawnArea;
         BossDoor = bossDoor;
+        RightWall = rightWall;
         VoidBombSpawnLocations = voidBombSpawnLocations;
         VoidCometSpawnLocations = voidCombetSpawnLocations;
         MoveLocations = moveLocations;
         MaximumNumberOfVoidObstacles = maximumNumberOfVoidObstacles;
+        SecondPhaseLocation = secondPhaseLocation;
         NazroVoidObstacles = new List<GameObject>();
 
         PlayerDiedEvent.RegisterListener(Reset);
@@ -136,9 +147,8 @@ public class Nazro : Boss {
         if (!IsDead) {
             IsDead = true;
         }
-        if (State != BossNazroState.DEATH) { //KOLLA SÅ ATT MAN HAR HAMNAT I SECONPHASE FÖRST OCKSÅ!
-            //DEATHSTATE
-            Destroy(gameObject);//FÖR TILLFÄLLET
+        if (State != BossNazroState.DEATH) {
+            Transition<NazroDeathState>();
         }
     }
 

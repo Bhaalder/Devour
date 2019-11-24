@@ -14,6 +14,7 @@ public class NazroVoidComet : MonoBehaviour {
     [SerializeField] private Vector2 direction;
     [SerializeField] private float lifeSpan;
     [SerializeField] private bool isVerticalComet;
+    [SerializeField] private bool isPlatformingComet;
 
     private bool isMoving;
     private SpriteRenderer sr;
@@ -26,8 +27,10 @@ public class NazroVoidComet : MonoBehaviour {
         sr.color = new Color(sr.color.r, sr.color.g, sr.color.b, 0);
         player = GameController.Instance.Player.transform;
         circleCollider2D = GetComponent<CircleCollider2D>();
-        if(isVerticalComet) {
-            transform.position = new Vector3(player.position.x, StartPosition.position.y);  
+        if (isVerticalComet) {
+            transform.position = new Vector3(player.position.x, StartPosition.position.y);
+        } else if (isPlatformingComet) {
+            transform.position = PlatformCometPosition();
         } else {
             transform.position = new Vector3(StartPosition.position.x, player.position.y);
         }
@@ -40,6 +43,10 @@ public class NazroVoidComet : MonoBehaviour {
     private void Update() {
         if (WindUp > 0 && !isMoving) {
             WindUp -= Time.deltaTime;
+            if (isPlatformingComet) {
+                transform.position = PlatformCometPosition();
+                warningParticle.transform.position = transform.position;
+            }
             return;
         }
         isMoving = true;
@@ -73,6 +80,13 @@ public class NazroVoidComet : MonoBehaviour {
                 playerTakeDamage.FireEvent();
             }
         }
+    }
+
+    private Vector3 PlatformCometPosition() {
+        Vector3 position = Camera.main.WorldToViewportPoint(transform.position);
+        position.x = Mathf.Clamp(position.x, 1, 1);
+        Vector3 cometPos = new Vector3(Camera.main.ViewportToWorldPoint(position).x, player.transform.position.y, 0);
+        return cometPos;
     }
 
     private void BossDied(BossDiedEvent bossDied) {
