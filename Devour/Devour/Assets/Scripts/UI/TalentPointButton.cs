@@ -26,8 +26,8 @@ public class TalentPointButton : SelectedButton {
 
     private void OnEnable() {
         int points = 0;
-        foreach(TalentPoint point in GameController.Instance.Player.TalentPoints) {
-            if(TalentPoint.talentPointType == point.talentPointType) {
+        for(int i = 0; i < GameController.Instance.Player.TalentPoints.Count; i++) {
+            if (TalentPoint.talentPointType == GameController.Instance.Player.TalentPoints[i].talentPointType) {
                 points++;
             }
         }
@@ -39,14 +39,22 @@ public class TalentPointButton : SelectedButton {
         StringBuilder sb = new StringBuilder();
         string talentName = TalentPoint.talentPointType.ToString();
         bool isFirstLetter = true;
-        foreach (char c in talentName) {
+        for(int i = 0; i < talentName.Length; i++) {
             if (!isFirstLetter) {
-                sb.Append(char.ToLower(c));
+                sb.Append(char.ToLower(talentName[i]));
             } else {
-                sb.Append(c);
+                sb.Append(talentName[i]);
                 isFirstLetter = false;
             }
         }
+        //foreach (char c in talentName) {
+        //    if (!isFirstLetter) {
+        //        sb.Append(char.ToLower(c));
+        //    } else {
+        //        sb.Append(c);
+        //        isFirstLetter = false;
+        //    }
+        //}
         PointsInvestedText.text = sb + "\n" + pointsInvested + "/" + MaxPointsToInvest;
     }
 

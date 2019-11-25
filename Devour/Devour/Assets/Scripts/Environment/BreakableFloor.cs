@@ -11,13 +11,9 @@ public class BreakableFloor : MonoBehaviour {
 
     private void Start() {
         if (GameController.Instance.DestroyedPlatforms.ContainsKey(SceneManager.GetActiveScene().name)) {
-            foreach (KeyValuePair<string, List<int>> platform in GameController.Instance.DestroyedPlatforms) {
-                if (platform.Key == SceneManager.GetActiveScene().name) {
-                    if (platform.Value.Contains(platformID)) {
-                        Destroy(gameObject);
-                        return;
-                    }
-                }
+            if (GameController.Instance.DestroyedPlatforms[SceneManager.GetActiveScene().name].Contains(platformID)) {
+                Destroy(gameObject);
+                return;
             }
         }
     }
@@ -41,16 +37,12 @@ public class BreakableFloor : MonoBehaviour {
         };
         rockBreakSound.FireEvent();
         if (GameController.Instance.DestroyedPlatforms.ContainsKey(SceneManager.GetActiveScene().name)) {
-            foreach (KeyValuePair<string, List<int>> platform in GameController.Instance.DestroyedPlatforms) {
-                if (platform.Key == SceneManager.GetActiveScene().name) {
-                    if (platform.Value.Contains(platformID)) {
-                        Debug.LogWarning("A platform with the same ID [" + platformID + "] has already been destroyed in this scene [" + SceneManager.GetActiveScene().name + "]");
-                        Destroy(gameObject);
-                        return;
-                    }
-                    platform.Value.Add(platformID);
-                }
+            if (GameController.Instance.DestroyedPlatforms[SceneManager.GetActiveScene().name].Contains(platformID)) {
+                Debug.LogWarning("A platform with the same ID [" + platformID + "] has already been destroyed in this scene [" + SceneManager.GetActiveScene().name + "]");
+                Destroy(gameObject);
+                return;
             }
+            GameController.Instance.DestroyedPlatforms[SceneManager.GetActiveScene().name].Add(platformID);
         } else {
             List<int> newPlatformList = new List<int> { platformID };
             GameController.Instance.DestroyedPlatforms.Add(SceneManager.GetActiveScene().name, newPlatformList);

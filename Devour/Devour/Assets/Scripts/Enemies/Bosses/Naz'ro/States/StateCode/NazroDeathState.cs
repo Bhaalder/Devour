@@ -18,8 +18,8 @@ public class NazroDeathState : NazroBaseState {
             boss = owner
         };
         nazroDied.FireEvent();
-        foreach (GameObject obs in owner.NazroVoidObstacles) {
-            Destroy(obs);
+        for(int i = 0; i < owner.NazroVoidObstacles.Count; i++) {
+            Destroy(owner.NazroVoidObstacles[i]);
         }
         owner.NazroVoidObstacles.Clear();
         base.Enter();

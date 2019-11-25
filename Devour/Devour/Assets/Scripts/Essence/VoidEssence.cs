@@ -10,13 +10,9 @@ public class VoidEssence : MonoBehaviour {
 
     private void Start() {
         if (GameController.Instance.CollectedVoidEssences.ContainsKey(SceneManager.GetActiveScene().name)) {
-            foreach (KeyValuePair<string, List<int>> essence in GameController.Instance.CollectedVoidEssences) {
-                if (essence.Key == SceneManager.GetActiveScene().name) {
-                    if (essence.Value.Contains(voidEssenceID)) {
-                        Destroy(gameObject);
-                        return;
-                    }
-                }
+            if (GameController.Instance.CollectedVoidEssences[SceneManager.GetActiveScene().name].Contains(voidEssenceID)) {
+                Destroy(gameObject);
+                return;
             }
         }
     }
@@ -28,16 +24,12 @@ public class VoidEssence : MonoBehaviour {
                 collectible = voidEssence
             };
             if (GameController.Instance.CollectedVoidEssences.ContainsKey(SceneManager.GetActiveScene().name)) {
-                foreach (KeyValuePair<string, List<int>> essence in GameController.Instance.CollectedVoidEssences) {
-                    if (essence.Key == SceneManager.GetActiveScene().name) {
-                        if (essence.Value.Contains(voidEssenceID)) {
-                            Debug.LogWarning("A voidessence with the same ID [" + voidEssenceID + "] has already been collected in this scene [" + SceneManager.GetActiveScene().name + "]");
-                            Destroy(gameObject);
-                            return;
-                        }
-                        essence.Value.Add(voidEssenceID);
-                    }
+                if (GameController.Instance.CollectedVoidEssences[SceneManager.GetActiveScene().name].Contains(voidEssenceID)) {
+                    Debug.LogWarning("A voidessence with the same ID [" + voidEssenceID + "] has already been collected in this scene [" + SceneManager.GetActiveScene().name + "]");
+                    Destroy(gameObject);
+                    return;
                 }
+                GameController.Instance.CollectedVoidEssences[SceneManager.GetActiveScene().name].Add(voidEssenceID);
             } else {
                 List<int> newEssenceList = new List<int> { voidEssenceID };
                 GameController.Instance.CollectedVoidEssences.Add(SceneManager.GetActiveScene().name, newEssenceList);
