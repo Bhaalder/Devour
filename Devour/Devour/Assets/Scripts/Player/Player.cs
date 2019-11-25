@@ -71,7 +71,7 @@ public class Player : StateMachine {
     public bool IsTouchingWall { get; set; }
     public bool IsWallSliding { get; set; }
 
-    public Transform GroundCheck { get; set; }
+    public Transform JustInTimeJumpCheck { get; set; }
     public Transform[] GroundChecks { get; set; }
     public Transform WallCheck { get; set; }
     public Transform Aim { get; set; }
@@ -160,7 +160,7 @@ public class Player : StateMachine {
     [SerializeField] private Transform upAttack;
     [SerializeField] private Transform downAttack;
     [SerializeField] private Transform aim;
-    [SerializeField] private Transform groundCheck;
+    [SerializeField] private Transform justInTimeJumpCheck;
     [SerializeField] private Transform[] groundChecks;
     [SerializeField] private Transform wallCheck;
     [SerializeField] private RectTransform playerCanvas;
@@ -224,7 +224,7 @@ public class Player : StateMachine {
         WallCheckDistance = wallCheckDistance;
         wallCheckDistanceValue = wallCheckDistance;
 
-        GroundCheck = groundCheck;
+        JustInTimeJumpCheck = justInTimeJumpCheck;
         GroundChecks = groundChecks;
         WallCheck = wallCheck;
         Aim = aim;

@@ -6,7 +6,7 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "Player/PlayerJumpState")]
 public class PlayerJumpState : PlayerBaseState {
 
-    private float timeBeforeEnter = 0.01f;
+    private float timeBeforeEnter = 0.00001f;
     private float timeLeft;
 
     public override void Enter() {
@@ -22,7 +22,7 @@ public class PlayerJumpState : PlayerBaseState {
     }
 
     public override void HandleUpdate() {
-        if(timeLeft <= 0) {
+        if (timeLeft <= 0) {
             owner.Transition<PlayerAirState>();
         }
         timeLeft -= Time.deltaTime;

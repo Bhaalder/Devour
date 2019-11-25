@@ -9,7 +9,9 @@ public class PlayerBaseState : State {
     protected Player owner;
 
     protected Vector2 impulse;
-    
+
+    protected bool hasPressedJump;
+
     public override void Enter() {
         //owner.PlayerLog("Initialized Playerstates!");
         if(owner.PlayerState == PlayerState.NONE) {
@@ -51,6 +53,7 @@ public class PlayerBaseState : State {
 
     public override void HandleUpdate() {
         JumpCheck();
+        Debug.Log(hasPressedJump);
         VoidMendCheck();
         CooldownTimers();
         CollisionCheck();
@@ -62,6 +65,9 @@ public class PlayerBaseState : State {
     }
 
     private void JumpCheck() {
+        if (Input.GetButton("Jump")) {
+            hasPressedJump = true;
+        }
         if (owner.IsWallSliding && Input.GetButtonDown("Jump")) {
             Jump(0);
             return;
@@ -86,6 +92,7 @@ public class PlayerBaseState : State {
     }
 
     protected virtual void Jump(float extra) {
+
         if (owner.ExtraJumpsLeft > 0) {
             AudioPlaySoundEvent jumpSound = new AudioPlaySoundEvent {
                 name = "Step2",
@@ -142,6 +149,9 @@ public class PlayerBaseState : State {
         }
         if(!left && !right) {
             owner.IsGrounded = false;
+        }
+        if (owner.IsGrounded) {
+            hasPressedJump = false;
         }
         //owner.IsGrounded = Physics2D.OverlapCircle(owner.GroundCheck.position, owner.GroundCheckDistance, owner.WhatIsGround);
         owner.IsTouchingWall = Physics2D.Raycast(owner.WallCheck.position, owner.transform.right * owner.FacingDirection, owner.WallCheckDistance, owner.WhatIsGround);
