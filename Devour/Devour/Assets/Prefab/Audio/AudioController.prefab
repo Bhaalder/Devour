@@ -288,7 +288,7 @@ MonoBehaviour:
     loop: 1
     source: {fileID: 0}
   - name: Mystic
-    clip: {fileID: 8300000, guid: 9c301a75ab3400245a4ca2b409099816, type: 3}
+    clip: {fileID: 8300000, guid: 6e6f2f77151de99488117d18861b88d2, type: 3}
     volume: 0.2
     pitch: 1
     spatialBlend_2D_3D: 0

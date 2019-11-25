@@ -11,6 +11,7 @@ public class PlayerAirState : PlayerBaseState {
         owner.PlayerState = PlayerState.AIR;
         owner.IsAttackingUp = false;
         owner.Animator.SetBool("IsAttackingUp", false);
+        
     }
 
     public override void HandleFixedUpdate() {
@@ -24,7 +25,8 @@ public class PlayerAirState : PlayerBaseState {
                 owner.Transition<PlayerWalkState>();
             } else {
                 owner.Transition<PlayerIdleState>();
-            }           
+            }
+            
         }
         base.HandleUpdate();
     }

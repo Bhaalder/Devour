@@ -9,12 +9,7 @@ public class PlayerBaseState : State {
     protected Player owner;
 
     protected Vector2 impulse;
-
-    private float justInTimeJumpAmount = 0.15f;
-    private float justInTimeJumpLeft;
-    private bool justJumped;
-    protected bool isGrounded;
-
+    
     public override void Enter() {
         //owner.PlayerLog("Initialized Playerstates!");
         if(owner.PlayerState == PlayerState.NONE) {
@@ -143,28 +138,11 @@ public class PlayerBaseState : State {
         RaycastHit2D left = Physics2D.Raycast(owner.GroundChecks[0].position, Vector2.down, owner.GroundCheckDistance, owner.WhatIsGround);
         RaycastHit2D right = Physics2D.Raycast(owner.GroundChecks[1].position, Vector2.down, owner.GroundCheckDistance, owner.WhatIsGround);
         if(left || right) {
-            isGrounded = true;
+            owner.IsGrounded = true;
         }
         if(!left && !right) {
-            isGrounded = false;
+            owner.IsGrounded = false;
         }
-
-        //if (!justJumped) {
-        //    if (!isGrounded) {
-        //        justInTimeJumpLeft -= Time.deltaTime;
-        //        if (justInTimeJumpLeft <= 0) {
-        //            owner.IsGrounded = false;
-        //        }
-        //    }
-        //}
-        //if (isGrounded) {
-        //    justInTimeJumpLeft = justInTimeJumpAmount;
-        //    owner.IsGrounded = true;
-        //    justJumped = false;
-        //}
-
-
-
         //owner.IsGrounded = Physics2D.OverlapCircle(owner.GroundCheck.position, owner.GroundCheckDistance, owner.WhatIsGround);
         owner.IsTouchingWall = Physics2D.Raycast(owner.WallCheck.position, owner.transform.right * owner.FacingDirection, owner.WallCheckDistance, owner.WhatIsGround);
         if (owner.HasAbility(PlayerAbility.WALLCLIMB)) {

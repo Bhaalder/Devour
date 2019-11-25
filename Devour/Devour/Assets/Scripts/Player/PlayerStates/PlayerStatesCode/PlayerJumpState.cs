@@ -6,7 +6,7 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "Player/PlayerJumpState")]
 public class PlayerJumpState : PlayerBaseState {
 
-    private float timeBeforeEnter = 0.1f;
+    private float timeBeforeEnter = 0.01f;
     private float timeLeft;
 
     public override void Enter() {
