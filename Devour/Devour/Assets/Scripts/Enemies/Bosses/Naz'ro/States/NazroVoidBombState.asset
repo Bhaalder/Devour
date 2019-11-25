@@ -16,8 +16,8 @@ MonoBehaviour:
   voidBombWindUpTime: 0.2
   voidBombAttackTime: 1
   bombDamage: 25
-  voidBombSpeed: 5
-  bombLifespan: 10
+  voidBombSpeed: 4
+  bombLifespan: 7
   numberOfBombs: 2
   secondPhaseExtraNumberOfBombs: 2
   voidBombPrefab: {fileID: 6513940760051156159, guid: a2ad8679dba350042947ed3b0fd1a455,

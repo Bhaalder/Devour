@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: NazroVoidCometState
   m_EditorClassIdentifier: 
   color: {r: 0.3490566, g: 0, b: 0, a: 1}
-  voidCometWindUpTime: 0.75
+  voidCometWindUpTime: 1.25
   voidCometMoveWindUpTime: 0.75
   voidCometAttackTime: 4.5
   cometDamage: 25

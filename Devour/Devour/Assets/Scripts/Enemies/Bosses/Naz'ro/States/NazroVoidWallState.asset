@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: NazroVoidWallState
   m_EditorClassIdentifier: 
   color: {r: 1, g: 0.5560052, b: 0, a: 1}
-  voidWallWindUpTime: 0.5
+  voidWallWindUpTime: 1.5
   voidWallAttackTime: 2
