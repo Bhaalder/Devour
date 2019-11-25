@@ -99,7 +99,6 @@ public class Boss2 : Boss
     {
         //Transition till DeathState
         
-        SpawnAbilityEssence();
         GiveLifeforce();
         
         BossDiedEvent boss2Died = new BossDiedEvent

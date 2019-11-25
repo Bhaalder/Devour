@@ -5,10 +5,12 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "Boss/Boss2/Boss2DeathState")]
 public class Boss2DeathState : EnemyDeathState
 {
+    private float abilityEssenceTimerCooldown;
 
-    [SerializeField] float deathDelay = 2f;
     public override void Enter()
     {
+        currentCooldown = deathTimer;
+        abilityEssenceTimerCooldown = deathTimer;
         owner.rb.gravityScale = 0;
         if (owner.GetComponent<BoxCollider2D>() != null)
         {
@@ -19,14 +21,28 @@ public class Boss2DeathState : EnemyDeathState
         {
             owner.GetComponent<CircleCollider2D>().enabled = false;
         }
+        Debug.Log("Entered Death state");
     }
 
     public override void HandleUpdate()
     {
         base.HandleUpdate();
+        AbilityEssenceTimer();
     }
     public override void HandleFixedUpdate()
     {
         base.HandleFixedUpdate();
+    }
+
+    private void AbilityEssenceTimer()
+    {
+        currentCooldown -= Time.deltaTime;
+
+        if (currentCooldown > 0)
+        {
+            return;
+        }
+
+        owner.GetComponent<Boss2>().SpawnAbilityEssence();
     }
 }
