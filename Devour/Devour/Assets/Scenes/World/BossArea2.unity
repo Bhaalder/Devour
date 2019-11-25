@@ -1499,6 +1499,7 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
     - target: {fileID: 482227762144961937, guid: 76cb4d0ef2938714fa08206ff7fcd93d,
         type: 3}
@@ -1506,6 +1507,13 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
 >>>>>>> parent of f6fc85c... Update BossArea2.unity
+=======
+    - target: {fileID: 482227762144961937, guid: 76cb4d0ef2938714fa08206ff7fcd93d,
+        type: 3}
+      propertyPath: maxHealth
+      value: 1200
+      objectReference: {fileID: 0}
+>>>>>>> parent of b139910... boss2 update
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 76cb4d0ef2938714fa08206ff7fcd93d, type: 3}
 --- !u!1001 &484687474
