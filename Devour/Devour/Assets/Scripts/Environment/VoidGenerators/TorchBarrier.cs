@@ -10,8 +10,8 @@ public class TorchBarrier : MonoBehaviour{
     private int torchesDeactivated;
 
     private void Start() {
-        foreach(GeneratorTorch torch in generatorTorches) {
-            if (torch.IsDeactivated) {
+        for(int i = 0; i < generatorTorches.Length; i++) {
+            if (generatorTorches[i].IsDeactivated) {
                 torchesDeactivated++;
             }
         }

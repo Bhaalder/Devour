@@ -14,18 +14,14 @@ public class VoidGenerator : MonoBehaviour{
 
     private void Start() {
         if (GameController.Instance.DestroyedVoidGenerators.ContainsKey(SceneManager.GetActiveScene().name)) {
-            foreach (KeyValuePair<string, List<int>> voidGenerator in GameController.Instance.DestroyedVoidGenerators) {
-                if (voidGenerator.Key == SceneManager.GetActiveScene().name) {
-                    if (voidGenerator.Value.Contains(voidGeneratorID)) {
-                        if (voidBeamsToDestroy != null) {
-                            foreach (GameObject voidBeam in voidBeamsToDestroy) {
-                                Destroy(voidBeam);
-                            }
-                        }
-                        Destroy(gameObject);
-                        return;
+            if (GameController.Instance.DestroyedVoidGenerators[SceneManager.GetActiveScene().name].Contains(voidGeneratorID)) {
+                if (voidBeamsToDestroy != null) {
+                    for(int i = 0; i < voidBeamsToDestroy.Length; i++) {
+                        Destroy(voidBeamsToDestroy[i]);
                     }
                 }
+                Destroy(gameObject);
+                return;
             }
         }
         boxCollider2D = GetComponent<BoxCollider2D>();
@@ -72,23 +68,19 @@ public class VoidGenerator : MonoBehaviour{
             rockBreakSound.FireEvent();
         }
         if (GameController.Instance.DestroyedVoidGenerators.ContainsKey(SceneManager.GetActiveScene().name)) {
-            foreach (KeyValuePair<string, List<int>> voidGenerator in GameController.Instance.DestroyedVoidGenerators) {
-                if (voidGenerator.Key == SceneManager.GetActiveScene().name) {
-                    if (voidGenerator.Value.Contains(voidGeneratorID)) {
-                        Debug.LogWarning("A generator with the same ID [" + voidGeneratorID + "] has already been destroyed in this scene [" + SceneManager.GetActiveScene().name + "]");
-                        Destroy(gameObject);
-                        return;
-                    }
-                    voidGenerator.Value.Add(voidGeneratorID);
-                }
+            if (GameController.Instance.DestroyedVoidGenerators[SceneManager.GetActiveScene().name].Contains(voidGeneratorID)) {
+                Debug.LogWarning("A generator with the same ID [" + voidGeneratorID + "] has already been destroyed in this scene [" + SceneManager.GetActiveScene().name + "]");
+                Destroy(gameObject);
+                return;
             }
+            GameController.Instance.DestroyedVoidGenerators[SceneManager.GetActiveScene().name].Add(voidGeneratorID);
         } else {
             List<int> newVoidGeneratorList = new List<int> { voidGeneratorID };
             GameController.Instance.DestroyedVoidGenerators.Add(SceneManager.GetActiveScene().name, newVoidGeneratorList);
         }
-        if(voidBeamsToDestroy != null) {
-            foreach(GameObject voidBeam in voidBeamsToDestroy) {
-                Destroy(voidBeam);
+        if (voidBeamsToDestroy != null) {
+            for (int i = 0; i < voidBeamsToDestroy.Length; i++) {
+                Destroy(voidBeamsToDestroy[i]);
             }
         }
         Destroy(gameObject);

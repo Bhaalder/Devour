@@ -72,6 +72,7 @@ public class Player : StateMachine {
     public bool IsWallSliding { get; set; }
 
     public Transform GroundCheck { get; set; }
+    public Transform[] GroundChecks { get; set; }
     public Transform WallCheck { get; set; }
     public Transform Aim { get; set; }
     public LayerMask WhatIsGround { get; set; }
@@ -160,6 +161,7 @@ public class Player : StateMachine {
     [SerializeField] private Transform downAttack;
     [SerializeField] private Transform aim;
     [SerializeField] private Transform groundCheck;
+    [SerializeField] private Transform[] groundChecks;
     [SerializeField] private Transform wallCheck;
     [SerializeField] private RectTransform playerCanvas;
     [SerializeField] private LayerMask whatIsGround;
@@ -223,6 +225,7 @@ public class Player : StateMachine {
         wallCheckDistanceValue = wallCheckDistance;
 
         GroundCheck = groundCheck;
+        GroundChecks = groundChecks;
         WallCheck = wallCheck;
         Aim = aim;
         PlayerCanvas = playerCanvas;
@@ -479,8 +482,8 @@ public class Player : StateMachine {
     }
 
     public bool HasAbility(PlayerAbility playerAbility) {
-        foreach (PlayerAbility ability in PlayerAbilities) {
-            if (ability == playerAbility) {
+        for(int i = 0; i < PlayerAbilities.Count; i++) {
+            if(PlayerAbilities[i] == playerAbility) {
                 return true;
             }
         }
@@ -488,9 +491,9 @@ public class Player : StateMachine {
     }
 
     private void OnChangeCollectible(PlayerCollectibleChange collectibleEvent) {
-        foreach(Collectible collectible in Collectibles) {
-            if(collectible.collectibleType == collectibleEvent.collectible.collectibleType) {
-                collectible.amount += collectibleEvent.collectible.amount;
+        for(int i = 0; i < Collectibles.Count; i++) {
+            if(Collectibles[i].collectibleType == collectibleEvent.collectible.collectibleType) {
+                Collectibles[i].amount += collectibleEvent.collectible.amount;
                 return;
             }
         }
@@ -536,7 +539,6 @@ public class Player : StateMachine {
     }
 
     private void OnDrawGizmos() {
-        Gizmos.DrawWireSphere(groundCheck.position, groundCheckDistance);
         Gizmos.DrawLine(wallCheck.position, new Vector3(wallCheck.position.x + wallCheckDistanceValue, wallCheck.position.y, wallCheck.position.z));
     }
 
