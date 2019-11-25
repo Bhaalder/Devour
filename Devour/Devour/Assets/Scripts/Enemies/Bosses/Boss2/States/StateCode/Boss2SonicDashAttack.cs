@@ -48,7 +48,7 @@ public class Boss2SonicDashAttack : Boss2BaseState
         {
             countUp += count * Time.deltaTime;
             currentDashTime += Time.deltaTime;
-
+            TurnToTargetPosition();
             owner.rb.position = Vector3.Lerp(startPosition, positions[currentPosition].transform.position, countUp);
             return;
         }
@@ -64,6 +64,18 @@ public class Boss2SonicDashAttack : Boss2BaseState
             owner.rb.gravityScale = 6;
             owner.Transition<Boss2SonicDashExit>();
             
+        }
+    }
+
+    private void TurnToTargetPosition()
+    {
+        if(positions[currentPosition].transform.position.x >= owner.rb.position.x)
+        {
+            owner.setGFX(new Vector3(1, 1, 1));
+        }
+        else
+        {
+            owner.setGFX(new Vector3(-1, 1, 1));
         }
     }
 }
