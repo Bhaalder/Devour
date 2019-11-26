@@ -53,13 +53,12 @@ public class PlayerBaseState : State {
 
     public override void HandleUpdate() {
         JumpCheck();
+        CollisionCheck();
         VoidMendCheck();
         CooldownTimers();
-        CollisionCheck();
         DashCheck();
         GetMovementInput();
         GetCombatInput();
-
         base.HandleUpdate();
     }
 
@@ -91,7 +90,6 @@ public class PlayerBaseState : State {
     }
 
     protected virtual void Jump(float extra) {
-
         if (owner.ExtraJumpsLeft > 0) {
             AudioPlaySoundEvent jumpSound = new AudioPlaySoundEvent {
                 name = "Step2",
