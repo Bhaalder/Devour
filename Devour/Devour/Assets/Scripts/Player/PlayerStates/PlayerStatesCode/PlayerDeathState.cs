@@ -8,8 +8,10 @@ public class PlayerDeathState : PlayerBaseState {
 
     [SerializeField] private float deathAnimationTime;
     [SerializeField] private GameObject deathParticles;
+    [SerializeField] private GameObject lifeForceEssenceParticle;
     private float timeLeft;
     private bool startedFade;
+    
 
     public override void Enter() {
         //owner.PlayerLog("DeathState");
@@ -22,6 +24,9 @@ public class PlayerDeathState : PlayerBaseState {
         owner.Rb2D.gravityScale = 0;
         startedFade = false;
         owner.IsDead = true;
+        GameObject deathLifeEssence;
+        deathLifeEssence = Instantiate(lifeForceEssenceParticle, owner.transform.position, Quaternion.identity);
+        
     }
 
     public override void HandleFixedUpdate() {
@@ -48,9 +53,9 @@ public class PlayerDeathState : PlayerBaseState {
         owner.Rb2D.gravityScale = 6;
         int amountOfLifeforceLost = 0;
         
-        foreach(Collectible collectible in owner.Collectibles) {
-            if(collectible.collectibleType == CollectibleType.LIFEFORCE) {
-                amountOfLifeforceLost = collectible.amount/2;
+        for(int i = 0; i < owner.Collectibles.Count; i++){
+            if(owner.Collectibles[i].collectibleType == CollectibleType.LIFEFORCE) {
+                amountOfLifeforceLost = owner.Collectibles[i].amount / 2;
                 break;
             }
         }
@@ -69,6 +74,10 @@ public class PlayerDeathState : PlayerBaseState {
             amount = owner.MaxHealth
         };
         healEvent.FireEvent();
+        PlayerVoidEvent voidEvent = new PlayerVoidEvent {
+            amount = -owner.PlayerVoid
+        };
+        voidEvent.FireEvent();
         owner.GetComponent<SpriteRenderer>().color = new Color32(255, 255, 255, 255);
         startedFade = false;
         owner.IsDead = false;

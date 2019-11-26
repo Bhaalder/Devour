@@ -15,3 +15,5 @@ MonoBehaviour:
   deathAnimationTime: 1.5
   deathParticles: {fileID: 1609845037211932075, guid: c7c2759ad2bcb8d46918ef68f6f35881,
     type: 3}
+  lifeForceEssenceParticle: {fileID: 2370308452161165796, guid: aa32688ee19821647930834202a4f65b,
+    type: 3}
