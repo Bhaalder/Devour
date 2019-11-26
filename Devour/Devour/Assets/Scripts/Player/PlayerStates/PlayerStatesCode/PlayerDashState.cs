@@ -10,6 +10,7 @@ public class PlayerDashState : PlayerBaseState {
     [SerializeField] private float dashForce;
     [Tooltip("How long time the dash lasts")]
     [SerializeField] private float startDashTime;
+    [SerializeField] private GameObject dashParticle;
     private float dashTime;
     
     public override void Enter() {
@@ -17,7 +18,6 @@ public class PlayerDashState : PlayerBaseState {
         owner.PlayerState = PlayerState.DASH;
         dashTime = startDashTime;
         owner.UntilNextDash = owner.DashCooldown;
-
         AudioPlaySoundEvent dashAudio = new AudioPlaySoundEvent {
             name = "Dash",
             soundType = SoundType.SFX,
@@ -26,6 +26,9 @@ public class PlayerDashState : PlayerBaseState {
             maxPitch = 1.05f
         };
         dashAudio.FireEvent();
+        GameObject particle = Instantiate(dashParticle, owner.GroundChecks[0].position, Quaternion.identity);
+        particle.transform.localScale = new Vector3(particle.transform.localScale.x * owner.FacingDirection, particle.transform.localScale.y, particle.transform.localScale.z);
+        //Destroy(particle, 1f);
     }
 
     public override void HandleFixedUpdate() {

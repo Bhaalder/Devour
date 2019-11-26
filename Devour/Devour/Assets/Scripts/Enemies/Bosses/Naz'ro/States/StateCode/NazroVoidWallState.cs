@@ -63,7 +63,6 @@ public class NazroVoidWallState : NazroBaseState {
                 }
                 break;
             default:
-                Debug.Log("INGET");
                 break;
         }
     }

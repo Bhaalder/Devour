@@ -55,4 +55,9 @@ public class CameraShake : MonoBehaviour {
         transform.localRotation = Quaternion.identity;
         isShaking = false;
     }
+
+    private void OnDestroy() {
+        CameraShakeEvent.UnRegisterListener(Shake);
+    }
+
 }

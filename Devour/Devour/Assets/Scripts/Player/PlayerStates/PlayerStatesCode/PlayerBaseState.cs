@@ -53,7 +53,6 @@ public class PlayerBaseState : State {
 
     public override void HandleUpdate() {
         JumpCheck();
-        Debug.Log(hasPressedJump);
         VoidMendCheck();
         CooldownTimers();
         CollisionCheck();

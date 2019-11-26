@@ -14,3 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dashForce: 40
   startDashTime: 0.15
+  dashParticle: {fileID: 1965343156803978, guid: 74129cb9dc64f8f4e974415ded6b207b,
+    type: 3}
