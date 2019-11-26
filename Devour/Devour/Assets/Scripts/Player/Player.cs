@@ -12,12 +12,13 @@ public enum PlayerAbility {
 }
 
 public class Player : StateMachine {
-
+   
+    #region publicVariables
     public PlayerState PlayerState { get; set; }
     public List<PlayerAbility> PlayerAbilities { get; set; }
 
     public Rigidbody2D Rb2D { get; set; }
-
+    
     public float MaxHealth { get; set; }
     public float Health { get; set; }
     public float MaxPlayerVoid { get; set; }
@@ -70,8 +71,7 @@ public class Player : StateMachine {
     public bool IsGrounded { get; set; }
     public bool IsTouchingWall { get; set; }
     public bool IsWallSliding { get; set; }
-
-    public Transform JustInTimeJumpCheck { get; set; }
+    
     public Transform[] GroundChecks { get; set; }
     public Transform WallCheck { get; set; }
     public Transform Aim { get; set; }
@@ -90,6 +90,7 @@ public class Player : StateMachine {
 
     public List<TalentPoint> TalentPoints { get; set; }
     public List<Collectible> Collectibles { get; set; }
+    #endregion
 
     [Header("Health & Combat")]
     [Tooltip("Player maxHealth")]
@@ -160,7 +161,6 @@ public class Player : StateMachine {
     [SerializeField] private Transform upAttack;
     [SerializeField] private Transform downAttack;
     [SerializeField] private Transform aim;
-    [SerializeField] private Transform justInTimeJumpCheck;
     [SerializeField] private Transform[] groundChecks;
     [SerializeField] private Transform wallCheck;
     [SerializeField] private RectTransform playerCanvas;
@@ -223,8 +223,7 @@ public class Player : StateMachine {
         GroundCheckDistance = groundCheckDistance;
         WallCheckDistance = wallCheckDistance;
         wallCheckDistanceValue = wallCheckDistance;
-
-        JustInTimeJumpCheck = justInTimeJumpCheck;
+        
         GroundChecks = groundChecks;
         WallCheck = wallCheck;
         Aim = aim;
