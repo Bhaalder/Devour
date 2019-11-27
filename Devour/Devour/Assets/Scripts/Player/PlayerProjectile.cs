@@ -25,7 +25,7 @@ public class PlayerProjectile : MonoBehaviour{
         AudioPlaySoundAtLocationEvent projectileSound = new AudioPlaySoundAtLocationEvent {
             name = "Projectile",
             isRandomPitch = true,
-            minPitch = 0.95f,
+            minPitch = 0.90f,
             maxPitch = 1,
             soundType = SoundType.SFX,
             gameObject = gameObject
