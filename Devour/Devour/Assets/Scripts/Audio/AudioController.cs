@@ -390,18 +390,24 @@ public class AudioController : MonoBehaviour {
             }
         }
         sound.source.volume = startSoundValue;
+        
     }
     #endregion
 
     #region SwitchBackgroundSound, FindSound, InWorldSpaceRoutine
 
     private void SwitchSound(AudioSwitchBackgroundSoundEvent audioSwitch) {
-        FindSound(audioSwitch.backgroundSoundNameToFadeOut, audioSwitch.backgroundSoundTypeToFadeOut);
-        if (sound.source.isPlaying) {
-            FadeOutAudio(audioSwitch.fadeDuration, audioSwitch.soundVolumePercentage, sound);
+        if(audioSwitch.backgroundSoundNameToFadeOut != "" && audioSwitch.backgroundSoundNameToFadeOut != null) {
+            FindSound(audioSwitch.backgroundSoundNameToFadeOut, audioSwitch.backgroundSoundTypeToFadeOut);
+            if (sound.source.isPlaying) {
+                StartCoroutine(FadeOutAudio(audioSwitch.fadeDuration, (audioSwitch.soundVolumePercentage / 100), sound));
+            }
         }
+        sound = null;
         FindSound(audioSwitch.backgroundSoundNametoStart, audioSwitch.backgroundSoundTypeToStart);
-        sound.source.Play();
+        if (sound != null) {
+            sound.source.Play();
+        }
     }
 
     private void FindSound(string name, SoundType soundType) {
@@ -424,6 +430,8 @@ public class AudioController : MonoBehaviour {
                     break;
             }
         } catch (KeyNotFoundException) {
+            AudioNotFound(name);
+        } catch (System.ArgumentNullException) {
             AudioNotFound(name);
         }
     }

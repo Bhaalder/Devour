@@ -71,6 +71,11 @@ public class GameController : MonoBehaviour {
             isFadeIn = true
         };
         fadeScreen.FireEvent();
+        SwitchSceneEvent switchScene = new SwitchSceneEvent {
+            leavingSceneName = SceneManager.GetActiveScene().name,
+            enteringSceneName = RestingScene
+        };
+        switchScene.FireEvent();
         try {
             if(RestingCheckpoint != null) {
                 Debug.Log("RESPAWN SUCCESS! " + RestingScene);

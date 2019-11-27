@@ -40,6 +40,11 @@ public class SceneTrigger : MonoBehaviour {
         if (other.CompareTag("Player")) {
             GameController.Instance.Player.IsInvulnerable = true;
             GameController.Instance.Player.UntilInvulnerableEnds = 2;
+            SwitchSceneEvent switchScene = new SwitchSceneEvent {
+                enteringSceneName = sceneToLoad,
+                leavingSceneName = SceneManager.GetActiveScene().name
+            };
+            switchScene.FireEvent();
             FadeScreenEvent fadeScreen = new FadeScreenEvent {
                 isFadeOut = true
             };

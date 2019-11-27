@@ -47,14 +47,6 @@ public class TalentPointButton : SelectedButton {
                 isFirstLetter = false;
             }
         }
-        //foreach (char c in talentName) {
-        //    if (!isFirstLetter) {
-        //        sb.Append(char.ToLower(c));
-        //    } else {
-        //        sb.Append(c);
-        //        isFirstLetter = false;
-        //    }
-        //}
         PointsInvestedText.text = sb + "\n" + pointsInvested + "/" + MaxPointsToInvest;
     }
 

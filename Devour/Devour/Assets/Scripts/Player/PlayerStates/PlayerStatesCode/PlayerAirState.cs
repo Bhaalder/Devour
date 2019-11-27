@@ -29,13 +29,12 @@ public class PlayerAirState : PlayerBaseState {
             Jump(0);
             return;
         }
-        if (owner.IsGrounded) {           
-            owner.Animator.SetBool("IsLanding", true);
+        if (owner.IsGrounded) {
             if (Input.GetButton("Horizontal")) {
                 owner.Transition<PlayerWalkState>();
             } else {
                 owner.Transition<PlayerIdleState>();
-            }    
+            }
         }
         base.HandleUpdate();
     }
