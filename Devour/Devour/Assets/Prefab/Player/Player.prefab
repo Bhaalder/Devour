@@ -762,6 +762,8 @@ MonoBehaviour:
   bounceForce: 20
   invulnerableStateTime: 1
   hurtKnockbackForce: {x: 4, y: 10}
+  voidMendParticleEffect: {fileID: 7624666335329732214, guid: 0b5b826d08c5b1c4680ecf2907049f5d,
+    type: 3}
   cameraShakeDuration: 0.5
   cameraShakeValue: 0.5
   movementSpeed: 10

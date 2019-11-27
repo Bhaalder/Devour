@@ -38,6 +38,10 @@ public class OneTimeTipTrigger : TipTrigger {
         }
     }
 
+    protected override void OnTriggerExit2D(Collider2D collision) {
+
+    }
+
     private IEnumerator HideTooltip() {
         yield return new WaitForSecondsRealtime(tipDuration);
         HideTipTextEvent hideTextEvent = new HideTipTextEvent { };
