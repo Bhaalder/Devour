@@ -34,7 +34,10 @@ public class Enemy5Idle : EnemyMovement
         }
         else
         {
-            owner.Transition<Enemy5Movement>();
+            if (IsGrounded())
+            {
+                owner.Transition<Enemy5Movement>();
+            }
         }
     }
     public override void HandleFixedUpdate()
@@ -66,5 +69,11 @@ public class Enemy5Idle : EnemyMovement
 
         currentJumpCooldown = jumpCollisionStunnedTime;
         owner.GetComponent<Enemy5>().jumpCollision = false;
+    }
+
+    private bool IsGrounded()
+    {
+        bool lineHit = Physics2D.Raycast(owner.transform.position, Vector2.down, 1f, layerMask);
+        return lineHit;
     }
 }
