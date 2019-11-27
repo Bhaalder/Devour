@@ -19,5 +19,5 @@ MonoBehaviour:
   Count: 1
   telegraphTime: 0.3
   middlePointCurve: 15
-  targetYOffset: 0
+  targetYOffset: -1.5
   particles: {fileID: 1315949759934820, guid: fca14c8b8acf1d54ca68a2ca7f53d1c5, type: 3}

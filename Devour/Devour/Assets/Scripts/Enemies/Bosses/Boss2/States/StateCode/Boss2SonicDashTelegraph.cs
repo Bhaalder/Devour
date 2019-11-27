@@ -59,7 +59,6 @@ public class Boss2SonicDashTelegraph : Boss2BaseState
             chosenPattern = null;
             owner.ChosenPattern = null;
             int patternNumber = Random.Range(0, owner.DashPatterns.Length);
-            Debug.Log("PatternNumber" + patternNumber);
             chosenPattern = owner.DashPatterns[patternNumber];
             owner.ChosenPattern = chosenPattern;
         }

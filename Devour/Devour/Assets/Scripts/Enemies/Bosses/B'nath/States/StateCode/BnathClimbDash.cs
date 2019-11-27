@@ -66,15 +66,18 @@ public class BnathClimbDash : BnathBaseState
         {
             owner.State = BossBnathState.CLIMBING;
             SideClimb();
+            owner.rb.velocity = new Vector2(0, 0);
         }
         else if (isChoosingAttack)
         {
             ChooseAttack();
+            owner.rb.velocity = new Vector2(0, 0);
         }
         else if (dashTelegraph)
         {
             owner.State = BossBnathState.DASH_TELEGRAPH;
             DashTelegraph();
+            owner.rb.velocity = new Vector2(0, 0);
         }
         else if (!dashTelegraph)
         {
@@ -83,6 +86,7 @@ public class BnathClimbDash : BnathBaseState
             isClimbing = false;
         }
 
+        
     }
     public override void HandleFixedUpdate()
     {
@@ -250,7 +254,6 @@ public class BnathClimbDash : BnathBaseState
             return;
         }
 
-        bossSprite.color = new Color(255, 255, 255);
         currentTelegraphCooldown = hangTime;
         startPoint = owner.rb.position;
         middlePoint = startPoint - endPoint;

@@ -48,6 +48,21 @@ public class Enemy5Attack : EnemyMovement
             startPoint = owner.rb.position;
             endPoint = new Vector2(owner.Player.transform.position.x, obstructed.point.y + targetYOffset);
             middlePoint = startPoint + (endPoint - startPoint) / 2 + Vector2.up * middlePointCurve;
+            RaycastHit2D obstructedMiddleY = Physics2D.CircleCast(owner.rb.position + new Vector2(0, 3), 2f, 
+                (middlePoint - owner.rb.position) / (middlePoint - owner.rb.position).magnitude, (middlePoint - owner.rb.position).magnitude, layerMask);
+
+            if (obstructedMiddleY.collider)
+            {
+                if (obstructedMiddleY.collider.gameObject.layer == 8)
+                {
+                    if(Vector2.Distance(owner.rb.position, middlePoint) > Vector2.Distance(owner.rb.position, obstructedMiddleY.point))
+                    {
+                        middlePoint = new Vector2(middlePoint.x, obstructedMiddleY.point.y + (owner.rb.position.y - obstructedMiddleY.point.y) / 6f);
+                    }
+                    
+                    Debug.Log("NEW MiddlePoint: " + middlePoint);
+                }
+            }
             initializeState = true;
         }
 
@@ -67,6 +82,11 @@ public class Enemy5Attack : EnemyMovement
     {
         base.HandleFixedUpdate();
     }
+    public override void Exit()
+    {
+        countUp = 0;
+        owner.rb.velocity = new Vector2(0, 0);
+    }
 
     private void BodySlam()
     {
@@ -77,17 +97,6 @@ public class Enemy5Attack : EnemyMovement
             Vector2 m1 = Vector2.Lerp(startPoint, middlePoint, countUp);
             Vector2 m2 = Vector2.Lerp(middlePoint, endPoint, countUp);
             owner.gameObject.transform.position = Vector3.Lerp(m1, m2, countUp);
-            RaycastHit2D lineHit = Physics2D.Raycast(owner.rb.position, new Vector2(owner.transform.localScale.x, 0), 3f, layerMask);
-            if (lineHit.collider)
-            {
-                
-                if (lineHit.collider.gameObject.layer == 8)
-                {
-                    countUp = 0;
-                    owner.rb.velocity = new Vector2(0, 0);
-                    owner.Transition<Enemy5Idle>();
-                }
-            }
         }
         else
         {

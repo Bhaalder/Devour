@@ -9,6 +9,7 @@ public class Enemy5Movement : EnemyMovement
     [SerializeField] private float enemySpeed = 400;
     [SerializeField] private float distanceBeforeTurning = 3f;
     [SerializeField] private float attackDistance = 10f;
+    [SerializeField] private float dropDownDistance = 15f;
 
     private Vector2 direction;
     private Vector2 force;
@@ -17,7 +18,7 @@ public class Enemy5Movement : EnemyMovement
 
     public override void Enter()
     {
-        base.Enter();   
+        base.Enter();
     }
 
     public override void HandleUpdate()
@@ -25,7 +26,7 @@ public class Enemy5Movement : EnemyMovement
         base.HandleUpdate();
         owner.GetComponent<Enemy5>().State = Enemy5State.MOVEMENT;
         Movement();
-        if(DistanceToPlayer() < attackDistance && CanSeePlayer())
+        if(DistanceToPlayer() < attackDistance && CheckPlayer())
         {
             owner.Transition<Enemy5Attack>();
         }
@@ -69,7 +70,7 @@ public class Enemy5Movement : EnemyMovement
             movingRight = !movingRight;
         }
         noGroundAhead = new Vector2(direction.x, -1);
-        RaycastHit2D noMoreGround = Physics2D.Raycast(owner.rb.position, noGroundAhead, distanceBeforeTurning + 2f, layerMask);
+        RaycastHit2D noMoreGround = Physics2D.Raycast(owner.rb.position + new Vector2(direction.x * 2 , 0), Vector2.down, dropDownDistance, layerMask);
 
         if (noMoreGround.collider == false)
         {

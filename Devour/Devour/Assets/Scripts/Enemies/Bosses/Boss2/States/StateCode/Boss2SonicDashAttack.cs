@@ -62,8 +62,7 @@ public class Boss2SonicDashAttack : Boss2BaseState
         {
             currentPosition = 0;
             owner.rb.gravityScale = 6;
-            owner.Transition<Boss2SonicDashExit>();
-            
+            owner.Transition<Boss2SonicDashExit>();           
         }
     }
 

@@ -13,13 +13,9 @@ public class BnathBaseState : State
 
     private float distanceToPlayer;
 
-    public SpriteRenderer bossSprite; //För tillfället för test
-
-
     public override void Enter()
     {
         base.Enter();
-        bossSprite = owner.GetComponentInChildren<SpriteRenderer>(); //TEST
     }
 
     public override void HandleUpdate()
@@ -33,7 +29,6 @@ public class BnathBaseState : State
 
     protected virtual void Movement()
     {
-
         owner.Transition<BnathIdle>();
     }
     public override void Initialize(StateMachine owner)

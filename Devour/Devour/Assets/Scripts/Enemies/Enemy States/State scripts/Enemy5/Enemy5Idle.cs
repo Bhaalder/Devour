@@ -7,6 +7,9 @@ public class Enemy5Idle : EnemyMovement
 {
 
     [SerializeField] private float pauseBetweenAttacks = 2f;
+    [SerializeField] private float jumpCollisionStunnedTime = 2f;
+
+    private float currentJumpCooldown;
 
     private bool isPaused;
 
@@ -15,7 +18,8 @@ public class Enemy5Idle : EnemyMovement
         base.Enter();
         owner.GetComponent<Enemy5>().State = Enemy5State.IDLE;
 
-        isPaused = true;        
+        isPaused = true;
+        currentJumpCooldown = jumpCollisionStunnedTime;
     }
 
     public override void HandleUpdate()
@@ -23,6 +27,10 @@ public class Enemy5Idle : EnemyMovement
         if (isPaused)
         {
             PauseBetweenAttacks();
+        }
+        if (owner.GetComponent<Enemy5>().jumpCollision)
+        {
+            JumpStunnedTime();
         }
         else
         {
@@ -45,5 +53,18 @@ public class Enemy5Idle : EnemyMovement
 
         currentCooldown = pauseBetweenAttacks;
         isPaused = false;
+    }
+
+    private void JumpStunnedTime()
+    {
+        currentJumpCooldown -= Time.deltaTime;
+
+        if (currentJumpCooldown > 0)
+        {
+            return;
+        }
+
+        currentJumpCooldown = jumpCollisionStunnedTime;
+        owner.GetComponent<Enemy5>().jumpCollision = false;
     }
 }

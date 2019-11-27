@@ -5,7 +5,6 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "Boss/Boss2/Boss2SonicThrustAttackState")]
 public class Boss2SonicThrustAttack : Boss2BaseState
 {
-    //[SerializeField] private float thrustSpeed = 1600f;
     [SerializeField] private LayerMask layerMask;
     [SerializeField] private float rayCastLength;
     [SerializeField] private float dashForce = 40f;

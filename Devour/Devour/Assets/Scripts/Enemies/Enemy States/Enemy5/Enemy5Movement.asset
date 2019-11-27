@@ -16,9 +16,7 @@ MonoBehaviour:
   layerMask:
     serializedVersion: 2
     m_Bits: 256
-  playerLayerMask:
-    serializedVersion: 2
-    m_Bits: 1024
-  enemySpeed: 1200
+  enemySpeed: 1500
   distanceBeforeTurning: 3
   attackDistance: 10
+  dropDownDistance: 15

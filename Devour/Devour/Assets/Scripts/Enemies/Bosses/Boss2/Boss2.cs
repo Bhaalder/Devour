@@ -14,6 +14,7 @@ public class Boss2 : Boss
     [SerializeField] private GameObject[] dashPatterns;
     [SerializeField] private GameObject sonicSnipeBeam;
     [SerializeField] private GameObject bossFightBlock;
+    [SerializeField] private GameObject hitBox;
     [SerializeField] private float sonicSnipeBeamDamage = 25f;
 
 
@@ -24,6 +25,7 @@ public class Boss2 : Boss
     public GameObject ChosenPattern { get; set; }
     public GameObject[] DashPatterns { get; set; }
     public GameObject SonicSnipeBeam { get; set; }
+    public GameObject HitBox { get; set; }
     public SpriteRenderer SnipeBeamSprite { get; set; }
     public float SonicSnipeBeamDamage { get; set; }
     public bool IntroStarted { get; set; }
@@ -45,6 +47,7 @@ public class Boss2 : Boss
         DashPattern3 = dashPattern3;
         DashPatterns = dashPatterns;
         SonicSnipeBeam = sonicSnipeBeam;
+        HitBox = hitBox;
         sonicSnipeBeam.GetComponentInChildren<BoxCollider2D>().enabled = false;
         SonicSnipeBeamDamage = sonicSnipeBeamDamage;
         SnipeBeamSprite = SonicSnipeBeam.GetComponentInChildren<SpriteRenderer>();

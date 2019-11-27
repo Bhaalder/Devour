@@ -31,7 +31,6 @@ public class BnathBodySlam : BnathBaseState
         particleInstantiated = false;
 
         currentTelegraphCooldown = telegraphTime;
-        bossSprite = owner.GetComponentInChildren<SpriteRenderer>(); //TEST
 
         countUp = 0f;
     }
@@ -108,7 +107,6 @@ public class BnathBodySlam : BnathBaseState
         }
 
         startAttack = true;
-        bossSprite.color = new Color(255, 255, 255);
         currentTelegraphCooldown = telegraphTime;
     }
 
