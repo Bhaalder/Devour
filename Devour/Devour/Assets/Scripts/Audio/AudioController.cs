@@ -380,7 +380,6 @@ public class AudioController : MonoBehaviour {
         continueFadeOut = true;
         float startSoundValue = sound.source.volume;
         if (continueFadeOut) {
-            Debug.Log("FADE GO");
             for (float time = 0f; time < fadeDuration; time += Time.unscaledDeltaTime) {
                 if (sound.source.volume <= 0.01) {
                     sound.source.Stop();
