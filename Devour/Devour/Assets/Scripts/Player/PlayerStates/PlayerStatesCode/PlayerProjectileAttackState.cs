@@ -12,6 +12,11 @@ public class PlayerProjectileAttackState : PlayerBaseState {
     [SerializeField] private GameObject playerProjectilePrefab;
     [Tooltip("How fast the projectile is")]
     [SerializeField] private float projectileSpeed;
+    [Tooltip("Smoke Gameobject")]
+    [SerializeField] private GameObject smokePrefab;
+    [SerializeField] private Vector3 smokePosition;
+    private GameObject smoke;
+    
     private float attackTime;
 
 
@@ -22,7 +27,8 @@ public class PlayerProjectileAttackState : PlayerBaseState {
         owner.UntilNextProjectileAttack = owner.ProjectileCooldown;
         owner.Rb2D.gravityScale = 0;
         owner.Rb2D.freezeRotation = false;
-        owner.Aim.GetComponent<SpriteRenderer>().enabled = true;        
+        owner.Aim.GetComponent<SpriteRenderer>().enabled = true;
+        smoke = Instantiate(smokePrefab, owner.transform.position + smokePosition, Quaternion.identity);
     }
 
     private void Shoot() {
@@ -78,6 +84,11 @@ public class PlayerProjectileAttackState : PlayerBaseState {
         owner.Rb2D.freezeRotation = true;
         owner.UntilNextProjectileAttack = owner.ProjectileCooldown;
         owner.Aim.GetComponent<SpriteRenderer>().enabled = false;
+        if(smoke != null) {
+            Destroy(smoke);
+        }
+        GameObject exitSmoke = Instantiate(smokePrefab, owner.transform);
+        exitSmoke.transform.position += smokePosition;
     }
 
 }

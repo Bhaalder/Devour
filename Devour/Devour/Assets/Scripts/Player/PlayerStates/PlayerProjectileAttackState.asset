@@ -16,3 +16,6 @@ MonoBehaviour:
   playerProjectilePrefab: {fileID: 4936096132819932207, guid: d8c6c5d239828b74e925ed951ba3f114,
     type: 3}
   projectileSpeed: 35
+  smokePrefab: {fileID: 1811446147995371273, guid: 870b011e7f37de74db62bcc8d18db2d7,
+    type: 3}
+  smokePosition: {x: -0.15, y: -1.15, z: 0}

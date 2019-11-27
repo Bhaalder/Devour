@@ -19,6 +19,15 @@ public class clicktoCont : MonoBehaviour
 
     public void loadLevel1()
     {
+        SwitchSceneEvent sceneEvent = new SwitchSceneEvent {
+            enteringSceneName = "Scene01",
+            leavingSceneName = SceneManager.GetActiveScene().name
+        };
+        sceneEvent.FireEvent();
+        Invoke("Switch", 1f);
+    }
+
+    private void Switch() {
         SceneManager.LoadScene("Scene01");
     }
 }
