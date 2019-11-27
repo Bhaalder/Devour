@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: PlayerDeathState
   m_EditorClassIdentifier: 
   deathAnimationTime: 1.5
-  deathParticles: {fileID: 1609845037211932075, guid: c7c2759ad2bcb8d46918ef68f6f35881,
+  deathParticles: {fileID: 1280141305896002, guid: a59c08a5054ea264091d9919c2eb33f3,
     type: 3}
   lifeForceEssenceParticle: {fileID: 2370308452161165796, guid: aa32688ee19821647930834202a4f65b,
     type: 3}
