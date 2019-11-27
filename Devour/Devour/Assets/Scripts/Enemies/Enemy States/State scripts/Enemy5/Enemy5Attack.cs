@@ -59,8 +59,6 @@ public class Enemy5Attack : EnemyMovement
                     {
                         middlePoint = new Vector2(middlePoint.x, obstructedMiddleY.point.y + (owner.rb.position.y - obstructedMiddleY.point.y) / 6f);
                     }
-                    
-                    Debug.Log("NEW MiddlePoint: " + middlePoint);
                 }
             }
             initializeState = true;
