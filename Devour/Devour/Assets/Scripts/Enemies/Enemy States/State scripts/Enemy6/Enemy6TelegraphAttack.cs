@@ -8,10 +8,15 @@ public class Enemy6TelegraphAttack : EnemyMovement
     [SerializeField] private float telegraphTime = 2f;
     private float telegraphCurrentCooldown;
 
+    private SpriteRenderer weaponSprite;
+
     public override void Enter()
     {
         base.Enter();
         owner.GetComponent<Enemy6>().State = Enemy6State.TELEGRAPH_ATTACK;
+        owner.GetComponent<Enemy6>().Weapon.GetComponent<BoxCollider2D>().enabled = false;
+        owner.GetComponent<Enemy6>().Weapon.GetComponent<SpriteRenderer>().enabled = true;
+        weaponSprite = owner.GetComponent<Enemy6>().Weapon.GetComponent<SpriteRenderer>();
         telegraphCurrentCooldown = telegraphTime;
         TurnedRight();
     }
@@ -30,6 +35,14 @@ public class Enemy6TelegraphAttack : EnemyMovement
 
         if (telegraphCurrentCooldown > 0)
         {
+            if(weaponSprite.color == new Color(255, 255, 255))
+            {
+                weaponSprite.color = new Color(0, 0, 0);
+            }
+            else
+            {
+                weaponSprite.color = new Color(255,255,255);
+            }
             return;
         }
 

@@ -8,12 +8,17 @@ public class Enemy6Attack : EnemyMovement
     [SerializeField] private float attackTime = 1f;
 
     private float attackTimeCooldown;
+    private SpriteRenderer weaponSprite;
 
     public override void Enter()
     {
         base.Enter();
         owner.GetComponent<Enemy6>().State = Enemy6State.ATTACK;
-        owner.GetComponent<Enemy6>().Weapon.SetActive(true);
+        owner.GetComponent<Enemy6>().Weapon.GetComponent<BoxCollider2D>().enabled = true;
+        weaponSprite = owner.GetComponent<Enemy6>().Weapon.GetComponent<SpriteRenderer>();
+        weaponSprite.enabled = true;
+        weaponSprite.color = new Color(255, 255, 0);
+
         attackTimeCooldown = attackTime;
     }
     public override void HandleUpdate()
@@ -23,6 +28,7 @@ public class Enemy6Attack : EnemyMovement
     public override void HandleFixedUpdate()
     {
         base.HandleFixedUpdate();
+        
     }
 
     private void AttackTimer()
@@ -34,13 +40,17 @@ public class Enemy6Attack : EnemyMovement
             return;
         }
 
-        owner.GetComponent<Enemy6>().Weapon.SetActive(false);
+        owner.GetComponent<Enemy6>().Weapon.GetComponent<BoxCollider2D>().enabled = false;
+        owner.GetComponent<Enemy6>().Weapon.GetComponent<SpriteRenderer>().enabled = false;
         owner.Transition<Enemy6Idle>();
+        weaponSprite.color = new Color(255, 255, 255);
     }
 
     public override void Exit()
     {
-        owner.GetComponent<Enemy6>().Weapon.SetActive(false);
+        owner.GetComponent<Enemy6>().Weapon.GetComponent<BoxCollider2D>().enabled = false;
+        owner.GetComponent<Enemy6>().Weapon.GetComponent<SpriteRenderer>().enabled = false;
+        weaponSprite.color = new Color(255, 255, 255);
         base.Exit();
         
     }

@@ -26,7 +26,9 @@ public class Enemy6 : Enemy
         Weapon = weapon;
         AttackDistance = attackDistance;
         WeaponDamage = weaponDamage;
-        Weapon.SetActive(false);
+        Weapon.SetActive(true);
+        Weapon.GetComponent<BoxCollider2D>().enabled = false;
+        Weapon.GetComponent<SpriteRenderer>().enabled = false;
         Transition<Enemy6Idle>();
     }
 
