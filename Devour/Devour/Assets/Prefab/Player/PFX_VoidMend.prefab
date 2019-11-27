@@ -9364,6 +9364,7 @@ GameObject:
   - component: {fileID: 4461784661546735295}
   - component: {fileID: 6139299960663503202}
   - component: {fileID: 750968761618724736}
+  - component: {fileID: 5064840626524614404}
   m_Layer: 0
   m_Name: PFX_VoidMend
   m_TagString: Untagged
@@ -9380,7 +9381,7 @@ Transform:
   m_GameObject: {fileID: 7624666335329732214}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 1, z: 0}
-  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_LocalScale: {x: 4, y: 4, z: 4}
   m_Children:
   - {fileID: 261179045220650481}
   - {fileID: 800714450717017074}
@@ -14054,6 +14055,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   OnlyDeactivate: 0
+--- !u!210 &5064840626524614404
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7624666335329732214}
+  m_Enabled: 1
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 20
 --- !u!1 &7902623393830227757
 GameObject:
   m_ObjectHideFlags: 0
@@ -14159,7 +14171,7 @@ ParticleSystem:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-  moveWithTransform: 0
+  moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 0
   randomSeed: 0

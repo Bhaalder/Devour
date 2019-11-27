@@ -17,7 +17,6 @@ public class PlayerDeathState : PlayerBaseState {
         //owner.PlayerLog("DeathState");
         owner.PlayerState = PlayerState.DEATH;
         timeLeft = deathAnimationTime;
-        owner.GetComponent<SpriteRenderer>().color = new Color32(255, 255, 255, 0);
         GameObject deathGO;
         deathGO = Instantiate(deathParticles, owner.transform.position, Quaternion.identity);
         owner.UntilInvulnerableEnds = deathAnimationTime + 1f;
@@ -78,7 +77,6 @@ public class PlayerDeathState : PlayerBaseState {
             amount = -owner.PlayerVoid
         };
         voidEvent.FireEvent();
-        owner.GetComponent<SpriteRenderer>().color = new Color32(255, 255, 255, 255);
         startedFade = false;
         owner.IsDead = false;
         base.Exit();

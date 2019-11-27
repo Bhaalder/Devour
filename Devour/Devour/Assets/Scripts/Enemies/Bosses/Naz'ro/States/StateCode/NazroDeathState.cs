@@ -34,6 +34,6 @@ public class NazroDeathState : NazroBaseState {
             deathTimeLeft -= Time.deltaTime;
             return;
         }
-        Destroy(owner.gameObject);//FÖR TILLFÄLLET
+        Destroy(owner.gameObject);
     }
 }

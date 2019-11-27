@@ -35,6 +35,7 @@ public class Player : StateMachine {
     public float ProjectileCooldown { get; set; }
     public float UntilNextProjectileAttack { get; set; }
     public float ProjectileHealthcost { get; set; }
+    public GameObject VoidMendParticleEffect { get; set; }
     public bool IsDead { get; set; }
 
     public BoxCollider2D BoxCollider2D { get; set; }
@@ -125,6 +126,8 @@ public class Player : StateMachine {
     [SerializeField] private float invulnerableStateTime;
     [Tooltip("Knockbackvalue applied to player when hurt by enemies")]
     [SerializeField] private Vector2 hurtKnockbackForce;
+    [Tooltip("The instantiated particles when player uses voidMend")]
+    [SerializeField] private GameObject voidMendParticleEffect;
     private bool lowHealthSoundIsPlaying;
 
     [Header("Camera")]
@@ -209,6 +212,7 @@ public class Player : StateMachine {
         ProjectileHealthcost = projectileHealthcost;
         KnockbackForce = knockbackForce;
         BounceForce = bounceForce;
+        VoidMendParticleEffect = voidMendParticleEffect;
 
         MovementSpeed = movementSpeed;
         JumpForce = jumpForce;

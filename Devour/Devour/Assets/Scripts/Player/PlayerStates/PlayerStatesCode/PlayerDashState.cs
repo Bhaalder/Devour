@@ -28,7 +28,6 @@ public class PlayerDashState : PlayerBaseState {
         dashAudio.FireEvent();
         GameObject particle = Instantiate(dashParticle, owner.GroundChecks[0].position, Quaternion.identity);
         particle.transform.localScale = new Vector3(particle.transform.localScale.x * owner.FacingDirection, particle.transform.localScale.y, particle.transform.localScale.z);
-        //Destroy(particle, 1f);
     }
 
     public override void HandleFixedUpdate() {

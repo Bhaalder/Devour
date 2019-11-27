@@ -132,6 +132,7 @@ public class PlayerBaseState : State {
                     };
                     voidEvent.FireEvent();
                     healEvent.FireEvent();
+                    GameObject mendParticle = Instantiate(owner.VoidMendParticleEffect, owner.transform);
                 }
             }
             return;
