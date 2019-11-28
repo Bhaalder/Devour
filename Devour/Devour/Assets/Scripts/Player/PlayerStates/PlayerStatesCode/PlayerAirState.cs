@@ -29,6 +29,9 @@ public class PlayerAirState : PlayerBaseState {
             Jump(0);
             return;
         }
+        if (Input.GetButton("Jump")) {
+            hasPressedJump = true;
+        }
         if (owner.IsGrounded) {
             if (Input.GetButton("Horizontal")) {
                 owner.Transition<PlayerWalkState>();
