@@ -7,6 +7,8 @@ public class VoidRift : MonoBehaviour{
 
     [TextArea(0, 5)]
     [SerializeField] private string voidRiftInfo;
+    [Tooltip("How much the player should regenerate foreach 0.1 seconds")]
+    [SerializeField] private float regeneration;
 
     private TextMeshProUGUI voidText;
     private bool playerIsInRadius;
@@ -48,7 +50,7 @@ public class VoidRift : MonoBehaviour{
         if(timeLeft <= 0) {
             timeLeft = timeBetweenHeals;
             PlayerHealEvent heal = new PlayerHealEvent {
-                amount = 1.5f
+                amount = regeneration
             };
             heal.FireEvent();
         }
