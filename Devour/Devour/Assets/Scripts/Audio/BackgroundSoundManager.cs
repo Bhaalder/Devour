@@ -51,7 +51,7 @@ public class BackgroundSoundManager : MonoBehaviour{
             CurrentMusicPlaying = musicToStart;
         }
         if (!isSameMusic) {
-            SwitchSound(musicToFade, musicToStart, SoundType.MUSIC, 1f);
+            SwitchSound(musicToFade, musicToStart, SoundType.MUSIC, 1);
         }
         if(ambienceToStart == CurrentBackgroundSoundPlaying) {
             isSameAmbience = true;
@@ -62,7 +62,7 @@ public class BackgroundSoundManager : MonoBehaviour{
             CurrentBackgroundSoundPlaying = ambienceToStart;
         }
         if (!isSameAmbience) {
-            SwitchSound(ambienceToFade, ambienceToStart, SoundType.DEFAULT, 1f);
+            SwitchSound(ambienceToFade, ambienceToStart, SoundType.DEFAULT, 1);
         }
     }
 

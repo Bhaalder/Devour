@@ -332,7 +332,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2316753202097526932}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.361, y: -1.823, z: 0}
+  m_LocalPosition: {x: -0.3634205, y: -1.820905, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 3752226931262427211}
@@ -773,7 +773,7 @@ MonoBehaviour:
   numberOfDashes: 1
   dashCooldown: 1
   fallSpeed: -35
-  groundCheckDistance: 0.02
+  groundCheckDistance: 0.05
   wallCheckDistance: 0.94
   horizontalAttack: {fileID: 4050920186006892272}
   upAttack: {fileID: 4973096120703694857}
@@ -1090,7 +1090,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5299653182396835918}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.907, y: -1.823, z: 0}
+  m_LocalPosition: {x: 0.907579, y: -1.820905, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 3752226931262427211}

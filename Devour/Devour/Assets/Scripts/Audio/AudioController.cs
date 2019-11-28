@@ -366,12 +366,10 @@ public class AudioController : MonoBehaviour {
         continueFadeIn = true;
         continueFadeOut = false;
         float startSoundValue = 0;
-        if (continueFadeIn) {
-            for (float time = 0f; time < fadeDuration; time += Time.unscaledDeltaTime) {
-                float normalizedTime = time / fadeDuration;
-                sound.source.volume = Mathf.Lerp(startSoundValue, soundVolume, normalizedTime);
-                yield return null;
-            }
+        for (float time = 0f; time < fadeDuration; time += Time.unscaledDeltaTime) {
+            float normalizedTime = time / fadeDuration;
+            sound.source.volume = Mathf.Lerp(startSoundValue, soundVolume, normalizedTime);
+            yield return null;
         }
     }
 
@@ -379,18 +377,17 @@ public class AudioController : MonoBehaviour {
         continueFadeIn = false;
         continueFadeOut = true;
         float startSoundValue = sound.source.volume;
-        if (continueFadeOut) {
-            for (float time = 0f; time < fadeDuration; time += Time.unscaledDeltaTime) {
-                if (sound.source.volume <= 0.01) {
-                    sound.source.Stop();
-                }
-                float normalizedTime = time / fadeDuration;
-                sound.source.volume = Mathf.Lerp(startSoundValue, soundVolume, normalizedTime);
-                yield return null;
+        for (float time = 0f; time < fadeDuration; time += Time.unscaledDeltaTime) {
+            float normalizedTime = time / fadeDuration;
+            sound.source.volume = Mathf.Lerp(startSoundValue, soundVolume, normalizedTime);
+            if (sound.source.volume <= 0.1f) {
+                sound.source.Stop();
+                break;
             }
+            yield return null;
         }
         sound.source.volume = startSoundValue;
-        
+
     }
     #endregion
 
