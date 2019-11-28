@@ -4992,6 +4992,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   voidRiftInfo: Press E/RB
+  regeneration: 1.5
 --- !u!210 &1046159800985626392
 SortingGroup:
   m_ObjectHideFlags: 0
