@@ -8,7 +8,7 @@ public class TriggerEnemySpawner : MonoBehaviour
     public SpawnManager spawnerScript;
     //public GameObject [] doors;
 
-    public GameObject door1, door2;
+    public GameObject door1;
 
 
     private void Awake()
@@ -20,7 +20,7 @@ public class TriggerEnemySpawner : MonoBehaviour
         //}
 
         door1.SetActive(false);
-        door2.SetActive(false);
+        
     }
     private void Update()
     {
@@ -42,7 +42,7 @@ public class TriggerEnemySpawner : MonoBehaviour
             //    }
 
             door1.SetActive(true);
-            door2.SetActive(true);
+            
         }
 
     }
