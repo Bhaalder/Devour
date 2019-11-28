@@ -73,6 +73,7 @@ public class Player : StateMachine {
     public bool IsTouchingWall { get; set; }
     public bool IsWallSliding { get; set; }
     
+    public Transform GroundCheck { get => groundCheck; set => groundCheck = value; }
     public Transform[] GroundChecks { get; set; }
     public Transform WallCheck { get; set; }
     public Transform Aim { get; set; }
@@ -164,6 +165,7 @@ public class Player : StateMachine {
     [SerializeField] private Transform upAttack;
     [SerializeField] private Transform downAttack;
     [SerializeField] private Transform aim;
+    [SerializeField] private Transform groundCheck;
     [SerializeField] private Transform[] groundChecks;
     [SerializeField] private Transform wallCheck;
     [SerializeField] private RectTransform playerCanvas;
