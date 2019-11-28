@@ -34,6 +34,7 @@ public class ZvixaDeathState : ZvixaBaseState {
         }
         owner.SpawnAbilityEssence();
         owner.GiveLifeforce();
+        owner.TipAfterZvixa.gameObject.SetActive(true);
         Destroy(owner.gameObject);//FÖR TILLFÄLLET
         base.HandleUpdate();
     }
