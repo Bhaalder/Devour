@@ -6,7 +6,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
-public class TalentScreen : MonoBehaviour{
+public class TalentScreen : MonoBehaviour {
 
     [SerializeField] private Button damageButton;
     [SerializeField] private Button survivalButton;
@@ -30,10 +30,12 @@ public class TalentScreen : MonoBehaviour{
 
     private List<TalentPoint> currentAddedTalentPoints;
     private List<Collectible> currentCollectibleCosts;
+    private List<Collectible> playerCollectibles;
 
     private void Awake() {
         currentAddedTalentPoints = new List<TalentPoint>();
         currentCollectibleCosts = new List<Collectible>();
+        playerCollectibles = new List<Collectible>();
         talentPointButtons = new TalentPointButton[4];
         talentPointButtons[0] = damageButton.GetComponent<TalentPointButton>();
         talentPointButtons[1] = survivalButton.GetComponent<TalentPointButton>();
@@ -54,6 +56,7 @@ public class TalentScreen : MonoBehaviour{
         SetCollectibleCostText();
         descriptionText.text = "";
         errorText.text = "";
+        playerCollectibles = GameController.Instance.Player.Collectibles;
         bool hasVoidMend;
         if (GameController.Instance.Player.HasAbility(PlayerAbility.VOIDMEND)) {
             hasVoidMend = true;
@@ -64,14 +67,14 @@ public class TalentScreen : MonoBehaviour{
         resetButton.interactable = false;
     }
 
-    private void OnGUI() {     
+    private void OnGUI() {
         if (EventSystem.current.currentSelectedGameObject != null) {
             try {
                 descriptionText.text = EventSystem.current.currentSelectedGameObject.GetComponent<TalentPointButton>().TalentPoint.description;
             } catch (System.NullReferenceException) {
-                if(EventSystem.current.currentSelectedGameObject == resetButton.gameObject) {
+                if (EventSystem.current.currentSelectedGameObject == resetButton.gameObject) {
                     descriptionText.text = resetButtonInfo;
-                } else if(EventSystem.current.currentSelectedGameObject == doneButton.gameObject) {
+                } else if (EventSystem.current.currentSelectedGameObject == doneButton.gameObject) {
                     descriptionText.text = doneButtonInfo;
                 } else {
                     descriptionText.text = "";
@@ -82,8 +85,8 @@ public class TalentScreen : MonoBehaviour{
 
     private void CheckSelectedButton(TalentPointButton talentButton) {
         int currentPointsAdded = 0;
-        for(int i = 0; i < currentAddedTalentPoints.Count; i++) {
-            if(currentAddedTalentPoints[i].talentPointType == talentButton.TalentPoint.talentPointType) {
+        for (int i = 0; i < currentAddedTalentPoints.Count; i++) {
+            if (currentAddedTalentPoints[i].talentPointType == talentButton.TalentPoint.talentPointType) {
                 ++currentPointsAdded;
             }
         }
@@ -91,20 +94,11 @@ public class TalentScreen : MonoBehaviour{
             ErrorMessage("You cannot spend any more points in the " + talentButton.TalentPoint.talentPointType + " category!");
             return;
         }
-        for(int i = 0; i < talentButton.TalentPoint.collectibleCost.Length; i++) {
+        for (int i = 0; i < talentButton.TalentPoint.collectibleCost.Length; i++) {
             currentCollectibleCosts.Add(talentButton.TalentPoint.collectibleCost[i]);
         }
-        if (CalculatePlayerCollectible(CollectibleType.VOIDESSENCE) < CalculateCollectibleCost(CollectibleType.VOIDESSENCE)) {
-            ErrorMessage("You cannot afford this! You have: " + CalculatePlayerCollectible(CollectibleType.VOIDESSENCE) + " Void Essence(s), You need: " + CalculateCollectibleCost(CollectibleType.VOIDESSENCE));
-            for(int i = 0; i < talentButton.TalentPoint.collectibleCost.Length; i++) {
-                currentCollectibleCosts.Remove(talentButton.TalentPoint.collectibleCost[i]);
-            }
-            return;
-        } else if (CalculatePlayerCollectible(CollectibleType.LIFEFORCE) < CalculateCollectibleCost(CollectibleType.LIFEFORCE)) {
-            ErrorMessage("You cannot afford this! You have: " + CalculatePlayerCollectible(CollectibleType.LIFEFORCE) + " Lifeforce, You need: " + CalculateCollectibleCost(CollectibleType.LIFEFORCE));
-            for (int i = 0; i < talentButton.TalentPoint.collectibleCost.Length; i++) {
-                currentCollectibleCosts.Remove(talentButton.TalentPoint.collectibleCost[i]);
-            }
+        CollectibleType[] collectibles = { CollectibleType.LIFEFORCE, CollectibleType.VOIDESSENCE };
+        if (!PlayerCanAffordUpgrade(ref playerCollectibles, ref currentCollectibleCosts, collectibles, talentButton)) {
             return;
         }
         talentButton.SetTalentButtonText(talentButton.PointsInvested + (currentPointsAdded + 1));
@@ -113,6 +107,8 @@ public class TalentScreen : MonoBehaviour{
         resetButton.interactable = true;
     }
 
+
+
     private void ResetButton() {
         int lessIterations;
         if (GameController.Instance.Player.HasAbility(PlayerAbility.VOIDMEND)) {
@@ -120,7 +116,7 @@ public class TalentScreen : MonoBehaviour{
         } else {
             lessIterations = 1;
         }
-        for(int i = 0 ; i < talentPointButtons.Length - lessIterations; i++) {
+        for (int i = 0; i < talentPointButtons.Length - lessIterations; i++) {
             talentPointButtons[i].SetTalentButtonText(talentPointButtons[i].PointsInvested);
         }
         currentAddedTalentPoints.Clear();
@@ -133,18 +129,17 @@ public class TalentScreen : MonoBehaviour{
     }
 
     private void DoneButton() {
-         
-            Collectible voidReduction = new Collectible(CollectibleType.VOIDESSENCE, -CalculateCollectibleCost(CollectibleType.VOIDESSENCE));
-            Collectible lifeForceReduction = new Collectible(CollectibleType.LIFEFORCE, -CalculateCollectibleCost(CollectibleType.LIFEFORCE));
-            PlayerCollectibleChange voidChange = new PlayerCollectibleChange {
-                collectible = voidReduction
-            };
-            PlayerCollectibleChange lifeForceChange = new PlayerCollectibleChange {
-                collectible = lifeForceReduction
-            };
-            voidChange.FireEvent();
-            lifeForceChange.FireEvent();
-        for(int i = 0; i < currentAddedTalentPoints.Count; i++) {
+        Collectible voidReduction = new Collectible(CollectibleType.VOIDESSENCE, -CalculateCollectibles(ref currentCollectibleCosts, CollectibleType.VOIDESSENCE));
+        Collectible lifeForceReduction = new Collectible(CollectibleType.LIFEFORCE, -CalculateCollectibles(ref currentCollectibleCosts, CollectibleType.LIFEFORCE));
+        PlayerCollectibleChange voidChange = new PlayerCollectibleChange {
+            collectible = voidReduction
+        };
+        PlayerCollectibleChange lifeForceChange = new PlayerCollectibleChange {
+            collectible = lifeForceReduction
+        };
+        voidChange.FireEvent();
+        lifeForceChange.FireEvent();
+        for (int i = 0; i < currentAddedTalentPoints.Count; i++) {
             TalentPointGainEvent talentGain = new TalentPointGainEvent {
                 talentPoint = currentAddedTalentPoints[i]
             };
@@ -155,11 +150,32 @@ public class TalentScreen : MonoBehaviour{
     }
 
     private void SetCollectibleCostText() {
-        voidEssenceCostText.text = CalculateCollectibleCost(CollectibleType.VOIDESSENCE) + "";
-        lifeForceCostText.text = CalculateCollectibleCost(CollectibleType.LIFEFORCE) + "";
+        voidEssenceCostText.text = CalculateCollectibles(ref currentCollectibleCosts, CollectibleType.VOIDESSENCE) + "";
+        lifeForceCostText.text = CalculateCollectibles(ref currentCollectibleCosts, CollectibleType.LIFEFORCE) + "";
     }
 
-    private int CalculateCollectibleList(ref List<Collectible> collectibles, CollectibleType collectibleType) {
+    private bool PlayerCanAffordUpgrade(ref List<Collectible> playerListToCompare, ref List<Collectible> currentCostToCompare, CollectibleType[] collectibleTypes, TalentPointButton talentButton) {
+        for (int c = 0; c < collectibleTypes.Length; c++) {
+            int playerCollectibleValue = CalculateCollectibles(ref playerListToCompare, collectibleTypes[c]);
+            int currentCollectibleCost = CalculateCollectibles(ref currentCostToCompare, collectibleTypes[c]);
+            string collectibleName;
+            if (collectibleTypes[c] == CollectibleType.VOIDESSENCE) {
+                collectibleName = "Void Essence(s)";
+            } else {
+                collectibleName = "Lifeforce";
+            }
+            if (playerCollectibleValue < currentCollectibleCost) {
+                ErrorMessage("You cannot afford this! You have: " + playerCollectibleValue + " " + collectibleName + ", You need: " + currentCollectibleCost);
+                for (int i = 0; i < talentButton.TalentPoint.collectibleCost.Length; i++) {
+                    currentCollectibleCosts.Remove(talentButton.TalentPoint.collectibleCost[i]);
+                }
+                return false;
+            }
+        }
+        return true;
+
+    }
+    private int CalculateCollectibles(ref List<Collectible> collectibles, CollectibleType collectibleType) {
         int playerVoid = 0;
         int playerLifeforce = 0;
         for (int i = 0; i < collectibles.Count; i++) {
@@ -176,46 +192,6 @@ public class TalentScreen : MonoBehaviour{
             return playerVoid;
         } else {
             return playerLifeforce;
-        }
-    }
-
-    private int CalculatePlayerCollectible(CollectibleType collectibleType) {
-        int playerVoid = 0;
-        int playerLifeforce = 0;
-        for(int i = 0; i < GameController.Instance.Player.Collectibles.Count; i++) {
-            switch (GameController.Instance.Player.Collectibles[i].collectibleType) {
-                case CollectibleType.VOIDESSENCE:
-                    playerVoid += GameController.Instance.Player.Collectibles[i].amount;
-                    break;
-                case CollectibleType.LIFEFORCE:
-                    playerLifeforce += GameController.Instance.Player.Collectibles[i].amount;
-                    break;
-            }
-        }
-        if (collectibleType == CollectibleType.VOIDESSENCE) {
-            return playerVoid;
-        } else {
-            return playerLifeforce;
-        }
-    }
-
-    private int CalculateCollectibleCost(CollectibleType collectibleType) {
-        int voidCost = 0;
-        int lifeForceCost = 0;
-        for(int i = 0; i < currentCollectibleCosts.Count; i++) {
-            switch (currentCollectibleCosts[i].collectibleType) {
-                case CollectibleType.VOIDESSENCE:
-                    voidCost += currentCollectibleCosts[i].amount;
-                    break;
-                case CollectibleType.LIFEFORCE:
-                    lifeForceCost += currentCollectibleCosts[i].amount;
-                    break;
-            }
-        }
-        if(collectibleType == CollectibleType.VOIDESSENCE) {
-            return voidCost;
-        } else {
-            return lifeForceCost;
         }
     }
 
@@ -236,6 +212,6 @@ public class TalentScreen : MonoBehaviour{
     }
 
     private void OnDestroy() {
-        
+
     }
 }
