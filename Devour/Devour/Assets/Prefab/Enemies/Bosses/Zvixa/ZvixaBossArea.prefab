@@ -1287,11 +1287,13 @@ MonoBehaviour:
   - {fileID: 11400000, guid: b326545ecc90eb34a98f5c05639bfb33, type: 2}
   - {fileID: 11400000, guid: 477136a08a764ca4cbecf82fda63d8aa, type: 2}
   - {fileID: 11400000, guid: 4db046d4eddf8804691cd516f7c80414, type: 2}
-  particlesOnHurt: {fileID: 1315949759934820, guid: 902fd6b6a8d230c4a91b7d58e16a36ce,
+  hurtParticleOffsetPosition: {x: 0, y: 0}
+  particlesOnHurt: {fileID: 2047988903029819035, guid: bb7218c3e0990ea48b3de4686fafc449,
     type: 3}
   enemyHealth: 1600
   damageToPlayerOnContact: 25
   lifeforceAmount: 0
+  isIdle: 0
   enemyGFX: {fileID: 8700264559197275829}
   childrenToDisable: []
   deathSounds: []
@@ -1307,6 +1309,7 @@ MonoBehaviour:
   teleportAreaMiddle: {fileID: 8700264559490447504}
   teleportAreaRight: {fileID: 8700264558844661311}
   bossDoor: {fileID: 8700264559579802223}
+  tipAfterZvixa: {fileID: 0}
 --- !u!82 &1441184393443467787
 AudioSource:
   m_ObjectHideFlags: 0

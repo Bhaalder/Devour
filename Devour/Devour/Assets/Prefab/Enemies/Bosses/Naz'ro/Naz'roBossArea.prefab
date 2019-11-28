@@ -903,7 +903,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 3e085dd83018ba34b9f13616ecd25452, type: 2}
   - {fileID: 11400000, guid: b9353db791c437a4cbb3d20726aeb058, type: 2}
   hurtParticleOffsetPosition: {x: 0, y: 0}
-  particlesOnHurt: {fileID: 1315949759934820, guid: 902fd6b6a8d230c4a91b7d58e16a36ce,
+  particlesOnHurt: {fileID: 2047988903029819035, guid: bb7218c3e0990ea48b3de4686fafc449,
     type: 3}
   enemyHealth: 2000
   damageToPlayerOnContact: 0

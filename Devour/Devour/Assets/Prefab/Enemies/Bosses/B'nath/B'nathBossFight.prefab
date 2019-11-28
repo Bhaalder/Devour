@@ -930,11 +930,13 @@ MonoBehaviour:
   - {fileID: 11400000, guid: e8b111aa356df32438b452ce93f82b56, type: 2}
   - {fileID: 11400000, guid: 83c909af3420e7d4a9554c0c1efd0d8a, type: 2}
   - {fileID: 11400000, guid: 4953b263cca1c674583dff16d056d5c1, type: 2}
-  particlesOnHurt: {fileID: 1315949759934820, guid: 902fd6b6a8d230c4a91b7d58e16a36ce,
+  hurtParticleOffsetPosition: {x: 0, y: 0}
+  particlesOnHurt: {fileID: 2047988903029819035, guid: bb7218c3e0990ea48b3de4686fafc449,
     type: 3}
   enemyHealth: 750
   damageToPlayerOnContact: 25
   lifeforceAmount: 0
+  isIdle: 0
   enemyGFX: {fileID: 6423004830342552698}
   childrenToDisable:
   - {fileID: 4102159071333252545}
