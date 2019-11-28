@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 199439402554410056}
   - component: {fileID: 4784267272170257029}
   - component: {fileID: 3553204711354438885}
+  - component: {fileID: 2575816679051735154}
   m_Layer: 0
   m_Name: BloodDeathThingyParticle
   m_TagString: Untagged
@@ -4786,3 +4787,16 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &2575816679051735154
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1315949759934820}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f8e17a03ddfc87c42966a53cdc5112b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  destructionTime: 5
