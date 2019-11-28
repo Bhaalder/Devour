@@ -20,6 +20,7 @@ public class GameController : MonoBehaviour {
     public Dictionary<string, List<int>> CollectedVoidEssences { get; set; }
     public Dictionary<string, List<int>> DestroyedVoidGenerators { get; set; }
     public Dictionary<string, List<int>> OneTimeTips { get; set; }
+    public Dictionary<string, List<int>> HiddenAreasFound { get; set; }
     public List<string> KilledBosses { get; set; }
 
     private static GameController instance;
@@ -49,6 +50,7 @@ public class GameController : MonoBehaviour {
         DestroyedPlatforms = new Dictionary<string, List<int>>();
         CollectedVoidEssences = new Dictionary<string, List<int>>();
         DestroyedVoidGenerators = new Dictionary<string, List<int>>();
+        HiddenAreasFound = new Dictionary<string, List<int>>();
         OneTimeTips = new Dictionary<string, List<int>>();
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
