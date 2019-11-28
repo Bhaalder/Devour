@@ -159,6 +159,26 @@ public class TalentScreen : MonoBehaviour{
         lifeForceCostText.text = CalculateCollectibleCost(CollectibleType.LIFEFORCE) + "";
     }
 
+    private int CalculateCollectibleList(ref List<Collectible> collectibles, CollectibleType collectibleType) {
+        int playerVoid = 0;
+        int playerLifeforce = 0;
+        for (int i = 0; i < collectibles.Count; i++) {
+            switch (collectibles[i].collectibleType) {
+                case CollectibleType.VOIDESSENCE:
+                    playerVoid += collectibles[i].amount;
+                    break;
+                case CollectibleType.LIFEFORCE:
+                    playerLifeforce += collectibles[i].amount;
+                    break;
+            }
+        }
+        if (collectibleType == CollectibleType.VOIDESSENCE) {
+            return playerVoid;
+        } else {
+            return playerLifeforce;
+        }
+    }
+
     private int CalculatePlayerCollectible(CollectibleType collectibleType) {
         int playerVoid = 0;
         int playerLifeforce = 0;
