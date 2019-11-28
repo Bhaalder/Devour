@@ -10,9 +10,12 @@ public class VoidRift : MonoBehaviour{
 
     private TextMeshProUGUI voidText;
     private bool playerIsInRadius;
+    private float timeBetweenHeals = 0.1f;
+    private float timeLeft;
 
     private void Awake() {
         voidText = transform.GetChild(0).GetComponentInChildren<TextMeshProUGUI>();
+        timeLeft = timeBetweenHeals;
     }
 
     private void LateUpdate() {
@@ -28,6 +31,7 @@ public class VoidRift : MonoBehaviour{
         if (collision.gameObject.tag == "Player") {
             playerIsInRadius = true;
             voidText.text = voidRiftInfo;
+            HealPlayer();
         }
     }
 
@@ -35,6 +39,19 @@ public class VoidRift : MonoBehaviour{
         if (collision.gameObject.tag == "Player") {
             playerIsInRadius = false;
             voidText.text = "";
+            timeLeft = timeBetweenHeals;
         }
     }
+
+    private void HealPlayer() {
+        timeLeft -= Time.unscaledDeltaTime;
+        if(timeLeft <= 0) {
+            timeLeft = timeBetweenHeals;
+            PlayerHealEvent heal = new PlayerHealEvent {
+                amount = 1.5f
+            };
+            heal.FireEvent();
+        }
+    }
+
 }

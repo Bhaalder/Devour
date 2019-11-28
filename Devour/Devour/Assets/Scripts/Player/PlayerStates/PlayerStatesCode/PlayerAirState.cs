@@ -22,13 +22,13 @@ public class PlayerAirState : PlayerBaseState {
     }
 
     public override void HandleUpdate() {
-        //if (justInTimeJumpLeft > 0) {
-        //    justInTimeJumpLeft -= Time.deltaTime;
-        //}
-        //if (!hasPressedJump && !owner.IsGrounded && Input.GetButtonDown("Jump") && justInTimeJumpLeft > 0) {
-        //    Jump(0);
-        //    return;
-        //}
+        if (justInTimeJumpLeft > 0) {
+            justInTimeJumpLeft -= Time.deltaTime;
+        }
+        if (!hasPressedJump && !owner.IsGrounded && Input.GetButtonDown("Jump") && justInTimeJumpLeft > 0) {
+            Jump(0);
+            return;
+        }
         if (Input.GetButton("Jump")) {
             hasPressedJump = true;
         }

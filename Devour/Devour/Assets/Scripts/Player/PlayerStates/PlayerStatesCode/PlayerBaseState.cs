@@ -141,19 +141,18 @@ public class PlayerBaseState : State {
     }
 
     public void CollisionCheck() {
-        owner.IsGrounded = Physics2D.OverlapCircle(owner.GroundCheck.position, owner.GroundCheckDistance, owner.WhatIsGround);
-        //RaycastHit2D left = Physics2D.Raycast(owner.GroundChecks[0].position, Vector2.down, owner.GroundCheckDistance, owner.WhatIsGround);
-        //RaycastHit2D right = Physics2D.Raycast(owner.GroundChecks[1].position, Vector2.down, owner.GroundCheckDistance, owner.WhatIsGround);
-        //if(left || right) {
-        //    owner.IsGrounded = true;
-        //}
-        //if(!left && !right) {
-        //    owner.IsGrounded = false;
-        //}
+        //owner.IsGrounded = Physics2D.OverlapCircle(owner.GroundCheck.position, owner.GroundCheckDistance, owner.WhatIsGround);
+        RaycastHit2D left = Physics2D.Raycast(owner.GroundChecks[0].position, Vector2.down, owner.GroundCheckDistance, owner.WhatIsGround);
+        RaycastHit2D right = Physics2D.Raycast(owner.GroundChecks[1].position, Vector2.down, owner.GroundCheckDistance, owner.WhatIsGround);
+        if (left || right) {
+            owner.IsGrounded = true;
+        }
+        if (!left && !right) {
+            owner.IsGrounded = false;
+        }
         if (owner.IsGrounded) {
             hasPressedJump = false;
         }
-        //owner.IsGrounded = Physics2D.OverlapCircle(owner.GroundCheck.position, owner.GroundCheckDistance, owner.WhatIsGround);
         owner.IsTouchingWall = Physics2D.Raycast(owner.WallCheck.position, owner.transform.right * owner.FacingDirection, owner.WallCheckDistance, owner.WhatIsGround);
         if (owner.HasAbility(PlayerAbility.WALLCLIMB)) {
             WallSlideCheck();
