@@ -8,6 +8,8 @@ public class OneTimeTipTrigger : TipTrigger {
     [SerializeField] private int tipID;
     [SerializeField] private float tipDuration;
 
+    private bool triggered;
+
     private void Start() {
         if (GameController.Instance.OneTimeTips.ContainsKey(SceneManager.GetActiveScene().name)) {
             if (GameController.Instance.OneTimeTips[SceneManager.GetActiveScene().name].Contains(tipID)) {
@@ -15,10 +17,12 @@ public class OneTimeTipTrigger : TipTrigger {
                 return;
             }
         }
+        SwitchSceneEvent.RegisterListener(OnSwitchScene);
     }
 
     protected override void OnTriggerEnter2D(Collider2D collision) {
         if (collision.gameObject.tag == "Player") {
+            triggered = true;
             if (GameController.Instance.OneTimeTips.ContainsKey(SceneManager.GetActiveScene().name)) {
                 if (GameController.Instance.OneTimeTips[SceneManager.GetActiveScene().name].Contains(tipID)) {
                     Debug.LogWarning("A tip with the same ID [" + tipID + "] has already been seen in this scene [" + SceneManager.GetActiveScene().name + "]");
@@ -47,6 +51,16 @@ public class OneTimeTipTrigger : TipTrigger {
         HideTipTextEvent hideTextEvent = new HideTipTextEvent { };
         hideTextEvent.FireEvent();
         Destroy(gameObject);
+    }
+
+    private void OnSwitchScene(SwitchSceneEvent switchScene) {
+        if (triggered) {
+            Destroy(gameObject);
+        }
+    }
+
+    private void OnDestroy() {
+        SwitchSceneEvent.UnRegisterListener(OnSwitchScene);
     }
 
 }
