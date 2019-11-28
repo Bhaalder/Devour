@@ -28,7 +28,7 @@ public class NazroVoidBomb : MonoBehaviour {
     }
 
     private void GetHit(PlayerAttackEvent attackEvent) {
-        if (attackEvent.attackCollider.bounds.Intersects(circleCollider2D.bounds)) {
+        if (attackEvent.attackCollider.bounds.Intersects(circleCollider2D.bounds) && attackEvent.isMeleeAttack) {
             Explode();
         }
     }

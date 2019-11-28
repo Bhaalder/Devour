@@ -144,8 +144,38 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerSounds:
   - name: Attack
-    clip: {fileID: 8300000, guid: dea1c4b859926614bbe0e1a7200b08dc, type: 3}
-    volume: 0.8
+    clip: {fileID: 8300000, guid: 7e910a413e463824a8fc3148f372202d, type: 3}
+    volume: 0.4
+    pitch: 1
+    spatialBlend_2D_3D: 0
+    rolloffMode: 0
+    minDistance: 0
+    maxDistance: 0
+    loop: 0
+    source: {fileID: 0}
+  - name: Attack2
+    clip: {fileID: 8300000, guid: 98e717f8e0e85714f9598f23b8ad8293, type: 3}
+    volume: 0.4
+    pitch: 1
+    spatialBlend_2D_3D: 0
+    rolloffMode: 0
+    minDistance: 0
+    maxDistance: 0
+    loop: 0
+    source: {fileID: 0}
+  - name: Attack3
+    clip: {fileID: 8300000, guid: e06962ad3a95f6049a44949d3b366f5c, type: 3}
+    volume: 0.4
+    pitch: 1
+    spatialBlend_2D_3D: 0
+    rolloffMode: 0
+    minDistance: 0
+    maxDistance: 0
+    loop: 0
+    source: {fileID: 0}
+  - name: Attack4
+    clip: {fileID: 8300000, guid: 5e3ea8c4e67950a4e81d054d9fcd6c70, type: 3}
+    volume: 0.4
     pitch: 1
     spatialBlend_2D_3D: 0
     rolloffMode: 0
@@ -314,9 +344,19 @@ MonoBehaviour:
     maxDistance: 25
     loop: 1
     source: {fileID: 0}
-  - name: Enemy134Step
-    clip: {fileID: 8300000, guid: 92833fec3ac0f064cb94678f911d7d13, type: 3}
-    volume: 0.8
+  - name: Enemy134Step1
+    clip: {fileID: 8300000, guid: cfebe9b1a9d84bf4e8dd7a52637a0ddb, type: 3}
+    volume: 0.25
+    pitch: 1
+    spatialBlend_2D_3D: 1
+    rolloffMode: 1
+    minDistance: 0.1
+    maxDistance: 35
+    loop: 0
+    source: {fileID: 0}
+  - name: Enemy134Step2
+    clip: {fileID: 8300000, guid: ee3a258217c0edb41b946a00c52f8837, type: 3}
+    volume: 0.25
     pitch: 1
     spatialBlend_2D_3D: 1
     rolloffMode: 1

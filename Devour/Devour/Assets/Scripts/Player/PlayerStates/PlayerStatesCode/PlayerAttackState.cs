@@ -6,12 +6,15 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "Player/PlayerAttackState")]
 public class PlayerAttackState : PlayerBaseState {
 
-    public override void Enter() {//denna animation som ska vara här måste nog ha exit-time (jag kollade på hollowknight)
+    [SerializeField] private string[] attackSounds;
+    private int attackSoundAlternate;
+
+    public override void Enter() {
         //owner.PlayerLog("AttackState");
         owner.PlayerState = PlayerState.ATTACK;
         owner.UntilNextMeleeAttack = owner.MeleeCooldown;
-        AudioPlaySoundEvent attackAudio = new AudioPlaySoundEvent {
-            name = "Attack",
+        AudioPlayRandomSoundEvent attackAudio = new AudioPlayRandomSoundEvent {
+            name = attackSounds,
             soundType = SoundType.SFX,
             isRandomPitch = true,
             minPitch = 0.93f,
@@ -44,17 +47,6 @@ public class PlayerAttackState : PlayerBaseState {
     public override void Exit() {
         owner.IsAttackingUp = false;
         owner.Animator.SetBool("IsAttackingUp", false);
-        //AudioStopSoundEvent stopSwoosh = new AudioStopSoundEvent {
-        //    name = "Attack",
-        //};
-        //stopSwoosh.FireEvent();
-        //AudioFadeSoundEvent fadeSwoosh = new AudioFadeSoundEvent {
-        //    name = "Attack",
-        //    isFadeOut = true,
-        //    fadeDuration = 0.08f,
-        //    soundVolumePercentage = 0
-        //};
-        //fadeSwoosh.FireEvent();
         base.Exit();
     }
 

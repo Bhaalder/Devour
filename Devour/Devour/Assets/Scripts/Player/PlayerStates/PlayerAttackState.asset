@@ -12,3 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bfce615cc70e7e7459765ac429154334, type: 3}
   m_Name: PlayerAttackState
   m_EditorClassIdentifier: 
+  attackSounds:
+  - Attack
+  - Attack2
+  - Attack3
+  - Attack4

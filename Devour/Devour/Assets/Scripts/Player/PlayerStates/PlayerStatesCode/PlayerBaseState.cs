@@ -133,6 +133,7 @@ public class PlayerBaseState : State {
                     voidEvent.FireEvent();
                     healEvent.FireEvent();
                     GameObject mendParticle = Instantiate(owner.VoidMendParticleEffect, owner.transform);
+                    //spela annat ljud
                 }
             }
             return;
@@ -256,7 +257,7 @@ public class PlayerBaseState : State {
             owner.DashesLeft = owner.NumberOfDashes;
         }
         if (owner.HasAbility(PlayerAbility.DASH)) {
-            if(Input.GetAxis("Dash") > 0 && owner.DashesLeft > 0 && owner.UntilNextDash <= 0) {
+            if(Input.GetAxis("Dash") > 0.15f && owner.DashesLeft > 0 && owner.UntilNextDash <= 0) {
                 owner.DashesLeft--;
                 owner.Transition<PlayerDashState>();
             }

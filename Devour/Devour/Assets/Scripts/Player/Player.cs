@@ -377,7 +377,11 @@ public class Player : StateMachine {
         if(PlayerVoid >= MaxPlayerVoid && voidEvent.amount > 0) {
             voidEvent.amount = 0;
             PlayerVoid = MaxPlayerVoid;
+            //enable partikel-effekt om den är disabled
+            //om ljud inte har spelat, spela ljud
         }
+        //disabla partikel-effekt om den är enabled
+        //ljud-boolen i player blir false
         PlayerVoid += voidEvent.amount;
     }
 
