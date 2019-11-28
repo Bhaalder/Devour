@@ -281,5 +281,11 @@ public class BnathClimbDash : BnathBaseState
 
 
     }
+    public override void Exit()
+    {
+        owner.rb.velocity = new Vector2(0, 0);
+        base.Exit();
+
+    }
 
 }
