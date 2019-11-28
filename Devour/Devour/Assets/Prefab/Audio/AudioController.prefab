@@ -66,7 +66,7 @@ MonoBehaviour:
     musicName: Mystic
     ambienceName: CaveAmbience
   - sceneName: Scene04
-    musicName: Mystic
+    musicName: 
     ambienceName: CaveAmbience
   - sceneName: Scene05
     musicName: Mystic
@@ -418,7 +418,7 @@ MonoBehaviour:
   musicSounds:
   - name: CalmOceanLoop
     clip: {fileID: 8300000, guid: 69de1ec3537916a448881c4d17fe32ae, type: 3}
-    volume: 0.7
+    volume: 0.6
     pitch: 1
     spatialBlend_2D_3D: 0
     rolloffMode: 0
