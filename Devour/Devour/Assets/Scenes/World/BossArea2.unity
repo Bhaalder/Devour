@@ -319,7 +319,7 @@ SortingGroup:
   m_Enabled: 1
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: -2
+  m_SortingOrder: -3
 --- !u!1 &72912295
 GameObject:
   m_ObjectHideFlags: 0
@@ -2386,7 +2386,7 @@ SortingGroup:
   m_Enabled: 1
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -3
 --- !u!1 &506584475 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1887486913666416, guid: 0bab77a7b0d038d448026773daddb682,
@@ -6277,7 +6277,7 @@ SortingGroup:
   m_Enabled: 1
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -3
 --- !u!1 &1329813830 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1935021991265206, guid: 9e29a37f58107da4196e3f69b3334a8d,
@@ -7408,7 +7408,7 @@ SortingGroup:
   m_Enabled: 1
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -3
 --- !u!4 &1579228098 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 949550574438261648, guid: 5f1d03f1b80b0144b9886d4a033cc024,
@@ -120889,7 +120889,7 @@ SortingGroup:
   m_Enabled: 1
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -3
 --- !u!1001 &1767356980
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -121318,7 +121318,7 @@ SortingGroup:
   m_Enabled: 1
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -3
 --- !u!1 &1831935993
 GameObject:
   m_ObjectHideFlags: 0
@@ -123253,7 +123253,7 @@ SortingGroup:
   m_Enabled: 1
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -3
 --- !u!1 &2142794867 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1887486913666416, guid: 0bab77a7b0d038d448026773daddb682,
