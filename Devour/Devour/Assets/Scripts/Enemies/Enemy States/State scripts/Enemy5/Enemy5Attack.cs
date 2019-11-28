@@ -37,44 +37,52 @@ public class Enemy5Attack : EnemyMovement
 
         currentTelegraphCooldown = telegraphTime;
         countUp = 0;
+        CheckGround();
     }
 
     public override void HandleUpdate()
     {
-
-        if (!initializeState)
+        if (owner.GetComponent<Enemy5>().TooCloseToJump)
         {
-            RaycastHit2D obstructed = Physics2D.Raycast(owner.Player.transform.position, Vector2.down, layerMask);
-            startPoint = owner.rb.position;
-            endPoint = new Vector2(owner.Player.transform.position.x, obstructed.point.y + targetYOffset);
-            middlePoint = startPoint + (endPoint - startPoint) / 2 + Vector2.up * middlePointCurve;
-            RaycastHit2D obstructedMiddleY = Physics2D.CircleCast(owner.rb.position + new Vector2(0, 3), 2f, 
-                (middlePoint - owner.rb.position) / (middlePoint - owner.rb.position).magnitude, (middlePoint - owner.rb.position).magnitude, layerMask);
-
-            if (obstructedMiddleY.collider)
-            {
-                if (obstructedMiddleY.collider.gameObject.layer == 8)
-                {
-                    if(Vector2.Distance(owner.rb.position, middlePoint) > Vector2.Distance(owner.rb.position, obstructedMiddleY.point))
-                    {
-                        middlePoint = new Vector2(middlePoint.x, obstructedMiddleY.point.y + (owner.rb.position.y - obstructedMiddleY.point.y) / 6f);
-                    }
-                }
-            }
-            initializeState = true;
-        }
-
-        base.HandleUpdate();
-
-        if (!startAttack)
-        {
-            TurnedRight();
-            BodySlamTelegraph();
+            owner.Transition<Enemy5Movement>();
         }
         else
         {
-            BodySlam();
+            if (!initializeState)
+            {
+                RaycastHit2D obstructed = Physics2D.Raycast(owner.Player.transform.position, Vector2.down, layerMask);
+                startPoint = owner.rb.position;
+                endPoint = new Vector2(owner.Player.transform.position.x, obstructed.point.y + targetYOffset);
+                middlePoint = startPoint + (endPoint - startPoint) / 2 + Vector2.up * middlePointCurve;
+                RaycastHit2D obstructedMiddleY = Physics2D.CircleCast(owner.rb.position + new Vector2(0, 3), 2f,
+                    (middlePoint - owner.rb.position) / (middlePoint - owner.rb.position).magnitude, (middlePoint - owner.rb.position).magnitude, layerMask);
+
+                if (obstructedMiddleY.collider)
+                {
+                    if (obstructedMiddleY.collider.gameObject.layer == 8)
+                    {
+                        if (Vector2.Distance(owner.rb.position, middlePoint) > Vector2.Distance(owner.rb.position, obstructedMiddleY.point))
+                        {
+                            middlePoint = new Vector2(middlePoint.x, obstructedMiddleY.point.y + (owner.rb.position.y - obstructedMiddleY.point.y) / 6f);
+                        }
+                    }
+                }
+                initializeState = true;
+            }
+
+            base.HandleUpdate();
+
+            if (!startAttack)
+            {
+                TurnedRight();
+                BodySlamTelegraph();
+            }
+            else
+            {
+                BodySlam();
+            }
         }
+
     }
     public override void HandleFixedUpdate()
     {
@@ -83,7 +91,7 @@ public class Enemy5Attack : EnemyMovement
     public override void Exit()
     {
         countUp = 0;
-        owner.rb.velocity = new Vector2(0, 0);
+        owner.rb.velocity = new Vector2(0, owner.rb.velocity.y);
     }
 
     private void BodySlam()
@@ -98,12 +106,6 @@ public class Enemy5Attack : EnemyMovement
         }
         else
         {
-            //CameraShakeEvent shakeEvent = new CameraShakeEvent
-            //{
-            //    startDuration = 0.4f,
-            //    startValue = 0.35f
-            //};
-            //shakeEvent.FireEvent();
             TurnedRight();
             owner.Transition<Enemy5Idle>();
         }
@@ -127,6 +129,15 @@ public class Enemy5Attack : EnemyMovement
 
         startAttack = true;
         currentTelegraphCooldown = telegraphTime;
+    }
+
+    private void CheckGround()
+    {
+        RaycastHit2D obstructed = Physics2D.Raycast(owner.rb.position, new Vector2(owner.transform.localScale.x, 0), 5f, layerMask);
+        if (obstructed.collider == true)
+        {
+            owner.GetComponent<Enemy5>().TooCloseToJump = true;
+        }
     }
 
 }

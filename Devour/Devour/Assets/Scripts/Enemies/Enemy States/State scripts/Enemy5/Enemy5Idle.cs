@@ -8,10 +8,13 @@ public class Enemy5Idle : EnemyMovement
 
     [SerializeField] private float pauseBetweenAttacks = 2f;
     [SerializeField] private float jumpCollisionStunnedTime = 2f;
+    [SerializeField] private float groundedRayOffset = 1.5f;
 
     private float currentJumpCooldown;
 
     private bool isPaused;
+
+    
 
     public override void Enter()
     {
@@ -28,7 +31,7 @@ public class Enemy5Idle : EnemyMovement
         {
             PauseBetweenAttacks();
         }
-        if (owner.GetComponent<Enemy5>().jumpCollision)
+        if (owner.GetComponent<Enemy5>().JumpCollision)
         {
             JumpStunnedTime();
         }
@@ -68,12 +71,21 @@ public class Enemy5Idle : EnemyMovement
         }
 
         currentJumpCooldown = jumpCollisionStunnedTime;
-        owner.GetComponent<Enemy5>().jumpCollision = false;
+        owner.GetComponent<Enemy5>().JumpCollision = false;
     }
 
     private bool IsGrounded()
     {
-        bool lineHit = Physics2D.Raycast(owner.transform.position, Vector2.down, 1f, layerMask);
-        return lineHit;
+        bool lineHitRight = Physics2D.Raycast(owner.transform.position + (Vector3.right * groundedRayOffset), Vector2.down, 1f, layerMask);
+        bool lineHitLeft = Physics2D.Raycast(owner.transform.position + (Vector3.left * groundedRayOffset), Vector2.down, 1f, layerMask);
+        if(lineHitRight || lineHitLeft)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+        
     }
 }

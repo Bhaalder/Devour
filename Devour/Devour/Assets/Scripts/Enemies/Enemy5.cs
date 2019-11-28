@@ -11,13 +11,15 @@ public class Enemy5 : Enemy
 {
     public Enemy5State State { get; set; }
     public Animator Animator { get; set; }
-    public bool jumpCollision { get; set; }
+    public bool JumpCollision { get; set; }
+    public bool TooCloseToJump { get; set; }
 
     protected override void Awake()
     {
         base.Awake();
         Animator = GetComponent<Animator>();
-        jumpCollision = false;
+        JumpCollision = false;
+        TooCloseToJump = false;
     }
 
     protected override void Update()

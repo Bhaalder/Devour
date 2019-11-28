@@ -15,6 +15,7 @@ public class Enemy5Hurt : EnemyMovement
         if (owner.Stunned)
         {
             StunnedCooldown();
+            //owner.Stunned = false;
         }
         else
         {

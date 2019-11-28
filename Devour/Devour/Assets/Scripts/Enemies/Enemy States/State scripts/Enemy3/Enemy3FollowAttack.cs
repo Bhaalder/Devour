@@ -82,10 +82,8 @@ public class Enemy3FollowAttack : Enemy3Movement
         {
             return;
         }
-        Debug.Log("current cooldown: " + currentStuckCooldown);
 
         Vector2 currentPosition = new Vector2(Mathf.Round(owner.rb.position.x), Mathf.Round(owner.rb.position.y));
-        Debug.Log("StuckPosition: " + stuckCheckPosition + "currentposition: " + currentPosition);
         if (currentPosition == stuckCheckPosition)
         {
             owner.GetComponent<Enemy3>().IWasStuck = true;
