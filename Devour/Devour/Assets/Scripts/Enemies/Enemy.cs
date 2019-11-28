@@ -74,7 +74,7 @@ public class Enemy : StateMachine
     public virtual void TakeDamage(PlayerAttackEvent attackEvent){
         if (invulnerabilityTimer <= 0) {
             try {
-                if (attackEvent.attackCollider.bounds.Intersects(boxCollider2D.bounds)) {
+                if (attackEvent.attackCollider.bounds.Intersects(boxCollider2D.bounds) && boxCollider2D.enabled == true) {
                     Vector2 knockBack;
                     ChangeEnemyHealth(-attackEvent.damage);
                     HurtSoundAndParticles();

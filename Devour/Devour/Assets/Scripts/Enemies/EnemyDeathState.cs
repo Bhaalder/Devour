@@ -15,6 +15,16 @@ public class EnemyDeathState : EnemyBaseState
 
     public override void Enter()
     {
+        if (owner.GetComponent<BoxCollider2D>() != null)
+        {
+            owner.GetComponent<BoxCollider2D>().enabled = false;
+        }
+
+        if (owner.GetComponent<CircleCollider2D>() != null)
+        {
+            owner.GetComponent<CircleCollider2D>().enabled = false;
+        }
+
         base.Enter();
 
         owner.rb.gravityScale = 0;
@@ -41,15 +51,7 @@ public class EnemyDeathState : EnemyBaseState
             Debug.Log("This enemy does not have a deathsound declared");
         }
 
-        if(owner.GetComponent<BoxCollider2D>() != null)
-        {
-            owner.GetComponent<BoxCollider2D>().enabled = false;
-        }
 
-        if(owner.GetComponent<CircleCollider2D>() != null)
-        {
-            owner.GetComponent<CircleCollider2D>().enabled = false;
-        }
         
     }
 
