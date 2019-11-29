@@ -17,12 +17,12 @@ public class PlayerWalkState : PlayerBaseState {
     }
 
     public override void HandleUpdate() {
-        if(owner.XInput == 0 && owner.IsGrounded) {
+        base.HandleUpdate();
+        if (owner.XInput == 0 && owner.IsGrounded) {
             owner.Transition<PlayerIdleState>();
         }
         if (!owner.IsGrounded) {
             owner.Transition<PlayerJumpState>();
         }
-        base.HandleUpdate();
     }
 }

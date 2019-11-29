@@ -74,6 +74,7 @@ public class Player : StateMachine {
     public bool IsWallSliding { get; set; }
     
     public Transform GroundCheck { get => groundCheck; set => groundCheck = value; }
+    public Transform JustInTimeJumpCheck { get => justInTimeJumpCheck; set => justInTimeJumpCheck = value; }
     public Transform[] GroundChecks { get; set; }
     public Transform WallCheck { get; set; }
     public Transform Aim { get; set; }
@@ -166,6 +167,7 @@ public class Player : StateMachine {
     [SerializeField] private Transform downAttack;
     [SerializeField] private Transform aim;
     [SerializeField] private Transform groundCheck;
+    [SerializeField] private Transform justInTimeJumpCheck;
     [SerializeField] private Transform[] groundChecks;
     [SerializeField] private Transform wallCheck;
     [SerializeField] private RectTransform playerCanvas;
@@ -265,10 +267,10 @@ public class Player : StateMachine {
     }
 
     protected override void Update() {
+        base.Update();
         TEST();//TEST
         InvulnerableTimeCheck();
         Animator.SetInteger("State", (int)PlayerState);
-        base.Update();
     }
 
     private void TEST() {

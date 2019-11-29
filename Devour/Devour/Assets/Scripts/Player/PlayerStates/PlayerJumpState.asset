@@ -12,3 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 661f32895e5feaa428275c96faef0bc4, type: 3}
   m_Name: PlayerJumpState
   m_EditorClassIdentifier: 
+  justInTimeJump: 0.15

@@ -6,6 +6,8 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "Player/PlayerJumpState")]
 public class PlayerJumpState : PlayerBaseState {
 
+    [SerializeField] private float justInTimeJump;
+    private float justInTimeJumpLeft;
     private float timeBeforeEnter = 0.00001f;
     private float timeLeft;
 
@@ -22,6 +24,16 @@ public class PlayerJumpState : PlayerBaseState {
     }
 
     public override void HandleUpdate() {
+        if (justInTimeJumpLeft > 0) {
+            justInTimeJumpLeft -= Time.deltaTime;
+        }
+        if (!hasPressedJump && !owner.IsGrounded && Input.GetButtonDown("Jump") && justInTimeJumpLeft > 0) {
+            Jump(0);
+            return;
+        }
+        if (Input.GetButton("Jump")) {
+            hasPressedJump = true;
+        }
         if (timeLeft <= 0) {
             owner.Transition<PlayerAirState>();
         }

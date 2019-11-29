@@ -26,6 +26,7 @@ public class PlayerIdleState : PlayerBaseState {
     }
 
     public override void HandleUpdate() {
+        base.HandleUpdate();
         CameraTilt();
         if (owner.XInput != 0 && owner.IsGrounded) {
             ResetCameraTilt();
@@ -35,7 +36,6 @@ public class PlayerIdleState : PlayerBaseState {
             ResetCameraTilt();
             owner.Transition<PlayerJumpState>();
         }
-        base.HandleUpdate();
     }
 
     private void CameraTilt() {

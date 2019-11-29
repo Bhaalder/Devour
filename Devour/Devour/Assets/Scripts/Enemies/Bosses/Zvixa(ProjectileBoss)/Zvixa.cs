@@ -69,11 +69,11 @@ public class Zvixa : Boss{
         if (collision.gameObject.tag == "Player") {
             if (!IsDead) {
                 Debug.Log("Collided with Player");
-                PlayerTakeDamageEvent ptde = new PlayerTakeDamageEvent {
+                PlayerTakeDamageEvent playerTakeDamage = new PlayerTakeDamageEvent {
                     damage = damageToPlayerOnContact,
                     enemyPosition = rb.position
                 };
-                ptde.FireEvent();
+                playerTakeDamage.FireEvent();
             }
         }
         rb.velocity = new Vector2(0, 0);
@@ -81,6 +81,7 @@ public class Zvixa : Boss{
 
     public virtual void SelfDamage(ZvixaSelfDamageEvent selfDamageEvent) {
         ChangeEnemyHealth(-selfDamageEvent.damage);
+        HurtSoundAndParticles();
     }
 
     private void Reset(PlayerDiedEvent playerDied) {

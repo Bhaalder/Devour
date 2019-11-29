@@ -804,13 +804,14 @@ MonoBehaviour:
   numberOfDashes: 1
   dashCooldown: 1
   fallSpeed: -35
-  groundCheckDistance: 0.05
+  groundCheckDistance: 0.1
   wallCheckDistance: 0.94
   horizontalAttack: {fileID: 4050920186006892272}
   upAttack: {fileID: 4973096120703694857}
   downAttack: {fileID: 8438113401184324993}
   aim: {fileID: 8961216874167640968}
   groundCheck: {fileID: 8082008671364364574}
+  justInTimeJumpCheck: {fileID: 0}
   groundChecks:
   - {fileID: 4229840299294750965}
   - {fileID: 785332298168586911}
