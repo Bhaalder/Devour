@@ -804,7 +804,7 @@ MonoBehaviour:
   numberOfDashes: 1
   dashCooldown: 1
   fallSpeed: -35
-  groundCheckDistance: 0.1
+  groundCheckDistance: 0.05
   wallCheckDistance: 0.94
   horizontalAttack: {fileID: 4050920186006892272}
   upAttack: {fileID: 4973096120703694857}

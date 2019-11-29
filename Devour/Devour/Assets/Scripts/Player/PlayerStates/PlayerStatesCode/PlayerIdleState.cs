@@ -19,6 +19,7 @@ public class PlayerIdleState : PlayerBaseState {
         owner.PlayerState = PlayerState.IDLE;
         owner.Animator.SetBool("IsLanding", false);
         cameraTiltTimeLeft = cameraTiltTime;
+        hasPressedJump = false;
     }
 
     public override void HandleFixedUpdate() {

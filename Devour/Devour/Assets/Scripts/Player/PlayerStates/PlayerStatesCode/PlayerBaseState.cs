@@ -67,7 +67,6 @@ public class PlayerBaseState : State {
         if (Input.GetButton("Jump")) {
             hasPressedJump = true;
         }
-        Debug.Log(hasPressedJump);
         if (owner.IsWallSliding && Input.GetButtonDown("Jump")) {
             Jump(0);
             return;
