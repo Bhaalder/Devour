@@ -24,16 +24,13 @@ public class PlayerJumpState : PlayerBaseState {
     }
 
     public override void HandleUpdate() {
+        if (!hasPressedJump && !owner.IsGrounded && Input.GetButtonDown("Jump") && justInTimeJumpLeft > 0) {
+            Jump(0);
+        }
         if (justInTimeJumpLeft > 0) {
             justInTimeJumpLeft -= Time.deltaTime;
         }
-        if (!hasPressedJump && !owner.IsGrounded && Input.GetButtonDown("Jump") && justInTimeJumpLeft > 0) {
-            Jump(0);
-            return;
-        }
-        if (Input.GetButton("Jump")) {
-            hasPressedJump = true;
-        }
+
         if (timeLeft <= 0) {
             owner.Transition<PlayerAirState>();
         }
