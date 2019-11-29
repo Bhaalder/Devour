@@ -6,15 +6,11 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "Player/PlayerAirState")]
 public class PlayerAirState : PlayerBaseState {
 
-    [SerializeField] private float justInTimeJump;
-    private float justInTimeJumpLeft;
-
     public override void Enter() {
         //owner.PlayerLog("AirState");
         owner.PlayerState = PlayerState.AIR;
         owner.IsAttackingUp = false;
         owner.Animator.SetBool("IsAttackingUp", false);
-        justInTimeJumpLeft = justInTimeJump;
     }
 
     public override void HandleFixedUpdate() {
@@ -22,12 +18,6 @@ public class PlayerAirState : PlayerBaseState {
     }
 
     public override void HandleUpdate() {
-        if (!hasPressedJump && !owner.IsGrounded && Input.GetButtonDown("Jump") && justInTimeJumpLeft > 0) {
-            Jump(0);
-        }
-        if (justInTimeJumpLeft > 0) {
-            justInTimeJumpLeft -= Time.deltaTime;
-        }
         if (owner.IsGrounded) {
             if (Input.GetButton("Horizontal")) {
                 owner.Transition<PlayerWalkState>();

@@ -10,7 +10,7 @@ public class PlayerBaseState : State {
 
     protected Vector2 impulse;
 
-    protected bool hasPressedJump;
+    protected static bool hasPressedJump;
 
     public override void Enter() {
         //owner.PlayerLog("Initialized Playerstates!");
@@ -52,6 +52,7 @@ public class PlayerBaseState : State {
     }
 
     public override void HandleUpdate() {
+        
         JumpCheck();
         CollisionCheck();
         VoidMendCheck();
@@ -66,6 +67,7 @@ public class PlayerBaseState : State {
         if (Input.GetButton("Jump")) {
             hasPressedJump = true;
         }
+        Debug.Log(hasPressedJump);
         if (owner.IsWallSliding && Input.GetButtonDown("Jump")) {
             Jump(0);
             return;
@@ -150,7 +152,7 @@ public class PlayerBaseState : State {
         if (!left && !right) {
             owner.IsGrounded = false;
         }
-        if (owner.IsGrounded) {
+        if (owner.IsGrounded && owner.PlayerState != PlayerState.AIR) {
             hasPressedJump = false;
         }
         owner.IsTouchingWall = Physics2D.Raycast(owner.WallCheck.position, owner.transform.right * owner.FacingDirection, owner.WallCheckDistance, owner.WhatIsGround);
