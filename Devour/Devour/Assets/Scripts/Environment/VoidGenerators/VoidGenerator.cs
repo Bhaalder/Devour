@@ -11,6 +11,7 @@ public class VoidGenerator : MonoBehaviour{
     [SerializeField] private GameObject particles;
     [SerializeField] private GameObject[] voidBeamsToDestroy;
     private BoxCollider2D boxCollider2D;
+    public Animator anim;
 
     private void Start() {
         if (GameController.Instance.DestroyedVoidGenerators.ContainsKey(SceneManager.GetActiveScene().name)) {
@@ -31,7 +32,8 @@ public class VoidGenerator : MonoBehaviour{
     private void TakeDamage(PlayerAttackEvent attackEvent) {
         if (attackEvent.attackCollider.bounds.Intersects(boxCollider2D.bounds)) {
             health -= attackEvent.damage;
-
+            //anim.SetTrigger("Hit");
+            anim.Play("VoidCrystal_Hit");
             if (particles != null) {
                 GameObject instantiatedParticle = Instantiate(particles, null);
                 instantiatedParticle.transform.position = transform.position;
