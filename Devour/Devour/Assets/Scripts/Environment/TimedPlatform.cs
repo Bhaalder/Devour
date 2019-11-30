@@ -13,6 +13,7 @@ public class TimedPlatform : MonoBehaviour{
     [Tooltip("How long until it respawns after being destroyed")]
     [SerializeField] private float timeUntilRespawn;
     public Animator theAnimator;
+    public bool playingAnim;
     private bool startToBreak;
 
     private void Start() {
@@ -30,7 +31,8 @@ public class TimedPlatform : MonoBehaviour{
                 soundType = SoundType.SFX,
                 gameObject = instantiatedParticle
             };
-            theAnimator.Play("timedPlatformAnim");
+            theAnimator.Play("timedPlatformAnimShake");
+            theAnimator.SetBool("PlayNext", true);
             rockBreakingSound.FireEvent();
             startToBreak = true;
             StartCoroutine(Break());
@@ -38,6 +40,7 @@ public class TimedPlatform : MonoBehaviour{
     }
 
     private IEnumerator Break() {
+        
         yield return new WaitForSecondsRealtime(timeUntilDestroyed);
         GameObject instantiatedParticle = Instantiate(brokenParticles, transform.GetChild(0).position, Quaternion.identity);
         string[] breakRockWall = { "BreakRockWall1", "BreakRockWall1" };
@@ -49,6 +52,7 @@ public class TimedPlatform : MonoBehaviour{
             soundType = SoundType.SFX,
             gameObject = instantiatedParticle
         };
+        theAnimator.SetBool("PlayNext", false);
         rockBreakSound.FireEvent();
         transform.GetChild(0).gameObject.SetActive(false);
         StartCoroutine(Respawn());
