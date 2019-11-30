@@ -806,9 +806,9 @@ MonoBehaviour:
   fallSpeed: -35
   groundCheckDistance: 0.05
   wallCheckDistance: 0.94
-  horizontalAttack: {fileID: 4050920186006892272}
-  upAttack: {fileID: 4973096120703694857}
-  downAttack: {fileID: 8438113401184324993}
+  horizontalMeleeCollider: {fileID: 1630147919870765529}
+  upMeleeCollider: {fileID: 3972577205092973943}
+  downMeleeCollider: {fileID: 6234932739249844354}
   aim: {fileID: 8961216874167640968}
   groundCheck: {fileID: 8082008671364364574}
   justInTimeJumpCheck: {fileID: 0}

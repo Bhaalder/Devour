@@ -13,6 +13,7 @@ public class CameraController : MonoBehaviour{
     private Transform playerTransform;
     private Vector3 velocity;
     private float cameraTiltValue;
+    private float cameraZoomValue;
 
     public BoxCollider2D sceneBoxCollider;
     private bool cameraBoundsIsFound;
@@ -30,6 +31,7 @@ public class CameraController : MonoBehaviour{
         }
         CameraBoundsChangeEvent.RegisterListener(SetCameraBounds);
         CameraTiltEvent.RegisterListener(OnTiltCamera);
+        CameraZoomEvent.RegisterListener(OnChangeZoom);
     }
 
     private void Start() {
@@ -46,17 +48,21 @@ public class CameraController : MonoBehaviour{
         cameraTiltValue = cameraTilt.tiltValue;
     }
 
+    private void OnChangeZoom(CameraZoomEvent cameraZoom) {
+        cameraZoomValue = cameraZoom.zoomValue;
+    }
+
     private void FixedUpdate() {
         Vector3 currentPosition = transform.position;
 
         transform.position = Vector3.SmoothDamp(currentPosition, DesiredPosition(), ref velocity, delay);
         if (sceneBoxCollider != null) {
-            transform.position = new Vector3(CameraBoundsX(), CameraBoundsY(), cameraOffset.z);
+            transform.position = new Vector3(CameraBoundsX(), CameraBoundsY(), cameraOffset.z + cameraZoomValue);
         }
     }
 
     private Vector3 DesiredPosition() {
-        return new Vector3(playerTransform.position.x + (cameraOffset.x * player.FacingDirection), playerTransform.position.y + cameraOffset.y + cameraTiltValue, cameraOffset.z);
+        return new Vector3(playerTransform.position.x + (cameraOffset.x * player.FacingDirection), playerTransform.position.y + cameraOffset.y + cameraTiltValue, cameraOffset.z + cameraZoomValue);
     }
 
     #region CameraBounds
@@ -77,5 +83,6 @@ public class CameraController : MonoBehaviour{
     private void OnDestroy() {
         CameraBoundsChangeEvent.UnRegisterListener(SetCameraBounds);
         CameraTiltEvent.UnRegisterListener(OnTiltCamera);
+        CameraZoomEvent.UnRegisterListener(OnChangeZoom);
     }
 }

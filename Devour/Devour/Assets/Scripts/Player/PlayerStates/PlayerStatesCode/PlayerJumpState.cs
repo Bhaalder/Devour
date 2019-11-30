@@ -8,15 +8,12 @@ public class PlayerJumpState : PlayerBaseState {
 
     [SerializeField] private float justInTimeJump;
     private float justInTimeJumpLeft;
-    private float timeBeforeEnter = 0.15f;
-    private float timeLeft;
 
     public override void Enter() {
         //owner.PlayerLog("JumpState");
         owner.PlayerState = PlayerState.JUMP;
         owner.IsAttackingUp = false;
         owner.Animator.SetBool("IsAttackingUp", false);
-        timeLeft = timeBeforeEnter;
         justInTimeJumpLeft = justInTimeJump;
     }
 
@@ -32,10 +29,9 @@ public class PlayerJumpState : PlayerBaseState {
         if (justInTimeJumpLeft > 0) {
             justInTimeJumpLeft -= Time.deltaTime;
         }
-        if (timeLeft <= 0) {
+        if (justInTimeJumpLeft <= 0) {
             owner.Transition<PlayerAirState>();
         }
-        timeLeft -= Time.deltaTime;
         base.HandleUpdate();
     }
 

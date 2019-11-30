@@ -45,8 +45,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
-  cameraOffset: {x: 2, y: 0, z: -20}
+  cameraOffset: {x: 3, y: 0, z: -20}
   delay: 0.15
+  sceneBoxCollider: {fileID: 0}
 --- !u!1 &8442992190477086879
 GameObject:
   m_ObjectHideFlags: 0
@@ -143,7 +144,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 557f361697fbf3e45968831518749772, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shakeValue: 0
-  shakeDuration: 0
   isSmooth: 0
   smoothValue: 3

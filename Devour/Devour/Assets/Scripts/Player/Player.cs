@@ -23,41 +23,41 @@ public class Player : StateMachine {
     public float Health { get; set; }
     public float MaxPlayerVoid { get; set; }
     public float PlayerVoid { get; set; }
-    public float DamageReduction { get; set; }
+    public float DamageReduction { get => damageReduction; set => damageReduction = value; }
     public float MeleeDamage { get; set; }
     public float ProjectileDamage { get; set; }
-    public float KnockbackForce { get; set; }
-    public float BounceForce { get; set; }
-    public float MeleeCooldown { get; set; }
+    public float KnockbackForce { get => knockbackForce; set => knockbackForce = value; }
+    public float BounceForce { get => bounceForce; set => bounceForce = value; }
+    public float MeleeCooldown { get => meleeCooldown; set => meleeCooldown = value; }
     public float UntilNextMeleeAttack { get; set; }
     public float MeleeLifeLeech { get; set; }
     public float MeleeVoidLeech { get; set; }
-    public float ProjectileCooldown { get; set; }
+    public float ProjectileCooldown { get => projectileCooldown; set => projectileCooldown = value; }
     public float UntilNextProjectileAttack { get; set; }
-    public float ProjectileHealthcost { get; set; }
-    public GameObject VoidMendParticleEffect { get; set; }
+    public float ProjectileHealthcost { get => projectileHealthcost; set => projectileHealthcost = value; }
+    public GameObject VoidMendParticleEffect { get => voidMendParticleEffect; set => voidMendParticleEffect = value; }
     public bool IsDead { get; set; }
 
     public BoxCollider2D BoxCollider2D { get; set; }
-    public BoxCollider2D HorizontalMeleeCollider { get; set; }
-    public BoxCollider2D DownMeleeCollider { get; set; }
-    public BoxCollider2D UpMeleeCollider { get; set; }
+    public BoxCollider2D HorizontalMeleeCollider { get => horizontalMeleeCollider; set => horizontalMeleeCollider = value; }
+    public BoxCollider2D DownMeleeCollider { get => downMeleeCollider; set => downMeleeCollider = value; }
+    public BoxCollider2D UpMeleeCollider { get => upMeleeCollider; set => upMeleeCollider = value; }
     public bool IsAttackingDown { get; set; }
     public bool IsAttackingUp { get; set; }
     public bool IsInvulnerable { get; set; }
     public float UntilInvulnerableEnds { get; set; }
 
     public float MovementSpeed { get; set; }
-    public float JumpForce { get; set; }
-    public int ExtraJumps { get; set; }
+    public float JumpForce { get => jumpForce; set => jumpForce = value; }
+    public int ExtraJumps { get => extraJumps; set => extraJumps = value; }
     public int ExtraJumpsLeft { get; set; }
-    public float VariableJumpHeight { get; set; }
-    public float PermanentVariableJumpHeight { get; set; }
-    public int NumberOfDashes { get; set; }
+    public float VariableJumpHeight { get => variableJumpHeight; set => variableJumpHeight = value; }
+    //public float PermanentVariableJumpHeight { get; set; }
+    public int NumberOfDashes { get => numberOfDashes; set => numberOfDashes = value; }
     public int DashesLeft { get; set; }
     public float DashCooldown { get; set; }
     public float UntilNextDash { get; set; }
-    public float FallSpeed { get; set; }
+    public float FallSpeed { get => fallSpeed; set => fallSpeed = value; }
     public bool MovementIsStopped { get; set; }
 
     public float XInput { get; set; }
@@ -65,8 +65,8 @@ public class Player : StateMachine {
 
     public float XScale { get; set; }
 
-    public float GroundCheckDistance { get; set; }
-    public float WallCheckDistance { get; set; }
+    public float GroundCheckDistance { get => groundCheckDistance; set => groundCheckDistance = value; }
+    public float WallCheckDistance { get => wallCheckDistance; set => wallCheckDistance = value; }
     public int FacingDirection { get; set; }
 
     public bool IsGrounded { get; set; }
@@ -74,12 +74,11 @@ public class Player : StateMachine {
     public bool IsWallSliding { get; set; }
     
     public Transform GroundCheck { get => groundCheck; set => groundCheck = value; }
-    public Transform JustInTimeJumpCheck { get => justInTimeJumpCheck; set => justInTimeJumpCheck = value; }
-    public Transform[] GroundChecks { get; set; }
-    public Transform WallCheck { get; set; }
-    public Transform Aim { get; set; }
-    public LayerMask WhatIsGround { get; set; }
-    public RectTransform PlayerCanvas { get; set; }
+    public Transform[] GroundChecks { get => groundChecks; set => groundChecks = value; }
+    public Transform WallCheck { get => wallCheck; set => wallCheck = value; }
+    public Transform Aim { get => aim; set => aim = value; }
+    public LayerMask WhatIsGround { get => whatIsGround; set => whatIsGround = value; }
+    public RectTransform PlayerCanvas { get => playerCanvas; set => playerCanvas = value; }
     public Animator Animator { get; set; }
 
     public float TalentMeleeDamage { get; set; }
@@ -95,6 +94,7 @@ public class Player : StateMachine {
     public List<Collectible> Collectibles { get; set; }
     #endregion
 
+    #region privateSerialized Variables
     [Header("Health & Combat")]
     [Tooltip("Player maxHealth")]
     [SerializeField] private float maxHealth;
@@ -162,16 +162,16 @@ public class Player : StateMachine {
     private float wallCheckDistanceValue;
 
     [Header("Transforms & Layermask")]
-    [SerializeField] private Transform horizontalAttack;
-    [SerializeField] private Transform upAttack;
-    [SerializeField] private Transform downAttack;
+    [SerializeField] private BoxCollider2D horizontalMeleeCollider;
+    [SerializeField] private BoxCollider2D upMeleeCollider;
+    [SerializeField] private BoxCollider2D downMeleeCollider;
     [SerializeField] private Transform aim;
     [SerializeField] private Transform groundCheck;
-    [SerializeField] private Transform justInTimeJumpCheck;
     [SerializeField] private Transform[] groundChecks;
     [SerializeField] private Transform wallCheck;
     [SerializeField] private RectTransform playerCanvas;
     [SerializeField] private LayerMask whatIsGround;
+    #endregion
 
     [Header("Testing")]//TEST
     [Tooltip("For testing if the player has certain abilities")]//
@@ -198,45 +198,45 @@ public class Player : StateMachine {
 
         Rb2D = GetComponent<Rigidbody2D>();
         BoxCollider2D = GetComponent<BoxCollider2D>();
-        HorizontalMeleeCollider = horizontalAttack.GetComponent<BoxCollider2D>();
-        UpMeleeCollider = upAttack.GetComponent<BoxCollider2D>();
-        DownMeleeCollider = downAttack.GetComponent<BoxCollider2D>();
+        //HorizontalMeleeCollider = horizontalMeleeCollider;
+        //UpMeleeCollider = upMeleeCollider;
+        //DownMeleeCollider = downMeleeCollider;
 
         MaxHealth = maxHealth;
         Health = maxHealth;
         MaxPlayerVoid = maxPlayerVoid;
         PlayerVoid = playerVoid;
-        DamageReduction = damageReduction;
+        //DamageReduction = damageReduction;
         MeleeDamage = meleeDamage;
-        MeleeCooldown = meleeCooldown;
+        //MeleeCooldown = meleeCooldown;
         MeleeLifeLeech = meleeLifeLeech;
-        MeleeVoidLeech = meleeVoidLeech;
+        //MeleeVoidLeech = meleeVoidLeech;
         ProjectileDamage = projectileDamage;
-        ProjectileCooldown = projectileCooldown;
-        ProjectileHealthcost = projectileHealthcost;
-        KnockbackForce = knockbackForce;
-        BounceForce = bounceForce;
-        VoidMendParticleEffect = voidMendParticleEffect;
+        //ProjectileCooldown = projectileCooldown;
+        //ProjectileHealthcost = projectileHealthcost;
+        //KnockbackForce = knockbackForce;
+        //BounceForce = bounceForce;
+        //VoidMendParticleEffect = voidMendParticleEffect;
 
         MovementSpeed = movementSpeed;
-        JumpForce = jumpForce;
-        ExtraJumps = extraJumps;
+        //JumpForce = jumpForce;
+        //ExtraJumps = extraJumps;
         ExtraJumpsLeft = extraJumps;
-        VariableJumpHeight = variableJumpHeight;
-        PermanentVariableJumpHeight = variableJumpHeight;
+        //VariableJumpHeight = variableJumpHeight;
+        //PermanentVariableJumpHeight = variableJumpHeight;
         DashCooldown = dashCooldown;
-        NumberOfDashes = numberOfDashes;
-        FallSpeed = fallSpeed;
+        //NumberOfDashes = numberOfDashes;
+        //FallSpeed = fallSpeed;
         XScale = transform.localScale.x;
-        GroundCheckDistance = groundCheckDistance;
-        WallCheckDistance = wallCheckDistance;
-        wallCheckDistanceValue = wallCheckDistance;
+        //GroundCheckDistance = groundCheckDistance;
+        //WallCheckDistance = wallCheckDistance;
+        //wallCheckDistanceValue = wallCheckDistance;
         
-        GroundChecks = groundChecks;
-        WallCheck = wallCheck;
-        Aim = aim;
-        PlayerCanvas = playerCanvas;
-        WhatIsGround = whatIsGround;
+        //GroundChecks = groundChecks;
+        //WallCheck = wallCheck;
+        //Aim = aim;
+        //PlayerCanvas = playerCanvas;
+        //WhatIsGround = whatIsGround;
 
         Collectibles = new List<Collectible>();
         TalentPoints = new List<TalentPoint>();

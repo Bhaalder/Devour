@@ -21,3 +21,9 @@ public class CameraTiltEvent : Event<CameraTiltEvent> {
     public float tiltValue;
 
 }
+
+public class CameraZoomEvent : Event<CameraZoomEvent> {
+
+    public float zoomValue;
+
+}

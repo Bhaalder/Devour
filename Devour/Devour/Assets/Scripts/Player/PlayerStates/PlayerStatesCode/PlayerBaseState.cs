@@ -51,8 +51,7 @@ public class PlayerBaseState : State {
         owner.Rb2D.velocity = new Vector2(owner.XInput * owner.MovementSpeed, owner.Rb2D.velocity.y);
     }
 
-    public override void HandleUpdate() {
-        
+    public override void HandleUpdate() {  
         JumpCheck();
         CollisionCheck();
         VoidMendCheck();
@@ -134,7 +133,6 @@ public class PlayerBaseState : State {
                     voidEvent.FireEvent();
                     healEvent.FireEvent();
                     GameObject mendParticle = Instantiate(owner.VoidMendParticleEffect, owner.transform);
-                    //spela annat ljud
                 }
             }
             return;
