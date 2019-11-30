@@ -12,6 +12,7 @@ public class TimedPlatform : MonoBehaviour{
     [SerializeField] private float timeUntilDestroyed;
     [Tooltip("How long until it respawns after being destroyed")]
     [SerializeField] private float timeUntilRespawn;
+    public Animator theAnimator;
     private bool startToBreak;
 
     private void Start() {
@@ -29,7 +30,7 @@ public class TimedPlatform : MonoBehaviour{
                 soundType = SoundType.SFX,
                 gameObject = instantiatedParticle
             };
-            //Animation
+            theAnimator.Play("timedPlatformAnim");
             rockBreakingSound.FireEvent();
             startToBreak = true;
             StartCoroutine(Break());
