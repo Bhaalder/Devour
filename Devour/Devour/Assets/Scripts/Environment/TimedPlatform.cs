@@ -26,7 +26,7 @@ public class TimedPlatform : MonoBehaviour{
                 name = "HitRockWall",
                 isRandomPitch = true,
                 minPitch = 0.95f,
-                maxPitch = 1,
+                maxPitch = 1f,
                 soundType = SoundType.SFX,
                 gameObject = instantiatedParticle
             };
@@ -47,7 +47,7 @@ public class TimedPlatform : MonoBehaviour{
             name = breakRockWall,
             isRandomPitch = true,
             minPitch = 0.95f,
-            maxPitch = 1,
+            maxPitch = 1f,
             soundType = SoundType.SFX,
             gameObject = instantiatedParticle
         };

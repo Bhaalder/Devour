@@ -20,11 +20,14 @@ public class Nazro : Boss {
     public BoxCollider2D LowCenterArea { get; set; }
     public BoxCollider2D StartFightArea { get; set; }
     public BoxCollider2D VoidObsSpawnArea { get; set; }
+    public BoxCollider2D EndPlatformArea { get => endPlatformArea; set => endPlatformArea = value; }
 
     public GameObject VerticalVoidWall { get; set; }
     public GameObject HorizontalVoidWall { get; set; }
     public GameObject BossDoor { get; set; }
     public GameObject RightWall { get; set; }
+    public GameObject SecondBossDoor { get => secondBossDoor; set => secondBossDoor = value; }
+    
     public Transform[] VoidBombSpawnLocations { get; set; }
     public Transform[] VoidCometSpawnLocations { get; set; }
     public Transform[] MoveLocations { get; set; }
@@ -50,10 +53,12 @@ public class Nazro : Boss {
     [SerializeField] private BoxCollider2D lowCenterArea;
     [SerializeField] private BoxCollider2D startFightArea;
     [SerializeField] private BoxCollider2D voidObsSpawnArea;
+    [SerializeField] private BoxCollider2D endPlatformArea;
     [SerializeField] private GameObject verticalVoidWall;
     [SerializeField] private GameObject horizontalVoidWall;
     [SerializeField] private GameObject bossDoor;
     [SerializeField] private GameObject rightWall;
+    [SerializeField] private GameObject secondBossDoor;
     [SerializeField] private Transform[] voidBombSpawnLocations;
     [SerializeField] private Transform[] voidCombetSpawnLocations;
     [SerializeField] private Transform[] moveLocations;

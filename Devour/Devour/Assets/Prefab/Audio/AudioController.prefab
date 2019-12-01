@@ -377,7 +377,7 @@ MonoBehaviour:
   environmentSounds:
   - name: HitRockWall
     clip: {fileID: 8300000, guid: a613132998910254a93a4edf5f3e2f9e, type: 3}
-    volume: 1
+    volume: 0.8
     pitch: 1
     spatialBlend_2D_3D: 1
     rolloffMode: 1
@@ -387,7 +387,7 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: BreakRockWall1
     clip: {fileID: 8300000, guid: dd7ef59c678569641b1e1ef70347a87c, type: 3}
-    volume: 1
+    volume: 0.8
     pitch: 1
     spatialBlend_2D_3D: 1
     rolloffMode: 1
@@ -397,7 +397,7 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: BreakRockWall2
     clip: {fileID: 8300000, guid: c12ee5e1df138664fb034b1e67cddbce, type: 3}
-    volume: 1
+    volume: 0.8
     pitch: 1
     spatialBlend_2D_3D: 1
     rolloffMode: 1

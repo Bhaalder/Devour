@@ -33,7 +33,9 @@ public class NazroWaitState : NazroBaseState {
     public override void HandleUpdate() {
         windUpLeft -= Time.deltaTime;
         if (windUpLeft <= 0) {
-            SpawnComet();
+            if (!PlayerIsAtEndOfSegment()) {
+                SpawnComet();
+            }
             windUpLeft = Random.Range(voidCometWindUpTimeMin, voidCometWindUpTimeMax + 1);
         }
         if (PlayerIsInsideBossRoom() && owner.Player.PlayerState != PlayerState.HURT) {
@@ -50,7 +52,13 @@ public class NazroWaitState : NazroBaseState {
         nazroVoidComet.Damage = cometDamage;
         nazroVoidComet.Speed = voidCometSpeed;
         nazroVoidComet.WindUp = voidCometMoveWindUpTime;
+    }
 
+    private bool PlayerIsAtEndOfSegment() {
+        if (owner.Player.BoxCollider2D.bounds.Intersects(owner.EndPlatformArea.bounds)) {
+            return true;
+        }
+        return false;
     }
 
 }
