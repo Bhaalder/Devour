@@ -210,7 +210,7 @@ public class Player : StateMachine {
         MeleeDamage = meleeDamage;
         //MeleeCooldown = meleeCooldown;
         MeleeLifeLeech = meleeLifeLeech;
-        //MeleeVoidLeech = meleeVoidLeech;
+        MeleeVoidLeech = meleeVoidLeech;
         ProjectileDamage = projectileDamage;
         //ProjectileCooldown = projectileCooldown;
         //ProjectileHealthcost = projectileHealthcost;

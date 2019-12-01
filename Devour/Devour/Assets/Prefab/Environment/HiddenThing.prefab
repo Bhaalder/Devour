@@ -46,9 +46,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5bfa49e245ad19b4abe6ebe914727b14, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  theSprite:
-  - {fileID: 0}
+  gameObjects: []
   isPermanent: 0
+  soundName: HiddenAreaFound1
+  playSound: 1
+  hiddenAreaID: 0
 --- !u!61 &6101309411039248737
 BoxCollider2D:
   m_ObjectHideFlags: 0

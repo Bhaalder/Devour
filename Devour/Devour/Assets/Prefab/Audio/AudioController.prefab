@@ -415,6 +415,26 @@ MonoBehaviour:
     maxDistance: 50
     loop: 1
     source: {fileID: 0}
+  - name: HiddenAreaFound1
+    clip: {fileID: 8300000, guid: 7ae502e3200decb489cf3c47d1bd919d, type: 3}
+    volume: 0.2
+    pitch: 1
+    spatialBlend_2D_3D: 0
+    rolloffMode: 1
+    minDistance: 0.1
+    maxDistance: 50
+    loop: 0
+    source: {fileID: 0}
+  - name: HiddenAreaFound2
+    clip: {fileID: 8300000, guid: 31f98bf09ec65f340b588dae87d7d200, type: 3}
+    volume: 0.2
+    pitch: 1
+    spatialBlend_2D_3D: 0
+    rolloffMode: 1
+    minDistance: 0.1
+    maxDistance: 50
+    loop: 0
+    source: {fileID: 0}
   musicSounds:
   - name: CalmOceanLoop
     clip: {fileID: 8300000, guid: 69de1ec3537916a448881c4d17fe32ae, type: 3}

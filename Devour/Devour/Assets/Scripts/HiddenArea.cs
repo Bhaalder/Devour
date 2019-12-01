@@ -4,16 +4,15 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 
-public class TempHiddenAreaScript : MonoBehaviour
-{
+public class HiddenArea : MonoBehaviour {
 
-    public GameObject [] theSprite;
-    public bool isPermanent;
+    [SerializeField] private GameObject[] gameObjects;
+    [SerializeField] private string soundName;
+    [SerializeField] private bool playSound;
     [SerializeField] private int hiddenAreaID;
+    private bool isDisabled;
 
-    // Start is called before the first frame update
-    void Start()
-    {
+    private void Start() {
         if (GameController.Instance.HiddenAreasFound.ContainsKey(SceneManager.GetActiveScene().name)) {
             if (GameController.Instance.HiddenAreasFound[SceneManager.GetActiveScene().name].Contains(hiddenAreaID)) {
                 Destroy(gameObject);
@@ -22,25 +21,8 @@ public class TempHiddenAreaScript : MonoBehaviour
         }
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-
-
-        if (collision.CompareTag("Player"))
-        {
-
-            for (int i = 0; i < theSprite.Length; i++)
-            {
-                theSprite[i].SetActive(false);
-            }
-            
-            Debug.Log("Enter");
+    private void OnTriggerEnter2D(Collider2D collision) {
+        if (collision.CompareTag("Player") && !isDisabled) {
             if (GameController.Instance.HiddenAreasFound.ContainsKey(SceneManager.GetActiveScene().name)) {
                 if (GameController.Instance.HiddenAreasFound[SceneManager.GetActiveScene().name].Contains(hiddenAreaID)) {
                     Debug.LogWarning("A hiddenArea with the same ID [" + hiddenAreaID + "] has already been found in this scene [" + SceneManager.GetActiveScene().name + "]");
@@ -52,22 +34,25 @@ public class TempHiddenAreaScript : MonoBehaviour
                 List<int> newHiddenAreaList = new List<int> { hiddenAreaID };
                 GameController.Instance.HiddenAreasFound.Add(SceneManager.GetActiveScene().name, newHiddenAreaList);
             }
-            Destroy(gameObject);
+            AudioPlaySoundEvent playAreaFoundSound = new AudioPlaySoundEvent {
+                name = soundName,
+                soundType = SoundType.DEFAULT,
+                isRandomPitch = false
+            };
+            playAreaFoundSound.FireEvent();
+            SetActiveAreas(false);
         }
-        
-    }
-    private void OnTriggerExit2D(Collider2D collision)
-    {
 
-        if (collision.CompareTag("Player") && !isPermanent)
-        {
-            for (int i = 0; i < theSprite.Length; i++)
-            {
-                theSprite[i].SetActive(true);
-            }
-            Debug.Log("Exit");
-        }
-        
-            
     }
+    private void SetActiveAreas(bool b) {
+        for (int i = 0; i < gameObjects.Length; i++) {
+            gameObjects[i].SetActive(b);
+        }
+        isDisabled = b;
+    }
+    //private void OnTriggerExit2D(Collider2D collision) {
+    //    if (collision.CompareTag("Player") && !isPermanent) {
+    //        SetActiveAreas(true);
+    //    }
+    //}
 }

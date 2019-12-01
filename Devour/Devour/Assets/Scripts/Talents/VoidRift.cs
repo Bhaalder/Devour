@@ -46,13 +46,15 @@ public class VoidRift : MonoBehaviour{
     }
 
     private void HealPlayer() {
-        timeLeft -= Time.unscaledDeltaTime;
-        if(timeLeft <= 0) {
-            timeLeft = timeBetweenHeals;
-            PlayerHealEvent heal = new PlayerHealEvent {
-                amount = regeneration
-            };
-            heal.FireEvent();
+        if (!GameController.Instance.GameIsPaused) {
+            timeLeft -= Time.unscaledDeltaTime;
+            if (timeLeft <= 0) {
+                timeLeft = timeBetweenHeals;
+                PlayerHealEvent heal = new PlayerHealEvent {
+                    amount = regeneration
+                };
+                heal.FireEvent();
+            }
         }
     }
 
