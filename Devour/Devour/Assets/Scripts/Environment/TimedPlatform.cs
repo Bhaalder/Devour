@@ -12,12 +12,11 @@ public class TimedPlatform : MonoBehaviour{
     [SerializeField] private float timeUntilDestroyed;
     [Tooltip("How long until it respawns after being destroyed")]
     [SerializeField] private float timeUntilRespawn;
-    public Animator theAnimator;
-    public bool playingAnim;
+    private Animator animator;
     private bool startToBreak;
 
     private void Start() {
-        
+        animator = GetComponent<Animator>();
     }
 
     private void OnTriggerStay2D(Collider2D collision) {
@@ -31,8 +30,8 @@ public class TimedPlatform : MonoBehaviour{
                 soundType = SoundType.SFX,
                 gameObject = instantiatedParticle
             };
-            theAnimator.Play("timedPlatformAnimShake");
-            theAnimator.SetBool("PlayNext", true);
+            animator.Play("timedPlatformAnimShake");
+            animator.SetBool("PlayNext", true);
             rockBreakingSound.FireEvent();
             startToBreak = true;
             StartCoroutine(Break());
@@ -52,7 +51,7 @@ public class TimedPlatform : MonoBehaviour{
             soundType = SoundType.SFX,
             gameObject = instantiatedParticle
         };
-        theAnimator.SetBool("PlayNext", false);
+        animator.SetBool("PlayNext", false);
         rockBreakSound.FireEvent();
         transform.GetChild(0).gameObject.SetActive(false);
         StartCoroutine(Respawn());
