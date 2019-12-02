@@ -15,7 +15,7 @@ public class HiddenArea : MonoBehaviour {
     private void Start() {
         if (GameController.Instance.HiddenAreasFound.ContainsKey(SceneManager.GetActiveScene().name)) {
             if (GameController.Instance.HiddenAreasFound[SceneManager.GetActiveScene().name].Contains(hiddenAreaID)) {
-                Destroy(gameObject);
+                SetActiveAreas(false);
                 return;
             }
         }
@@ -26,7 +26,7 @@ public class HiddenArea : MonoBehaviour {
             if (GameController.Instance.HiddenAreasFound.ContainsKey(SceneManager.GetActiveScene().name)) {
                 if (GameController.Instance.HiddenAreasFound[SceneManager.GetActiveScene().name].Contains(hiddenAreaID)) {
                     Debug.LogWarning("A hiddenArea with the same ID [" + hiddenAreaID + "] has already been found in this scene [" + SceneManager.GetActiveScene().name + "]");
-                    Destroy(gameObject);
+                    SetActiveAreas(false);
                     return;
                 }
                 GameController.Instance.HiddenAreasFound[SceneManager.GetActiveScene().name].Add(hiddenAreaID);
