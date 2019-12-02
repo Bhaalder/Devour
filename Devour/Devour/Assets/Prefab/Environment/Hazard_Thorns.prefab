@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8626273439061701916}
   - component: {fileID: 2040529186516026236}
   - component: {fileID: 2774572821012038302}
-  - component: {fileID: 2907946542738182319}
+  - component: {fileID: 5636361317186046232}
   m_Layer: 0
   m_Name: Hazard_Thorns
   m_TagString: Untagged
@@ -72,7 +72,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300068, guid: 374e0445c78ff8a498aa23d396168720, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.8962264, g: 0.04650232, b: 0.04650232, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -95,8 +95,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerDamage: 25
---- !u!68 &2907946542738182319
-EdgeCollider2D:
+--- !u!61 &5636361317186046232
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -105,20 +105,19 @@ EdgeCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.09710741, y: -0.43698263}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 8.37, y: 5.24}
+    newSize: {x: 8.37, y: 5.24}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 7.010494, y: 1.5822878}
   m_EdgeRadius: 0
-  m_Points:
-  - {x: -4.0457897, y: -1.5591469}
-  - {x: -3.8376102, y: 1.937912}
-  - {x: -2.2128525, y: 2.7278366}
-  - {x: -1.0149612, y: 2.3819714}
-  - {x: 1.3826637, y: 0.41147804}
-  - {x: 2.2930145, y: 0.55913544}
-  - {x: 2.524475, y: 1.0882168}
-  - {x: 3.981388, y: 1.1972008}
-  - {x: 3.8889427, y: -2.076744}
-  - {x: -0.32538605, y: -1.9210911}
-  - {x: -4.0840435, y: -1.5869884}

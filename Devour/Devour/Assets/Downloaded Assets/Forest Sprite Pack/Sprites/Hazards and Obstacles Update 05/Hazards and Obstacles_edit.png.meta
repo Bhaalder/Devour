@@ -1,0 +1,5647 @@
+fileFormatVersion: 2
+guid: f45cbd103ac9b744c8843e6bd7c3e42b
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 652363923783143269
+    second: Hazards and Obstacles_edit_0
+  - first:
+      213: -2267977882895039817
+    second: Hazards and Obstacles_edit_1
+  - first:
+      213: -771331812815504650
+    second: Thorns_edit
+  - first:
+      213: 468212476650761095
+    second: Hazards and Obstacles_edit_3
+  - first:
+      213: -300308206822676636
+    second: Hazards and Obstacles_edit_4
+  - first:
+      213: -8118561775504469914
+    second: Hazards and Obstacles_edit_5
+  - first:
+      213: 7879966072051974076
+    second: Hazards and Obstacles_edit_6
+  - first:
+      213: 7781773862504143291
+    second: Hazards and Obstacles_edit_7
+  - first:
+      213: 1089313501734347442
+    second: Hazards and Obstacles_edit_8
+  - first:
+      213: -6361937633611117872
+    second: Hazards and Obstacles_edit_9
+  - first:
+      213: -3938976821317345216
+    second: Hazards and Obstacles_edit_10
+  - first:
+      213: -3082534592817789320
+    second: Hazards and Obstacles_edit_11
+  - first:
+      213: 4093807310334918078
+    second: Hazards and Obstacles_edit_12
+  - first:
+      213: 6233526544858570224
+    second: Hazards and Obstacles_edit_13
+  - first:
+      213: -198879559653761795
+    second: Hazards and Obstacles_edit_14
+  - first:
+      213: 8381819887056494881
+    second: Hazards and Obstacles_edit_15
+  - first:
+      213: -6263883850366547939
+    second: Hazards and Obstacles_edit_16
+  - first:
+      213: -4108714866734388061
+    second: Hazards and Obstacles_edit_17
+  - first:
+      213: 7001881879152567871
+    second: Hazards and Obstacles_edit_18
+  - first:
+      213: 730478629268096115
+    second: Hazards and Obstacles_edit_19
+  - first:
+      213: 4476465468794540714
+    second: Hazards and Obstacles_edit_20
+  - first:
+      213: -5348210517834554108
+    second: Hazards and Obstacles_edit_21
+  - first:
+      213: 1064188689524756683
+    second: Hazards and Obstacles_edit_22
+  - first:
+      213: -343306812874390322
+    second: Hazards and Obstacles_edit_23
+  - first:
+      213: -7585894697827122025
+    second: Hazards and Obstacles_edit_24
+  - first:
+      213: -7139303144940765221
+    second: Hazards and Obstacles_edit_25
+  - first:
+      213: 9210701184476757442
+    second: Hazards and Obstacles_edit_26
+  - first:
+      213: 3984965620724442113
+    second: Hazards and Obstacles_edit_27
+  - first:
+      213: -8963721603009119040
+    second: Hazards and Obstacles_edit_28
+  - first:
+      213: -5985010223967930758
+    second: Hazards and Obstacles_edit_29
+  - first:
+      213: -949697557940053374
+    second: Hazards and Obstacles_edit_30
+  - first:
+      213: -4828793310476995797
+    second: Hazards and Obstacles_edit_31
+  - first:
+      213: 14371072625620199
+    second: Hazards and Obstacles_edit_32
+  - first:
+      213: -8752186798278779247
+    second: Hazards and Obstacles_edit_33
+  - first:
+      213: 5809732473491118215
+    second: Hazards and Obstacles_edit_34
+  - first:
+      213: 8301263558715585808
+    second: Hazards and Obstacles_edit_35
+  - first:
+      213: -3358294540332647123
+    second: Hazards and Obstacles_edit_36
+  - first:
+      213: 1483709398010821332
+    second: Hazards and Obstacles_edit_37
+  - first:
+      213: 8267485755743393841
+    second: Hazards and Obstacles_edit_38
+  - first:
+      213: -8072818351222792901
+    second: Hazards and Obstacles_edit_39
+  - first:
+      213: 1078054442154994610
+    second: Hazards and Obstacles_edit_40
+  - first:
+      213: -761275097827265464
+    second: Hazards and Obstacles_edit_41
+  - first:
+      213: 3499645356978547879
+    second: Hazards and Obstacles_edit_42
+  - first:
+      213: -3248310917117480956
+    second: Hazards and Obstacles_edit_43
+  - first:
+      213: -6827724462294874833
+    second: Hazards and Obstacles_edit_44
+  - first:
+      213: 491725401711617158
+    second: Hazards and Obstacles_edit_45
+  - first:
+      213: 8257803325857928819
+    second: Hazards and Obstacles_edit_46
+  - first:
+      213: 3313650853076188840
+    second: Hazards and Obstacles_edit_47
+  - first:
+      213: -3211579693399362697
+    second: Hazards and Obstacles_edit_48
+  - first:
+      213: 1617410583928175078
+    second: Hazards and Obstacles_edit_49
+  - first:
+      213: 4144659539442976526
+    second: Hazards and Obstacles_edit_50
+  - first:
+      213: 3501114594495842990
+    second: Hazards and Obstacles_edit_51
+  - first:
+      213: 1370251432071602467
+    second: Hazards and Obstacles_edit_52
+  - first:
+      213: 7032330719459190641
+    second: Hazards and Obstacles_edit_53
+  - first:
+      213: -8419664420378520786
+    second: Hazards and Obstacles_edit_54
+  - first:
+      213: 8222825668635425700
+    second: Hazards and Obstacles_edit_55
+  - first:
+      213: -7728279967603411669
+    second: Hazards and Obstacles_edit_56
+  - first:
+      213: -5250495045852466925
+    second: Hazards and Obstacles_edit_57
+  - first:
+      213: 55472518756357703
+    second: Hazards and Obstacles_edit_58
+  - first:
+      213: 3617119029924624412
+    second: Hazards and Obstacles_edit_59
+  - first:
+      213: 913908800596739152
+    second: Hazards and Obstacles_edit_60
+  - first:
+      213: 4897453920259482168
+    second: Hazards and Obstacles_edit_61
+  - first:
+      213: -5665505246937613356
+    second: Hazards and Obstacles_edit_62
+  - first:
+      213: -3010086732939172110
+    second: Hazards and Obstacles_edit_63
+  - first:
+      213: 489725352290238358
+    second: Hazards and Obstacles_edit_64
+  - first:
+      213: 108767624707115403
+    second: Hazards and Obstacles_edit_65
+  - first:
+      213: -4834995221600522000
+    second: Hazards and Obstacles_edit_66
+  - first:
+      213: -4541141430692663919
+    second: Hazards and Obstacles_edit_67
+  - first:
+      213: 5567158063504888967
+    second: Hazards and Obstacles_edit_68
+  - first:
+      213: -1758512935024897776
+    second: Hazards and Obstacles_edit_69
+  - first:
+      213: -9089410382594190884
+    second: Hazards and Obstacles_edit_70
+  - first:
+      213: 1615328485513597494
+    second: Hazards and Obstacles_edit_71
+  - first:
+      213: -2547576297803478599
+    second: Hazards and Obstacles_edit_72
+  - first:
+      213: 1851941990910673814
+    second: Hazards and Obstacles_edit_73
+  - first:
+      213: -8197886682964872019
+    second: Hazards and Obstacles_edit_74
+  - first:
+      213: -8031865134821293674
+    second: Hazards and Obstacles_edit_75
+  - first:
+      213: 5944282466746806592
+    second: Hazards and Obstacles_edit_76
+  - first:
+      213: 7865245519305895522
+    second: Hazards and Obstacles_edit_77
+  - first:
+      213: 3386355534190572343
+    second: Hazards and Obstacles_edit_78
+  - first:
+      213: -5535179272791077430
+    second: Hazards and Obstacles_edit_79
+  - first:
+      213: 4547880931513905649
+    second: Hazards and Obstacles_edit_80
+  - first:
+      213: 4288081818176917480
+    second: Hazards and Obstacles_edit_81
+  - first:
+      213: 1637484012449459277
+    second: Hazards and Obstacles_edit_82
+  - first:
+      213: 4655456440206274547
+    second: Hazards and Obstacles_edit_83
+  - first:
+      213: -636353013187798697
+    second: Hazards and Obstacles_edit_84
+  - first:
+      213: 1372743325912733150
+    second: Hazards and Obstacles_edit_85
+  - first:
+      213: 8069706036789310955
+    second: Hazards and Obstacles_edit_86
+  - first:
+      213: 7947253149239863856
+    second: Hazards and Obstacles_edit_87
+  - first:
+      213: 7637023760213690265
+    second: Hazards and Obstacles_edit_88
+  - first:
+      213: 320696228719028874
+    second: Hazards and Obstacles_edit_89
+  - first:
+      213: -5061047661410435430
+    second: Hazards and Obstacles_edit_90
+  - first:
+      213: 8813512702434255524
+    second: Hazards and Obstacles_edit_91
+  - first:
+      213: -3162900375543584546
+    second: Hazards and Obstacles_edit_92
+  - first:
+      213: 509866790112038789
+    second: Hazards and Obstacles_edit_93
+  - first:
+      213: 1615791620080876890
+    second: Hazards and Obstacles_edit_94
+  - first:
+      213: -5703287431315591136
+    second: Hazards and Obstacles_edit_95
+  - first:
+      213: 673376322252438581
+    second: Hazards and Obstacles_edit_96
+  - first:
+      213: -6212120015971790873
+    second: Hazards and Obstacles_edit_97
+  - first:
+      213: 8212514273011795823
+    second: Hazards and Obstacles_edit_98
+  - first:
+      213: 8655559899999264356
+    second: Hazards and Obstacles_edit_99
+  - first:
+      213: -8725340079539998364
+    second: Hazards and Obstacles_edit_100
+  - first:
+      213: 3933494323870015886
+    second: Hazards and Obstacles_edit_101
+  - first:
+      213: -4299231319780915629
+    second: Hazards and Obstacles_edit_102
+  - first:
+      213: 4867744153601120160
+    second: Hazards and Obstacles_edit_103
+  - first:
+      213: -7136166227729549312
+    second: Hazards and Obstacles_edit_104
+  - first:
+      213: -4960966002770360686
+    second: Hazards and Obstacles_edit_105
+  - first:
+      213: -7664843795815427924
+    second: Hazards and Obstacles_edit_106
+  - first:
+      213: 3457357545704573044
+    second: Hazards and Obstacles_edit_107
+  - first:
+      213: -3667879898459702779
+    second: Hazards and Obstacles_edit_108
+  - first:
+      213: -669811413133851348
+    second: Hazards and Obstacles_edit_109
+  - first:
+      213: 7879396719057485701
+    second: Hazards and Obstacles_edit_110
+  - first:
+      213: -8717384876621234533
+    second: Hazards and Obstacles_edit_111
+  - first:
+      213: 2397363655053240150
+    second: Hazards and Obstacles_edit_112
+  - first:
+      213: -8075540170290140354
+    second: Hazards and Obstacles_edit_113
+  - first:
+      213: 717895200277760967
+    second: Hazards and Obstacles_edit_114
+  - first:
+      213: -6505080329384875191
+    second: Hazards and Obstacles_edit_115
+  - first:
+      213: 4190419405171903882
+    second: Hazards and Obstacles_edit_116
+  - first:
+      213: 1968485485519917389
+    second: Hazards and Obstacles_edit_117
+  - first:
+      213: -3403804924582202277
+    second: Hazards and Obstacles_edit_118
+  - first:
+      213: 731577435884005860
+    second: Hazards and Obstacles_edit_119
+  - first:
+      213: -2109781434608236135
+    second: Hazards and Obstacles_edit_120
+  - first:
+      213: -7600679949849865708
+    second: Hazards and Obstacles_edit_121
+  - first:
+      213: 8703594347520346161
+    second: Hazards and Obstacles_edit_122
+  - first:
+      213: -4531076920165347303
+    second: Hazards and Obstacles_edit_123
+  - first:
+      213: 6168359719527822644
+    second: Hazards and Obstacles_edit_124
+  - first:
+      213: -3356471008013293461
+    second: Hazards and Obstacles_edit_125
+  - first:
+      213: 6677553359369827574
+    second: Hazards and Obstacles_edit_126
+  - first:
+      213: -3601876983829225842
+    second: Hazards and Obstacles_edit_127
+  - first:
+      213: -3622713706519570896
+    second: Hazards and Obstacles_edit_128
+  - first:
+      213: -7425540559855414808
+    second: Hazards and Obstacles_edit_129
+  - first:
+      213: -8226759096702965167
+    second: Hazards and Obstacles_edit_130
+  - first:
+      213: 8270110004873645028
+    second: Hazards and Obstacles_edit_131
+  - first:
+      213: -8591621330189921107
+    second: Hazards and Obstacles_edit_132
+  - first:
+      213: 2442959344087545300
+    second: Hazards and Obstacles_edit_133
+  - first:
+      213: -1866843417610586781
+    second: Hazards and Obstacles_edit_134
+  - first:
+      213: -3619193939134489969
+    second: Hazards and Obstacles_edit_135
+  - first:
+      213: 238015740877278958
+    second: Hazards and Obstacles_edit_136
+  - first:
+      213: 3006388589880185701
+    second: Hazards and Obstacles_edit_137
+  - first:
+      213: -5256218770332257670
+    second: Hazards and Obstacles_edit_138
+  - first:
+      213: 6306855743372597146
+    second: Hazards and Obstacles_edit_139
+  - first:
+      213: -8875924206583384383
+    second: Hazards and Obstacles_edit_140
+  - first:
+      213: -6257683164903187245
+    second: Hazards and Obstacles_edit_141
+  - first:
+      213: -3373276735264298160
+    second: Hazards and Obstacles_edit_142
+  - first:
+      213: 8454945320791461151
+    second: Hazards and Obstacles_edit_143
+  - first:
+      213: -7770119644810782959
+    second: Hazards and Obstacles_edit_144
+  - first:
+      213: 294391148681502042
+    second: Hazards and Obstacles_edit_145
+  - first:
+      213: -5737015651550300353
+    second: Hazards and Obstacles_edit_146
+  - first:
+      213: -2105475575200463469
+    second: Hazards and Obstacles_edit_147
+  - first:
+      213: 6494263858698777494
+    second: Hazards and Obstacles_edit_148
+  - first:
+      213: -3770757225245619929
+    second: Hazards and Obstacles_edit_149
+  - first:
+      213: 5685048381261971327
+    second: Hazards and Obstacles_edit_150
+  - first:
+      213: -2082813554098594353
+    second: Hazards and Obstacles_edit_151
+  - first:
+      213: -7168326778892479133
+    second: Hazards and Obstacles_edit_152
+  - first:
+      213: 9170286716068730938
+    second: Hazards and Obstacles_edit_153
+  - first:
+      213: -4791379072989382586
+    second: Hazards and Obstacles_edit_154
+  - first:
+      213: 6396636744622245053
+    second: Hazards and Obstacles_edit_155
+  - first:
+      213: 2439239898984718206
+    second: Hazards and Obstacles_edit_156
+  - first:
+      213: 7464466517982500031
+    second: Hazards and Obstacles_edit_157
+  - first:
+      213: 8157891081127565097
+    second: Hazards and Obstacles_edit_158
+  - first:
+      213: 5619143687990572173
+    second: Hazards and Obstacles_edit_159
+  - first:
+      213: 4564296859512220371
+    second: Hazards and Obstacles_edit_160
+  - first:
+      213: 6346198723743011855
+    second: Hazards and Obstacles_edit_161
+  - first:
+      213: 3180757829651078353
+    second: Hazards and Obstacles_edit_162
+  - first:
+      213: 1487366592214206242
+    second: Hazards and Obstacles_edit_163
+  - first:
+      213: 4598149027909468543
+    second: Hazards and Obstacles_edit_164
+  - first:
+      213: -6242191305404644202
+    second: Hazards and Obstacles_edit_165
+  - first:
+      213: 1822567934047196086
+    second: Hazards and Obstacles_edit_166
+  - first:
+      213: -1201637197445852180
+    second: Hazards and Obstacles_edit_167
+  - first:
+      213: -3928390885260388606
+    second: Hazards and Obstacles_edit_168
+  - first:
+      213: 2867584688627486903
+    second: Hazards and Obstacles_edit_169
+  - first:
+      213: 7584816703619138340
+    second: Hazards and Obstacles_edit_170
+  - first:
+      213: -640033067097431229
+    second: Hazards and Obstacles_edit_171
+  - first:
+      213: 9090521358788350719
+    second: Hazards and Obstacles_edit_172
+  - first:
+      213: -9059528044121604551
+    second: Hazards and Obstacles_edit_173
+  - first:
+      213: -4121507202217969062
+    second: Hazards and Obstacles_edit_174
+  - first:
+      213: 8506030527931256749
+    second: Hazards and Obstacles_edit_175
+  - first:
+      213: 8442340836965472535
+    second: Hazards and Obstacles_edit_176
+  - first:
+      213: -4676864922610990715
+    second: Hazards and Obstacles_edit_177
+  - first:
+      213: 4772117116470480663
+    second: Hazards and Obstacles_edit_178
+  - first:
+      213: 1545264178212039724
+    second: Hazards and Obstacles_edit_179
+  - first:
+      213: 5007518243572711231
+    second: Hazards and Obstacles_edit_180
+  - first:
+      213: 6869966266823491419
+    second: Hazards and Obstacles_edit_181
+  - first:
+      213: 5166626078604539595
+    second: Hazards and Obstacles_edit_182
+  - first:
+      213: -2190664320576405513
+    second: Hazards and Obstacles_edit_183
+  - first:
+      213: 4009207211970223179
+    second: Hazards and Obstacles_edit_184
+  - first:
+      213: -6973973348514068649
+    second: Hazards and Obstacles_edit_185
+  - first:
+      213: -7491597953037736088
+    second: Hazards and Obstacles_edit_186
+  - first:
+      213: 7743307796805398655
+    second: Hazards and Obstacles_edit_187
+  - first:
+      213: 5838462660704484090
+    second: Hazards and Obstacles_edit_188
+  - first:
+      213: 473736222961646902
+    second: Hazards and Obstacles_edit_189
+  - first:
+      213: 7216014453971294656
+    second: Hazards and Obstacles_edit_190
+  - first:
+      213: 7348054246750131437
+    second: Hazards and Obstacles_edit_191
+  - first:
+      213: -4078042915815101652
+    second: Hazards and Obstacles_edit_192
+  - first:
+      213: -6452966520723295792
+    second: Hazards and Obstacles_edit_193
+  - first:
+      213: 6860545540186075453
+    second: Hazards and Obstacles_edit_194
+  - first:
+      213: -203148518472571151
+    second: Hazards and Obstacles_edit_195
+  - first:
+      213: -571194805337517816
+    second: Hazards and Obstacles_edit_196
+  - first:
+      213: 3071791822092975188
+    second: Hazards and Obstacles_edit_197
+  - first:
+      213: 228659685163117605
+    second: Hazards and Obstacles_edit_198
+  - first:
+      213: 5030217090579108059
+    second: Hazards and Obstacles_edit_199
+  - first:
+      213: 8531175447683989086
+    second: Hazards and Obstacles_edit_200
+  - first:
+      213: -6032659628993858198
+    second: Hazards and Obstacles_edit_201
+  - first:
+      213: -728246879563057192
+    second: Hazards and Obstacles_edit_202
+  - first:
+      213: 4440171270611833716
+    second: Hazards and Obstacles_edit_203
+  - first:
+      213: -1531051770184980094
+    second: Hazards and Obstacles_edit_204
+  - first:
+      213: 8145515332538146169
+    second: Hazards and Obstacles_edit_205
+  - first:
+      213: -8317661895930002771
+    second: Hazards and Obstacles_edit_206
+  - first:
+      213: -1360844727396147657
+    second: Hazards and Obstacles_edit_207
+  - first:
+      213: -9095489578083872796
+    second: Hazards and Obstacles_edit_208
+  - first:
+      213: 6229439359956483872
+    second: Hazards and Obstacles_edit_209
+  - first:
+      213: 7367011231660203591
+    second: Hazards and Obstacles_edit_210
+  - first:
+      213: -1235168408772383740
+    second: Hazards and Obstacles_edit_211
+  - first:
+      213: -5777560635225706675
+    second: Hazards and Obstacles_edit_212
+  - first:
+      213: 5914664561057949753
+    second: Hazards and Obstacles_edit_213
+  - first:
+      213: -5921430569628634187
+    second: Hazards and Obstacles_edit_214
+  - first:
+      213: -800491122831751640
+    second: Hazards and Obstacles_edit_215
+  - first:
+      213: 8129153574434245514
+    second: Hazards and Obstacles_edit_216
+  - first:
+      213: -1797504462460133643
+    second: Hazards and Obstacles_edit_217
+  - first:
+      213: -3741193431821054264
+    second: Hazards and Obstacles_edit_218
+  - first:
+      213: -47549175381471385
+    second: Hazards and Obstacles_edit_219
+  - first:
+      213: 2934259599585279344
+    second: Hazards and Obstacles_edit_220
+  - first:
+      213: 8146876580763366757
+    second: Hazards and Obstacles_edit_221
+  - first:
+      213: 7109885667021877471
+    second: Hazards and Obstacles_edit_222
+  - first:
+      213: 2108582751671565598
+    second: Hazards and Obstacles_edit_223
+  - first:
+      213: 5694190691441884314
+    second: Hazards and Obstacles_edit_224
+  - first:
+      213: 602750162688454026
+    second: Hazards and Obstacles_edit_225
+  - first:
+      213: -4367255252301158189
+    second: Hazards and Obstacles_edit_226
+  - first:
+      213: -7370472158306136191
+    second: Hazards and Obstacles_edit_227
+  - first:
+      213: -2773102801931055958
+    second: Hazards and Obstacles_edit_228
+  - first:
+      213: -5898586195212882128
+    second: Hazards and Obstacles_edit_229
+  - first:
+      213: 802517475568004864
+    second: Hazards and Obstacles_edit_230
+  externalObjects: {}
+  serializedVersion: 10
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 769, y: 3580, z: 2511, w: 12}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Hazards and Obstacles_edit_0
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 3895
+        width: 511
+        height: 194
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9761768686c018a4d94cc2a315b2860a
+      internalID: 652363923783143269
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hazards and Obstacles_edit_1
+      rect:
+        serializedVersion: 2
+        x: 563
+        y: 4007
+        width: 161
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9e80e5d1481230645a7eee401c82758e
+      internalID: -2267977882895039817
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Thorns_edit
+      rect:
+        serializedVersion: 2
+        x: 754
+        y: 3569
+        width: 820
+        height: 522
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 352f1f322c17d804a84b99801564cff6
+      internalID: -771331812815504650
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hazards and Obstacles_edit_3
+      rect:
+        serializedVersion: 2
+        x: 1601
+        y: 3547
+        width: 1164
+        height: 543
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a7d9a78140a66464babcc81e152152b8
+      internalID: 468212476650761095
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hazards and Obstacles_edit_4
+      rect:
+        serializedVersion: 2
+        x: 3400
+        y: 3907
+        width: 95
+        height: 120
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7798c5ac07291f7438dca0caf811e203
+      internalID: -300308206822676636
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hazards and Obstacles_edit_5
+      rect:
+        serializedVersion: 2
+        x: 3466
+        y: 3894
+        width: 75
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 96ca51c49762d2e44a3ac07e57fe4000
+      internalID: -8118561775504469914
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hazards and Obstacles_edit_6
+      rect:
+        serializedVersion: 2
+        x: 3535
+        y: 3929
+        width: 215
+        height: 101
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 170b9b678def8d64187b92c6ce770969
+      internalID: 7879966072051974076
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hazards and Obstacles_edit_7
+      rect:
+        serializedVersion: 2
+        x: 554
+        y: 3932
+        width: 179
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1a27fb9763bae604699bd07d280440dd
+      internalID: 7781773862504143291
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hazards and Obstacles_edit_8
+      rect:
+        serializedVersion: 2
+        x: 3233
+        y: 3870
+        width: 51
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e11dc143f3b63c3409f8cf4f1297093a
+      internalID: 1089313501734347442
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hazards and Obstacles_edit_9
+      rect:
+        serializedVersion: 2
+        x: 3314
+        y: 3890
+        width: 103
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 71a51acfa58472541b411571104d9ba8
+      internalID: -6361937633611117872
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hazards and Obstacles_edit_10
+      rect:
+        serializedVersion: 2
+        x: 3829
+        y: 3858
+        width: 188
+        height: 91
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: abfd20ffed8f60841bfb2d0e81d7d26d
+      internalID: -3938976821317345216
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hazards and Obstacles_edit_11
+      rect:
+        serializedVersion: 2
+        x: 560
+        y: 3859
+        width: 149
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2fe280ee789e345498e8d659d01c8d7a
+      internalID: -3082534592817789320
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hazards and Obstacles_edit_12
+      rect:
+        serializedVersion: 2
+        x: 3289
+        y: 3904
+        width: 8
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b6c382453afdb2a4a91f299f2d7264dd
+      internalID: 4093807310334918078
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hazards and Obstacles_edit_13
+      rect:
+        serializedVersion: 2
+        x: 4006
+        y: 3875
+        width: 72
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 70f9de76bf0409e46a137215d7608c1b
+      internalID: 6233526544858570224
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hazards and Obstacles_edit_14
+      rect:
+        serializedVersion: 2
+        x: 230
+        y: 3846
+        width: 124
+        height: 55
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a81d54b0489a1fe44b2f9679920dd3c2
+      internalID: -198879559653761795
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hazards and Obstacles_edit_15
+      rect:
+        serializedVersion: 2
+        x: 251
+        y: 3826
+        width: 262
+        height: 59
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0ef9a26d9de445a4a9949bcd3c2f3100
+      internalID: 8381819887056494881
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hazards and Obstacles_edit_16
+      rect:
+        serializedVersion: 2
+        x: 1589
+        y: 3861
+        width: 4
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c59eea8eaba317c408b42080a83109ed
+      internalID: -6263883850366547939
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hazards and Obstacles_edit_17
+      rect:
+        serializedVersion: 2
+        x: 3295
+        y: 3872
+        width: 111
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e0a688dea0a908340a01d14a8f8aaffe
+      internalID: -4108714866734388061
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hazards and Obstacles_edit_18
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 3806
+        width: 254
+        height: 63
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d23d2877e3ffb8d499825a5efe7121d8
+      internalID: 7001881879152567871
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hazards and Obstacles_edit_19
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 3821
+        width: 17
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6eedcec5c0fd35d42a56d450a4c727d6
+      internalID: 730478629268096115
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hazards and Obstacles_edit_20
+      rect:
+        serializedVersion: 2
+        x: 580
+        y: 3793
+        width: 121
+        height: 56
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e41eea742e6761d4a8274280d5aec727
+      internalID: 4476465468794540714
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hazards and Obstacles_edit_21
+      rect:
+        serializedVersion: 2
+        x: 19
+        y: 3775
+        width: 159
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0042b415818ade6448af77666e10b716
+      internalID: -5348210517834554108
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hazards and Obstacles_edit_22
+      rect:
+        serializedVersion: 2
+        x: 279
+        y: 3790
+        width: 75
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a42953e36087ca94a940a7bbd110b051
+      internalID: 1064188689524756683
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hazards and Obstacles_edit_23
+      rect:
+        serializedVersion: 2
+        x: 358
+        y: 3790
+        width: 4
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a13d2f22a6bd01b48b1fb5aef0aeb267
+      internalID: -343306812874390322
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hazards and Obstacles_edit_24
+      rect:
+        serializedVersion: 2
+        x: 3211
+        y: 3618
+        width: 869
+        height: 198
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9dda2208f4cebbe49a2db18af327c5cd
+      internalID: -7585894697827122025
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hazards and Obstacles_edit_25
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 3735
+        width: 201
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4b4b9b889e5be0c4ca6a387ecf7d85bc
+      internalID: -7139303144940765221
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hazards and Obstacles_edit_26
+      rect:
+        serializedVersion: 2
+        x: 275
+        y: 3771
+        width: 58
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c584b46e85eb61a4c93703907b2fe41d
+      internalID: 9210701184476757442
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hazards and Obstacles_edit_27
+      rect:
+        serializedVersion: 2
+        x: 334
+        y: 3745
+        width: 118
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aa14f3712ea84014bbfa0c5499ca50a7
+      internalID: 3984965620724442113
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hazards and Obstacles_edit_28
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 3745
+        width: 120
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a931cfa8dfccb7b49a491dc3a57e7eb3
+      internalID: -8963721603009119040
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hazards and Obstacles_edit_29
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 3555
+        width: 528
+        height: 170
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d1e9d1c46bf6dea41a5d6d404178a189
+      internalID: -5985010223967930758
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hazards and Obstacles_edit_30
+      rect:
+        serializedVersion: 2
+        x: 3925
+        y: 3466
+        width: 155
+        height: 136
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ac12d714e4ab54546bc906f9b80fa58f
+      internalID: -949697557940053374
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hazards and Obstacles_edit_31
+      rect:
+        serializedVersion: 2
+        x: 62
+        y: 3521
+        width: 28
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c6c0c60bed309cd44b6389499d04317f
+      internalID: -4828793310476995797
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hazards and Obstacles_edit_32
+      rect:
+        serializedVersion: 2
+        x: 75
+        y: 3494
+        width: 142
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 68c78bd947a4bd947b0e1a233d896899
+      internalID: 14371072625620199
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hazards and Obstacles_edit_33
+      rect:
+        serializedVersion: 2
+        x: 228
+        y: 3533
+        width: 39
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 701551f7cfd4b5545af13bda2ecaac7c
+      internalID: -8752186798278779247
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hazards and Obstacles_edit_34
+      rect:
+        serializedVersion: 2
+        x: 282
+        y: 3524
+        width: 43
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d73ca9b320602aa44bb0f72f22363ff3
+      internalID: 5809732473491118215
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hazards and Obstacles_edit_35
+      rect:
+        serializedVersion: 2
+        x: 328
+        y: 3522
+        width: 68
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 70e91441d09f9194c8953c460ad83b0c
+      internalID: 8301263558715585808
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hazards and Obstacles_edit_36
+      rect:
+        serializedVersion: 2
+        x: 913
+        y: 3282
+        width: 742
+        height: 265
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bb3ac7228581cf94cabc853c50c56d82
+      internalID: -3358294540332647123
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hazards and Obstacles_edit_37
+      rect:
+        serializedVersion: 2
+        x: 1661
+        y: 3198
+        width: 417
+        height: 347
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ed454a1ba085b0c459240a2d2c90a615
+      internalID: 1483709398010821332
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hazards and Obstacles_edit_38
+      rect:
+        serializedVersion: 2
+        x: 3341
+        y: 3373
+        width: 201
+        height: 162
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 57eef02127b9e884aaa3a148c436b04b
+      internalID: 8267485755743393841
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hazards and Obstacles_edit_39
+      rect:
+        serializedVersion: 2
+        x: 23
+        y: 3495
+        width: 56
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 510aaee431241764784ea51073a32087
+      internalID: -8072818351222792901
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hazards and Obstacles_edit_40
+      rect:
+        serializedVersion: 2
+        x: 290
+        y: 3481
+        width: 67
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b9106a2552c195640ad9a5f5c3f3fe64
+      internalID: 1078054442154994610
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hazards and Obstacles_edit_41
+      rect:
+        serializedVersion: 2
+        x: 327
+        y: 3506
+        width: 44
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 18ecc58ea65f58f41991043e4d9f326e
+      internalID: -761275097827265464
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hazards and Obstacles_edit_42
+      rect:
+        serializedVersion: 2
+        x: 398
+        y: 3491
+        width: 65
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d6ad488f16962a543a61f249fb400ffc
+      internalID: 3499645356978547879
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hazards and Obstacles_edit_43
+      rect:
+        serializedVersion: 2
+        x: 2598
+        y: 3305
+        width: 159
+        height: 215
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f2e352908e3e7da488fc5f8c23c9796b
+      internalID: -3248310917117480956
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hazards and Obstacles_edit_44
+      rect:
+        serializedVersion: 2
+        x: 3167
+        y: 3427
+        width: 139
+        height: 88
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9cb47ea3e1a384d46bd97ba24a3d0ee1
+      internalID: -6827724462294874833
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hazards and Obstacles_edit_45
+      rect:
+        serializedVersion: 2
+        x: 3684
+        y: 3482
+        width: 61
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5651a3d544a704d4b87f6bfdaa17e581
+      internalID: 491725401711617158
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hazards and Obstacles_edit_46
+      rect:
+        serializedVersion: 2
+        x: 3735
+        y: 3402
+        width: 191
+        height: 125
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f8d0f5814257f8f458aa464a08facaba
+      internalID: 8257803325857928819
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hazards and Obstacles_edit_47
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 3463
+        width: 91
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4600961f7305b6e4e8774f1c9d6eaf9f
+      internalID: 3313650853076188840
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hazards and Obstacles_edit_48
+      rect:
+        serializedVersion: 2
+        x: 79
+        y: 3477
+        width: 60
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 53819ab07433e8145874b32c7a49db95
+      internalID: -3211579693399362697
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hazards and Obstacles_edit_49
+      rect:
+        serializedVersion: 2
+        x: 258
+        y: 3458
+        width: 44
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 27751cbd903833344a36cdb35d057339
+      internalID: 1617410583928175078
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hazards and Obstacles_edit_50
+      rect:
+        serializedVersion: 2
+        x: 346
+        y: 3460
+        width: 13
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 92efb0e0c1ff39d42b4b9907cea6103e
+      internalID: 4144659539442976526
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hazards and Obstacles_edit_51
+      rect:
+        serializedVersion: 2
+        x: 375
+        y: 3418
+        width: 100
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f91206f80cce7084b8e1614d0cbe6f81
+      internalID: 3501114594495842990
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hazards and Obstacles_edit_52
+      rect:
+        serializedVersion: 2
+        x: 2369
+        y: 3115
+        width: 166
+        height: 375
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 34652d8a2f6458843843e27852f3d309
+      internalID: 1370251432071602467
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hazards and Obstacles_edit_53
+      rect:
+        serializedVersion: 2
+        x: 3541
+        y: 3381
+        width: 204
+        height: 108
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a621d5bafd52a9e469d2b21e1897006c
+      internalID: 7032330719459190641
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hazards and Obstacles_edit_54
+      rect:
+        serializedVersion: 2
+        x: 270
+        y: 3440
+        width: 24
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0d42b023a26992b468a74b654b9a508c
+      internalID: -8419664420378520786
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hazards and Obstacles_edit_55
+      rect:
+        serializedVersion: 2
+        x: 299
+        y: 3435
+        width: 16
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 295af8f67087f0a4a8c7928a11804923
+      internalID: 8222825668635425700
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hazards and Obstacles_edit_56
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 3162
+        width: 879
+        height: 247
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4fcb790639f979f4eb8c8c0cfccde6a9
+      internalID: -7728279967603411669
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hazards and Obstacles_edit_57
+      rect:
+        serializedVersion: 2
+        x: 2670
+        y: 3300
+        width: 4
+        height: 4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1f50f8df1bc46a94495709a5936b3415
+      internalID: -5250495045852466925
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hazards and Obstacles_edit_58
+      rect:
+        serializedVersion: 2
+        x: 3087
+        y: 3113
+        width: 990
+        height: 251
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 857421145b6407e44bec8e95c774b176
+      internalID: 55472518756357703
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hazards and Obstacles_edit_59
+      rect:
+        serializedVersion: 2
+        x: 141
+        y: 3029
+        width: 155
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fcc95149757e55f48a60ec2b9681f3f3
+      internalID: 3617119029924624412
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hazards and Obstacles_edit_60
+      rect:
+        serializedVersion: 2
+        x: 239
+        y: 3055
+        width: 329
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 26d91f77bebf58249b1798d6d3ab57d0
+      internalID: 913908800596739152
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hazards and Obstacles_edit_61
+      rect:
+        serializedVersion: 2
+        x: 916
+        y: 3017
+        width: 226
+        height: 242
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3c29d295885f40a478620bdb674df5e6
+      internalID: 4897453920259482168
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hazards and Obstacles_edit_62
+      rect:
+        serializedVersion: 2
+        x: 1158
+        y: 3092
+        width: 7
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1234795b59dcccd4ba2d794ee864e13f
+      internalID: -5665505246937613356
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hazards and Obstacles_edit_63
+      rect:
+        serializedVersion: 2
+        x: 1161
+        y: 3028
+        width: 160
+        height: 245
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c7ac5c0a47d8afc48a2e7e69a02c8236
+      internalID: -3010086732939172110
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hazards and Obstacles_edit_64
+      rect:
+        serializedVersion: 2
+        x: 1344
+        y: 2922
+        width: 156
+        height: 353
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2ebec3c4ba5e7bf439a7401b35f28ca5
+      internalID: 489725352290238358
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hazards and Obstacles_edit_65
+      rect:
+        serializedVersion: 2
+        x: 2562
+        y: 3029
+        width: 208
+        height: 246
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 73282d17328abe04185046552d2453bf
+      internalID: 108767624707115403
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hazards and Obstacles_edit_66
+      rect:
+        serializedVersion: 2
+        x: 131
+        y: 2977
+        width: 281
+        height: 83
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fb1181e4e45acc946a1cfee3d5a71574
+      internalID: -4834995221600522000
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hazards and Obstacles_edit_67
+      rect:
+        serializedVersion: 2
+        x: 439
+        y: 3043
+        width: 32
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ca703b2084dc8a5439118ebc7e86d8db
+      internalID: -4541141430692663919
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hazards and Obstacles_edit_68
+      rect:
+        serializedVersion: 2
+        x: 570
+        y: 3035
+        width: 111
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1ed979b46b360984d91e2c6d3bbf7663
+      internalID: 5567158063504888967
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hazards and Obstacles_edit_69
+      rect:
+        serializedVersion: 2
+        x: 673
+        y: 3027
+        width: 81
+        height: 58
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: de0f5a17f0259a849a89973908e0cc72
+      internalID: -1758512935024897776
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hazards and Obstacles_edit_70
+      rect:
+        serializedVersion: 2
+        x: 3289
+        y: 3007
+        width: 40
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dd9c44adb340d5043bf9c30e3f10667e
+      internalID: -9089410382594190884
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hazards and Obstacles_edit_71
+      rect:
+        serializedVersion: 2
+        x: 3423
+        y: 3005
+        width: 59
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 07815de62155b7942b7161fc1c6500c6
+      internalID: 1615328485513597494
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hazards and Obstacles_edit_72
+      rect:
+        serializedVersion: 2
+        x: 3489
+        y: 2985
+        width: 130
+        height: 79
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bace3de5d91e51a469f39d2172163452
+      internalID: -2547576297803478599
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hazards and Obstacles_edit_73
+      rect:
+        serializedVersion: 2
+        x: 3814
+        y: 2961
+        width: 180
+        height: 92
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fc052d5db683b594cbf7e8373f924032
+      internalID: 1851941990910673814
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hazards and Obstacles_edit_74
+      rect:
+        serializedVersion: 2
+        x: 3995
+        y: 2977
+        width: 77
+        height: 114
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9c1e9aa12b02c9446aadd0d4e56a6d94
+      internalID: -8197886682964872019
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hazards and Obstacles_edit_75
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 3012
+        width: 135
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f5efc2bbfecb4d449b2f1fabc891806f
+      internalID: -8031865134821293674
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hazards and Obstacles_edit_76
+      rect:
+        serializedVersion: 2
+        x: 499
+        y: 3019
+        width: 39
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3d3fe4eb8fd8ed34688488df30bafe75
+      internalID: 5944282466746806592
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hazards and Obstacles_edit_77
+      rect:
+        serializedVersion: 2
+        x: 3454
+        y: 2983
+        width: 32
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 60fd21927c3be0440a0660daa5e5f059
+      internalID: 7865245519305895522
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hazards and Obstacles_edit_78
+      rect:
+        serializedVersion: 2
+        x: 3615
+        y: 2889
+        width: 180
+        height: 137
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 07de229387690d546bfe597f405a82e2
+      internalID: 3386355534190572343
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hazards and Obstacles_edit_79
+      rect:
+        serializedVersion: 2
+        x: 503
+        y: 2975
+        width: 149
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6f19179bf32c1df44b300f77774dcd2e
+      internalID: -5535179272791077430
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hazards and Obstacles_edit_80
+      rect:
+        serializedVersion: 2
+        x: 655
+        y: 2965
+        width: 94
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7d8772062ebdd144d92a04ca7e7835aa
+      internalID: 4547880931513905649
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hazards and Obstacles_edit_81
+      rect:
+        serializedVersion: 2
+        x: 2359
+        y: 2892
+        width: 438
+        height: 113
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 726dc3f2e7d65954b996497a75d36207
+      internalID: 4288081818176917480
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hazards and Obstacles_edit_82
+      rect:
+        serializedVersion: 2
+        x: 3111
+        y: 2934
+        width: 52
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3bb6864e304547646a513b8959e7d795
+      internalID: 1637484012449459277
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hazards and Obstacles_edit_83
+      rect:
+        serializedVersion: 2
+        x: 33
+        y: 2940
+        width: 101
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: de37b515b7cadfb41abc5f23ac3913ee
+      internalID: 4655456440206274547
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hazards and Obstacles_edit_84
+      rect:
+        serializedVersion: 2
+        x: 921
+        y: 2582
+        width: 445
+        height: 360
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e9fba49ebb873d74db074be36436818a
+      internalID: -636353013187798697
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hazards and Obstacles_edit_85
+      rect:
+        serializedVersion: 2
+        x: 3268
+        y: 2880
+        width: 57
+        height: 75
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 07a5f38f17bc2024097f6191d4d1d86a
+      internalID: 1372743325912733150
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hazards and Obstacles_edit_86
+      rect:
+        serializedVersion: 2
+        x: 3793
+        y: 2938
+        width: 42
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cef40e8bf22460d4ba9086e0eda71dd2
+      internalID: 8069706036789310955
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hazards and Obstacles_edit_87
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 2740
+        width: 835
+        height: 189
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6f7ddb917df887c42a040038c41a90b9
+      internalID: 7947253149239863856
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hazards and Obstacles_edit_88
+      rect:
+        serializedVersion: 2
+        x: 1401
+        y: 2604
+        width: 406
+        height: 316
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6feb60c42a0b37e4880c3886d6ea344f
+      internalID: 7637023760213690265
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hazards and Obstacles_edit_89
+      rect:
+        serializedVersion: 2
+        x: 1813
+        y: 2607
+        width: 522
+        height: 316
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2a630e97b887fee41bb5556222cd2375
+      internalID: 320696228719028874
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hazards and Obstacles_edit_90
+      rect:
+        serializedVersion: 2
+        x: 2352
+        y: 2853
+        width: 5
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dd2e81736bc377f43812ef0ceb241e6e
+      internalID: -5061047661410435430
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hazards and Obstacles_edit_91
+      rect:
+        serializedVersion: 2
+        x: 2359
+        y: 2781
+        width: 448
+        height: 105
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a5ff39bd699478441ab96db73fa1a2ba
+      internalID: 8813512702434255524
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hazards and Obstacles_edit_92
+      rect:
+        serializedVersion: 2
+        x: 2865
+        y: 2807
+        width: 42
+        height: 104
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9f8eb6f0daa89f94782fb92aed4e4310
+      internalID: -3162900375543584546
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hazards and Obstacles_edit_93
+      rect:
+        serializedVersion: 2
+        x: 2961
+        y: 2831
+        width: 76
+        height: 56
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f7341cf6cdee3194fa311d432728231a
+      internalID: 509866790112038789
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hazards and Obstacles_edit_94
+      rect:
+        serializedVersion: 2
+        x: 3087
+        y: 2834
+        width: 97
+        height: 57
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: db1ea2628887cac4aa173a3f6334a3ac
+      internalID: 1615791620080876890
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hazards and Obstacles_edit_95
+      rect:
+        serializedVersion: 2
+        x: 3409
+        y: 2668
+        width: 655
+        height: 206
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a6b021bbbc1a2ab46b8f62fe0ab99791
+      internalID: -5703287431315591136
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hazards and Obstacles_edit_96
+      rect:
+        serializedVersion: 2
+        x: 2357
+        y: 2839
+        width: 5
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b9c68d15527e63c4f8cb909a50f69980
+      internalID: 673376322252438581
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hazards and Obstacles_edit_97
+      rect:
+        serializedVersion: 2
+        x: 2943
+        y: 2839
+        width: 4
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 830fa7087b272a1419b2589b4e7e38c9
+      internalID: -6212120015971790873
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hazards and Obstacles_edit_98
+      rect:
+        serializedVersion: 2
+        x: 3269
+        y: 2718
+        width: 51
+        height: 131
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bfc84a3ef6cbc894e8b78eb50b416f39
+      internalID: 8212514273011795823
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hazards and Obstacles_edit_99
+      rect:
+        serializedVersion: 2
+        x: 2346
+        y: 2822
+        width: 14
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e42f6de05dbbe0f408604b1119b5b69d
+      internalID: 8655559899999264356
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hazards and Obstacles_edit_100
+      rect:
+        serializedVersion: 2
+        x: 2341
+        y: 2808
+        width: 7
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7369cd2cd45dfae47852f4adfdf5cdae
+      internalID: -8725340079539998364
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hazards and Obstacles_edit_101
+      rect:
+        serializedVersion: 2
+        x: 2349
+        y: 2799
+        width: 4
+        height: 4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3203defeee338c748b3675df43da88d4
+      internalID: 3933494323870015886
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hazards and Obstacles_edit_102
+      rect:
+        serializedVersion: 2
+        x: 3012
+        y: 2790
+        width: 5
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 604f0ec6813174548bf7f71900e44653
+      internalID: -4299231319780915629
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hazards and Obstacles_edit_103
+      rect:
+        serializedVersion: 2
+        x: 525
+        y: 2718
+        width: 58
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0db7fc9cd156ea74eb3cebc808280f8a
+      internalID: 4867744153601120160
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hazards and Obstacles_edit_104
+      rect:
+        serializedVersion: 2
+        x: 2350
+        y: 2654
+        width: 440
+        height: 113
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ba66d99792d1d5644bd87da21657e5d4
+      internalID: -7136166227729549312
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hazards and Obstacles_edit_105
+      rect:
+        serializedVersion: 2
+        x: 2880
+        y: 2670
+        width: 131
+        height: 92
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 733fc857f662880409a54bb80326a079
+      internalID: -4960966002770360686
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hazards and Obstacles_edit_106
+      rect:
+        serializedVersion: 2
+        x: 3083
+        y: 2663
+        width: 80
+        height: 109
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8ece9ba152aab45409c448544ba5d42e
+      internalID: -7664843795815427924
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hazards and Obstacles_edit_107
+      rect:
+        serializedVersion: 2
+        x: 54
+        y: 2669
+        width: 33
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0f708a41d1d1cf149ae5337beaaca557
+      internalID: 3457357545704573044
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hazards and Obstacles_edit_108
+      rect:
+        serializedVersion: 2
+        x: 244
+        y: 2648
+        width: 134
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5783786915b08384ab65a974ebca4735
+      internalID: -3667879898459702779
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hazards and Obstacles_edit_109
+      rect:
+        serializedVersion: 2
+        x: 386
+        y: 2661
+        width: 269
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d12d1a763da31734e9305c10a513324b
+      internalID: -669811413133851348
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hazards and Obstacles_edit_110
+      rect:
+        serializedVersion: 2
+        x: 649
+        y: 2695
+        width: 14
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4c26f75355738bc46abee75bbf28a208
+      internalID: 7879396719057485701
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hazards and Obstacles_edit_111
+      rect:
+        serializedVersion: 2
+        x: 99
+        y: 2617
+        width: 143
+        height: 68
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 32dd8eda3538cfc4fb9ce01e5783bf9d
+      internalID: -8717384876621234533
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hazards and Obstacles_edit_112
+      rect:
+        serializedVersion: 2
+        x: 604
+        y: 2646
+        width: 118
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a827791d2d475bf4197053ce47b05bc1
+      internalID: 2397363655053240150
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hazards and Obstacles_edit_113
+      rect:
+        serializedVersion: 2
+        x: 721
+        y: 2653
+        width: 43
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d2f64880cef73da4cab0eaaf25a8d1b0
+      internalID: -8075540170290140354
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hazards and Obstacles_edit_114
+      rect:
+        serializedVersion: 2
+        x: 2466
+        y: 2660
+        width: 6
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 94b24608a71894b4c8f40e13a0b2deb4
+      internalID: 717895200277760967
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hazards and Obstacles_edit_115
+      rect:
+        serializedVersion: 2
+        x: 2472
+        y: 2659
+        width: 5
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 486b6e90c95609b48878886227789b77
+      internalID: -6505080329384875191
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hazards and Obstacles_edit_116
+      rect:
+        serializedVersion: 2
+        x: 2477
+        y: 2657
+        width: 19
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b6f19fcd2dfe2284e925bdec248afa20
+      internalID: 4190419405171903882
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hazards and Obstacles_edit_117
+      rect:
+        serializedVersion: 2
+        x: 2497
+        y: 2657
+        width: 11
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9e277beb6d030824c9ac6d64a65df143
+      internalID: 1968485485519917389
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hazards and Obstacles_edit_118
+      rect:
+        serializedVersion: 2
+        x: 2518
+        y: 2657
+        width: 20
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cbecaf422b1a27542a7d16ea9304f8f4
+      internalID: -3403804924582202277
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hazards and Obstacles_edit_119
+      rect:
+        serializedVersion: 2
+        x: 2538
+        y: 2658
+        width: 8
+        height: 4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 83af5e4ef6ea6eb4ba97143a0de321a1
+      internalID: 731577435884005860
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hazards and Obstacles_edit_120
+      rect:
+        serializedVersion: 2
+        x: 3108
+        y: 2651
+        width: 34
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 82dbcebff4c5e0b49b6719d5f8f4e848
+      internalID: -2109781434608236135
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hazards and Obstacles_edit_121
+      rect:
+        serializedVersion: 2
+        x: 243
+        y: 2608
+        width: 62
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a45e969d164981944bef43f0b6928184
+      internalID: -7600679949849865708
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hazards and Obstacles_edit_122
+      rect:
+        serializedVersion: 2
+        x: 511
+        y: 2615
+        width: 106
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 65765d7a9d9a9d042bd422e7c6baf24a
+      internalID: 8703594347520346161
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hazards and Obstacles_edit_123
+      rect:
+        serializedVersion: 2
+        x: 661
+        y: 2631
+        width: 84
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f26eec63604a8a147beb19425dccace7
+      internalID: -4531076920165347303
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hazards and Obstacles_edit_124
+      rect:
+        serializedVersion: 2
+        x: 749
+        y: 2626
+        width: 45
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: da10307ba4bb4694d8b2d7875c2f5608
+      internalID: 6168359719527822644
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hazards and Obstacles_edit_125
+      rect:
+        serializedVersion: 2
+        x: 3114
+        y: 2642
+        width: 21
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1f4393f16a820294e81b300b62f8c645
+      internalID: -3356471008013293461
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hazards and Obstacles_edit_126
+      rect:
+        serializedVersion: 2
+        x: 2907
+        y: 2461
+        width: 97
+        height: 164
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: be966aa844e3d6d48a2057ae6fd8799b
+      internalID: 6677553359369827574
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hazards and Obstacles_edit_127
+      rect:
+        serializedVersion: 2
+        x: 3245
+        y: 2503
+        width: 353
+        height: 138
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1676874d1c42e454e824392ef7b60fdf
+      internalID: -3601876983829225842
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hazards and Obstacles_edit_128
+      rect:
+        serializedVersion: 2
+        x: 3586
+        y: 2470
+        width: 260
+        height: 169
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eef2d08128077934cbcebca38301f980
+      internalID: -3622713706519570896
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hazards and Obstacles_edit_129
+      rect:
+        serializedVersion: 2
+        x: 3615
+        y: 2615
+        width: 96
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 63fd50a10fb85ce4f9eebc4edb989cb9
+      internalID: -7425540559855414808
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hazards and Obstacles_edit_130
+      rect:
+        serializedVersion: 2
+        x: 3920
+        y: 2502
+        width: 138
+        height: 137
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 344f5af7141fb52498cc1e8f34357a11
+      internalID: -8226759096702965167
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hazards and Obstacles_edit_131
+      rect:
+        serializedVersion: 2
+        x: 153
+        y: 2588
+        width: 108
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 065722ed1a67bf34c90c75be2f01e82a
+      internalID: 8270110004873645028
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hazards and Obstacles_edit_132
+      rect:
+        serializedVersion: 2
+        x: 2379
+        y: 2280
+        width: 165
+        height: 323
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2a182aaf8ffd52943bb6b9a7836b38ca
+      internalID: -8591621330189921107
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hazards and Obstacles_edit_133
+      rect:
+        serializedVersion: 2
+        x: 2604
+        y: 2291
+        width: 170
+        height: 302
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c9255ff35bb20a640b4d33548722c166
+      internalID: 2442959344087545300
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hazards and Obstacles_edit_134
+      rect:
+        serializedVersion: 2
+        x: 3069
+        y: 2480
+        width: 140
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9072c6b543c6c574f8ddef6a6ccfba6c
+      internalID: -1866843417610586781
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hazards and Obstacles_edit_135
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 2215
+        width: 1024
+        height: 351
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ab21f6d8b5760b84bae25410c2921d14
+      internalID: -3619193939134489969
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hazards and Obstacles_edit_136
+      rect:
+        serializedVersion: 2
+        x: 1075
+        y: 1855
+        width: 598
+        height: 704
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2c66e2303728842428fd01dd4bae344f
+      internalID: 238015740877278958
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hazards and Obstacles_edit_137
+      rect:
+        serializedVersion: 2
+        x: 1690
+        y: 1823
+        width: 606
+        height: 743
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ce84bde05fa65a84ba28b1f45b68dc19
+      internalID: 3006388589880185701
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hazards and Obstacles_edit_138
+      rect:
+        serializedVersion: 2
+        x: 3238
+        y: 2499
+        width: 128
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3878fd3114175f246b5c939075e7faaa
+      internalID: -5256218770332257670
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hazards and Obstacles_edit_139
+      rect:
+        serializedVersion: 2
+        x: 3580
+        y: 2502
+        width: 10
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1c0177cc83b61034db5abce97cff732d
+      internalID: 6306855743372597146
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hazards and Obstacles_edit_140
+      rect:
+        serializedVersion: 2
+        x: 2932
+        y: 2291
+        width: 210
+        height: 144
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f62f62bcf7bc38f49b53748d00f62acd
+      internalID: -8875924206583384383
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hazards and Obstacles_edit_141
+      rect:
+        serializedVersion: 2
+        x: 3230
+        y: 2261
+        width: 849
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f554ae4e735f17b41b234603a1330033
+      internalID: -6257683164903187245
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hazards and Obstacles_edit_142
+      rect:
+        serializedVersion: 2
+        x: 11
+        y: 1962
+        width: 743
+        height: 224
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ea45ca9d9e8cf9f449602a16831e7550
+      internalID: -3373276735264298160
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hazards and Obstacles_edit_143
+      rect:
+        serializedVersion: 2
+        x: 2403
+        y: 1923
+        width: 141
+        height: 316
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 09c07728da2c86543a6e031ff08317d6
+      internalID: 8454945320791461151
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hazards and Obstacles_edit_144
+      rect:
+        serializedVersion: 2
+        x: 2615
+        y: 1920
+        width: 150
+        height: 323
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7b39c7bf6e50d364fa45b9c076af99ea
+      internalID: -7770119644810782959
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hazards and Obstacles_edit_145
+      rect:
+        serializedVersion: 2
+        x: 2810
+        y: 1928
+        width: 240
+        height: 322
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1f091a0d219b02346ae5bb28fb9d2f10
+      internalID: 294391148681502042
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hazards and Obstacles_edit_146
+      rect:
+        serializedVersion: 2
+        x: 3070
+        y: 1928
+        width: 191
+        height: 270
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 66cc13a616af4254980f9b23e1b9da6e
+      internalID: -5737015651550300353
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hazards and Obstacles_edit_147
+      rect:
+        serializedVersion: 2
+        x: 3289
+        y: 1920
+        width: 249
+        height: 291
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ff4b27e963757474591bd6e36aacc175
+      internalID: -2105475575200463469
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hazards and Obstacles_edit_148
+      rect:
+        serializedVersion: 2
+        x: 3563
+        y: 1833
+        width: 184
+        height: 283
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eb77f7ee4052e4c4da1563dde029fa4f
+      internalID: 6494263858698777494
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hazards and Obstacles_edit_149
+      rect:
+        serializedVersion: 2
+        x: 3784
+        y: 1830
+        width: 279
+        height: 279
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b2da6652d5596bd4f9d4a92713ef2021
+      internalID: -3770757225245619929
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hazards and Obstacles_edit_150
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 1729
+        width: 999
+        height: 208
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7f21d22754be9934da64d779ba05a491
+      internalID: 5685048381261971327
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hazards and Obstacles_edit_151
+      rect:
+        serializedVersion: 2
+        x: 1053
+        y: 1104
+        width: 630
+        height: 729
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 757f9b77d917e4f48a801a382ce5eebb
+      internalID: -2082813554098594353
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hazards and Obstacles_edit_152
+      rect:
+        serializedVersion: 2
+        x: 2708
+        y: 1832
+        width: 28
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 30dd26ce51de9344b8ce00fa101d913c
+      internalID: -7168326778892479133
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hazards and Obstacles_edit_153
+      rect:
+        serializedVersion: 2
+        x: 2738
+        y: 1832
+        width: 15
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 704ee3325a0cde149b6a2deff4d61a2b
+      internalID: 9170286716068730938
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hazards and Obstacles_edit_154
+      rect:
+        serializedVersion: 2
+        x: 2867
+        y: 1128
+        width: 534
+        height: 761
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8aa922e25b983b447a0ab9988e12cd2e
+      internalID: -4791379072989382586
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hazards and Obstacles_edit_155
+      rect:
+        serializedVersion: 2
+        x: 1229
+        y: 1821
+        width: 11
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 663ccd84b55a33046b3b4b015dd030ff
+      internalID: 6396636744622245053
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hazards and Obstacles_edit_156
+      rect:
+        serializedVersion: 2
+        x: 1689
+        y: 1045
+        width: 607
+        height: 778
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7fb60f547f782c74693ac8105e8d9d3a
+      internalID: 2439239898984718206
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hazards and Obstacles_edit_157
+      rect:
+        serializedVersion: 2
+        x: 2123
+        y: 1819
+        width: 28
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4ea4fcf6ef19e3449a1dd93c5bacd1f5
+      internalID: 7464466517982500031
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hazards and Obstacles_edit_158
+      rect:
+        serializedVersion: 2
+        x: 2305
+        y: 1128
+        width: 526
+        height: 698
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a359739a99460d54093949f5f98c0ee0
+      internalID: 8157891081127565097
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hazards and Obstacles_edit_159
+      rect:
+        serializedVersion: 2
+        x: 1052
+        y: 1732
+        width: 16
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3d052637c88c8d04da88190033ae473a
+      internalID: 5619143687990572173
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hazards and Obstacles_edit_160
+      rect:
+        serializedVersion: 2
+        x: 3440
+        y: 1460
+        width: 245
+        height: 299
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: be4dd975647be5f46bcd4b691b81854f
+      internalID: 4564296859512220371
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hazards and Obstacles_edit_161
+      rect:
+        serializedVersion: 2
+        x: 3707
+        y: 1450
+        width: 230
+        height: 319
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0438f2d08cadee041bbd0db0b168f043
+      internalID: 6346198723743011855
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hazards and Obstacles_edit_162
+      rect:
+        serializedVersion: 2
+        x: 3941
+        y: 1443
+        width: 153
+        height: 329
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3b3ea6e93fc66e74989a715fa8606d40
+      internalID: 3180757829651078353
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hazards and Obstacles_edit_163
+      rect:
+        serializedVersion: 2
+        x: 1049
+        y: 1701
+        width: 9
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f448eb870033bbb43b77f3745a71e045
+      internalID: 1487366592214206242
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hazards and Obstacles_edit_164
+      rect:
+        serializedVersion: 2
+        x: 1059
+        y: 1721
+        width: 8
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 080a8207f5eae4c4aa533483e23663e7
+      internalID: 4598149027909468543
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hazards and Obstacles_edit_165
+      rect:
+        serializedVersion: 2
+        x: 1072
+        y: 1724
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f9019e60b2622cc4a904d2cb0d4394e0
+      internalID: -6242191305404644202
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hazards and Obstacles_edit_166
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 1430
+        width: 749
+        height: 270
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 53a0a8a413649a44e99a51dae5da8be1
+      internalID: 1822567934047196086
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hazards and Obstacles_edit_167
+      rect:
+        serializedVersion: 2
+        x: 1075
+        y: 1624
+        width: 7
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7a656b014a2c6014e8fed18ac23e9e50
+      internalID: -1201637197445852180
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hazards and Obstacles_edit_168
+      rect:
+        serializedVersion: 2
+        x: 2305
+        y: 1441
+        width: 4
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ccc86c7945b152646b8f9690c791ff72
+      internalID: -3928390885260388606
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hazards and Obstacles_edit_169
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 1247
+        width: 517
+        height: 162
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0f558eb8bbf512e4baa9f6f76613c92b
+      internalID: 2867584688627486903
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hazards and Obstacles_edit_170
+      rect:
+        serializedVersion: 2
+        x: 542
+        y: 1202
+        width: 487
+        height: 207
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cf96563fdd67e734294a2c43155975ec
+      internalID: 7584816703619138340
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hazards and Obstacles_edit_171
+      rect:
+        serializedVersion: 2
+        x: 2821
+        y: 1325
+        width: 8
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c6c3ab66cb330be4f80665e359b9f0e6
+      internalID: -640033067097431229
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hazards and Obstacles_edit_172
+      rect:
+        serializedVersion: 2
+        x: 3477
+        y: 1143
+        width: 172
+        height: 290
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e85dfad3fa8c7ad4ebc3dcbdb042a768
+      internalID: 9090521358788350719
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hazards and Obstacles_edit_173
+      rect:
+        serializedVersion: 2
+        x: 3679
+        y: 1121
+        width: 209
+        height: 308
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 50ca06e844dc77f45a7a28d1956e0a2e
+      internalID: -9059528044121604551
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hazards and Obstacles_edit_174
+      rect:
+        serializedVersion: 2
+        x: 3904
+        y: 1106
+        width: 187
+        height: 317
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cb12cf59955514840b9e9bc23625a793
+      internalID: -4121507202217969062
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hazards and Obstacles_edit_175
+      rect:
+        serializedVersion: 2
+        x: 2810
+        y: 1212
+        width: 13
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e7caa8a22f95cf04a8285506a40b29aa
+      internalID: 8506030527931256749
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hazards and Obstacles_edit_176
+      rect:
+        serializedVersion: 2
+        x: 2833
+        y: 1220
+        width: 6
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4bf2d717c4008aa40bc971879b11bde5
+      internalID: 8442340836965472535
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hazards and Obstacles_edit_177
+      rect:
+        serializedVersion: 2
+        x: 2825
+        y: 1198
+        width: 8
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: de2223c9ecfb1e3409572b2e9f17556a
+      internalID: -4676864922610990715
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hazards and Obstacles_edit_178
+      rect:
+        serializedVersion: 2
+        x: 15
+        y: 659
+        width: 81
+        height: 516
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dedec7ff995f974478949dc99db1de51
+      internalID: 4772117116470480663
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hazards and Obstacles_edit_179
+      rect:
+        serializedVersion: 2
+        x: 141
+        y: 673
+        width: 73
+        height: 509
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 70bba847c67ea9b4b9333da7ef6c56a2
+      internalID: 1545264178212039724
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hazards and Obstacles_edit_180
+      rect:
+        serializedVersion: 2
+        x: 244
+        y: 657
+        width: 91
+        height: 537
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 06b16268142443044a394ee3ba22875e
+      internalID: 5007518243572711231
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hazards and Obstacles_edit_181
+      rect:
+        serializedVersion: 2
+        x: 379
+        y: 653
+        width: 82
+        height: 517
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4c98bd4a4d01aa042b235f0df96e5bda
+      internalID: 6869966266823491419
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hazards and Obstacles_edit_182
+      rect:
+        serializedVersion: 2
+        x: 497
+        y: 918
+        width: 67
+        height: 266
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 407e813954fd6a546907b2b7a9d35ffb
+      internalID: 5166626078604539595
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hazards and Obstacles_edit_183
+      rect:
+        serializedVersion: 2
+        x: 607
+        y: 919
+        width: 58
+        height: 252
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e6be6d6725b8e42409b5a616833e5b3c
+      internalID: -2190664320576405513
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hazards and Obstacles_edit_184
+      rect:
+        serializedVersion: 2
+        x: 702
+        y: 1039
+        width: 68
+        height: 131
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bfd9ab1a503c70544ad6100694f17022
+      internalID: 4009207211970223179
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hazards and Obstacles_edit_185
+      rect:
+        serializedVersion: 2
+        x: 795
+        y: 1039
+        width: 62
+        height: 126
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4e662862b6f60da43a9ee95ce38caf3d
+      internalID: -6973973348514068649
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hazards and Obstacles_edit_186
+      rect:
+        serializedVersion: 2
+        x: 893
+        y: 1024
+        width: 70
+        height: 151
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b2060d5d8b84fdb4eb1f4c9860d1e2dc
+      internalID: -7491597953037736088
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hazards and Obstacles_edit_187
+      rect:
+        serializedVersion: 2
+        x: 986
+        y: 1027
+        width: 57
+        height: 150
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9dec443a4f6f8184fa9e06485cad38d0
+      internalID: 7743307796805398655
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hazards and Obstacles_edit_188
+      rect:
+        serializedVersion: 2
+        x: 1530
+        y: 1088
+        width: 14
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 47784e3afccb7ac46862ba40e855ecaa
+      internalID: 5838462660704484090
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hazards and Obstacles_edit_189
+      rect:
+        serializedVersion: 2
+        x: 2031
+        y: 1052
+        width: 8
+        height: 4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5e9ae7ee3537bcf45923ca02f49a7e36
+      internalID: 473736222961646902
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hazards and Obstacles_edit_190
+      rect:
+        serializedVersion: 2
+        x: 3192
+        y: 522
+        width: 745
+        height: 566
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 84d3f617ba4ca6345abbddd9d90607a5
+      internalID: 7216014453971294656
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hazards and Obstacles_edit_191
+      rect:
+        serializedVersion: 2
+        x: 1072
+        y: 732
+        width: 593
+        height: 313
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 287bcc6854c4e2244a4e8585525e4e30
+      internalID: 7348054246750131437
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hazards and Obstacles_edit_192
+      rect:
+        serializedVersion: 2
+        x: 1082
+        y: 1018
+        width: 4
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3f51d87e29627c547b683e99e0481211
+      internalID: -4078042915815101652
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hazards and Obstacles_edit_193
+      rect:
+        serializedVersion: 2
+        x: 1678
+        y: 743
+        width: 618
+        height: 288
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1e37b3f532bb4b341829705bd75b764a
+      internalID: -6452966520723295792
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hazards and Obstacles_edit_194
+      rect:
+        serializedVersion: 2
+        x: 2328
+        y: 494
+        width: 690
+        height: 536
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1067e8592b269e34f9a0386a6729a1f3
+      internalID: 6860545540186075453
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hazards and Obstacles_edit_195
+      rect:
+        serializedVersion: 2
+        x: 496
+        y: 964
+        width: 4
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3718388aeaa98944e8e16680f3329db7
+      internalID: -203148518472571151
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hazards and Obstacles_edit_196
+      rect:
+        serializedVersion: 2
+        x: 754
+        y: 707
+        width: 215
+        height: 260
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 11dc9ba230d9ce84a8b92ac149b41dc3
+      internalID: -571194805337517816
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hazards and Obstacles_edit_197
+      rect:
+        serializedVersion: 2
+        x: 493
+        y: 624
+        width: 61
+        height: 279
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0538082237acbd741885a254b153aaab
+      internalID: 3071791822092975188
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hazards and Obstacles_edit_198
+      rect:
+        serializedVersion: 2
+        x: 603
+        y: 629
+        width: 66
+        height: 273
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4559cab190426b94ba85311459056e80
+      internalID: 228659685163117605
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hazards and Obstacles_edit_199
+      rect:
+        serializedVersion: 2
+        x: 1067
+        y: 443
+        width: 600
+        height: 279
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eaddd4959f6b04e4a9cef710f273205e
+      internalID: 5030217090579108059
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hazards and Obstacles_edit_200
+      rect:
+        serializedVersion: 2
+        x: 1684
+        y: 442
+        width: 615
+        height: 290
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 77a6830f0a3cd264ea589558990513ac
+      internalID: 8531175447683989086
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hazards and Obstacles_edit_201
+      rect:
+        serializedVersion: 2
+        x: 2336
+        y: 654
+        width: 16
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 56295e4cf9c851c4197dad2c453923f8
+      internalID: -6032659628993858198
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hazards and Obstacles_edit_202
+      rect:
+        serializedVersion: 2
+        x: 772
+        y: 369
+        width: 129
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7f0f56eb6e8efc243b83b6feabfbdea6
+      internalID: -728246879563057192
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hazards and Obstacles_edit_203
+      rect:
+        serializedVersion: 2
+        x: 2330
+        y: 608
+        width: 12
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4ea35a64d33fb2a4baddd0f85cb75f8e
+      internalID: 4440171270611833716
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hazards and Obstacles_edit_204
+      rect:
+        serializedVersion: 2
+        x: 15
+        y: 375
+        width: 195
+        height: 224
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 52d407feeb0c6de4eaf8bd1a5163059b
+      internalID: -1531051770184980094
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hazards and Obstacles_edit_205
+      rect:
+        serializedVersion: 2
+        x: 289
+        y: 383
+        width: 215
+        height: 206
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 861a3db195a80b74bb323d3d0a4be98d
+      internalID: 8145515332538146169
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hazards and Obstacles_edit_206
+      rect:
+        serializedVersion: 2
+        x: 566
+        y: 367
+        width: 34
+        height: 158
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9340bd513967a704cad62bb9539ae35c
+      internalID: -8317661895930002771
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hazards and Obstacles_edit_207
+      rect:
+        serializedVersion: 2
+        x: 577
+        y: 351
+        width: 101
+        height: 245
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0bccb5bb6d4496a489fba29c9fd1c7a1
+      internalID: -1360844727396147657
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hazards and Obstacles_edit_208
+      rect:
+        serializedVersion: 2
+        x: 680
+        y: 369
+        width: 123
+        height: 234
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e0d94e42a0e98124bb0d48843b1bd110
+      internalID: -9095489578083872796
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hazards and Obstacles_edit_209
+      rect:
+        serializedVersion: 2
+        x: 902
+        y: 361
+        width: 130
+        height: 246
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f051a7ff96fb634478f82e91308c932a
+      internalID: 6229439359956483872
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hazards and Obstacles_edit_210
+      rect:
+        serializedVersion: 2
+        x: 2977
+        y: 494
+        width: 6
+        height: 4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 52ef217dd1d487e41ade5175018585f2
+      internalID: 7367011231660203591
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hazards and Obstacles_edit_211
+      rect:
+        serializedVersion: 2
+        x: 2673
+        y: 8
+        width: 469
+        height: 482
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3154c1e18476b134fb926d04c756ac0c
+      internalID: -1235168408772383740
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hazards and Obstacles_edit_212
+      rect:
+        serializedVersion: 2
+        x: 2978
+        y: 480
+        width: 9
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b904e13595b7e9a4bb8c4d4aefa829e8
+      internalID: -5777560635225706675
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hazards and Obstacles_edit_213
+      rect:
+        serializedVersion: 2
+        x: 2991
+        y: 477
+        width: 15
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1812aff7f9da74140b8a8dc6e8f400a4
+      internalID: 5914664561057949753
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hazards and Obstacles_edit_214
+      rect:
+        serializedVersion: 2
+        x: 1067
+        y: 2
+        width: 453
+        height: 424
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fa3b43f2062d26a4ab048ade58059b95
+      internalID: -5921430569628634187
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hazards and Obstacles_edit_215
+      rect:
+        serializedVersion: 2
+        x: 1502
+        y: 415
+        width: 12
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b3c3570fc4fff6242b4d26bc20ac5763
+      internalID: -800491122831751640
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hazards and Obstacles_edit_216
+      rect:
+        serializedVersion: 2
+        x: 1515
+        y: 419
+        width: 6
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4bb5ae8023b2edf4fb75dbcfc1cb5d1d
+      internalID: 8129153574434245514
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hazards and Obstacles_edit_217
+      rect:
+        serializedVersion: 2
+        x: 1531
+        y: 4
+        width: 481
+        height: 432
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0e7191cd2cc24cd43a5c64d7e14ab7ce
+      internalID: -1797504462460133643
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hazards and Obstacles_edit_218
+      rect:
+        serializedVersion: 2
+        x: 3261
+        y: 0
+        width: 608
+        height: 474
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fde7f7e09b494aa478615eda3669ef87
+      internalID: -3741193431821054264
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hazards and Obstacles_edit_219
+      rect:
+        serializedVersion: 2
+        x: 697
+        y: 356
+        width: 38
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1e977e7528539b949a9803cc7ab8b604
+      internalID: -47549175381471385
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hazards and Obstacles_edit_220
+      rect:
+        serializedVersion: 2
+        x: 850
+        y: 355
+        width: 31
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4b7919c1ae24173419b4ab67baa60483
+      internalID: 2934259599585279344
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hazards and Obstacles_edit_221
+      rect:
+        serializedVersion: 2
+        x: 2043
+        y: 2
+        width: 501
+        height: 417
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 16c4373be48f999498cf3c6da9e19ffe
+      internalID: 8146876580763366757
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hazards and Obstacles_edit_222
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 61
+        width: 53
+        height: 231
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 993fbae072beaa4479ffbb9e58f67e44
+      internalID: 7109885667021877471
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hazards and Obstacles_edit_223
+      rect:
+        serializedVersion: 2
+        x: 140
+        y: 8
+        width: 207
+        height: 294
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a901a1b2698c2044c984e183edbaf7fa
+      internalID: 2108582751671565598
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hazards and Obstacles_edit_224
+      rect:
+        serializedVersion: 2
+        x: 354
+        y: 41
+        width: 177
+        height: 248
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5386505578ff98d4bb81e5a98d40abf7
+      internalID: 5694190691441884314
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hazards and Obstacles_edit_225
+      rect:
+        serializedVersion: 2
+        x: 611
+        y: 54
+        width: 200
+        height: 248
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 50937c8a8ffa7ec4f931195267e7968a
+      internalID: 602750162688454026
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hazards and Obstacles_edit_226
+      rect:
+        serializedVersion: 2
+        x: 1002
+        y: 220
+        width: 5
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 63be192216e4bcf409a074236b2253bd
+      internalID: -4367255252301158189
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hazards and Obstacles_edit_227
+      rect:
+        serializedVersion: 2
+        x: 120
+        y: 74
+        width: 25
+        height: 136
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 84baa29ac26a5424d91a6a1f04ba0f8f
+      internalID: -7370472158306136191
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hazards and Obstacles_edit_228
+      rect:
+        serializedVersion: 2
+        x: 813
+        y: 52
+        width: 42
+        height: 150
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3800445cf4fccd34cacd775773e0e497
+      internalID: -2773102801931055958
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hazards and Obstacles_edit_229
+      rect:
+        serializedVersion: 2
+        x: 916
+        y: 57
+        width: 138
+        height: 155
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b6713614934fd51479f927309f176efb
+      internalID: -5898586195212882128
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hazards and Obstacles_edit_230
+      rect:
+        serializedVersion: 2
+        x: 1530
+        y: 144
+        width: 13
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a912b4ac1bfa1224fb7c970285878c7d
+      internalID: 802517475568004864
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
