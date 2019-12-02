@@ -64392,7 +64392,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1762045364071741464}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -85.057556, y: 19.496803, z: 8.0298}
+  m_LocalPosition: {x: -85.057556, y: 19.496803, z: 0}
   m_LocalScale: {x: 0.62943965, y: 0.51567, z: 0.51567}
   m_Children:
   - {fileID: 1762045364841470046}
@@ -64428,7 +64428,6 @@ MonoBehaviour:
     type: 3}
   timeUntilDestroyed: 2
   timeUntilRespawn: 2
-  theAnimator: {fileID: 4399119355882956830}
 --- !u!61 &1762045364071741468
 BoxCollider2D:
   m_ObjectHideFlags: 0
