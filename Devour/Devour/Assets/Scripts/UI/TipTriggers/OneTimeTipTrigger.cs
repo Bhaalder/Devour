@@ -21,7 +21,7 @@ public class OneTimeTipTrigger : TipTrigger {
     }
 
     protected override void OnTriggerEnter2D(Collider2D collision) {
-        if (collision.gameObject.tag == "Player") {
+        if (collision.gameObject.tag == "Player" && !triggered) {
             triggered = true;
             if (GameController.Instance.OneTimeTips.ContainsKey(SceneManager.GetActiveScene().name)) {
                 if (GameController.Instance.OneTimeTips[SceneManager.GetActiveScene().name].Contains(tipID)) {
