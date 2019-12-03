@@ -13,11 +13,11 @@ MonoBehaviour:
   m_Name: NazroVoidBombState
   m_EditorClassIdentifier: 
   color: {r: 1, g: 0, b: 0, a: 1}
-  voidBombWindUpTime: 0.2
+  voidBombWindUpTime: 0.5
   voidBombAttackTime: 1
   bombDamage: 25
-  voidBombSpeed: 4
-  bombLifespan: 7
+  voidBombSpeed: 7
+  bombLifespan: 4
   numberOfBombs: 2
   secondPhaseExtraNumberOfBombs: 2
   voidBombPrefab: {fileID: 6513940760051156159, guid: a2ad8679dba350042947ed3b0fd1a455,
