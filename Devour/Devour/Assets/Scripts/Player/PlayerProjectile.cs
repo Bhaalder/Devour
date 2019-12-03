@@ -42,6 +42,7 @@ public class PlayerProjectile : MonoBehaviour{
     }
 
     private void Update() {
+        Debug.Log(canDealDamage);
         if (!hitObject) {
             transform.position += (Vector3)Direction * Speed * Time.deltaTime;
         }
@@ -54,7 +55,7 @@ public class PlayerProjectile : MonoBehaviour{
 
     private void OnTriggerEnter2D(Collider2D collision) {
         try {
-            if (canDealDamage) {
+            if(boxCollider2D.enabled == true) {
                 PlayerAttackEvent playerAttack = new PlayerAttackEvent {
                     attackCollider = boxCollider2D,
                     isMeleeAttack = false,
@@ -67,20 +68,18 @@ public class PlayerProjectile : MonoBehaviour{
         } catch (System.NullReferenceException) {
 
         }
-        if (!isBounce) {
-            if (collision.gameObject.layer == 8) {
-                AudioFadeSoundEvent fadeSound = new AudioFadeSoundEvent {
-                    name = "Projectile",
-                    soundType = SoundType.SFX,
-                    isFadeOut = true,
-                    fadeDuration = 0.05f,
-                    soundVolumePercentage = 0
-                };
-                fadeSound.FireEvent();
-                Destroy(transform.GetChild(0).gameObject);
-                hitObject = true;
-                canDealDamage = false;
-            }
+        if (collision.gameObject.layer == 8) {
+            AudioFadeSoundEvent fadeSound = new AudioFadeSoundEvent {
+                name = "Projectile",
+                soundType = SoundType.SFX,
+                isFadeOut = true,
+                fadeDuration = 0.05f,
+                soundVolumePercentage = 0
+            };
+            fadeSound.FireEvent();
+            Destroy(transform.GetChild(0).gameObject);
+            hitObject = true;
+            boxCollider2D.enabled = false;
         }
     }
 }

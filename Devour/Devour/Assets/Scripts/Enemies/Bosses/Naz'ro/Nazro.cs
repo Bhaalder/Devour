@@ -117,37 +117,6 @@ public class Nazro : Boss {
         Transition<NazroBaseState>();
     }
 
-    public override void TakeDamage(PlayerAttackEvent attackEvent) {
-        if (invulnerabilityTimer <= 0) {
-            try {
-                if (attackEvent.attackCollider.bounds.Intersects(boxCollider2D.bounds)) {
-                    ChangeEnemyHealth(-attackEvent.damage);
-                    HurtSoundAndParticles();
-                    if (attackEvent.isMeleeAttack) {
-                        PlayerHealEvent phe = new PlayerHealEvent {
-                            isLifeLeech = true
-                        };
-                        if (attackEvent.player.HasAbility(PlayerAbility.VOIDMEND)) {
-                            PlayerVoidEvent voidEvent = new PlayerVoidEvent {
-                                amount = attackEvent.player.MeleeVoidLeech
-                            };
-                            voidEvent.FireEvent();
-                        }
-                        phe.FireEvent();
-                        if (!attackEvent.player.IsGrounded && attackEvent.player.IsAttackingDown && attackEvent.isMeleeAttack) {
-                            attackEvent.player.ExtraJumpsLeft = attackEvent.player.ExtraJumps;
-                            attackEvent.player.Rb2D.velocity = new Vector2(attackEvent.player.Rb2D.velocity.x, 0);
-                            attackEvent.player.Rb2D.velocity = new Vector2(attackEvent.player.Rb2D.velocity.x, attackEvent.player.BounceForce);
-                            return;
-                        }
-                    }
-                }
-            } catch (System.NullReferenceException) {
-                Debug.LogWarning("A missing reference in PlayerAttackEvent, check Log!");
-            }
-        }
-    }
-
     public override void EnemyDeath() {
         if (!IsDead) {
             IsDead = true;

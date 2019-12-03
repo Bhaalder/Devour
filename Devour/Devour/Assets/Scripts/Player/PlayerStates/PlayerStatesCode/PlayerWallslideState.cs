@@ -22,6 +22,7 @@ public class PlayerWallslideState : PlayerBaseState {
             soundType = SoundType.SFX
         };
         wallSlidePlay.FireEvent();
+        owner.ExtraJumpsLeft = owner.ExtraJumps;
     }
 
     public override void HandleFixedUpdate() {

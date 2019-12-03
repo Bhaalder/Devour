@@ -25,7 +25,6 @@ public class PlayerDeathState : PlayerBaseState {
         owner.IsDead = true;
         GameObject deathLifeEssence;
         deathLifeEssence = Instantiate(lifeForceEssenceParticle, owner.transform.position, Quaternion.identity);
-        
     }
 
     public override void HandleFixedUpdate() {
