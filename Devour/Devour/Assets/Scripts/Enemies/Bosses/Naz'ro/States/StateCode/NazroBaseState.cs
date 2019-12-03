@@ -6,8 +6,6 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "Boss/Nazro/NazroBaseState")]
 public class NazroBaseState : State {
 
-    [SerializeField] protected Color color;
-
     private float minimumTimeUntilMove = 1.5f;
     private float maximumTimeUntilMove = 3.5f;
     private float timeUntilNextMove;
@@ -19,7 +17,6 @@ public class NazroBaseState : State {
 
     public override void Enter() {
         base.Enter();
-        owner.GetComponent<SpriteRenderer>().color = color;
     }
 
     public override void HandleFixedUpdate() {
