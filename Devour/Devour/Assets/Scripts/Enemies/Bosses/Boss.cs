@@ -9,6 +9,7 @@ public class Boss : Enemy{
     public GameObject AbilityEssence { get; set; }
     public string BossName { get; set; }
     public float MaxHealth { get; set; }
+    public GameObject AudioVoiceGO { get; set; }
 
     [SerializeField] protected PlayerAbility bossGivesAbility;
     [SerializeField] protected GameObject abilityEssence;
@@ -21,6 +22,7 @@ public class Boss : Enemy{
                 Destroy(gameObject);
             }
         }
+        AudioVoiceGO = transform.Find("AudioVoice").gameObject;
     }
 
     protected override void Awake() {
@@ -92,6 +94,8 @@ public class Boss : Enemy{
         abilityEssence = essence.GetComponent<AbilityEssence>();
         abilityEssence.Ability = bossGivesAbility;
     }
+
+    public virtual void PlayVoice(string sound) { }
 
     protected override void OnTriggerStay2D(Collider2D collision) {
         if (collision.gameObject.tag == "Player") {

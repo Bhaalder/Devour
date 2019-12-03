@@ -66,23 +66,35 @@ public class Bnath : Boss
             rb.velocity = new Vector2(0, rb.velocity.y);
         }
     }
+    public override void PlayVoice(string sound) {
+        int i = Random.Range(1, 2 + 1);
+        switch (sound) {
+            case "JumpGrowl":
+                sound = "BnathJumpGrowl" + i;
+                break;
+            case "Die":
+                sound = "BnathDeath";
+                break;
+            case "Hurt":
+                break;
+            default:
+                break;
+        }
+        if (IsAlive && !AudioVoiceGO.GetComponent<AudioSource>().isPlaying) {
+            AudioPlaySoundAtLocationEvent soundEvent = new AudioPlaySoundAtLocationEvent {
+                name = sound,
+                soundType = SoundType.SFX,
+                isRandomPitch = true,
+                minPitch = 0.95f,
+                maxPitch = 1f,
+                gameObject = AudioVoiceGO
+            };
+            soundEvent.FireEvent();
+        }
+    }
 
-    //protected override void OnCollisionStay2D(Collision2D collision)
-    //{
-    //    if (collision.gameObject.tag == "Player")
-    //    {
-    //        Debug.Log("Collided with Player");
-    //        PlayerTakeDamageEvent ptde = new PlayerTakeDamageEvent
-    //        {
-    //            damage = damageToPlayerOnContact,
-    //            enemyPosition = rb.position
-    //        };
-    //        ptde.FireEvent();
-    //        rb.velocity = new Vector2(0, rb.velocity.y);
-    //    }
-    //}
 
-    public override void EnemyDeath()
+public override void EnemyDeath()
     {
         //Transition till DeathState
         SpawnAbilityEssence();
