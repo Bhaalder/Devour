@@ -207,6 +207,15 @@ public class BnathClimbDash : BnathBaseState
                 startValue = 0.35f
             };
             shakeEvent.FireEvent();
+            AudioPlaySoundAtLocationEvent landSound = new AudioPlaySoundAtLocationEvent {
+                name = "BnathLand",
+                isRandomPitch = true,
+                minPitch = 0.95f,
+                maxPitch = 1f,
+                soundType = SoundType.SFX,
+                gameObject = owner.AudioGO
+            };
+            landSound.FireEvent();
             owner.Transition<BnathIdle>();
             Debug.Log("STOPPED DASHING");
         }

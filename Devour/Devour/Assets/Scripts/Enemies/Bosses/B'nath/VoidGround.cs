@@ -56,6 +56,7 @@ public class VoidGround : MonoBehaviour
 
     private void DestroyTimer()
     {
+
         currentCooldown -= Time.deltaTime;
 
         if (currentCooldown > 0)
@@ -84,6 +85,14 @@ public class VoidGround : MonoBehaviour
 
         canDoDamage = true;
         sprite.enabled = true;
-        
+        AudioPlaySoundAtLocationEvent audioPlaySound = new AudioPlaySoundAtLocationEvent {
+            name = "BnathSpike",
+            isRandomPitch = true,
+            minPitch = 1f,
+            maxPitch = 1f,
+            soundType = SoundType.SFX,
+            gameObject = gameObject
+        };
+        audioPlaySound.FireEvent();
     }
 }

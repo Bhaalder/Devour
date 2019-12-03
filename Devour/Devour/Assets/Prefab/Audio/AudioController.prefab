@@ -374,6 +374,26 @@ MonoBehaviour:
     maxDistance: 50
     loop: 0
     source: {fileID: 0}
+  - name: BnathSpike
+    clip: {fileID: 8300000, guid: d2e0366d177313e4c96ac3eb5b6a49ed, type: 3}
+    volume: 0.4
+    pitch: 1
+    spatialBlend_2D_3D: 1
+    rolloffMode: 1
+    minDistance: 0.1
+    maxDistance: 50
+    loop: 0
+    source: {fileID: 0}
+  - name: BnathLand
+    clip: {fileID: 8300000, guid: 681640c418f04a84b9a8a6526c417c1a, type: 3}
+    volume: 0.65
+    pitch: 1
+    spatialBlend_2D_3D: 1
+    rolloffMode: 1
+    minDistance: 0.1
+    maxDistance: 50
+    loop: 0
+    source: {fileID: 0}
   environmentSounds:
   - name: HitRockWall
     clip: {fileID: 8300000, guid: a613132998910254a93a4edf5f3e2f9e, type: 3}
