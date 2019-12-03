@@ -78,9 +78,9 @@ public class PlayerBaseState : State {
             owner.Rb2D.velocity = new Vector2(owner.Rb2D.velocity.x, owner.Rb2D.velocity.y * owner.VariableJumpHeight);
         }
         if (owner.HasAbility(PlayerAbility.DOUBLEJUMP)) {
-            //if (owner.IsGrounded || owner.IsWallSliding) {
-            //    owner.ExtraJumpsLeft = owner.ExtraJumps;
-            //}
+            if (owner.IsGrounded) {//|| owner.IsWallSliding
+                owner.ExtraJumpsLeft = owner.ExtraJumps;
+            }
             if (owner.PlayerState == PlayerState.AIR && owner.ExtraJumpsLeft > 0 && Input.GetButtonDown("Jump")) {
                 owner.ExtraJumpsLeft--;
                 owner.Rb2D.velocity = new Vector2(0, 0);
