@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 6513940760051156158}
   - component: {fileID: 2393052916392567513}
   - component: {fileID: 5702009805176286444}
+  - component: {fileID: 805097828982903784}
   m_Layer: 9
   m_Name: Naz'roVoidBomb[v.1]
   m_TagString: Untagged
@@ -150,3 +151,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   explosion: {fileID: 1280141305896002, guid: d93b1ada808c85f4fa86ecd6925ae819, type: 3}
+--- !u!95 &805097828982903784
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6513940760051156159}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 6b2ccaf8c11138b45923adccee1b9e31, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
