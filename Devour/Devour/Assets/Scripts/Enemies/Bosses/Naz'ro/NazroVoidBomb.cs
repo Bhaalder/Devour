@@ -15,11 +15,13 @@ public class NazroVoidBomb : MonoBehaviour {
     private Transform player;
     private CircleCollider2D circleCollider2D;
     private Rigidbody2D rigidBody2D;
+    private Animator animator;
 
     private void Start() {
         player = GameController.Instance.Player.transform;
         circleCollider2D = GetComponent<CircleCollider2D>();
         rigidBody2D = GetComponent<Rigidbody2D>();
+        animator = GetComponent<Animator>();
         PlayerAttackEvent.RegisterListener(GetHit);
         BossDiedEvent.RegisterListener(BossDied);
     }
@@ -93,8 +95,9 @@ public class NazroVoidBomb : MonoBehaviour {
         if (!isStartingToExplode) {
             Debug.Log("Börjar explodera");
             rigidBody2D.velocity = Vector2.zero;
-            StartCoroutine(CountDown());
             isStartingToExplode = true;
+            animator.SetTrigger("WindUp");
+            StartCoroutine(CountDown());
         }
     }
 
