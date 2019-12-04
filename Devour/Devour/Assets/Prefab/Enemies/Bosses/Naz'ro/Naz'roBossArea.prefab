@@ -1507,7 +1507,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 9dd57a3d056aebe49abe29768e615a40, type: 2}
   - {fileID: 11400000, guid: 3e085dd83018ba34b9f13616ecd25452, type: 2}
   - {fileID: 11400000, guid: b9353db791c437a4cbb3d20726aeb058, type: 2}
-  hurtParticleOffsetPosition: {x: 0, y: 0}
+  hurtParticleOffsetPosition: {x: 0, y: 8}
   particlesOnHurt: {fileID: 2047988903029819035, guid: bb7218c3e0990ea48b3de4686fafc449,
     type: 3}
   enemyHealth: 3000
@@ -1565,7 +1565,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.078388214, y: 0.59246635}
+  m_Offset: {x: 0.12, y: 3.68}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.50424427, y: 0.10319405}
@@ -1576,7 +1576,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 2.7443314, y: 2.733036}
+  m_Size: {x: 2.37, y: 2.6040707}
   m_EdgeRadius: 0
 --- !u!82 &3310743057188425855
 AudioSource:
