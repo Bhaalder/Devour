@@ -65,6 +65,8 @@ public class GameController : MonoBehaviour {
         }
         PlayerDiedEvent.RegisterListener(OnPlayerDied);
         BossDiedEvent.RegisterListener(OnBossDied);
+
+        FindObjectOfType<DataStorage>().LoadGameData();
     }
 
     private void OnPlayerDied(PlayerDiedEvent playerDiedEvent) {

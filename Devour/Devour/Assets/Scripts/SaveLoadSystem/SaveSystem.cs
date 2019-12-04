@@ -8,26 +8,79 @@ using System.Runtime.Serialization.Formatters.Binary;
 public static class SaveSystem
 {
 
-    private static string playerDataString = "/playerdata.sav";
-    private static string enemyDataString = "/enemydata.sav";
-    private static string levelDataString = "/leveldata.sav";
-    private static string[] allpaths = new string[] { playerDataString,enemyDataString,levelDataString};
-    private static List<EnemyData> dummyEnemyDataList = new List<EnemyData>();
+    private static string gameDataString = "/GameData.sav";
+    private static string settingsDataString = "/SettingsData.sav";
+    private static string talentTreeDataString = "/TalentTreeData.sav";
+    private static string playerDataString = "/playerData.sav";
+    private static string[] allpaths = new string[] { gameDataString, settingsDataString, talentTreeDataString, playerDataString };
 
-    #region PlayerData
-    public static void SavePlayer(GameController gameController)
+    public static void DeleteAllSaveFiles()
+    {
+        foreach (string savepath in allpaths)
+        {
+            string path = Application.persistentDataPath + savepath;
+            if (File.Exists(path))
+            {
+                File.Delete(path);
+            }
+        }
+    }
+    public static void SaveGame()
+    {
+        SaveGameData(GameController.Instance);
+        SavePlayerData(GameController.Instance.Player);
+    }
+
+    #region GameData
+    public static void SaveGameData(GameController gameController)
     {
         BinaryFormatter formatter = new BinaryFormatter();
-        string path = Application.persistentDataPath + playerDataString;
+        string path = Application.persistentDataPath + gameDataString;
         FileStream stream = new FileStream(path, FileMode.Create);
 
-        PlayerData data = new PlayerData(gameController);
+        GameData data = new GameData(gameController);
 
         formatter.Serialize(stream, data);
         stream.Close();
     }
 
-    public static PlayerData LoadPlayer()
+    public static GameData LoadGameData()
+    {
+        string path = Application.persistentDataPath + gameDataString;
+        if (File.Exists(path))
+        {
+            BinaryFormatter formatter = new BinaryFormatter();
+            FileStream stream = new FileStream(path, FileMode.Open);
+
+            GameData data = formatter.Deserialize(stream) as GameData;
+
+            stream.Close();
+
+            return data;
+        }
+        else
+        {
+            Debug.LogError("Save file not found in " + path);
+            return null;
+        }
+    }
+    #endregion;
+
+
+    #region PlayerData
+
+    public static void SavePlayerData(Player player)
+    {
+        BinaryFormatter formatter = new BinaryFormatter();
+        string path = Application.persistentDataPath + playerDataString;
+        FileStream stream = new FileStream(path, FileMode.Create);
+
+        PlayerData data = new PlayerData(player);
+
+        formatter.Serialize(stream, data);
+        stream.Close();
+    }
+    public static PlayerData LoadPlayerData()
     {
         string path = Application.persistentDataPath + playerDataString;
         if (File.Exists(path))
@@ -47,79 +100,32 @@ public static class SaveSystem
             return null;
         }
     }
-    #endregion
+    #endregion;
 
-    #region EnemyData
+    #region SettingsData
 
-    public static void WriteEnemyDataToFile(List<EnemyData> enemies)
-    {
-
-        DeleteEnemySaveFile();
-        BinaryFormatter formatter = new BinaryFormatter();
-        string path = Application.persistentDataPath + enemyDataString;
-        FileStream stream = new FileStream(path, FileMode.Create);
-
-        formatter.Serialize(stream, enemies);
-        stream.Close();
-
-        GameObject.FindObjectOfType<DataStorage>().ClearEnemyList();
-    }
-
-    public static List<EnemyData> LoadEnemies()
-    {
-
-        string path = Application.persistentDataPath + enemyDataString;
-        if (File.Exists(path))
-        {
-            BinaryFormatter formatter = new BinaryFormatter();
-            FileStream stream = new FileStream(path, FileMode.Open);
-
-            List<EnemyData> enemies = formatter.Deserialize(stream) as List<EnemyData>;
-
-            stream.Close();
-
-            return enemies;
-        }
-        else
-        {
-            Debug.LogError("Save file not found in " + path);
-            return dummyEnemyDataList;
-        }
-    }
-    public static void DeleteEnemySaveFile()
-    {
-        string path = Application.persistentDataPath + enemyDataString;
-
-        if (File.Exists(path))
-        {
-            File.Delete(path);
-        }
-
-    }
-    #endregion
-
-    #region LevelData
-    public static void SaveLevelData(DataStorage levelData)
+    public static void SaveSettingsData(Settings settingsData)
     {
         BinaryFormatter formatter = new BinaryFormatter();
-        string path = Application.persistentDataPath + levelDataString;
+        string path = Application.persistentDataPath + settingsDataString;
         FileStream stream = new FileStream(path, FileMode.Create);
 
-        LevelData data = new LevelData(levelData);
+        SettingsData data = new SettingsData(settingsData);
 
         formatter.Serialize(stream, data);
         stream.Close();
+        Debug.Log("Settings Saved");
     }
 
-    public static LevelData LoadLevelData()
+    public static SettingsData LoadSettingsData()
     {
-        string path = Application.persistentDataPath + levelDataString;
+        string path = Application.persistentDataPath + settingsDataString;
         if (File.Exists(path))
         {
             BinaryFormatter formatter = new BinaryFormatter();
             FileStream stream = new FileStream(path, FileMode.Open);
 
-            LevelData data = formatter.Deserialize(stream) as LevelData;
+            SettingsData data = formatter.Deserialize(stream) as SettingsData;
 
             stream.Close();
 
@@ -131,18 +137,5 @@ public static class SaveSystem
             return null;
         }
     }
-    #endregion
-
-    public static void DeleteAllSaveFiles()
-    {
-        foreach (string savepath in allpaths)
-        {
-            string path = Application.persistentDataPath + savepath;
-            if (File.Exists(path))
-            {
-                File.Delete(path);
-            }
-        }
-    }
-
+    #endregion;
 }

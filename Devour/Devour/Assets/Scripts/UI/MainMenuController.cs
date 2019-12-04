@@ -95,6 +95,10 @@ public class MainMenuController : MonoBehaviour{
     private void MenuNavigation(GameObject gameObjectSetActive, GameObject gameObjectSetInactive) {
         gameObjectSetActive.SetActive(true);
         gameObjectSetInactive.SetActive(false);
+        if(gameObjectSetInactive == soundOptionsGO)
+        {
+            SaveSystem.SaveSettingsData(FindObjectOfType<Settings>());
+        }
     }
 
     private void FadeScene() {
@@ -106,7 +110,15 @@ public class MainMenuController : MonoBehaviour{
     }
 
     private void LoadScene() {
-        SceneManager.LoadScene(sceneToLoad);
+        //TEMPORARY TEST FIX
+        if(DataStorage.Instance.RestingScene == null)
+        {
+            SceneManager.LoadScene(sceneToLoad);
+        }
+        else
+        {
+            SceneManager.LoadScene(DataStorage.Instance.RestingScene);
+        }
     }
 
 }

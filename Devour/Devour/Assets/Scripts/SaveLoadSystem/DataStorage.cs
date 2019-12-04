@@ -6,141 +6,189 @@ using UnityEngine.SceneManagement;
 //Author: Marcus Söderberg
 public class DataStorage : MonoBehaviour
 {
-    public float Timer { get; set; }
-    public int SceneBuildIndex { get; set; }
-    public int CurrentCheckpoint { get; set; }
     public int KillCount { get; set; }
 
-    [SerializeField] private GameObject Enemy1;
-    [SerializeField] private GameObject Enemy3;
-    [SerializeField] private GameObject Enemy4;
 
-    private List<EnemyData> EnemiesStorage { get; set; } = new List<EnemyData>();
     public PlayerData PlayerDataStorage { get; set; }
-    public LevelData levelDataStorage { get; set; }
+    public GameData GameData { get; set; }
 
-    public bool NewGame { get; set; }
+    public string RestingScene { get; set; }
 
+
+    private static DataStorage instance;
+
+    public static DataStorage Instance
+    {
+        get
+        {
+            if (instance == null)
+            {
+                instance = FindObjectOfType<DataStorage>();
+#if UNITY_EDITOR
+                if (FindObjectsOfType<DataStorage>().Length > 1)
+                {
+                    Debug.LogError("There is more than one game controller in the scene");
+                }
+#endif
+            }
+            return instance;
+        }
+    }
 
     private void Start()
     {
-        if (SceneManager.GetActiveScene().buildIndex != 0)
+        if (instance != null && instance != this)
         {
-            LoadGameData();
+            Destroy(gameObject);
+            Debug.LogWarning("Destroyed other Singleton with name: " + gameObject.name);
         }
-        else
+        DontDestroyOnLoad(gameObject);
+
+        if (SceneManager.GetActiveScene().buildIndex == 0)
         {
             LoadInMainMenu();
         }
 
-        NewGame = false;
-        DontDestroyOnLoad(gameObject);
+        if(GameData != null)
+        {
+            RestingScene = GameData.RestingScene;
+        }
+
+    }
+
+    private void Update()
+    {
+        SaveGame();
+    }
+
+    public void SaveGame()
+    {
+        if (SceneManager.GetActiveScene().buildIndex != 0 && SceneManager.GetActiveScene().buildIndex != 1)
+        {
+            SaveSystem.SaveGameData(GameController.Instance);
+            SaveSystem.SavePlayerData(GameController.Instance.Player);
+            Debug.Log("Game Saved");
+        }
+
     }
 
     #region PlayerData
 
     public void LoadPlayerData()
     {
-        PlayerData data = SaveSystem.LoadPlayer();
+        PlayerData data = SaveSystem.LoadPlayerData();
 
-        if(data != null)
+        if (data != null)
         {
-            //Load Values from file
+            GameController.Instance.Player.PlayerAbilities = data.PlayerAbilities;
+
+            GameController.Instance.Player.MaxHealth = data.MaxHealth;
+            GameController.Instance.Player.Health = data.Health;
+            GameController.Instance.Player.MaxPlayerVoid = data.MaxPlayerVoid;
+            GameController.Instance.Player.PlayerVoid = data.PlayerVoid;
+            GameController.Instance.Player.DamageReduction = data.DamageReduction;
+            GameController.Instance.Player.MeleeDamage = data.MeleeDamage;
+            GameController.Instance.Player.ProjectileDamage = data.ProjectileDamage;
+            GameController.Instance.Player.KnockbackForce = data.KnockbackForce;
+            GameController.Instance.Player.BounceForce = data.BounceForce;
+            GameController.Instance.Player.MeleeCooldown = data.MeleeCooldown;
+            GameController.Instance.Player.UntilNextMeleeAttack = data.UntilNextMeleeAttack;
+            GameController.Instance.Player.MeleeLifeLeech = data.MeleeLifeLeech;
+            GameController.Instance.Player.MeleeVoidLeech = data.MeleeVoidLeech;
+            GameController.Instance.Player.ProjectileCooldown = data.ProjectileCooldown;
+            GameController.Instance.Player.UntilNextProjectileAttack = data.UntilNextProjectileAttack;
+            GameController.Instance.Player.ProjectileHealthcost = data.ProjectileHealthcost;
+
+            GameController.Instance.Player.ExtraJumps = data.ExtraJumps;
+            GameController.Instance.Player.MovementSpeed = data.MovementSpeed;
+            GameController.Instance.Player.DashCooldown = data.DashCooldown;
+
+            GameController.Instance.Player.TalentMeleeDamage = data.TalentMeleeDamage;
+            GameController.Instance.Player.TalentProjectileDamage = data.TalentProjectileDamage;
+            GameController.Instance.Player.TalentHealth = data.TalentHealth;
+            GameController.Instance.Player.TalentLifeLeech = data.TalentLifeLeech;
+            GameController.Instance.Player.TalentMovementSpeed = data.TalentMovementSpeed;
+            GameController.Instance.Player.TalentDashCooldown = data.TalentDashCooldown;
+            GameController.Instance.Player.TalentPlayerVoid = data.TalentPlayerVoid;
+            GameController.Instance.Player.TalentVoidLeech = data.TalentVoidLeech;
+
+            GameController.Instance.Player.TalentPoints = data.TalentPoints;
+            GameController.Instance.Player.Collectibles = data.Collectibles;
+
         }
     }
     #endregion;
 
-    #region EnemyData
-    public void SaveEnemyData()
-    {
-        SaveSystem.DeleteEnemySaveFile();
-        try
-        {
-            ClearEnemyList();
-        }
-        catch (System.Exception e)
-        {
-            Debug.Log("Could not clear DataStorage.EnemiesStorage: " + e);
-        }
 
-        GameObject[] gameObjects = GameObject.FindGameObjectsWithTag("Enemy");
-        foreach (GameObject target in gameObjects)
-        {
-            //Save enemies to list here
-            //EnemyData data = new EnemyData(target.GetComponent<Enemy>().SaveEnemyData());
-            //EnemiesStorage.Add(data);
-            //Debug.Log("Enemy Saved");
-        }
-
-        SaveSystem.WriteEnemyDataToFile(EnemiesStorage);
-    }
-
-    public void LoadEnemyData()
-    {
-        EnemiesStorage = SaveSystem.LoadEnemies();
-
-        if (EnemiesStorage != null)
-        {
-            GameObject[] gameObjects = GameObject.FindGameObjectsWithTag("Enemy");
-            GameObject[] spawners = GameObject.FindGameObjectsWithTag("Spawner");
-            foreach (GameObject target in gameObjects)
-            {
-                Destroy(target);
-            }
-
-            foreach (EnemyData enemyData in EnemiesStorage)
-            {
-                //load enemies from save
-            }
-        }
-    }
-
-    public void ClearEnemyList()
-    {
-        EnemiesStorage.Clear();
-    }
-    #endregion
-
-    #region LevelData
-    public void SaveLevelData()
-    {
-        SaveSystem.SaveLevelData(this);
-    }
-    public void LoadLevelData()
-    {
-        LevelData data = SaveSystem.LoadLevelData();
-
-        if (data != null)
-        {
-            //load level variables here
-        }
-    }
-    #endregion
-
-    public void SaveGame()
-    {
-        SaveEnemyData();
-        SaveLevelData();
-    }
-
+    #region GameData
     public void LoadGameData()
     {
-        LoadLevelData();
-        LoadEnemyData();
-    }
+        GameData data = SaveSystem.LoadGameData();
 
-    public void LoadLastLevelData()
-    {
-        LevelData data = SaveSystem.LoadLevelData();
         if (data != null)
         {
-            SceneBuildIndex = data.SceneBuildIndex;
+            GameController.Instance.SceneCheckpoint = new Vector3(data.SceneCheckpoint[0], data.SceneCheckpoint[1], data.SceneCheckpoint[2]);
+
+            GameController.Instance.RestingCheckpoint = new Vector3(data.RestingCheckpoint[0], data.RestingCheckpoint[1], data.RestingCheckpoint[2]);
+
+            GameController.Instance.RestingScene = data.RestingScene;
+
+            //PlayerLifeForce = gameController.PlayerLifeForce;
+
+            GameController.Instance.DestroyedDestructibles = data.DestroyedDestructibles;
+            GameController.Instance.DestroyedPlatforms = data.DestroyedPlatforms;
+            GameController.Instance.CollectedVoidEssences = data.CollectedVoidEssences;
+            GameController.Instance.DestroyedVoidGenerators = data.DestroyedVoidGenerators;
+            GameController.Instance.OneTimeTips = data.OneTimeTips;
+            GameController.Instance.HiddenAreasFound = data.HiddenAreasFound;
+            GameController.Instance.KilledBosses = data.KilledBosses;
         }
     }
+    #endregion;
+
+    #region SettingsData
+    public void LoadSettingsData()
+    {
+
+        SettingsData settingsData = SaveSystem.LoadSettingsData();
+
+        if (settingsData != null)
+        {
+            #region Audio Sliders
+            AudioMixerVolumeEvent MasterVolumeEvent = new AudioMixerVolumeEvent
+            {
+                soundMixerType = SoundMixerType.MASTER,
+                volume = settingsData.MasterVolumeSliderValue
+            };
+            AudioMixerVolumeEvent MusicVolumeEvent = new AudioMixerVolumeEvent
+            {
+                soundMixerType = SoundMixerType.MUSIC,
+                volume = settingsData.MusicVolumeSliderValue
+            };
+            AudioMixerVolumeEvent SfxVolumeEvent = new AudioMixerVolumeEvent
+            {
+                soundMixerType = SoundMixerType.SFX,
+                volume = settingsData.SfxVolumeSliderValue
+            };
+            AudioMixerVolumeEvent VoiceVolumeEvent = new AudioMixerVolumeEvent
+            {
+                soundMixerType = SoundMixerType.VOICE,
+                volume = settingsData.VoiceVolumeSliderValue
+            };
+            MasterVolumeEvent.FireEvent();
+            MusicVolumeEvent.FireEvent();
+            SfxVolumeEvent.FireEvent();
+            VoiceVolumeEvent.FireEvent();
+
+            #endregion;
+        }
+    }
+
+    #endregion;
 
     IEnumerator OnApplicationQuit()
     {
-        if(SceneManager.GetActiveScene().buildIndex != 0)
+        if (SceneManager.GetActiveScene().buildIndex != 0)
         {
             SaveGame();
         }
@@ -148,10 +196,12 @@ public class DataStorage : MonoBehaviour
         Debug.Log("Game Exit");
     }
 
+
     private void LoadInMainMenu()
     {
-        EnemiesStorage = SaveSystem.LoadEnemies();
-        levelDataStorage = SaveSystem.LoadLevelData();
-        PlayerDataStorage = SaveSystem.LoadPlayer();
+        PlayerDataStorage = SaveSystem.LoadPlayerData();
+        GameData = SaveSystem.LoadGameData();
+        LoadSettingsData();
     }
+
 }

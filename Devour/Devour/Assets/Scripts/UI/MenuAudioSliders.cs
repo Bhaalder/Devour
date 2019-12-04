@@ -28,6 +28,8 @@ public class MenuAudioSliders : MonoBehaviour {
         MusicVolumeSlider = musicVolumeSlider;
         SfxVolumeSlider = sfxVolumeSlider;
         VoiceVolumeSlider = voiceVolumeSlider;
+
+        LoadAudioSettings();
     }
     //alla sliders ska vara mellan -80 till 0 i valuerange
     public void MasterValueChangeCheck() {
@@ -60,5 +62,14 @@ public class MenuAudioSliders : MonoBehaviour {
             volume = voiceVolumeSlider.value
         };
         voiceVolumeEvent.FireEvent();
+    }
+
+    private void LoadAudioSettings()
+    {
+        SettingsData audioSettings = SaveSystem.LoadSettingsData();
+        masterVolumeSlider.value = audioSettings.MasterVolumeSliderValue;
+        musicVolumeSlider.value = audioSettings.MusicVolumeSliderValue;
+        sfxVolumeSlider.value = audioSettings.SfxVolumeSliderValue;
+        //voiceVolumeSlider.value = audioSettings.VoiceVolumeSliderValue;
     }
 }

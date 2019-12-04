@@ -255,6 +255,8 @@ public class Player : StateMachine {
         VoidTalentScreenEvent.RegisterListener(OnVoidTalentScreen);
 
         base.Awake();
+
+        FindObjectOfType<DataStorage>().LoadPlayerData();
     }
 
     private void Start() {
