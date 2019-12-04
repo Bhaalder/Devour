@@ -40,6 +40,12 @@ public class GameController : MonoBehaviour {
     }
 
     private void Awake() {
+
+        if (FindObjectOfType<DataStorage>())
+        {
+            DataStorage.Instance.LoadGameData();
+        }
+        
         if (instance != null && instance != this) {
             Destroy(gameObject);
             Debug.LogWarning("Destroyed other Singleton with name: " + gameObject.name);
@@ -66,7 +72,7 @@ public class GameController : MonoBehaviour {
         PlayerDiedEvent.RegisterListener(OnPlayerDied);
         BossDiedEvent.RegisterListener(OnBossDied);
 
-        FindObjectOfType<DataStorage>().LoadGameData();
+        
     }
 
     private void OnPlayerDied(PlayerDiedEvent playerDiedEvent) {

@@ -50,20 +50,20 @@ public class PlayerData
         Health = playerData.Health;
         MaxPlayerVoid = playerData.MaxPlayerVoid;
         PlayerVoid = playerData.PlayerVoid;
-        DamageReduction = playerData.DamageReduction;
+        //DamageReduction = playerData.DamageReduction;
         MeleeDamage = playerData.MeleeDamage;
         ProjectileDamage = playerData.ProjectileDamage;
-        KnockbackForce = playerData.KnockbackForce;
-        BounceForce = playerData.BounceForce;
-        MeleeCooldown = playerData.MeleeCooldown;
-        UntilNextMeleeAttack = playerData.UntilNextMeleeAttack;
+        //KnockbackForce = playerData.KnockbackForce;
+        //BounceForce = playerData.BounceForce;
+        //MeleeCooldown = playerData.MeleeCooldown;
+        //UntilNextMeleeAttack = playerData.UntilNextMeleeAttack;
         MeleeLifeLeech = playerData.MeleeLifeLeech;
         MeleeVoidLeech = playerData.MeleeVoidLeech;
-        ProjectileCooldown = playerData.ProjectileCooldown;
-        UntilNextProjectileAttack = playerData.UntilNextProjectileAttack;
-        ProjectileHealthcost = playerData.ProjectileHealthcost;
+        //ProjectileCooldown = playerData.ProjectileCooldown;
+        //UntilNextProjectileAttack = playerData.UntilNextProjectileAttack;
+        //ProjectileHealthcost = playerData.ProjectileHealthcost;
 
-        ExtraJumps = playerData.ExtraJumps;
+        //ExtraJumps = playerData.ExtraJumps;
         MovementSpeed = playerData.MovementSpeed;
         DashCooldown = playerData.DashCooldown;
 

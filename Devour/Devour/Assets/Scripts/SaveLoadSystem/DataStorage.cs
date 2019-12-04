@@ -82,24 +82,24 @@ public class DataStorage : MonoBehaviour
         {
             GameController.Instance.Player.PlayerAbilities = data.PlayerAbilities;
 
-            GameController.Instance.Player.MaxHealth = data.MaxHealth;
-            GameController.Instance.Player.Health = data.Health;
-            GameController.Instance.Player.MaxPlayerVoid = data.MaxPlayerVoid;
-            GameController.Instance.Player.PlayerVoid = data.PlayerVoid;
-            GameController.Instance.Player.DamageReduction = data.DamageReduction;
-            GameController.Instance.Player.MeleeDamage = data.MeleeDamage;
-            GameController.Instance.Player.ProjectileDamage = data.ProjectileDamage;
-            GameController.Instance.Player.KnockbackForce = data.KnockbackForce;
-            GameController.Instance.Player.BounceForce = data.BounceForce;
-            GameController.Instance.Player.MeleeCooldown = data.MeleeCooldown;
-            GameController.Instance.Player.UntilNextMeleeAttack = data.UntilNextMeleeAttack;
-            GameController.Instance.Player.MeleeLifeLeech = data.MeleeLifeLeech;
-            GameController.Instance.Player.MeleeVoidLeech = data.MeleeVoidLeech;
-            GameController.Instance.Player.ProjectileCooldown = data.ProjectileCooldown;
-            GameController.Instance.Player.UntilNextProjectileAttack = data.UntilNextProjectileAttack;
-            GameController.Instance.Player.ProjectileHealthcost = data.ProjectileHealthcost;
+            //GameController.Instance.Player.MaxHealth = data.MaxHealth;
+            //GameController.Instance.Player.Health = data.Health;
+            //GameController.Instance.Player.MaxPlayerVoid = data.MaxPlayerVoid;
+            //GameController.Instance.Player.PlayerVoid = data.PlayerVoid;
+            //GameController.Instance.Player.DamageReduction = data.DamageReduction;
+            //GameController.Instance.Player.MeleeDamage = data.MeleeDamage;
+            //GameController.Instance.Player.ProjectileDamage = data.ProjectileDamage;
+            //GameController.Instance.Player.KnockbackForce = data.KnockbackForce;
+            //GameController.Instance.Player.BounceForce = data.BounceForce;
+            //GameController.Instance.Player.MeleeCooldown = data.MeleeCooldown;
+            //GameController.Instance.Player.UntilNextMeleeAttack = data.UntilNextMeleeAttack;
+            //GameController.Instance.Player.MeleeLifeLeech = data.MeleeLifeLeech;
+            //GameController.Instance.Player.MeleeVoidLeech = data.MeleeVoidLeech;
+            //GameController.Instance.Player.ProjectileCooldown = data.ProjectileCooldown;
+            //GameController.Instance.Player.UntilNextProjectileAttack = data.UntilNextProjectileAttack;
+            //GameController.Instance.Player.ProjectileHealthcost = data.ProjectileHealthcost;
 
-            GameController.Instance.Player.ExtraJumps = data.ExtraJumps;
+            //GameController.Instance.Player.ExtraJumps = data.ExtraJumps;
             GameController.Instance.Player.MovementSpeed = data.MovementSpeed;
             GameController.Instance.Player.DashCooldown = data.DashCooldown;
 
@@ -142,6 +142,7 @@ public class DataStorage : MonoBehaviour
             GameController.Instance.OneTimeTips = data.OneTimeTips;
             GameController.Instance.HiddenAreasFound = data.HiddenAreasFound;
             GameController.Instance.KilledBosses = data.KilledBosses;
+
         }
     }
     #endregion;

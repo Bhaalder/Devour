@@ -256,7 +256,12 @@ public class Player : StateMachine {
 
         base.Awake();
 
-        FindObjectOfType<DataStorage>().LoadPlayerData();
+        if (FindObjectOfType<DataStorage>())
+        {
+            DataStorage.Instance.LoadPlayerData();
+            GameController.Instance.Player.transform.position = GameController.Instance.RestingCheckpoint;
+        }
+
     }
 
     private void Start() {
