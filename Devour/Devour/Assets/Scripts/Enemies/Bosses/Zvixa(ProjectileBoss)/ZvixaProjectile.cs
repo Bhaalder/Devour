@@ -11,13 +11,13 @@ public class ZvixaProjectile : MonoBehaviour{
     public float Speed { get; set; }
 
     private Transform player;
-    private Rigidbody2D rb;
+    private Rigidbody2D rigidBody2D;
     private CircleCollider2D circleCollider2D;
     private bool gotHit;
 
     private void Start(){
         player = GameController.Instance.Player.transform;
-        rb = GetComponent<Rigidbody2D>();
+        rigidBody2D = GetComponent<Rigidbody2D>();
         circleCollider2D = GetComponent<CircleCollider2D>();
         PlayerAttackEvent.RegisterListener(GetHit);
         BossDiedEvent.RegisterListener(BossDied);
@@ -44,8 +44,8 @@ public class ZvixaProjectile : MonoBehaviour{
                 knockBack = new Vector2(attackEvent.player.FacingDirection * attackEvent.player.KnockbackForce * 1.3f, 0);
             }
             gotHit = true;
-            rb.velocity = Vector2.zero;
-            rb.velocity = knockBack;
+            rigidBody2D.velocity = Vector2.zero;
+            rigidBody2D.velocity = knockBack;
         }
     }
 

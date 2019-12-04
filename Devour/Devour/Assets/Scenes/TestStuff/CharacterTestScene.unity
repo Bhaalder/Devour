@@ -546,6 +546,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: MushroomTrampoline_2
       objectReference: {fileID: 0}
+    - target: {fileID: 1211210508618436, guid: 214706e734a4dbc4cbe238be19e8868d, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4177580007460818, guid: 214706e734a4dbc4cbe238be19e8868d, type: 3}
       propertyPath: m_LocalPosition.x
       value: -11.63
@@ -892,20 +896,15 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy5
       objectReference: {fileID: 0}
-    - target: {fileID: 95880808172713300, guid: 0e160e3e45f1e43459b39e60c61fa54d,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 95880808172713297, guid: 0e160e3e45f1e43459b39e60c61fa54d,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 17.5565
+      value: -9.95
       objectReference: {fileID: 0}
     - target: {fileID: 95880808172713297, guid: 0e160e3e45f1e43459b39e60c61fa54d,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.3363438
+      value: 28.23
       objectReference: {fileID: 0}
     - target: {fileID: 95880808172713297, guid: 0e160e3e45f1e43459b39e60c61fa54d,
         type: 3}
@@ -1783,6 +1782,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: MushroomTrampoline_1
       objectReference: {fileID: 0}
+    - target: {fileID: 1807646745911874, guid: efc36e416b6fc8b4388859f34c93f61a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4697096117090914, guid: efc36e416b6fc8b4388859f34c93f61a, type: 3}
       propertyPath: m_LocalPosition.x
       value: -16.67
@@ -1813,7 +1816,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4697096117090914, guid: efc36e416b6fc8b4388859f34c93f61a, type: 3}
       propertyPath: m_RootOrder
-      value: 7
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 4697096117090914, guid: efc36e416b6fc8b4388859f34c93f61a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -1845,6 +1848,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: MushroomTrampoline_3
       objectReference: {fileID: 0}
+    - target: {fileID: 1936917324783172, guid: 19c14fd3a54d94f48b38eb1615c8b4ad, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4060602447508796, guid: 19c14fd3a54d94f48b38eb1615c8b4ad, type: 3}
       propertyPath: m_LocalPosition.x
       value: -21.46
@@ -1875,7 +1882,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4060602447508796, guid: 19c14fd3a54d94f48b38eb1615c8b4ad, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 4060602447508796, guid: 19c14fd3a54d94f48b38eb1615c8b4ad, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -2949,7 +2956,7 @@ PrefabInstance:
     - target: {fileID: 2051252242966345557, guid: b4498a2d079c47e42ae6dad210326b58,
         type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 2051252242966345557, guid: b4498a2d079c47e42ae6dad210326b58,
         type: 3}
@@ -3358,7 +3365,7 @@ PrefabInstance:
     - target: {fileID: 3752226931262427211, guid: ba1d249ac0a79f9429f90987bcfbee98,
         type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 3752226931262427211, guid: ba1d249ac0a79f9429f90987bcfbee98,
         type: 3}

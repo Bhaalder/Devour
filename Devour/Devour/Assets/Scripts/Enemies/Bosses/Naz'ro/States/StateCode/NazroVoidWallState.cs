@@ -10,7 +10,10 @@ public class NazroVoidWallState : NazroBaseState {
     [SerializeField] private float voidWallWindUpTime;
     [Tooltip("How long time the wallattack lasts")]
     [SerializeField] private float voidWallAttackTime;
+    [Tooltip("(Second Phase only) How long before the HorizontalVoidWall spawns")]
+    [SerializeField] private float voidWallWaitTime;
     private float windUpLeft;
+    private float waitTimeLeft;
     private float attackTimeLeft;
     private bool wallIsSpawned;
 
@@ -18,6 +21,7 @@ public class NazroVoidWallState : NazroBaseState {
         owner.State = BossNazroState.VOID_WALL;
         owner.BossLog("VoidWallState");
         windUpLeft = voidWallWindUpTime;
+        waitTimeLeft = voidWallWaitTime;
         attackTimeLeft = voidWallAttackTime;
         wallIsSpawned = false;
         base.Enter();
@@ -34,6 +38,9 @@ public class NazroVoidWallState : NazroBaseState {
             SpawnWall();
             wallIsSpawned = true;
         }
+        if(owner.IsSecondPhase) {
+            SpawnWall();
+        }
         if (attackTimeLeft <= 0) {
             owner.Transition<NazroIdleState>();
         }
@@ -42,8 +49,13 @@ public class NazroVoidWallState : NazroBaseState {
 
     private void SpawnWall() {
         if (owner.IsSecondPhase) {
-            owner.VerticalVoidWall.SetActive(true);
-            owner.HorizontalVoidWall.SetActive(true);
+            if (!owner.VerticalVoidWall.activeSelf) {
+                owner.VerticalVoidWall.SetActive(true);
+            }
+            if(!owner.HorizontalVoidWall.activeSelf && waitTimeLeft <= 0) {
+                owner.HorizontalVoidWall.SetActive(true);
+            }
+            waitTimeLeft -= Time.deltaTime;
             return;
         }
         int i = Random.Range(0, 2) + 1;
