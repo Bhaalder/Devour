@@ -9,53 +9,98 @@ public class NazroVoidBomb : MonoBehaviour {
     public float LifeSpan { get; set; }
     public float Speed { get; set; }
 
+    [SerializeField] private GameObject explosion;
+
+    private bool isStartingToExplode;
     private Transform player;
     private CircleCollider2D circleCollider2D;
+    private Rigidbody2D rigidBody2D;
 
     private void Start() {
         player = GameController.Instance.Player.transform;
         circleCollider2D = GetComponent<CircleCollider2D>();
+        rigidBody2D = GetComponent<Rigidbody2D>();
         PlayerAttackEvent.RegisterListener(GetHit);
         BossDiedEvent.RegisterListener(BossDied);
     }
 
     private void FixedUpdate() {
         LifeSpan -= Time.deltaTime;
-        transform.position = Vector2.MoveTowards(transform.position, player.position, Speed * Time.deltaTime);
-        if (LifeSpan <= 0) {
-            Destroy(gameObject);//FÖR TILLFÄLLET
+        if (!isStartingToExplode) {
+            transform.position = Vector2.MoveTowards(transform.position, player.position, Speed * Time.deltaTime);
+        }
+        if (LifeSpan <= 0 && !isStartingToExplode) {
+            Explode();
         }
     }
 
     private void GetHit(PlayerAttackEvent attackEvent) {
-        if (attackEvent.attackCollider.bounds.Intersects(circleCollider2D.bounds)) {
-            if (attackEvent.isMeleeAttack) {
-                Explode();
-            } else {
-                Destroy(gameObject);
-            }          
+        try {
+            if (attackEvent.attackCollider.bounds.Intersects(circleCollider2D.bounds)) {
+                //Vector2 knockBack;
+                //if (attackEvent.isMeleeAttack) {
+                //    if (!attackEvent.player.IsGrounded && attackEvent.player.IsAttackingDown && attackEvent.isMeleeAttack) {
+                //        attackEvent.player.ExtraJumpsLeft = attackEvent.player.ExtraJumps;
+                //        attackEvent.player.DashesLeft = attackEvent.player.NumberOfDashes;
+                //        attackEvent.player.Rb2D.velocity = new Vector2(attackEvent.player.Rb2D.velocity.x, 0);
+                //        attackEvent.player.Rb2D.velocity = new Vector2(attackEvent.player.Rb2D.velocity.x, attackEvent.player.BounceForce);
+                //        return;
+                //    }
+                //    if (attackEvent.player.IsAttackingUp) {
+                //        knockBack = new Vector2(0, attackEvent.player.KnockbackForce);
+                //        rigidBody2D.velocity = knockBack;
+                //        return;
+                //    }
+                //    if (attackEvent.player.IsAttackingDown) {
+                //        knockBack = new Vector2(0, -attackEvent.player.KnockbackForce);
+                //        rigidBody2D.velocity = knockBack;
+                //        return;
+                //    }
+                //    knockBack = new Vector2(attackEvent.player.FacingDirection * attackEvent.player.KnockbackForce, 0);
+                //    rigidBody2D.velocity = knockBack;
+                //} else {
+                //    Explode();
+                //}
+                Vector2 knockBack;
+                if (attackEvent.player.IsAttackingDown) {
+                    knockBack = new Vector2(0, -attackEvent.player.KnockbackForce * 1.3f);
+                } else if (attackEvent.player.IsAttackingUp) {
+                    knockBack = new Vector2(0, attackEvent.player.KnockbackForce * 1.3f);
+                } else {
+                    knockBack = new Vector2(attackEvent.player.FacingDirection * attackEvent.player.KnockbackForce * 1.3f, 0);
+                }
+                rigidBody2D.velocity = Vector2.zero;
+                rigidBody2D.velocity = knockBack;
+            }
+        } catch (System.NullReferenceException) {
+            Debug.LogWarning("A missing reference in PlayerAttackEvent, check Log!");
         }
     }
 
     private void OnTriggerEnter2D(Collider2D collision) {
         if (collision.gameObject.tag == "Player") {
-            Debug.Log("Collided with Player");
-            PlayerTakeDamageEvent playerTakeDamage = new PlayerTakeDamageEvent {
-                damage = Damage,
-                enemyPosition = GetComponent<Rigidbody2D>().position
-            };
-            playerTakeDamage.FireEvent();
+            //Debug.Log("Collided with Player");
+            //PlayerTakeDamageEvent playerTakeDamage = new PlayerTakeDamageEvent {
+            //    damage = Damage,
+            //    enemyPosition = GetComponent<Rigidbody2D>().position
+            //};
+            //playerTakeDamage.FireEvent();
             Explode();
         }
     }
 
     private void Explode() {//FÖR TILLFÄLLET
-        Debug.Log("PANG");
-        PlayerTakeDamageEvent playerTakeDamage = new PlayerTakeDamageEvent {
-            damage = Damage,
-            enemyPosition = GetComponent<Rigidbody2D>().position
-        };
-        playerTakeDamage.FireEvent();
+        if (!isStartingToExplode) {
+            Debug.Log("Börjar explodera");
+            rigidBody2D.velocity = Vector2.zero;
+            StartCoroutine(CountDown());
+            isStartingToExplode = true;
+        }
+    }
+
+    private IEnumerator CountDown() {
+        yield return new WaitForSecondsRealtime(2);
+        Instantiate(explosion, transform.position, Quaternion.identity);
         Destroy(gameObject);
     }
 

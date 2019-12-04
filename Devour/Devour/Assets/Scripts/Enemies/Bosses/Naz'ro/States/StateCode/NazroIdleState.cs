@@ -52,6 +52,8 @@ public class NazroIdleState : NazroBaseState {
     }
 
     private void ChooseAction() {
+        //owner.Transition<NazroVoidBombState>();
+        //return;
         int i = Random.Range(0, 4) + 1;
         switch (i) {
             case 1:

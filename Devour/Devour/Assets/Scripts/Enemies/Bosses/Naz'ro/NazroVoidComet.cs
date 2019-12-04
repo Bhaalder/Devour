@@ -20,14 +20,14 @@ public class NazroVoidComet : MonoBehaviour {
     private float lastKnownPlayerYPos;
     private bool isMoving;
     
-    private SpriteRenderer spriteRend;
+    private SpriteRenderer spriteRenderer;
     private Transform player;
     private GameObject warningParticle;
     private CircleCollider2D circleCollider2D;   
 
     private void Start() {
-        spriteRend = GetComponent<SpriteRenderer>();
-        spriteRend.color = new Color(spriteRend.color.r, spriteRend.color.g, spriteRend.color.b, 0);
+        spriteRenderer = GetComponent<SpriteRenderer>();
+        spriteRenderer.color = new Color(spriteRenderer.color.r, spriteRenderer.color.g, spriteRenderer.color.b, 0);
         player = GameController.Instance.Player.transform;
         circleCollider2D = GetComponent<CircleCollider2D>();
         if (isVerticalComet) {
@@ -38,6 +38,7 @@ public class NazroVoidComet : MonoBehaviour {
         warningParticle = Instantiate(warningParticlePrefab, transform.localPosition, Quaternion.identity);
         windUpLeft = WindUp;
         PlayerAttackEvent.RegisterListener(GetHit);
+        PlayerTouchKillzoneEvent.RegisterListener(OnPlayerTouchKillzone);
         BossDiedEvent.RegisterListener(BossDied);
     }
 
@@ -51,7 +52,7 @@ public class NazroVoidComet : MonoBehaviour {
             return;
         }
         isMoving = true;
-        spriteRend.color = new Color(spriteRend.color.r, spriteRend.color.g, spriteRend.color.b, 255);
+        spriteRenderer.color = new Color(spriteRenderer.color.r, spriteRenderer.color.g, spriteRenderer.color.b, 255);
         Destroy(warningParticle);
     }
 
@@ -69,6 +70,13 @@ public class NazroVoidComet : MonoBehaviour {
         if (attackEvent.attackCollider.bounds.Intersects(circleCollider2D.bounds)) {
             //SKA NÅGOT HÄNDA DÅ?
         }
+    }
+
+    private void OnPlayerTouchKillzone(PlayerTouchKillzoneEvent killzoneEvent) {
+        if (isPlatformingComet) {
+            Destroy(gameObject);
+        }
+
     }
 
     private void OnTriggerStay2D(Collider2D collision) {
@@ -102,6 +110,7 @@ public class NazroVoidComet : MonoBehaviour {
 
     private void OnDestroy() {
         PlayerAttackEvent.UnRegisterListener(GetHit);
+        PlayerTouchKillzoneEvent.UnRegisterListener(OnPlayerTouchKillzone);
         BossDiedEvent.UnRegisterListener(BossDied);
     }
 
