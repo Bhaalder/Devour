@@ -12,9 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a7316e6351355484c8f401ee6ccbfbca, type: 3}
   m_Name: NazroVoidBombState
   m_EditorClassIdentifier: 
-  color: {r: 1, g: 0, b: 0, a: 1}
   voidBombWindUpTime: 0.5
-  voidBombAttackTime: 1
+  voidBombAttackTime: 2.5
   bombDamage: 25
   voidBombSpeed: 7
   bombLifespan: 4
