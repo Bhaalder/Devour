@@ -74,6 +74,9 @@ public class NazroVoidComet : MonoBehaviour {
 
     private void OnPlayerTouchKillzone(PlayerTouchKillzoneEvent killzoneEvent) {
         if (isPlatformingComet) {
+            if(warningParticle != null) {
+                Destroy(warningParticle);
+            }
             Destroy(gameObject);
         }
 
