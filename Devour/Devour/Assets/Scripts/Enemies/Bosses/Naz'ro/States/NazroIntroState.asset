@@ -12,5 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86683e21aacab7149a51bea8407a94d5, type: 3}
   m_Name: NazroIntroState
   m_EditorClassIdentifier: 
-  color: {r: 1, g: 1, b: 1, a: 1}
   introTime: 1
