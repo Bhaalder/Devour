@@ -82,35 +82,18 @@ public class DataStorage : MonoBehaviour
         {
             GameController.Instance.Player.PlayerAbilities = data.PlayerAbilities;
 
-            //GameController.Instance.Player.MaxHealth = data.MaxHealth;
-            //GameController.Instance.Player.Health = data.Health;
-            //GameController.Instance.Player.MaxPlayerVoid = data.MaxPlayerVoid;
-            //GameController.Instance.Player.PlayerVoid = data.PlayerVoid;
-            //GameController.Instance.Player.DamageReduction = data.DamageReduction;
-            //GameController.Instance.Player.MeleeDamage = data.MeleeDamage;
-            //GameController.Instance.Player.ProjectileDamage = data.ProjectileDamage;
-            //GameController.Instance.Player.KnockbackForce = data.KnockbackForce;
-            //GameController.Instance.Player.BounceForce = data.BounceForce;
-            //GameController.Instance.Player.MeleeCooldown = data.MeleeCooldown;
-            //GameController.Instance.Player.UntilNextMeleeAttack = data.UntilNextMeleeAttack;
-            //GameController.Instance.Player.MeleeLifeLeech = data.MeleeLifeLeech;
-            //GameController.Instance.Player.MeleeVoidLeech = data.MeleeVoidLeech;
-            //GameController.Instance.Player.ProjectileCooldown = data.ProjectileCooldown;
-            //GameController.Instance.Player.UntilNextProjectileAttack = data.UntilNextProjectileAttack;
-            //GameController.Instance.Player.ProjectileHealthcost = data.ProjectileHealthcost;
+            GameController.Instance.Player.MaxHealth = data.MaxHealth;
+            GameController.Instance.Player.Health = data.Health;
+            GameController.Instance.Player.MaxPlayerVoid = data.MaxPlayerVoid;
 
-            //GameController.Instance.Player.ExtraJumps = data.ExtraJumps;
+            GameController.Instance.Player.MeleeDamage = data.MeleeDamage;
+            GameController.Instance.Player.ProjectileDamage = data.ProjectileDamage;
+
+            GameController.Instance.Player.MeleeLifeLeech = data.MeleeLifeLeech;
+            GameController.Instance.Player.MeleeVoidLeech = data.MeleeVoidLeech;
+
             GameController.Instance.Player.MovementSpeed = data.MovementSpeed;
             GameController.Instance.Player.DashCooldown = data.DashCooldown;
-
-            GameController.Instance.Player.TalentMeleeDamage = data.TalentMeleeDamage;
-            GameController.Instance.Player.TalentProjectileDamage = data.TalentProjectileDamage;
-            GameController.Instance.Player.TalentHealth = data.TalentHealth;
-            GameController.Instance.Player.TalentLifeLeech = data.TalentLifeLeech;
-            GameController.Instance.Player.TalentMovementSpeed = data.TalentMovementSpeed;
-            GameController.Instance.Player.TalentDashCooldown = data.TalentDashCooldown;
-            GameController.Instance.Player.TalentPlayerVoid = data.TalentPlayerVoid;
-            GameController.Instance.Player.TalentVoidLeech = data.TalentVoidLeech;
 
             GameController.Instance.Player.TalentPoints = data.TalentPoints;
             GameController.Instance.Player.Collectibles = data.Collectibles;

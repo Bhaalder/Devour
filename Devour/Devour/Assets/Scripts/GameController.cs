@@ -41,10 +41,7 @@ public class GameController : MonoBehaviour {
 
     private void Awake() {
 
-        if (FindObjectOfType<DataStorage>())
-        {
-            DataStorage.Instance.LoadGameData();
-        }
+
         
         if (instance != null && instance != this) {
             Destroy(gameObject);
@@ -58,6 +55,12 @@ public class GameController : MonoBehaviour {
         DestroyedVoidGenerators = new Dictionary<string, List<int>>();
         HiddenAreasFound = new Dictionary<string, List<int>>();
         OneTimeTips = new Dictionary<string, List<int>>();
+
+        if (FindObjectOfType<DataStorage>())
+        {
+            DataStorage.Instance.LoadGameData();
+        }
+
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
         if (SceneCheckpoint == null) {

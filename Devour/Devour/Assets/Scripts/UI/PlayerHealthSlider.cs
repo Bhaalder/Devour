@@ -18,7 +18,7 @@ public class PlayerHealthSlider : MonoBehaviour{
     private void Start() {
         healthSlider = GetComponent<Slider>();
         healthSlider.maxValue = GameController.Instance.Player.MaxHealth;
-        healthSlider.value = GameController.Instance.Player.Health;
+        healthSlider.value = GameController.Instance.Player.MaxHealth;
     }
 
     private void TouchKillzone(PlayerTouchKillzoneEvent touchKillzoneEvent) {
