@@ -14,7 +14,7 @@ public class Boss2BaseState : State
     public override void Enter()
     {
         base.Enter();
-        owner.State = Boss2State.NONE;
+        
     }
 
     public override void HandleUpdate()
