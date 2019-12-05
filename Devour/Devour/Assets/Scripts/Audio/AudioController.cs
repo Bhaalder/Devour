@@ -467,22 +467,31 @@ public class AudioController : MonoBehaviour {
     #region WaitForFinish/PlayDelay/PlaySequence Methods
 
     private void PlaySequence(AudioPlaySequence playSequenceEvent) {
-        float waitTime = 0;
-        for (int i = 0; i <= playSequenceEvent.name.Length;) {
-            try {
-                FindSound(playSequenceEvent.name[i], playSequenceEvent.soundType);
-                StartCoroutine(WaitToPlay(sound, waitTime));
-                waitTime += sound.source.clip.length;
-            } catch (System.NullReferenceException) {
-
-            }
+        try {
+            FindSound(playSequenceEvent.name[0], SoundType.MUSIC);
+            Sound firstSound = sound;
+            FindSound(playSequenceEvent.name[1], SoundType.MUSIC);
+            Sound secondSound = sound;
+            firstSound.source.Play();
+            StartCoroutine(WaitToPlay(secondSound, firstSound.source.clip.length));
+        } catch (System.NullReferenceException) {
+            AudioNotFound(playSequenceEvent.name[0]); AudioNotFound(playSequenceEvent.name[1]);
         }
     }
+
+    //public void Play_ThenPlay(string name, string otherName) {
+    //    try {
+            
+    //    } catch (System.NullReferenceException) {
+    //        AudioNotFound(name); AudioNotFound(otherName);
+    //    }
+    //}
 
     private IEnumerator WaitToPlay(Sound sound, float waitTime) {
         yield return new WaitForSecondsRealtime(waitTime);
         sound.source.Play();
-        yield return null;
+        StopAllCoroutines();
+        //yield return null;
     }
 
     //public void Play_Delay(string name, float minDelay, float maxDelay) {

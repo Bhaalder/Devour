@@ -45,16 +45,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   backgroundSounds:
   - sceneName: BossArea1
-    musicName: Mystic
+    musicName: 
     ambienceName: CaveAmbience
   - sceneName: BossArea2
-    musicName: Mystic
+    musicName: 
     ambienceName: CaveAmbience
   - sceneName: BossArea3
-    musicName: Mystic
+    musicName: 
     ambienceName: CaveAmbience
   - sceneName: BossArea4
-    musicName: Mystic
+    musicName: 
     ambienceName: CaveAmbience
   - sceneName: Scene01
     musicName: Mystic
@@ -584,7 +584,7 @@ MonoBehaviour:
     rolloffMode: 0
     minDistance: 0
     maxDistance: 0
-    loop: 1
+    loop: 0
     source: {fileID: 0}
   - name: BossLoop
     clip: {fileID: 8300000, guid: 9c1aafc503e350245bf64fc6034d314f, type: 3}

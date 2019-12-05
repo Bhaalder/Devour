@@ -14,6 +14,7 @@ public class Boss2Intro : Boss2BaseState
         base.Enter();
         owner.State = Boss2State.INTRO;
         currentIntroCooldown = introTime;
+        owner.BossIntroSequence();
     }
 
     public override void HandleUpdate()
@@ -36,5 +37,10 @@ public class Boss2Intro : Boss2BaseState
 
         currentIntroCooldown = introTime;
         owner.Transition<Boss2Idle>();
+    }
+
+    public override void Exit() {
+        owner.BossIntroEnd();
+        base.Exit();
     }
 }

@@ -22,6 +22,7 @@ public class NazroDeathState : NazroBaseState {
             Destroy(owner.NazroVoidObstacles[i]);
         }
         owner.NazroVoidObstacles.Clear();
+        owner.FadeBossMusic();
         base.Enter();
     }
 

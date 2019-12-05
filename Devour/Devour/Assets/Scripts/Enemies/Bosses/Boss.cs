@@ -83,6 +83,46 @@ public class Boss : Enemy{
         invulnerabilityTimer = startInvulnerability;
     }
 
+    public void BossIntroSequence() {
+        string[] names = { "BossStart", "BossLoop" };
+        AudioPlaySequence bossMusic = new AudioPlaySequence {
+            name = names,
+            soundType = SoundType.MUSIC
+        };
+        bossMusic.FireEvent();
+        CameraChangeTargetEvent cameraTarget = new CameraChangeTargetEvent {
+            newTarget = transform
+        };
+        cameraTarget.FireEvent();
+        CameraZoomEvent cameraZoom = new CameraZoomEvent {
+            zoomValue = 0
+        };
+        cameraZoom.FireEvent();
+    }
+
+    public void BossIntroEnd() {
+        CameraChangeTargetEvent cameraTarget = new CameraChangeTargetEvent {
+            playerTarget = true
+        };
+        cameraTarget.FireEvent();
+        CameraZoomEvent cameraZoom = new CameraZoomEvent {
+            zoomValue = 0
+        };
+        cameraZoom.FireEvent();
+    }
+
+    public void FadeBossMusic() {
+        AudioFadeSoundEvent fadeSoundEvent = new AudioFadeSoundEvent {
+            isFadeOut = true,
+            name = "BossLoop",
+            fadeDuration = 2f,
+            soundType = SoundType.MUSIC,
+            soundVolumePercentage = 0,
+            stopValue = 0.01f
+        };
+        fadeSoundEvent.FireEvent();
+    }
+
     public override void EnemyDeath() {
         //Basic ifall bossen inte har en egen deathstate
         Destroy(gameObject);

@@ -11,6 +11,7 @@ public class CameraController : MonoBehaviour{
     [SerializeField] private float delay;
 
     private Transform playerTransform;
+    private Transform targetTransform;
     private Vector3 velocity;
     private float cameraTiltValue;
     private float cameraZoomValue;
@@ -29,6 +30,7 @@ public class CameraController : MonoBehaviour{
             Debug.LogWarning("Destroyed other Singleton with name: " + gameObject.name);
             return;
         }
+        CameraChangeTargetEvent.RegisterListener(OnChangeTarget);
         CameraBoundsChangeEvent.RegisterListener(SetCameraBounds);
         CameraTiltEvent.RegisterListener(OnTiltCamera);
         CameraZoomEvent.RegisterListener(OnChangeZoom);
@@ -36,12 +38,21 @@ public class CameraController : MonoBehaviour{
 
     private void Start() {
         player = GameController.Instance.Player;
+        targetTransform = player.transform;
         playerTransform = player.transform;
     }
 
     private void SetCameraBounds(CameraBoundsChangeEvent cameraBounds) {
         sceneBoxCollider = cameraBounds.cameraBounds;
         cameraBoundsIsFound = true;
+    }
+
+    private void OnChangeTarget(CameraChangeTargetEvent targetEvent) {
+        if (targetEvent.playerTarget) {
+            targetTransform = playerTransform;
+            return;
+        }
+        targetTransform = targetEvent.newTarget;
     }
 
     private void OnTiltCamera(CameraTiltEvent cameraTilt) {
@@ -62,7 +73,7 @@ public class CameraController : MonoBehaviour{
     }
 
     private Vector3 DesiredPosition() {
-        return new Vector3(playerTransform.position.x + (cameraOffset.x * player.FacingDirection), playerTransform.position.y + cameraOffset.y + cameraTiltValue, cameraOffset.z + cameraZoomValue);
+        return new Vector3(targetTransform.position.x + (cameraOffset.x * player.FacingDirection), targetTransform.position.y + cameraOffset.y + cameraTiltValue, cameraOffset.z + cameraZoomValue);
     }
 
     #region CameraBounds
@@ -81,6 +92,7 @@ public class CameraController : MonoBehaviour{
     }
 
     private void OnDestroy() {
+        CameraChangeTargetEvent.UnRegisterListener(OnChangeTarget);
         CameraBoundsChangeEvent.UnRegisterListener(SetCameraBounds);
         CameraTiltEvent.UnRegisterListener(OnTiltCamera);
         CameraZoomEvent.UnRegisterListener(OnChangeZoom);

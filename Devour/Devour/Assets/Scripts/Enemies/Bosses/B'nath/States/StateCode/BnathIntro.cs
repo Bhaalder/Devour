@@ -15,6 +15,7 @@ public class BnathIntro : BnathBaseState
         base.Enter();
         owner.State = BossBnathState.INTRO;
         currentIntroCooldown = introTime;
+        owner.BossIntroSequence();
     }
 
     public override void HandleUpdate()
@@ -39,4 +40,10 @@ public class BnathIntro : BnathBaseState
         currentIntroCooldown = introTime;
         owner.Transition<BnathIdle>();
     }
+
+    public override void Exit() {
+        owner.BossIntroEnd();
+        base.Exit();
+    }
+
 }

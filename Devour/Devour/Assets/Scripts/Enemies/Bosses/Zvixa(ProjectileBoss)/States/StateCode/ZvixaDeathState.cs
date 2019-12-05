@@ -20,6 +20,7 @@ public class ZvixaDeathState : ZvixaBaseState {
         zvixaDied.FireEvent();
         owner.BoxCollider2D.enabled = false;
         Destroy(owner.LowArea.gameObject);
+        owner.FadeBossMusic();
         base.Enter();
     }
 

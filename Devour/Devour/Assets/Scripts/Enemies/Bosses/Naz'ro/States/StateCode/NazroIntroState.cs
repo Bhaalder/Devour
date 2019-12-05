@@ -16,6 +16,7 @@ public class NazroIntroState : NazroBaseState {
         Instantiate(owner.BossDoor, owner.BossDoor.transform.position, Quaternion.identity);
         introTimeLeft = introTime;
         battleStart = false;
+        owner.BossIntroSequence();
         base.Enter();
     }
 
@@ -31,4 +32,10 @@ public class NazroIntroState : NazroBaseState {
         owner.Transition<NazroIdleState>();
         base.HandleUpdate();
     }
+
+    public override void Exit() {
+        owner.BossIntroEnd();
+        base.Exit();
+    }
+
 }

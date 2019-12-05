@@ -21,6 +21,7 @@ public class ZvixaIntroState : ZvixaBaseState {
             owner.transform.position = owner.TeleportAreaMiddle.position;
             lastTeleport = owner.TeleportAreaMiddle;
         }
+        owner.BossIntroSequence();
         base.Enter();
     }
 
@@ -39,5 +40,10 @@ public class ZvixaIntroState : ZvixaBaseState {
         }
         owner.Transition<ZvixaIdleState>();
         base.HandleUpdate();
+    }
+
+    public override void Exit() {
+        owner.BossIntroEnd();
+        base.Exit();
     }
 }

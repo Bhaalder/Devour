@@ -10,6 +10,12 @@ public class CameraShakeEvent : Event<CameraShakeEvent> {
 
 }
 
+public class CameraChangeTargetEvent : Event<CameraChangeTargetEvent> {
+
+    public Transform newTarget;
+    public bool playerTarget;
+}
+
 public class CameraBoundsChangeEvent : Event<CameraBoundsChangeEvent> {
 
     public BoxCollider2D cameraBounds;
