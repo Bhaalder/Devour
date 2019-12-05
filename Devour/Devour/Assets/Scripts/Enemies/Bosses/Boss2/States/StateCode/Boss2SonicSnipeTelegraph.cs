@@ -19,7 +19,7 @@ public class Boss2SonicSnipeTelegraph : Boss2BaseState
         owner.State = Boss2State.SONIC_SNIPE_TELEGRAPH;
         currentCooldown = telegraphTime;
         TurnedRight();
-        //SonicBeam();
+        SonicBeam();
     }
 
     public override void HandleUpdate()
@@ -39,14 +39,6 @@ public class Boss2SonicSnipeTelegraph : Boss2BaseState
 
         if (currentCooldown > 0)
         {
-            if (owner.SnipeBeamSprite.color == new Color(255, 255, 255))
-            {
-                owner.SnipeBeamSprite.color = new Color(0, 0, 0);
-            }
-            else
-            {
-                owner.SnipeBeamSprite.color = new Color(255, 255, 255);
-            }
             return;
         }
 
@@ -66,5 +58,6 @@ public class Boss2SonicSnipeTelegraph : Boss2BaseState
         }
 
         owner.SnipeBeamSprite.enabled = true;
+        owner.SonicSnipeBeam.GetComponentInChildren<SpriteRenderer>().enabled = false;
     }
 }
