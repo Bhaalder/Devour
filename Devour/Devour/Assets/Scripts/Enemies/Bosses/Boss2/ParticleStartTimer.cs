@@ -8,11 +8,12 @@ public class ParticleStartTimer : MonoBehaviour
 
     public float StartTimer { get; set; } = 1f;
 
-    private ParticleSystem particle;
+    private ParticleSystem[] particle;
 
     void Start()
     {
-        particle = GetComponent<ParticleSystem>();
+        particle = GetComponentsInChildren<ParticleSystem>();
+
 
         if (startTimer > 0)
         {
@@ -37,6 +38,10 @@ public class ParticleStartTimer : MonoBehaviour
             return;
         }
 
-        particle.Play();
+        for (int i = 0; i < particle.Length; i++)
+        {
+            particle[i].Play();
+        }
+
     }
 }

@@ -52,7 +52,7 @@ public class Boss2SonicDashAttack : Boss2BaseState
             owner.rb.position = Vector3.Lerp(startPosition, positions[currentPosition].transform.position, countUp);
             return;
         }
-
+        Destroy(owner.SonicDashParticles[currentPosition]);
         currentPosition++;
         startPosition = owner.rb.position;
         countUp = 0;

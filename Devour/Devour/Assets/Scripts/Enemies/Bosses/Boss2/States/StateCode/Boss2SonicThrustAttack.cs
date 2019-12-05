@@ -19,6 +19,8 @@ public class Boss2SonicThrustAttack : Boss2BaseState
         dashTime = startDashTime;
         direction = owner.dashStartDirection;
         owner.State = Boss2State.SONIC_THRUST_ATTACK;
+        owner.HitBoxHorizontal.SetActive(true);
+        owner.HitBoxVertical.SetActive(false);
     }
 
     public override void HandleUpdate()
@@ -29,6 +31,8 @@ public class Boss2SonicThrustAttack : Boss2BaseState
 
         if (dashTime <= 0)
         {
+            owner.HitBoxHorizontal.SetActive(false);
+            owner.HitBoxVertical.SetActive(true);
             owner.Transition<Boss2SonicThrustExit>();
         }
         dashTime -= Time.deltaTime;
@@ -45,6 +49,8 @@ public class Boss2SonicThrustAttack : Boss2BaseState
         if (obstructed.collider == true)
         {
             owner.rb.velocity = new Vector2(0, owner.rb.velocity.y);
+            owner.HitBoxHorizontal.SetActive(false);
+            owner.HitBoxVertical.SetActive(true);
             owner.Transition<Boss2SonicThrustExit>();
         }
     }

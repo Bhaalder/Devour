@@ -37,47 +37,26 @@ public class Boss2SonicDashTelegraph : Boss2BaseState
 
     private void ChooseDashPattern()
     {
-        int pattern = Random.Range(1, 4);
-        
         chosenPattern = null;
         owner.ChosenPattern = null;
-        switch (pattern)
-        {
-            case 3:
-                chosenPattern = owner.DashPattern3;
-                break;
-            case 2:
-                chosenPattern = owner.DashPattern2;
-                break;
-            case 1:
-                chosenPattern = owner.DashPattern1;
-                break;
-        }
-        
-        if(owner.DashPatterns.Length >= 1)
-        {
-            chosenPattern = null;
-            owner.ChosenPattern = null;
-            int patternNumber = Random.Range(0, owner.DashPatterns.Length);
-            chosenPattern = owner.DashPatterns[patternNumber];
-            owner.ChosenPattern = chosenPattern;
-        }
-        else
-        {
-            owner.ChosenPattern = chosenPattern;
-        } 
+
+        int patternNumber = Random.Range(0, owner.DashPatterns.Length);
+        chosenPattern = owner.DashPatterns[patternNumber];
+        owner.ChosenPattern = chosenPattern;
 
     }
 
     private void DashTelegraph()
     {
+        owner.SonicDashParticles.Clear();
         foreach (GameObject gameObject in chosenPattern.GetComponent<SonicDashPositions>().Positions)
         {
             GameObject position = Instantiate(positionTelegraph, null);
             position.transform.position = gameObject.transform.position;
             position.GetComponent<ParticleStartTimer>().StartTimer = tempTelegraphDelay;
-            position.GetComponent<DestroyTimer>().DestructionTime = tempTelegraphDelay + 1f;
+            //position.GetComponent<DestroyTimer>().DestructionTime = tempTelegraphDelay + 1f;
             tempTelegraphDelay += 0.3f;
+            owner.SonicDashParticles.Add(position);
         }
 
         tempTelegraphDelay = 0;

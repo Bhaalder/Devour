@@ -8,14 +8,14 @@ public enum Boss2State
 }
 public class Boss2 : Boss
 {
-    [SerializeField] private GameObject dashPattern1;
-    [SerializeField] private GameObject dashPattern2;
-    [SerializeField] private GameObject dashPattern3;
+
     [SerializeField] private GameObject[] dashPatterns;
     [SerializeField] private GameObject sonicSnipeBeam;
     [SerializeField] private GameObject bossFightBlock;
-    [SerializeField] private GameObject hitBox;
     [SerializeField] private float sonicSnipeBeamDamage = 25f;
+
+    [SerializeField] private GameObject hitBoxVertical;
+    [SerializeField] private GameObject hitBoxHorizontal;
 
 
     public Boss2State State { get; set; }
@@ -25,11 +25,14 @@ public class Boss2 : Boss
     public GameObject ChosenPattern { get; set; }
     public GameObject[] DashPatterns { get; set; }
     public GameObject SonicSnipeBeam { get; set; }
-    public GameObject HitBox { get; set; }
     public SpriteRenderer SnipeBeamSprite { get; set; }
     public float SonicSnipeBeamDamage { get; set; }
     public bool IntroStarted { get; set; }
     public Vector2 dashStartDirection { get; set; }
+
+    public GameObject HitBoxVertical { get => hitBoxVertical; set => hitBoxVertical = value; }
+    public GameObject HitBoxHorizontal { get => hitBoxHorizontal; set => hitBoxHorizontal = value; }
+    public List<GameObject> SonicDashParticles { get; set; }
 
     private static bool isDead;
 
@@ -42,12 +45,8 @@ public class Boss2 : Boss
             Destroy(gameObject);
         }
         Animator = GetComponent<Animator>();
-        DashPattern1 = dashPattern1;
-        DashPattern2 = dashPattern2;
-        DashPattern3 = dashPattern3;
         DashPatterns = dashPatterns;
         SonicSnipeBeam = sonicSnipeBeam;
-        HitBox = hitBox;
         sonicSnipeBeam.GetComponentInChildren<BoxCollider2D>().enabled = false;
         SonicSnipeBeamDamage = sonicSnipeBeamDamage;
         SnipeBeamSprite = SonicSnipeBeam.GetComponentInChildren<SpriteRenderer>();
@@ -57,6 +56,8 @@ public class Boss2 : Boss
         Transition<Boss2Intro>();
         bossFightBlock.SetActive(true);
         IsAlive = !isDead;
+        hitBoxHorizontal.SetActive(false);
+        SonicDashParticles = new List<GameObject>();
     }
 
     protected override void Update()

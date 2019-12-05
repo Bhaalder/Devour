@@ -1015,6 +1015,63 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &4122989095154599946
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2045269702872646115}
+  - component: {fileID: 6503959556812310555}
+  m_Layer: 0
+  m_Name: HitBoxHorizontal
+  m_TagString: Enemy
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2045269702872646115
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4122989095154599946}
+  m_LocalRotation: {x: -0, y: -0, z: -0.5440134, w: 0.8390765}
+  m_LocalPosition: {x: -0.95, y: -1.61, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 7227144329047398489}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -65.915}
+--- !u!61 &6503959556812310555
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4122989095154599946}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.03957349, y: 1.641684}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1.7748104, y: 4.283368}
+  m_EdgeRadius: 0
 --- !u!1 &7038678016418426006
 GameObject:
   m_ObjectHideFlags: 0
@@ -1393,7 +1450,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &7227144328210098875
 Transform:
   m_ObjectHideFlags: 0
@@ -1481,7 +1538,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &7227144328493117892
 Transform:
   m_ObjectHideFlags: 0
@@ -1763,7 +1820,7 @@ GameObject:
   - component: {fileID: 3420850716359525388}
   m_Layer: 0
   m_Name: Boss2
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1784,6 +1841,7 @@ Transform:
   - {fileID: 5378541569508028879}
   - {fileID: 7717051203432935133}
   - {fileID: 1294260457815593135}
+  - {fileID: 2045269702872646115}
   - {fileID: 1193335426549291279}
   m_Father: {fileID: 7227144328442576174}
   m_RootOrder: 0
@@ -1830,14 +1888,15 @@ MonoBehaviour:
     type: 3}
   bossName: Boss2
   maxHealth: 1200
-  dashPattern1: {fileID: 7227144328493117893}
-  dashPattern2: {fileID: 7227144328210098876}
-  dashPattern3: {fileID: 7227144328521127331}
-  dashPatterns: []
+  dashPatterns:
+  - {fileID: 7227144328493117893}
+  - {fileID: 7227144328210098876}
+  - {fileID: 7227144328521127331}
   sonicSnipeBeam: {fileID: 8560368570429801807}
   bossFightBlock: {fileID: 6516934615906536241}
-  hitBox: {fileID: 8895057570555196495}
   sonicSnipeBeamDamage: 25
+  hitBoxVertical: {fileID: 8895057570555196495}
+  hitBoxHorizontal: {fileID: 4122989095154599946}
 --- !u!82 &9018263416452536007
 AudioSource:
   m_ObjectHideFlags: 0
@@ -2243,8 +2302,8 @@ GameObject:
   - component: {fileID: 1294260457815593135}
   - component: {fileID: 5233048226589773896}
   m_Layer: 0
-  m_Name: HitBox
-  m_TagString: Untagged
+  m_Name: HitBoxVertical
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2496,7 +2555,7 @@ PrefabInstance:
     - target: {fileID: 2985418663743074204, guid: fe09bf135973f8c4ca5cdd46f3345187,
         type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 2985418663743074204, guid: fe09bf135973f8c4ca5cdd46f3345187,
         type: 3}
