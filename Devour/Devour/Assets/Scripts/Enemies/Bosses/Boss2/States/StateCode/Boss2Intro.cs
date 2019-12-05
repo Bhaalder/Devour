@@ -5,25 +5,20 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "Boss/Boss2/Boss2IntroState")]
 public class Boss2Intro : Boss2BaseState
 {
-    private bool isPlayingIntro;
+    [SerializeField] private float introTime;
+
+    private float currentIntroCooldown = 5f;
 
     public override void Enter()
     {
         base.Enter();
-        isPlayingIntro = true;
         owner.State = Boss2State.INTRO;
+        currentIntroCooldown = introTime;
     }
 
     public override void HandleUpdate()
     {
-        if (isPlayingIntro)
-        {
-            Intro();
-        }
-        else if (!isPlayingIntro)
-        {
-            owner.Transition<Boss2Idle>();
-        }
+        Intro();
     }
     public override void HandleFixedUpdate()
     {
@@ -32,9 +27,14 @@ public class Boss2Intro : Boss2BaseState
 
     private void Intro()
     {
-        if (owner.IntroStarted)
+        currentIntroCooldown -= Time.deltaTime;
+
+        if (currentIntroCooldown > 0)
         {
-            isPlayingIntro = false;
+            return;
         }
+
+        currentIntroCooldown = introTime;
+        owner.Transition<Boss2Idle>();
     }
 }

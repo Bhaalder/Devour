@@ -40,6 +40,7 @@ public class Bnath : Boss
         IsAlive = !isDead;
 
         PlayerDiedEvent.RegisterListener(Reset);
+        Transition<BnathIntro>();
 
     }
 
