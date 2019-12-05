@@ -19,7 +19,7 @@ public class Boss2SonicSnipeTelegraph : Boss2BaseState
         owner.State = Boss2State.SONIC_SNIPE_TELEGRAPH;
         currentCooldown = telegraphTime;
         TurnedRight();
-        SonicBeam();
+        //SonicBeam();
     }
 
     public override void HandleUpdate()
