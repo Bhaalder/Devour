@@ -73,6 +73,17 @@ public class Enemy2IdleState : EnemyBaseState
     private void setNewPosition()
     {
         newPosition = new Vector2(startingPosition.x + Random.Range(0, idleMovementRange), startingPosition.y + Random.Range(0, idleMovementRange));
+
+        if (newPosition.x > owner.rb.position.x +0.5f)
+        {
+            Vector3 v = new Vector3(-1f, 1f, 1f);
+            owner.setGFX(v);
+        }
+        else if (newPosition.x < owner.rb.position.x + 0.5f)
+        {
+            Vector3 v = new Vector3(1f, 1f, 1f);
+            owner.setGFX(v);
+        }
     }
 
     private void positionUpdateCooldown()
