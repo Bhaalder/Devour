@@ -32,6 +32,7 @@ public class Boss2 : Boss
 
     public GameObject HitBoxVertical { get => hitBoxVertical; set => hitBoxVertical = value; }
     public GameObject HitBoxHorizontal { get => hitBoxHorizontal; set => hitBoxHorizontal = value; }
+    public List<GameObject> SonicDashParticles { get; set; }
 
     private static bool isDead;
 
@@ -56,6 +57,7 @@ public class Boss2 : Boss
         bossFightBlock.SetActive(true);
         IsAlive = !isDead;
         hitBoxHorizontal.SetActive(false);
+        SonicDashParticles = new List<GameObject>();
     }
 
     protected override void Update()

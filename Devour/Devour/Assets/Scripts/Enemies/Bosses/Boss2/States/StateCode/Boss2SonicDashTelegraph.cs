@@ -48,6 +48,7 @@ public class Boss2SonicDashTelegraph : Boss2BaseState
 
     private void DashTelegraph()
     {
+        owner.SonicDashParticles.Clear();
         foreach (GameObject gameObject in chosenPattern.GetComponent<SonicDashPositions>().Positions)
         {
             GameObject position = Instantiate(positionTelegraph, null);
@@ -55,6 +56,7 @@ public class Boss2SonicDashTelegraph : Boss2BaseState
             position.GetComponent<ParticleStartTimer>().StartTimer = tempTelegraphDelay;
             //position.GetComponent<DestroyTimer>().DestructionTime = tempTelegraphDelay + 1f;
             tempTelegraphDelay += 0.3f;
+            owner.SonicDashParticles.Add(position);
         }
 
         tempTelegraphDelay = 0;
