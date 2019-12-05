@@ -28,12 +28,14 @@ public class ZvixaBaseState : State {
     }
 
     public override void HandleUpdate() {
-        if (owner.State == BossZvixaState.NONE && PlayerIsInsideBossRoom() && owner.Player.PlayerState != PlayerState.HURT) {
+        if (owner.State == BossZvixaState.NONE && PlayerIsInsideBossRoom() && owner.PlayerStateIsOK()) {
             owner.Transition<ZvixaIntroState>();
         }
         owner.rb.velocity = Vector2.zero;
         base.HandleUpdate();
     }
+
+
 
     protected virtual void Movement() {
         if(owner.State != BossZvixaState.NONE && owner.State != BossZvixaState.DEATH) {

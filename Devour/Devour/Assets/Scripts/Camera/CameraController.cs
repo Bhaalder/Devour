@@ -86,7 +86,10 @@ public class CameraController : MonoBehaviour{
     }
 
     private Vector3 DesiredPosition() {
-        return new Vector3(targetTransform.position.x + (cameraOffset.x * player.FacingDirection), targetTransform.position.y + cameraOffset.y + cameraTiltValue, cameraOffset.z + cameraZoomValue);
+        if(targetTransform != null) {
+            return new Vector3(targetTransform.position.x + (cameraOffset.x * player.FacingDirection), targetTransform.position.y + cameraOffset.y + cameraTiltValue, cameraOffset.z + cameraZoomValue);
+        }
+        return new Vector3(0, 0, 0);
     }
 
     #region CameraBounds

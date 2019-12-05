@@ -90,6 +90,7 @@ public class Zvixa : Boss{
         Transition<ZvixaBaseState>();
         transform.position = TeleportAreaMiddle.position;
         BossDoor.SetActive(false);
+        FadeBossMusic_PlayerDied();
     }
 
     public override void EnemyDeath() {

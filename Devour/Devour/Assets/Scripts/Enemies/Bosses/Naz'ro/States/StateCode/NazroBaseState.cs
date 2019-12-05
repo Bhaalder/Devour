@@ -20,7 +20,7 @@ public class NazroBaseState : State {
     }
 
     public override void HandleFixedUpdate() {
-        if (owner.State == BossNazroState.NONE && PlayerIsInsideBossRoom() && owner.Player.PlayerState != PlayerState.HURT) {
+        if (owner.State == BossNazroState.NONE && PlayerIsInsideBossRoom() && owner.PlayerStateIsOK()) {
             owner.Transition<NazroIntroState>();
         }
         base.HandleFixedUpdate();

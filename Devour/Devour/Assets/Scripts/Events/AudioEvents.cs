@@ -123,6 +123,10 @@ public class AudioMixerPitchEvent : Event<AudioMixerPitchEvent> {
 
 }
 
+public class AudioStopAllCoroutinesEvent : Event<AudioStopAllCoroutinesEvent> {
+
+}
+
 public class FadeBackgroundSoundEvent : Event<FadeBackgroundSoundEvent> {
 
     public bool fadeCurrentSceneMusic;

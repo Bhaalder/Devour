@@ -98,6 +98,7 @@ public class AudioController : MonoBehaviour {
         AudioMixerVolumeEvent.RegisterListener(MixerSetVolume);
         AudioMixerPitchEvent.RegisterListener(MixerSetPitch);
         AudioSwitchBackgroundSoundEvent.RegisterListener(SwitchSound);
+        AudioStopAllCoroutinesEvent.RegisterListener(OnStopAllCoroutines);
     }
 
     #region Play/Stop Methods
@@ -153,6 +154,10 @@ public class AudioController : MonoBehaviour {
 
             }
         }
+    }
+
+    private void OnStopAllCoroutines(AudioStopAllCoroutinesEvent stopAllCoroutinesEvent){
+        StopAllCoroutines();
     }
 
     #endregion
@@ -374,6 +379,7 @@ public class AudioController : MonoBehaviour {
             sound.source.volume = Mathf.Lerp(startSoundValue, soundVolume, normalizedTime);
             yield return null;
         }
+        StopAllCoroutines();
     }
 
     private IEnumerator FadeOutAudio(float fadeDuration, float soundVolume, float stopValue, Sound sound) {
@@ -392,6 +398,7 @@ public class AudioController : MonoBehaviour {
             }
         }
         sound.source.volume = startSoundValue;
+        StopAllCoroutines();
     }
     #endregion
 
@@ -607,6 +614,7 @@ public class AudioController : MonoBehaviour {
         AudioMixerVolumeEvent.UnRegisterListener(MixerSetVolume);
         AudioMixerPitchEvent.UnRegisterListener(MixerSetPitch);
         AudioSwitchBackgroundSoundEvent.UnRegisterListener(SwitchSound);
+        AudioStopAllCoroutinesEvent.UnRegisterListener(OnStopAllCoroutines);
     }
 
 }

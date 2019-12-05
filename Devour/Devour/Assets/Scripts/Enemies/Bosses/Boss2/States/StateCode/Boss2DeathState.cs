@@ -21,7 +21,7 @@ public class Boss2DeathState : EnemyDeathState
         {
             owner.GetComponent<CircleCollider2D>().enabled = false;
         }
-        owner.GetComponent<Boss2>().FadeBossMusic();
+        owner.GetComponent<Boss2>().FadeBossMusic_BossDied();
         Debug.Log("Entered Death state");
     }
 

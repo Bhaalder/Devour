@@ -122,7 +122,20 @@ public class Boss : Enemy{
         playerBusy.FireEvent();
     }
 
-    public void FadeBossMusic() {
+    public bool PlayerStateIsOK() {
+        switch (Player.PlayerState) {
+            case PlayerState.DEATH:
+                return false;
+            case PlayerState.HURT:
+                return false;
+            case PlayerState.IDLE:
+                return false;
+            default:
+                return true;
+        }
+    }
+
+    public void FadeBossMusic_BossDied() {
         AudioFadeSoundEvent fadeSoundEvent = new AudioFadeSoundEvent {
             isFadeOut = true,
             name = "BossLoop",
@@ -132,6 +145,19 @@ public class Boss : Enemy{
             stopValue = 0.01f
         };
         fadeSoundEvent.FireEvent();
+    }
+
+    public void FadeBossMusic_PlayerDied() {
+        AudioStopSoundEvent stopBossStart = new AudioStopSoundEvent {
+            name = "BossStart"
+        };
+        stopBossStart.FireEvent();
+        AudioStopSoundEvent stopBossLoop = new AudioStopSoundEvent {
+            name = "BossLoop"
+        };
+        stopBossLoop.FireEvent();
+        AudioStopAllCoroutinesEvent audioStopAllCoroutines = new AudioStopAllCoroutinesEvent {};
+        audioStopAllCoroutines.FireEvent();
     }
 
     public override void EnemyDeath() {

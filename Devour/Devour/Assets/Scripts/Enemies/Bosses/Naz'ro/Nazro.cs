@@ -115,6 +115,7 @@ public class Nazro : Boss {
         Health = MaxHealth;
         State = BossNazroState.NONE;
         Transition<NazroBaseState>();
+        FadeBossMusic_PlayerDied();
     }
 
     public override void EnemyDeath() {
