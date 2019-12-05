@@ -25,6 +25,10 @@ public class UIController : MonoBehaviour{
 
     private void OnVoidTalentScreen(VoidTalentScreenEvent screenEvent) {
         VoidTalentScreen.SetActive(!VoidTalentScreen.activeSelf);
+        PlayerBusyEvent playerBusy = new PlayerBusyEvent {
+            playerIsBusy = VoidTalentScreen.activeSelf
+        };
+        playerBusy.FireEvent();
         GameController.Instance.GamePaused(VoidTalentScreen.activeSelf);
         Cursor.visible = !Cursor.visible;
         if(Cursor.lockState == CursorLockMode.Locked) {

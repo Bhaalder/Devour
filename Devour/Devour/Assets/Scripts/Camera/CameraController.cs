@@ -13,10 +13,12 @@ public class CameraController : MonoBehaviour{
     private Transform playerTransform;
     private Transform targetTransform;
     private Vector3 velocity;
+    private Vector3 baseOffset;
     private float cameraTiltValue;
     private float cameraZoomValue;
+    private bool boundsIsInactive;
 
-    public BoxCollider2D sceneBoxCollider;
+    private BoxCollider2D sceneBoxCollider;
     private bool cameraBoundsIsFound;
 
     private static bool exists;
@@ -34,12 +36,14 @@ public class CameraController : MonoBehaviour{
         CameraBoundsChangeEvent.RegisterListener(SetCameraBounds);
         CameraTiltEvent.RegisterListener(OnTiltCamera);
         CameraZoomEvent.RegisterListener(OnChangeZoom);
+        CameraOffsetEvent.RegisterListener(OnCameraOffset);
     }
 
     private void Start() {
         player = GameController.Instance.Player;
         targetTransform = player.transform;
         playerTransform = player.transform;
+        baseOffset = cameraOffset;
     }
 
     private void SetCameraBounds(CameraBoundsChangeEvent cameraBounds) {
@@ -63,11 +67,20 @@ public class CameraController : MonoBehaviour{
         cameraZoomValue = cameraZoom.zoomValue;
     }
 
+    private void OnCameraOffset(CameraOffsetEvent cameraOffsetEvent) {
+        boundsIsInactive = cameraOffsetEvent.setBoundsInactive;
+        if (cameraOffsetEvent.revertOffset) {
+            cameraOffset = baseOffset;
+            return;
+        }
+        cameraOffset = cameraOffsetEvent.newOffset;
+    }
+
     private void FixedUpdate() {
         Vector3 currentPosition = transform.position;
 
         transform.position = Vector3.SmoothDamp(currentPosition, DesiredPosition(), ref velocity, delay);
-        if (sceneBoxCollider != null) {
+        if (sceneBoxCollider != null && !boundsIsInactive) {
             transform.position = new Vector3(CameraBoundsX(), CameraBoundsY(), cameraOffset.z + cameraZoomValue);
         }
     }
@@ -96,5 +109,6 @@ public class CameraController : MonoBehaviour{
         CameraBoundsChangeEvent.UnRegisterListener(SetCameraBounds);
         CameraTiltEvent.UnRegisterListener(OnTiltCamera);
         CameraZoomEvent.UnRegisterListener(OnChangeZoom);
+        CameraOffsetEvent.UnRegisterListener(OnCameraOffset);
     }
 }

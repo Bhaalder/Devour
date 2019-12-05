@@ -1303,6 +1303,7 @@ MonoBehaviour:
     type: 3}
   bossName: Zvixa the Meticulous
   maxHealth: 1600
+  offsetIntroZoom: {x: 0, y: 0, z: -10}
   highArea: {fileID: 8700264558789018875}
   lowArea: {fileID: 8700264559144839931}
   startFightArea: {fileID: 8700264559586801676}

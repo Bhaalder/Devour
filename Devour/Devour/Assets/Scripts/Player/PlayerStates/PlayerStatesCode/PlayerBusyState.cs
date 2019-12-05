@@ -7,25 +7,21 @@ using UnityEngine;
 public class PlayerBusyState : PlayerBaseState {
 
     public override void Enter() {
-        //owner.PlayerLog("BaseState");
-        owner.PlayerState = PlayerState.BUSY;    
+        owner.PlayerLog("BusyState");
+        owner.PlayerState = PlayerState.BUSY;
+        owner.MovementIsStopped = true;
     }
 
     public override void HandleFixedUpdate() {
-        
+        base.HandleFixedUpdate();
     }
 
     public override void HandleUpdate() {
-        if (!GameController.Instance.GameIsPaused) {
-            if (!owner.IsGrounded) {
-                owner.Transition<PlayerAirState>();
-            } else {
-                owner.Transition<PlayerIdleState>();
-            }
-        }
+        base.HandleUpdate();
     }
 
     public override void Exit() {
+        owner.MovementIsStopped = false;
         base.Exit();
     }
 }

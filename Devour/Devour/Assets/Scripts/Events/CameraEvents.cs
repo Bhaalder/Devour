@@ -33,3 +33,11 @@ public class CameraZoomEvent : Event<CameraZoomEvent> {
     public float zoomValue;
 
 }
+
+public class CameraOffsetEvent : Event<CameraOffsetEvent> {
+
+    public Vector3 newOffset;
+    public bool revertOffset;
+    public bool setBoundsInactive;
+
+}

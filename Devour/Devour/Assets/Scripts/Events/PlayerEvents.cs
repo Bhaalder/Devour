@@ -59,6 +59,10 @@ public class PlayerTouchKillzoneEvent : Event<PlayerTouchKillzoneEvent> {
 
 }
 
+public class PlayerBusyEvent : Event<PlayerBusyEvent> {
+    public bool playerIsBusy;
+}
+
 public class PlayerDiedEvent : Event<PlayerDiedEvent> {
 
     public Player player;

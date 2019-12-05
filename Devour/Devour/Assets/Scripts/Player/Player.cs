@@ -198,45 +198,20 @@ public class Player : StateMachine {
 
         Rb2D = GetComponent<Rigidbody2D>();
         BoxCollider2D = GetComponent<BoxCollider2D>();
-        //HorizontalMeleeCollider = horizontalMeleeCollider;
-        //UpMeleeCollider = upMeleeCollider;
-        //DownMeleeCollider = downMeleeCollider;
 
         MaxHealth = maxHealth;
         Health = maxHealth;
         MaxPlayerVoid = maxPlayerVoid;
         PlayerVoid = playerVoid;
-        //DamageReduction = damageReduction;
         MeleeDamage = meleeDamage;
-        //MeleeCooldown = meleeCooldown;
         MeleeLifeLeech = meleeLifeLeech;
         MeleeVoidLeech = meleeVoidLeech;
         ProjectileDamage = projectileDamage;
-        //ProjectileCooldown = projectileCooldown;
-        //ProjectileHealthcost = projectileHealthcost;
-        //KnockbackForce = knockbackForce;
-        //BounceForce = bounceForce;
-        //VoidMendParticleEffect = voidMendParticleEffect;
 
         MovementSpeed = movementSpeed;
-        //JumpForce = jumpForce;
-        //ExtraJumps = extraJumps;
         ExtraJumpsLeft = extraJumps;
-        //VariableJumpHeight = variableJumpHeight;
-        //PermanentVariableJumpHeight = variableJumpHeight;
         DashCooldown = dashCooldown;
-        //NumberOfDashes = numberOfDashes;
-        //FallSpeed = fallSpeed;
         XScale = transform.localScale.x;
-        //GroundCheckDistance = groundCheckDistance;
-        //WallCheckDistance = wallCheckDistance;
-        //wallCheckDistanceValue = wallCheckDistance;
-        
-        //GroundChecks = groundChecks;
-        //WallCheck = wallCheck;
-        //Aim = aim;
-        //PlayerCanvas = playerCanvas;
-        //WhatIsGround = whatIsGround;
 
         Collectibles = new List<Collectible>();
         TalentPoints = new List<TalentPoint>();
@@ -252,7 +227,7 @@ public class Player : StateMachine {
         PlayerCollectibleChange.RegisterListener(OnChangeCollectible);
         TalentPointGainEvent.RegisterListener(OnGainTalentPoint);
         FadeScreenEvent.RegisterListener(OnFadeScreen);
-        VoidTalentScreenEvent.RegisterListener(OnVoidTalentScreen);
+        PlayerBusyEvent.RegisterListener(OnPlayerBusyEvent);
 
         base.Awake();
 
@@ -334,11 +309,15 @@ public class Player : StateMachine {
         }
     }
 
-    private void OnVoidTalentScreen(VoidTalentScreenEvent screenEvent) {
-        if(PlayerState != PlayerState.BUSY) {
+    private void OnPlayerBusyEvent(PlayerBusyEvent busyEvent) {
+        if (busyEvent.playerIsBusy) {
             Transition<PlayerBusyState>();
         } else {
-
+            if (!IsGrounded) {
+                Transition<PlayerAirState>();
+            } else {
+                Transition<PlayerIdleState>();
+            }
         }
     }
 
@@ -360,7 +339,7 @@ public class Player : StateMachine {
         Respawn();
     }
 
-    private void OnTakeDamage(PlayerTakeDamageEvent eventDamage) {//EJ KLART
+    private void OnTakeDamage(PlayerTakeDamageEvent eventDamage) {
         if (!eventDamage.isSelfInflicted) {
             if (IsInvulnerable) {
                 return;
@@ -574,7 +553,7 @@ public class Player : StateMachine {
         PlayerCollectibleChange.UnRegisterListener(OnChangeCollectible);
         TalentPointGainEvent.UnRegisterListener(OnGainTalentPoint);
         FadeScreenEvent.UnRegisterListener(OnFadeScreen);
-        VoidTalentScreenEvent.UnRegisterListener(OnVoidTalentScreen);
+        PlayerBusyEvent.UnRegisterListener(OnPlayerBusyEvent);
     }
 
 }

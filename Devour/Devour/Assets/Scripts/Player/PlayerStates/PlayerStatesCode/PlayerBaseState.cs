@@ -51,14 +51,16 @@ public class PlayerBaseState : State {
         owner.Rb2D.velocity = new Vector2(owner.XInput * owner.MovementSpeed, owner.Rb2D.velocity.y);
     }
 
-    public override void HandleUpdate() {  
-        JumpCheck();
-        CollisionCheck();
-        VoidMendCheck();
-        CooldownTimers();
-        DashCheck();
-        GetMovementInput();
-        GetCombatInput();
+    public override void HandleUpdate() {
+        if (owner.PlayerState != PlayerState.BUSY) {
+            JumpCheck();
+            CollisionCheck();
+            VoidMendCheck();
+            CooldownTimers();
+            DashCheck();
+            GetMovementInput();
+            GetCombatInput();
+        }
         base.HandleUpdate();
     }
 
@@ -191,7 +193,7 @@ public class PlayerBaseState : State {
         }
     }
 
-    protected void GetCombatInput() {
+    protected virtual void GetCombatInput() {
         GetMeleeInput();
         GetProjectileInput();      
     }
