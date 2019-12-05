@@ -89,7 +89,7 @@ Light:
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 0.0625, y: 0.11328125, z: 0.03125, w: -0.0390625}
+  m_BoundingSphereOverride: {x: 0, y: 1.72e-43, z: 1.7691e-41, w: 6e-44}
   m_UseBoundingSphereOverride: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
@@ -107,7 +107,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   loop: 1
   smoothFactor: 1
-  addIntensity: 10
+  addIntensity: 5
 --- !u!114 &178251860913194185
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -122,7 +122,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   duration: 0.5
   delay: 0.3
-  finalIntensity: 10
+  finalIntensity: 5
   autodestruct: 1
 --- !u!1 &3017251430189118326
 GameObject:
@@ -13176,7 +13176,7 @@ ParticleSystem:
       properties: 0
       emitProbability: 1
   LightsModule:
-    enabled: 1
+    enabled: 0
     ratio: 0
     light: {fileID: 0}
     randomDistribution: 1
