@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   positionTelegraph: {fileID: 1609845037211932075, guid: bf691d8628cc6da47bab2ba12594299f,
     type: 3}
-  telegraphTime: 3
-  telegraphDelay: 0.6
+  telegraphTime: 4
+  telegraphDelay: 1
