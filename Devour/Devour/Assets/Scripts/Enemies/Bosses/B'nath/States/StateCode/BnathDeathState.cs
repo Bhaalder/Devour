@@ -13,6 +13,7 @@ public class BnathDeathState : EnemyDeathState
         currentCooldown = deathTimer;
         owner.BoxCollider2D.enabled = false;
         owner.rb.gravityScale = 0;
+        owner.rb.velocity = new Vector2(0, 0);
     }
 
     public override void HandleUpdate()
