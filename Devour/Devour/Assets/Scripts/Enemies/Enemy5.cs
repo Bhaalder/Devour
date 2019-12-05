@@ -9,10 +9,12 @@ public enum Enemy5State
 }
 public class Enemy5 : Enemy
 {
+    [SerializeField] private float ledgeJumpDownDistance = 15f;
     public Enemy5State State { get; set; }
     public Animator Animator { get; set; }
     public bool JumpCollision { get; set; }
     public bool TooCloseToJump { get; set; }
+    public float LedgeJumpDownDistance { get => ledgeJumpDownDistance; set => ledgeJumpDownDistance = value; }
 
     protected override void Awake()
     {

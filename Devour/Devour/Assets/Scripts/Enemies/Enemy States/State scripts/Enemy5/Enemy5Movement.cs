@@ -9,7 +9,6 @@ public class Enemy5Movement : EnemyMovement
     [SerializeField] private float enemySpeed = 400;
     [SerializeField] private float distanceBeforeTurning = 3f;
     [SerializeField] private float attackDistance = 10f;
-    [SerializeField] private float dropDownDistance = 15f;
     [SerializeField] private float tooCloseToJumpTime = 2f;
 
     private Vector2 direction;
@@ -19,6 +18,7 @@ public class Enemy5Movement : EnemyMovement
     private float stuckCooldown = 1.5f;
     private float currentStuckCooldown;
     private float currentTooCloseCooldown;
+    private float dropDownDistance;
 
     private bool movingRight = true;
     private bool stuckCheckStarted;
@@ -29,6 +29,7 @@ public class Enemy5Movement : EnemyMovement
         currentStuckCooldown = stuckCooldown;
         currentTooCloseCooldown = tooCloseToJumpTime;
         owner.GetComponent<Enemy5>().State = Enemy5State.IDLE;
+        dropDownDistance = owner.GetComponent<Enemy5>().LedgeJumpDownDistance;
     }
 
     public override void HandleUpdate()
