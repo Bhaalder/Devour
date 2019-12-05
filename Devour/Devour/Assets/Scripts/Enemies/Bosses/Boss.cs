@@ -94,7 +94,7 @@ public class Boss : Enemy{
         };
         bossMusic.FireEvent();
         CameraChangeTargetEvent cameraTarget = new CameraChangeTargetEvent {
-            newTarget = (transform.position + (Vector3)offsetIntroZoom)
+            newTarget = transform
         };
         cameraTarget.FireEvent();
         CameraZoomEvent cameraZoom = new CameraZoomEvent {

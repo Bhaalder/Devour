@@ -10,8 +10,8 @@ public class CameraController : MonoBehaviour{
     [SerializeField] private Vector3 cameraOffset;
     [SerializeField] private float delay;
 
-    private Vector3 playerPosition;
-    private Vector3 targetPosition;
+    private Transform playerTransform;
+    private Transform targetTransform;
     private Vector3 velocity;
     private float cameraTiltValue;
     private float cameraZoomValue;
@@ -38,8 +38,8 @@ public class CameraController : MonoBehaviour{
 
     private void Start() {
         player = GameController.Instance.Player;
-        targetPosition = player.transform.position;
-        playerPosition = player.transform.position;
+        targetTransform = player.transform;
+        playerTransform = player.transform;
     }
 
     private void SetCameraBounds(CameraBoundsChangeEvent cameraBounds) {
@@ -49,10 +49,10 @@ public class CameraController : MonoBehaviour{
 
     private void OnChangeTarget(CameraChangeTargetEvent targetEvent) {
         if (targetEvent.playerTarget) {
-            targetPosition = playerPosition;
+            targetTransform = playerTransform;
             return;
         }
-        targetPosition = targetEvent.newTarget;
+        targetTransform = targetEvent.newTarget;
     }
 
     private void OnTiltCamera(CameraTiltEvent cameraTilt) {
@@ -73,7 +73,7 @@ public class CameraController : MonoBehaviour{
     }
 
     private Vector3 DesiredPosition() {
-        return new Vector3(targetPosition.x + (cameraOffset.x * player.FacingDirection), targetPosition.y + cameraOffset.y + cameraTiltValue, cameraOffset.z + cameraZoomValue);
+        return new Vector3(targetTransform.position.x + (cameraOffset.x * player.FacingDirection), targetTransform.position.y + cameraOffset.y + cameraTiltValue, cameraOffset.z + cameraZoomValue);
     }
 
     #region CameraBounds
