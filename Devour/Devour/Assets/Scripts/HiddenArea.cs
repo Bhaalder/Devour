@@ -34,12 +34,16 @@ public class HiddenArea : MonoBehaviour {
                 List<int> newHiddenAreaList = new List<int> { hiddenAreaID };
                 GameController.Instance.HiddenAreasFound.Add(SceneManager.GetActiveScene().name, newHiddenAreaList);
             }
-            AudioPlaySoundEvent playAreaFoundSound = new AudioPlaySoundEvent {
-                name = soundName,
-                soundType = SoundType.DEFAULT,
-                isRandomPitch = false
-            };
-            playAreaFoundSound.FireEvent();
+            if(soundName == "") {
+
+            } else {
+                AudioPlaySoundEvent playAreaFoundSound = new AudioPlaySoundEvent {
+                    name = soundName,
+                    soundType = SoundType.DEFAULT,
+                    isRandomPitch = false
+                };
+                playAreaFoundSound.FireEvent();
+            }
             SetActiveAreas(false);
         }
 

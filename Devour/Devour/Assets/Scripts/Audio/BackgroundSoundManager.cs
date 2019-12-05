@@ -16,7 +16,8 @@ public class BackgroundSoundManager : MonoBehaviour{
     private string ambienceToStart;
 
     private void Start() {
-        SwitchSceneEvent.RegisterListener(OnSceneSwitch);  
+        SwitchSceneEvent.RegisterListener(OnSceneSwitch);
+        FadeBackgroundSoundEvent.RegisterListener(OnBackgroundSoundEvent);
         for (int i = 0; i < backgroundSounds.Length; i++) {
             if (SceneManager.GetActiveScene().name == backgroundSounds[i].sceneName) {
                 CurrentMusicPlaying = backgroundSounds[i].musicName;
@@ -73,6 +74,32 @@ public class BackgroundSoundManager : MonoBehaviour{
         }
     }
 
+    private void OnBackgroundSoundEvent(FadeBackgroundSoundEvent backgroundSound) {
+        if (backgroundSound.fadeCurrentSceneMusic) {
+            if (backgroundSound.fadeCurrentSceneAmbience) {
+                Debug.LogWarning("Cannot fade both backgroundsounds at the same time!");
+                return;
+            }
+            FadeSound(CurrentMusicPlaying, SoundType.MUSIC, backgroundSound.fadeDuration);
+            CurrentMusicPlaying = "";
+        } else if (backgroundSound.fadeCurrentSceneAmbience) {
+            FadeSound(CurrentBackgroundSoundPlaying, SoundType.SFX, backgroundSound.fadeDuration);
+            CurrentBackgroundSoundPlaying = "";
+        }
+    }
+
+    private void FadeSound(string soundName, SoundType soundType, float fadeDuration) {
+        AudioFadeSoundEvent fadeSound = new AudioFadeSoundEvent {
+            isFadeOut = true,
+            fadeDuration = fadeDuration,
+            name = soundName,
+            soundType = soundType,
+            soundVolumePercentage = 0,
+            stopValue = 0.01f
+        };
+        fadeSound.FireEvent();
+    }
+
     private void StartSound(string soundToStart, SoundType soundType) {
         AudioSwitchBackgroundSoundEvent startSound = new AudioSwitchBackgroundSoundEvent {
             backgroundSoundNametoStart = soundToStart,
@@ -95,6 +122,7 @@ public class BackgroundSoundManager : MonoBehaviour{
 
     private void OnDestroy() {
         SwitchSceneEvent.UnRegisterListener(OnSceneSwitch);
+        FadeBackgroundSoundEvent.UnRegisterListener(OnBackgroundSoundEvent);
     }
 
 }

@@ -351,7 +351,10 @@ public class AudioController : MonoBehaviour {
                     return;
                 }
                 if (fadeEvent.isFadeOut) {
-                    StartCoroutine(FadeOutAudio(fadeEvent.fadeDuration, (fadeEvent.soundVolumePercentage / 100), sound));
+                    if(fadeEvent.stopValue == 0) {
+                        fadeEvent.stopValue = 0.1f;
+                    }
+                    StartCoroutine(FadeOutAudio(fadeEvent.fadeDuration, (fadeEvent.soundVolumePercentage / 100), fadeEvent.stopValue, sound));
                     return;
                 }
             }
@@ -373,21 +376,22 @@ public class AudioController : MonoBehaviour {
         }
     }
 
-    private IEnumerator FadeOutAudio(float fadeDuration, float soundVolume, Sound sound) {
+    private IEnumerator FadeOutAudio(float fadeDuration, float soundVolume, float stopValue, Sound sound) {
         continueFadeIn = false;
         continueFadeOut = true;
         float startSoundValue = sound.source.volume;
-        for (float time = 0f; time < fadeDuration; time += Time.unscaledDeltaTime) {
-            float normalizedTime = time / fadeDuration;
-            sound.source.volume = Mathf.Lerp(startSoundValue, soundVolume, normalizedTime);
-            if (sound.source.volume <= 0.1f) {
-                sound.source.Stop();
-                break;
+        if (continueFadeOut) {
+            for (float time = 0f; time < fadeDuration; time += Time.unscaledDeltaTime) {
+                float normalizedTime = time / fadeDuration;
+                sound.source.volume = Mathf.Lerp(startSoundValue, soundVolume, normalizedTime);
+                if (sound.source.volume <= stopValue) {
+                    sound.source.Stop();
+                    break;
+                }
+                yield return null;
             }
-            yield return null;
         }
         sound.source.volume = startSoundValue;
-
     }
     #endregion
 
@@ -397,7 +401,7 @@ public class AudioController : MonoBehaviour {
         if(audioSwitch.backgroundSoundNameToFadeOut != "" && audioSwitch.backgroundSoundNameToFadeOut != null) {
             FindSound(audioSwitch.backgroundSoundNameToFadeOut, audioSwitch.backgroundSoundTypeToFadeOut);
             if (sound.source.isPlaying) {
-                StartCoroutine(FadeOutAudio(audioSwitch.fadeDuration, (audioSwitch.soundVolumePercentage / 100), sound));
+                StartCoroutine(FadeOutAudio(audioSwitch.fadeDuration, (audioSwitch.soundVolumePercentage / 100), 0.1f, sound));
             }
         }
         sound = null;
@@ -426,9 +430,9 @@ public class AudioController : MonoBehaviour {
                     sound = allSoundsDictionary[name];
                     break;
             }
-        } catch (KeyNotFoundException) {
-            AudioNotFound(name);
         } catch (System.ArgumentNullException) {
+            AudioNotFound(name);
+        } catch (KeyNotFoundException) {
             AudioNotFound(name);
         }
     }

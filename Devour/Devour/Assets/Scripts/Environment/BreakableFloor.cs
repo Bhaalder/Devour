@@ -8,6 +8,7 @@ public class BreakableFloor : MonoBehaviour {
 
     [SerializeField] private GameObject particles;
     [SerializeField] private int platformID;
+    private bool triggered;
 
     private void Start() {
         if (GameController.Instance.DestroyedPlatforms.ContainsKey(SceneManager.GetActiveScene().name)) {
@@ -19,8 +20,9 @@ public class BreakableFloor : MonoBehaviour {
     }
 
     private void OnTriggerEnter2D(Collider2D collision) {
-        if (collision.gameObject.tag == "Player") {
+        if (collision.gameObject.tag == "Player" && !triggered) {
             TriggerFloor();
+            triggered = true;
         }
     }
 

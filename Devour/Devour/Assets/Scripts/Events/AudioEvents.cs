@@ -97,6 +97,7 @@ public class AudioFadeSoundEvent : Event<AudioFadeSoundEvent> {
     public bool isFadeIn;
     public float fadeDuration;
     public float soundVolumePercentage;
+    public float stopValue;
 
 }
 
@@ -119,5 +120,14 @@ public class AudioMixerPitchEvent : Event<AudioMixerPitchEvent> {
 
     public float pitch;
     public SoundMixerType soundMixerType;
+
+}
+
+public class FadeBackgroundSoundEvent : Event<FadeBackgroundSoundEvent> {
+
+    public bool fadeCurrentSceneMusic;
+    public bool fadeCurrentSceneAmbience;
+    public float fadeDuration;
+    public SoundType soundType;
 
 }

@@ -75,6 +75,9 @@ public class MainMenuController : MonoBehaviour{
                 Invoke("FadeScene", loadingSequenceLength);
                 cameraAnim.Play("GameStartAnim");
                 buttonAnim.Play("MenuAnim");
+                if (DataStorage.Instance.RestingScene != null) {
+                    newGameScene = DataStorage.Instance.RestingScene;
+                }
                 SwitchSceneEvent switchScene = new SwitchSceneEvent {
                     enteringSceneName = newGameScene,
                     leavingSceneName = SceneManager.GetActiveScene().name

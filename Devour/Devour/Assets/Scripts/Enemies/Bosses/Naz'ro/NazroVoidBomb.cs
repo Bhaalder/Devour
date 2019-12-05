@@ -30,39 +30,15 @@ public class NazroVoidBomb : MonoBehaviour {
         LifeSpan -= Time.deltaTime;
         if (!isStartingToExplode) {
             transform.position = Vector2.MoveTowards(transform.position, player.position, Speed * Time.deltaTime);
-        }
-        if (LifeSpan <= 0 && !isStartingToExplode) {
-            Explode();
+            if (LifeSpan <= 0) {
+                Explode();
+            }
         }
     }
 
     private void GetHit(PlayerAttackEvent attackEvent) {
         try {
             if (attackEvent.attackCollider.bounds.Intersects(circleCollider2D.bounds)) {
-                //Vector2 knockBack;
-                //if (attackEvent.isMeleeAttack) {
-                //    if (!attackEvent.player.IsGrounded && attackEvent.player.IsAttackingDown && attackEvent.isMeleeAttack) {
-                //        attackEvent.player.ExtraJumpsLeft = attackEvent.player.ExtraJumps;
-                //        attackEvent.player.DashesLeft = attackEvent.player.NumberOfDashes;
-                //        attackEvent.player.Rb2D.velocity = new Vector2(attackEvent.player.Rb2D.velocity.x, 0);
-                //        attackEvent.player.Rb2D.velocity = new Vector2(attackEvent.player.Rb2D.velocity.x, attackEvent.player.BounceForce);
-                //        return;
-                //    }
-                //    if (attackEvent.player.IsAttackingUp) {
-                //        knockBack = new Vector2(0, attackEvent.player.KnockbackForce);
-                //        rigidBody2D.velocity = knockBack;
-                //        return;
-                //    }
-                //    if (attackEvent.player.IsAttackingDown) {
-                //        knockBack = new Vector2(0, -attackEvent.player.KnockbackForce);
-                //        rigidBody2D.velocity = knockBack;
-                //        return;
-                //    }
-                //    knockBack = new Vector2(attackEvent.player.FacingDirection * attackEvent.player.KnockbackForce, 0);
-                //    rigidBody2D.velocity = knockBack;
-                //} else {
-                //    Explode();
-                //}
                 Vector2 knockBack;
                 if (attackEvent.player.IsAttackingDown) {
                     knockBack = new Vector2(0, -attackEvent.player.KnockbackForce * 1.3f);
@@ -81,19 +57,12 @@ public class NazroVoidBomb : MonoBehaviour {
 
     private void OnTriggerEnter2D(Collider2D collision) {
         if (collision.gameObject.tag == "Player") {
-            //Debug.Log("Collided with Player");
-            //PlayerTakeDamageEvent playerTakeDamage = new PlayerTakeDamageEvent {
-            //    damage = Damage,
-            //    enemyPosition = GetComponent<Rigidbody2D>().position
-            //};
-            //playerTakeDamage.FireEvent();
             Explode();
         }
     }
 
-    private void Explode() {//FÖR TILLFÄLLET
+    private void Explode() {
         if (!isStartingToExplode) {
-            Debug.Log("Börjar explodera");
             rigidBody2D.velocity = Vector2.zero;
             isStartingToExplode = true;
             animator.SetTrigger("WindUp");
@@ -108,7 +77,7 @@ public class NazroVoidBomb : MonoBehaviour {
     }
 
     private void BossDied(BossDiedEvent bossDied) {
-        Destroy(gameObject);//borde inte explodera då
+        Destroy(gameObject);
     }
 
     private void OnDestroy() {
