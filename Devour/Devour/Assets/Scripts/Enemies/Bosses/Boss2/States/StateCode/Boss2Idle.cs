@@ -19,8 +19,8 @@ public class Boss2Idle : Boss2BaseState
         base.Enter();
         currentCooldown = timeBetweenAttacks;
         owner.State = Boss2State.IDLE;
-        owner.HitBoxHorizontal.SetActive(true);
-        owner.HitBoxVertical.SetActive(false);
+        owner.HitBoxHorizontal.SetActive(false);
+        owner.HitBoxVertical.SetActive(true);
     }
 
     public override void HandleUpdate()

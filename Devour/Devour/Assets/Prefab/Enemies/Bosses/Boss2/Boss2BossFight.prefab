@@ -728,7 +728,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 1.8706785}
@@ -7292,11 +7292,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: SonicSnipeBeam
       objectReference: {fileID: 0}
-    - target: {fileID: 2324068886425042611, guid: a2bf8143a4797b4439f4826e5d0724a0,
-        type: 3}
-      propertyPath: boss
-      value: 
-      objectReference: {fileID: 7227144329047398490}
     - target: {fileID: 8075793921789777215, guid: a2bf8143a4797b4439f4826e5d0724a0,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -7352,6 +7347,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2324068886425042611, guid: a2bf8143a4797b4439f4826e5d0724a0,
+        type: 3}
+      propertyPath: boss
+      value: 
+      objectReference: {fileID: 7227144329047398490}
     - target: {fileID: 9217518114712663821, guid: a2bf8143a4797b4439f4826e5d0724a0,
         type: 3}
       propertyPath: boss
