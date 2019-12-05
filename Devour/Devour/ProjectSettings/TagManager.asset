@@ -7,6 +7,7 @@ TagManager:
   - CameraBounds
   - Enemy
   - Canvas
+  - FxTemporaire
   layers:
   - Default
   - TransparentFX
@@ -20,9 +21,9 @@ TagManager:
   - Enemy
   - Player
   - PostProcessing
-  - 
-  - 
-  - 
+  - Background
+  - Foreground
+  - Postprocess1
   - 
   - 
   - 
