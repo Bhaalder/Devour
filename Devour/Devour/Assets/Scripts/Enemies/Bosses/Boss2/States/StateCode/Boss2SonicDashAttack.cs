@@ -27,6 +27,8 @@ public class Boss2SonicDashAttack : Boss2BaseState
         countUp = 0;
         currentDashTime = 0;
         currentPosition = 0;
+        owner.HitBoxHorizontal.SetActive(true);
+        owner.HitBoxVertical.SetActive(false);
 
         startPosition = owner.rb.position;
         owner.rb.gravityScale = 0;
@@ -62,6 +64,8 @@ public class Boss2SonicDashAttack : Boss2BaseState
         {
             currentPosition = 0;
             owner.rb.gravityScale = 6;
+            owner.HitBoxHorizontal.SetActive(true);
+            owner.HitBoxVertical.SetActive(false);
             owner.Transition<Boss2SonicDashExit>();           
         }
     }
