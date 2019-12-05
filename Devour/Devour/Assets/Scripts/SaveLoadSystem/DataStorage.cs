@@ -6,9 +6,9 @@ using UnityEngine.SceneManagement;
 //Author: Marcus Söderberg
 public class DataStorage : MonoBehaviour
 {
-    public int KillCount { get; set; }
 
-
+    [SerializeField] private float saveGameInterval = 15f;
+    private float currentSaveGameIntervalTime;
     public PlayerData PlayerDataStorage { get; set; }
     public GameData GameData { get; set; }
 
@@ -54,11 +54,12 @@ public class DataStorage : MonoBehaviour
             RestingScene = GameData.RestingScene;
         }
 
+        currentSaveGameIntervalTime = saveGameInterval;
     }
 
     private void Update()
     {
-        SaveGame();
+        SaveGameInterval();
     }
 
     public void SaveGame()
@@ -184,6 +185,19 @@ public class DataStorage : MonoBehaviour
         PlayerDataStorage = SaveSystem.LoadPlayerData();
         GameData = SaveSystem.LoadGameData();
         LoadSettingsData();
+    }
+
+    private void SaveGameInterval()
+    {
+        currentSaveGameIntervalTime -= Time.deltaTime;
+
+        if (currentSaveGameIntervalTime > 0)
+        {
+            return;
+        }
+
+        SaveGame();
+        currentSaveGameIntervalTime = saveGameInterval;
     }
 
 }
