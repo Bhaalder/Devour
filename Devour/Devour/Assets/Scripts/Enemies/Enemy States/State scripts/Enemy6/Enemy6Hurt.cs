@@ -9,6 +9,8 @@ public class Enemy6Hurt : EnemyMovement
     {
         base.Enter();
         owner.GetComponent<Enemy6>().State = Enemy6State.HURT;
+        owner.GetComponent<Enemy6>().Weapon.GetComponent<BoxCollider2D>().enabled = false;
+        owner.GetComponent<Enemy6>().Weapon.GetComponent<SpriteRenderer>().enabled = false;
     }
     public override void HandleUpdate()
     {

@@ -10,6 +10,7 @@ public class Enemy3Hurt : EnemyMovement
     {
         base.Enter();
         owner.GetComponent<Enemy3>().State = Enemy3State.HURT;
+        owner.GetComponent<Enemy3>().ChargeIndicator.color = owner.GetComponent<Enemy3>().OriginalColor;
     }
     public override void HandleUpdate()
     {

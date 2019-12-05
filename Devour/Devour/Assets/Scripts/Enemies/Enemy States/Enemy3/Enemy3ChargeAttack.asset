@@ -20,4 +20,7 @@ MonoBehaviour:
   distanceBeforeTurning: 3
   newPositionCooldownTime: 3
   attackDistance: 15
+  iWasStuckCooldown: 5
   chargeSpeed: 2500
+  dashForce: 25
+  startDashTime: 0.4

@@ -397,6 +397,7 @@ MonoBehaviour:
   chargeEnemy: 0
   patrolEnemy: 0
   patrolMoveRange: 5
+  chargeIndicator: {fileID: 949550574607652624}
 --- !u!58 &949550574438261651
 CircleCollider2D:
   m_ObjectHideFlags: 0

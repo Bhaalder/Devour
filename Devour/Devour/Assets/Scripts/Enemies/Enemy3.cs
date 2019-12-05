@@ -15,10 +15,14 @@ public class Enemy3 : Enemy
     public bool IWasStuck { get; set; }
     public Enemy3State State { get; set; }
     public Animator Animator { get; set; }
+    public SpriteRenderer ChargeIndicator { get => chargeIndicator; set => chargeIndicator = value; }
+    public Color OriginalColor { get; set; }
+
 
     [SerializeField] private bool chargeEnemy = false;
     [SerializeField] private bool patrolEnemy = false;
     [SerializeField] private float patrolMoveRange = 5f;
+    [SerializeField] private SpriteRenderer chargeIndicator;
 
 
     protected override void Awake()
@@ -29,6 +33,7 @@ public class Enemy3 : Enemy
         PatrolMoveRange = patrolMoveRange;
         IWasStuck = false;
         Animator = GetComponent<Animator>();
+        OriginalColor = chargeIndicator.color;
 
     }
 
@@ -55,20 +60,4 @@ public class Enemy3 : Enemy
             Transition<Enemy3Hurt>();
         }
     }
-
-    //protected override void OnCollisionStay2D(Collision2D collision)
-    //{
-    //    if (collision.gameObject.tag == "Player")
-    //    {
-    //        Debug.Log("Collided with Player");
-    //        PlayerTakeDamageEvent ptde = new PlayerTakeDamageEvent
-    //        {
-    //            damage = damageToPlayerOnContact,
-    //            enemyPosition = rb.position
-    //        };
-    //        ptde.FireEvent();
-    //        Stunned = true;
-    //        Transition<Enemy3Hurt>();
-    //    }
-    //}
 }

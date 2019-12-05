@@ -6,12 +6,19 @@ using UnityEngine;
 
 public class Enemy3ChargeAttack : Enemy3Movement
 {
-    [SerializeField] private float chargeSpeed = 700f;
+    [SerializeField] private float dashForce = 40f;
+    [SerializeField] private float startDashTime = 0.4f;
+
+
+    private float dashTime;
 
     public override void Enter()
     {
         base.Enter();
         owner.GetComponent<Enemy3>().State = Enemy3State.CHARGE;
+        dashTime = startDashTime;
+        TurnedRight();
+        FindTargetDirection();
     }
 
     public override void HandleUpdate()
@@ -32,16 +39,15 @@ public class Enemy3ChargeAttack : Enemy3Movement
 
     private void Movement()
     {
-        if(Mathf.Approximately( (int)owner.rb.position.x, (int)owner.GetComponent<Enemy3>().ChargeTarget.x))
+        owner.rb.velocity = new Vector2((dashForce * direction.x), 0);
+
+        if (dashTime <= 0)
         {
-            owner.rb.velocity = new Vector2(0f,owner.rb.velocity.y);
-            owner.Stunned = true;
+            owner.rb.velocity = new Vector2(0, owner.rb.velocity.y);
             owner.Transition<Enemy3Movement>();
         }
+        dashTime -= Time.deltaTime;
 
-        FindTargetDirection();
-        force = direction.normalized * chargeSpeed * Time.deltaTime;
-        owner.rb.AddForce(force);
         CheckGround();
 
     }
@@ -62,14 +68,6 @@ public class Enemy3ChargeAttack : Enemy3Movement
     {
         RaycastHit2D obstructed = Physics2D.Raycast(owner.rb.position, direction, distanceBeforeTurning, layerMask);
         if (obstructed.collider == true)
-        {
-            movingRight = !movingRight;
-            owner.Transition<Enemy3Movement>();
-        }
-        noGroundAhead = new Vector2(direction.x, -1);
-        RaycastHit2D noMoreGround = Physics2D.Raycast(owner.rb.position, noGroundAhead, distanceBeforeTurning + 2f, layerMask);
-
-        if (noMoreGround.collider == false)
         {
             movingRight = !movingRight;
             owner.Transition<Enemy3Movement>();

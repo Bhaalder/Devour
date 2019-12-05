@@ -42,7 +42,7 @@ public class EnemyMovement : EnemyBaseState
 
         if (currentCooldown > 0)
         {
-            owner.rb.velocity = new Vector2(0f, 0f);
+            owner.rb.velocity = new Vector2(0f, owner.rb.velocity.y);
             return;
         }
 
