@@ -36,7 +36,6 @@ public class Boss2SonicDashAttack : Boss2BaseState
 
     public override void HandleUpdate()
     {
-        base.HandleUpdate();
         DashingAttack();
     }
     public override void HandleFixedUpdate()

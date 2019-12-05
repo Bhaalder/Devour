@@ -16,6 +16,7 @@ public class BnathBaseState : State
     public override void Enter()
     {
         base.Enter();
+        owner.State = BossBnathState.NONE;
     }
 
     public override void HandleUpdate()

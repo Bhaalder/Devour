@@ -25,7 +25,6 @@ public class Boss2Idle : Boss2BaseState
 
     public override void HandleUpdate()
     {
-        base.HandleUpdate();
         TimeBetweenAttacks();
     }
     public override void HandleFixedUpdate()

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[CreateAssetMenu(menuName = "Boss/Boss2/Boss2BaseState")]
 public class Boss2BaseState : State
 {
     protected Boss2 owner;
@@ -13,11 +14,17 @@ public class Boss2BaseState : State
     public override void Enter()
     {
         base.Enter();
+        owner.State = Boss2State.NONE;
     }
 
     public override void HandleUpdate()
     {
         base.HandleUpdate();
+        if (owner.IntroStarted && !owner.Transitioned)
+        {
+            owner.Transitioned = true;
+            owner.Transition<Boss2Intro>();
+        }
     }
     public override void HandleFixedUpdate()
     {

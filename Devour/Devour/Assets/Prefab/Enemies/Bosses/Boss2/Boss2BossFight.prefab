@@ -1860,7 +1860,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   states:
-  - {fileID: 11400000, guid: 23963ef068970c34faf6ed94e2297174, type: 2}
+  - {fileID: 11400000, guid: a16f903878552da41bec383334dc5273, type: 2}
   - {fileID: 11400000, guid: b186e02c68bd7ba47aa6f0e3275de548, type: 2}
   - {fileID: 11400000, guid: 2b676e1dc0419d645a2290a719b2627c, type: 2}
   - {fileID: 11400000, guid: dab0ecb15ac0f144793a433a916026f0, type: 2}
@@ -1874,6 +1874,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 176ca11ed24ec0b44ba45954b236b32c, type: 2}
   - {fileID: 11400000, guid: 7a281e508e58d934a90429406c8a0291, type: 2}
   - {fileID: 11400000, guid: a980ec5646af2b84d9b065987355d78b, type: 2}
+  - {fileID: 11400000, guid: 23963ef068970c34faf6ed94e2297174, type: 2}
   hurtParticleOffsetPosition: {x: 0, y: 0}
   particlesOnHurt: {fileID: 2047988903029819035, guid: bb7218c3e0990ea48b3de4686fafc449,
     type: 3}

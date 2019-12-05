@@ -26,9 +26,7 @@ public class Boss2SonicDashTelegraph : Boss2BaseState
 
     public override void HandleUpdate()
     {
-        base.HandleUpdate();
         TelegraphTime();
-
     }
     public override void HandleFixedUpdate()
     {

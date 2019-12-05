@@ -33,6 +33,7 @@ public class Boss2 : Boss
     public GameObject HitBoxVertical { get => hitBoxVertical; set => hitBoxVertical = value; }
     public GameObject HitBoxHorizontal { get => hitBoxHorizontal; set => hitBoxHorizontal = value; }
     public List<GameObject> SonicDashParticles { get; set; }
+    public bool Transitioned;
 
     private static bool isDead;
 
@@ -53,11 +54,12 @@ public class Boss2 : Boss
         SnipeBeamSprite.enabled = false;
         IntroStarted = false;
         PlayerDiedEvent.RegisterListener(Reset);
-        Transition<Boss2Intro>();
+        Transition<Boss2BaseState>();
         bossFightBlock.SetActive(true);
         IsAlive = !isDead;
         hitBoxHorizontal.SetActive(false);
         SonicDashParticles = new List<GameObject>();
+        Transitioned = false;
     }
 
     protected override void Update()
