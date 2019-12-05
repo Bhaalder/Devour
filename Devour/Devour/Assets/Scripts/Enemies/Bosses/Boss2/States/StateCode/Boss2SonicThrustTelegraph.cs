@@ -6,15 +6,9 @@ using UnityEngine;
 public class Boss2SonicThrustTelegraph : Boss2BaseState
 {
     [SerializeField] private float telegraphTime = 1f;
-    [SerializeField] private GameObject telegraph;
-    [SerializeField] private float telegraphLength = 10f;
 
     private float currentCooldown;
     private float telegraphCurrentCooldown;
-
-    private Vector2 telegraphStartPosition;
-
-    private GameObject telegraphObj;
 
     public override void Enter()
     {
@@ -23,13 +17,8 @@ public class Boss2SonicThrustTelegraph : Boss2BaseState
 
         FindTargetDirection();
         owner.dashStartDirection = direction;
-        telegraphStartPosition = owner.rb.position;
         currentCooldown = telegraphTime;
         telegraphCurrentCooldown = 0;
-
-        telegraphObj = Instantiate(telegraph, null);
-        telegraphObj.transform.position = owner.transform.position;
-        telegraphObj.GetComponent<DestroyTimer>().DestructionTime = telegraphTime;
     }
 
     public override void HandleUpdate()
@@ -60,9 +49,8 @@ public class Boss2SonicThrustTelegraph : Boss2BaseState
     {
         telegraphCurrentCooldown += Time.deltaTime;
 
-        if (telegraphCurrentCooldown < telegraphTime*0.33f)
+        if (telegraphCurrentCooldown < telegraphTime)
         {
-            telegraphObj.transform.position = Vector3.Lerp(telegraphStartPosition, telegraphStartPosition + (direction * telegraphLength), telegraphCurrentCooldown);
             return;
         }
 

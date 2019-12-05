@@ -10,9 +10,8 @@ public static class SaveSystem
 
     private static string gameDataString = "/GameData.sav";
     private static string settingsDataString = "/SettingsData.sav";
-    private static string talentTreeDataString = "/TalentTreeData.sav";
     private static string playerDataString = "/playerData.sav";
-    private static string[] allpaths = new string[] { gameDataString, settingsDataString, talentTreeDataString, playerDataString };
+    private static string[] allpaths = new string[] { gameDataString, settingsDataString, playerDataString };
 
     public static void DeleteAllSaveFiles()
     {

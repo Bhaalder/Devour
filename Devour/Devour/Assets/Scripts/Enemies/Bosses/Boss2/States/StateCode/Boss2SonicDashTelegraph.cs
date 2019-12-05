@@ -55,7 +55,7 @@ public class Boss2SonicDashTelegraph : Boss2BaseState
             position.transform.position = gameObject.transform.position;
             position.GetComponent<ParticleStartTimer>().StartTimer = tempTelegraphDelay;
             //position.GetComponent<DestroyTimer>().DestructionTime = tempTelegraphDelay + 1f;
-            tempTelegraphDelay += 0.3f;
+            tempTelegraphDelay += telegraphDelay;
             owner.SonicDashParticles.Add(position);
         }
 
