@@ -12,10 +12,10 @@ public class PlayerVoidSlider : MonoBehaviour {
         PlayerVoidEvent.RegisterListener(VoidEvent);
         PlayerGetAbilityEvent.RegisterListener(GetVoidMend);
         TalentPointGainEvent.RegisterListener(OnTalentPointGain);
+        voidSlider = GetComponent<Slider>();
     }
 
     private void Start() {
-        voidSlider = GetComponent<Slider>();
         if (GameController.Instance.Player.HasAbility(PlayerAbility.VOIDMEND)) {
             voidSlider.maxValue = GameController.Instance.Player.MaxPlayerVoid;
             voidSlider.value = 0;

@@ -81,22 +81,17 @@ public class DataStorage : MonoBehaviour
         if (data != null)
         {
             GameController.Instance.Player.PlayerAbilities = data.PlayerAbilities;
-
-            GameController.Instance.Player.MaxHealth = data.MaxHealth;
-            GameController.Instance.Player.Health = data.Health;
-            GameController.Instance.Player.MaxPlayerVoid = data.MaxPlayerVoid;
-
-            GameController.Instance.Player.MeleeDamage = data.MeleeDamage;
-            GameController.Instance.Player.ProjectileDamage = data.ProjectileDamage;
-
-            GameController.Instance.Player.MeleeLifeLeech = data.MeleeLifeLeech;
-            GameController.Instance.Player.MeleeVoidLeech = data.MeleeVoidLeech;
-
-            GameController.Instance.Player.MovementSpeed = data.MovementSpeed;
-            GameController.Instance.Player.DashCooldown = data.DashCooldown;
-
-            GameController.Instance.Player.TalentPoints = data.TalentPoints;
             GameController.Instance.Player.Collectibles = data.Collectibles;
+
+            for (int i = 0; i < data.TalentPoints.Count; i++)
+            {
+                Debug.Log("Changing Talent: " + data.TalentPoints[i].talentPointType + " : " + data.TalentPoints[i].variablesToChange[0].amount);
+                TalentPointGainEvent talentGain = new TalentPointGainEvent
+                {
+                    talentPoint = data.TalentPoints[i]
+                };
+                talentGain.FireEvent();
+            }
 
         }
     }
@@ -116,7 +111,10 @@ public class DataStorage : MonoBehaviour
 
             GameController.Instance.RestingScene = data.RestingScene;
 
-            //PlayerLifeForce = gameController.PlayerLifeForce;
+            if(data.PlayerLifeForceLocation != null)
+            {
+                GameController.Instance.PlayerLifeForce = new PlayerLifeForce(data.PlayerLifeForceSceneName, new Vector3(data.PlayerLifeForceLocation[0], data.PlayerLifeForceLocation[1], data.PlayerLifeForceLocation[2]), data.PlayerLifeForceCollectible);
+            }
 
             GameController.Instance.DestroyedDestructibles = data.DestroyedDestructibles;
             GameController.Instance.DestroyedPlatforms = data.DestroyedPlatforms;

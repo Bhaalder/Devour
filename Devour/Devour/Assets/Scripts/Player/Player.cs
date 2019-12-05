@@ -259,7 +259,7 @@ public class Player : StateMachine {
         if (FindObjectOfType<DataStorage>())
         {
             DataStorage.Instance.LoadPlayerData();
-            GameController.Instance.Player.transform.position = GameController.Instance.RestingCheckpoint;
+            transform.position = GameController.Instance.RestingCheckpoint;
         }
 
     }

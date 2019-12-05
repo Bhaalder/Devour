@@ -13,10 +13,10 @@ public class PlayerHealthSlider : MonoBehaviour{
         PlayerHealEvent.RegisterListener(GainHealth);
         PlayerTouchKillzoneEvent.RegisterListener(TouchKillzone);
         TalentPointGainEvent.RegisterListener(OnTalentPointGain);
+        healthSlider = GetComponent<Slider>();
     }
 
     private void Start() {
-        healthSlider = GetComponent<Slider>();
         healthSlider.maxValue = GameController.Instance.Player.MaxHealth;
         healthSlider.value = GameController.Instance.Player.MaxHealth;
     }

@@ -9,7 +9,9 @@ public class GameData
     public float[] SceneCheckpoint { get; set; } //om man rör vid en "killzone"
     public float[] RestingCheckpoint { get; set; } //senaste platsen man restade på
     public string RestingScene { get; set; } //senaste scenen man restade på    
-    //public PlayerLifeForce PlayerLifeForce { get; set; } //platsen man dog på och måste hämta sin lifeForce
+    public float[] PlayerLifeForceLocation { get; set; } //platsen man dog på och måste hämta sin lifeForce
+    public string PlayerLifeForceSceneName { get; set; }
+    public Collectible PlayerLifeForceCollectible { get; set; }
 
     public Dictionary<string, List<int>> DestroyedDestructibles { get; set; }
     public Dictionary<string, List<int>> DestroyedPlatforms { get; set; }
@@ -32,9 +34,19 @@ public class GameData
         RestingCheckpoint[1] = gameController.RestingCheckpoint.y;
         RestingCheckpoint[2] = gameController.RestingCheckpoint.z;
 
-        RestingScene = gameController.RestingScene;
+        if(gameController.PlayerLifeForce != null)
+        {
+            PlayerLifeForceLocation = new float[3];
+            PlayerLifeForceLocation[0] = gameController.PlayerLifeForce.Location.x;
+            PlayerLifeForceLocation[1] = gameController.PlayerLifeForce.Location.y;
+            PlayerLifeForceLocation[2] = gameController.PlayerLifeForce.Location.z;
 
-        //PlayerLifeForce = gameController.PlayerLifeForce;
+            PlayerLifeForceSceneName = gameController.PlayerLifeForce.SceneName;
+
+            PlayerLifeForceCollectible = gameController.PlayerLifeForce.Collectible;
+        }
+
+        RestingScene = gameController.RestingScene;
 
         DestroyedDestructibles = gameController.DestroyedDestructibles;
         DestroyedPlatforms = gameController.DestroyedPlatforms;
