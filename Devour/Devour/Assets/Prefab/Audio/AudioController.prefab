@@ -66,7 +66,7 @@ MonoBehaviour:
     musicName: Mystic
     ambienceName: CaveAmbience
   - sceneName: Scene04
-    musicName: 
+    musicName: Mystic
     ambienceName: CaveAmbience
   - sceneName: Scene05
     musicName: Mystic
@@ -436,6 +436,56 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: BnathIntro
     clip: {fileID: 8300000, guid: dc1aa9efd98765345971d20848b5a83b, type: 3}
+    volume: 1
+    pitch: 1
+    spatialBlend_2D_3D: 1
+    rolloffMode: 1
+    minDistance: 0.1
+    maxDistance: 50
+    loop: 0
+    source: {fileID: 0}
+  - name: BnathGrabWall
+    clip: {fileID: 8300000, guid: 02b76cea4232fcb42bd11593ce489a79, type: 3}
+    volume: 1
+    pitch: 1
+    spatialBlend_2D_3D: 1
+    rolloffMode: 1
+    minDistance: 0.1
+    maxDistance: 50
+    loop: 0
+    source: {fileID: 0}
+  - name: BnathChant1
+    clip: {fileID: 8300000, guid: f38dfc493f6ac2e4e9db5008a4a12456, type: 3}
+    volume: 1
+    pitch: 1
+    spatialBlend_2D_3D: 1
+    rolloffMode: 1
+    minDistance: 0.1
+    maxDistance: 50
+    loop: 0
+    source: {fileID: 0}
+  - name: BnathChant2
+    clip: {fileID: 8300000, guid: 4f05cdd32d74ba544825697b939097c1, type: 3}
+    volume: 1
+    pitch: 1
+    spatialBlend_2D_3D: 1
+    rolloffMode: 1
+    minDistance: 0.1
+    maxDistance: 50
+    loop: 0
+    source: {fileID: 0}
+  - name: BnathJumpFromWall1
+    clip: {fileID: 8300000, guid: 05adebcdb3f1fce4c85eb9d20bb75ffb, type: 3}
+    volume: 1
+    pitch: 1
+    spatialBlend_2D_3D: 1
+    rolloffMode: 1
+    minDistance: 0.1
+    maxDistance: 50
+    loop: 0
+    source: {fileID: 0}
+  - name: BnathJumpFromWall2
+    clip: {fileID: 8300000, guid: 639d0160dbfefe54783d9862cb127bfc, type: 3}
     volume: 1
     pitch: 1
     spatialBlend_2D_3D: 1
