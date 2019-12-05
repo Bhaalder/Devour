@@ -15,6 +15,9 @@ public class Boss : Enemy{
     [SerializeField] protected GameObject abilityEssence;
     [SerializeField] protected string bossName;
     [SerializeField] protected float maxHealth;
+    [SerializeField] protected Vector2 offsetIntroZoom;
+    [SerializeField] protected float introZoomInValue;
+    [SerializeField] protected float introEndZoomOutValue;
 
     private void OnEnable() {
         if(GameController.Instance.KilledBosses != null) {
@@ -91,11 +94,11 @@ public class Boss : Enemy{
         };
         bossMusic.FireEvent();
         CameraChangeTargetEvent cameraTarget = new CameraChangeTargetEvent {
-            newTarget = transform
+            newTarget = (transform.position + (Vector3)offsetIntroZoom)
         };
         cameraTarget.FireEvent();
         CameraZoomEvent cameraZoom = new CameraZoomEvent {
-            zoomValue = 0
+            zoomValue = introZoomInValue
         };
         cameraZoom.FireEvent();
     }
@@ -106,7 +109,7 @@ public class Boss : Enemy{
         };
         cameraTarget.FireEvent();
         CameraZoomEvent cameraZoom = new CameraZoomEvent {
-            zoomValue = 0
+            zoomValue = introEndZoomOutValue
         };
         cameraZoom.FireEvent();
     }

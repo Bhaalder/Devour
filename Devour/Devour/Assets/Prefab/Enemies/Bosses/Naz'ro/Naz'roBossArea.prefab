@@ -1521,6 +1521,9 @@ MonoBehaviour:
   abilityEssence: {fileID: 0}
   bossName: "Naz\u2019ro the One"
   maxHealth: 3000
+  offsetIntroZoom: {x: 0, y: 0}
+  introZoomInValue: 10
+  introEndZoomOutValue: -13.3
   bossArea: {fileID: 2816975204552695204}
   speed: 5
   maximumNumberOfVoidObstacles: 10

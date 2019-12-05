@@ -12,7 +12,7 @@ public class CameraShakeEvent : Event<CameraShakeEvent> {
 
 public class CameraChangeTargetEvent : Event<CameraChangeTargetEvent> {
 
-    public Transform newTarget;
+    public Vector3 newTarget;
     public bool playerTarget;
 }
 
