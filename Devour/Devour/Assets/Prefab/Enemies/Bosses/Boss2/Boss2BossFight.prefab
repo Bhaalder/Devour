@@ -1834,7 +1834,7 @@ Transform:
   m_GameObject: {fileID: 7227144329047398490}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 11.9, z: 0}
-  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
+  m_LocalScale: {x: -1.5, y: 1.5, z: 1.5}
   m_Children:
   - {fileID: 636220230575543380}
   - {fileID: 2538847637229161448}
@@ -1890,6 +1890,9 @@ MonoBehaviour:
     type: 3}
   bossName: Boss2
   maxHealth: 1200
+  offsetIntroZoom: {x: 0, y: 0}
+  introZoomInValue: 0
+  introEndZoomOutValue: 0
   dashPatterns:
   - {fileID: 7227144328493117893}
   - {fileID: 7227144328210098876}

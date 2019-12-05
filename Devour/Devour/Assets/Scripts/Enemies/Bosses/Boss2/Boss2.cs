@@ -33,7 +33,7 @@ public class Boss2 : Boss
     public GameObject HitBoxVertical { get => hitBoxVertical; set => hitBoxVertical = value; }
     public GameObject HitBoxHorizontal { get => hitBoxHorizontal; set => hitBoxHorizontal = value; }
     public List<GameObject> SonicDashParticles { get; set; }
-    public bool Transitioned;
+    public bool Transitioned { get; set; }
 
     private static bool isDead;
 

@@ -22,6 +22,11 @@ public class BnathBaseState : State
     public override void HandleUpdate()
     {
         base.HandleUpdate();
+        if (owner.IntroStarted && !owner.Transitioned)
+        {
+            owner.Transitioned = true;
+            owner.Transition<BnathIntro>();
+        }
     }
     public override void HandleFixedUpdate()
     {

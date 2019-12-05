@@ -22,6 +22,8 @@ public class Bnath : Boss
     public GameObject Blocker { get; set; }
     public GameObject StartPosition { get; set; }
     public GameObject YPoint { get; set; }
+    public bool Transitioned { get; set; }
+    public bool IntroStarted { get; set; }
 
     private static bool isDead;
 
@@ -38,9 +40,11 @@ public class Bnath : Boss
         StartPosition = startPosition;
         YPoint = yPoint;
         IsAlive = !isDead;
+        Transitioned = false;
+        IntroStarted = false;
 
         PlayerDiedEvent.RegisterListener(Reset);
-        Transition<BnathIntro>();
+        Transition<BnathBaseState>();
 
     }
 

@@ -21,7 +21,6 @@ public class Boss2IntroTrigger : MonoBehaviour
         {
             blocker.SetActive(true);
         }
-        boss.SetActive(false);
     }
     private void Update()
     {

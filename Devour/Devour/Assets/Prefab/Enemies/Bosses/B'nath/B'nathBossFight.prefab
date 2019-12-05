@@ -892,7 +892,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &6423004830342552698
 Transform:
   m_ObjectHideFlags: 0
@@ -925,12 +925,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   states:
-  - {fileID: 11400000, guid: 0da13ebe58f130042b0e1414d8beae81, type: 2}
+  - {fileID: 11400000, guid: 0feb1f257e0a2ed479278a34e579287c, type: 2}
   - {fileID: 11400000, guid: e61bc440bb81536468a0fb73833433c5, type: 2}
   - {fileID: 11400000, guid: 3d96839b67077f84ca71b1705c412133, type: 2}
   - {fileID: 11400000, guid: e8b111aa356df32438b452ce93f82b56, type: 2}
   - {fileID: 11400000, guid: 83c909af3420e7d4a9554c0c1efd0d8a, type: 2}
   - {fileID: 11400000, guid: 4953b263cca1c674583dff16d056d5c1, type: 2}
+  - {fileID: 11400000, guid: 0da13ebe58f130042b0e1414d8beae81, type: 2}
   hurtParticleOffsetPosition: {x: 0, y: 0}
   particlesOnHurt: {fileID: 2047988903029819035, guid: bb7218c3e0990ea48b3de4686fafc449,
     type: 3}
@@ -954,6 +955,9 @@ MonoBehaviour:
     type: 3}
   bossName: B'nath
   maxHealth: 750
+  offsetIntroZoom: {x: 0, y: 0}
+  introZoomInValue: 0
+  introEndZoomOutValue: 0
   voidGroundLocation:
   - {fileID: 847786213}
   - {fileID: 1100887299}
@@ -1638,6 +1642,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6423004830342552698}
     m_Modifications:
+    - target: {fileID: 2753549583966528568, guid: fe09bf135973f8c4ca5cdd46f3345187,
+        type: 3}
+      propertyPath: m_Name
+      value: AudioVoice
+      objectReference: {fileID: 0}
     - target: {fileID: 2985418663743074204, guid: fe09bf135973f8c4ca5cdd46f3345187,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1692,11 +1701,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2753549583966528568, guid: fe09bf135973f8c4ca5cdd46f3345187,
-        type: 3}
-      propertyPath: m_Name
-      value: AudioVoice
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fe09bf135973f8c4ca5cdd46f3345187, type: 3}
