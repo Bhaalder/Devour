@@ -61,8 +61,6 @@ public class PlayerIdleState : PlayerBaseState {
             cameraTilt.FireEvent();
             isTiltingCamera = true;
         }
-        
-        //Debug.Log(owner.XInput);
     }
 
     private bool TiltUp() {
@@ -83,6 +81,11 @@ public class PlayerIdleState : PlayerBaseState {
             tiltValue = 0
         };
         cameraTilt.FireEvent();
+    }
+
+    public override void Exit() {
+        ResetCameraTilt();
+        base.Exit();
     }
 
 }

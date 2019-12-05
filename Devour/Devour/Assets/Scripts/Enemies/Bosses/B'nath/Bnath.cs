@@ -75,7 +75,11 @@ public class Bnath : Boss
             case "Die":
                 sound = "BnathDeath";
                 break;
-            case "Hurt":
+            case "Chant":
+                sound = "BnathChant" + i;
+                break;
+            case "JumpFromWall":
+                sound = "BnathJumpFromWall" + i;
                 break;
             default:
                 break;

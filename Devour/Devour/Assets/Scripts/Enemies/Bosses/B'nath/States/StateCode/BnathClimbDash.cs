@@ -269,6 +269,7 @@ public class BnathClimbDash : BnathBaseState
         countUp = 0f;
         dashTelegraph = false;
         particleInstantiated = false;
+        owner.PlayVoice("JumpFromWall");
     }
 
     private void ChooseAttack()

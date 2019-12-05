@@ -40,6 +40,7 @@ public class BnathVoidAssault : BnathBaseState
                 startCooldown += betweenCooldown;
             }
         }
+        owner.PlayVoice("Chant");
     }
 
     public override void HandleUpdate()

@@ -158,7 +158,15 @@ public class Enemy : StateMachine
 
     public void setGFX(Vector3 v)
     {
-        enemyGFX.localScale = v;
+        if(v.x == -1)
+        {
+            enemyGFX.localScale = new Vector3(-enemyGFX.localScale.y, enemyGFX.localScale.y, enemyGFX.localScale.z);
+        }
+        else
+        {
+            enemyGFX.localScale = new Vector3(+enemyGFX.localScale.y, enemyGFX.localScale.y, enemyGFX.localScale.z);
+        }
+        
     }
 
     public void DeathSound() {

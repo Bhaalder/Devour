@@ -103,7 +103,7 @@ public class NazroVoidBomb : MonoBehaviour {
 
     private IEnumerator CountDown() {
         yield return new WaitForSecondsRealtime(2);
-        Instantiate(explosion, transform.position, Quaternion.identity);
+        Instantiate(explosion, transform.position, Quaternion.identity).GetComponent<VoidBombExplosion>().Damage = Damage;
         Destroy(gameObject);
     }
 
