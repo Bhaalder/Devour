@@ -1364,7 +1364,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   blocker: {fileID: 0}
   boss: {fileID: 6423004830342552703}
-  timeBeforeBoss: 2
+  timeBeforeBoss: 0.5
 --- !u!61 &5501138560207074932
 BoxCollider2D:
   m_ObjectHideFlags: 0
