@@ -393,7 +393,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   boss: {fileID: 7227144329047398490}
   blocker: {fileID: 6516934615906536241}
-  timeBeforeBoss: 2
+  timeBeforeBoss: 0.5
 --- !u!1 &1811452293141152811
 GameObject:
   m_ObjectHideFlags: 0
