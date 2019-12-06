@@ -1519,7 +1519,8 @@ MonoBehaviour:
   deathSounds: []
   bossGivesAbility: 0
   abilityEssence: {fileID: 0}
-  bossName: "Naz\u2019ro the One"
+  bossName: "Naz\u2019ro"
+  bossTitle: The One
   maxHealth: 3000
   offsetIntroZoom: {x: 0, y: 5, z: -5}
   bossArea: {fileID: 2816975204552695204}

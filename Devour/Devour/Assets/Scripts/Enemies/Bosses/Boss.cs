@@ -8,12 +8,14 @@ public class Boss : Enemy{
     public Animator Animator { get; set; }
     public GameObject AbilityEssence { get; set; }
     public string BossName { get; set; }
+    public string BossTitle { get; set; }
     public float MaxHealth { get; set; }
     public GameObject AudioVoiceGO { get; set; }
 
     [SerializeField] protected PlayerAbility bossGivesAbility;
     [SerializeField] protected GameObject abilityEssence;
     [SerializeField] protected string bossName;
+    [SerializeField] protected string bossTitle;
     [SerializeField] protected float maxHealth;
     [SerializeField] protected Vector3 offsetIntroZoom;
 
@@ -32,6 +34,7 @@ public class Boss : Enemy{
         Health = MaxHealth;
         AbilityEssence = abilityEssence;
         BossName = bossName;
+        BossTitle = bossTitle;
         Animator = GetComponent<Animator>();
     }
 
