@@ -71,6 +71,9 @@ public class TalentScreen : MonoBehaviour {
         if (EventSystem.current.currentSelectedGameObject != null) {
             try {
                 descriptionText.text = EventSystem.current.currentSelectedGameObject.GetComponent<TalentPointButton>().TalentPoint.description;
+                if (!EventSystem.current.currentSelectedGameObject.GetComponent<TalentPointButton>().CostBox.activeSelf) {
+                    EventSystem.current.currentSelectedGameObject.GetComponent<TalentPointButton>().CostBox.SetActive(true);
+                }
             } catch (System.NullReferenceException) {
                 if (EventSystem.current.currentSelectedGameObject == resetButton.gameObject) {
                     descriptionText.text = resetButtonInfo;
@@ -147,6 +150,8 @@ public class TalentScreen : MonoBehaviour {
         }
         VoidTalentScreenEvent closeScreen = new VoidTalentScreenEvent { };
         closeScreen.FireEvent();
+        StopAllCoroutines();
+        errorText.text = "";
     }
 
     private void SetCollectibleCostText() {
