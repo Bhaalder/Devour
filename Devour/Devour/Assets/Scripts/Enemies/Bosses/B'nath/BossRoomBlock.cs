@@ -27,7 +27,6 @@ public class BossRoomBlock : MonoBehaviour
         if (isTriggered)
         {
             BossStart();
-            Debug.Log("IS TRIGGERED");
         }
     }
 
