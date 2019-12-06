@@ -498,7 +498,6 @@ public class AudioController : MonoBehaviour {
         yield return new WaitForSecondsRealtime(waitTime);
         sound.source.Play();
         StopAllCoroutines();
-        //yield return null;
     }
 
     //public void Play_Delay(string name, float minDelay, float maxDelay) {

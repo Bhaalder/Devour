@@ -811,7 +811,6 @@ MonoBehaviour:
   downMeleeCollider: {fileID: 6234932739249844354}
   aim: {fileID: 8961216874167640968}
   groundCheck: {fileID: 8082008671364364574}
-  justInTimeJumpCheck: {fileID: 0}
   groundChecks:
   - {fileID: 4229840299294750965}
   - {fileID: 785332298168586911}
@@ -1057,8 +1056,8 @@ Canvas:
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 25
-  m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingLayerID: -787293511
+  m_SortingOrder: 500
   m_TargetDisplay: 0
 --- !u!114 &25960686627527448
 MonoBehaviour:
