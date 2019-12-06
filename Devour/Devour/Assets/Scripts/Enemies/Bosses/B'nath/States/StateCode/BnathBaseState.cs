@@ -16,6 +16,8 @@ public class BnathBaseState : State
     public override void Enter()
     {
         base.Enter();
+        owner.IntroStarted = false;
+        owner.Transitioned = false;
     }
 
     public override void HandleUpdate()
@@ -23,6 +25,7 @@ public class BnathBaseState : State
         base.HandleUpdate();
         if (owner.IntroStarted && !owner.Transitioned)
         {
+            Debug.Log("GOTO INTRO");
             owner.Transitioned = true;
             owner.Transition<BnathIntro>();
         }

@@ -56,10 +56,10 @@ public class BossRoomBlock : MonoBehaviour
         }
         if (boss != null)
         {
-            boss.GetComponent<Bnath>().BossFightStart = true;
             boss.SetActive(true);
             boss.GetComponent<Bnath>().IntroStarted = true;
             GetComponent<BoxCollider2D>().enabled = false;
+            isTriggered = false;
         }
     }
 }

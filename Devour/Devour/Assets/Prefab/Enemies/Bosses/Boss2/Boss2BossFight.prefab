@@ -1889,10 +1889,9 @@ MonoBehaviour:
   abilityEssence: {fileID: 7475380705934021547, guid: 19f0fdacf1a22684da9a3fbaa343b982,
     type: 3}
   bossName: Boss2
+  bossTitle: 
   maxHealth: 1200
-  offsetIntroZoom: {x: 0, y: 0}
-  introZoomInValue: 0
-  introEndZoomOutValue: 0
+  offsetIntroZoom: {x: 0, y: 0, z: -7}
   dashPatterns:
   - {fileID: 7227144328493117893}
   - {fileID: 7227144328210098876}
