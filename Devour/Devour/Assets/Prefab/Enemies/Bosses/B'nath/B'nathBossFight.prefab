@@ -956,7 +956,7 @@ MonoBehaviour:
   bossName: B'nath
   bossTitle: 
   maxHealth: 750
-  offsetIntroZoom: {x: 0, y: 0, z: 0}
+  offsetIntroZoom: {x: 0, y: 2, z: -5}
   voidGroundLocation:
   - {fileID: 847786213}
   - {fileID: 1100887299}
