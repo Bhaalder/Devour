@@ -53,6 +53,7 @@ public class Boss2IntroTrigger : MonoBehaviour
             boss.SetActive(true);
             boss.GetComponent<Boss2>().IntroStarted = true;
             GetComponent<BoxCollider2D>().enabled = false;
+            isTriggered = false;
         }
 
     }

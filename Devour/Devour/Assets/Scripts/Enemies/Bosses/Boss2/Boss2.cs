@@ -124,9 +124,9 @@ public class Boss2 : Boss
     {
         Health = MaxHealth;
         SnipeBeamSprite.enabled = false;
-        Transition<Boss2BaseState>();
         Transitioned = false;
         IntroStarted = false;
+        Transition<Boss2BaseState>();
         FadeBossMusic_PlayerDied();
     }
 
