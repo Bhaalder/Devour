@@ -124,9 +124,12 @@ public override void EnemyDeath()
     private void Reset(PlayerDiedEvent playerDied)
     {
         Health = MaxHealth;
-        Transition<BnathIntro>();
+        Transition<BnathBaseState>();
         bossFightBlock.SetActive(false);
         BossFightStart = false;
+        Transitioned = false;
+        IntroStarted = false;
+        FadeBossMusic_PlayerDied();
     }
 
     protected override void OnDestroy()
