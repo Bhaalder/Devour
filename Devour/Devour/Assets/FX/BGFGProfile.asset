@@ -21,7 +21,7 @@ MonoBehaviour:
     value: 2.06
   aperture:
     overrideState: 1
-    value: 7.94
+    value: 8.5
   focalLength:
     overrideState: 1
     value: 50
