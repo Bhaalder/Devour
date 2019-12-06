@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 02d69b9a2b9d50d48ac0c9509a753efa, type: 3}
   m_Name: EnemyDeathState
   m_EditorClassIdentifier: 
-  particleOnDeath: {fileID: 1315949759934820, guid: aa7f4447449f8e449a6b64eb8b6e2fb4,
+  particleOnDeath: {fileID: 2086528250295500680, guid: 2c540d63acbf3e84b8350cab4c89ff29,
     type: 3}
   deathTimer: 1
