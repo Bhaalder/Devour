@@ -139,6 +139,12 @@ public class Boss : Enemy{
     }
 
     public void FadeBossMusic_BossDied() {
+        AudioStopSoundEvent stopBossStart = new AudioStopSoundEvent {
+            name = "BossStart"
+        };
+        stopBossStart.FireEvent();
+        AudioStopAllCoroutinesEvent audioStopAllCoroutines = new AudioStopAllCoroutinesEvent { };
+        audioStopAllCoroutines.FireEvent();
         AudioFadeSoundEvent fadeSoundEvent = new AudioFadeSoundEvent {
             isFadeOut = true,
             name = "BossLoop",
