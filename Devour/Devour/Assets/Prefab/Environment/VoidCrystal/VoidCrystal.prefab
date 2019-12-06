@@ -135,7 +135,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   voidGeneratorID: 0
   health: 100
-  particles: {fileID: 2047988903029819035, guid: bb7218c3e0990ea48b3de4686fafc449,
+  particles: {fileID: 6261564311298387896, guid: f89cd411155a65e4d8b203252fc1e718,
     type: 3}
   voidBeamsToDestroy:
   - {fileID: 0}

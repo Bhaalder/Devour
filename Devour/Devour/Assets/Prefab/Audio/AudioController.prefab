@@ -183,6 +183,16 @@ MonoBehaviour:
     maxDistance: 0
     loop: 0
     source: {fileID: 0}
+  - name: VoidMendUse
+    clip: {fileID: 8300000, guid: e5914cc8c75d37d4ab938280ef8c0d02, type: 3}
+    volume: 1
+    pitch: 1
+    spatialBlend_2D_3D: 0
+    rolloffMode: 0
+    minDistance: 0
+    maxDistance: 0
+    loop: 0
+    source: {fileID: 0}
   - name: Hurt
     clip: {fileID: 8300000, guid: 430fa1a3c7d58ed438dd8c0a4321b7aa, type: 3}
     volume: 1
@@ -518,6 +528,36 @@ MonoBehaviour:
   - name: BreakRockWall2
     clip: {fileID: 8300000, guid: c12ee5e1df138664fb034b1e67cddbce, type: 3}
     volume: 0.8
+    pitch: 1
+    spatialBlend_2D_3D: 1
+    rolloffMode: 1
+    minDistance: 0.1
+    maxDistance: 50
+    loop: 0
+    source: {fileID: 0}
+  - name: HitVoidCrystal1
+    clip: {fileID: 8300000, guid: d6d8e4434980202429efde0eda3bdd81, type: 3}
+    volume: 0.8
+    pitch: 1
+    spatialBlend_2D_3D: 1
+    rolloffMode: 1
+    minDistance: 0.1
+    maxDistance: 50
+    loop: 0
+    source: {fileID: 0}
+  - name: HitVoidCrystal2
+    clip: {fileID: 8300000, guid: 398d1c53c3e97234aae03d6b22d446f7, type: 3}
+    volume: 0.8
+    pitch: 1
+    spatialBlend_2D_3D: 1
+    rolloffMode: 1
+    minDistance: 0.1
+    maxDistance: 50
+    loop: 0
+    source: {fileID: 0}
+  - name: VoidCrystalBreak
+    clip: {fileID: 8300000, guid: 8017ce27045e57c4f8d620b98522fcf4, type: 3}
+    volume: 1
     pitch: 1
     spatialBlend_2D_3D: 1
     rolloffMode: 1

@@ -37,15 +37,17 @@ public class VoidGenerator : MonoBehaviour{
             if (particles != null) {
                 GameObject instantiatedParticle = Instantiate(particles, null);
                 instantiatedParticle.transform.position = transform.position;
-                AudioPlaySoundAtLocationEvent rockAttackSound = new AudioPlaySoundAtLocationEvent {
-                    name = "HitRockWall",
+                string[] attackCrystal = { "HitVoidCrystal1", "HitVoidCrystal2" };
+                AudioPlayRandomSoundAtLocationEvent crystalHitSound = new AudioPlayRandomSoundAtLocationEvent {
+                    name = attackCrystal,
                     isRandomPitch = true,
                     minPitch = 0.95f,
                     maxPitch = 1,
                     soundType = SoundType.SFX,
                     gameObject = instantiatedParticle
                 };
-                rockAttackSound.FireEvent();
+                crystalHitSound.FireEvent();
+                Destroy(instantiatedParticle, 1f);
             }
 
             if (health <= 0) {
@@ -58,16 +60,15 @@ public class VoidGenerator : MonoBehaviour{
         if (particles != null) {
             GameObject instantiatedParticle = Instantiate(particles, null);
             instantiatedParticle.transform.position = transform.position;
-            string[] breakRockWall = { "BreakRockWall1", "BreakRockWall1" };
+            string[] breakRockWall = { "VoidCrystalBreak", "VoidCrystalBreak" };
             AudioPlayRandomSoundAtLocationEvent rockBreakSound = new AudioPlayRandomSoundAtLocationEvent {
                 name = breakRockWall,
-                isRandomPitch = true,
-                minPitch = 0.95f,
-                maxPitch = 1,
+                isRandomPitch = false,
                 soundType = SoundType.SFX,
                 gameObject = instantiatedParticle
             };
             rockBreakSound.FireEvent();
+            Destroy(instantiatedParticle, 1f);
         }
         if (GameController.Instance.DestroyedVoidGenerators.ContainsKey(SceneManager.GetActiveScene().name)) {
             if (GameController.Instance.DestroyedVoidGenerators[SceneManager.GetActiveScene().name].Contains(voidGeneratorID)) {
@@ -85,6 +86,7 @@ public class VoidGenerator : MonoBehaviour{
                 Destroy(voidBeamsToDestroy[i]);
             }
         }
+        
         Destroy(gameObject);
     }
 

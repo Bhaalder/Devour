@@ -135,6 +135,14 @@ public class PlayerBaseState : State {
                     voidEvent.FireEvent();
                     healEvent.FireEvent();
                     GameObject mendParticle = Instantiate(owner.VoidMendParticleEffect, owner.transform);
+                    AudioPlaySoundEvent voidUseSound = new AudioPlaySoundEvent {
+                        name = "VoidMendUse",
+                        isRandomPitch = true,
+                        minPitch = 0.92f,
+                        maxPitch = 1f,
+                        soundType = SoundType.SFX
+                    };
+                    voidUseSound.FireEvent();
                 }
             }
             return;
