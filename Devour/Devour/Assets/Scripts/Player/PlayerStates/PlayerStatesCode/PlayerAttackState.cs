@@ -28,7 +28,13 @@ public class PlayerAttackState : PlayerBaseState {
     }
 
     public override void HandleUpdate() {
-        if(owner.UntilNextMeleeAttack-0.1f <= 0) {
+        base.HandleUpdate();
+        if (owner.ExtraJumpsLeft > 0 && Input.GetButtonDown("Jump")) {
+            owner.ExtraJumpsLeft--;
+            owner.Rb2D.velocity = new Vector2(0, 0);
+            Jump(0);
+        }
+        if (owner.UntilNextMeleeAttack-0.1f <= 0) {
             if (Input.GetButton("Horizontal") && owner.IsGrounded) {
                 owner.Transition<PlayerWalkState>();
                 return;
@@ -41,7 +47,6 @@ public class PlayerAttackState : PlayerBaseState {
                 owner.Transition<PlayerIdleState>();
             }
         }
-        base.HandleUpdate();
     }
 
     public override void Exit() {
