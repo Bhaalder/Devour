@@ -107,6 +107,11 @@ public class Boss : Enemy{
             playerIsBusy = true
         };
         playerBusy.FireEvent();
+        BossIntroEvent introEvent = new BossIntroEvent {
+            bossName = bossName,
+            bossTitle = bossTitle
+        };
+        introEvent.FireEvent();
     }
 
     public void BossIntroEnd() {

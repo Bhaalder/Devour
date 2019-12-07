@@ -24,6 +24,13 @@ public class EnemyTouchKillzoneEvent : Event<EnemyTouchKillzoneEvent> {
 
 }
 
+public class BossIntroEvent : Event<BossIntroEvent> {
+
+    public string bossName;
+    public string bossTitle;
+
+}
+
 public class BossDiedEvent : Event<BossDiedEvent> {
 
     public Boss boss;
