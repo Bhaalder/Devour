@@ -31,6 +31,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 7487532955662182387}
+  - {fileID: 4879088735260402011}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -88,6 +89,85 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd1910f1d33c7d43a0cdf5be49a6640, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1001 &4879088735260015583
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 3918416558138817305}
+    m_Modifications:
+    - target: {fileID: 100004, guid: a09366f2fb66ebc4ca8f75269b289e0c, type: 3}
+      propertyPath: m_Name
+      value: LifeForce
+      objectReference: {fileID: 0}
+    - target: {fileID: 400004, guid: a09366f2fb66ebc4ca8f75269b289e0c, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.068
+      objectReference: {fileID: 0}
+    - target: {fileID: 400004, guid: a09366f2fb66ebc4ca8f75269b289e0c, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.56
+      objectReference: {fileID: 0}
+    - target: {fileID: 400004, guid: a09366f2fb66ebc4ca8f75269b289e0c, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 5e-15
+      objectReference: {fileID: 0}
+    - target: {fileID: 400004, guid: a09366f2fb66ebc4ca8f75269b289e0c, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 400004, guid: a09366f2fb66ebc4ca8f75269b289e0c, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400004, guid: a09366f2fb66ebc4ca8f75269b289e0c, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400004, guid: a09366f2fb66ebc4ca8f75269b289e0c, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 400004, guid: a09366f2fb66ebc4ca8f75269b289e0c, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 400004, guid: a09366f2fb66ebc4ca8f75269b289e0c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400004, guid: a09366f2fb66ebc4ca8f75269b289e0c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400004, guid: a09366f2fb66ebc4ca8f75269b289e0c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400004, guid: a09366f2fb66ebc4ca8f75269b289e0c, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.5384
+      objectReference: {fileID: 0}
+    - target: {fileID: 400004, guid: a09366f2fb66ebc4ca8f75269b289e0c, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.5384
+      objectReference: {fileID: 0}
+    - target: {fileID: 400004, guid: a09366f2fb66ebc4ca8f75269b289e0c, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.5384
+      objectReference: {fileID: 0}
+    - target: {fileID: 19800002, guid: a09366f2fb66ebc4ca8f75269b289e0c, type: 3}
+      propertyPath: InitialModule.startSpeed.scalar
+      value: 0.32
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: a09366f2fb66ebc4ca8f75269b289e0c, type: 3}
+--- !u!4 &4879088735260402011 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 400004, guid: a09366f2fb66ebc4ca8f75269b289e0c,
+    type: 3}
+  m_PrefabInstance: {fileID: 4879088735260015583}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &7149477440939353242
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -99,6 +179,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: LifeforceParticle
+      objectReference: {fileID: 0}
+    - target: {fileID: 2370308452161165796, guid: aa32688ee19821647930834202a4f65b,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 347063418774979433, guid: aa32688ee19821647930834202a4f65b,
         type: 3}
