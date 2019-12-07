@@ -18,6 +18,7 @@ public class PlayerAirState : PlayerBaseState {
     }
 
     public override void HandleUpdate() {
+        base.HandleUpdate();
         if (owner.IsGrounded) {
             if (Input.GetButton("Horizontal")) {
                 owner.Transition<PlayerWalkState>();
@@ -25,7 +26,6 @@ public class PlayerAirState : PlayerBaseState {
                 owner.Transition<PlayerIdleState>();
             }
         }
-        base.HandleUpdate();
     }
 
     public override void Exit() {
