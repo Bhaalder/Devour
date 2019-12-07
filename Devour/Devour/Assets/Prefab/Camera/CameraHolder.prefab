@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 447478924}
   m_Layer: 14
   m_Name: Blur
-  m_TagString: MainCamera
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -182,7 +182,6 @@ MonoBehaviour:
   player: {fileID: 0}
   cameraOffset: {x: 3, y: 0, z: -20}
   delay: 0.15
-  sceneBoxCollider: {fileID: 0}
 --- !u!1 &8442992190477086879
 GameObject:
   m_ObjectHideFlags: 0
