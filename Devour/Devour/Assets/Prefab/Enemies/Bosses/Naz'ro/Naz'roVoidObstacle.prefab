@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 6494838859211001961}
   - component: {fileID: 6494838859211001974}
   - component: {fileID: -6937335042637890945}
+  - component: {fileID: 5484566959040106509}
   m_Layer: 0
   m_Name: Naz'roVoidObstacle
   m_TagString: Enemy
@@ -93,7 +94,7 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6494838859211001972}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 1
@@ -253,6 +254,22 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!58 &5484566959040106509
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6494838859211001972}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.0061059, y: -0.044136763}
+  serializedVersion: 2
+  m_Radius: 0.72941494
 --- !u!1001 &458678737646469592
 PrefabInstance:
   m_ObjectHideFlags: 0
