@@ -9372,7 +9372,7 @@ GameObject:
   - component: {fileID: 4822195346509776138}
   - component: {fileID: 8208569727574505354}
   - component: {fileID: 8208569728348673683}
-  - component: {fileID: 9093511797623556458}
+  - component: {fileID: 8679280683878581431}
   m_Layer: 0
   m_Name: AbilityEssence
   m_TagString: Untagged
@@ -14143,10 +14143,10 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.057354614, y: -13.440258}
+  m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 2.6343467
---- !u!114 &9093511797623556458
+--- !u!114 &8679280683878581431
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -14158,7 +14158,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c1ebf96b0c5ba340bcfcae4369cb9ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ability: 1
+  ability: 0
 --- !u!1 &8565697334449168546
 GameObject:
   m_ObjectHideFlags: 0
@@ -14171,8 +14171,6 @@ GameObject:
   - component: {fileID: 8443242035373759122}
   - component: {fileID: 8819033404198185375}
   - component: {fileID: 8172984149686373565}
-  - component: {fileID: 4823516541068365548}
-  - component: {fileID: 9063658019264380498}
   m_Layer: 0
   m_Name: AbilityEssence
   m_TagString: Untagged
@@ -18926,32 +18924,3 @@ SortingGroup:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: -1
---- !u!58 &4823516541068365548
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8565697334449168546}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 2.3188725
---- !u!114 &9063658019264380498
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8565697334449168546}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3c1ebf96b0c5ba340bcfcae4369cb9ce, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ability: 0
