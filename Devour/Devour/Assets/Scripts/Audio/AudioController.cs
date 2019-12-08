@@ -1,6 +1,7 @@
 ﻿//Author: Patrik Ahlgren
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.Audio;
 
@@ -54,36 +55,52 @@ public class AudioController : MonoBehaviour {
             Debug.LogWarning("Destroyed other Singleton with name: " + gameObject.name);
             return;
         }
-
-        foreach (Sound player_S in playerSounds) { allSoundsDictionary[player_S.name] = player_S; sfxDictionary[player_S.name] = player_S; }
-        foreach (Sound enemy_S in enemySounds) { allSoundsDictionary[enemy_S.name] = enemy_S; sfxDictionary[enemy_S.name] = enemy_S; }
-        foreach (Sound environment_S in environmentSounds) { allSoundsDictionary[environment_S.name] = environment_S; sfxDictionary[environment_S.name] = environment_S; }
-        foreach (Sound music_S in musicSounds) { allSoundsDictionary[music_S.name] = music_S; musicDictionary[music_S.name] = music_S; }
-        foreach (Sound voice_S in voiceSounds) { allSoundsDictionary[voice_S.name] = voice_S; voiceDictionary[voice_S.name] = voice_S; }
-
-        foreach (KeyValuePair<string, Sound> s in allSoundsDictionary) {
-            s.Value.source = gameObject.AddComponent<AudioSource>();
-            s.Value.source.clip = s.Value.clip;
-            s.Value.source.volume = s.Value.volume;
-            s.Value.source.pitch = s.Value.pitch;
-            s.Value.source.spatialBlend = s.Value.spatialBlend_2D_3D;
-            s.Value.source.rolloffMode = (AudioRolloffMode)s.Value.rolloffMode;
-            s.Value.source.minDistance = s.Value.minDistance;
-            s.Value.source.maxDistance = s.Value.maxDistance;
-            s.Value.source.loop = s.Value.loop;
-            s.Value.source.outputAudioMixerGroup = masterMixerGroup;
+        
+        for(int i = 0; i < playerSounds.Length; i++) {
+            allSoundsDictionary[playerSounds[i].name] = playerSounds[i];
+            sfxDictionary[playerSounds[i].name] = playerSounds[i];
+        }
+        for (int i = 0; i < enemySounds.Length; i++) {
+            allSoundsDictionary[enemySounds[i].name] = enemySounds[i];
+            sfxDictionary[enemySounds[i].name] = enemySounds[i];
+        }
+        for (int i = 0; i < environmentSounds.Length; i++) {
+            allSoundsDictionary[environmentSounds[i].name] = environmentSounds[i];
+            sfxDictionary[environmentSounds[i].name] = environmentSounds[i];
+        }
+        for (int i = 0; i < musicSounds.Length; i++) {
+            allSoundsDictionary[musicSounds[i].name] = musicSounds[i];
+            musicDictionary[musicSounds[i].name] = musicSounds[i];
+        }
+        for (int i = 0; i < voiceSounds.Length; i++) {
+            allSoundsDictionary[voiceSounds[i].name] = voiceSounds[i];
+            voiceDictionary[voiceSounds[i].name] = voiceSounds[i];
         }
 
-        foreach (KeyValuePair<string, Sound> s in sfxDictionary) {
-            s.Value.source.outputAudioMixerGroup = sfxMixerGroup;
+        for (int i = 0; i < allSoundsDictionary.Count; i++) {
+            Sound s = allSoundsDictionary.ElementAt(i).Value;
+            s.source = gameObject.AddComponent<AudioSource>();
+            s.source.clip = s.clip;
+            s.source.volume = s.volume;
+            s.source.pitch = s.pitch;
+            s.source.spatialBlend = s.spatialBlend_2D_3D;
+            s.source.rolloffMode = (AudioRolloffMode)s.rolloffMode;
+            s.source.minDistance = s.minDistance;
+            s.source.maxDistance = s.maxDistance;
+            s.source.loop = s.loop;
+            s.source.outputAudioMixerGroup = masterMixerGroup;
         }
 
-        foreach (KeyValuePair<string, Sound> s in musicDictionary) {
-            s.Value.source.outputAudioMixerGroup = musicMixerGroup;
+        for(int i = 0; i < sfxDictionary.Count; i++) {
+            sfxDictionary.ElementAt(i).Value.source.outputAudioMixerGroup = sfxMixerGroup;
         }
 
-        foreach (KeyValuePair<string, Sound> s in voiceDictionary) {
-            s.Value.source.outputAudioMixerGroup = voiceMixerGroup;
+        for (int i = 0; i < musicDictionary.Count; i++) {
+            musicDictionary.ElementAt(i).Value.source.outputAudioMixerGroup = musicMixerGroup;
+        }
+
+        for (int i = 0; i < voiceDictionary.Count; i++) {
+            voiceDictionary.ElementAt(i).Value.source.outputAudioMixerGroup = voiceMixerGroup;
         }
 
         AudioPlaySoundEvent.RegisterListener(Play);
@@ -147,9 +164,9 @@ public class AudioController : MonoBehaviour {
     }
 
     private void StopAllSounds() {
-        foreach (KeyValuePair<string, Sound> s in allSoundsDictionary) {
+        for(int i = 0; i < allSoundsDictionary.Count; i++) {
             try {
-                s.Value.source.Stop();
+                allSoundsDictionary.ElementAt(i).Value.source.Stop();
             } catch (System.NullReferenceException) {
 
             }
@@ -303,18 +320,18 @@ public class AudioController : MonoBehaviour {
 
     private void PauseAllSFX(bool pause) {
         if (pause) {
-            foreach (KeyValuePair<string, Sound> s in sfxDictionary) {
+            for (int i = 0; i < sfxDictionary.Count; i++) {
                 try {
-                    s.Value.source.Pause();
-                } catch (System.Exception) {
+                    sfxDictionary.ElementAt(i).Value.source.Pause();
+                } catch (System.NullReferenceException) {
 
                 }
             }
         } else if (!pause) {
-            foreach (KeyValuePair<string, Sound> s in sfxDictionary) {
+            for (int i = 0; i < sfxDictionary.Count; i++) {
                 try {
-                    s.Value.source.UnPause();
-                } catch (System.Exception) {
+                    sfxDictionary.ElementAt(i).Value.source.UnPause();
+                } catch (System.NullReferenceException) {
 
                 }
             }
@@ -323,19 +340,18 @@ public class AudioController : MonoBehaviour {
 
     private void PauseAllSounds(bool pause) {
         if (pause) {
-            foreach (KeyValuePair<string, Sound> s in allSoundsDictionary) {
+            for (int i = 0; i < allSoundsDictionary.Count; i++) {
                 try {
-                    s.Value.source.Pause();
-                } catch (System.Exception) {
+                    allSoundsDictionary.ElementAt(i).Value.source.Pause();
+                } catch (System.NullReferenceException) {
 
                 }
             }
         } else if (!pause) {
-            foreach (KeyValuePair<string, Sound> s in allSoundsDictionary) {
-
+            for (int i = 0; i < allSoundsDictionary.Count; i++) {
                 try {
-                    s.Value.source.UnPause();
-                } catch (System.Exception) {
+                    allSoundsDictionary.ElementAt(i).Value.source.UnPause();
+                } catch (System.NullReferenceException) {
 
                 }
             }
