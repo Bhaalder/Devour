@@ -30,6 +30,21 @@ public static class SaveSystem
         SavePlayerData(GameController.Instance.Player);
     }
 
+    public static void NewGame()
+    {
+        string gameDataStringPath = Application.persistentDataPath + gameDataString;
+        string playerDataStringPath = Application.persistentDataPath + playerDataString;
+
+        if (File.Exists(Application.persistentDataPath + gameDataString))
+        {
+            File.Delete(gameDataStringPath);
+        }
+        if (File.Exists(Application.persistentDataPath + playerDataString))
+        {
+            File.Delete(playerDataStringPath);
+        }
+    }
+
     #region GameData
     public static void SaveGameData(GameController gameController)
     {

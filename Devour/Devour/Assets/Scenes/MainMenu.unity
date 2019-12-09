@@ -184,11 +184,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 374066930}
     m_Modifications:
-    - target: {fileID: 840294480015153591, guid: 3c93c1f5d80d2bf49a12a1c67bc02284,
-        type: 3}
-      propertyPath: m_Name
-      value: FadeScreen
-      objectReference: {fileID: 0}
     - target: {fileID: 5400650760061075825, guid: 3c93c1f5d80d2bf49a12a1c67bc02284,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -293,6 +288,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 840294480015153591, guid: 3c93c1f5d80d2bf49a12a1c67bc02284,
+        type: 3}
+      propertyPath: m_Name
+      value: FadeScreen
       objectReference: {fileID: 0}
     - target: {fileID: 3960688535492773239, guid: 3c93c1f5d80d2bf49a12a1c67bc02284,
         type: 3}
@@ -1756,7 +1756,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainMenuGO: {fileID: 791540994}
   newGameButton: {fileID: 1490678882}
-  loadGameButton: {fileID: 0}
+  loadGameButton: {fileID: 1476056892}
   optionsButton: {fileID: 904436696}
   exitButton: {fileID: 0}
   newGameScene: NewGameIntro
