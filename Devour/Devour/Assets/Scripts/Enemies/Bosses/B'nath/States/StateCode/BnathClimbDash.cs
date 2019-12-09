@@ -184,12 +184,9 @@ public class BnathClimbDash : BnathBaseState
 
     private void ClimbDash()
     {
-        Debug.Log("IsDashing: " + isDashing);
         if (!isDashing)
         {
-            //TurnedRight();
             isDashing = true;
-            Debug.Log("Turning Right");
         }
 
         RaycastHit2D ground = Physics2D.Raycast(owner.rb.position, Vector2.down, groundMargin, layerMask);

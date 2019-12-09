@@ -18,6 +18,7 @@ public class VoidGround : MonoBehaviour
 
     public float StartCooldown { get; set; }
 
+    private GameObject telegraphParticle;
 
     private void Start()
     {
@@ -76,9 +77,8 @@ public class VoidGround : MonoBehaviour
         if (!particleInstantiated)
         {
             particleInstantiated = true;
-            GameObject instantiatedParticle = Instantiate(telegraphPartice, null);
-            instantiatedParticle.transform.position = transform.position;
-            instantiatedParticle.GetComponent<DestroyTimer>().DestructionTime = currentStartCooldown;
+            telegraphParticle = Instantiate(telegraphPartice, null);
+            telegraphParticle.transform.position = transform.position;
         }
 
         if (currentStartCooldown > 0)
@@ -91,6 +91,7 @@ public class VoidGround : MonoBehaviour
         {
             sprite[i].enabled = true;
         }
+        Destroy(telegraphParticle);
         AudioPlaySoundAtLocationEvent audioPlaySound = new AudioPlaySoundAtLocationEvent {
             name = "BnathSpike",
             isRandomPitch = true,
