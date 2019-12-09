@@ -476,6 +476,12 @@ public class Player : StateMachine {
     private void OnGetAbility(PlayerGetAbilityEvent abilityEvent) {
         if (!HasAbility(abilityEvent.playerAbility)) {
             PlayerAbilities.Add(abilityEvent.playerAbility);
+            AudioPlaySoundEvent abilitySound = new AudioPlaySoundEvent {
+                name = "AbilityGain",
+                isRandomPitch = false,
+                soundType = SoundType.MUSIC
+            };
+            abilitySound.FireEvent();
         } else {
             PlayerLog("Already has " + abilityEvent.playerAbility.ToString());
         }       
