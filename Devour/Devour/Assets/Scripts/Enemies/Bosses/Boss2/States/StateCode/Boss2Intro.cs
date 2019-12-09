@@ -14,6 +14,14 @@ public class Boss2Intro : Boss2BaseState
         base.Enter();
         owner.State = Boss2State.INTRO;
         currentIntroCooldown = introTime;
+        if (!GameController.Instance.BossIntroPlayed.Contains(owner.BossName))
+        {
+            currentIntroCooldown = introTime;
+        }
+        else
+        {
+            currentIntroCooldown = 1;
+        }
         owner.BossIntroSequence();
     }
 

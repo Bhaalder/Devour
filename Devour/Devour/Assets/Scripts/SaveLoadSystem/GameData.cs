@@ -20,6 +20,7 @@ public class GameData
     public Dictionary<string, List<int>> OneTimeTips { get; set; }
     public Dictionary<string, List<int>> HiddenAreasFound { get; set; }
     public List<string> KilledBosses { get; set; }
+    public List<string> BossIntroPlayed { get; set; }
 
 
     public GameData(GameController gameController)
@@ -55,5 +56,6 @@ public class GameData
         OneTimeTips = gameController.OneTimeTips;
         HiddenAreasFound = gameController.HiddenAreasFound;
         KilledBosses = gameController.KilledBosses;
+        BossIntroPlayed = gameController.BossIntroPlayed;
     }
 }

@@ -14,7 +14,14 @@ public class BnathIntro : BnathBaseState
     {
         base.Enter();
         owner.State = BossBnathState.INTRO;
-        currentIntroCooldown = introTime;
+        if (!GameController.Instance.BossIntroPlayed.Contains(owner.BossName))
+        {
+            currentIntroCooldown = introTime;
+        }
+        else
+        {
+            currentIntroCooldown = 1;
+        }
         owner.BossIntroSequence();
     }
 

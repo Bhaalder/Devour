@@ -124,6 +124,7 @@ public class DataStorage : MonoBehaviour
             GameController.Instance.OneTimeTips = data.OneTimeTips;
             GameController.Instance.HiddenAreasFound = data.HiddenAreasFound;
             GameController.Instance.KilledBosses = data.KilledBosses;
+            GameController.Instance.BossIntroPlayed = data.BossIntroPlayed;
 
         }
     }
