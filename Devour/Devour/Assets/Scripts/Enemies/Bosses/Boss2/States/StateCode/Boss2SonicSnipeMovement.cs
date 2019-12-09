@@ -19,6 +19,7 @@ public class Boss2SonicSnipeMovement : Boss2BaseState
     private Vector2 leftSide;
 
     private float countUp;
+    private float currentTime;
 
 
     private bool playerIsRight;
@@ -28,13 +29,27 @@ public class Boss2SonicSnipeMovement : Boss2BaseState
         owner.State = Boss2State.SONIC_SNIPE_MOVEMENT;
         base.Enter();
         countUp = 0f;
-        PlayerSideCheck();
-        ChooseSide();
+        currentTime = Count;
+        if (owner.LastAttack != Boss2Attacks.SNIPE)
+        {
+            PlayerSideCheck();
+            ChooseSide();
+        }
+
+        owner.IsCausingDamage = false;
     }
 
     public override void HandleUpdate()
     {
-        MoveToSide();
+        if(owner.LastAttack == Boss2Attacks.SNIPE)
+        {
+            MovementTime();
+        }
+        else
+        {
+            MoveToSide();
+        }
+        
     }
     public override void HandleFixedUpdate()
     {
@@ -54,6 +69,7 @@ public class Boss2SonicSnipeMovement : Boss2BaseState
         else
         {
             TurnedRight();
+            owner.IsCausingDamage = true;
             owner.Transition<Boss2SonicSnipeTelegraph>();
         }
 
@@ -113,7 +129,7 @@ public class Boss2SonicSnipeMovement : Boss2BaseState
 
 
         startPoint = owner.rb.position;
-        endPoint.y = owner.Player.transform.position.y;
+        endPoint.y = owner.rb.position.y;
         middlePoint = startPoint + (endPoint - startPoint) / 2 + Vector2.up * middlePointCurve;
 
         owner.rb.gravityScale = 0;
@@ -128,5 +144,20 @@ public class Boss2SonicSnipeMovement : Boss2BaseState
             Vector3 v = new Vector3(1f, 1f, 1f);
             owner.setGFX(v);
         }
+    }
+
+    private void MovementTime()
+    {
+        currentTime -= Time.deltaTime;
+
+        if(currentTime > 0)
+        {
+            return;
+        }
+
+        TurnedRight();
+        owner.IsCausingDamage = true;
+        currentTime = Count;
+        owner.Transition<Boss2SonicSnipeTelegraph>();
     }
 }

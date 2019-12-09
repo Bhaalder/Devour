@@ -9,6 +9,7 @@ public class Boss2SonicThrustExit : Boss2BaseState
     {
         base.Enter();
         owner.State = Boss2State.SONIC_THRUST_EXIT;
+        owner.LastAttack = Boss2Attacks.THRUST;
         owner.rb.velocity = new Vector2(0, 0);
         owner.Transition<Boss2Idle>();
     }

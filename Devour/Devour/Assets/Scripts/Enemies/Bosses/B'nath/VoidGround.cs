@@ -90,8 +90,6 @@ public class VoidGround : MonoBehaviour
         for (int i = 0; i < sprite.Length; i++)
         {
             sprite[i].enabled = true;
-            Debug.Log("SPRITE NAME: " + sprite[i].gameObject.name);
-
         }
         AudioPlaySoundAtLocationEvent audioPlaySound = new AudioPlaySoundAtLocationEvent {
             name = "BnathSpike",
