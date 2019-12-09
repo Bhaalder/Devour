@@ -32,7 +32,7 @@ public class NazroVoidWall : MonoBehaviour {
     }
 
     private void Start() {
-        for (int i = 0; i < transform.childCount; i++) {
+        for (int i = 0; i < 2; i++) {
             transform.GetChild(i).GetComponent<NazroVoidWallCollide>().Damage = damage;
         }
         BossDiedEvent.RegisterListener(BossDied);

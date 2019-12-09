@@ -14,7 +14,11 @@ public class NazroIntroState : NazroBaseState {
         owner.State = BossNazroState.INTRO;
         owner.BossLog("IntroState");
         Instantiate(owner.BossDoor, owner.BossDoor.transform.position, Quaternion.identity);
-        introTimeLeft = introTime;
+        if (!GameController.Instance.BossIntroPlayed.Contains(owner.BossName)) {
+            introTimeLeft = introTime;
+        } else {
+            introTimeLeft = 1;
+        }
         battleStart = false;
         owner.BossIntroSequence();
         base.Enter();

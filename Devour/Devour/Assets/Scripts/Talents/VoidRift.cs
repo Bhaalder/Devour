@@ -26,6 +26,7 @@ public class VoidRift : MonoBehaviour{
                 VoidTalentScreenEvent e = new VoidTalentScreenEvent { };
                 e.FireEvent();
             }
+            HealPlayer();
         }
     }
 
@@ -33,7 +34,6 @@ public class VoidRift : MonoBehaviour{
         if (collision.gameObject.tag == "Player") {
             playerIsInRadius = true;
             voidText.text = voidRiftInfo;
-            HealPlayer();
         }
     }
 
