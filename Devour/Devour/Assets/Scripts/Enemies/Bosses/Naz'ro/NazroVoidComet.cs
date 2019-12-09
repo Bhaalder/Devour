@@ -20,14 +20,13 @@ public class NazroVoidComet : MonoBehaviour {
     private float lastKnownPlayerYPos;
     private bool isMoving;
     
-    private SpriteRenderer spriteRenderer;
+    private GameObject particleSystem;
     private Transform player;
     private GameObject warningParticle;
     private CircleCollider2D circleCollider2D;   
 
     private void Start() {
-        spriteRenderer = GetComponent<SpriteRenderer>();
-        spriteRenderer.color = new Color(spriteRenderer.color.r, spriteRenderer.color.g, spriteRenderer.color.b, 0);
+        particleSystem = transform.GetChild(0).gameObject;
         player = GameController.Instance.Player.transform;
         circleCollider2D = GetComponent<CircleCollider2D>();
         if (isVerticalComet) {
@@ -52,7 +51,9 @@ public class NazroVoidComet : MonoBehaviour {
             return;
         }
         isMoving = true;
-        spriteRenderer.color = new Color(spriteRenderer.color.r, spriteRenderer.color.g, spriteRenderer.color.b, 255);
+        if (!particleSystem.activeSelf) {
+            particleSystem.SetActive(true);
+        }
         Destroy(warningParticle);
     }
 

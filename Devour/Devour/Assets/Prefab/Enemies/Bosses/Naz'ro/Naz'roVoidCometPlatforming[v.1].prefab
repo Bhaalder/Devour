@@ -129,15 +129,20 @@ PrefabInstance:
       propertyPath: m_Name
       value: CFX_Comet
       objectReference: {fileID: 0}
+    - target: {fileID: 4985917052476891125, guid: c63a89ff4d5cc9c4f8905a05a85712dc,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4985917052477047765, guid: c63a89ff4d5cc9c4f8905a05a85712dc,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.004
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4985917052477047765, guid: c63a89ff4d5cc9c4f8905a05a85712dc,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.011
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4985917052477047765, guid: c63a89ff4d5cc9c4f8905a05a85712dc,
         type: 3}

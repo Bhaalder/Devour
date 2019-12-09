@@ -18,7 +18,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &9018514965148335081
 Transform:
   m_ObjectHideFlags: 0
@@ -41,7 +41,7 @@ SpriteRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9018514965148335077}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
@@ -129,15 +129,20 @@ PrefabInstance:
       propertyPath: m_Name
       value: CFX_Comet
       objectReference: {fileID: 0}
+    - target: {fileID: 4985917052476891125, guid: c63a89ff4d5cc9c4f8905a05a85712dc,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4985917052477047765, guid: c63a89ff4d5cc9c4f8905a05a85712dc,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.004
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4985917052477047765, guid: c63a89ff4d5cc9c4f8905a05a85712dc,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.011
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4985917052477047765, guid: c63a89ff4d5cc9c4f8905a05a85712dc,
         type: 3}
