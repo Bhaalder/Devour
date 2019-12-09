@@ -11,7 +11,7 @@ public class VoidGround : MonoBehaviour
     private float currentCooldown;
     private float currentStartCooldown;
 
-    private SpriteRenderer sprite;
+    private SpriteRenderer[] sprite;
 
     private bool particleInstantiated;
     private bool canDoDamage;
@@ -23,8 +23,11 @@ public class VoidGround : MonoBehaviour
     {
         currentCooldown = timeBeforeDestruction;
         currentStartCooldown = StartCooldown;
-        sprite = GetComponentInChildren<SpriteRenderer>();
-        sprite.enabled = false;
+        sprite = GetComponentsInChildren<SpriteRenderer>();
+        for (int i = 0; i < sprite.Length; i++)
+        {
+            sprite[i].enabled = false;
+        }
         particleInstantiated = false;
         canDoDamage = false;
     }
@@ -84,7 +87,12 @@ public class VoidGround : MonoBehaviour
         }
 
         canDoDamage = true;
-        sprite.enabled = true;
+        for (int i = 0; i < sprite.Length; i++)
+        {
+            sprite[i].enabled = true;
+            Debug.Log("SPRITE NAME: " + sprite[i].gameObject.name);
+
+        }
         AudioPlaySoundAtLocationEvent audioPlaySound = new AudioPlaySoundAtLocationEvent {
             name = "BnathSpike",
             isRandomPitch = true,
