@@ -72,8 +72,8 @@ MonoBehaviour:
   - {fileID: 6623636005396434921}
   - {fileID: 4618034092409669279}
   deathSounds:
-  - Enemy134Death1
-  - Enemy134Death2
+  - Enemy5Death1
+  - Enemy5Death2
   ledgeJumpDownDistance: 15
 --- !u!50 &95880808172713303
 Rigidbody2D:
