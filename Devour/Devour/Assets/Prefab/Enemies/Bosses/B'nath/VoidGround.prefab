@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2993782196397361771}
+  - component: {fileID: 4975548493434651220}
   m_Layer: 0
   m_Name: spikes_top
   m_TagString: Untagged
@@ -32,6 +33,17 @@ Transform:
   m_Father: {fileID: 577269480523304750}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!210 &4975548493434651220
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4684077199210081009}
+  m_Enabled: 1
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
 --- !u!1 &5104333781211829874
 GameObject:
   m_ObjectHideFlags: 0
@@ -44,6 +56,7 @@ GameObject:
   - component: {fileID: 8402995214279022527}
   - component: {fileID: 8807793842549322064}
   - component: {fileID: 1591415128238944409}
+  - component: {fileID: 7578039381397560411}
   m_Layer: 0
   m_Name: VoidGround
   m_TagString: Untagged
@@ -106,7 +119,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timeBeforeDestruction: 1
   damageToPlayerOnContact: 25
-  telegraphPartice: {fileID: 4136892274375022467, guid: 8dacf8c5a3e969d49aab2f71ecab5664,
+  telegraphPartice: {fileID: 1609845037211932075, guid: bf691d8628cc6da47bab2ba12594299f,
     type: 3}
 --- !u!82 &1591415128238944409
 AudioSource:
@@ -205,6 +218,17 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!210 &7578039381397560411
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5104333781211829874}
+  m_Enabled: 1
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: -1
 --- !u!1001 &4504118701998316275
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -275,22 +299,22 @@ PrefabInstance:
     - target: {fileID: 212655213219597746, guid: 47860f45791fdd44dbc749f574850a36,
         type: 3}
       propertyPath: m_Color.r
-      value: 0.122641504
+      value: 0.69359446
       objectReference: {fileID: 0}
     - target: {fileID: 212655213219597746, guid: 47860f45791fdd44dbc749f574850a36,
         type: 3}
       propertyPath: m_Color.g
-      value: 0.122063
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 212655213219597746, guid: 47860f45791fdd44dbc749f574850a36,
         type: 3}
       propertyPath: m_Color.b
-      value: 0.122063
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 212655213219597746, guid: 47860f45791fdd44dbc749f574850a36,
         type: 3}
       propertyPath: m_SortingOrder
-      value: -1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 60023565180253392, guid: 47860f45791fdd44dbc749f574850a36,
         type: 3}
@@ -377,22 +401,22 @@ PrefabInstance:
     - target: {fileID: 212655213219597746, guid: 47860f45791fdd44dbc749f574850a36,
         type: 3}
       propertyPath: m_Color.r
-      value: 0.122641504
+      value: 0.69411767
       objectReference: {fileID: 0}
     - target: {fileID: 212655213219597746, guid: 47860f45791fdd44dbc749f574850a36,
         type: 3}
       propertyPath: m_Color.g
-      value: 0.122063
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 212655213219597746, guid: 47860f45791fdd44dbc749f574850a36,
         type: 3}
       propertyPath: m_Color.b
-      value: 0.122063
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 212655213219597746, guid: 47860f45791fdd44dbc749f574850a36,
         type: 3}
       propertyPath: m_SortingOrder
-      value: -1
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 60023565180253392, guid: 47860f45791fdd44dbc749f574850a36,
         type: 3}
