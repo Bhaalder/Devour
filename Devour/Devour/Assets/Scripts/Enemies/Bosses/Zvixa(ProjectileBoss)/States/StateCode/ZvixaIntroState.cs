@@ -14,7 +14,11 @@ public class ZvixaIntroState : ZvixaBaseState {
         owner.State = BossZvixaState.INTRO;
         owner.BossLog("IntroState");
         owner.BossDoor.SetActive(true);
-        introTimeLeft = introTime;
+        if (!GameController.Instance.BossIntroPlayed.Contains(owner.BossName)) {
+            introTimeLeft = introTime;
+        } else {
+            introTimeLeft = 1;
+        }
         battleStart = false;
         if (teleportLocation != owner.TeleportAreaMiddle) {
             owner.rb.velocity = new Vector2(0, 0);

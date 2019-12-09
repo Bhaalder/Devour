@@ -12,15 +12,16 @@ public class NazroVoidObstacle : Enemy{
 
     public Nazro Nazro { get; set; }
     public float ArmingTime { get; set; }
+    public CircleCollider2D CircleCollider2D { get; set; }
 
     protected override void Awake() {
         base.Awake();
+        CircleCollider2D = GetComponent<CircleCollider2D>();
         BossDiedEvent.RegisterListener(BossDied);
     }
 
     protected override void Update() {
         base.Update();
-        //Animator.SetInteger("State", (int)State);
     }
 
     protected override void FixedUpdate() {
@@ -38,7 +39,6 @@ public class NazroVoidObstacle : Enemy{
                     damage = damageToPlayerOnContact
                 };
                 ptde.FireEvent();
-                Stunned = true;
             }
         }
     }
@@ -46,9 +46,9 @@ public class NazroVoidObstacle : Enemy{
     public override void TakeDamage(PlayerAttackEvent attackEvent) {
         if (invulnerabilityTimer <= 0) {
             try {
-                if (attackEvent.attackCollider.bounds.Intersects(boxCollider2D.bounds)) {
-                    ChangeEnemyHealth(-attackEvent.damage);
+                if (attackEvent.attackCollider.bounds.Intersects(CircleCollider2D.bounds)) {
                     HurtSoundAndParticles();
+                    ChangeEnemyHealth(-attackEvent.damage);
                     if (attackEvent.isMeleeAttack) {
                         //PlayerHealEvent phe = new PlayerHealEvent { //MAN BORDE INTE LIFELEECHA FRÅN DESSA
                         //    isLifeLeech = true

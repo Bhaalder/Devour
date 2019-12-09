@@ -5,8 +5,6 @@ using UnityEngine;
 
 public class PlayerProjectile : MonoBehaviour{
 
-    [SerializeField] private bool isBounce;
-
     public float Damage { get; set; }
     public Player Player { get; set; }
     public Vector2 Direction { get; set; }
@@ -20,7 +18,6 @@ public class PlayerProjectile : MonoBehaviour{
     private BoxCollider2D boxCollider2D;
 
     private void Awake() {
-        canDealDamage = true;
         boxCollider2D = GetComponent<BoxCollider2D>();
         AudioPlaySoundAtLocationEvent projectileSound = new AudioPlaySoundAtLocationEvent {
             name = "Projectile",
@@ -42,7 +39,6 @@ public class PlayerProjectile : MonoBehaviour{
     }
 
     private void Update() {
-        Debug.Log(canDealDamage);
         if (!hitObject) {
             transform.position += (Vector3)Direction * Speed * Time.deltaTime;
         }
@@ -54,8 +50,8 @@ public class PlayerProjectile : MonoBehaviour{
     }
 
     private void OnTriggerEnter2D(Collider2D collision) {
-        try {
-            if(boxCollider2D.enabled == true) {
+        if(collision.gameObject.tag == "Enemy") {
+            if (boxCollider2D.isActiveAndEnabled) {
                 PlayerAttackEvent playerAttack = new PlayerAttackEvent {
                     attackCollider = boxCollider2D,
                     isMeleeAttack = false,
@@ -65,18 +61,8 @@ public class PlayerProjectile : MonoBehaviour{
                 };
                 playerAttack.FireEvent();
             }
-        } catch (System.NullReferenceException) {
-
         }
         if (collision.gameObject.layer == 8) {
-            AudioFadeSoundEvent fadeSound = new AudioFadeSoundEvent {
-                name = "Projectile",
-                soundType = SoundType.SFX,
-                isFadeOut = true,
-                fadeDuration = 0.05f,
-                soundVolumePercentage = 0
-            };
-            fadeSound.FireEvent();
             Destroy(transform.GetChild(0).gameObject);
             hitObject = true;
             boxCollider2D.enabled = false;

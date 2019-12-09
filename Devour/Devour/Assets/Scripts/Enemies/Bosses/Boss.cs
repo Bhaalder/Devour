@@ -94,40 +94,45 @@ public class Boss : Enemy{
             soundType = SoundType.MUSIC
         };
         bossMusic.FireEvent();
-        CameraChangeTargetEvent cameraTarget = new CameraChangeTargetEvent {
-            newTarget = transform
-        };
-        cameraTarget.FireEvent();
-        CameraOffsetEvent cameraOffset = new CameraOffsetEvent {
-            newOffset = offsetIntroZoom,
-            setBoundsInactive = true
-        };
-        cameraOffset.FireEvent();
-        PlayerBusyEvent playerBusy = new PlayerBusyEvent {
-            playerIsBusy = true
-        };
-        playerBusy.FireEvent();
-        BossIntroEvent introEvent = new BossIntroEvent {
-            bossName = bossName,
-            bossTitle = bossTitle
-        };
-        introEvent.FireEvent();
+        if (!GameController.Instance.BossIntroPlayed.Contains(bossName)) {
+            CameraChangeTargetEvent cameraTarget = new CameraChangeTargetEvent {
+                newTarget = transform
+            };
+            cameraTarget.FireEvent();
+            CameraOffsetEvent cameraOffset = new CameraOffsetEvent {
+                newOffset = offsetIntroZoom,
+                setBoundsInactive = true
+            };
+            cameraOffset.FireEvent();
+            PlayerBusyEvent playerBusy = new PlayerBusyEvent {
+                playerIsBusy = true
+            };
+            playerBusy.FireEvent();
+            BossIntroEvent introEvent = new BossIntroEvent {
+                bossName = bossName,
+                bossTitle = bossTitle
+            };
+            introEvent.FireEvent();
+        }        
     }
 
     public void BossIntroEnd() {
-        CameraChangeTargetEvent cameraTarget = new CameraChangeTargetEvent {
-            playerTarget = true
-        };
-        cameraTarget.FireEvent();
-        CameraOffsetEvent cameraOffset = new CameraOffsetEvent {
-            revertOffset = true,
-            setBoundsInactive = false
-        };
-        cameraOffset.FireEvent();
-        PlayerBusyEvent playerBusy = new PlayerBusyEvent {
-            playerIsBusy = false
-        };
-        playerBusy.FireEvent();
+        if (!GameController.Instance.BossIntroPlayed.Contains(bossName)) {
+            CameraChangeTargetEvent cameraTarget = new CameraChangeTargetEvent {
+                playerTarget = true
+            };
+            cameraTarget.FireEvent();
+            CameraOffsetEvent cameraOffset = new CameraOffsetEvent {
+                revertOffset = true,
+                setBoundsInactive = false
+            };
+            cameraOffset.FireEvent();
+            PlayerBusyEvent playerBusy = new PlayerBusyEvent {
+                playerIsBusy = false
+            };
+            playerBusy.FireEvent();
+            GameController.Instance.BossIntroPlayed.Add(bossName);
+        }
     }
 
     public bool PlayerStateIsOK() {

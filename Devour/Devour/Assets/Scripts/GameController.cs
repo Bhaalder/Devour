@@ -22,6 +22,7 @@ public class GameController : MonoBehaviour {
     public Dictionary<string, List<int>> OneTimeTips { get; set; }
     public Dictionary<string, List<int>> HiddenAreasFound { get; set; }
     public List<string> KilledBosses { get; set; }
+    public List<string> BossIntroPlayed { get; set; }
 
     private static GameController instance;
 
@@ -49,6 +50,7 @@ public class GameController : MonoBehaviour {
         }
         DontDestroyOnLoad(gameObject);
         KilledBosses = new List<string>();
+        BossIntroPlayed = new List<string>();
         DestroyedDestructibles = new Dictionary<string, List<int>>();
         DestroyedPlatforms = new Dictionary<string, List<int>>();
         CollectedVoidEssences = new Dictionary<string, List<int>>();

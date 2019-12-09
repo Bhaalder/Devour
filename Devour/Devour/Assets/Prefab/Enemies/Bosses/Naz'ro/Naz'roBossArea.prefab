@@ -1456,6 +1456,7 @@ GameObject:
   - component: {fileID: 3310743057188425855}
   - component: {fileID: 799161518460541774}
   - component: {fileID: 457231206}
+  - component: {fileID: 8187465580044472279}
   m_Layer: 0
   m_Name: Naz'ro
   m_TagString: Enemy
@@ -1706,6 +1707,27 @@ SortingGroup:
   m_SortingLayerID: -375783187
   m_SortingLayer: -1
   m_SortingOrder: 0
+--- !u!50 &8187465580044472279
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4192352821789473301}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 0.0001
+  m_LinearDrag: 0
+  m_AngularDrag: 0
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 4
 --- !u!1 &4221170481511292377
 GameObject:
   m_ObjectHideFlags: 0
@@ -3822,15 +3844,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9e29a37f58107da4196e3f69b3334a8d, type: 3}
---- !u!1 &1935021743177383 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1935021991265206, guid: 9e29a37f58107da4196e3f69b3334a8d,
-    type: 3}
-  m_PrefabInstance: {fileID: 835616017}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &4549264798121627 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4549265624499082, guid: 9e29a37f58107da4196e3f69b3334a8d,
+    type: 3}
+  m_PrefabInstance: {fileID: 835616017}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1935021743177383 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1935021991265206, guid: 9e29a37f58107da4196e3f69b3334a8d,
     type: 3}
   m_PrefabInstance: {fileID: 835616017}
   m_PrefabAsset: {fileID: 0}

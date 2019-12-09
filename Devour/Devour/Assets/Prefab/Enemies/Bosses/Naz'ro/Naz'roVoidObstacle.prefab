@@ -10,11 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 6494838859211001975}
   - component: {fileID: 6494838859211001963}
-  - component: {fileID: 6494838859211001960}
   - component: {fileID: 6494838859211001961}
   - component: {fileID: 6494838859211001974}
   - component: {fileID: -6937335042637890945}
-  - component: {fileID: 5484566959040106509}
+  - component: {fileID: 2072549204715551170}
   m_Layer: 0
   m_Name: Naz'roVoidObstacle
   m_TagString: Enemy
@@ -87,32 +86,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!61 &6494838859211001960
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6494838859211001972}
-  m_Enabled: 0
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.82, y: 0.7}
-    newSize: {x: 0.82, y: 0.7}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.82, y: 0.7}
-  m_EdgeRadius: 0
 --- !u!114 &6494838859211001961
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -129,7 +102,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 3fe5dbadd08953f45a65b6e196a5ce7c, type: 2}
   - {fileID: 11400000, guid: aad89d964f173704f9dbe18b7aea797d, type: 2}
   hurtParticleOffsetPosition: {x: 0, y: 0}
-  particlesOnHurt: {fileID: 0}
+  particlesOnHurt: {fileID: 2047988903029819035, guid: bb7218c3e0990ea48b3de4686fafc449,
+    type: 3}
   enemyHealth: 40
   damageToPlayerOnContact: 25
   lifeforceAmount: 0
@@ -254,7 +228,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!58 &5484566959040106509
+--- !u!58 &2072549204715551170
 CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -267,9 +241,9 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.0061059, y: -0.044136763}
+  m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.72941494
+  m_Radius: 0.41
 --- !u!1001 &458678737646469592
 PrefabInstance:
   m_ObjectHideFlags: 0
