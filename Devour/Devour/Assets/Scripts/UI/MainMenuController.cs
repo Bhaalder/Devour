@@ -53,6 +53,7 @@ public class MainMenuController : MonoBehaviour{
         AddListener(soundButton, soundOptionsGO, optionsGO);
         AddListener(soundBackButton, optionsGO, soundOptionsGO);
         AddListener(backButton, mainMenuGO, optionsGO);
+
     }
 
     private void AddListener(Button button, string buttonName) {
@@ -71,13 +72,11 @@ public class MainMenuController : MonoBehaviour{
         Debug.Log("KLICKADE PÅ " + buttonName);
         switch (buttonName) {
             case "newGame":
+                SaveSystem.NewGame();
                 sceneToLoad = newGameScene;
                 Invoke("FadeScene", loadingSequenceLength);
                 cameraAnim.Play("GameStartAnim");
                 buttonAnim.Play("MenuAnim");
-                if (DataStorage.Instance.RestingScene != null) {
-                    newGameScene = DataStorage.Instance.RestingScene;
-                }
                 SwitchSceneEvent switchScene = new SwitchSceneEvent {
                     enteringSceneName = newGameScene,
                     leavingSceneName = SceneManager.GetActiveScene().name
@@ -85,8 +84,24 @@ public class MainMenuController : MonoBehaviour{
                 switchScene.FireEvent();
                 break;
             case "loadGame":
+                if (DataStorage.Instance.RestingScene != null)
+                {
+                    loadGameScene = DataStorage.Instance.RestingScene;
+                }
+                else
+                {
+                    loadGameScene = newGameScene;
+                }
                 sceneToLoad = loadGameScene;
                 Invoke("FadeScene", loadingSequenceLength);
+                cameraAnim.Play("GameStartAnim");
+                buttonAnim.Play("MenuAnim");
+                SwitchSceneEvent switchSceneLoad = new SwitchSceneEvent
+                {
+                    enteringSceneName = loadGameScene,
+                    leavingSceneName = SceneManager.GetActiveScene().name
+                };
+                switchSceneLoad.FireEvent();
                 break;
             case "exitButton":
 
@@ -113,15 +128,8 @@ public class MainMenuController : MonoBehaviour{
     }
 
     private void LoadScene() {
-        //TEMPORARY TEST FIX
-        if(DataStorage.Instance.RestingScene == null)
-        {
-            SceneManager.LoadScene(sceneToLoad);
-        }
-        else
-        {
-            SceneManager.LoadScene(DataStorage.Instance.RestingScene);
-        }
+
+        SceneManager.LoadScene(sceneToLoad);
     }
 
 }
