@@ -12,6 +12,8 @@ public class Boss2DeathState : EnemyDeathState
         currentCooldown = deathTimer;
         abilityEssenceTimerCooldown = deathTimer;
         owner.rb.gravityScale = 0;
+        owner.GetComponent<Boss2>().HitBoxHorizontal.SetActive(false);
+        owner.GetComponent<Boss2>().HitBoxVertical.SetActive(false);
         if (owner.GetComponent<BoxCollider2D>() != null)
         {
             owner.GetComponent<BoxCollider2D>().enabled = false;

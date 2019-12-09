@@ -82,7 +82,7 @@ public class Boss2 : Boss
     }
 
     protected override void OnTriggerStay2D(Collider2D collision) {
-        if (collision.gameObject.tag == "Player" && IsCausingDamage) {
+        if (collision.gameObject.tag == "Player" && IsCausingDamage && IsAlive) {
             Debug.Log("Collided with Player");
             PlayerTakeDamageEvent ptde = new PlayerTakeDamageEvent {
                 damage = damageToPlayerOnContact,
@@ -92,21 +92,6 @@ public class Boss2 : Boss
 
         }
     }
-
-    //protected override void OnCollisionStay2D(Collision2D collision)
-    //{
-    //    if (collision.gameObject.tag == "Player")
-    //    {
-    //        Debug.Log("Collided with Player");
-    //        PlayerTakeDamageEvent ptde = new PlayerTakeDamageEvent
-    //        {
-    //            damage = damageToPlayerOnContact,
-    //            enemyPosition = rb.position
-    //        };
-    //        ptde.FireEvent();
-
-    //    }
-    //}
 
     public override void EnemyDeath()
     {
@@ -122,6 +107,7 @@ public class Boss2 : Boss
         if (!isDead)
         {
             isDead = true;
+            IsAlive = false;
             State = Boss2State.DEATH;
             Transition<Boss2DeathState>();            
         }
