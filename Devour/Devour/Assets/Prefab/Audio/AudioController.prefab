@@ -335,7 +335,47 @@ MonoBehaviour:
     loop: 0
     source: {fileID: 0}
   - name: Enemy2Death
-    clip: {fileID: 8300000, guid: 393e32198452b8c498ec83ea447e6bb7, type: 3}
+    clip: {fileID: 8300000, guid: d1414fab69fee644dae8973635db0815, type: 3}
+    volume: 1
+    pitch: 1
+    spatialBlend_2D_3D: 1
+    rolloffMode: 1
+    minDistance: 0.1
+    maxDistance: 50
+    loop: 0
+    source: {fileID: 0}
+  - name: Enemy5Death1
+    clip: {fileID: 8300000, guid: 5a586f3365a659643a8738933d9e0d98, type: 3}
+    volume: 1
+    pitch: 1
+    spatialBlend_2D_3D: 1
+    rolloffMode: 1
+    minDistance: 0.1
+    maxDistance: 50
+    loop: 0
+    source: {fileID: 0}
+  - name: Enemy5Death2
+    clip: {fileID: 8300000, guid: 9108a55056d20864e88903359bebaa3f, type: 3}
+    volume: 1
+    pitch: 1
+    spatialBlend_2D_3D: 1
+    rolloffMode: 1
+    minDistance: 0.1
+    maxDistance: 50
+    loop: 0
+    source: {fileID: 0}
+  - name: Enemy5Land
+    clip: {fileID: 8300000, guid: f4b594a1c51057d4da72e7345b5558d4, type: 3}
+    volume: 1
+    pitch: 1
+    spatialBlend_2D_3D: 1
+    rolloffMode: 1
+    minDistance: 0.1
+    maxDistance: 50
+    loop: 0
+    source: {fileID: 0}
+  - name: Enemy5Attack
+    clip: {fileID: 8300000, guid: f8756869eef33f04e9aac55d8bf03285, type: 3}
     volume: 1
     pitch: 1
     spatialBlend_2D_3D: 1

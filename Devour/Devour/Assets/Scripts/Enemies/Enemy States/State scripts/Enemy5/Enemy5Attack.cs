@@ -106,6 +106,20 @@ public class Enemy5Attack : EnemyMovement
         }
         else
         {
+            CameraShakeEvent shakeEvent = new CameraShakeEvent {
+                startDuration = 0.3f,
+                startValue = 0.25f
+            };
+            shakeEvent.FireEvent();
+            AudioPlaySoundAtLocationEvent landSound = new AudioPlaySoundAtLocationEvent {
+                name = "Enemy5Land",
+                isRandomPitch = true,
+                minPitch = 0.9f,
+                maxPitch = 1f,
+                soundType = SoundType.SFX,
+                gameObject = owner.AudioGO
+            };
+            landSound.FireEvent();
             TurnedRight();
             owner.Transition<Enemy5Idle>();
         }
