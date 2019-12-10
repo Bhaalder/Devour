@@ -107,7 +107,7 @@ public override void EnemyDeath()
     {
         //Transition till DeathState
         SpawnAbilityEssence();
-        GiveLifeforce();
+        GiveCollectibles();
         BossDiedEvent bnathDied = new BossDiedEvent
         {
             boss = this

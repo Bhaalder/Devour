@@ -153,7 +153,7 @@ public class Enemy : StateMachine
         {
             Transition<EnemyDeathState>();
         }
-        GiveLifeforce();
+        GiveCollectibles();
     }
 
     public void setGFX(Vector3 v)
@@ -219,7 +219,7 @@ public class Enemy : StateMachine
     //    }
     //}
 
-    public void GiveLifeforce() {
+    public virtual void GiveCollectibles() {
         Collectible lifeForce = new Collectible(CollectibleType.LIFEFORCE, lifeforceAmount);
         PlayerCollectibleChange gainCollectibleEvent = new PlayerCollectibleChange {
             collectible = lifeForce

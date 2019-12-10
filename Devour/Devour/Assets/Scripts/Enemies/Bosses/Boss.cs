@@ -12,6 +12,7 @@ public class Boss : Enemy{
     public float MaxHealth { get; set; }
     public GameObject AudioVoiceGO { get; set; }
 
+    [SerializeField] protected int voidEssenceAmount;
     [SerializeField] protected PlayerAbility bossGivesAbility;
     [SerializeField] protected GameObject abilityEssence;
     [SerializeField] protected string bossName;
@@ -190,6 +191,19 @@ public class Boss : Enemy{
         essence = Instantiate(AbilityEssence, transform.position, Quaternion.identity);
         abilityEssence = essence.GetComponent<AbilityEssence>();
         abilityEssence.Ability = bossGivesAbility;
+    }
+
+    public override void GiveCollectibles() {
+        Collectible lifeForce = new Collectible(CollectibleType.LIFEFORCE, lifeforceAmount);
+        PlayerCollectibleChange gainLifeforceEvent = new PlayerCollectibleChange {
+            collectible = lifeForce
+        };
+        gainLifeforceEvent.FireEvent();
+        Collectible voidEssence = new Collectible(CollectibleType.VOIDESSENCE, lifeforceAmount);
+        PlayerCollectibleChange gainVoidEssenceEvent = new PlayerCollectibleChange {
+            collectible = voidEssence
+        };
+        gainVoidEssenceEvent.FireEvent();
     }
 
     public virtual void PlayVoice(string sound) { }

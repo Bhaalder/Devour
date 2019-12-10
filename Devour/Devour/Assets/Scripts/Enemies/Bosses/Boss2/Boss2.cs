@@ -97,7 +97,7 @@ public class Boss2 : Boss
     {
         //Transition till DeathState
         
-        GiveLifeforce();
+        GiveCollectibles();
         
         BossDiedEvent boss2Died = new BossDiedEvent
         {
