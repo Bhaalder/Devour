@@ -120,11 +120,12 @@ public class Boss2 : Boss
         Transitioned = false;
         IntroStarted = false;
         Transition<Boss2BaseState>();
-        FadeBossMusic_PlayerDied();
+        StopBossMusic();
     }
 
     protected override void OnDestroy()
     {
+        MainMenuEvent.UnRegisterListener(OnMainMenuSwitch);
         PlayerAttackEvent.UnRegisterListener(TakeDamage);
         EnemyTouchKillzoneEvent.UnRegisterListener(EnemyTouchKillzone);
         PlayerDiedEvent.UnRegisterListener(Reset);

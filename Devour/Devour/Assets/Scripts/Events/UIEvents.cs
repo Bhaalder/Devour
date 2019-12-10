@@ -19,6 +19,10 @@ public class InGameMenuEvent : Event<InGameMenuEvent>
 
 }
 
+public class MainMenuEvent : Event<MainMenuEvent> {
+
+}
+
 public class ShowTipTextEvent : Event<ShowTipTextEvent> {
 
     public string tipText;

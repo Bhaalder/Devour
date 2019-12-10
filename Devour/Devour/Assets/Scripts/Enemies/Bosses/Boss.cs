@@ -37,6 +37,7 @@ public class Boss : Enemy{
         BossName = bossName;
         BossTitle = bossTitle;
         Animator = GetComponent<Animator>();
+        MainMenuEvent.RegisterListener(OnMainMenuSwitch);
     }
 
     protected override void Update() {
@@ -45,6 +46,10 @@ public class Boss : Enemy{
 
     protected override void FixedUpdate() {
         base.FixedUpdate();
+    }
+
+    public void OnMainMenuSwitch(MainMenuEvent menuEvent) {
+        StopBossMusic();
     }
 
     public override void TakeDamage(PlayerAttackEvent attackEvent) {
@@ -149,7 +154,7 @@ public class Boss : Enemy{
         }
     }
 
-    public void FadeBossMusic_BossDied() {
+    public void FadeBossMusic() {
         AudioStopSoundEvent stopBossStart = new AudioStopSoundEvent {
             name = "BossStart"
         };
@@ -167,7 +172,7 @@ public class Boss : Enemy{
         fadeSoundEvent.FireEvent();
     }
 
-    public void FadeBossMusic_PlayerDied() {
+    public void StopBossMusic() {
         AudioStopSoundEvent stopBossStart = new AudioStopSoundEvent {
             name = "BossStart"
         };

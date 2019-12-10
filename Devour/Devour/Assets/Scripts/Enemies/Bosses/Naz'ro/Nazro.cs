@@ -115,7 +115,7 @@ public class Nazro : Boss {
         Health = MaxHealth;
         State = BossNazroState.NONE;
         Transition<NazroBaseState>();
-        FadeBossMusic_PlayerDied();
+        StopBossMusic();
     }
 
     public override void EnemyDeath() {
@@ -128,6 +128,7 @@ public class Nazro : Boss {
     }
 
     protected override void OnDestroy() {
+        MainMenuEvent.UnRegisterListener(OnMainMenuSwitch);
         PlayerAttackEvent.UnRegisterListener(TakeDamage);
         PlayerDiedEvent.UnRegisterListener(Reset);
     }
