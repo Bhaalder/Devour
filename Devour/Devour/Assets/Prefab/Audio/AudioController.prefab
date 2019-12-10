@@ -544,6 +544,16 @@ MonoBehaviour:
     maxDistance: 50
     loop: 0
     source: {fileID: 0}
+  - name: ZvixaSonarExpel
+    clip: {fileID: 8300000, guid: 276e452a0d1f395499a47df8397dba6d, type: 3}
+    volume: 1
+    pitch: 1
+    spatialBlend_2D_3D: 1
+    rolloffMode: 1
+    minDistance: 0.1
+    maxDistance: 50
+    loop: 0
+    source: {fileID: 0}
   environmentSounds:
   - name: HitRockWall
     clip: {fileID: 8300000, guid: a613132998910254a93a4edf5f3e2f9e, type: 3}
@@ -678,7 +688,7 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: AbilityGain
     clip: {fileID: 8300000, guid: 09f94862e13b6dd4782e48f05bc9bd2d, type: 3}
-    volume: 0.6
+    volume: 0.5
     pitch: 1
     spatialBlend_2D_3D: 0
     rolloffMode: 0
@@ -687,6 +697,27 @@ MonoBehaviour:
     loop: 0
     source: {fileID: 0}
   voiceSounds: []
+  otherSounds:
+  - name: StartGameClick
+    clip: {fileID: 8300000, guid: f7a66975ffdc9774a81754fdf068a116, type: 3}
+    volume: 1
+    pitch: 1
+    spatialBlend_2D_3D: 0
+    rolloffMode: 0
+    minDistance: 0
+    maxDistance: 0
+    loop: 0
+    source: {fileID: 0}
+  - name: ButtonClick
+    clip: {fileID: 8300000, guid: 62441df369d79ec46995af8d23d14931, type: 3}
+    volume: 0.6
+    pitch: 1
+    spatialBlend_2D_3D: 0
+    rolloffMode: 0
+    minDistance: 0
+    maxDistance: 0
+    loop: 0
+    source: {fileID: 0}
   audioMixer: {fileID: 24100000, guid: 6514dab25353a754e895e7c7a570fc29, type: 2}
   masterMixerGroup: {fileID: 24300002, guid: 6514dab25353a754e895e7c7a570fc29, type: 2}
   sfxMixerGroup: {fileID: 2131962249976066528, guid: 6514dab25353a754e895e7c7a570fc29,

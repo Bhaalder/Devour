@@ -19,7 +19,7 @@ public class BossIntroUI : MonoBehaviour {
     private void BossIntro(BossIntroEvent introEvent) {
         bossNameText.text = introEvent.bossName;
         bossTitleText.text = introEvent.bossTitle;
-        //animator.SetTrigger("");
+        animator.SetTrigger("IntroStart");
     }
 
 

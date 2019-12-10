@@ -82,6 +82,7 @@ public class MainMenuController : MonoBehaviour{
                     leavingSceneName = SceneManager.GetActiveScene().name
                 };
                 switchScene.FireEvent();
+                PlaySound("StartGameClick");
                 break;
             case "loadGame":
                 if (DataStorage.Instance.RestingScene != null)
@@ -102,6 +103,7 @@ public class MainMenuController : MonoBehaviour{
                     leavingSceneName = SceneManager.GetActiveScene().name
                 };
                 switchSceneLoad.FireEvent();
+                PlaySound("StartGameClick");
                 break;
             case "exitButton":
 
@@ -117,6 +119,16 @@ public class MainMenuController : MonoBehaviour{
         {
             SaveSystem.SaveSettingsData(FindObjectOfType<Settings>());
         }
+        PlaySound("ButtonClick");
+    }
+
+    private void PlaySound(string soundName) {
+        AudioPlaySoundEvent playSound = new AudioPlaySoundEvent {
+            name = soundName,
+            isRandomPitch = false,
+            soundType = SoundType.SFX
+        };
+        playSound.FireEvent();
     }
 
     private void FadeScene() {
