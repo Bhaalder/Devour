@@ -2031,7 +2031,7 @@ MonoBehaviour:
   abilityEssence: {fileID: 7475380705934021547, guid: 19f0fdacf1a22684da9a3fbaa343b982,
     type: 3}
   bossName: Boss2
-  bossTitle: 
+  bossTitle: the Agile
   maxHealth: 1200
   offsetIntroZoom: {x: 0, y: 0, z: -7}
   dashPatterns:
@@ -7460,6 +7460,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7227144329047398489}
     m_Modifications:
+    - target: {fileID: 2753549583966528568, guid: fe09bf135973f8c4ca5cdd46f3345187,
+        type: 3}
+      propertyPath: m_Name
+      value: AudioVoice
+      objectReference: {fileID: 0}
     - target: {fileID: 2985418663743074204, guid: fe09bf135973f8c4ca5cdd46f3345187,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -7514,11 +7519,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2753549583966528568, guid: fe09bf135973f8c4ca5cdd46f3345187,
-        type: 3}
-      propertyPath: m_Name
-      value: AudioVoice
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fe09bf135973f8c4ca5cdd46f3345187, type: 3}
