@@ -1388,7 +1388,7 @@ MonoBehaviour:
     description: Become more adept with the void.
     collectibleCost:
     - collectibleType: 0
-      amount: 1
+      amount: 2
     - collectibleType: 1
       amount: 200
   costBox: {fileID: 7838419039560115286}
@@ -7997,7 +7997,7 @@ MonoBehaviour:
     description: Become more Agile.
     collectibleCost:
     - collectibleType: 0
-      amount: 1
+      amount: 2
     - collectibleType: 1
       amount: 200
   costBox: {fileID: 287917772254247291}
@@ -10642,7 +10642,7 @@ MonoBehaviour:
     description: Survive more damage taken.
     collectibleCost:
     - collectibleType: 0
-      amount: 1
+      amount: 2
     - collectibleType: 1
       amount: 200
   costBox: {fileID: 6310600705364620737}
@@ -12718,7 +12718,7 @@ MonoBehaviour:
     description: Deal more damage
     collectibleCost:
     - collectibleType: 0
-      amount: 1
+      amount: 2
     - collectibleType: 1
       amount: 200
   costBox: {fileID: 4025133963691603174}
