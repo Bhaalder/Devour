@@ -200,7 +200,7 @@ public class Player : StateMachine {
         BoxCollider2D = GetComponent<BoxCollider2D>();
 
         MaxHealth = maxHealth;
-        Health = maxHealth;
+        Health = maxHealth/2;
         MaxPlayerVoid = maxPlayerVoid;
         PlayerVoid = playerVoid;
         MeleeDamage = meleeDamage;

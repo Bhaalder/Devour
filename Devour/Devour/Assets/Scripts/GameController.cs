@@ -73,9 +73,7 @@ public class GameController : MonoBehaviour {
             RestingScene = SceneManager.GetActiveScene().name;
         }
         PlayerDiedEvent.RegisterListener(OnPlayerDied);
-        BossDiedEvent.RegisterListener(OnBossDied);
-
-        
+        BossDiedEvent.RegisterListener(OnBossDied); 
     }
 
     private void OnPlayerDied(PlayerDiedEvent playerDiedEvent) {
