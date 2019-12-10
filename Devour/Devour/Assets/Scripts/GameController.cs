@@ -41,12 +41,10 @@ public class GameController : MonoBehaviour {
     }
 
     private void Awake() {
-
-
-        
         if (instance != null && instance != this) {
             Destroy(gameObject);
             Debug.LogWarning("Destroyed other Singleton with name: " + gameObject.name);
+            return;
         }
         DontDestroyOnLoad(gameObject);
         KilledBosses = new List<string>();
