@@ -137,7 +137,7 @@ public override void EnemyDeath()
         PlayerAttackEvent.UnRegisterListener(TakeDamage);
         EnemyTouchKillzoneEvent.UnRegisterListener(EnemyTouchKillzone);
         PlayerDiedEvent.UnRegisterListener(Reset);
-        InGameMenuEvent.UnRegisterListener(OnMainMenuSwitch);
+        MainMenuEvent.UnRegisterListener(OnMainMenuSwitch);
         if (bossFightBlock != null)
         {
             Destroy(bossFightBlock);

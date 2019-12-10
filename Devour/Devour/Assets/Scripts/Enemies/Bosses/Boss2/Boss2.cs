@@ -125,7 +125,7 @@ public class Boss2 : Boss
 
     protected override void OnDestroy()
     {
-        InGameMenuEvent.UnRegisterListener(OnMainMenuSwitch);
+        MainMenuEvent.UnRegisterListener(OnMainMenuSwitch);
         PlayerAttackEvent.UnRegisterListener(TakeDamage);
         EnemyTouchKillzoneEvent.UnRegisterListener(EnemyTouchKillzone);
         PlayerDiedEvent.UnRegisterListener(Reset);

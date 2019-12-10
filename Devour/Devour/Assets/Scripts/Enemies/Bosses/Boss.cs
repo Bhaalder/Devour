@@ -37,7 +37,7 @@ public class Boss : Enemy{
         BossName = bossName;
         BossTitle = bossTitle;
         Animator = GetComponent<Animator>();
-        InGameMenuEvent.RegisterListener(OnMainMenuSwitch);
+        MainMenuEvent.RegisterListener(OnMainMenuSwitch);
     }
 
     protected override void Update() {
@@ -48,7 +48,7 @@ public class Boss : Enemy{
         base.FixedUpdate();
     }
 
-    public void OnMainMenuSwitch(InGameMenuEvent menuEvent) {
+    public void OnMainMenuSwitch(MainMenuEvent menuEvent) {
         StopBossMusic();
     }
 

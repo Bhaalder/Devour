@@ -128,7 +128,7 @@ public class Nazro : Boss {
     }
 
     protected override void OnDestroy() {
-        InGameMenuEvent.UnRegisterListener(OnMainMenuSwitch);
+        MainMenuEvent.UnRegisterListener(OnMainMenuSwitch);
         PlayerAttackEvent.UnRegisterListener(TakeDamage);
         PlayerDiedEvent.UnRegisterListener(Reset);
     }

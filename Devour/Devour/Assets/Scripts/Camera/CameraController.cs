@@ -37,6 +37,7 @@ public class CameraController : MonoBehaviour{
         CameraTiltEvent.RegisterListener(OnTiltCamera);
         CameraZoomEvent.RegisterListener(OnChangeZoom);
         CameraOffsetEvent.RegisterListener(OnCameraOffset);
+        MainMenuEvent.RegisterListener(OnMainMenuSwitch);
     }
 
     private void Start() {
@@ -107,11 +108,16 @@ public class CameraController : MonoBehaviour{
         transform.position = DesiredPosition();
     }
 
+    private void OnMainMenuSwitch(MainMenuEvent menuEvent) {
+        Destroy(gameObject, 3f);
+    }
+
     private void OnDestroy() {
         CameraChangeTargetEvent.UnRegisterListener(OnChangeTarget);
         CameraBoundsChangeEvent.UnRegisterListener(SetCameraBounds);
         CameraTiltEvent.UnRegisterListener(OnTiltCamera);
         CameraZoomEvent.UnRegisterListener(OnChangeZoom);
         CameraOffsetEvent.UnRegisterListener(OnCameraOffset);
+        MainMenuEvent.UnRegisterListener(OnMainMenuSwitch);
     }
 }

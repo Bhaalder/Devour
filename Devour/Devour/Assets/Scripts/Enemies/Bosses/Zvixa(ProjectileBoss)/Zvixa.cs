@@ -104,7 +104,7 @@ public class Zvixa : Boss{
 
     protected override void OnDestroy() {
         BossDoor.SetActive(false);
-        InGameMenuEvent.UnRegisterListener(OnMainMenuSwitch);
+        MainMenuEvent.UnRegisterListener(OnMainMenuSwitch);
         PlayerAttackEvent.UnRegisterListener(TakeDamage);
         PlayerDiedEvent.UnRegisterListener(Reset);
         ZvixaSelfDamageEvent.UnRegisterListener(SelfDamage);
