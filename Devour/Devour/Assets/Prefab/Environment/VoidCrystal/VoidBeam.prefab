@@ -98,7 +98,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -52.96688}
+  m_Offset: {x: 0, y: 3.651249}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -109,7 +109,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 20.48, y: 14.314163}
+  m_Size: {x: 20.48, y: 16.300667}
   m_EdgeRadius: 0
 --- !u!210 &4127699571873200093
 SortingGroup:
@@ -236,7 +236,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 5c99088a2ea47734791565dad5efcd9c, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -71.899994
+      value: -16
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 5c99088a2ea47734791565dad5efcd9c, type: 3}
       propertyPath: m_LocalPosition.z
@@ -327,7 +327,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 5c99088a2ea47734791565dad5efcd9c, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -72.9
+      value: -17.000004
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 5c99088a2ea47734791565dad5efcd9c, type: 3}
       propertyPath: m_LocalPosition.z
