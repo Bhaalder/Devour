@@ -2798,6 +2798,7 @@ GameObject:
   - component: {fileID: 5620678398421145653}
   - component: {fileID: 3420998184604620260}
   - component: {fileID: 6798796565042106968}
+  - component: {fileID: 2336081391599904852}
   m_Layer: 5
   m_Name: UI
   m_TagString: Untagged
@@ -2878,6 +2879,25 @@ MonoBehaviour:
   bossNameText: {fileID: 7185134618897006961}
   bossTitleText: {fileID: 1782551227095034268}
   animator: {fileID: 3817960058788198633}
+--- !u!95 &2336081391599904852
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2051252243704120870}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 0e8b7c4563d6d7f4fa5d48553fb4d8c8, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &2051252243725632316
 GameObject:
   m_ObjectHideFlags: 0
