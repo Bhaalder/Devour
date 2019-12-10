@@ -25,6 +25,8 @@ public class AudioController : MonoBehaviour {
     [SerializeField] private Sound[] musicSounds;
     [Header("VoiceLines")]
     [SerializeField] private Sound[] voiceSounds;
+    [Header("Other")]
+    [SerializeField] private Sound[] otherSounds;
     [Header("AudioMixer")]
     [SerializeField] private AudioMixer audioMixer;
     [SerializeField] private AudioMixerGroup masterMixerGroup;
@@ -76,7 +78,10 @@ public class AudioController : MonoBehaviour {
             allSoundsDictionary[voiceSounds[i].name] = voiceSounds[i];
             voiceDictionary[voiceSounds[i].name] = voiceSounds[i];
         }
-
+        for(int i = 0; i < otherSounds.Length; i++) {
+            allSoundsDictionary[otherSounds[i].name] = otherSounds[i];
+            sfxDictionary[otherSounds[i].name] = otherSounds[i];
+        }
         for (int i = 0; i < allSoundsDictionary.Count; i++) {
             Sound s = allSoundsDictionary.ElementAt(i).Value;
             s.source = gameObject.AddComponent<AudioSource>();

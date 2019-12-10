@@ -62,6 +62,15 @@ public class ZvixaSonarExpelState : ZvixaBaseState {
                 startValue = 0.15f
             };
             shakeEvent.FireEvent();
+            AudioPlaySoundAtLocationEvent sonarExpelSound = new AudioPlaySoundAtLocationEvent {
+                name = "ZvixaSonarExpel",
+                isRandomPitch = true,
+                minPitch = 0.95f,
+                maxPitch = 1f,
+                soundType = SoundType.SFX,
+                gameObject = owner.AudioGO
+            };
+            sonarExpelSound.FireEvent();
         }
         if(spikeFollowUpTimeLeft <= 0 && spikeFollowUp <= spikeFollowUpPercentage) {   
             owner.Transition<ZvixaSpikeAttackState>();
