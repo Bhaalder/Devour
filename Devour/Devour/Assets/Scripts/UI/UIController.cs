@@ -11,17 +11,19 @@ public class UIController : MonoBehaviour{
 
     private TextMeshProUGUI tipText;
     private Player player;
-    [SerializeField] private Animator uiAnimator;
+    private Animator uiAnimator;
 
     private void Awake() {
         VoidTalentScreenEvent.RegisterListener(OnVoidTalentScreen);
         ShowTipTextEvent.RegisterListener(OnShowTipText);
         HideTipTextEvent.RegisterListener(OnHideTipText);
         PlayerTakeDamageEvent.RegisterListener(OnTakeDamage);
+        PlayerHealEvent.RegisterListener(OnPlayerHealed);
     }
 
     private void Start() {
         player = GameController.Instance.Player;
+        uiAnimator = GetComponent<Animator>();
         tipText = player.PlayerCanvas.GetComponentInChildren<TextMeshProUGUI>();
     }
 
@@ -45,6 +47,14 @@ public class UIController : MonoBehaviour{
         uiAnimator.SetTrigger("Healing");
     }
 
+    private void OnPlayerHealed(PlayerHealEvent healEvent) {
+        if(player.Health >= player.MaxHealth) {
+            return;
+        }
+        uiAnimator.SetTrigger("Healing");
+        //ljud
+    }
+
     private void OnShowTipText(ShowTipTextEvent showTextEvent) {
         tipText.text = showTextEvent.tipText;
     }
@@ -58,5 +68,6 @@ public class UIController : MonoBehaviour{
         ShowTipTextEvent.UnRegisterListener(OnShowTipText);
         HideTipTextEvent.UnRegisterListener(OnHideTipText);
         PlayerTakeDamageEvent.UnRegisterListener(OnTakeDamage);
+        PlayerHealEvent.UnRegisterListener(OnPlayerHealed);
     }
 }
