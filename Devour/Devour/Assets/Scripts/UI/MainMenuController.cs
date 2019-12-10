@@ -41,6 +41,9 @@ public class MainMenuController : MonoBehaviour{
                 Destroy(GameController.Instance.Player.gameObject);
                 Destroy(GameController.Instance.Canvas.gameObject);
                 Destroy(GameController.Instance.gameObject);
+
+                //DataStorage.Instance.SetSceneObjects();
+                //DataStorage.Instance.GameData = SaveSystem.LoadGameData();
             }
         } catch (System.NullReferenceException) {
 
@@ -95,6 +98,7 @@ public class MainMenuController : MonoBehaviour{
                 }
                 sceneToLoad = loadGameScene;
                 Invoke("FadeScene", loadingSequenceLength);
+                
                 cameraAnim.Play("GameStartAnim");
                 buttonAnim.Play("MenuAnim");
                 SwitchSceneEvent switchSceneLoad = new SwitchSceneEvent

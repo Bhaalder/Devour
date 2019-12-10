@@ -16,6 +16,10 @@ public class DataStorage : MonoBehaviour
 
     public string RestingScene { get; set; }
 
+    private GameObject canvas;
+    private GameObject player;
+    private GameObject gameController;
+    private GameObject cameraHandler;
 
     private static DataStorage instance;
 
@@ -84,6 +88,7 @@ public class DataStorage : MonoBehaviour
 
         if (data != null)
         {
+            GameController.Instance.Player.Health = data.Health;
             GameController.Instance.Player.PlayerAbilities = data.PlayerAbilities;
             GameController.Instance.Player.Collectibles = data.Collectibles;
 
@@ -100,7 +105,6 @@ public class DataStorage : MonoBehaviour
         }
     }
     #endregion;
-
 
     #region GameData
     public void LoadGameData()
@@ -208,4 +212,19 @@ public class DataStorage : MonoBehaviour
         currentSaveGameIntervalTime = saveGameInterval;
     }
 
+    public void SceneObjects()
+    {
+        gameController.SetActive(!gameController.activeSelf);
+        canvas.SetActive(!canvas.activeSelf);
+        player.SetActive(!player.activeSelf);
+        cameraHandler.SetActive(cameraHandler.activeSelf);
+    }
+
+    public void SetSceneObjects()
+    {
+        canvas = GameController.Instance.Player.gameObject;
+        player = GameController.Instance.Canvas.gameObject;
+        gameController = GameController.Instance.gameObject;
+        cameraHandler = FindObjectOfType<CameraController>().gameObject;
+    }
 }
