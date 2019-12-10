@@ -2,12 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 //Author: Marcus Söderberg
 public class DataStorage : MonoBehaviour
 {
 
     [SerializeField] private float saveGameInterval = 15f;
+    [SerializeField] private Button continueButton;
     private float currentSaveGameIntervalTime;
     public PlayerData PlayerDataStorage { get; set; }
     public GameData GameData { get; set; }
@@ -41,6 +43,7 @@ public class DataStorage : MonoBehaviour
         {
             Destroy(gameObject);
             Debug.LogWarning("Destroyed other Singleton with name: " + gameObject.name);
+            return;
         }
         DontDestroyOnLoad(gameObject);
 
@@ -186,6 +189,10 @@ public class DataStorage : MonoBehaviour
         PlayerDataStorage = SaveSystem.LoadPlayerData();
         GameData = SaveSystem.LoadGameData();
         LoadSettingsData();
+        if(PlayerDataStorage == null)
+        {
+            continueButton.interactable = false;
+        }
     }
 
     private void SaveGameInterval()

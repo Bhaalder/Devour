@@ -14,6 +14,11 @@ public class VoidTalentScreenEvent : Event<VoidTalentScreenEvent> {
 
 }
 
+public class InGameMenuEvent : Event<InGameMenuEvent>
+{
+
+}
+
 public class ShowTipTextEvent : Event<ShowTipTextEvent> {
 
     public string tipText;

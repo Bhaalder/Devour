@@ -287,6 +287,10 @@ public class Player : StateMachine {
             VoidTalentScreenEvent e = new VoidTalentScreenEvent { };//
             e.FireEvent();//
         }//
+        if (Input.GetKeyDown(KeyCode.F10)){//
+            InGameMenuEvent e = new InGameMenuEvent { };//
+            e.FireEvent();//
+        }//
         PlayerVelocity = Rb2D.velocity;//
         health = Health;//TEST END_____________________________________________________________________
     }

@@ -8,6 +8,7 @@ using TMPro;
 public class UIController : MonoBehaviour{
 
     [SerializeField] private GameObject voidTalentScreen;
+    [SerializeField] private GameObject inGameMenuScreen;
 
     private TextMeshProUGUI tipText;
     private Player player;
@@ -15,6 +16,7 @@ public class UIController : MonoBehaviour{
 
     private void Awake() {
         VoidTalentScreenEvent.RegisterListener(OnVoidTalentScreen);
+        InGameMenuEvent.RegisterListener(OnInGameMenuEvent);
         ShowTipTextEvent.RegisterListener(OnShowTipText);
         HideTipTextEvent.RegisterListener(OnHideTipText);
         PlayerTakeDamageEvent.RegisterListener(OnTakeDamage);
@@ -41,6 +43,27 @@ public class UIController : MonoBehaviour{
             Cursor.lockState = CursorLockMode.Locked;
         }
         
+    }
+
+    private void OnInGameMenuEvent(InGameMenuEvent inGameMenuScreenEvent)
+    {
+        inGameMenuScreen.SetActive(!inGameMenuScreen.activeSelf);
+        PlayerBusyEvent playerBusy = new PlayerBusyEvent
+        {
+            playerIsBusy = inGameMenuScreen.activeSelf
+        };
+        playerBusy.FireEvent();
+        GameController.Instance.GamePaused(inGameMenuScreen.activeSelf);
+        Cursor.visible = !Cursor.visible;
+        if (Cursor.lockState == CursorLockMode.Locked)
+        {
+            Cursor.lockState = CursorLockMode.None;
+        }
+        else
+        {
+            Cursor.lockState = CursorLockMode.Locked;
+        }
+
     }
 
     private void OnTakeDamage(PlayerTakeDamageEvent damageEvent) {
