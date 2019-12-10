@@ -7,15 +7,17 @@ using TMPro;
 
 public class UIController : MonoBehaviour{
 
-    [SerializeField] private GameObject VoidTalentScreen;
+    [SerializeField] private GameObject voidTalentScreen;
 
     private TextMeshProUGUI tipText;
     private Player player;
+    [SerializeField] private Animator uiAnimator;
 
     private void Awake() {
         VoidTalentScreenEvent.RegisterListener(OnVoidTalentScreen);
         ShowTipTextEvent.RegisterListener(OnShowTipText);
         HideTipTextEvent.RegisterListener(OnHideTipText);
+        PlayerTakeDamageEvent.RegisterListener(OnTakeDamage);
     }
 
     private void Start() {
@@ -24,12 +26,12 @@ public class UIController : MonoBehaviour{
     }
 
     private void OnVoidTalentScreen(VoidTalentScreenEvent screenEvent) {
-        VoidTalentScreen.SetActive(!VoidTalentScreen.activeSelf);
+        voidTalentScreen.SetActive(!voidTalentScreen.activeSelf);
         PlayerBusyEvent playerBusy = new PlayerBusyEvent {
-            playerIsBusy = VoidTalentScreen.activeSelf
+            playerIsBusy = voidTalentScreen.activeSelf
         };
         playerBusy.FireEvent();
-        GameController.Instance.GamePaused(VoidTalentScreen.activeSelf);
+        GameController.Instance.GamePaused(voidTalentScreen.activeSelf);
         Cursor.visible = !Cursor.visible;
         if(Cursor.lockState == CursorLockMode.Locked) {
             Cursor.lockState = CursorLockMode.None;
@@ -37,6 +39,10 @@ public class UIController : MonoBehaviour{
             Cursor.lockState = CursorLockMode.Locked;
         }
         
+    }
+
+    private void OnTakeDamage(PlayerTakeDamageEvent damageEvent) {
+        uiAnimator.SetTrigger("Healing");
     }
 
     private void OnShowTipText(ShowTipTextEvent showTextEvent) {
@@ -51,5 +57,6 @@ public class UIController : MonoBehaviour{
         VoidTalentScreenEvent.UnRegisterListener(OnVoidTalentScreen);
         ShowTipTextEvent.UnRegisterListener(OnShowTipText);
         HideTipTextEvent.UnRegisterListener(OnHideTipText);
+        PlayerTakeDamageEvent.UnRegisterListener(OnTakeDamage);
     }
 }
