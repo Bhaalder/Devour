@@ -90,7 +90,7 @@ public class Zvixa : Boss{
         Transition<ZvixaBaseState>();
         transform.position = TeleportAreaMiddle.position;
         BossDoor.SetActive(false);
-        FadeBossMusic_PlayerDied();
+        StopBossMusic();
     }
 
     public override void EnemyDeath() {
@@ -104,6 +104,7 @@ public class Zvixa : Boss{
 
     protected override void OnDestroy() {
         BossDoor.SetActive(false);
+        InGameMenuEvent.UnRegisterListener(OnMainMenuSwitch);
         PlayerAttackEvent.UnRegisterListener(TakeDamage);
         PlayerDiedEvent.UnRegisterListener(Reset);
         ZvixaSelfDamageEvent.UnRegisterListener(SelfDamage);

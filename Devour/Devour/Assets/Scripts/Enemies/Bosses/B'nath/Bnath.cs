@@ -128,7 +128,7 @@ public override void EnemyDeath()
         BossFightStart = false;
         Transitioned = false;
         IntroStarted = false;
-        FadeBossMusic_PlayerDied();
+        StopBossMusic();
         //Transition<BnathBaseState>();
     }
 
@@ -137,6 +137,7 @@ public override void EnemyDeath()
         PlayerAttackEvent.UnRegisterListener(TakeDamage);
         EnemyTouchKillzoneEvent.UnRegisterListener(EnemyTouchKillzone);
         PlayerDiedEvent.UnRegisterListener(Reset);
+        InGameMenuEvent.UnRegisterListener(OnMainMenuSwitch);
         if (bossFightBlock != null)
         {
             Destroy(bossFightBlock);

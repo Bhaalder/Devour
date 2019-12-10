@@ -14,7 +14,7 @@ public class BnathDeathState : EnemyDeathState
         owner.BoxCollider2D.enabled = false;
         owner.rb.gravityScale = 0;
         owner.rb.velocity = new Vector2(0, 0);
-        owner.GetComponent<Bnath>().FadeBossMusic_BossDied();
+        owner.GetComponent<Bnath>().FadeBossMusic();
     }
 
     public override void HandleUpdate()
