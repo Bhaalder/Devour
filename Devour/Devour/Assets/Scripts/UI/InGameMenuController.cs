@@ -1,4 +1,6 @@
-﻿using System.Collections;
+﻿//Author: Patrik Ahlgren
+//Återanvänd och adapterad för in-game meny av Marcus Söderberg
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -8,7 +10,6 @@ using UnityEngine.EventSystems;
 public class InGameMenuController : MonoBehaviour
 {
 
-    
     [SerializeField] private GameObject InGameMenuGO;
 
     [Header("InGameMenu")]
