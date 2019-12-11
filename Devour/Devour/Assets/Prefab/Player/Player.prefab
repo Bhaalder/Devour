@@ -806,7 +806,7 @@ MonoBehaviour:
   fallSpeed: -35
   jumpParticle: {fileID: 1315949759934820, guid: a8216bc506e026645b742d1348267d40,
     type: 3}
-  doubleJumpParticle: {fileID: 1315949759934820, guid: a8216bc506e026645b742d1348267d40,
+  doubleJumpParticle: {fileID: 1315949759934820, guid: 78fd3598fdf835a41a422a98d30c8695,
     type: 3}
   groundCheckDistance: 0.05
   wallCheckDistance: 0.94

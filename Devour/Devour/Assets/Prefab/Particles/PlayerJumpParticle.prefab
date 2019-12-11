@@ -5748,20 +5748,20 @@ ParticleSystem:
         - serializedVersion: 3
           time: 0.0015174506
           value: 0.49281836
-          inSlope: 1.121856
-          outSlope: 1.121856
+          inSlope: -0.5789018
+          outSlope: -0.5789018
           tangentMode: 0
           weightedMode: 0
           inWeight: 0.33333334
-          outWeight: 0.33333334
+          outWeight: 0.097137414
         - serializedVersion: 3
           time: 1
-          value: 0.7107143
-          inSlope: 0.00000035762784
-          outSlope: 0.00000035762784
+          value: 0.34761614
+          inSlope: -0.34869197
+          outSlope: -0.34869197
           tangentMode: 0
           weightedMode: 0
-          inWeight: 0.33333334
+          inWeight: 0.058297407
           outWeight: 0.33333334
         m_PreInfinity: 2
         m_PostInfinity: 2
