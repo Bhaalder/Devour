@@ -23,6 +23,15 @@ public class Boss2DeathState : EnemyDeathState
         {
             owner.GetComponent<CircleCollider2D>().enabled = false;
         }
+
+        for (int i = 0; i < owner.GetComponent<Boss2>().SonicDashParticles.Count; i++)
+        {
+            if (owner.GetComponent<Boss2>().SonicDashParticles[i] != null)
+            {
+                Destroy(owner.GetComponent<Boss2>().SonicDashParticles[i]);
+            }
+        }
+
         owner.GetComponent<Boss2>().FadeBossMusic();
         Debug.Log("Entered Death state");
     }
@@ -31,6 +40,7 @@ public class Boss2DeathState : EnemyDeathState
     {
         base.HandleUpdate();
         AbilityEssenceTimer();
+        owner.rb.velocity = new Vector2(0, owner.rb.velocity.y);
     }
     public override void HandleFixedUpdate()
     {
