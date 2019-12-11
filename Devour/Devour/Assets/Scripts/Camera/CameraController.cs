@@ -111,7 +111,7 @@ public class CameraController : MonoBehaviour{
 
     private void OnMainMenuSwitch(MainMenuEvent menuEvent) {
         exists = false;
-        Destroy(gameObject, 3f);
+        Destroy(gameObject, 2f);
     }
 
     private void OnDestroy() {

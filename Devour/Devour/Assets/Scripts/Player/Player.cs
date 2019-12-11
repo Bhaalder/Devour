@@ -92,8 +92,6 @@ public class Player : StateMachine {
 
     public List<TalentPoint> TalentPoints { get; set; }
     public List<Collectible> Collectibles { get; set; }
-
-    public bool Exists { get => exists; set => exists = value; }
     #endregion
 
     #region privateSerialized Variables
@@ -230,6 +228,7 @@ public class Player : StateMachine {
         TalentPointGainEvent.RegisterListener(OnGainTalentPoint);
         FadeScreenEvent.RegisterListener(OnFadeScreen);
         PlayerBusyEvent.RegisterListener(OnPlayerBusyEvent);
+        MainMenuEvent.RegisterListener(OnMainMenuSwitch);
 
         base.Awake();
 
@@ -558,6 +557,12 @@ public class Player : StateMachine {
         Rb2D.AddForce(bounceEvent.amountOfForce, ForceMode2D.Impulse);
     }
 
+    private void OnMainMenuSwitch(MainMenuEvent menuEvent)
+    {
+        exists = false;
+        Destroy(gameObject, 2f);
+    }
+
     private void OnDestroy() {
         PlayerBounceEvent.UnRegisterListener(OnBounce);
         PlayerTakeDamageEvent.UnRegisterListener(OnTakeDamage);
@@ -569,6 +574,7 @@ public class Player : StateMachine {
         TalentPointGainEvent.UnRegisterListener(OnGainTalentPoint);
         FadeScreenEvent.UnRegisterListener(OnFadeScreen);
         PlayerBusyEvent.UnRegisterListener(OnPlayerBusyEvent);
+        MainMenuEvent.UnRegisterListener(OnMainMenuSwitch);
     }
 
 }

@@ -19,6 +19,18 @@ public class CanvasSingleton : MonoBehaviour{
             return;
         }
         GameController.Instance.Canvas = gameObject.transform;
+
+        MainMenuEvent.RegisterListener(OnMainMenuSwitch);
     }
 
+    private void OnMainMenuSwitch(MainMenuEvent menuEvent)
+    {
+        exists = false;
+        Destroy(gameObject, 2f);
+    }
+
+    private void OnDestroy()
+    {
+        MainMenuEvent.UnRegisterListener(OnMainMenuSwitch);
+    }
 }

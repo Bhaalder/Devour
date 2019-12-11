@@ -88,6 +88,7 @@ public class UIController : MonoBehaviour{
 
     private void OnDestroy() {
         VoidTalentScreenEvent.UnRegisterListener(OnVoidTalentScreen);
+        InGameMenuEvent.UnRegisterListener(OnInGameMenuEvent);
         ShowTipTextEvent.UnRegisterListener(OnShowTipText);
         HideTipTextEvent.UnRegisterListener(OnHideTipText);
         PlayerTakeDamageEvent.UnRegisterListener(OnTakeDamage);

@@ -16,11 +16,6 @@ public class DataStorage : MonoBehaviour
 
     public string RestingScene { get; set; }
 
-    private GameObject canvas;
-    private GameObject player;
-    private GameObject gameController;
-    private GameObject cameraHandler;
-
     private static DataStorage instance;
 
     public static DataStorage Instance
@@ -62,6 +57,8 @@ public class DataStorage : MonoBehaviour
         }
 
         currentSaveGameIntervalTime = saveGameInterval;
+
+        MainMenuEvent.RegisterListener(OnMainMenuSwitch);
     }
 
     private void Update()
@@ -210,6 +207,16 @@ public class DataStorage : MonoBehaviour
 
         SaveGame();
         currentSaveGameIntervalTime = saveGameInterval;
+    }
+
+    private void OnMainMenuSwitch(MainMenuEvent menuEvent)
+    {
+        Invoke("LoadInMainMenu", 3f);
+    }
+
+    private void OnDestroy()
+    {
+        MainMenuEvent.UnRegisterListener(OnMainMenuSwitch);
     }
 
 }
