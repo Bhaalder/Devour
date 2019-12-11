@@ -32,6 +32,7 @@ public class CameraController : MonoBehaviour{
             Debug.LogWarning("Destroyed other Singleton with name: " + gameObject.name);
             return;
         }
+
         CameraChangeTargetEvent.RegisterListener(OnChangeTarget);
         CameraBoundsChangeEvent.RegisterListener(SetCameraBounds);
         CameraTiltEvent.RegisterListener(OnTiltCamera);
@@ -109,6 +110,7 @@ public class CameraController : MonoBehaviour{
     }
 
     private void OnMainMenuSwitch(MainMenuEvent menuEvent) {
+        exists = false;
         Destroy(gameObject, 3f);
     }
 

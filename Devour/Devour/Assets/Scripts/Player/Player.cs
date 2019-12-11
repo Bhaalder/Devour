@@ -92,6 +92,8 @@ public class Player : StateMachine {
 
     public List<TalentPoint> TalentPoints { get; set; }
     public List<Collectible> Collectibles { get; set; }
+
+    public bool Exists { get => exists; set => exists = value; }
     #endregion
 
     #region privateSerialized Variables

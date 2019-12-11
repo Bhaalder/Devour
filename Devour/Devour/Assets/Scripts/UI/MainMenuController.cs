@@ -38,12 +38,15 @@ public class MainMenuController : MonoBehaviour{
     private void Awake() {
         try {
             if (GameController.Instance.gameObject) {
+
+                GameController.Instance.Player.Exists = false;
+                GameController.Instance.Canvas.GetComponent<CanvasSingleton>().Exists = false;
+
                 Destroy(GameController.Instance.Player.gameObject);
                 Destroy(GameController.Instance.Canvas.gameObject);
                 Destroy(GameController.Instance.gameObject);
 
-                //DataStorage.Instance.SetSceneObjects();
-                //DataStorage.Instance.GameData = SaveSystem.LoadGameData();
+                DataStorage.Instance.GameData = SaveSystem.LoadGameData();
             }
         } catch (System.NullReferenceException) {
 

@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class CanvasSingleton : MonoBehaviour{
 
+    public bool Exists { get => exists; set => exists = value; }
+
     private static bool exists;
 
     private void Awake() {
@@ -18,4 +20,5 @@ public class CanvasSingleton : MonoBehaviour{
         }
         GameController.Instance.Canvas = gameObject.transform;
     }
+
 }

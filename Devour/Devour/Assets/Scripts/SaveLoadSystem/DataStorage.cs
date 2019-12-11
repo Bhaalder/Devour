@@ -212,19 +212,4 @@ public class DataStorage : MonoBehaviour
         currentSaveGameIntervalTime = saveGameInterval;
     }
 
-    public void SceneObjects()
-    {
-        gameController.SetActive(!gameController.activeSelf);
-        canvas.SetActive(!canvas.activeSelf);
-        player.SetActive(!player.activeSelf);
-        cameraHandler.SetActive(cameraHandler.activeSelf);
-    }
-
-    public void SetSceneObjects()
-    {
-        canvas = GameController.Instance.Player.gameObject;
-        player = GameController.Instance.Canvas.gameObject;
-        gameController = GameController.Instance.gameObject;
-        cameraHandler = FindObjectOfType<CameraController>().gameObject;
-    }
 }
