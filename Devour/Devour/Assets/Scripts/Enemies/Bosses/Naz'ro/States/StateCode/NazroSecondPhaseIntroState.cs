@@ -13,6 +13,7 @@ public class NazroSecondPhaseIntroState : NazroBaseState {
     public override void Enter() {
         owner.State = BossNazroState.SECOND_PHASE_INTRO;
         owner.BossLog("SecondPhaseIntroState");
+        owner.transform.position = owner.MoveLocations[4].position;
         Instantiate(owner.BossDoor, owner.BossDoor.transform.position, Quaternion.identity);
         introTimeLeft = secondPhaseIntroTime;
         owner.IsSecondPhase = true;

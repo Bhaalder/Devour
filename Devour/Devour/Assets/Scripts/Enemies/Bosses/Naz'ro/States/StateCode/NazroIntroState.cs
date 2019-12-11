@@ -13,6 +13,7 @@ public class NazroIntroState : NazroBaseState {
     public override void Enter() {
         owner.State = BossNazroState.INTRO;
         owner.BossLog("IntroState");
+        owner.transform.position = owner.MoveLocations[4].position;
         Instantiate(owner.BossDoor, owner.BossDoor.transform.position, Quaternion.identity);
         if (!GameController.Instance.BossIntroPlayed.Contains(owner.BossName)) {
             introTimeLeft = introTime;
