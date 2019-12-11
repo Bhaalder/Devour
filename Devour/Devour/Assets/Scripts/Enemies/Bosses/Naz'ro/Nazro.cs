@@ -19,6 +19,7 @@ public class Nazro : Boss {
     public BoxCollider2D HighArea { get; set; }
     public BoxCollider2D LowCenterArea { get; set; }
     public BoxCollider2D StartFightArea { get; set; }
+    public BoxCollider2D SecondPhaseStartFightArea { get => secondPhaseStartFightArea; set => secondPhaseStartFightArea = value; }
     public BoxCollider2D VoidObsSpawnArea { get; set; }
     public BoxCollider2D EndPlatformArea { get => endPlatformArea; set => endPlatformArea = value; }
 
@@ -52,6 +53,7 @@ public class Nazro : Boss {
     [SerializeField] private BoxCollider2D highArea;
     [SerializeField] private BoxCollider2D lowCenterArea;
     [SerializeField] private BoxCollider2D startFightArea;
+    [SerializeField] private BoxCollider2D secondPhaseStartFightArea;
     [SerializeField] private BoxCollider2D voidObsSpawnArea;
     [SerializeField] private BoxCollider2D endPlatformArea;
     [SerializeField] private GameObject verticalVoidWall;

@@ -61,4 +61,11 @@ public class NazroWaitState : NazroBaseState {
         return false;
     }
 
+    protected override bool PlayerIsInsideBossRoom() {
+        if (owner.Player.BoxCollider2D.bounds.Intersects(owner.SecondPhaseStartFightArea.bounds)) {
+            return true;
+        }
+        return false;
+    }
+
 }

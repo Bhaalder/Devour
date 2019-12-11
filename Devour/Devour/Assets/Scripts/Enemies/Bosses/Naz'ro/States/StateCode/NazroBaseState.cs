@@ -76,7 +76,7 @@ public class NazroBaseState : State {
         }
     }
 
-    protected bool PlayerIsInsideBossRoom() {
+    protected virtual bool PlayerIsInsideBossRoom() {
         if (owner.Player.BoxCollider2D.bounds.Intersects(owner.StartFightArea.bounds)) {
             return true;
         }
