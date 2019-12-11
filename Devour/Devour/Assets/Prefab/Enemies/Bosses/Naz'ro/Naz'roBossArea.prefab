@@ -1518,6 +1518,7 @@ MonoBehaviour:
   enemyGFX: {fileID: 0}
   childrenToDisable: []
   deathSounds: []
+  voidEssenceAmount: 0
   bossGivesAbility: 0
   abilityEssence: {fileID: 0}
   bossName: "Naz\u2019ro"

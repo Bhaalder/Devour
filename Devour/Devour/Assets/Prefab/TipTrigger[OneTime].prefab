@@ -72,4 +72,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tipText: 
   tipID: 0
-  tipDuration: 0
+  tipDuration: 5
