@@ -4079,11 +4079,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8692427741149956736}
     m_Modifications:
-    - target: {fileID: 2753549583966528568, guid: fe09bf135973f8c4ca5cdd46f3345187,
-        type: 3}
-      propertyPath: m_Name
-      value: AudioVoice
-      objectReference: {fileID: 0}
     - target: {fileID: 2985418663743074204, guid: fe09bf135973f8c4ca5cdd46f3345187,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -4138,6 +4133,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2753549583966528568, guid: fe09bf135973f8c4ca5cdd46f3345187,
+        type: 3}
+      propertyPath: m_Name
+      value: AudioVoice
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fe09bf135973f8c4ca5cdd46f3345187, type: 3}
@@ -4233,6 +4233,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: MagicBall
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: a3dd36386195e25468454073161074f3, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: a3dd36386195e25468454073161074f3, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -4292,10 +4296,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8692427741149956736}
     m_Modifications:
-    - target: {fileID: 100000, guid: bb2e595175ebece4e9917a4c2ec736ff, type: 3}
-      propertyPath: m_Name
-      value: VodComet
-      objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: bb2e595175ebece4e9917a4c2ec736ff, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -4351,6 +4351,14 @@ PrefabInstance:
     - target: {fileID: 400002, guid: bb2e595175ebece4e9917a4c2ec736ff, type: 3}
       propertyPath: m_LocalScale.z
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: bb2e595175ebece4e9917a4c2ec736ff, type: 3}
+      propertyPath: m_Name
+      value: VodComet
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: bb2e595175ebece4e9917a4c2ec736ff, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bb2e595175ebece4e9917a4c2ec736ff, type: 3}
