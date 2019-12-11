@@ -65,8 +65,10 @@ public class Boss2 : Boss
         bossFightBlock.SetActive(true);
         IsAlive = !isDead;
         hitBoxHorizontal.SetActive(false);
+        BoxCollider2D = hitBoxVertical.GetComponent<BoxCollider2D>();
         SonicDashParticles = new List<GameObject>();
         Transitioned = false;
+        
     }
 
     protected override void Update()
@@ -93,12 +95,38 @@ public class Boss2 : Boss
         }
     }
 
+    public override void PlayVoice(string sound) {
+        int i = Random.Range(1, 2 + 1);
+        switch (sound) {
+            case "Thrust":
+                sound = "QraThrustVoice" + i;
+                break;
+            case "Die":
+                sound = "QraDeath";
+                break;
+            case "BeamChant":
+                sound = "BnathChant" + i;
+                break;
+            case "BeamJump":
+                sound = "BnathJumpFromWall" + i;
+                break;
+            default:
+                break;
+        }
+        AudioPlaySoundAtLocationEvent soundEvent = new AudioPlaySoundAtLocationEvent {
+            name = sound,
+            soundType = SoundType.SFX,
+            isRandomPitch = true,
+            minPitch = 0.95f,
+            maxPitch = 1f,
+            gameObject = AudioVoiceGO
+        };
+        soundEvent.FireEvent();
+    }
+
     public override void EnemyDeath()
     {
         //Transition till DeathState
-        
-        GiveCollectibles();
-        
         BossDiedEvent boss2Died = new BossDiedEvent
         {
             boss = this
@@ -108,6 +136,7 @@ public class Boss2 : Boss
         {
             isDead = true;
             IsAlive = false;
+            GiveCollectibles();
             State = Boss2State.DEATH;
             Transition<Boss2DeathState>();            
         }

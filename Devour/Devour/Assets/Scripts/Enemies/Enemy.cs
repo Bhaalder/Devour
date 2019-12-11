@@ -15,7 +15,7 @@ public class Enemy : StateMachine
     public bool IsIdle { get; set; }
     public GameObject[] ChildrenToDisable { get; set; }
     public GameObject AudioGO { get; set; }
-    public BoxCollider2D BoxCollider2D { get; set; }
+    public BoxCollider2D BoxCollider2D { get => boxCollider2D; set => boxCollider2D = value; }
 
     [SerializeField] protected Vector2 hurtParticleOffsetPosition;
     [SerializeField] protected GameObject particlesOnHurt;
@@ -48,7 +48,6 @@ public class Enemy : StateMachine
             Debug.Log("This enemy does not have a rigidbody");
         }
         boxCollider2D = GetComponent<BoxCollider2D>();
-        BoxCollider2D = boxCollider2D;
         Health = enemyHealth;
         Damage = damageToPlayerOnContact;
         ChildrenToDisable = childrenToDisable;

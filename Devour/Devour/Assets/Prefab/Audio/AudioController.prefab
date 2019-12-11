@@ -554,6 +554,46 @@ MonoBehaviour:
     maxDistance: 50
     loop: 0
     source: {fileID: 0}
+  - name: QraSnipeBeam
+    clip: {fileID: 8300000, guid: 14b242bf9a8d36d418fefbbbe0aa0d1f, type: 3}
+    volume: 1
+    pitch: 1
+    spatialBlend_2D_3D: 1
+    rolloffMode: 1
+    minDistance: 0.1
+    maxDistance: 50
+    loop: 0
+    source: {fileID: 0}
+  - name: QraThrustVoice1
+    clip: {fileID: 8300000, guid: aaa6defc61e7f6b4ba101269a7bc001e, type: 3}
+    volume: 1
+    pitch: 1
+    spatialBlend_2D_3D: 1
+    rolloffMode: 1
+    minDistance: 0.1
+    maxDistance: 50
+    loop: 0
+    source: {fileID: 0}
+  - name: QraThrustVoice2
+    clip: {fileID: 8300000, guid: 475b0084ac154584abedb5281e837777, type: 3}
+    volume: 1
+    pitch: 1
+    spatialBlend_2D_3D: 1
+    rolloffMode: 1
+    minDistance: 0.1
+    maxDistance: 50
+    loop: 0
+    source: {fileID: 0}
+  - name: QraDeath
+    clip: {fileID: 8300000, guid: e65ef9bee2ce54743ab0eb61585a5672, type: 3}
+    volume: 1
+    pitch: 1
+    spatialBlend_2D_3D: 1
+    rolloffMode: 1
+    minDistance: 0.1
+    maxDistance: 50
+    loop: 0
+    source: {fileID: 0}
   environmentSounds:
   - name: HitRockWall
     clip: {fileID: 8300000, guid: a613132998910254a93a4edf5f3e2f9e, type: 3}

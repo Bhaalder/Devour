@@ -2,7 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 
 [System.Serializable]
@@ -16,22 +16,22 @@ public class Wave
 public class SpawnManager : MonoBehaviour
 {
     //Author: Marcus Söderberg
+    [SerializeField] private int spawnerID;
     [SerializeField] private Wave[] Waves; // class to hold information per wave
     [SerializeField] private Transform[] SpawnPoints;
     [SerializeField] private GameObject teleportEffect;
+
     public float TimeBetweenEnemies = 2f;
 
     public int TotalEnemiesInCurrentWave { get; set; }
     public int EnemiesInWaveLeft { get; set; }
     public int SpawnedEnemies { get; set; }
     public bool StartedSpawning { get; set; }
-
+    public bool IsRoomCleared { get => isRoomCleared; set => isRoomCleared = value; }
 
     public int CurrentWave { get; set; }
     private int totalWaves;
     private int spawnPointIndex = 0;
-
-    public int SpawnerInstancedID { get; set; }
 
     // Designer input
     [SerializeField] private bool isRoomCleared;
@@ -40,11 +40,25 @@ public class SpawnManager : MonoBehaviour
 
     void Start()
     {
+        if (GameController.Instance.ClearedSpawners.ContainsKey(SceneManager.GetActiveScene().name))
+        {
+            if (GameController.Instance.ClearedSpawners[SceneManager.GetActiveScene().name].Contains(spawnerID))
+            {
+                isRoomCleared = true;
+                try
+                {
+                    door.SetActive(false);
+                }
+                catch (NullReferenceException) { Debug.Log("No Door To Open"); }
+                return;
+            }
+        }
         CurrentWave = -1; // avoid off by 1
         totalWaves = Waves.Length - 1; // adjust, because we're using 0 index
         isRoomCleared = false;
         StartedSpawning = false;
         // StartNextWave(); //used for testing
+
     }
 
 
@@ -127,14 +141,24 @@ public class SpawnManager : MonoBehaviour
 
                 try
                 {
-                    
-                        door.SetActive(false);
-                    
-                    
+                    door.SetActive(false);
                 }
-                catch (NullReferenceException)
-                {
+                catch (NullReferenceException) { }
 
+                if (GameController.Instance.ClearedSpawners.ContainsKey(SceneManager.GetActiveScene().name))
+                {
+                    if (GameController.Instance.ClearedSpawners[SceneManager.GetActiveScene().name].Contains(spawnerID))
+                    {
+                        Debug.LogWarning("A Spawner with the same ID [" + spawnerID + "] has already been Cleared in this scene [" + SceneManager.GetActiveScene().name + "]");
+                        isRoomCleared = true;
+                        return;
+                    }
+                    GameController.Instance.ClearedSpawners[SceneManager.GetActiveScene().name].Add(spawnerID);
+                }
+                else
+                {
+                    List<int> newSpawnerList = new List<int> { spawnerID };
+                    GameController.Instance.ClearedSpawners.Add(SceneManager.GetActiveScene().name, newSpawnerList);
                 }
 
                 isRoomCleared = true;
@@ -147,19 +171,6 @@ public class SpawnManager : MonoBehaviour
 
         }
         
-    }
-
-    private IEnumerator CheckForChildren()
-    {
-        yield return new WaitForSeconds(3f);
-        if(transform.childCount <= 0)
-        {
-            EnemiesInWaveLeft = 0;
-        }
-        if(StartedSpawning == true && totalWaves > CurrentWave)
-        {
-            StartNextWave();
-        }
     }
 
 }

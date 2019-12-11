@@ -55,7 +55,7 @@ public class Boss : Enemy{
     public override void TakeDamage(PlayerAttackEvent attackEvent) {
         if (invulnerabilityTimer <= 0) {
             try {
-                if (attackEvent.attackCollider.bounds.Intersects(boxCollider2D.bounds)) {
+                if (attackEvent.attackCollider.bounds.Intersects(boxCollider2D.bounds) && IsAlive) {
                     ChangeEnemyHealth(-attackEvent.damage);
                     HurtSoundAndParticles();
                     if (attackEvent.isMeleeAttack) {
@@ -204,7 +204,7 @@ public class Boss : Enemy{
             collectible = lifeForce
         };
         gainLifeforceEvent.FireEvent();
-        Collectible voidEssence = new Collectible(CollectibleType.VOIDESSENCE, lifeforceAmount);
+        Collectible voidEssence = new Collectible(CollectibleType.VOIDESSENCE, voidEssenceAmount);
         PlayerCollectibleChange gainVoidEssenceEvent = new PlayerCollectibleChange {
             collectible = voidEssence
         };

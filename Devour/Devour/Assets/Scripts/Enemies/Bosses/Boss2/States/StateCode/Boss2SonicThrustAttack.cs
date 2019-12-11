@@ -21,6 +21,7 @@ public class Boss2SonicThrustAttack : Boss2BaseState
         owner.State = Boss2State.SONIC_THRUST_ATTACK;
         owner.HitBoxHorizontal.SetActive(true);
         owner.HitBoxVertical.SetActive(false);
+        owner.BoxCollider2D = owner.HitBoxHorizontal.GetComponent<BoxCollider2D>();
     }
 
     public override void HandleUpdate()
@@ -33,6 +34,7 @@ public class Boss2SonicThrustAttack : Boss2BaseState
         {
             owner.HitBoxHorizontal.SetActive(false);
             owner.HitBoxVertical.SetActive(true);
+            owner.BoxCollider2D = owner.HitBoxVertical.GetComponent<BoxCollider2D>();
             owner.Transition<Boss2SonicThrustExit>();
         }
         dashTime -= Time.deltaTime;

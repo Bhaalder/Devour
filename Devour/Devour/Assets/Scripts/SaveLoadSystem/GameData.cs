@@ -19,6 +19,7 @@ public class GameData
     public Dictionary<string, List<int>> DestroyedVoidGenerators { get; set; }
     public Dictionary<string, List<int>> OneTimeTips { get; set; }
     public Dictionary<string, List<int>> HiddenAreasFound { get; set; }
+    public Dictionary<string, List<int>> ClearedSpawners { get; set; }
     public List<string> KilledBosses { get; set; }
     public List<string> BossIntroPlayed { get; set; }
 
@@ -55,7 +56,9 @@ public class GameData
         DestroyedVoidGenerators = gameController.DestroyedVoidGenerators;
         OneTimeTips = gameController.OneTimeTips;
         HiddenAreasFound = gameController.HiddenAreasFound;
+        ClearedSpawners = gameController.ClearedSpawners;
         KilledBosses = gameController.KilledBosses;
         BossIntroPlayed = gameController.BossIntroPlayed;
+        
     }
 }

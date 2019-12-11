@@ -29,7 +29,8 @@ public class Boss2SonicDashAttack : Boss2BaseState
         currentPosition = 0;
         owner.HitBoxHorizontal.SetActive(true);
         owner.HitBoxVertical.SetActive(false);
-
+        owner.BoxCollider2D = owner.HitBoxHorizontal.GetComponent<BoxCollider2D>();
+        TurnToTargetPosition();
         startPosition = owner.rb.position;
         owner.rb.gravityScale = 0;
     }
@@ -49,17 +50,17 @@ public class Boss2SonicDashAttack : Boss2BaseState
         {
             countUp += count * Time.deltaTime;
             currentDashTime += Time.deltaTime;
-            TurnToTargetPosition();
             owner.rb.position = Vector3.Lerp(startPosition, positions[currentPosition].transform.position, countUp);
             return;
         }
+        TurnToTargetPosition();
         Destroy(owner.SonicDashParticles[currentPosition]);
         currentPosition++;
         startPosition = owner.rb.position;
         countUp = 0;
         currentDashTime = 0;
         FindTargetDirection();
-        if(currentPosition >= positions.Length)
+        if (currentPosition >= positions.Length)
         {
             currentPosition = 0;
             owner.rb.gravityScale = 6;

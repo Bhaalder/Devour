@@ -106,8 +106,7 @@ public class Bnath : Boss
 public override void EnemyDeath()
     {
         //Transition till DeathState
-        SpawnAbilityEssence();
-        GiveCollectibles();
+
         BossDiedEvent bnathDied = new BossDiedEvent
         {
             boss = this
@@ -115,7 +114,10 @@ public override void EnemyDeath()
         bnathDied.FireEvent();
         if (!isDead)
         {
+            SpawnAbilityEssence();
+            GiveCollectibles();
             isDead = true;
+            IsAlive = false;
             State = BossBnathState.DEATH;
             Transition<BnathDeathState>();
         }
