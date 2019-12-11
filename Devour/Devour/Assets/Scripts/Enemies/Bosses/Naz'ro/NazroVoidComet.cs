@@ -20,13 +20,13 @@ public class NazroVoidComet : MonoBehaviour {
     private float lastKnownPlayerYPos;
     private bool isMoving;
     
-    private GameObject particleSystem;
+    private GameObject particles;
     private Transform player;
     private GameObject warningParticle;
     private CircleCollider2D circleCollider2D;   
 
     private void Start() {
-        particleSystem = transform.GetChild(0).gameObject;
+        particles = transform.GetChild(0).gameObject;
         player = GameController.Instance.Player.transform;
         circleCollider2D = GetComponent<CircleCollider2D>();
         if (isVerticalComet) {
@@ -36,7 +36,6 @@ public class NazroVoidComet : MonoBehaviour {
         }
         warningParticle = Instantiate(warningParticlePrefab, transform.localPosition, Quaternion.identity);
         windUpLeft = WindUp;
-        PlayerAttackEvent.RegisterListener(GetHit);
         PlayerTouchKillzoneEvent.RegisterListener(OnPlayerTouchKillzone);
         BossDiedEvent.RegisterListener(BossDied);
         NazroSecondPhaseEvent.RegisterListener(OnPhaseChange);
@@ -52,8 +51,8 @@ public class NazroVoidComet : MonoBehaviour {
             return;
         }
         isMoving = true;
-        if (!particleSystem.activeSelf) {
-            particleSystem.SetActive(true);
+        if (!particles.activeSelf) {
+            particles.SetActive(true);
         }
         Destroy(warningParticle);
     }
@@ -65,12 +64,6 @@ public class NazroVoidComet : MonoBehaviour {
             if (lifeSpan <= 0) {
                 Destroy(gameObject);
             }
-        }
-    }
-
-    private void GetHit(PlayerAttackEvent attackEvent) {
-        if (attackEvent.attackCollider.bounds.Intersects(circleCollider2D.bounds)) {
-            //SKA NÅGOT HÄNDA DÅ?
         }
     }
 
@@ -124,7 +117,6 @@ public class NazroVoidComet : MonoBehaviour {
     }
 
     private void OnDestroy() {
-        PlayerAttackEvent.UnRegisterListener(GetHit);
         PlayerTouchKillzoneEvent.UnRegisterListener(OnPlayerTouchKillzone);
         BossDiedEvent.UnRegisterListener(BossDied);
         NazroSecondPhaseEvent.UnRegisterListener(OnPhaseChange);
