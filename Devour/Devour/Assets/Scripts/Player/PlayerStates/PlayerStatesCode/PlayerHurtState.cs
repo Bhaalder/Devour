@@ -23,12 +23,17 @@ public class PlayerHurtState : PlayerBaseState {
             maxPitch = 1f
         };
         hurtAudio.FireEvent();
+        if (owner.IsTotallyInvulnerable) {
+            owner.Rb2D.gravityScale = 0;
+        }
     }
 
     public override void HandleFixedUpdate() {
-
-        //base.HandleFixedUpdate();
-    }
+        if (owner.IsTotallyInvulnerable) {
+            owner.Rb2D.velocity = Vector2.zero;
+        }
+            //base.HandleFixedUpdate();
+        }
 
     public override void HandleUpdate() {
         CollisionCheck();
@@ -38,4 +43,10 @@ public class PlayerHurtState : PlayerBaseState {
         }
         //base.HandleUpdate();
     }
+
+    public override void Exit() {
+        owner.Rb2D.gravityScale = 6;
+        base.Exit();
+    }
+
 }

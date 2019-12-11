@@ -36,6 +36,7 @@ public class Player : StateMachine {
     public float UntilNextProjectileAttack { get; set; }
     public float ProjectileHealthcost { get => projectileHealthcost; set => projectileHealthcost = value; }
     public GameObject VoidMendParticleEffect { get => voidMendParticleEffect; set => voidMendParticleEffect = value; }
+    public bool IsTotallyInvulnerable { get; set; }
     public bool IsDead { get; set; }
 
     public BoxCollider2D BoxCollider2D { get; set; }
@@ -329,14 +330,18 @@ public class Player : StateMachine {
         }
     }
 
+
     private void OnTouchKillzone(PlayerTouchKillzoneEvent killzone) {
+        if (IsTotallyInvulnerable) {
+            return;
+        }
         CameraShakeEvent cameraShake = new CameraShakeEvent {
             startDuration = cameraShakeDuration,
             startValue = cameraShakeValue
         };
         cameraShake.FireEvent();
         if (IsInvulnerable) {
-            Respawn();
+            StartRespawn();
             return;
         }
         ChangeHealth(-killzone.damage);
@@ -344,10 +349,30 @@ public class Player : StateMachine {
             Die();
             return;
         }
-        Respawn();
+        StartRespawn();
+    }
+
+    private void StartRespawn() {
+        IsTotallyInvulnerable = true;
+        Transition<PlayerHurtState>();
+        UntilInvulnerableEnds = invulnerableStateTime;
+        Rb2D.velocity = new Vector2(0, 0);
+        Invoke("Respawn", 0.5f);
+    }
+
+    private void Respawn() {
+        try {
+            transform.position = GameController.Instance.SceneCheckpoint;
+        } catch (UnassignedReferenceException) {
+            Debug.LogError("No 'SceneCheckpoint' assigned in GameController to be able to respawn!");
+        }
+        IsTotallyInvulnerable = false;
     }
 
     private void OnTakeDamage(PlayerTakeDamageEvent eventDamage) {
+        if (IsTotallyInvulnerable) {
+            return;
+        }
         if (!eventDamage.isSelfInflicted) {
             if (IsInvulnerable) {
                 return;
@@ -442,16 +467,7 @@ public class Player : StateMachine {
         UntilInvulnerableEnds = invulnerableStateTime;
     }
 
-    private void Respawn() {
-        Transition<PlayerHurtState>();
-        Rb2D.velocity = new Vector2(0, 0);
-        UntilInvulnerableEnds = invulnerableStateTime;
-        try {
-            transform.position = GameController.Instance.SceneCheckpoint;
-        } catch(UnassignedReferenceException) {
-            Debug.LogError("No 'SceneCheckpoint' assigned in GameController to be able to respawn!");
-        }
-    }
+    
 
     private void Die() {
         if (!IsDead) {
