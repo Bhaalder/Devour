@@ -24,7 +24,7 @@ public class InteractablePlant : MonoBehaviour
         {
             if (!isTouching)
             {
-                anim.SetTrigger("Type1Trigger");
+                anim.SetTrigger("Type1FromLeftTrigger");
                 isTouching = true;
             }
         }
