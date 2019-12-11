@@ -75,6 +75,7 @@ public class PlayerBaseState : State {
         }
         if (owner.IsGrounded && Input.GetButtonDown("Jump")) {
             Jump(0);
+            GameObject particle = Instantiate(owner.JumpParticle, owner.GroundChecks[0].position, Quaternion.identity, owner.transform);
             return;
         }
         if (Input.GetButtonUp("Jump") && owner.Rb2D.velocity.y > 0) {
