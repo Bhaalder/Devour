@@ -70,7 +70,7 @@ public class PlayerBaseState : State {
         }
         if (owner.IsWallSliding && Input.GetButtonDown("Jump")) {
             Jump(0);
-            GameObject particle = Instantiate(owner.JumpParticle, owner.GroundChecks[0].position, Quaternion.identity);
+            GameObject particle = Instantiate(owner.JumpParticle, owner.GroundChecks[0].position, Quaternion.identity, owner.transform);
             return;
         }
         if (owner.IsGrounded && Input.GetButtonDown("Jump")) {
@@ -88,7 +88,7 @@ public class PlayerBaseState : State {
                 owner.ExtraJumpsLeft--;
                 owner.Rb2D.velocity = new Vector2(0, 0);
                 Jump(0);
-                GameObject particle = Instantiate(owner.DoubleJumpParticle, owner.GroundChecks[0].position, Quaternion.identity);
+                GameObject particle = Instantiate(owner.DoubleJumpParticle, owner.GroundChecks[0].position, Quaternion.identity, owner.transform);
             }
         }
     }
