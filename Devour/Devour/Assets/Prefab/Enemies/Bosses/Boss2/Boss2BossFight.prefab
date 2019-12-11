@@ -2027,11 +2027,11 @@ MonoBehaviour:
   enemyGFX: {fileID: 7227144329047398489}
   childrenToDisable: []
   deathSounds: []
-  voidEssenceAmount: 0
+  voidEssenceAmount: 2
   bossGivesAbility: 3
   abilityEssence: {fileID: 7475380705934021547, guid: 19f0fdacf1a22684da9a3fbaa343b982,
     type: 3}
-  bossName: Boss2
+  bossName: Q'ra
   bossTitle: the Agile
   maxHealth: 1200
   offsetIntroZoom: {x: 0, y: 0, z: -7}

@@ -72,7 +72,7 @@ MonoBehaviour:
   particlesOnHurt: {fileID: 100000, guid: 9ef378073a169194caec69fd7eacf4de, type: 3}
   enemyHealth: 26
   damageToPlayerOnContact: 25
-  lifeforceAmount: 15
+  lifeforceAmount: 20
   isIdle: 0
   enemyGFX: {fileID: 1325847437710850822}
   childrenToDisable:
@@ -90,7 +90,7 @@ MonoBehaviour:
   - {fileID: 1406073250510792712}
   deathSounds:
   - Enemy2Death
-  idleOnly: 0
+  idleOnly: 1
 --- !u!114 &1325847437710850820
 MonoBehaviour:
   m_ObjectHideFlags: 0

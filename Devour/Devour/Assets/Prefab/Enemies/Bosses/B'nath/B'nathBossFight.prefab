@@ -950,6 +950,7 @@ MonoBehaviour:
   - {fileID: 260181907137013442}
   - {fileID: 5490455136399410609}
   deathSounds: []
+  voidEssenceAmount: 2
   bossGivesAbility: 2
   abilityEssence: {fileID: 7475380705934021547, guid: 19f0fdacf1a22684da9a3fbaa343b982,
     type: 3}
