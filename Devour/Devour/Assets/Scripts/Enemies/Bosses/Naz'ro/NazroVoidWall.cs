@@ -36,6 +36,7 @@ public class NazroVoidWall : MonoBehaviour {
             transform.GetChild(i).GetComponent<NazroVoidWallCollide>().Damage = damage;
         }
         BossDiedEvent.RegisterListener(BossDied);
+        NazroSecondPhaseEvent.RegisterListener(OnPhaseChange);
     }
 
     private void FixedUpdate() {
@@ -52,6 +53,10 @@ public class NazroVoidWall : MonoBehaviour {
         }
     }
 
+    private void OnPhaseChange(NazroSecondPhaseEvent phaseChange) {
+        gameObject.SetActive(false);
+    }
+
     private void BossDied(BossDiedEvent bossDied) {
         Destroy(gameObject);
     }
@@ -62,6 +67,7 @@ public class NazroVoidWall : MonoBehaviour {
 
     private void OnDestroy() {
         BossDiedEvent.UnRegisterListener(BossDied);
+        NazroSecondPhaseEvent.UnRegisterListener(OnPhaseChange);
     }
 
 }

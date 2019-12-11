@@ -17,6 +17,8 @@ public class NazroSecondPhaseIntroState : NazroBaseState {
         introTimeLeft = secondPhaseIntroTime;
         owner.IsSecondPhase = true;
         owner.SecondBossDoor.SetActive(true);
+        NazroSecondPhaseEvent secondPhaseEvent = new NazroSecondPhaseEvent {};
+        secondPhaseEvent.FireEvent();
         base.Enter();
     }
 

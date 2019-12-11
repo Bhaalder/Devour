@@ -4,6 +4,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+public class NazroSecondPhaseEvent : Event<NazroSecondPhaseEvent> {
+
+}
+
 public class ZvixaSelfDamageEvent : Event<ZvixaSelfDamageEvent> {
 
     public float damage;

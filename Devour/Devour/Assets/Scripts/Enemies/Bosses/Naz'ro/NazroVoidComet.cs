@@ -39,6 +39,7 @@ public class NazroVoidComet : MonoBehaviour {
         PlayerAttackEvent.RegisterListener(GetHit);
         PlayerTouchKillzoneEvent.RegisterListener(OnPlayerTouchKillzone);
         BossDiedEvent.RegisterListener(BossDied);
+        NazroSecondPhaseEvent.RegisterListener(OnPhaseChange);
     }
 
     private void Update() {
@@ -108,7 +109,17 @@ public class NazroVoidComet : MonoBehaviour {
         return cometPos;
     }
 
+    private void OnPhaseChange(NazroSecondPhaseEvent phaseChange) {
+        if (warningParticle != null) {
+            Destroy(warningParticle);
+        }
+        Destroy(gameObject);
+    }
+
     private void BossDied(BossDiedEvent bossDied) {
+        if (warningParticle != null) {
+            Destroy(warningParticle);
+        }
         Destroy(gameObject);
     }
 
@@ -116,6 +127,7 @@ public class NazroVoidComet : MonoBehaviour {
         PlayerAttackEvent.UnRegisterListener(GetHit);
         PlayerTouchKillzoneEvent.UnRegisterListener(OnPlayerTouchKillzone);
         BossDiedEvent.UnRegisterListener(BossDied);
+        NazroSecondPhaseEvent.UnRegisterListener(OnPhaseChange);
     }
 
 }

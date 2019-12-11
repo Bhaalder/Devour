@@ -24,6 +24,7 @@ public class NazroVoidBomb : MonoBehaviour {
         animator = GetComponent<Animator>();
         PlayerAttackEvent.RegisterListener(GetHit);
         BossDiedEvent.RegisterListener(BossDied);
+        NazroSecondPhaseEvent.RegisterListener(OnPhaseChange);
     }
 
     private void FixedUpdate() {
@@ -76,6 +77,10 @@ public class NazroVoidBomb : MonoBehaviour {
         Destroy(gameObject);
     }
 
+    private void OnPhaseChange(NazroSecondPhaseEvent phaseChange) {
+        Destroy(gameObject);
+    }
+
     private void BossDied(BossDiedEvent bossDied) {
         Destroy(gameObject);
     }
@@ -83,6 +88,7 @@ public class NazroVoidBomb : MonoBehaviour {
     private void OnDestroy() {
         PlayerAttackEvent.UnRegisterListener(GetHit);
         BossDiedEvent.UnRegisterListener(BossDied);
+        NazroSecondPhaseEvent.UnRegisterListener(OnPhaseChange);
     }
 
 }
