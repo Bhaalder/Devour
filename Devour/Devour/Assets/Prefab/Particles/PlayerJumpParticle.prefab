@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 4784267272170257029}
   - component: {fileID: 3553204711354438885}
   - component: {fileID: 8935359485276205020}
+  - component: {fileID: 2157228906996234625}
   m_Layer: 0
   m_Name: PlayerJumpParticle
   m_TagString: Untagged
@@ -29,7 +30,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1315949759934820}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -22.453272, y: -32.933636, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1.948, y: 1.948, z: 1.948}
   m_Children:
   - {fileID: 8887065337001817471}
@@ -4796,12 +4797,25 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1315949759934820}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6fd2e8874f60266498a388d7229a1bac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   OnlyDeactivate: 0
+--- !u!114 &2157228906996234625
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1315949759934820}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f8e17a03ddfc87c42966a53cdc5112b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  destructionTime: 1
 --- !u!1 &1988920426367043704
 GameObject:
   m_ObjectHideFlags: 0
@@ -4860,7 +4874,7 @@ ParticleSystem:
   startDelay:
     serializedVersion: 2
     minMaxState: 0
-    scalar: 0.3
+    scalar: 0
     minScalar: 0
     maxCurve:
       serializedVersion: 2
@@ -5089,7 +5103,7 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0.04
+      scalar: 2
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -5616,7 +5630,7 @@ ParticleSystem:
     rateOverTime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 5
+      scalar: 50
       minScalar: 10
       maxCurve:
         serializedVersion: 2
@@ -5973,10 +5987,10 @@ ParticleSystem:
       maxColor: {r: 1, g: 1, b: 1, a: 1}
       maxGradient:
         serializedVersion: 2
-        key0: {r: 0.5294118, g: 0.36862746, b: 0.2509804, a: 0}
-        key1: {r: 1, g: 1, b: 0.7411765, a: 1}
-        key2: {r: 1, g: 1, b: 1, a: 0.8862745}
-        key3: {r: 0, g: 0, b: 0, a: 0.39215687}
+        key0: {r: 0.5294118, g: 0.36862746, b: 0.2509804, a: 1}
+        key1: {r: 1, g: 1, b: 0.7411765, a: 0.8862745}
+        key2: {r: 1, g: 1, b: 1, a: 0.39215687}
+        key3: {r: 0, g: 0, b: 0, a: 0}
         key4: {r: 0, g: 0, b: 0, a: 0}
         key5: {r: 0, g: 0, b: 0, a: 0}
         key6: {r: 0, g: 0, b: 0, a: 0}
@@ -5990,16 +6004,16 @@ ParticleSystem:
         ctime6: 0
         ctime7: 0
         atime0: 0
-        atime1: 4626
-        atime2: 18119
-        atime3: 29684
+        atime1: 18119
+        atime2: 29684
+        atime3: 33539
         atime4: 33539
         atime5: 0
         atime6: 0
         atime7: 0
         m_Mode: 0
         m_NumColorKeys: 3
-        m_NumAlphaKeys: 5
+        m_NumAlphaKeys: 4
       minGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
@@ -7020,7 +7034,7 @@ ParticleSystem:
       m_Bits: 4294967295
     influenceList: []
   ClampVelocityModule:
-    enabled: 1
+    enabled: 0
     x:
       serializedVersion: 2
       minMaxState: 0
@@ -9560,7 +9574,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1746974209523335060
 Transform:
   m_ObjectHideFlags: 0
