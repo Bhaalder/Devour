@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class TriggerEnemySpawner : MonoBehaviour
 {
@@ -13,14 +14,7 @@ public class TriggerEnemySpawner : MonoBehaviour
 
     private void Awake()
     {
-
-        //for (int i = 0; i > doors.Length; i++)
-        //{
-        //    doors[i].SetActive(false);
-        //}
-
         door1.SetActive(false);
-        
     }
     private void Update()
     {
@@ -31,19 +25,12 @@ public class TriggerEnemySpawner : MonoBehaviour
     {
         if (coll.gameObject.tag == "Player")
         {
-      
-            spawnerScript.GetComponent<SpawnManager>().InitializeSpawner();
-            GetComponent<BoxCollider2D>().enabled = false;
-
-
-            //for (int i=0; i > doors.Length; i++)
-            //    {
-            //    doors[i].SetActive(true);
-            //    }
-
-            door1.SetActive(true);
-            
+            if (!spawnerScript.IsRoomCleared)
+            {
+                spawnerScript.GetComponent<SpawnManager>().InitializeSpawner();
+                GetComponent<BoxCollider2D>().enabled = false;
+                door1.SetActive(true);
+            }
         }
-
     }
 }

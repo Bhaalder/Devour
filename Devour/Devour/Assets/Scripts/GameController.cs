@@ -21,6 +21,7 @@ public class GameController : MonoBehaviour {
     public Dictionary<string, List<int>> DestroyedVoidGenerators { get; set; }
     public Dictionary<string, List<int>> OneTimeTips { get; set; }
     public Dictionary<string, List<int>> HiddenAreasFound { get; set; }
+    public Dictionary<string, List<int>> ClearedSpawners { get; set; }
     public List<string> KilledBosses { get; set; }
     public List<string> BossIntroPlayed { get; set; }
 
@@ -55,6 +56,7 @@ public class GameController : MonoBehaviour {
         DestroyedVoidGenerators = new Dictionary<string, List<int>>();
         HiddenAreasFound = new Dictionary<string, List<int>>();
         OneTimeTips = new Dictionary<string, List<int>>();
+        ClearedSpawners = new Dictionary<string, List<int>>();
 
         if (FindObjectOfType<DataStorage>())
         {
