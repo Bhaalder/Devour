@@ -127,9 +127,6 @@ public class Boss2 : Boss
     public override void EnemyDeath()
     {
         //Transition till DeathState
-        
-        GiveCollectibles();
-        
         BossDiedEvent boss2Died = new BossDiedEvent
         {
             boss = this
@@ -139,6 +136,7 @@ public class Boss2 : Boss
         {
             isDead = true;
             IsAlive = false;
+            GiveCollectibles();
             State = Boss2State.DEATH;
             Transition<Boss2DeathState>();            
         }
