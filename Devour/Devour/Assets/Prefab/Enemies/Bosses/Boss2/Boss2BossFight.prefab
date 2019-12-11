@@ -143,7 +143,7 @@ GameObject:
   - component: {fileID: 4118151151003427071}
   - component: {fileID: 2988728081390260111}
   - component: {fileID: 2698180123364443831}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: LLowerLeg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -237,7 +237,7 @@ GameObject:
   - component: {fileID: 5444716078067878523}
   - component: {fileID: 162752137944757370}
   - component: {fileID: 7036240208015403602}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: RUpperArm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -405,7 +405,7 @@ GameObject:
   - component: {fileID: 84561110347814973}
   - component: {fileID: 5020453618518171893}
   - component: {fileID: 670012254782383478}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: RFoot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -498,7 +498,7 @@ GameObject:
   - component: {fileID: 1907414042362899469}
   - component: {fileID: 3618182102715683399}
   - component: {fileID: 2649284155219546272}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: RLowerArm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -592,7 +592,7 @@ GameObject:
   - component: {fileID: 5095045124368431173}
   - component: {fileID: 5752585674083165489}
   - component: {fileID: 5044962938037698104}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Weapon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -713,7 +713,7 @@ GameObject:
   - component: {fileID: 4096418325664287057}
   - component: {fileID: 6420272804784467308}
   - component: {fileID: 6032264811729452902}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Head
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -806,7 +806,7 @@ GameObject:
   - component: {fileID: 1277474044603911952}
   - component: {fileID: 8527904228884830849}
   - component: {fileID: 9154687078074727746}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: RLowerLeg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -899,7 +899,7 @@ GameObject:
   m_Component:
   - component: {fileID: 636220230575543380}
   - component: {fileID: 35272201978849047}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -983,7 +983,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2045269702872646115}
   - component: {fileID: 6503959556812310555}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: HitBoxHorizontal
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -1041,7 +1041,7 @@ GameObject:
   - component: {fileID: 78733005073816555}
   - component: {fileID: 6112414460440996797}
   - component: {fileID: 2781801920481524832}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Dash_Effect (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1133,7 +1133,7 @@ GameObject:
   - component: {fileID: 7195722077454938795}
   - component: {fileID: 5721960179332956354}
   - component: {fileID: 3427098573067329131}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Dash_Effect
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1225,7 +1225,7 @@ GameObject:
   - component: {fileID: 5378541569508028879}
   - component: {fileID: 2183344858936987607}
   - component: {fileID: 1058855384227624722}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: LUpperLeg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1318,7 +1318,7 @@ GameObject:
   - component: {fileID: 2538847637229161448}
   - component: {fileID: 3170421322819547349}
   - component: {fileID: 3925663717046482793}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: RUpperLeg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1959,7 +1959,7 @@ GameObject:
   - component: {fileID: 6141421630553659604}
   - component: {fileID: 3420850716359525388}
   - component: {fileID: 1120141484794767940}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Boss2
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -2027,6 +2027,7 @@ MonoBehaviour:
   enemyGFX: {fileID: 7227144329047398489}
   childrenToDisable: []
   deathSounds: []
+  voidEssenceAmount: 0
   bossGivesAbility: 3
   abilityEssence: {fileID: 7475380705934021547, guid: 19f0fdacf1a22684da9a3fbaa343b982,
     type: 3}
@@ -2272,7 +2273,7 @@ GameObject:
   - component: {fileID: 2942162523729510101}
   - component: {fileID: 8457605596819554689}
   - component: {fileID: 4411428604250455483}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: LUpperArm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2366,7 +2367,7 @@ GameObject:
   - component: {fileID: 5617248187454014288}
   - component: {fileID: 1591745521629739820}
   - component: {fileID: 4278084482006083283}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Dash_Effect (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2458,7 +2459,7 @@ GameObject:
   - component: {fileID: 6101300085090949775}
   - component: {fileID: 4655659888339728935}
   - component: {fileID: 9096737650920010796}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: LFoot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2561,7 +2562,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1294260457815593135}
   - component: {fileID: 5233048226589773896}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: HitBoxVertical
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -2618,7 +2619,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8980356718811415248}
   - component: {fileID: 6977637603149401848}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Void Beams FX
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2662,7 +2663,7 @@ GameObject:
   - component: {fileID: 8980356718811415250}
   - component: {fileID: 8980356718796212114}
   - component: {fileID: 8980356718796324402}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: CFX3 Spikes
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7306,7 +7307,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7822738024522808592}
   - component: {fileID: 9113020860151710870}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: LLowerArm
   m_TagString: Untagged
   m_Icon: {fileID: 0}

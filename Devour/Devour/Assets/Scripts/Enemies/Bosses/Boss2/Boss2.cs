@@ -65,8 +65,10 @@ public class Boss2 : Boss
         bossFightBlock.SetActive(true);
         IsAlive = !isDead;
         hitBoxHorizontal.SetActive(false);
+        BoxCollider2D = hitBoxVertical.GetComponent<BoxCollider2D>();
         SonicDashParticles = new List<GameObject>();
         Transitioned = false;
+        
     }
 
     protected override void Update()

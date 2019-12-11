@@ -29,6 +29,7 @@ public class Boss2SonicDashAttack : Boss2BaseState
         currentPosition = 0;
         owner.HitBoxHorizontal.SetActive(true);
         owner.HitBoxVertical.SetActive(false);
+        owner.BoxCollider2D = owner.HitBoxHorizontal.GetComponent<BoxCollider2D>();
 
         startPosition = owner.rb.position;
         owner.rb.gravityScale = 0;
