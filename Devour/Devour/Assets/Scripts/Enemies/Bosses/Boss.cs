@@ -204,7 +204,7 @@ public class Boss : Enemy{
             collectible = lifeForce
         };
         gainLifeforceEvent.FireEvent();
-        Collectible voidEssence = new Collectible(CollectibleType.VOIDESSENCE, lifeforceAmount);
+        Collectible voidEssence = new Collectible(CollectibleType.VOIDESSENCE, voidEssenceAmount);
         PlayerCollectibleChange gainVoidEssenceEvent = new PlayerCollectibleChange {
             collectible = voidEssence
         };

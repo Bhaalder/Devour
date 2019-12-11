@@ -93,6 +93,35 @@ public class Boss2 : Boss
         }
     }
 
+    public override void PlayVoice(string sound) {
+        int i = Random.Range(1, 2 + 1);
+        switch (sound) {
+            case "Thrust":
+                sound = "QraThrustVoice" + i;
+                break;
+            case "Die":
+                sound = "QraDeath";
+                break;
+            case "BeamChant":
+                sound = "BnathChant" + i;
+                break;
+            case "BeamJump":
+                sound = "BnathJumpFromWall" + i;
+                break;
+            default:
+                break;
+        }
+        AudioPlaySoundAtLocationEvent soundEvent = new AudioPlaySoundAtLocationEvent {
+            name = sound,
+            soundType = SoundType.SFX,
+            isRandomPitch = true,
+            minPitch = 0.95f,
+            maxPitch = 1f,
+            gameObject = AudioVoiceGO
+        };
+        soundEvent.FireEvent();
+    }
+
     public override void EnemyDeath()
     {
         //Transition till DeathState
