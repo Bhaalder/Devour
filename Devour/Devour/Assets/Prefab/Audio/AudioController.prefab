@@ -584,8 +584,28 @@ MonoBehaviour:
     maxDistance: 50
     loop: 0
     source: {fileID: 0}
+  - name: QraThrustAttack
+    clip: {fileID: 8300000, guid: 6b109f4a124ae94478fd942d08bf4223, type: 3}
+    volume: 0.7
+    pitch: 1
+    spatialBlend_2D_3D: 1
+    rolloffMode: 1
+    minDistance: 0.1
+    maxDistance: 50
+    loop: 0
+    source: {fileID: 0}
   - name: QraDeath
     clip: {fileID: 8300000, guid: e65ef9bee2ce54743ab0eb61585a5672, type: 3}
+    volume: 1
+    pitch: 1
+    spatialBlend_2D_3D: 1
+    rolloffMode: 1
+    minDistance: 0.1
+    maxDistance: 50
+    loop: 0
+    source: {fileID: 0}
+  - name: QraBeamJumpVoice
+    clip: {fileID: 8300000, guid: cd3690dd4f23c96458fe3b964ee88bd8, type: 3}
     volume: 1
     pitch: 1
     spatialBlend_2D_3D: 1

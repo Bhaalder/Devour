@@ -108,7 +108,7 @@ public class Boss2 : Boss
                 sound = "BnathChant" + i;
                 break;
             case "BeamJump":
-                sound = "BnathJumpFromWall" + i;
+                sound = "QraBeamJumpVoice";
                 break;
             default:
                 break;
