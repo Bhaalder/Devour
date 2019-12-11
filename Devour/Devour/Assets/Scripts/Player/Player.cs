@@ -60,6 +60,8 @@ public class Player : StateMachine {
     public float UntilNextDash { get; set; }
     public float FallSpeed { get => fallSpeed; set => fallSpeed = value; }
     public bool MovementIsStopped { get; set; }
+    public GameObject JumpParticle { get => jumpParticle; set => jumpParticle = value; }
+    public GameObject DoubleJumpParticle { get => doubleJumpParticle; set => doubleJumpParticle = value; }
 
     public float XInput { get; set; }
     public float YInput { get; set; }
@@ -154,6 +156,10 @@ public class Player : StateMachine {
     [SerializeField] private float dashCooldown;
     [Tooltip("The maxvalue the player can fall")]
     [SerializeField] private float fallSpeed;
+    [Tooltip("The particle when player is on ground and jumps")]
+    [SerializeField] private GameObject jumpParticle;
+    [Tooltip("The particle when player jumps midair")]
+    [SerializeField] private GameObject doubleJumpParticle;
 
     [Header("MovementCheckVariables")]
     [Tooltip("The area of the groundcheck, to see if the player is touching the ground")]
