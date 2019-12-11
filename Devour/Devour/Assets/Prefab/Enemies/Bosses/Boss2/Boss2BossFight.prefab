@@ -2651,7 +2651,7 @@ SortingGroup:
   m_Enabled: 1
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 10
+  m_SortingOrder: -1
 --- !u!1 &8980356718811389682
 GameObject:
   m_ObjectHideFlags: 0
@@ -2699,7 +2699,7 @@ ParticleSystem:
   ringBufferMode: 0
   ringBufferLoopRange: {x: 0, y: 1}
   looping: 1
-  prewarm: 0
+  prewarm: 1
   playOnAwake: 1
   useUnscaledTime: 0
   autoRandomSeed: 1
@@ -2714,7 +2714,7 @@ ParticleSystem:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 1
+        value: 0
         inSlope: 0
         outSlope: 0
         tangentMode: 0
@@ -2723,7 +2723,7 @@ ParticleSystem:
         outWeight: 0.33333334
       - serializedVersion: 3
         time: 1
-        value: 1
+        value: 0
         inSlope: 0
         outSlope: 0
         tangentMode: 0
@@ -7461,11 +7461,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7227144329047398489}
     m_Modifications:
-    - target: {fileID: 2753549583966528568, guid: fe09bf135973f8c4ca5cdd46f3345187,
-        type: 3}
-      propertyPath: m_Name
-      value: AudioVoice
-      objectReference: {fileID: 0}
     - target: {fileID: 2985418663743074204, guid: fe09bf135973f8c4ca5cdd46f3345187,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -7520,6 +7515,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2753549583966528568, guid: fe09bf135973f8c4ca5cdd46f3345187,
+        type: 3}
+      propertyPath: m_Name
+      value: AudioVoice
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fe09bf135973f8c4ca5cdd46f3345187, type: 3}

@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timeBetweenAttacks: 1
   sonicThrustPercentage: 60
-  sonicSnipePercentage: 35
+  sonicSnipePercentage: 50
