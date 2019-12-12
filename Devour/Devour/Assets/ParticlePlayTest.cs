@@ -5,7 +5,7 @@ using UnityEngine;
 public class ParticlePlayTest : MonoBehaviour
 {
     public GameObject particleNorm, particleReverse;
-    public GameObject player;
+    
     
     // Start is called before the first frame update
     void Start()
@@ -21,13 +21,13 @@ public class ParticlePlayTest : MonoBehaviour
     }
     void CalledUpon()
     {
-        Instantiate(particleNorm, player.transform.position, Quaternion.identity);
+        Instantiate(particleNorm, transform.position, Quaternion.identity);
         StartCoroutine(ReversePlay());
     }
     IEnumerator ReversePlay()
     {
         yield return new WaitForSeconds(4);
-        Instantiate(particleReverse, player.transform.position, Quaternion.identity);
+        Instantiate(particleReverse, transform.position, Quaternion.identity);
         
     }
 }
