@@ -26,6 +26,7 @@ public class ZvixaSpikeAttackState : ZvixaBaseState {
         attackTimeLeft = spikeAttackTime;
         spriteRenderer = owner.LowArea.GetComponent<SpriteRenderer>();
         spriteRenderer.color = new Color32(255, 0, 0, 25);
+        owner.SpikeWarningParticles.SetActive(true);
         base.Enter();
     }
 
@@ -44,6 +45,7 @@ public class ZvixaSpikeAttackState : ZvixaBaseState {
                 startValue = 0.35f
             };
             shakeEvent.FireEvent();
+            owner.SpikeWarningParticles.SetActive(false);
         }
         if (spikesAreUp) {
             if (owner.Player.HorizontalMeleeCollider.bounds.Intersects(owner.LowArea.bounds)) {

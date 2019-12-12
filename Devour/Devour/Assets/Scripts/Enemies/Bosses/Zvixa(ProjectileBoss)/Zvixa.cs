@@ -18,6 +18,7 @@ public class Zvixa : Boss{
     public Transform TeleportAreaMiddle { get; set; }
     public Transform TeleportAreaRight { get; set; }
     public GameObject BossDoor { get; set; }
+    public GameObject SpikeWarningParticles { get => spikeWarningParticles; set => spikeWarningParticles = value; }
     public GameObject TipAfterZvixa { get => tipAfterZvixa; set => tipAfterZvixa = value; }
 
     public int FacingDirection { get; set; }
@@ -33,6 +34,7 @@ public class Zvixa : Boss{
     [SerializeField] private Transform teleportAreaMiddle;
     [SerializeField] private Transform teleportAreaRight;
     [SerializeField] private GameObject bossDoor;
+    [SerializeField] private GameObject spikeWarningParticles;
     [SerializeField] private GameObject tipAfterZvixa;
 
     public static bool IsDead { get; set; }
