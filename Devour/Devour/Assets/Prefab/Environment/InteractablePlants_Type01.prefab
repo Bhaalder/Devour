@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 8549448622451458054}
   - component: {fileID: 8549448622451458055}
   - component: {fileID: 8549448622451458056}
+  - component: {fileID: 2558742733301956023}
   m_Layer: 0
   m_Name: InteractablePlants_Type01
   m_TagString: Untagged
@@ -91,6 +92,17 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!210 &2558742733301956023
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8549448622451458057}
+  m_Enabled: 1
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
 --- !u!1001 &8549448623847400192
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -5,17 +5,19 @@ using UnityEngine;
 public class InteractablePlant : MonoBehaviour {
 
     private Animator anim;
-
+    bool isTouching;
     void Start() {
         anim = GetComponent<Animator>();
     }
 
     private void OnTriggerStay2D(Collider2D collision) {
-        if (collision.CompareTag("Player")) {
+        if (collision.CompareTag("Player") && !isTouching) {
             if (GameController.Instance.Player.FacingDirection == 1) {
                 anim.SetTrigger("Type1FromLeftTrigger");
-            } else if (GameController.Instance.Player.FacingDirection == -1) {
+                isTouching = true;
+            } else if (GameController.Instance.Player.FacingDirection == -1 && !isTouching) {
                 anim.SetTrigger("Type1FromRightTrigger");
+                isTouching = true;
             }
         }
 
@@ -23,7 +25,7 @@ public class InteractablePlant : MonoBehaviour {
 
     private void OnTriggerExit2D(Collider2D collision) {
         if (collision.CompareTag("Player")) {
-
+            isTouching = false;
         }
     }
 }
