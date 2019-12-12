@@ -20,6 +20,7 @@ public class SpawnManager : MonoBehaviour
     [SerializeField] private Wave[] Waves; // class to hold information per wave
     [SerializeField] private Transform[] SpawnPoints;
     [SerializeField] private GameObject teleportEffect;
+    [SerializeField] private GameObject doorOpenAudioGO;
 
     public float TimeBetweenEnemies = 2f;
 
@@ -142,12 +143,15 @@ public class SpawnManager : MonoBehaviour
                 try
                 {
                     door.SetActive(false);
-                    AudioPlaySoundEvent openDoorSound = new AudioPlaySoundEvent {
-                        name = "DoorOpen",
-                        isRandomPitch = false,
-                        soundType = SoundType.SFX
-                    };
-                    openDoorSound.FireEvent();
+                    if(doorOpenAudioGO != null) {
+                        AudioPlaySoundAtLocationEvent openDoorSound = new AudioPlaySoundAtLocationEvent {
+                            name = "DoorOpen",
+                            isRandomPitch = false,
+                            soundType = SoundType.SFX,
+                            gameObject = doorOpenAudioGO
+                        };
+                        openDoorSound.FireEvent();
+                    }
                 }
                 catch (NullReferenceException) { }
 
