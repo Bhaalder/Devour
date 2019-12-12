@@ -34,6 +34,12 @@ public class VoidEssence : MonoBehaviour {
                 List<int> newEssenceList = new List<int> { voidEssenceID };
                 GameController.Instance.CollectedVoidEssences.Add(SceneManager.GetActiveScene().name, newEssenceList);
             }
+            AudioPlaySoundEvent voidEssenceGainSound = new AudioPlaySoundEvent {
+                name = "GainVoidEssence",
+                isRandomPitch = false,
+                soundType = SoundType.SFX
+            };
+            voidEssenceGainSound.FireEvent();
             gainCollectibleEvent.FireEvent();
             Destroy(gameObject);
         }
