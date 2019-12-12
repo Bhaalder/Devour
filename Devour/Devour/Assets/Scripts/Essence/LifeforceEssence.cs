@@ -34,7 +34,7 @@ public class LifeforceEssence : MonoBehaviour {
             transform.position = Vector2.MoveTowards(transform.position, player.transform.position, 3 * Time.deltaTime);
         }
         if (boxCollider2D.bounds.Intersects(player.BoxCollider2D.bounds)) {
-            PlayerCollectibleChange retrieveLifeforce = new PlayerCollectibleChange {
+            PlayerCollectibleChangeEvent retrieveLifeforce = new PlayerCollectibleChangeEvent {
                 collectible = PlayerLifeForce.Collectible
             };
             retrieveLifeforce.FireEvent();

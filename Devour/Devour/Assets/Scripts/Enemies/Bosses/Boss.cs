@@ -63,7 +63,7 @@ public class Boss : Enemy{
                             isLifeLeech = true
                         };
                         if (attackEvent.player.HasAbility(PlayerAbility.VOIDMEND)) {
-                            PlayerVoidEvent voidEvent = new PlayerVoidEvent {
+                            PlayerVoidChangeEvent voidEvent = new PlayerVoidChangeEvent {
                                 amount = attackEvent.player.MeleeVoidLeech
                             };
                             voidEvent.FireEvent();
@@ -200,12 +200,12 @@ public class Boss : Enemy{
 
     public override void GiveCollectibles() {
         Collectible lifeForce = new Collectible(CollectibleType.LIFEFORCE, lifeforceAmount);
-        PlayerCollectibleChange gainLifeforceEvent = new PlayerCollectibleChange {
+        PlayerCollectibleChangeEvent gainLifeforceEvent = new PlayerCollectibleChangeEvent {
             collectible = lifeForce
         };
         gainLifeforceEvent.FireEvent();
         Collectible voidEssence = new Collectible(CollectibleType.VOIDESSENCE, voidEssenceAmount);
-        PlayerCollectibleChange gainVoidEssenceEvent = new PlayerCollectibleChange {
+        PlayerCollectibleChangeEvent gainVoidEssenceEvent = new PlayerCollectibleChangeEvent {
             collectible = voidEssence
         };
         gainVoidEssenceEvent.FireEvent();

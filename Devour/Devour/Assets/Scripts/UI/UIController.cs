@@ -21,6 +21,8 @@ public class UIController : MonoBehaviour{
         HideTipTextEvent.RegisterListener(OnHideTipText);
         PlayerTakeDamageEvent.RegisterListener(OnTakeDamage);
         PlayerHealEvent.RegisterListener(OnPlayerHealed);
+        PlayerVoidIsFullEvent.RegisterListener(OnVoidMendFullEvent);
+        PlayerCollectibleChangeEvent.RegisterListener(OnPlayerCollectibleChange);
     }
 
     private void Start() {
@@ -43,6 +45,16 @@ public class UIController : MonoBehaviour{
             Cursor.lockState = CursorLockMode.Locked;
         }
         
+    }
+
+    private void OnPlayerCollectibleChange(PlayerCollectibleChangeEvent collectibleChangeEvent) {
+        if(collectibleChangeEvent.collectible.amount > 0) {
+            if(collectibleChangeEvent.collectible.collectibleType == CollectibleType.VOIDESSENCE) {
+                uiAnimator.SetTrigger("VECollected");
+            } else {
+                uiAnimator.SetTrigger("LFCollected");
+            }
+        }
     }
 
     private void OnInGameMenuEvent(InGameMenuEvent inGameMenuScreenEvent)
@@ -78,6 +90,10 @@ public class UIController : MonoBehaviour{
         //ljud
     }
 
+    private void OnVoidMendFullEvent(PlayerVoidIsFullEvent voidEvent) {
+        uiAnimator.SetTrigger("VMfull");
+    }
+
     private void OnShowTipText(ShowTipTextEvent showTextEvent) {
         tipText.text = showTextEvent.tipText;
     }
@@ -93,5 +109,7 @@ public class UIController : MonoBehaviour{
         HideTipTextEvent.UnRegisterListener(OnHideTipText);
         PlayerTakeDamageEvent.UnRegisterListener(OnTakeDamage);
         PlayerHealEvent.UnRegisterListener(OnPlayerHealed);
+        PlayerVoidIsFullEvent.UnRegisterListener(OnVoidMendFullEvent);
+        PlayerCollectibleChangeEvent.UnRegisterListener(OnPlayerCollectibleChange);
     }
 }

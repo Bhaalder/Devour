@@ -414,6 +414,26 @@ MonoBehaviour:
     maxDistance: 35
     loop: 0
     source: {fileID: 0}
+  - name: Enemy5Step1
+    clip: {fileID: 8300000, guid: cfebe9b1a9d84bf4e8dd7a52637a0ddb, type: 3}
+    volume: 0.45
+    pitch: 0.8
+    spatialBlend_2D_3D: 1
+    rolloffMode: 1
+    minDistance: 0.1
+    maxDistance: 35
+    loop: 0
+    source: {fileID: 0}
+  - name: Enemy5Step2
+    clip: {fileID: 8300000, guid: ee3a258217c0edb41b946a00c52f8837, type: 3}
+    volume: 0.45
+    pitch: 0.8
+    spatialBlend_2D_3D: 1
+    rolloffMode: 1
+    minDistance: 0.1
+    maxDistance: 35
+    loop: 0
+    source: {fileID: 0}
   - name: Enemy4Spit
     clip: {fileID: 8300000, guid: 2e36bb3336a069d4f8afd84e4a8ee4fe, type: 3}
     volume: 1

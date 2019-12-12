@@ -55,7 +55,7 @@ public class NazroVoidObstacle : Enemy{
                         //};
                         //phe.FireEvent();
                         if (attackEvent.player.HasAbility(PlayerAbility.VOIDMEND)) {
-                            PlayerVoidEvent voidEvent = new PlayerVoidEvent {
+                            PlayerVoidChangeEvent voidEvent = new PlayerVoidChangeEvent {
                                 amount = attackEvent.player.MeleeVoidLeech
                             };
                             voidEvent.FireEvent();

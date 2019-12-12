@@ -58,7 +58,7 @@ public class PlayerDeathState : PlayerBaseState {
             }
         }
         
-        PlayerCollectibleChange lifeForceLossEvent = new PlayerCollectibleChange {
+        PlayerCollectibleChangeEvent lifeForceLossEvent = new PlayerCollectibleChangeEvent {
             collectible = new Collectible(CollectibleType.LIFEFORCE, -amountOfLifeforceLost)
         };
         lifeForceLossEvent.FireEvent();
@@ -72,7 +72,7 @@ public class PlayerDeathState : PlayerBaseState {
             amount = owner.MaxHealth
         };
         healEvent.FireEvent();
-        PlayerVoidEvent voidEvent = new PlayerVoidEvent {
+        PlayerVoidChangeEvent voidEvent = new PlayerVoidChangeEvent {
             amount = -owner.PlayerVoid
         };
         voidEvent.FireEvent();

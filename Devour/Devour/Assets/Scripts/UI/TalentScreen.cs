@@ -134,10 +134,10 @@ public class TalentScreen : MonoBehaviour {
     private void DoneButton() {
         Collectible voidReduction = new Collectible(CollectibleType.VOIDESSENCE, -CalculateCollectibles(ref currentCollectibleCosts, CollectibleType.VOIDESSENCE));
         Collectible lifeForceReduction = new Collectible(CollectibleType.LIFEFORCE, -CalculateCollectibles(ref currentCollectibleCosts, CollectibleType.LIFEFORCE));
-        PlayerCollectibleChange voidChange = new PlayerCollectibleChange {
+        PlayerCollectibleChangeEvent voidChange = new PlayerCollectibleChangeEvent {
             collectible = voidReduction
         };
-        PlayerCollectibleChange lifeForceChange = new PlayerCollectibleChange {
+        PlayerCollectibleChangeEvent lifeForceChange = new PlayerCollectibleChangeEvent {
             collectible = lifeForceReduction
         };
         voidChange.FireEvent();

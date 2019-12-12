@@ -134,6 +134,7 @@ public class Player : StateMachine {
     [Tooltip("The instantiated particles when player uses voidMend")]
     [SerializeField] private GameObject voidMendParticleEffect;
     private bool lowHealthSoundIsPlaying;
+    private bool voidMendIsFull;
 
     [Header("Camera")]
     [Tooltip("How long the camera will shake when taking damage")]
@@ -228,10 +229,10 @@ public class Player : StateMachine {
         PlayerBounceEvent.RegisterListener(OnBounce);
         PlayerTakeDamageEvent.RegisterListener(OnTakeDamage);
         PlayerHealEvent.RegisterListener(OnHeal);
-        PlayerVoidEvent.RegisterListener(OnVoidEvent);
+        PlayerVoidChangeEvent.RegisterListener(OnVoidEvent);
         PlayerTouchKillzoneEvent.RegisterListener(OnTouchKillzone);
         PlayerGetAbilityEvent.RegisterListener(OnGetAbility);
-        PlayerCollectibleChange.RegisterListener(OnChangeCollectible);
+        PlayerCollectibleChangeEvent.RegisterListener(OnChangeCollectible);
         TalentPointGainEvent.RegisterListener(OnGainTalentPoint);
         FadeScreenEvent.RegisterListener(OnFadeScreen);
         PlayerBusyEvent.RegisterListener(OnPlayerBusyEvent);
@@ -282,10 +283,10 @@ public class Player : StateMachine {
         if (Input.GetKeyDown(KeyCode.F3)) {//
             Collectible lifeForce = new Collectible(CollectibleType.LIFEFORCE, 1000);//
             Collectible voidEssence = new Collectible(CollectibleType.VOIDESSENCE, 10);//
-            PlayerCollectibleChange gainCollectibleEvent = new PlayerCollectibleChange {//
+            PlayerCollectibleChangeEvent gainCollectibleEvent = new PlayerCollectibleChangeEvent {//
                 collectible = lifeForce//
             };//
-            PlayerCollectibleChange gainCollectibleEvent2 = new PlayerCollectibleChange {//
+            PlayerCollectibleChangeEvent gainCollectibleEvent2 = new PlayerCollectibleChangeEvent {//
                 collectible = voidEssence//
             };//
             gainCollectibleEvent.FireEvent();//
@@ -402,16 +403,24 @@ public class Player : StateMachine {
         }  
     }
 
-    private void OnVoidEvent(PlayerVoidEvent voidEvent) {
-        if(PlayerVoid >= MaxPlayerVoid && voidEvent.amount > 0) {
+    private void OnVoidEvent(PlayerVoidChangeEvent voidEvent) {
+        PlayerVoid += voidEvent.amount;
+        if (PlayerVoid >= MaxPlayerVoid && voidEvent.amount > 0) {
             voidEvent.amount = 0;
             PlayerVoid = MaxPlayerVoid;
+            if (!voidMendIsFull) {
+                PlayerVoidIsFullEvent voidFull = new PlayerVoidIsFullEvent { };
+                voidFull.FireEvent();
+            }
+            voidMendIsFull = true;
             //enable partikel-effekt om den är disabled
             //om ljud inte har spelat, spela ljud
         }
-        //disabla partikel-effekt om den är enabled
-        //ljud-boolen i player blir false
-        PlayerVoid += voidEvent.amount;
+        if(PlayerVoid < MaxPlayerVoid) {
+            voidMendIsFull = false;
+            //disabla partikel-effekt om den är enabled
+            //ljud-boolen i player blir false
+        }
     }
 
     private void KnockBack(Vector3 enemyPosition, float amount) {
@@ -523,7 +532,7 @@ public class Player : StateMachine {
         return false;
     }
 
-    private void OnChangeCollectible(PlayerCollectibleChange collectibleEvent) {
+    private void OnChangeCollectible(PlayerCollectibleChangeEvent collectibleEvent) {
         for(int i = 0; i < Collectibles.Count; i++) {
             if(Collectibles[i].collectibleType == collectibleEvent.collectible.collectibleType) {
                 Collectibles[i].amount += collectibleEvent.collectible.amount;
@@ -589,10 +598,10 @@ public class Player : StateMachine {
         PlayerBounceEvent.UnRegisterListener(OnBounce);
         PlayerTakeDamageEvent.UnRegisterListener(OnTakeDamage);
         PlayerHealEvent.UnRegisterListener(OnHeal);
-        PlayerVoidEvent.UnRegisterListener(OnVoidEvent);
+        PlayerVoidChangeEvent.UnRegisterListener(OnVoidEvent);
         PlayerTouchKillzoneEvent.UnRegisterListener(OnTouchKillzone);
         PlayerGetAbilityEvent.UnRegisterListener(OnGetAbility);
-        PlayerCollectibleChange.UnRegisterListener(OnChangeCollectible);
+        PlayerCollectibleChangeEvent.UnRegisterListener(OnChangeCollectible);
         TalentPointGainEvent.UnRegisterListener(OnGainTalentPoint);
         FadeScreenEvent.UnRegisterListener(OnFadeScreen);
         PlayerBusyEvent.UnRegisterListener(OnPlayerBusyEvent);

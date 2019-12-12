@@ -129,7 +129,7 @@ public class PlayerBaseState : State {
                     if(voidUse > owner.MaxPlayerVoid) {
                         voidUse = owner.MaxPlayerVoid;
                     }
-                    PlayerVoidEvent voidEvent = new PlayerVoidEvent {
+                    PlayerVoidChangeEvent voidEvent = new PlayerVoidChangeEvent {
                         amount = -voidUse
                     };
                     PlayerHealEvent healEvent = new PlayerHealEvent {

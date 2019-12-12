@@ -9,7 +9,7 @@ public class PlayerVoidSlider : MonoBehaviour {
     private Slider voidSlider;
 
     private void Awake() {
-        PlayerVoidEvent.RegisterListener(VoidEvent);
+        PlayerVoidChangeEvent.RegisterListener(VoidEvent);
         PlayerGetAbilityEvent.RegisterListener(GetVoidMend);
         TalentPointGainEvent.RegisterListener(OnTalentPointGain);
         voidSlider = GetComponent<Slider>();
@@ -30,7 +30,7 @@ public class PlayerVoidSlider : MonoBehaviour {
         }
     }
 
-    private void VoidEvent(PlayerVoidEvent voidEvent) {
+    private void VoidEvent(PlayerVoidChangeEvent voidEvent) {
         ChangeSlider(voidEvent.amount);
     }
 
@@ -45,7 +45,7 @@ public class PlayerVoidSlider : MonoBehaviour {
     }
 
     private void OnDestroy() {
-        PlayerVoidEvent.UnRegisterListener(VoidEvent);
+        PlayerVoidChangeEvent.UnRegisterListener(VoidEvent);
         PlayerGetAbilityEvent.UnRegisterListener(GetVoidMend);
         TalentPointGainEvent.UnRegisterListener(OnTalentPointGain);
     }

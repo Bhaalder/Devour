@@ -20,7 +20,7 @@ public class VoidEssence : MonoBehaviour {
     private void OnTriggerEnter2D(Collider2D collision) {
         if (collision.gameObject.tag == "Player") {
             Collectible voidEssence = new Collectible(CollectibleType.VOIDESSENCE, 1);
-            PlayerCollectibleChange gainCollectibleEvent = new PlayerCollectibleChange {
+            PlayerCollectibleChangeEvent gainCollectibleEvent = new PlayerCollectibleChangeEvent {
                 collectible = voidEssence
             };
             if (GameController.Instance.CollectedVoidEssences.ContainsKey(SceneManager.GetActiveScene().name)) {

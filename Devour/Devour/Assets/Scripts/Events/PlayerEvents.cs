@@ -15,7 +15,6 @@ public class PlayerAttackEvent : Event<PlayerAttackEvent> {
 
 public class PlayerTakeDamageEvent : Event<PlayerTakeDamageEvent> {
 
-    //public Enemy enemy; //fienden som gav skada
     public Vector3 enemyPosition;
     public float damage;
     public bool isSelfInflicted;
@@ -35,15 +34,20 @@ public class PlayerGetAbilityEvent : Event<PlayerGetAbilityEvent> {
 
 }
 
-public class PlayerCollectibleChange : Event<PlayerCollectibleChange> {
+public class PlayerCollectibleChangeEvent : Event<PlayerCollectibleChangeEvent> {
 
     public Collectible collectible;
 
 }
 
-public class PlayerVoidEvent : Event<PlayerVoidEvent> {
+public class PlayerVoidChangeEvent : Event<PlayerVoidChangeEvent> {
 
     public float amount;
+
+}
+
+public class PlayerVoidIsFullEvent : Event<PlayerVoidIsFullEvent> {
+
 
 }
 
@@ -67,5 +71,5 @@ public class PlayerDiedEvent : Event<PlayerDiedEvent> {
 
     public Player player;
     public Collectible collectibleLifeforceLost;
-    //info var man dog (typ vilken scen m.m.)
+
 }

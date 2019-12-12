@@ -82,7 +82,7 @@ public class Enemy : StateMachine
                             isLifeLeech = true
                         };
                         if (attackEvent.player.HasAbility(PlayerAbility.VOIDMEND)) {
-                            PlayerVoidEvent voidEvent = new PlayerVoidEvent {
+                            PlayerVoidChangeEvent voidEvent = new PlayerVoidChangeEvent {
                                 amount = attackEvent.player.MeleeVoidLeech
                             };
                             voidEvent.FireEvent();
@@ -220,7 +220,7 @@ public class Enemy : StateMachine
 
     public virtual void GiveCollectibles() {
         Collectible lifeForce = new Collectible(CollectibleType.LIFEFORCE, lifeforceAmount);
-        PlayerCollectibleChange gainCollectibleEvent = new PlayerCollectibleChange {
+        PlayerCollectibleChangeEvent gainCollectibleEvent = new PlayerCollectibleChangeEvent {
             collectible = lifeForce
         };
         gainCollectibleEvent.FireEvent();
