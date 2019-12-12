@@ -564,6 +564,16 @@ MonoBehaviour:
     maxDistance: 50
     loop: 0
     source: {fileID: 0}
+  - name: QraSnipeBeamLand
+    clip: {fileID: 8300000, guid: 000dcf83ef027db45a109c9a59444bab, type: 3}
+    volume: 1
+    pitch: 1
+    spatialBlend_2D_3D: 1
+    rolloffMode: 1
+    minDistance: 0.1
+    maxDistance: 50
+    loop: 0
+    source: {fileID: 0}
   - name: QraThrustVoice1
     clip: {fileID: 8300000, guid: aaa6defc61e7f6b4ba101269a7bc001e, type: 3}
     volume: 1

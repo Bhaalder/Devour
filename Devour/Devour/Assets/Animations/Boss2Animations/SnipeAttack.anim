@@ -9962,7 +9962,14 @@ AnimationClip:
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 4
+  - time: 0.5833333
+    functionName: PlaySound
+    data: QraSnipeBeamLand
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 3.7833333
     functionName: PlaySound
     data: QraSnipeBeam
     objectReferenceParameter: {fileID: 0}
