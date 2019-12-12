@@ -736,10 +736,10 @@ MonoBehaviour:
     loop: 0
     source: {fileID: 0}
   - name: DoorOpen
-    clip: {fileID: 8300000, guid: 014cd978f2594cc44968a16a71c4a842, type: 3}
+    clip: {fileID: 8300000, guid: 0e50ff526b4e51549bcdd0ae00031c40, type: 3}
     volume: 0.65
     pitch: 1
-    spatialBlend_2D_3D: 0
+    spatialBlend_2D_3D: 1
     rolloffMode: 1
     minDistance: 0.1
     maxDistance: 50
