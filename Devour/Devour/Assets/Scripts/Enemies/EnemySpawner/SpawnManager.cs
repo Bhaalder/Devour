@@ -142,6 +142,12 @@ public class SpawnManager : MonoBehaviour
                 try
                 {
                     door.SetActive(false);
+                    AudioPlaySoundEvent openDoorSound = new AudioPlaySoundEvent {
+                        name = "DoorOpen",
+                        isRandomPitch = false,
+                        soundType = SoundType.SFX
+                    };
+                    openDoorSound.FireEvent();
                 }
                 catch (NullReferenceException) { }
 
