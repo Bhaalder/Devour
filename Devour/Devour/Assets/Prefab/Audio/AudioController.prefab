@@ -644,6 +644,36 @@ MonoBehaviour:
     maxDistance: 50
     loop: 0
     source: {fileID: 0}
+  - name: QraBeamChant1
+    clip: {fileID: 8300000, guid: be3d3c548258c1740b152b38d83ba93d, type: 3}
+    volume: 0.85
+    pitch: 1
+    spatialBlend_2D_3D: 1
+    rolloffMode: 1
+    minDistance: 0.1
+    maxDistance: 50
+    loop: 0
+    source: {fileID: 0}
+  - name: QraBeamChant2
+    clip: {fileID: 8300000, guid: cb9519f3840d4144b9addf9a3e2f9cba, type: 3}
+    volume: 0.85
+    pitch: 1
+    spatialBlend_2D_3D: 1
+    rolloffMode: 1
+    minDistance: 0.1
+    maxDistance: 50
+    loop: 0
+    source: {fileID: 0}
+  - name: QraDashBuildUp
+    clip: {fileID: 8300000, guid: 69bf7722afc50664e9b9bffd66caf5e0, type: 3}
+    volume: 0.85
+    pitch: 1
+    spatialBlend_2D_3D: 1
+    rolloffMode: 1
+    minDistance: 0.1
+    maxDistance: 50
+    loop: 0
+    source: {fileID: 0}
   environmentSounds:
   - name: HitRockWall
     clip: {fileID: 8300000, guid: a613132998910254a93a4edf5f3e2f9e, type: 3}
@@ -820,8 +850,18 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: GainVoidEssence
     clip: {fileID: 8300000, guid: 3f9d4037abcbe224990a1fc8c1c6c216, type: 3}
-    volume: 0.5
+    volume: 0.45
     pitch: 0.95
+    spatialBlend_2D_3D: 0
+    rolloffMode: 0
+    minDistance: 0
+    maxDistance: 0
+    loop: 0
+    source: {fileID: 0}
+  - name: GainLifeForce
+    clip: {fileID: 8300000, guid: 8bdbf591c56b17a40a1319e520b8f3c8, type: 3}
+    volume: 0.45
+    pitch: 1
     spatialBlend_2D_3D: 0
     rolloffMode: 0
     minDistance: 0

@@ -38,6 +38,12 @@ public class LifeforceEssence : MonoBehaviour {
                 collectible = PlayerLifeForce.Collectible
             };
             retrieveLifeforce.FireEvent();
+            AudioPlaySoundEvent lifeforceGainSound = new AudioPlaySoundEvent {
+                name = "GainLifeForce",
+                isRandomPitch = false,
+                soundType = SoundType.SFX
+            };
+            lifeforceGainSound.FireEvent();
             GameController.Instance.PlayerLifeForce = null;
             Destroy(gameObject);
         }

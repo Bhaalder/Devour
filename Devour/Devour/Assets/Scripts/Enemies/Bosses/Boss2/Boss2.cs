@@ -104,8 +104,11 @@ public class Boss2 : Boss
             case "Die":
                 sound = "QraDeath";
                 break;
+            case "DashBuildUp":
+                sound = "QraDashBuildUp";
+                break;
             case "BeamChant":
-                sound = "BnathChant" + i;
+                sound = "QraBeamChant" + i;
                 break;
             case "BeamJump":
                 sound = "QraBeamJumpVoice";
