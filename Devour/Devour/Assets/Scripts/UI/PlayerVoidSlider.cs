@@ -36,6 +36,7 @@ public class PlayerVoidSlider : MonoBehaviour {
 
     private void ChangeSlider(float amount) {
         voidSlider.value += amount;
+        voidSlider.value = GameController.Instance.Player.PlayerVoid;
     }
 
     private void OnTalentPointGain(TalentPointGainEvent pointGainEvent) {
