@@ -281,6 +281,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: a186ccb5ed75e674dba3c4e83c113b03, type: 2}
   - {fileID: 11400000, guid: 8080c1a638088594e80ecf77f18d372a, type: 2}
   - {fileID: 11400000, guid: 798280e8dfc980f48857b73c902d23f6, type: 2}
+  - {fileID: 11400000, guid: 76da140b0ece3614badbd87de4e07ca9, type: 2}
   - {fileID: 11400000, guid: 02be2d18149b79d4a96dd4364926ee71, type: 2}
   hurtParticleOffsetPosition: {x: 0, y: 0}
   particlesOnHurt: {fileID: 100000, guid: 9ef378073a169194caec69fd7eacf4de, type: 3}
@@ -299,6 +300,7 @@ MonoBehaviour:
   deathSounds:
   - Enemy134Death1
   - Enemy134Death2
+  attackOnlyOnCanSeePlayer: 0
 --- !u!58 &4665437243376551248
 CircleCollider2D:
   m_ObjectHideFlags: 0
