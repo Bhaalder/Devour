@@ -62,6 +62,7 @@ public class Player : StateMachine {
     public bool MovementIsStopped { get; set; }
     public GameObject JumpParticle { get => jumpParticle; set => jumpParticle = value; }
     public GameObject DoubleJumpParticle { get => doubleJumpParticle; set => doubleJumpParticle = value; }
+    public float OutOfBusyStateJumpCancelTime { get; set; }
 
     public float XInput { get; set; }
     public float YInput { get; set; }
@@ -161,6 +162,7 @@ public class Player : StateMachine {
     [SerializeField] private GameObject jumpParticle;
     [Tooltip("The particle when player jumps midair")]
     [SerializeField] private GameObject doubleJumpParticle;
+    
 
     [Header("MovementCheckVariables")]
     [Tooltip("The area of the groundcheck, to see if the player is touching the ground")]
@@ -337,7 +339,11 @@ public class Player : StateMachine {
             if (!IsGrounded) {
                 Transition<PlayerAirState>();
             } else {
-                Transition<PlayerIdleState>();
+                if(XInput != 0) {
+                    Transition<PlayerWalkState>();
+                } else {
+                    Transition<PlayerIdleState>();
+                }
             }
         }
     }

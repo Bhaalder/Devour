@@ -20,6 +20,7 @@ public class PlayerDeathState : PlayerBaseState {
         GameObject deathGO;
         deathGO = Instantiate(deathParticles, owner.transform.position, Quaternion.identity);
         owner.UntilInvulnerableEnds = deathAnimationTime + 1f;
+        owner.IsTotallyInvulnerable = true;
         owner.Rb2D.gravityScale = 0;
         startedFade = false;
         owner.IsDead = true;
@@ -56,8 +57,7 @@ public class PlayerDeathState : PlayerBaseState {
                 amountOfLifeforceLost = owner.Collectibles[i].amount / 2;
                 break;
             }
-        }
-        
+        }      
         PlayerCollectibleChangeEvent lifeForceLossEvent = new PlayerCollectibleChangeEvent {
             collectible = new Collectible(CollectibleType.LIFEFORCE, -amountOfLifeforceLost)
         };
@@ -78,6 +78,7 @@ public class PlayerDeathState : PlayerBaseState {
         voidEvent.FireEvent();
         startedFade = false;
         owner.IsDead = false;
+        owner.IsTotallyInvulnerable = false;
         base.Exit();
     }
 }
