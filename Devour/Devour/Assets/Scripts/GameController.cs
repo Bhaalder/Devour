@@ -92,14 +92,29 @@ public class GameController : MonoBehaviour {
         try {
             if(RestingCheckpoint != null) {
                 Debug.Log("RESPAWN SUCCESS! " + RestingScene);
-                SceneManager.LoadScene(RestingScene);
                 playerDiedEvent.player.transform.position = RestingCheckpoint;
+                SceneManager.LoadScene(RestingScene);
+                StopBossMusic();
                 return;
             }
         } catch (UnassignedReferenceException) {
             Debug.LogError("No 'RestingCheckpoint' assigned in GameController to be able to respawn after death! Spawning at SceneCheckpoint...");
         }
         playerDiedEvent.player.transform.position = SceneCheckpoint;
+        StopBossMusic();
+    }
+
+    private void StopBossMusic() {
+        AudioStopSoundEvent stopBossStart = new AudioStopSoundEvent {
+            name = "BossStart"
+        };
+        stopBossStart.FireEvent();
+        AudioStopSoundEvent stopBossLoop = new AudioStopSoundEvent {
+            name = "BossLoop"
+        };
+        stopBossLoop.FireEvent();
+        AudioStopAllCoroutinesEvent audioStopAllCoroutines = new AudioStopAllCoroutinesEvent { };
+        audioStopAllCoroutines.FireEvent();
     }
 
     private void OnBossDied(BossDiedEvent bossDiedEvent) {

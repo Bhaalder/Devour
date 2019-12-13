@@ -149,6 +149,8 @@ public class Boss : Enemy{
                 return false;
             case PlayerState.IDLE:
                 return false;
+            case PlayerState.BUSY:
+                return false;
             default:
                 return true;
         }
