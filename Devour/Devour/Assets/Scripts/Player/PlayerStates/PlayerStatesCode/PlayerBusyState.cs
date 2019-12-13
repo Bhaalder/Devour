@@ -22,6 +22,7 @@ public class PlayerBusyState : PlayerBaseState {
 
     public override void Exit() {
         owner.MovementIsStopped = false;
+        owner.OutOfBusyStateJumpCancelTime = 0.1f;
         base.Exit();
     }
 }

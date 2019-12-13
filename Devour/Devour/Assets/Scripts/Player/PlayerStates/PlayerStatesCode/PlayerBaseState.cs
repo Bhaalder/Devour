@@ -65,6 +65,10 @@ public class PlayerBaseState : State {
     }
 
     private void JumpCheck() {
+        if(owner.OutOfBusyStateJumpCancelTime > 0) {
+            owner.OutOfBusyStateJumpCancelTime -= Time.deltaTime;
+            return;
+        }
         if (Input.GetButton("Jump")) {
             hasPressedJump = true;
         }
