@@ -67,6 +67,7 @@ public class MenuAudioSliders : MonoBehaviour {
     private void LoadAudioSettings()
     {
         SettingsData audioSettings = SaveSystem.LoadSettingsData();
+        if(audioSettings == null) { return; }
         masterVolumeSlider.value = audioSettings.MasterVolumeSliderValue;
         musicVolumeSlider.value = audioSettings.MusicVolumeSliderValue;
         sfxVolumeSlider.value = audioSettings.SfxVolumeSliderValue;
