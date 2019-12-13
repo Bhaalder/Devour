@@ -5348,6 +5348,21 @@ PrefabInstance:
       propertyPath: continueButton
       value: 
       objectReference: {fileID: 1476056892}
+    - target: {fileID: 1159075862350579795, guid: 07c9f820f3e0e7649af78b8ee8f60e40,
+        type: 3}
+      propertyPath: eventSystem
+      value: 
+      objectReference: {fileID: 1842353499}
+    - target: {fileID: 1159075862350579795, guid: 07c9f820f3e0e7649af78b8ee8f60e40,
+        type: 3}
+      propertyPath: startGame
+      value: 
+      objectReference: {fileID: 1490678882}
+    - target: {fileID: 1159075862350579795, guid: 07c9f820f3e0e7649af78b8ee8f60e40,
+        type: 3}
+      propertyPath: newGame
+      value: 
+      objectReference: {fileID: 1490678882}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 07c9f820f3e0e7649af78b8ee8f60e40, type: 3}
 --- !u!1 &1421832140
@@ -6736,7 +6751,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76c392e42b5098c458856cdf6ecaaaa1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_FirstSelected: {fileID: 1490678878}
+  m_FirstSelected: {fileID: 1476056890}
   m_sendNavigationEvents: 1
   m_DragThreshold: 10
 --- !u!4 &1842353500

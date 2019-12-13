@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
 //Author: Marcus Söderberg
 public class DataStorage : MonoBehaviour
@@ -10,6 +11,9 @@ public class DataStorage : MonoBehaviour
 
     [SerializeField] private float saveGameInterval = 15f;
     [SerializeField] private Button continueButton;
+    [SerializeField] private Button newGame;
+    [SerializeField] private EventSystem eventSystem;
+    
     private float currentSaveGameIntervalTime;
     public PlayerData PlayerDataStorage { get; set; }
     public GameData GameData { get; set; }
@@ -193,7 +197,9 @@ public class DataStorage : MonoBehaviour
         LoadSettingsData();
         if(PlayerDataStorage == null)
         {
+            eventSystem.SetSelectedGameObject(newGame.gameObject);
             continueButton.interactable = false;
+            continueButton.gameObject.SetActive(false);
         }
     }
 
