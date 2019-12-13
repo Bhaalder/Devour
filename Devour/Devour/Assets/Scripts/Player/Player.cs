@@ -185,6 +185,7 @@ public class Player : StateMachine {
     [Tooltip("For testing if the player has certain abilities")]//
     [SerializeField] private PlayerAbility[] playerAbilities;//
     public Vector2 PlayerVelocity;//
+    private int screenShot = 0;//
 
     private static bool exists;
 
@@ -299,6 +300,10 @@ public class Player : StateMachine {
         if (Input.GetKeyDown(KeyCode.F10)){//
             InGameMenuEvent e = new InGameMenuEvent { };//
             e.FireEvent();//
+        }//
+        if (Input.GetKeyDown(KeyCode.F11)){//
+            ScreenCapture.CaptureScreenshot("ScreenShot" + screenShot + ".png");//
+            screenShot++;//
         }//
         PlayerVelocity = Rb2D.velocity;//
         health = Health;//TEST END_____________________________________________________________________
