@@ -40,4 +40,9 @@ public class EndGameEssence : MonoBehaviour
             bossDied = true;
         }
     }
+
+    private void OnDestroy()
+    {
+        BossDiedEvent.UnRegisterListener(OnBossDiedEvent);
+    }
 }

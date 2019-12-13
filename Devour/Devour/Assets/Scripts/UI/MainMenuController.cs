@@ -23,6 +23,7 @@ public class MainMenuController : MonoBehaviour{
     [SerializeField] private GameObject optionsGO;
     [SerializeField] private Button soundButton;
     [SerializeField] private Button backButton;
+    [SerializeField] private Button visualsButton;
 
     [Header("Sound")]
     [SerializeField] private GameObject soundOptionsGO;
@@ -32,6 +33,10 @@ public class MainMenuController : MonoBehaviour{
     [Header("Animations")]
     [SerializeField] private Animator cameraAnim;
     [SerializeField] private Animator buttonAnim;
+
+    [Header("Visual")]
+    [SerializeField] private GameObject visualOptionsGO;
+    [SerializeField] private Button visualBackButton;
 
     private string sceneToLoad;
 
@@ -53,6 +58,8 @@ public class MainMenuController : MonoBehaviour{
         AddListener(soundButton, soundOptionsGO, optionsGO);
         AddListener(soundBackButton, optionsGO, soundOptionsGO);
         AddListener(backButton, mainMenuGO, optionsGO);
+        AddListener(visualsButton, visualOptionsGO, optionsGO);
+        AddListener(visualBackButton, optionsGO, visualOptionsGO);
 
     }
 
