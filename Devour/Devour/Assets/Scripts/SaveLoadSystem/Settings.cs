@@ -8,6 +8,7 @@ public class Settings : MonoBehaviour
     public float MusicVolumeSliderValue { get; set; }
     public float SfxVolumeSliderValue { get; set; }
     public float VoiceVolumeSliderValue { get; set; }
+    public bool DepthBlur { get; set; }
 
     void Start()
     {

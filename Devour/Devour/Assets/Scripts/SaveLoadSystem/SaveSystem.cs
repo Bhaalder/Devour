@@ -66,6 +66,8 @@ public static class SaveSystem
             BinaryFormatter formatter = new BinaryFormatter();
             FileStream stream = new FileStream(path, FileMode.Open);
 
+            if (stream.Length == 0) { return null; }
+
             GameData data = formatter.Deserialize(stream) as GameData;
 
             stream.Close();
@@ -101,7 +103,9 @@ public static class SaveSystem
         {
             BinaryFormatter formatter = new BinaryFormatter();
             FileStream stream = new FileStream(path, FileMode.Open);
-
+            
+            if (stream.Length == 0) { return null; }
+            
             PlayerData data = formatter.Deserialize(stream) as PlayerData;
 
             stream.Close();
@@ -138,6 +142,8 @@ public static class SaveSystem
         {
             BinaryFormatter formatter = new BinaryFormatter();
             FileStream stream = new FileStream(path, FileMode.Open);
+
+            if(stream.Length == 0) { return null; }
 
             SettingsData data = formatter.Deserialize(stream) as SettingsData;
 
