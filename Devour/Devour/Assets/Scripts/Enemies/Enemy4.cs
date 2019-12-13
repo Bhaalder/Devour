@@ -11,6 +11,9 @@ public class Enemy4 : Enemy
 {
     public Enemy4State State { get; set; }
     public Animator Animator { get; set; }
+    public bool AttackOnlyOnCanSeePlayer { get => attackOnlyOnCanSeePlayer; set => attackOnlyOnCanSeePlayer = value; }
+
+    [SerializeField] private bool attackOnlyOnCanSeePlayer;
 
     protected override void Awake()
     {

@@ -591,7 +591,7 @@ public class Player : StateMachine {
     private void OnMainMenuSwitch(MainMenuEvent menuEvent)
     {
         exists = false;
-        Destroy(gameObject, 2f);
+        Destroy(gameObject, 3f);
     }
 
     private void OnDestroy() {

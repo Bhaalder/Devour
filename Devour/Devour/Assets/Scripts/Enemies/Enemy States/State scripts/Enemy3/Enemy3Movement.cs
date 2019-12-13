@@ -38,6 +38,11 @@ public class Enemy3Movement : EnemyMovement
 
     public override void HandleUpdate()
     {
+        if (owner.IsIdle)
+        {
+            CheckAttackDistance();
+            return;
+        }
         if (!owner.Stunned)
         {
             if (owner.GetComponent<Enemy3>().PatrolEnemy == true)
@@ -54,7 +59,6 @@ public class Enemy3Movement : EnemyMovement
             StunnedCooldown();
         }
 
-        base.HandleUpdate();
     }
 
     public override void HandleFixedUpdate()

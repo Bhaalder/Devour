@@ -36,7 +36,12 @@ public class Enemy5Movement : EnemyMovement
     {
         base.HandleUpdate();
         owner.GetComponent<Enemy5>().State = Enemy5State.MOVEMENT;
-        Movement();
+
+        if (!owner.IsIdle)
+        {
+            Movement();
+        }
+        
         if(DistanceToPlayer() < attackDistance && CheckPlayer() && !owner.GetComponent<Enemy5>().TooCloseToJump)
         {
             owner.Transition<Enemy5Attack>();

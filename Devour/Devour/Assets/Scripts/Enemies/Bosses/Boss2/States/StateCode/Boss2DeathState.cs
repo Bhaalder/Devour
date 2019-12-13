@@ -40,8 +40,7 @@ public class Boss2DeathState : EnemyDeathState
     {
         base.HandleUpdate();
         AbilityEssenceTimer();
-        Debug.Log("Gravity Scale: " + owner.rb.gravityScale);
-        owner.rb.velocity = new Vector2(0, owner.rb.velocity.y);
+        owner.rb.velocity = Vector2.zero;
     }
     public override void HandleFixedUpdate()
     {
