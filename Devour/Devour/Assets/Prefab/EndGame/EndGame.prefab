@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7051372549617000944}
   - component: {fileID: 1701875817806651343}
+  - component: {fileID: 8873949042285708329}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -69,7 +70,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 698501196604824794, guid: 673dc62c3987cb44bbbadcdc8ed4d910, type: 3}
+  m_Sprite: {fileID: 7834136464586528592, guid: 673dc62c3987cb44bbbadcdc8ed4d910,
+    type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -80,6 +82,25 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &8873949042285708329
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 250334915044615696}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: feade9cfc6986f04bbf2901052795fe1, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &5219861976632666724
 GameObject:
   m_ObjectHideFlags: 0
@@ -175,14 +196,20 @@ MonoBehaviour:
   count: 0.3
   timeBeforeSceneSwitch: 5
   fadeSpeed: 0.2
+  timeBeforeEndParticles: 1.5
+  timeBetweenEndParticles: 1
   startLocation: {fileID: 5219861976632666724}
   endLocation: {fileID: 5219861977075951536}
   voidEssence: {fileID: 8653176290578335179, guid: 52354aafeec69864f9555d55fafec1b2,
     type: 3}
   playerDummy: {fileID: 250334915044615696}
-  endGameCameraOffset: {x: 0, y: 0, z: -5}
+  endGameCameraOffset: {x: 0, y: 0, z: -6}
   nazroDeathState: {fileID: 11400000, guid: b9353db791c437a4cbb3d20726aeb058, type: 2}
-  endGameScene: 
+  endGameScene: EndScene
+  gameEndVoid: {fileID: 1609845037211932075, guid: de5b3f4dba374174eabbe8dcf97c2230,
+    type: 3}
+  gameEndVoidReverse: {fileID: 4985225514712363748, guid: c7a64b76ee087184b8ad1c4a49b867c7,
+    type: 3}
 --- !u!210 &5219861976865327227
 SortingGroup:
   m_ObjectHideFlags: 0

@@ -13,6 +13,7 @@ public class EndGameSceneController : MonoBehaviour
     private int currentCard;
     private float CurrentTimer;
     private bool canActivateButton;
+    private bool exitDirectlyToMainMenu;
 
     void Start()
     {
@@ -23,6 +24,17 @@ public class EndGameSceneController : MonoBehaviour
     void Update()
     {
         timer();
+
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            if (exitDirectlyToMainMenu)
+            {
+                Invoke("sceneChange", timeBetweenCards);
+                MainMenuEvent goToMainMenuEvent = new MainMenuEvent { };
+                goToMainMenuEvent.FireEvent();
+                return;
+            }
+        }
     }
 
     public void OnButtonClick()

@@ -9,6 +9,8 @@ public class EndGameEssence : MonoBehaviour
     [SerializeField] private float count;
     [SerializeField] private float timeBeforeSceneSwitch;
     [SerializeField] private float fadeSpeed;
+    [SerializeField] private float timeBeforeEndParticles;
+    [SerializeField] private float timeBetweenEndParticles;
     [SerializeField] private GameObject startLocation;
     [SerializeField] private GameObject endLocation;
     [SerializeField] private GameObject voidEssence;
@@ -16,10 +18,16 @@ public class EndGameEssence : MonoBehaviour
     [SerializeField] private Vector3 endGameCameraOffset;
     [SerializeField] private NazroDeathState nazroDeathState;
     [SerializeField] private string endGameScene;
+    [SerializeField] private GameObject gameEndVoid;
+    [SerializeField] private GameObject gameEndVoidReverse;
 
     private GameObject endGameEssence;
+    private GameObject gameEndVoidParticle;
+    private GameObject gameEndVoidReverseParticle;
     private bool bossDied;
     private bool deathSequenceDone;
+    private bool endParticleCountdown;
+    private bool endReverseParticleCountdown;
     private float countUp = 0f;
     private float deathSequnceTime;
     
@@ -47,8 +55,16 @@ public class EndGameEssence : MonoBehaviour
                 {
                     endGameEssence.transform.position = Vector3.Lerp(startLocation.transform.position, endLocation.transform.position, countUp);
                 }
+                else
+                {
+                    countUp = 1;
+                }
+                return;
             }
+            deathSequenceDone = false;
         }
+        GameEndVoidParticle();
+        GameEndVoidReverseParticle();
     }
 
     private void OnBossDiedEvent(BossDiedEvent bossDiedEvent)
@@ -69,9 +85,47 @@ public class EndGameEssence : MonoBehaviour
         }
 
         endGameEssence = Instantiate(voidEssence, null);
-        voidEssence.transform.position = startLocation.transform.position;
+        endGameEssence.transform.position = startLocation.transform.position;
         deathSequenceDone = true;
         bossDied = false;
+    }
+
+    private void GameEndVoidParticle()
+    {
+        if (endParticleCountdown)
+        {
+            timeBeforeEndParticles -= Time.deltaTime;
+
+            if (timeBeforeEndParticles > 0)
+            {
+                return;
+            }
+
+            gameEndVoidParticle = Instantiate(gameEndVoid, null);
+            gameEndVoidParticle.transform.position = endLocation.transform.position;
+            endParticleCountdown = false;
+            endReverseParticleCountdown = true;
+        }
+
+    }
+
+    private void GameEndVoidReverseParticle()
+    {
+        if (endReverseParticleCountdown)
+        {
+            timeBetweenEndParticles -= Time.deltaTime;
+
+            if (timeBetweenEndParticles > 0)
+            {
+                return;
+            }
+
+            gameEndVoidReverseParticle = Instantiate(gameEndVoidReverse, null);
+            gameEndVoidReverseParticle.transform.position = endLocation.transform.position;
+            endReverseParticleCountdown = false;
+            Invoke("endGameSceneFade", timeBeforeSceneSwitch);
+        }
+
     }
 
     private void OnPlayerTookLastEssenceEvent(PlayerTookLastEssenceEvent lastEssenceTaken)
@@ -90,7 +144,7 @@ public class EndGameEssence : MonoBehaviour
         };
         cameraOffset.FireEvent();
 
-        Invoke("endGameSceneFade", timeBeforeSceneSwitch);
+        endParticleCountdown = true;
     }
 
     private void endGameSceneFade()
