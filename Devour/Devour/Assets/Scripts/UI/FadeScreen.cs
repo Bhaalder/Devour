@@ -13,6 +13,7 @@ public class FadeScreen : MonoBehaviour{
     }
 
     private void Fade(FadeScreenEvent fadeScreen) {
+
         if (fadeScreen.isFadeIn) {
             CameraZoomEvent regularZoom = new CameraZoomEvent {
                 zoomValue = 0
@@ -22,6 +23,15 @@ public class FadeScreen : MonoBehaviour{
         }
         if (fadeScreen.isFadeOut) {
             animator.SetTrigger("FadeOut");
+
+        }
+        if (fadeScreen.fadeSpeed > 0)
+        {
+            animator.speed = fadeScreen.fadeSpeed;
+        }
+        else
+        {
+            animator.speed = 1;
         }
     }
 

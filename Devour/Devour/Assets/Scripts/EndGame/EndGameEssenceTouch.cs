@@ -19,8 +19,10 @@ public class EndGameEssenceTouch : MonoBehaviour
             {
                 playerIsBusy = true
             };
+            PlayerTookLastEssenceEvent endGame = new PlayerTookLastEssenceEvent { };
             playerBusy.FireEvent();
             voidEssenceGainSound.FireEvent();
+            endGame.FireEvent();
             Destroy(gameObject);
         }
     }

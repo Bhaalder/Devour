@@ -9,6 +9,7 @@ public class NazroDeathState : NazroBaseState {
     [Tooltip("How long time the deathState lasts")]
     [SerializeField] private float deathTime;
     private float deathTimeLeft;
+    public float DeathTime { get => deathTime; }
 
     public override void Enter() {
         owner.State = BossNazroState.DEATH;

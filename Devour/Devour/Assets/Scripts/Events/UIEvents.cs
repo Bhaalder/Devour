@@ -7,6 +7,7 @@ public class FadeScreenEvent : Event<FadeScreenEvent> {
 
     public bool isFadeOut;
     public bool isFadeIn;
+    public float fadeSpeed;
 
 }
 

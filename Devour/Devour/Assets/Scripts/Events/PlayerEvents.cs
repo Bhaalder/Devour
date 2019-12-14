@@ -73,3 +73,7 @@ public class PlayerDiedEvent : Event<PlayerDiedEvent> {
     public Collectible collectibleLifeforceLost;
 
 }
+public class PlayerTookLastEssenceEvent : Event<PlayerTookLastEssenceEvent>
+{
+
+}
