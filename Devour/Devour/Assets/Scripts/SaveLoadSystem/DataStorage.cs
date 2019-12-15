@@ -17,6 +17,7 @@ public class DataStorage : MonoBehaviour
     private float currentSaveGameIntervalTime;
     public PlayerData PlayerDataStorage { get; set; }
     public GameData GameData { get; set; }
+    public SettingsData Settings { get; set; }
 
     public string RestingScene { get; set; }
 
@@ -143,30 +144,30 @@ public class DataStorage : MonoBehaviour
     public void LoadSettingsData()
     {
 
-        SettingsData settingsData = SaveSystem.LoadSettingsData();
+        Settings = SaveSystem.LoadSettingsData();
 
-        if (settingsData != null)
+        if (Settings != null)
         {
             #region Audio Sliders
             AudioMixerVolumeEvent MasterVolumeEvent = new AudioMixerVolumeEvent
             {
                 soundMixerType = SoundMixerType.MASTER,
-                volume = settingsData.MasterVolumeSliderValue
+                volume = Settings.MasterVolumeSliderValue
             };
             AudioMixerVolumeEvent MusicVolumeEvent = new AudioMixerVolumeEvent
             {
                 soundMixerType = SoundMixerType.MUSIC,
-                volume = settingsData.MusicVolumeSliderValue
+                volume = Settings.MusicVolumeSliderValue
             };
             AudioMixerVolumeEvent SfxVolumeEvent = new AudioMixerVolumeEvent
             {
                 soundMixerType = SoundMixerType.SFX,
-                volume = settingsData.SfxVolumeSliderValue
+                volume = Settings.SfxVolumeSliderValue
             };
             AudioMixerVolumeEvent VoiceVolumeEvent = new AudioMixerVolumeEvent
             {
                 soundMixerType = SoundMixerType.VOICE,
-                volume = settingsData.VoiceVolumeSliderValue
+                volume = Settings.VoiceVolumeSliderValue
             };
             MasterVolumeEvent.FireEvent();
             MusicVolumeEvent.FireEvent();
@@ -194,6 +195,7 @@ public class DataStorage : MonoBehaviour
     {
         PlayerDataStorage = SaveSystem.LoadPlayerData();
         GameData = SaveSystem.LoadGameData();
+        Settings = SaveSystem.LoadSettingsData();
         LoadSettingsData();
         if(PlayerDataStorage == null)
         {

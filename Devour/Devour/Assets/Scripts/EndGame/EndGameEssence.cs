@@ -155,6 +155,12 @@ public class EndGameEssence : MonoBehaviour
             fadeSpeed = fadeSpeed
         };
         fadeScreen.FireEvent();
+        SwitchSceneEvent switchScene = new SwitchSceneEvent
+        {
+            enteringSceneName = endGameScene,
+            leavingSceneName = SceneManager.GetActiveScene().name
+        };
+        switchScene.FireEvent();
 
         Invoke("loadScene", 1.5f);
     }

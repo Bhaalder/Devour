@@ -57,6 +57,12 @@ public class EndGameSceneController : MonoBehaviour
                 Invoke("sceneChange", timeBetweenCards);
                 MainMenuEvent goToMainMenuEvent = new MainMenuEvent { };
                 goToMainMenuEvent.FireEvent();
+                SwitchSceneEvent switchScene = new SwitchSceneEvent
+                {
+                    enteringSceneName = sceneExit,
+                    leavingSceneName = SceneManager.GetActiveScene().name
+                };
+                switchScene.FireEvent();
                 return;
             }
             else

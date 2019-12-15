@@ -31,6 +31,15 @@ public class UIController : MonoBehaviour{
         tipText = player.PlayerCanvas.GetComponentInChildren<TextMeshProUGUI>();
     }
 
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            InGameMenuEvent e = new InGameMenuEvent { };
+            e.FireEvent();
+        }
+    }
+
     private void OnVoidTalentScreen(VoidTalentScreenEvent screenEvent) {
         voidTalentScreen.SetActive(!voidTalentScreen.activeSelf);
         PlayerBusyEvent playerBusy = new PlayerBusyEvent {

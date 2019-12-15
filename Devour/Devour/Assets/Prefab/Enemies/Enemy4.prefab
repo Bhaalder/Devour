@@ -300,7 +300,7 @@ MonoBehaviour:
   deathSounds:
   - Enemy134Death1
   - Enemy134Death2
-  attackOnlyOnCanSeePlayer: 0
+  attackOnlyOnCanSeePlayer: 1
 --- !u!58 &4665437243376551248
 CircleCollider2D:
   m_ObjectHideFlags: 0

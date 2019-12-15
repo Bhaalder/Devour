@@ -52,6 +52,11 @@ public class InGameMenuController : MonoBehaviour
         AddListener(optionsBackButton, InGameMenuGO, optionsGO);
     }
 
+    private void OnEnable()
+    {
+        DataStorage.Instance.LoadSettingsData();
+    }
+
     private void AddListener(Button button, string buttonName)
     {
         if (button != null)
@@ -102,9 +107,13 @@ public class InGameMenuController : MonoBehaviour
     {
         gameObjectSetActive.SetActive(true);
         gameObjectSetInactive.SetActive(false);
-        if (gameObjectSetInactive == soundOptionsGO)
+        if (gameObjectSetInactive == optionsGO)
         {
             SaveSystem.SaveSettingsData(FindObjectOfType<Settings>());
+        }
+        if(gameObjectSetInactive == visualOptionsGO)
+        {
+            visualOptionsGO.GetComponent<VisualSettings>().SaveVisualSettings();
         }
     }
 

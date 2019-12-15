@@ -10,7 +10,7 @@ public class SettingsData
     public float MusicVolumeSliderValue { get; set; }
     public float SfxVolumeSliderValue { get; set; }
     public float VoiceVolumeSliderValue { get; set; }
-
+    public bool DepthBlur { get; set; }
 
     public SettingsData(Settings settingsData)
     {
@@ -18,5 +18,6 @@ public class SettingsData
         MusicVolumeSliderValue = settingsData.MusicVolumeSliderValue;
         SfxVolumeSliderValue = settingsData.SfxVolumeSliderValue;
         VoiceVolumeSliderValue = settingsData.VoiceVolumeSliderValue;
+        DepthBlur = settingsData.DepthBlur;
     }
 }
