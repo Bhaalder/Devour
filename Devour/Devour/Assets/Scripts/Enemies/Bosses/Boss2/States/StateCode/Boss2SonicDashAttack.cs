@@ -55,6 +55,7 @@ public class Boss2SonicDashAttack : Boss2BaseState
         }
         TurnToTargetPosition();
         Destroy(owner.SonicDashParticles[currentPosition]);
+        owner.PlayVoice("Thrust");
         currentPosition++;
         startPosition = owner.rb.position;
         countUp = 0;

@@ -36,6 +36,8 @@ public class Zvixa : Boss{
     [SerializeField] private GameObject bossDoor;
     [SerializeField] private GameObject spikeWarningParticles;
     [SerializeField] private GameObject tipAfterZvixa;
+    private Vector3 startPosition;
+
 
     public static bool IsDead { get; set; }
 
@@ -52,6 +54,7 @@ public class Zvixa : Boss{
         TeleportAreaMiddle = teleportAreaMiddle;
         TeleportAreaRight = teleportAreaRight;
         BossDoor = bossDoor;
+        startPosition = transform.position;
 
         PlayerDiedEvent.RegisterListener(Reset);
         ZvixaSelfDamageEvent.RegisterListener(SelfDamage);
@@ -60,6 +63,11 @@ public class Zvixa : Boss{
     protected override void Update() {
         base.Update();
         Animator.SetInteger("State", (int)State);
+        if (!PlayerIsInBossArea()) {
+            if(BossDoor.activeSelf){
+                ResetBoss();
+            }
+        }
     }
 
     protected override void FixedUpdate() {
@@ -86,11 +94,22 @@ public class Zvixa : Boss{
         HurtSoundAndParticles();
     }
 
+    private bool PlayerIsInBossArea() {
+        if(Player.BoxCollider2D.bounds.Intersects(LowArea.bounds) || Player.BoxCollider2D.bounds.Intersects(HighArea.bounds)) {
+            return true;
+        }
+        return false;
+    }
+
     private void Reset(PlayerDiedEvent playerDied) {
+        ResetBoss();
+    }
+
+    private void ResetBoss() {
         Health = MaxHealth;
         State = BossZvixaState.NONE;
         Transition<ZvixaBaseState>();
-        transform.position = TeleportAreaMiddle.position;
+        transform.position = startPosition;
         BossDoor.SetActive(false);
         StopBossMusic();
     }
