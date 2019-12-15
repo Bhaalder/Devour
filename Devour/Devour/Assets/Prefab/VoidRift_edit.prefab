@@ -168,6 +168,7 @@ GameObject:
   - component: {fileID: 1046159800985626398}
   - component: {fileID: 1046159800985626393}
   - component: {fileID: 1046159800985626392}
+  - component: {fileID: 4948219974185827863}
   m_Layer: 0
   m_Name: VoidRift_edit
   m_TagString: Untagged
@@ -188,9 +189,8 @@ Transform:
   m_Children:
   - {fileID: 1986680598429044955}
   - {fileID: 4539943824514668609}
-  - {fileID: 9066591456827852171}
-  - {fileID: 4988678787483168451}
   - {fileID: 967479845796924240}
+  - {fileID: 8322779570980070373}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -235,6 +235,25 @@ SortingGroup:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: -1
+--- !u!95 &4948219974185827863
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1046159800985626399}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 72a40da94a90bd74c8b8516910e3805e, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &2480673620656823568
 GameObject:
   m_ObjectHideFlags: 0
@@ -9770,7 +9789,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1046159800985626394}
-  m_RootOrder: 4
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!108 &229702923405033250
 Light:
@@ -14585,6 +14604,38 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     vectorLabel1_3: W
+--- !u!1 &6595191451996099614
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8322779570980070373}
+  m_Layer: 0
+  m_Name: Holder
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8322779570980070373
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6595191451996099614}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 9066591456827852171}
+  - {fileID: 4988678787483168451}
+  m_Father: {fileID: 1046159800985626394}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6807273709091405883
 GameObject:
   m_ObjectHideFlags: 0
@@ -14716,8 +14767,8 @@ Transform:
   - {fileID: 8848052527690160577}
   - {fileID: 2636761068087492356}
   - {fileID: 3599669039666355179}
-  m_Father: {fileID: 1046159800985626394}
-  m_RootOrder: 2
+  m_Father: {fileID: 8322779570980070373}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!198 &1305379603190318383
 ParticleSystem:
@@ -14734,7 +14785,7 @@ ParticleSystem:
   ringBufferMode: 0
   ringBufferLoopRange: {x: 0, y: 1}
   looping: 1
-  prewarm: 1
+  prewarm: 0
   playOnAwake: 1
   useUnscaledTime: 0
   autoRandomSeed: 1
@@ -19556,11 +19607,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8658071553225524399}
   m_LocalRotation: {x: -0, y: -0, z: -0.7413383, w: 0.6711316}
-  m_LocalPosition: {x: -0.16, y: 0.01, z: 0}
-  m_LocalScale: {x: 0.26312, y: 0.26312, z: 0.26312}
+  m_LocalPosition: {x: -0.15999973, y: 0.01000002, z: 0}
+  m_LocalScale: {x: 0.26312017, y: 0.26312017, z: 0.26312}
   m_Children: []
-  m_Father: {fileID: 1046159800985626394}
-  m_RootOrder: 3
+  m_Father: {fileID: 8322779570980070373}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -95.691}
 --- !u!212 &1546343352056995542
 SpriteRenderer:
