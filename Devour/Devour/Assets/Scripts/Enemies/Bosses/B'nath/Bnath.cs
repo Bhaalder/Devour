@@ -89,7 +89,7 @@ public class Bnath : Boss
             default:
                 break;
         }
-        if (IsAlive && !AudioVoiceGO.GetComponent<AudioSource>().isPlaying) {
+        if (IsAlive && !AudioVoiceGO.GetComponent<AudioSource>().isPlaying) {          
             AudioPlaySoundAtLocationEvent soundEvent = new AudioPlaySoundAtLocationEvent {
                 name = sound,
                 soundType = SoundType.SFX,

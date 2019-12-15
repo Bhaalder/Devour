@@ -108,12 +108,14 @@ public class Boss2 : Boss
                 break;
             case "DashBuildUp":
                 sound = "QraDashBuildUp";
+                playChance = 100;
                 break;
             case "BeamChant":
                 sound = "QraBeamChant" + i;
                 break;
             case "BeamJump":
                 sound = "QraBeamJumpVoice";
+                playChance = 100;
                 break;
             default:
                 break;
