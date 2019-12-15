@@ -94,8 +94,44 @@ public class Zvixa : Boss{
         HurtSoundAndParticles();
     }
 
+    public override void PlayVoice(string sound) {
+        int i = Random.Range(1, 2 + 1);
+        int playChance = Random.Range(1, 100 + 1);
+        switch (sound) {
+            case "BallAttack":
+                sound = "ZvixaBallAttackVoice" + i;
+                break;
+            case "Die":
+                sound = "ZvixaDeath";
+                playChance = 100;
+                break;
+            case "ExpelChant":
+                sound = "ZvixaSonarExpelChant" + i;
+                break;
+            case "SpikeVoice":
+                sound = "ZvixaSpikeVoice";
+                break;
+            default:
+                break;
+        }
+        if (playChance >= 40) {
+            AudioPlaySoundAtLocationEvent soundEvent = new AudioPlaySoundAtLocationEvent {
+                name = sound,
+                soundType = SoundType.SFX,
+                isRandomPitch = true,
+                minPitch = 0.95f,
+                maxPitch = 1f,
+                gameObject = AudioVoiceGO
+            };
+            soundEvent.FireEvent();
+        }
+    }
+
     private bool PlayerIsInBossArea() {
-        if(Player.BoxCollider2D.bounds.Intersects(LowArea.bounds) || Player.BoxCollider2D.bounds.Intersects(HighArea.bounds)) {
+        if (IsDead) {
+            return true;
+        }
+        if (Player.BoxCollider2D.bounds.Intersects(LowArea.bounds) || Player.BoxCollider2D.bounds.Intersects(HighArea.bounds)) {
             return true;
         }
         return false;

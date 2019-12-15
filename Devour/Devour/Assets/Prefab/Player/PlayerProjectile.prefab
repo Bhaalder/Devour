@@ -4800,7 +4800,7 @@ AudioSource:
     type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.8
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -4809,9 +4809,9 @@ AudioSource:
   Priority: 128
   DopplerLevel: 1
   MinDistance: 1
-  MaxDistance: 500
+  MaxDistance: 50
   Pan2D: 0
-  rolloffMode: 0
+  rolloffMode: 1
   BypassEffects: 0
   BypassListenerEffects: 0
   BypassReverbZones: 0
@@ -4896,7 +4896,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: debeafc1981c3354f9222f215fba8d98, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isBounce: 0
 --- !u!61 &1018849412423953413
 BoxCollider2D:
   m_ObjectHideFlags: 0

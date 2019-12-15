@@ -21,6 +21,7 @@ public class ZvixaProjectile : MonoBehaviour{
         circleCollider2D = GetComponent<CircleCollider2D>();
         PlayerAttackEvent.RegisterListener(GetHit);
         BossDiedEvent.RegisterListener(BossDied);
+
     }
 
     private void FixedUpdate() {

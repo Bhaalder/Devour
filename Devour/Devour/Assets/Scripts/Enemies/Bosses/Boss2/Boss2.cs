@@ -97,12 +97,14 @@ public class Boss2 : Boss
 
     public override void PlayVoice(string sound) {
         int i = Random.Range(1, 2 + 1);
+        int playChance = Random.Range(1, 100 + 1);
         switch (sound) {
             case "Thrust":
                 sound = "QraThrustVoice" + i;
                 break;
             case "Die":
                 sound = "QraDeath";
+                playChance = 100;
                 break;
             case "DashBuildUp":
                 sound = "QraDashBuildUp";
@@ -116,15 +118,17 @@ public class Boss2 : Boss
             default:
                 break;
         }
-        AudioPlaySoundAtLocationEvent soundEvent = new AudioPlaySoundAtLocationEvent {
-            name = sound,
-            soundType = SoundType.SFX,
-            isRandomPitch = true,
-            minPitch = 0.95f,
-            maxPitch = 1f,
-            gameObject = AudioVoiceGO
-        };
-        soundEvent.FireEvent();
+        if(playChance >= 40) {
+            AudioPlaySoundAtLocationEvent soundEvent = new AudioPlaySoundAtLocationEvent {
+                name = sound,
+                soundType = SoundType.SFX,
+                isRandomPitch = true,
+                minPitch = 0.95f,
+                maxPitch = 1f,
+                gameObject = AudioVoiceGO
+            };
+            soundEvent.FireEvent();
+        }
     }
 
     public override void EnemyDeath()

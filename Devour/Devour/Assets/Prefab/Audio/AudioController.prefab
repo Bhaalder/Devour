@@ -567,9 +567,79 @@ MonoBehaviour:
     maxDistance: 50
     loop: 0
     source: {fileID: 0}
+  - name: ZvixaBallAttackVoice1
+    clip: {fileID: 8300000, guid: f51bfd059c192af4896f197938dbea8d, type: 3}
+    volume: 0.7
+    pitch: 1
+    spatialBlend_2D_3D: 1
+    rolloffMode: 1
+    minDistance: 0.1
+    maxDistance: 50
+    loop: 0
+    source: {fileID: 0}
+  - name: ZvixaBallAttackVoice2
+    clip: {fileID: 8300000, guid: 036e7dc0773d1be4a84257be2788e104, type: 3}
+    volume: 0.7
+    pitch: 1
+    spatialBlend_2D_3D: 1
+    rolloffMode: 1
+    minDistance: 0.1
+    maxDistance: 50
+    loop: 0
+    source: {fileID: 0}
   - name: ZvixaSonarExpel
     clip: {fileID: 8300000, guid: 276e452a0d1f395499a47df8397dba6d, type: 3}
     volume: 1
+    pitch: 1
+    spatialBlend_2D_3D: 1
+    rolloffMode: 1
+    minDistance: 0.1
+    maxDistance: 50
+    loop: 0
+    source: {fileID: 0}
+  - name: ZvixaSonarExpelChant1
+    clip: {fileID: 8300000, guid: 218cba3ecd17b5c46ba45ff18e39fed1, type: 3}
+    volume: 0.7
+    pitch: 1
+    spatialBlend_2D_3D: 1
+    rolloffMode: 1
+    minDistance: 0.1
+    maxDistance: 50
+    loop: 0
+    source: {fileID: 0}
+  - name: ZvixaSonarExpelChant2
+    clip: {fileID: 8300000, guid: b83d0e548ffcf4d44b6f782d4e66ff08, type: 3}
+    volume: 0.7
+    pitch: 1
+    spatialBlend_2D_3D: 1
+    rolloffMode: 1
+    minDistance: 0.1
+    maxDistance: 50
+    loop: 0
+    source: {fileID: 0}
+  - name: ZvixaSpikes
+    clip: {fileID: 8300000, guid: e24389dce7f0abe468148ed6b253bf7c, type: 3}
+    volume: 0.5
+    pitch: 1
+    spatialBlend_2D_3D: 0
+    rolloffMode: 1
+    minDistance: 0.1
+    maxDistance: 50
+    loop: 0
+    source: {fileID: 0}
+  - name: ZvixaSpikeVoice
+    clip: {fileID: 8300000, guid: fa60c03d17123504fa389e5023b996ff, type: 3}
+    volume: 0.7
+    pitch: 1
+    spatialBlend_2D_3D: 1
+    rolloffMode: 1
+    minDistance: 0.1
+    maxDistance: 50
+    loop: 0
+    source: {fileID: 0}
+  - name: ZvixaDeath
+    clip: {fileID: 8300000, guid: b0eb893db7c46ab458d4582053a49846, type: 3}
+    volume: 0.75
     pitch: 1
     spatialBlend_2D_3D: 1
     rolloffMode: 1

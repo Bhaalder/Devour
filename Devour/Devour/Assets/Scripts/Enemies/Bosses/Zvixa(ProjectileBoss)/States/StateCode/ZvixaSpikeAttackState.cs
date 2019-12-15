@@ -27,6 +27,14 @@ public class ZvixaSpikeAttackState : ZvixaBaseState {
         spriteRenderer = owner.LowArea.GetComponent<SpriteRenderer>();
         spriteRenderer.color = new Color32(255, 0, 0, 25);
         owner.SpikeWarningParticles.SetActive(true);
+        AudioPlaySoundEvent soundEvent = new AudioPlaySoundEvent {
+            name = "ZvixaSpikes",
+            soundType = SoundType.SFX,
+            isRandomPitch = true,
+            minPitch = 0.95f,
+            maxPitch = 1f
+        };
+        soundEvent.FireEvent();
         base.Enter();
     }
 

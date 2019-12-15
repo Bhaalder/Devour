@@ -87,12 +87,14 @@ public class ZvixaBaseState : State {
     }
 
     private void FacingDirection() {
-        if (owner.Player.transform.position.x < owner.transform.position.x) {
-            Flip(-owner.XScale);
-            owner.FacingDirection = -1;
-        } else {
-            Flip(owner.XScale);
-            owner.FacingDirection = 1;
+        if (owner.State != BossZvixaState.DEATH) {
+            if (owner.Player.transform.position.x < owner.transform.position.x) {
+                Flip(-owner.XScale);
+                owner.FacingDirection = -1;
+            } else {
+                Flip(owner.XScale);
+                owner.FacingDirection = 1;
+            }
         }
     }
 
