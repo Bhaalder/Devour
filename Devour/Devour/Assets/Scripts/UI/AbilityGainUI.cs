@@ -14,6 +14,18 @@ public class AbilityGainUI : MonoBehaviour{
     [SerializeField] private Animator textAnimator;
     [SerializeField] private Animator imageAnimator;
 
+    [Header("Infotext that pops up")]
+    [TextArea(0, 5)]
+    [SerializeField] private string dashInfo;
+    [TextArea(0, 5)]
+    [SerializeField] private string doubleJumpInfo;
+    [TextArea(0, 5)]
+    [SerializeField] private string projectileInfo;
+    [TextArea(0, 5)]
+    [SerializeField] private string wallclimbInfo;
+    [TextArea(0, 5)]
+    [SerializeField] private string voidMendInfo;
+
     private void Awake() {
         PlayerGetAbilityEvent.RegisterListener(OnGetAbility);
     }
@@ -24,23 +36,23 @@ public class AbilityGainUI : MonoBehaviour{
         string description = "";
         switch (abilityEvent.playerAbility) {
             case PlayerAbility.DASH:
-                description = "Press [LEFT SHIFT] or [RT] to dash horizontally";
+                description = dashInfo;
                 imageAnimator.SetTrigger("Dash");
                 break;
             case PlayerAbility.DOUBLEJUMP:
-                description = "Press [SPACE] or [A] while in the air to jump again";
+                description = doubleJumpInfo;
                 imageAnimator.SetTrigger("DoubleJump");
                 break;
             case PlayerAbility.PROJECTILE:
-                description = "Hold [RIGHT MOUSEBUTTON] or [B] and aim with the directional input to fire a void projectile";
+                description = projectileInfo;
                 imageAnimator.SetTrigger("Projectile");
                 break;
             case PlayerAbility.WALLCLIMB:
-                description = "Slide against walls and press [SPACE] or [A] to \n jump from walls";
+                description = wallclimbInfo;
                 imageAnimator.SetTrigger("WallJump");
                 break;
             case PlayerAbility.VOIDMEND:
-                description = "Attack to fill your voidbar and press [F] or [Y] to heal \n a portion of your damage taken";
+                description = voidMendInfo;
                 imageAnimator.SetTrigger("VoidMend");
                 break;
         }

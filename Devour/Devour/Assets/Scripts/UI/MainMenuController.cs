@@ -63,6 +63,11 @@ public class MainMenuController : MonoBehaviour{
 
     }
 
+    private void OnEnable()
+    {
+        DataStorage.Instance.BackToMainMenu();
+    }
+
     private void AddListener(Button button, string buttonName) {
         if(button != null) {
             button.onClick.AddListener(() => { SetSceneAndPlayAnimation(buttonName); });

@@ -3485,6 +3485,13 @@ MonoBehaviour:
   descriptionText: {fileID: 2615780132190051660}
   textAnimator: {fileID: 2553851867071890045}
   imageAnimator: {fileID: 5198931243378519764}
+  dashInfo: Press [LEFT SHIFT] or [RT] to dash horizontally
+  doubleJumpInfo: Press [SPACE] or [A] while in the air to jump again
+  projectileInfo: Hold [RIGHT MOUSEBUTTON] or [B] and aim with the directional input
+    to fire a void projectile
+  wallclimbInfo: Slide against walls and press [SPACE] or [A] to jump from walls
+  voidMendInfo: Attack to fill your voidbar and press [F] or [Y] to heal a portion
+    of your damage taken
 --- !u!114 &6798796565042106968
 MonoBehaviour:
   m_ObjectHideFlags: 0
