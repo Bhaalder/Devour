@@ -87,10 +87,12 @@ public class NazroVoidBomb : MonoBehaviour {
     }
 
     private void OnPhaseChange(NazroSecondPhaseEvent phaseChange) {
+        StopAllCoroutines();
         Destroy(gameObject);
     }
 
     private void BossDied(BossDiedEvent bossDied) {
+        StopAllCoroutines();
         Destroy(gameObject);
     }
 

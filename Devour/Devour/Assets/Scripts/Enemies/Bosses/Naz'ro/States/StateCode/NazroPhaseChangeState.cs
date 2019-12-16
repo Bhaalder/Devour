@@ -25,6 +25,8 @@ public class NazroPhaseChangeState : NazroBaseState {
         }
         owner.NazroVoidObstacles.Clear();
         waitLeft = waitTime;
+        NazroSecondPhaseEvent secondPhaseEvent = new NazroSecondPhaseEvent { };
+        secondPhaseEvent.FireEvent();
         base.Enter();
     }
 
