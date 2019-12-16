@@ -7,7 +7,8 @@ public class PlantsDestruction : MonoBehaviour
 {
     [SerializeField] private GameObject hitParticle;
     [SerializeField] private GameObject destructionParticle;
-    [SerializeField] private Vector3 particleOffset;
+    [SerializeField] private Vector3 hitParticleOffset;
+    [SerializeField] private Vector3 destructionParticleOffset;
     [SerializeField] private int hitsToDestroy;
 
     private BoxCollider2D boxCollider2D;
@@ -33,11 +34,11 @@ public class PlantsDestruction : MonoBehaviour
                 hits++;
                 if (hits >= hitsToDestroy)
                 {
-                    Instantiate(destructionParticle, gameObject.transform.position + particleOffset, Quaternion.identity);
+                    Instantiate(destructionParticle, gameObject.transform.position + destructionParticleOffset, Quaternion.identity);
                     Destroy(gameObject);
                     return;
                 }
-                Instantiate(hitParticle, gameObject.transform.position + particleOffset, Quaternion.identity);
+                Instantiate(hitParticle, gameObject.transform.position + hitParticleOffset, Quaternion.identity);
             }
         }
         catch (NullReferenceException)
