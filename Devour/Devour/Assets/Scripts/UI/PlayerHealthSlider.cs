@@ -22,22 +22,36 @@ public class PlayerHealthSlider : MonoBehaviour{
     }
 
     private void TouchKillzone(PlayerTouchKillzoneEvent touchKillzoneEvent) {
-        if (!GameController.Instance.Player.IsInvulnerable) {
-            Invoke("ChangeSlider", 0.01f);
-            //ChangeSlider(touchKillzoneEvent.damage);
-        }
+        InvokeSliderChange();
+        //if (!GameController.Instance.Player.IsInvulnerable) {
+        //    //Invoke("ChangeSlider", 0.01f);
+        //    ChangeSliderValue(touchKillzoneEvent.damage);
+        //}
     }
 
     private void TakeDamage(PlayerTakeDamageEvent takeDamageEvent) {
-        if (takeDamageEvent.isSelfInflicted) {
-            Invoke("ChangeSlider", 0.01f);
-            //ChangeSlider(takeDamageEvent.damage);
-            return;
-        }
-        if (!GameController.Instance.Player.IsInvulnerable) {
-            Invoke("ChangeSlider", 0.01f);
-            //ChangeSlider(takeDamageEvent.damage);
-        }     
+        InvokeSliderChange();
+        //if (takeDamageEvent.isSelfInflicted) {
+        //    Invoke("ChangeSlider", 0.01f);
+        //    //ChangeSlider(takeDamageEvent.damage);
+        //    return;
+        //}
+        //if (!GameController.Instance.Player.IsInvulnerable) {
+        //    Invoke("ChangeSlider", 0.01f);
+        //    //ChangeSlider(takeDamageEvent.damage);
+        //}     
+    }
+
+    private void GainHealth(PlayerHealEvent healEvent) {
+        InvokeSliderChange();
+        //if (healEvent.isLifeLeech) {
+        //    healEvent.amount = GameController.Instance.Player.MeleeLifeLeech;
+        //}
+        //ChangeSlider(-healEvent.amount);
+    }
+
+    private void InvokeSliderChange() {
+        Invoke("ChangeSlider", 0.01f);
     }
 
     private void ChangeSlider() {
@@ -45,13 +59,7 @@ public class PlayerHealthSlider : MonoBehaviour{
         //healthSlider.value -= amount;
     }
 
-    private void GainHealth(PlayerHealEvent healEvent) {
-        if (healEvent.isLifeLeech) {
-            healEvent.amount = GameController.Instance.Player.MeleeLifeLeech;
-        }
-        Invoke("ChangeSlider", 0.01f);
-        //ChangeSlider(-healEvent.amount);
-    }
+
 
     private void OnTalentPointGain(TalentPointGainEvent pointGainEvent) {
         if(pointGainEvent.talentPoint.talentPointType == TalentPointType.SURVIVAL) {
