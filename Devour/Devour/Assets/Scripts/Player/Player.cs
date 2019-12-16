@@ -270,7 +270,7 @@ public class Player : StateMachine {
     }
 
     public void SpawnWalkDust() {
-        GameObject walkDust = Instantiate(walkParticle, GroundCheck.position, Quaternion.identity);
+        GameObject walkDust = Instantiate(walkParticle, GroundCheck.position, Quaternion.identity, GroundCheck);
     }
 
     private void TEST() {
