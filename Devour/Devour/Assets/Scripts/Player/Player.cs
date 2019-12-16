@@ -60,6 +60,7 @@ public class Player : StateMachine {
     public float UntilNextDash { get; set; }
     public float FallSpeed { get => fallSpeed; set => fallSpeed = value; }
     public bool MovementIsStopped { get; set; }
+    public GameObject WalkParticle { get => walkParticle; set => walkParticle = value; }
     public GameObject JumpParticle { get => jumpParticle; set => jumpParticle = value; }
     public GameObject DoubleJumpParticle { get => doubleJumpParticle; set => doubleJumpParticle = value; }
     public float OutOfBusyStateJumpCancelTime { get; set; }
@@ -267,10 +268,6 @@ public class Player : StateMachine {
         TEST();//TEST
         InvulnerableTimeCheck();
         Animator.SetInteger("State", (int)PlayerState);
-    }
-
-    public void SpawnWalkDust() {
-        GameObject walkDust = Instantiate(walkParticle, GroundCheck.position, Quaternion.identity, GroundCheck);
     }
 
     private void TEST() {
