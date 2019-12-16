@@ -50,7 +50,7 @@ public class Enemy5Attack : EnemyMovement
         {
             if (!initializeState)
             {
-                RaycastHit2D obstructed = Physics2D.Raycast(owner.Player.transform.position, Vector2.down, layerMask);
+                RaycastHit2D obstructed = Physics2D.Linecast(owner.Player.transform.position, new Vector2(owner.Player.transform.position.x, owner.Player.transform.position.y - 500f), layerMask);
                 startPoint = owner.rb.position;
                 endPoint = new Vector2(owner.Player.transform.position.x, obstructed.point.y + targetYOffset);
                 middlePoint = startPoint + (endPoint - startPoint) / 2 + Vector2.up * middlePointCurve;
