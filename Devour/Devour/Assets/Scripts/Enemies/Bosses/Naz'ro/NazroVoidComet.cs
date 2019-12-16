@@ -55,6 +55,15 @@ public class NazroVoidComet : MonoBehaviour {
         if (!particles.activeSelf) {
             particles.SetActive(true);
             GetComponent<TrailRenderer>().enabled = true;
+            AudioPlaySoundAtLocationEvent soundEvent = new AudioPlaySoundAtLocationEvent {
+                name = "NazroVoidCometSound",
+                isRandomPitch = true,
+                minPitch = 0.85f,
+                maxPitch = 1.05f,
+                soundType = SoundType.SFX,
+                gameObject = gameObject
+            };
+            soundEvent.FireEvent();
         }
         Destroy(warningParticle);
     }

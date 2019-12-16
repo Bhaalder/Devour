@@ -20,6 +20,8 @@ public class EndGameSceneController : MonoBehaviour
         fadeTime = 1 / (timeBetweenCards / 2 * 3);
         CurrentTimer = timeBetweenCards;
         exitDirectlyToMainMenu = true;
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
     }
 
     void Update()

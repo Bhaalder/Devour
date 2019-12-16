@@ -797,6 +797,16 @@ MonoBehaviour:
     maxDistance: 75
     loop: 0
     source: {fileID: 0}
+  - name: NazroVoidCometSound
+    clip: {fileID: 8300000, guid: d729d8faa05770e4ca4305baf9effbbb, type: 3}
+    volume: 0.7
+    pitch: 1
+    spatialBlend_2D_3D: 1
+    rolloffMode: 1
+    minDistance: 0.1
+    maxDistance: 60
+    loop: 0
+    source: {fileID: 0}
   - name: NazroBreakWall
     clip: {fileID: 8300000, guid: e71a764d8b9f4fc4ba55d94792bd7c29, type: 3}
     volume: 1
