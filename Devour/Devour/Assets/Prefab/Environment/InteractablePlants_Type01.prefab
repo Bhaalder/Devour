@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 8549448622451458055}
   - component: {fileID: 8549448622451458056}
   - component: {fileID: 2558742733301956023}
+  - component: {fileID: 7506143261858039192}
   m_Layer: 0
   m_Name: InteractablePlants_Type01
   m_TagString: Untagged
@@ -103,6 +104,23 @@ SortingGroup:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!114 &7506143261858039192
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8549448622451458057}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b18829c9e747b74f9aa92dfc717e7df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hitParticle: {fileID: 0}
+  destructionParticle: {fileID: 100006, guid: 8afef6e01425b094bbc6f738c2ac1b1c, type: 3}
+  hitParticleOffset: {x: 0, y: 0, z: 0}
+  destructionParticleOffset: {x: 0, y: 0, z: 0}
+  hitsToDestroy: 1
 --- !u!1001 &8549448623847400192
 PrefabInstance:
   m_ObjectHideFlags: 0
