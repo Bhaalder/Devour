@@ -3483,7 +3483,8 @@ MonoBehaviour:
   gainNewAbilityText: {fileID: 1318367190374766946}
   abilityNameText: {fileID: 1899386777888440757}
   descriptionText: {fileID: 2615780132190051660}
-  animator: {fileID: 2553851867071890045}
+  textAnimator: {fileID: 2553851867071890045}
+  imageAnimator: {fileID: 5198931243378519764}
 --- !u!114 &6798796565042106968
 MonoBehaviour:
   m_ObjectHideFlags: 0
