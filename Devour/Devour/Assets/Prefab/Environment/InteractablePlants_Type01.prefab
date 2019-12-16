@@ -117,9 +117,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hitParticle: {fileID: 0}
-  destructionParticle: {fileID: 100006, guid: 8afef6e01425b094bbc6f738c2ac1b1c, type: 3}
+  destructionParticle: {fileID: 424162589194558134, guid: 9646d4872c0bdfc4ebbd9a048e3bd71f,
+    type: 3}
   hitParticleOffset: {x: 0, y: 0, z: 0}
-  destructionParticleOffset: {x: 0, y: 0, z: 0}
+  destructionParticleOffset: {x: 0, y: 0.5, z: 0}
   hitsToDestroy: 1
 --- !u!1001 &8549448623847400192
 PrefabInstance:
