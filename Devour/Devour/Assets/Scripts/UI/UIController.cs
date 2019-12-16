@@ -41,7 +41,7 @@ public class UIController : MonoBehaviour{
     }
 
     private void MenuInput() {
-        if (Input.GetKeyDown(KeyCode.Escape)) {
+        if (Input.GetButtonDown("Menu")) {
             InGameMenuEvent e = new InGameMenuEvent { };
             e.FireEvent();
         }
