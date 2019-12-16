@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 2521931726724854168}
   - component: {fileID: 2521931726724854169}
   - component: {fileID: 2521931726724854170}
+  - component: {fileID: 3138179738731865296}
   m_Layer: 12
   m_Name: BGEyes
   m_TagString: Untagged
@@ -64,6 +65,20 @@ SortingGroup:
   m_SortingLayerID: -375783187
   m_SortingLayer: -1
   m_SortingOrder: -100
+--- !u!114 &3138179738731865296
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2521931726724854175}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46d55a0795141b24aa7ea7582210aad4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minTimeBeforeActive: 0
+  maxTimeBeforeActive: 6
 --- !u!1 &2521931727497754622
 GameObject:
   m_ObjectHideFlags: 0
