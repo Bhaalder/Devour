@@ -11,6 +11,12 @@ public class Boss2SonicThrustMovement : Boss2BaseState
     public override void Enter()
     {
         base.Enter();
+        
+        if(DistanceToPlayer() <= thrustDistance)
+        {
+            owner.Transition<Boss2SonicThrustTelegraph>();
+            return;
+        }
         owner.State = Boss2State.SONIC_THRUST_MOVEMENT;
     }
 
