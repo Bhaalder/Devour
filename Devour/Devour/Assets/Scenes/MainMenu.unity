@@ -1636,7 +1636,7 @@ MonoBehaviour:
   newGameButton: {fileID: 1490678882}
   loadGameButton: {fileID: 1476056892}
   optionsButton: {fileID: 904436696}
-  exitButton: {fileID: 0}
+  exitButton: {fileID: 928798933}
   newGameScene: NewGameIntro
   loadGameScene: 
   loadingSequenceLength: 3

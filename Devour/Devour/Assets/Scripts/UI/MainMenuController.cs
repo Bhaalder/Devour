@@ -123,7 +123,7 @@ public class MainMenuController : MonoBehaviour{
                 PlaySound("StartGameClick");
                 break;
             case "exitButton":
-
+                Application.Quit();
                 break;
         }
         
