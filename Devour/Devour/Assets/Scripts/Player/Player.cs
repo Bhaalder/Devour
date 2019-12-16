@@ -158,6 +158,8 @@ public class Player : StateMachine {
     [SerializeField] private float dashCooldown;
     [Tooltip("The maxvalue the player can fall")]
     [SerializeField] private float fallSpeed;
+    [Tooltip("The particle when player walks")]
+    [SerializeField] private GameObject walkParticle;
     [Tooltip("The particle when player is on ground and jumps")]
     [SerializeField] private GameObject jumpParticle;
     [Tooltip("The particle when player jumps midair")]
@@ -265,6 +267,10 @@ public class Player : StateMachine {
         TEST();//TEST
         InvulnerableTimeCheck();
         Animator.SetInteger("State", (int)PlayerState);
+    }
+
+    public void SpawnWalkDust() {
+        GameObject walkDust = Instantiate(walkParticle, GroundCheck.position, Quaternion.identity);
     }
 
     private void TEST() {
