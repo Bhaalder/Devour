@@ -805,6 +805,8 @@ MonoBehaviour:
   numberOfDashes: 1
   dashCooldown: 1
   fallSpeed: -35
+  walkParticle: {fileID: 1315949759934820, guid: a8216bc506e026645b742d1348267d40,
+    type: 3}
   jumpParticle: {fileID: 1315949759934820, guid: a8216bc506e026645b742d1348267d40,
     type: 3}
   doubleJumpParticle: {fileID: 1315949759934820, guid: 78fd3598fdf835a41a422a98d30c8695,
