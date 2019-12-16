@@ -143,6 +143,11 @@ public class EndGameEssence : MonoBehaviour
             setBoundsInactive = true
         };
         cameraOffset.FireEvent();
+        AudioStopSoundEvent stopSound = new AudioStopSoundEvent
+        {
+            name = "LowHealth"
+        };
+        stopSound.FireEvent();
 
         endParticleCountdown = true;
     }
