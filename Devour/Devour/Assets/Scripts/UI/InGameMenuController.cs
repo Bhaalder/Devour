@@ -54,7 +54,10 @@ public class InGameMenuController : MonoBehaviour
 
     private void OnEnable()
     {
-        DataStorage.Instance.LoadSettingsData();
+        if (DataStorage.Instance)
+        {
+            DataStorage.Instance.LoadSettingsData();
+        }
     }
 
     private void AddListener(Button button, string buttonName)

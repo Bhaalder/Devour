@@ -63,9 +63,13 @@ public class MainMenuController : MonoBehaviour{
 
     }
 
-    private void OnEnable()
+
+    private void Start()
     {
-        DataStorage.Instance.BackToMainMenu();
+        if (DataStorage.Instance)
+        {
+            DataStorage.Instance.BackToMainMenu();
+        }
     }
 
     private void AddListener(Button button, string buttonName) {

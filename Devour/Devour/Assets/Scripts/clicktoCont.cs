@@ -5,6 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class clicktoCont : MonoBehaviour
 {
+    [SerializeField] private float fadeSpeed;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -24,6 +26,12 @@ public class clicktoCont : MonoBehaviour
             leavingSceneName = SceneManager.GetActiveScene().name
         };
         sceneEvent.FireEvent();
+        FadeScreenEvent fadeOutScreen = new FadeScreenEvent
+        {
+            isFadeOut = true,
+            fadeSpeed = fadeSpeed
+        };
+        fadeOutScreen.FireEvent();
         Invoke("Switch", 1f);
     }
 

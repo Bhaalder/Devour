@@ -51,12 +51,7 @@ public class DataStorage : MonoBehaviour
         }
         DontDestroyOnLoad(gameObject);
 
-        if (SceneManager.GetActiveScene().buildIndex == 0)
-        {
-            LoadInMainMenu();
-        }
-
-        if(GameData != null)
+        if (GameData != null)
         {
             RestingScene = GameData.RestingScene;
         }
@@ -211,7 +206,9 @@ public class DataStorage : MonoBehaviour
         LoadSettingsData();
         if(PlayerDataStorage == null)
         {
+            newGame.Select();
             eventSystem.SetSelectedGameObject(newGame.gameObject);
+            
             continueButton.interactable = false;
             continueButton.gameObject.SetActive(false);
         }
