@@ -18,6 +18,10 @@ public class BackgroundObjectRandomStart : MonoBehaviour {
     }
 
     private void ActivateEyes() {
-        GetComponent<Animator>().SetTrigger("");
+        for (int i = 0; i < transform.childCount; i++)
+        {
+            transform.GetChild(i).gameObject.SetActive(true);
+        }
+        GetComponent<Animator>().SetTrigger("StartTime");
     }
 }
