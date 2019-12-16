@@ -52,13 +52,6 @@ public class NazroRightWall : MonoBehaviour{
             startDuration = 0.50f
         };
         cameraShake.FireEvent();
-        AudioPlaySoundAtLocationEvent breakWallSound = new AudioPlaySoundAtLocationEvent {
-            name = "NazroBreakWall",
-            isRandomPitch = false,
-            soundType = SoundType.SFX,
-            gameObject = gameObject
-        };
-        breakWallSound.FireEvent();
     }
 
 }

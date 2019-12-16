@@ -35,7 +35,7 @@ public class UIController : MonoBehaviour{
     {
         try
         {
-            if (player.PlayerState != PlayerState.BUSY)
+            if (player.PlayerState != PlayerState.BUSY && player.PlayerState != PlayerState.DEATH)
             {
                 MenuInput();
             }

@@ -777,6 +777,16 @@ MonoBehaviour:
     maxDistance: 75
     loop: 0
     source: {fileID: 0}
+  - name: NazroVoidBombCountdown
+    clip: {fileID: 8300000, guid: 7525f518e55f76d4880c0f2643229c63, type: 3}
+    volume: 0.6
+    pitch: 1
+    spatialBlend_2D_3D: 1
+    rolloffMode: 1
+    minDistance: 0.1
+    maxDistance: 75
+    loop: 0
+    source: {fileID: 0}
   - name: NazroVoidCometSpell
     clip: {fileID: 8300000, guid: 3969a969e4b7aa046908eb29f27904dc, type: 3}
     volume: 1
