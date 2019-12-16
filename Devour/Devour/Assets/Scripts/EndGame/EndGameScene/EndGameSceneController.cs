@@ -26,7 +26,7 @@ public class EndGameSceneController : MonoBehaviour
     {
         timer();
 
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetButtonDown("Menu"))
         {
             if (exitDirectlyToMainMenu)
             {
