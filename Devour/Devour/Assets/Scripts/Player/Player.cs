@@ -612,6 +612,7 @@ public class Player : StateMachine {
 
     private void OnMainMenuSwitch(MainMenuEvent menuEvent)
     {
+        Transition<PlayerBusyState>();
         exists = false;
         StopSound("LowHealth");
         Destroy(gameObject, 3f);
