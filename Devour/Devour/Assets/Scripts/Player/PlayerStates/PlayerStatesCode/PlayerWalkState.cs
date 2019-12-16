@@ -11,7 +11,6 @@ public class PlayerWalkState : PlayerBaseState {
         owner.PlayerState = PlayerState.WALK;
         owner.Animator.SetBool("IsLanding", false);
         hasPressedJump = false;
-        owner.WalkParticle.SetActive(true);
     }
 
     public override void HandleFixedUpdate() {
@@ -27,10 +26,4 @@ public class PlayerWalkState : PlayerBaseState {
             owner.Transition<PlayerJumpState>();
         }
     }
-
-    public override void Exit() {
-        base.Exit();
-        owner.WalkParticle.SetActive(false);
-    }
-
 }
