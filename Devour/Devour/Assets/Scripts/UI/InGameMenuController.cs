@@ -85,7 +85,7 @@ public class InGameMenuController : MonoBehaviour
             case "exitToMainMenu":
                 sceneToLoad = mainMenuScene;
                 if(DataStorage.Instance != null) {
-                    DataStorage.Instance.SaveGame();
+                    DataStorage.Instance.BackToMainMenu();
                 }
                 Invoke("FadeScene", loadingSequenceLength);
                 SwitchSceneEvent switchScene = new SwitchSceneEvent

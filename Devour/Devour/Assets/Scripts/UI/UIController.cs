@@ -33,11 +33,22 @@ public class UIController : MonoBehaviour{
 
     private void Update()
     {
-        if(player.PlayerState != PlayerState.BUSY) {
-            MenuInput();
-        } else if (GameController.Instance.MenuIsOpen) {
-            MenuInput();
+        try
+        {
+            if (player.PlayerState != PlayerState.BUSY)
+            {
+                MenuInput();
+            }
+            else if (GameController.Instance.MenuIsOpen)
+            {
+                MenuInput();
+            }
         }
+        catch (System.NullReferenceException)
+        {
+            Debug.Log("Cannot find: GameController");
+        }
+
     }
 
     private void MenuInput() {

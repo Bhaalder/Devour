@@ -82,6 +82,18 @@ public class DataStorage : MonoBehaviour
 
     }
 
+    public void BackToMainMenu()
+    {
+        if (SceneManager.GetActiveScene().buildIndex != 0 && SceneManager.GetActiveScene().buildIndex != 1)
+        {
+            SaveSystem.SaveGameData(GameController.Instance);
+            SaveSystem.SavePlayerData(GameController.Instance.Player);
+            Debug.Log("Game Saved");
+        }
+
+        LoadInMainMenu();
+    }
+
     #region PlayerData
 
     public void LoadPlayerData()
@@ -202,6 +214,10 @@ public class DataStorage : MonoBehaviour
             eventSystem.SetSelectedGameObject(newGame.gameObject);
             continueButton.interactable = false;
             continueButton.gameObject.SetActive(false);
+        }
+        if (GameData != null)
+        {
+            RestingScene = GameData.RestingScene;
         }
     }
 
