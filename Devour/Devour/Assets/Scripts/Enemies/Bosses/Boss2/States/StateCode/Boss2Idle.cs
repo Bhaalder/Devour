@@ -21,6 +21,8 @@ public class Boss2Idle : Boss2BaseState
         owner.State = Boss2State.IDLE;
         owner.HitBoxHorizontal.SetActive(false);
         owner.HitBoxVertical.SetActive(true);
+        owner.HitBoxHorizontal.GetComponent<BoxCollider2D>().isTrigger = false;
+        owner.HitBoxVertical.GetComponent<BoxCollider2D>().isTrigger = false;
         owner.BoxCollider2D = owner.HitBoxVertical.GetComponent<BoxCollider2D>();
     }
 

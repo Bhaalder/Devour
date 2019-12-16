@@ -29,10 +29,14 @@ public class Boss2SonicDashAttack : Boss2BaseState
         currentPosition = 0;
         owner.HitBoxHorizontal.SetActive(true);
         owner.HitBoxVertical.SetActive(false);
+        owner.HitBoxHorizontal.GetComponent<BoxCollider2D>().isTrigger = true;
+        owner.HitBoxVertical.GetComponent<BoxCollider2D>().isTrigger = true;
         owner.BoxCollider2D = owner.HitBoxHorizontal.GetComponent<BoxCollider2D>();
         TurnToTargetPosition();
         startPosition = owner.rb.position;
         owner.rb.gravityScale = 0;
+        //owner.transform.rotation = new Quaternion(0, 0, Vector2.Angle(owner.transform.position, positions[currentPosition].transform.position)/2, 0);
+        //Debug.Log("Angle: " + Vector2.Angle(owner.transform.position, positions[currentPosition].transform.position));
     }
 
     public override void HandleUpdate()
@@ -53,21 +57,31 @@ public class Boss2SonicDashAttack : Boss2BaseState
             owner.rb.position = Vector3.Lerp(startPosition, positions[currentPosition].transform.position, countUp);
             return;
         }
-        TurnToTargetPosition();
+        
         Destroy(owner.SonicDashParticles[currentPosition]);
         owner.PlayVoice("Thrust");
         currentPosition++;
+        
         startPosition = owner.rb.position;
         countUp = 0;
         currentDashTime = 0;
-        FindTargetDirection();
+        //FindTargetDirection();
+        
         if (currentPosition >= positions.Length)
         {
             currentPosition = 0;
             owner.rb.gravityScale = 6;
             owner.HitBoxHorizontal.SetActive(true);
             owner.HitBoxVertical.SetActive(false);
+            owner.HitBoxHorizontal.GetComponent<BoxCollider2D>().isTrigger = false;
+            owner.HitBoxVertical.GetComponent<BoxCollider2D>().isTrigger = false;
             owner.Transition<Boss2SonicDashExit>();           
+        }
+        else
+        {
+            //owner.transform.rotation = new Quaternion(0, 0, Vector2.Angle(owner.transform.position, positions[currentPosition].transform.position) / 2, 0);
+            Debug.Log("Angle: " + Vector2.Angle(owner.transform.position, positions[currentPosition].transform.position));
+            TurnToTargetPosition();
         }
     }
 

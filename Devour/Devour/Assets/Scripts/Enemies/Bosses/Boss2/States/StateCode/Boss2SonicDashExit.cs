@@ -13,6 +13,8 @@ public class Boss2SonicDashExit : Boss2BaseState
         TurnedRight();
         owner.HitBoxHorizontal.SetActive(true);
         owner.HitBoxVertical.SetActive(false);
+        owner.HitBoxHorizontal.GetComponent<BoxCollider2D>().isTrigger = false;
+        owner.HitBoxVertical.GetComponent<BoxCollider2D>().isTrigger = false;
         owner.BoxCollider2D = owner.HitBoxVertical.GetComponent<BoxCollider2D>();
         owner.Transition<Boss2Idle>();
     }
