@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BackgroundEyes : MonoBehaviour {
+public class BackgroundObjectRandomStart : MonoBehaviour {
 
     [SerializeField] private float minTimeBeforeActive;
     [SerializeField] private float maxTimeBeforeActive;
