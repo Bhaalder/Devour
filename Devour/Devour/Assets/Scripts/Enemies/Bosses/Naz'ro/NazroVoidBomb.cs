@@ -64,6 +64,15 @@ public class NazroVoidBomb : MonoBehaviour {
 
     private void Explode() {
         if (!isStartingToExplode) {
+            AudioPlaySoundAtLocationEvent soundEvent = new AudioPlaySoundAtLocationEvent {
+                name = "NazroVoidBombCountdown",
+                isRandomPitch = true,
+                minPitch = 0.9f,
+                maxPitch = 1f,
+                soundType = SoundType.SFX,
+                gameObject = gameObject
+            };
+            soundEvent.FireEvent();
             rigidBody2D.velocity = Vector2.zero;
             isStartingToExplode = true;
             animator.SetTrigger("WindUp");
