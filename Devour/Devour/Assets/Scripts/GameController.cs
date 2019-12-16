@@ -9,6 +9,7 @@ public class GameController : MonoBehaviour {
     public Player Player { get; set; }
     public Transform Canvas { get; set; }
     public bool GameIsPaused { get; set; }
+    public bool MenuIsOpen { get; set; }
 
     public Vector3 SceneCheckpoint { get; set; } //om man rör vid en "killzone"
     public string RestingScene { get; set; } //senaste scenen man restade på
@@ -75,7 +76,8 @@ public class GameController : MonoBehaviour {
             RestingScene = SceneManager.GetActiveScene().name;
         }
         PlayerDiedEvent.RegisterListener(OnPlayerDied);
-        BossDiedEvent.RegisterListener(OnBossDied); 
+        BossDiedEvent.RegisterListener(OnBossDied);
+        InGameMenuEvent.RegisterListener(OnInGameMenu);
     }
 
     private void OnPlayerDied(PlayerDiedEvent playerDiedEvent) {
@@ -125,6 +127,10 @@ public class GameController : MonoBehaviour {
         KilledBosses.Add(bossDiedEvent.boss.BossName);
     }
 
+    private void OnInGameMenu(InGameMenuEvent menuEvent) {
+        MenuIsOpen = !MenuIsOpen;
+    }
+
     public void GamePaused(bool gameIsPaused) {
         if (gameIsPaused) {
             GameIsPaused = true;
@@ -138,6 +144,7 @@ public class GameController : MonoBehaviour {
     private void OnDestroy() {
         PlayerDiedEvent.UnRegisterListener(OnPlayerDied);
         BossDiedEvent.UnRegisterListener(OnBossDied);
+        InGameMenuEvent.UnRegisterListener(OnInGameMenu);
     }
 
 }

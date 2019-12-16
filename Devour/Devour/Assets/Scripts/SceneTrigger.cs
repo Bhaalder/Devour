@@ -27,6 +27,7 @@ public class SceneTrigger : MonoBehaviour {
                 isFadeIn = true
             };
             fadeScreen.FireEvent();
+            PlayerBusy(false);
             if (scenePointID == sceneSpawnPointID) {
                 switchedScene = false;
                 GameController.Instance.Player.transform.position = transform.GetChild(0).position;
@@ -40,6 +41,7 @@ public class SceneTrigger : MonoBehaviour {
         if (other.CompareTag("Player")) {
             GameController.Instance.Player.IsInvulnerable = true;
             GameController.Instance.Player.UntilInvulnerableEnds = 2;
+            PlayerBusy(true);
             SwitchSceneEvent switchScene = new SwitchSceneEvent {
                 enteringSceneName = sceneToLoad,
                 leavingSceneName = SceneManager.GetActiveScene().name
@@ -51,6 +53,13 @@ public class SceneTrigger : MonoBehaviour {
             fadeScreen.FireEvent();
             Invoke("SceneSwitch", 1f);      
         }
+    }
+
+    private void PlayerBusy(bool b) {
+        PlayerBusyEvent playerBusy = new PlayerBusyEvent {
+            playerIsBusy = b
+        };
+        playerBusy.FireEvent();
     }
 
     private void SceneSwitch() {

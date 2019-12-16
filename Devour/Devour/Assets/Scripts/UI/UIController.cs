@@ -33,8 +33,15 @@ public class UIController : MonoBehaviour{
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
+        if(player.PlayerState != PlayerState.BUSY) {
+            MenuInput();
+        } else if (GameController.Instance.MenuIsOpen) {
+            MenuInput();
+        }
+    }
+
+    private void MenuInput() {
+        if (Input.GetKeyDown(KeyCode.Escape)) {
             InGameMenuEvent e = new InGameMenuEvent { };
             e.FireEvent();
         }

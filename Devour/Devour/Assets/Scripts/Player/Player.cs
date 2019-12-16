@@ -322,7 +322,6 @@ public class Player : StateMachine {
 
     private void OnFadeScreen(FadeScreenEvent screenEvent) {
         if (screenEvent.isFadeOut) {
-            MovementIsStopped = true;
             HideTipTextEvent hideTextEvent = new HideTipTextEvent { };
             hideTextEvent.FireEvent();
         }
