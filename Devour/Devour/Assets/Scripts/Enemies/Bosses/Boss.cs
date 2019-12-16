@@ -198,6 +198,7 @@ public class Boss : Enemy{
         essence = Instantiate(AbilityEssence, transform.position, Quaternion.identity);
         abilityEssence = essence.GetComponent<AbilityEssence>();
         abilityEssence.Ability = bossGivesAbility;
+        abilityEssence.BossNameIsDead = bossName;
     }
 
     public override void GiveCollectibles() {
