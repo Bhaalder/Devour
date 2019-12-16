@@ -31,11 +31,10 @@ public class PlayerVoidSlider : MonoBehaviour {
     }
 
     private void VoidEvent(PlayerVoidChangeEvent voidEvent) {
-        ChangeSlider(voidEvent.amount);
+        Invoke("ChangeSlider", 0.01f);
     }
 
-    private void ChangeSlider(float amount) {
-        voidSlider.value += amount;
+    private void ChangeSlider() {
         voidSlider.value = GameController.Instance.Player.PlayerVoid;
     }
 

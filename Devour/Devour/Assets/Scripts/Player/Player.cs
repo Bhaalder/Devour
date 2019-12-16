@@ -423,14 +423,15 @@ public class Player : StateMachine {
                 PlayerVoidIsFullEvent voidFull = new PlayerVoidIsFullEvent { };
                 voidFull.FireEvent();
             }
+            if (!voidMendIsFull) {
+                PlaySound("VoidMendFull");
+            }
             voidMendIsFull = true;
             //enable partikel-effekt om den är disabled
-            //om ljud inte har spelat, spela ljud
         }
         if(PlayerVoid < MaxPlayerVoid) {
             voidMendIsFull = false;
             //disabla partikel-effekt om den är enabled
-            //ljud-boolen i player blir false
         }
     }
 
@@ -465,10 +466,7 @@ public class Player : StateMachine {
             }
         } else {
             if (lowHealthSoundIsPlaying) {
-                AudioStopSoundEvent stopLowHealthSound = new AudioStopSoundEvent {
-                    name = "LowHealth"
-                };
-                stopLowHealthSound.FireEvent();
+                StopSound("LowHealth");
                 lowHealthSoundIsPlaying = false;
             }
         }
@@ -502,22 +500,36 @@ public class Player : StateMachine {
     }
 
     public void PlaySound(string sound) {
-        List<string> soundList = new List<string>();
-        switch (sound) {
-            case "Walk":
-                soundList.Add("Step1");
-                break;
-            default:
-                break;
-        }
-        AudioPlayRandomSoundEvent soundEvent = new AudioPlayRandomSoundEvent {
-            name = soundList.ToArray(),
+        string soundName = GetSoundName(sound);
+        AudioPlaySoundEvent soundEvent = new AudioPlaySoundEvent {
+            name = soundName,
             soundType = SoundType.SFX,
             isRandomPitch = true,
-            minPitch = 0.9f,
+            minPitch = 0.95f,
             maxPitch = 1f
         };
         soundEvent.FireEvent();
+    }
+
+    private void StopSound(string sound) {
+        string soundName = GetSoundName(sound);
+        AudioStopSoundEvent stopSound = new AudioStopSoundEvent {
+            name = soundName
+        };
+        stopSound.FireEvent();
+    }
+
+    private string GetSoundName(string sound) {
+        switch (sound) {
+            case "Walk":
+                return "Step1";
+            case "VoidMendFull":
+                return "VoidMendFull";
+            case "LowHealth":
+                return "LowHealth";
+            default:
+                return null;
+        }
     }
 
     private void OnGetAbility(PlayerGetAbilityEvent abilityEvent) {

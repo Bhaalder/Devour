@@ -23,29 +23,34 @@ public class PlayerHealthSlider : MonoBehaviour{
 
     private void TouchKillzone(PlayerTouchKillzoneEvent touchKillzoneEvent) {
         if (!GameController.Instance.Player.IsInvulnerable) {
-            ChangeSlider(touchKillzoneEvent.damage);
+            Invoke("ChangeSlider", 0.01f);
+            //ChangeSlider(touchKillzoneEvent.damage);
         }
     }
 
     private void TakeDamage(PlayerTakeDamageEvent takeDamageEvent) {
         if (takeDamageEvent.isSelfInflicted) {
-            ChangeSlider(takeDamageEvent.damage);
+            Invoke("ChangeSlider", 0.01f);
+            //ChangeSlider(takeDamageEvent.damage);
             return;
         }
         if (!GameController.Instance.Player.IsInvulnerable) {
-            ChangeSlider(takeDamageEvent.damage);
+            Invoke("ChangeSlider", 0.01f);
+            //ChangeSlider(takeDamageEvent.damage);
         }     
     }
 
-    private void ChangeSlider(float amount) {
-        healthSlider.value -= amount;
+    private void ChangeSlider() {
+        healthSlider.value = GameController.Instance.Player.Health;
+        //healthSlider.value -= amount;
     }
 
     private void GainHealth(PlayerHealEvent healEvent) {
         if (healEvent.isLifeLeech) {
             healEvent.amount = GameController.Instance.Player.MeleeLifeLeech;
         }
-        ChangeSlider(-healEvent.amount);
+        Invoke("ChangeSlider", 0.01f);
+        //ChangeSlider(-healEvent.amount);
     }
 
     private void OnTalentPointGain(TalentPointGainEvent pointGainEvent) {

@@ -196,6 +196,16 @@ MonoBehaviour:
     maxDistance: 0
     loop: 0
     source: {fileID: 0}
+  - name: VoidMendFull
+    clip: {fileID: 8300000, guid: 3eb6eb657588afd46a752a430f50e658, type: 3}
+    volume: 1
+    pitch: 1
+    spatialBlend_2D_3D: 0
+    rolloffMode: 0
+    minDistance: 0
+    maxDistance: 0
+    loop: 0
+    source: {fileID: 0}
   - name: Hurt
     clip: {fileID: 8300000, guid: 430fa1a3c7d58ed438dd8c0a4321b7aa, type: 3}
     volume: 1
@@ -639,7 +649,7 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: ZvixaDeath
     clip: {fileID: 8300000, guid: b0eb893db7c46ab458d4582053a49846, type: 3}
-    volume: 0.75
+    volume: 0.8
     pitch: 1
     spatialBlend_2D_3D: 1
     rolloffMode: 1
