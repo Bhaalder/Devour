@@ -36,6 +36,7 @@ public class AudioStopSoundEvent : Event<AudioStopSoundEvent> {
 
     public string name;
     public bool stopAllSounds;
+    public bool stopAllSFXSounds;
 
 }
 

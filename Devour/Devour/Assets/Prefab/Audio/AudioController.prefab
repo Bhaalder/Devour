@@ -767,6 +767,36 @@ MonoBehaviour:
     maxDistance: 50
     loop: 0
     source: {fileID: 0}
+  - name: NazroVoidBombSpell
+    clip: {fileID: 8300000, guid: 6e88312989b77ee4fbc8b38c0c16b0a1, type: 3}
+    volume: 1
+    pitch: 1
+    spatialBlend_2D_3D: 1
+    rolloffMode: 1
+    minDistance: 0.1
+    maxDistance: 75
+    loop: 0
+    source: {fileID: 0}
+  - name: NazroVoidCometSpell
+    clip: {fileID: 8300000, guid: 3969a969e4b7aa046908eb29f27904dc, type: 3}
+    volume: 1
+    pitch: 1
+    spatialBlend_2D_3D: 1
+    rolloffMode: 1
+    minDistance: 0.1
+    maxDistance: 75
+    loop: 0
+    source: {fileID: 0}
+  - name: NazroBreakWall
+    clip: {fileID: 8300000, guid: e71a764d8b9f4fc4ba55d94792bd7c29, type: 3}
+    volume: 1
+    pitch: 1
+    spatialBlend_2D_3D: 1
+    rolloffMode: 1
+    minDistance: 0.1
+    maxDistance: 75
+    loop: 0
+    source: {fileID: 0}
   environmentSounds:
   - name: HitRockWall
     clip: {fileID: 8300000, guid: a613132998910254a93a4edf5f3e2f9e, type: 3}

@@ -160,11 +160,25 @@ public class AudioController : MonoBehaviour {
             StopAllSounds();
             return;
         }
+        if (stopSoundEvent.stopAllSFXSounds) {
+            StopAllSFX();
+            return;
+        }
         try {
             FindSound(stopSoundEvent.name, 0);
             sound.source.Stop();
         } catch (System.NullReferenceException) {
             AudioNotFound(stopSoundEvent.name);
+        }
+    }
+
+    private void StopAllSFX() {
+        for (int i = 0; i < sfxDictionary.Count; i++) {
+            try {
+                sfxDictionary.ElementAt(i).Value.source.Stop();
+            } catch (System.NullReferenceException) {
+
+            }
         }
     }
 

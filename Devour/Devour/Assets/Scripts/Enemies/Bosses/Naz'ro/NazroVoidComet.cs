@@ -36,6 +36,7 @@ public class NazroVoidComet : MonoBehaviour {
         }
         warningParticle = Instantiate(warningParticlePrefab, transform.localPosition, Quaternion.identity);
         windUpLeft = WindUp;
+        GetComponent<TrailRenderer>().enabled = false;
         PlayerTouchKillzoneEvent.RegisterListener(OnPlayerTouchKillzone);
         BossDiedEvent.RegisterListener(BossDied);
         NazroSecondPhaseEvent.RegisterListener(OnPhaseChange);
@@ -53,6 +54,7 @@ public class NazroVoidComet : MonoBehaviour {
         isMoving = true;
         if (!particles.activeSelf) {
             particles.SetActive(true);
+            GetComponent<TrailRenderer>().enabled = true;
         }
         Destroy(warningParticle);
     }

@@ -129,6 +129,16 @@ public class Nazro : Boss {
         }
     }
 
+    public void StopSounds() {
+        string[] soundsToStop = {"NazroVoidBombSpell", "NazroVoidCometSpell" };
+        for(int i = 0; i < soundsToStop.Length; i++) {
+            AudioStopSoundEvent stopSound = new AudioStopSoundEvent {
+                name = soundsToStop[i]
+            };
+            stopSound.FireEvent();
+        }
+    }
+
     protected override void OnDestroy() {
         MainMenuEvent.UnRegisterListener(OnMainMenuSwitch);
         PlayerAttackEvent.UnRegisterListener(TakeDamage);

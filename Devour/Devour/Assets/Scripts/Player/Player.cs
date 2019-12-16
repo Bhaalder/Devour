@@ -229,6 +229,7 @@ public class Player : StateMachine {
 
         Animator = GetComponent<Animator>();
 
+        ChangeHealth(0);//Så att spelet kollar om man har lite HP vid start
         PlayerBounceEvent.RegisterListener(OnBounce);
         PlayerTakeDamageEvent.RegisterListener(OnTakeDamage);
         PlayerHealEvent.RegisterListener(OnHeal);
@@ -240,7 +241,6 @@ public class Player : StateMachine {
         FadeScreenEvent.RegisterListener(OnFadeScreen);
         PlayerBusyEvent.RegisterListener(OnPlayerBusyEvent);
         MainMenuEvent.RegisterListener(OnMainMenuSwitch);
-
         base.Awake();
 
         if (FindObjectOfType<DataStorage>())
@@ -614,6 +614,7 @@ public class Player : StateMachine {
     private void OnMainMenuSwitch(MainMenuEvent menuEvent)
     {
         exists = false;
+        StopSound("LowHealth");
         Destroy(gameObject, 3f);
     }
 
