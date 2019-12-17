@@ -13,6 +13,7 @@ public class Settings : MonoBehaviour
     void Start()
     {
         AudioMixerVolumeEvent.RegisterListener(MixerSetVolume);
+        DepthBlur = true;
     }
 
     // Update is called once per frame

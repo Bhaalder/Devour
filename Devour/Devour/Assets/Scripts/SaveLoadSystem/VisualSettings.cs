@@ -10,11 +10,17 @@ public class VisualSettings : MonoBehaviour
 
     private Settings settings;
 
-    private void OnEnable()
+    private void Start()
     {
         settings = DataStorage.Instance.Settings;
         DepthBlur = settings.DepthBlur;
         depthBlurToggle.isOn = DepthBlur;
+    }
+    private void OnEnable()
+    {
+        //settings = DataStorage.Instance.Settings;
+        //DepthBlur = settings.DepthBlur;
+        //depthBlurToggle.isOn = DepthBlur;
     }
 
     // Update is called once per frame

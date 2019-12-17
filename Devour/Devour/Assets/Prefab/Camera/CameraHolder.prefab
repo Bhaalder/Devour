@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 447478923}
   - component: {fileID: 447478927}
   - component: {fileID: 447478924}
+  - component: {fileID: 8079115108777870604}
   m_Layer: 14
   m_Name: Blur
   m_TagString: Untagged
@@ -135,6 +136,18 @@ MonoBehaviour:
   m_BeforeTransparentBundles: []
   m_BeforeStackBundles: []
   m_AfterStackBundles: []
+--- !u!114 &8079115108777870604
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 447478922}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b99a89ea777b604f88e4ab8c4624fff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8442992190362603873
 GameObject:
   m_ObjectHideFlags: 0
