@@ -29,9 +29,21 @@ public class VisualSettings : MonoBehaviour
         
     }
 
+    public void OnToggleChange()
+    {
+        DepthBlur = depthBlurToggle.isOn;
+        SaveVisualSettings();
+        DataStorage.Instance.SaveSettings();
+        VisualSettingsEvent blurToggle = new VisualSettingsEvent { };
+        blurToggle.FireEvent();
+    }
+
     public void SaveVisualSettings()
     {
-        settings.DepthBlur = DepthBlur;
+        if (settings != null)
+        {
+            settings.DepthBlur = DepthBlur;
+        }
     }
 
 }
