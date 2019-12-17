@@ -106,15 +106,18 @@ public class SpawnManager : MonoBehaviour
 
                 for (int i = 0; i < numberofenemytospawn; i++)
                 {
-                    SpawnedEnemies++;
-                    EnemiesInWaveLeft++;
-                    spawnPointIndex++;
+
 
                     GameObject newEnemy1 = Instantiate(enemies[place], SpawnPoints[spawnPointIndex].position, SpawnPoints[spawnPointIndex].rotation);
                     newEnemy1.transform.parent = gameObject.transform;
                     GameObject teleport = Instantiate(teleportEffect, newEnemy1.transform.position, Quaternion.identity);
 
+
+
                     if (spawnPointIndex == SpawnPoints.Length - 1) { spawnPointIndex = 0; }
+                    SpawnedEnemies++;
+                    EnemiesInWaveLeft++;
+                    spawnPointIndex++;
                     Destroy(teleport, 3f);
                     yield return new WaitForSeconds(TimeBetweenEnemies);
                 }
