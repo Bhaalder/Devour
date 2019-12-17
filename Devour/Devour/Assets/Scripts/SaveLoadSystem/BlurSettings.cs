@@ -13,6 +13,12 @@ public class BlurSettings : MonoBehaviour
     {
         blur = GetComponent<PostProcessLayer>();
         blur.enabled = DataStorage.Instance.Settings.DepthBlur;
+        VisualSettingsEvent.RegisterListener(OnVisualSettingsEvent);
+    }
+
+    private void OnVisualSettingsEvent(VisualSettingsEvent visualSettingsEvent)
+    {
+        blur.enabled = DataStorage.Instance.Settings.DepthBlur;
     }
 
 }

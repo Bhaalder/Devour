@@ -110,13 +110,15 @@ public class InGameMenuController : MonoBehaviour
     {
         gameObjectSetActive.SetActive(true);
         gameObjectSetInactive.SetActive(false);
-        if (gameObjectSetInactive == optionsGO)
-        {
-            SaveSystem.SaveSettingsData(DataStorage.Instance.Settings);
-        }
         if(gameObjectSetInactive == visualOptionsGO)
         {
             visualOptionsGO.GetComponent<VisualSettings>().SaveVisualSettings();
+        }
+        if (gameObjectSetInactive == optionsGO)
+        {
+            DataStorage.Instance.SaveSettings();
+            VisualSettingsEvent visualSettingsEvent = new VisualSettingsEvent{ };
+            visualSettingsEvent.FireEvent();
         }
     }
 

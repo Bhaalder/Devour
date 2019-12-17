@@ -50,6 +50,11 @@ public class Settings : MonoBehaviour
         Debug.Log(mixerName);
     }
 
+    public void LoadVisualSettings()
+    {
+
+    }
+
     private void OnDestroy()
     {
         AudioMixerVolumeEvent.UnRegisterListener(MixerSetVolume);
