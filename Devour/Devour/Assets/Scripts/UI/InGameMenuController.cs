@@ -112,7 +112,7 @@ public class InGameMenuController : MonoBehaviour
         gameObjectSetInactive.SetActive(false);
         if (gameObjectSetInactive == optionsGO)
         {
-            SaveSystem.SaveSettingsData(FindObjectOfType<Settings>());
+            SaveSystem.SaveSettingsData(DataStorage.Instance.Settings);
         }
         if(gameObjectSetInactive == visualOptionsGO)
         {
