@@ -106,6 +106,10 @@ public class InGameMenuController : MonoBehaviour
                     stopAllSFXSounds = true
                 };
                 stopSFX.FireEvent();
+                AudioStopSoundEvent stopMystic = new AudioStopSoundEvent {
+                    name = "Mystic"
+                };
+                stopMystic.FireEvent();
                 break;
         }
 
