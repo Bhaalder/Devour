@@ -101,6 +101,11 @@ public class InGameMenuController : MonoBehaviour
                 mainMenu.FireEvent();
                 MainMenuEvent goToMainMenuEvent = new MainMenuEvent { };
                 goToMainMenuEvent.FireEvent();
+                AudioStopSoundEvent stopSFX = new AudioStopSoundEvent
+                {
+                    stopAllSFXSounds = true
+                };
+                stopSFX.FireEvent();
                 break;
         }
 
