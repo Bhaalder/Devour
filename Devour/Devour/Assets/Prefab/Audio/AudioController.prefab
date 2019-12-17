@@ -928,6 +928,26 @@ MonoBehaviour:
     maxDistance: 50
     loop: 1
     source: {fileID: 0}
+  - name: DestroyLeaf1
+    clip: {fileID: 8300000, guid: 7b2c9da23524b274e900288e736a73df, type: 3}
+    volume: 0.7
+    pitch: 1
+    spatialBlend_2D_3D: 1
+    rolloffMode: 1
+    minDistance: 0.1
+    maxDistance: 50
+    loop: 0
+    source: {fileID: 0}
+  - name: DestroyLeaf2
+    clip: {fileID: 8300000, guid: 84355bb1bcc9fbe48b0719a9d906da26, type: 3}
+    volume: 0.7
+    pitch: 1
+    spatialBlend_2D_3D: 1
+    rolloffMode: 1
+    minDistance: 0.1
+    maxDistance: 50
+    loop: 0
+    source: {fileID: 0}
   musicSounds:
   - name: CalmOceanLoop
     clip: {fileID: 8300000, guid: 69de1ec3537916a448881c4d17fe32ae, type: 3}

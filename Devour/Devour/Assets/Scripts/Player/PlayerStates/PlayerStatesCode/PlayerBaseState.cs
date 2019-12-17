@@ -284,8 +284,6 @@ public class PlayerBaseState : State {
         }
     }
 
-    
-
     public override void Initialize(StateMachine owner) {
         this.owner = (Player)owner;
     }

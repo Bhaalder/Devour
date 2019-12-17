@@ -11,6 +11,7 @@ public class PlantsDestruction : MonoBehaviour
     [SerializeField] private Vector3 destructionParticleOffset;
     [SerializeField] private int hitsToDestroy;
 
+    private GameObject leafParticle;
     private BoxCollider2D boxCollider2D;
     private int hits;
 
@@ -34,7 +35,15 @@ public class PlantsDestruction : MonoBehaviour
                 hits++;
                 if (hits >= hitsToDestroy)
                 {
-                    Instantiate(destructionParticle, gameObject.transform.position + destructionParticleOffset, Quaternion.identity);
+                    leafParticle = Instantiate(destructionParticle, gameObject.transform.position + destructionParticleOffset, Quaternion.identity);
+                    int i = UnityEngine.Random.Range(1, 2 + 1);
+                    AudioPlaySoundAtLocationEvent soundEvent = new AudioPlaySoundAtLocationEvent {
+                        name = "DestroyLeaf" + i,
+                        isRandomPitch = false,
+                        soundType = SoundType.SFX,
+                        gameObject = leafParticle
+                    };
+                    soundEvent.FireEvent();
                     Destroy(gameObject);
                     return;
                 }
