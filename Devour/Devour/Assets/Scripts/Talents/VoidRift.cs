@@ -67,7 +67,7 @@ public class VoidRift : MonoBehaviour{
     private void PlaySound() {
         timeToNextSound -= Time.unscaledDeltaTime;
         if(timeToNextSound <= 0) {
-            timeBetweenSound = Random.Range(0.5f, 0.65f);
+            timeBetweenSound = Random.Range(0.5f, 0.55f);
             timeToNextSound = timeBetweenSound;
             int i = Random.Range(1, 6 + 1);
             while(i == previouslyPlayedSound) {

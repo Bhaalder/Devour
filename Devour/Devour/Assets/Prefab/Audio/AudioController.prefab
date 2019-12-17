@@ -930,7 +930,7 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: HealSound1
     clip: {fileID: 8300000, guid: ca5a3fa5428f28b49963136f91ee2773, type: 3}
-    volume: 1
+    volume: 0.45
     pitch: 1
     spatialBlend_2D_3D: 0
     rolloffMode: 1
@@ -940,7 +940,7 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: HealSound2
     clip: {fileID: 8300000, guid: 9f8c7c9e164de974b9abf25e581e97f1, type: 3}
-    volume: 1
+    volume: 0.45
     pitch: 1
     spatialBlend_2D_3D: 0
     rolloffMode: 1
@@ -950,7 +950,7 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: HealSound3
     clip: {fileID: 8300000, guid: 9b7bbff1f5512744e945581920db1ce6, type: 3}
-    volume: 1
+    volume: 0.45
     pitch: 1
     spatialBlend_2D_3D: 0
     rolloffMode: 1
@@ -960,7 +960,7 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: HealSound4
     clip: {fileID: 8300000, guid: 84a12eced66dd304e9e855587c96200d, type: 3}
-    volume: 1
+    volume: 0.45
     pitch: 1
     spatialBlend_2D_3D: 0
     rolloffMode: 1
@@ -970,7 +970,7 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: HealSound5
     clip: {fileID: 8300000, guid: aa1ea8de5128bd24abf98245a33c4b67, type: 3}
-    volume: 1
+    volume: 0.45
     pitch: 1
     spatialBlend_2D_3D: 0
     rolloffMode: 1
@@ -980,7 +980,7 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: HealSound6
     clip: {fileID: 8300000, guid: d30291497c3776f468073c38e7fa9b65, type: 3}
-    volume: 1
+    volume: 0.45
     pitch: 1
     spatialBlend_2D_3D: 0
     rolloffMode: 1
@@ -990,7 +990,7 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: HealSound7
     clip: {fileID: 8300000, guid: 23bcba7c5d4764e40bb86a0fd41b81be, type: 3}
-    volume: 1
+    volume: 0.45
     pitch: 1
     spatialBlend_2D_3D: 0
     rolloffMode: 1
@@ -1000,7 +1000,7 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: HealSound8
     clip: {fileID: 8300000, guid: fa6b06079df803044a72329a43dbdb67, type: 3}
-    volume: 1
+    volume: 0.45
     pitch: 1
     spatialBlend_2D_3D: 0
     rolloffMode: 1
