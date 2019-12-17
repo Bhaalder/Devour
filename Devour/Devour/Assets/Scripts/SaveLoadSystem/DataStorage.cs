@@ -185,9 +185,11 @@ public class DataStorage : MonoBehaviour
             VoiceVolumeEvent.FireEvent();
 
             #endregion;
+
+            Settings.DepthBlur = SettingsData.DepthBlur;
         }
 
-        Settings.DepthBlur = SettingsData.DepthBlur;
+        
     }
 
     public void SaveSettings()
