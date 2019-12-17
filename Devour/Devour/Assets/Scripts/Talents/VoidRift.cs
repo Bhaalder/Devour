@@ -14,6 +14,7 @@ public class VoidRift : MonoBehaviour{
     private bool playerIsInRadius;
     private float timeBetweenHeals = 0.1f;
     private float timeLeft;
+    private bool healSoundIsPlaying;
 
     private void Awake() {
         voidText = transform.GetChild(0).GetComponentInChildren<TextMeshProUGUI>();
@@ -30,7 +31,7 @@ public class VoidRift : MonoBehaviour{
         }
     }
 
-    private void OnTriggerStay2D(Collider2D collision) {
+    private void OnTriggerEnter2D(Collider2D collision) {
         if (collision.gameObject.tag == "Player") {
             playerIsInRadius = true;
             voidText.text = voidRiftInfo;
@@ -42,6 +43,7 @@ public class VoidRift : MonoBehaviour{
             playerIsInRadius = false;
             voidText.text = "";
             timeLeft = timeBetweenHeals;
+            StopHealSound();
         }
     }
 
@@ -53,7 +55,28 @@ public class VoidRift : MonoBehaviour{
                 amount = regeneration
             };
             heal.FireEvent();
+            if (GameController.Instance.Player.Health != GameController.Instance.Player.MaxHealth && !healSoundIsPlaying) {
+                AudioPlaySoundAtLocationEvent healSound = new AudioPlaySoundAtLocationEvent {
+                    name = "VoidRiftHeal",
+                    isRandomPitch = false,
+                    soundType = SoundType.SFX,
+                    gameObject = gameObject
+                };
+                healSound.FireEvent();
+                healSoundIsPlaying = true;
+            }
+            if (GameController.Instance.Player.Health == GameController.Instance.Player.MaxHealth && healSoundIsPlaying) {
+                StopHealSound();
+            }
         }
+    }
+
+    private void StopHealSound() {
+        AudioStopSoundEvent stopSound = new AudioStopSoundEvent {
+            name = "VoidRiftHeal"
+        };
+        stopSound.FireEvent();
+        healSoundIsPlaying = false;
     }
 
 }
