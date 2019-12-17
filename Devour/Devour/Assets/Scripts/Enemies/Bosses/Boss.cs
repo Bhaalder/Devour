@@ -94,6 +94,10 @@ public class Boss : Enemy{
     }
 
     public void BossIntroSequence() {
+        AudioStopSoundEvent stopMysticSound = new AudioStopSoundEvent {
+            name = "Mystic"
+        };
+        stopMysticSound.FireEvent();
         string[] names = { "BossStart", "BossLoop" };
         AudioPlaySequence bossMusic = new AudioPlaySequence {
             name = names,

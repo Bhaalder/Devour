@@ -16,11 +16,15 @@ public class NazroVoidWall : MonoBehaviour {
     [SerializeField] private float speed;
     [SerializeField] private Vector2 direction;
     [SerializeField] private bool isVerticalWall;
+    [SerializeField] private GameObject[] safeLocationsGO;
     private float timeLeft;
     private Vector3 tempPosition;
     private Vector3 startPosition;
+    private bool isMoving;
 
     private void OnEnable() {
+        isMoving = false;
+        ShowSafeSpot(true);
         timeLeft = timeBeforeMoving;
         startPosition = transform.position;
         if (isVerticalWall) {
@@ -44,6 +48,10 @@ public class NazroVoidWall : MonoBehaviour {
             timeLeft -= Time.deltaTime;
             return;
         }
+        if (!isMoving) {
+            isMoving = true;
+            ShowSafeSpot(false);
+        }
         transform.position += ((Vector3)direction * speed) * Time.deltaTime;
         if(isVerticalWall && transform.position.x <= wallEndLocation.position.x) {
             gameObject.SetActive(false);
@@ -63,6 +71,12 @@ public class NazroVoidWall : MonoBehaviour {
 
     private void OnDisable() {
         transform.position = startPosition;
+    }
+
+    private void ShowSafeSpot(bool b) {
+        for (int i = 0; i < safeLocationsGO.Length; i++) {
+            safeLocationsGO[i].SetActive(b);
+        }
     }
 
     private void OnDestroy() {

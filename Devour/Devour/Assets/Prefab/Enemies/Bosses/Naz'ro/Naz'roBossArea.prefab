@@ -32050,6 +32050,10 @@ MonoBehaviour:
   speed: 20
   direction: {x: 0, y: -1}
   isVerticalWall: 0
+  safeLocationsGO:
+  - {fileID: 3633880719013129814}
+  - {fileID: 2644294671176293498}
+  - {fileID: 2408723744032230951}
 --- !u!1 &8740478103740147178
 GameObject:
   m_ObjectHideFlags: 0
@@ -32169,6 +32173,10 @@ MonoBehaviour:
   speed: 20
   direction: {x: -1, y: 0}
   isVerticalWall: 1
+  safeLocationsGO:
+  - {fileID: 5001941277128196480}
+  - {fileID: 465893183731460989}
+  - {fileID: 4336445064265676722}
 --- !u!1 &8986077534800688677
 GameObject:
   m_ObjectHideFlags: 0
