@@ -20,6 +20,7 @@ public class EndGameEssence : MonoBehaviour
     [SerializeField] private string endGameScene;
     [SerializeField] private GameObject gameEndVoid;
     [SerializeField] private GameObject gameEndVoidReverse;
+    [SerializeField] private GameObject rightWall;
 
     private GameObject endGameEssence;
     private GameObject gameEndVoidParticle;
@@ -37,6 +38,10 @@ public class EndGameEssence : MonoBehaviour
         deathSequnceTime = nazroDeathState.DeathTime;
         BossDiedEvent.RegisterListener(OnBossDiedEvent);
         PlayerTookLastEssenceEvent.RegisterListener(OnPlayerTookLastEssenceEvent);
+        if(GameController.Instance.KilledBosses.Contains(bossName))
+        {
+            OnBossIsAlreadyDead();
+        }
     }
 
     void Update()
@@ -150,6 +155,13 @@ public class EndGameEssence : MonoBehaviour
         stopSound.FireEvent();
 
         endParticleCountdown = true;
+    }
+
+    private void OnBossIsAlreadyDead()
+    {
+        endGameEssence = Instantiate(voidEssence, null);
+        endGameEssence.transform.position = endLocation.transform.position;
+        rightWall.SetActive(false);
     }
 
     private void endGameSceneFade()
