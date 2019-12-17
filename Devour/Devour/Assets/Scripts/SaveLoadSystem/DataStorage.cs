@@ -17,7 +17,8 @@ public class DataStorage : MonoBehaviour
     private float currentSaveGameIntervalTime;
     public PlayerData PlayerDataStorage { get; set; }
     public GameData GameData { get; set; }
-    public SettingsData Settings { get; set; }
+    public SettingsData SettingsData { get; set; }
+    public Settings Settings { get; set; }
 
     public string RestingScene { get; set; }
 
@@ -57,6 +58,8 @@ public class DataStorage : MonoBehaviour
         }
 
         currentSaveGameIntervalTime = saveGameInterval;
+
+        Settings = GetComponent<Settings>();
 
         MainMenuEvent.RegisterListener(OnMainMenuSwitch);
     }
@@ -151,30 +154,30 @@ public class DataStorage : MonoBehaviour
     public void LoadSettingsData()
     {
 
-        Settings = SaveSystem.LoadSettingsData();
+        SettingsData = SaveSystem.LoadSettingsData();
 
-        if (Settings != null)
+        if (SettingsData != null)
         {
             #region Audio Sliders
             AudioMixerVolumeEvent MasterVolumeEvent = new AudioMixerVolumeEvent
             {
                 soundMixerType = SoundMixerType.MASTER,
-                volume = Settings.MasterVolumeSliderValue
+                volume = SettingsData.MasterVolumeSliderValue
             };
             AudioMixerVolumeEvent MusicVolumeEvent = new AudioMixerVolumeEvent
             {
                 soundMixerType = SoundMixerType.MUSIC,
-                volume = Settings.MusicVolumeSliderValue
+                volume = SettingsData.MusicVolumeSliderValue
             };
             AudioMixerVolumeEvent SfxVolumeEvent = new AudioMixerVolumeEvent
             {
                 soundMixerType = SoundMixerType.SFX,
-                volume = Settings.SfxVolumeSliderValue
+                volume = SettingsData.SfxVolumeSliderValue
             };
             AudioMixerVolumeEvent VoiceVolumeEvent = new AudioMixerVolumeEvent
             {
                 soundMixerType = SoundMixerType.VOICE,
-                volume = Settings.VoiceVolumeSliderValue
+                volume = SettingsData.VoiceVolumeSliderValue
             };
             MasterVolumeEvent.FireEvent();
             MusicVolumeEvent.FireEvent();
@@ -183,6 +186,13 @@ public class DataStorage : MonoBehaviour
 
             #endregion;
         }
+
+        Settings.DepthBlur = SettingsData.DepthBlur;
+    }
+
+    public void SaveSettings()
+    {
+        SaveSystem.SaveSettingsData(Settings);
     }
 
     #endregion;
@@ -202,7 +212,7 @@ public class DataStorage : MonoBehaviour
     {
         PlayerDataStorage = SaveSystem.LoadPlayerData();
         GameData = SaveSystem.LoadGameData();
-        Settings = SaveSystem.LoadSettingsData();
+        SettingsData = SaveSystem.LoadSettingsData();
         LoadSettingsData();
         if(PlayerDataStorage == null)
         {

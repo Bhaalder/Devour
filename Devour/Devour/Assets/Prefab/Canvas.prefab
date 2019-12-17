@@ -20625,6 +20625,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: abea9a56b04c05f4aac58cb48d0ae4cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  depthBlurToggle: {fileID: 9042368970409252464}
 --- !u!1 &6280188775145888839
 GameObject:
   m_ObjectHideFlags: 0

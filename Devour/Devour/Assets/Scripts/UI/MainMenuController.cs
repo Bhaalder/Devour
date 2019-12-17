@@ -132,9 +132,17 @@ public class MainMenuController : MonoBehaviour{
     private void MenuNavigation(GameObject gameObjectSetActive, GameObject gameObjectSetInactive) {
         gameObjectSetActive.SetActive(true);
         gameObjectSetInactive.SetActive(false);
-        if(gameObjectSetInactive == soundOptionsGO)
+        //if(gameObjectSetInactive == soundOptionsGO)
+        //{
+        //    SaveSystem.SaveSettingsData(DataStorage.Instance.Settings);
+        //}
+        if (gameObjectSetInactive == visualOptionsGO)
         {
-            SaveSystem.SaveSettingsData(FindObjectOfType<Settings>());
+            visualOptionsGO.GetComponent<VisualSettings>().SaveVisualSettings();
+        }
+        if (gameObjectSetInactive == optionsGO)
+        {
+            DataStorage.Instance.SaveSettings();
         }
         PlaySound("ButtonClick");
     }
