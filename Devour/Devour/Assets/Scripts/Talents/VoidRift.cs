@@ -14,6 +14,11 @@ public class VoidRift : MonoBehaviour{
     private bool playerIsInRadius;
     private float timeBetweenHeals = 0.1f;
     private float timeLeft;
+    private float timeBetweenSound = 0.5f;
+    private float timeToNextSound;
+    private int previouslyPlayedSound;
+    
+
     private bool healSoundIsPlaying;
 
     private void Awake() {
@@ -28,6 +33,7 @@ public class VoidRift : MonoBehaviour{
                 e.FireEvent();
             }
             HealPlayer();
+            PlaySound();
         }
     }
 
@@ -43,7 +49,7 @@ public class VoidRift : MonoBehaviour{
             playerIsInRadius = false;
             voidText.text = "";
             timeLeft = timeBetweenHeals;
-            StopHealSound();
+            timeToNextSound = timeBetweenSound;
         }
     }
 
@@ -55,28 +61,28 @@ public class VoidRift : MonoBehaviour{
                 amount = regeneration
             };
             heal.FireEvent();
-            if (GameController.Instance.Player.Health != GameController.Instance.Player.MaxHealth && !healSoundIsPlaying) {
-                AudioPlaySoundAtLocationEvent healSound = new AudioPlaySoundAtLocationEvent {
-                    name = "VoidRiftHeal",
-                    isRandomPitch = false,
-                    soundType = SoundType.SFX,
-                    gameObject = gameObject
-                };
-                healSound.FireEvent();
-                healSoundIsPlaying = true;
-            }
-            if (GameController.Instance.Player.Health == GameController.Instance.Player.MaxHealth && healSoundIsPlaying) {
-                StopHealSound();
-            }
         }
     }
 
-    private void StopHealSound() {
-        AudioStopSoundEvent stopSound = new AudioStopSoundEvent {
-            name = "VoidRiftHeal"
-        };
-        stopSound.FireEvent();
-        healSoundIsPlaying = false;
+    private void PlaySound() {
+        timeToNextSound -= Time.unscaledDeltaTime;
+        if(timeToNextSound <= 0) {
+            timeBetweenSound = Random.Range(0.5f, 0.65f);
+            timeToNextSound = timeBetweenSound;
+            int i = Random.Range(1, 6 + 1);
+            while(i == previouslyPlayedSound) {
+                i = Random.Range(1, 6 + 1);
+            }
+            previouslyPlayedSound = i;
+            if (GameController.Instance.Player.Health != GameController.Instance.Player.MaxHealth) {
+                AudioPlaySoundEvent healSound = new AudioPlaySoundEvent {
+                    name = "HealSound" + i,
+                    isRandomPitch = false,
+                    soundType = SoundType.SFX
+                };
+                healSound.FireEvent();
+            }
+        }
     }
 
 }
