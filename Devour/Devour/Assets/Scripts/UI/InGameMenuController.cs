@@ -10,7 +10,7 @@ using UnityEngine.EventSystems;
 public class InGameMenuController : MonoBehaviour
 {
 
-    [SerializeField] private GameObject InGameMenuGO;
+    [SerializeField] private GameObject inGameMenuGO;
 
     [Header("InGameMenu")]
     [SerializeField] private Button resumeButton;
@@ -34,6 +34,12 @@ public class InGameMenuController : MonoBehaviour
     [Header("Visual")]
     [SerializeField] private GameObject visualOptionsGO;
     [SerializeField] private Button visualBackButton;
+
+    public GameObject InGameMenuGO { get => inGameMenuGO; set => inGameMenuGO = value; }
+    public GameObject OptionsGO { get => optionsGO; set => optionsGO = value; }
+    public GameObject SoundOptionsGO { get => soundOptionsGO; set => soundOptionsGO = value; }
+    public GameObject VisualOptionsGO { get => visualOptionsGO; set => visualOptionsGO = value; }
+
 
     private string sceneToLoad;
 

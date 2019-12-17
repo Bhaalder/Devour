@@ -12290,7 +12290,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 70f07770e05c5ab4a9cd652753ddd295, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  InGameMenuGO: {fileID: 7981549428917731252}
+  inGameMenuGO: {fileID: 7981549428917731252}
   resumeButton: {fileID: 6195090626366588006}
   optionsButton: {fileID: 6594902445232278582}
   mainMenuButton: {fileID: 9190487673852270018}
