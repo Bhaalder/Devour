@@ -135,7 +135,8 @@ public class EndGameEssence : MonoBehaviour
 
     private void OnPlayerTookLastEssenceEvent(PlayerTookLastEssenceEvent lastEssenceTaken)
     {
-        Destroy(GameController.Instance.Player.gameObject);
+
+        //Destroy(GameController.Instance.Player.gameObject);
         playerDummy.SetActive(true);
         CameraChangeTargetEvent cameraTarget = new CameraChangeTargetEvent
         {

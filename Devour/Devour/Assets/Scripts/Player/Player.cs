@@ -243,6 +243,7 @@ public class Player : StateMachine {
         FadeScreenEvent.RegisterListener(OnFadeScreen);
         PlayerBusyEvent.RegisterListener(OnPlayerBusyEvent);
         MainMenuEvent.RegisterListener(OnMainMenuSwitch);
+        PlayerTookLastEssenceEvent.RegisterListener(OnLastEssenceEvent);
         base.Awake();
 
         if (FindObjectOfType<DataStorage>())
@@ -617,6 +618,14 @@ public class Player : StateMachine {
     }
 
     private void OnMainMenuSwitch(MainMenuEvent menuEvent)
+    {
+        Transition<PlayerBusyState>();
+        exists = false;
+        StopSound("LowHealth");
+        Destroy(gameObject, 3f);
+    }
+
+    private void OnLastEssenceEvent(PlayerTookLastEssenceEvent lastEssenceEvent)
     {
         Transition<PlayerBusyState>();
         exists = false;
