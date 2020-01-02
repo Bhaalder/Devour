@@ -29,10 +29,12 @@ public class SpawnManager : MonoBehaviour
     public int SpawnedEnemies { get; set; }
     public bool StartedSpawning { get; set; }
     public bool IsRoomCleared { get => isRoomCleared; set => isRoomCleared = value; }
+    public int TotalEnemiesLeft { get => totalEnemiesLeft;}
 
     public int CurrentWave { get; set; }
     private int totalWaves;
     private int spawnPointIndex = 0;
+    private int totalEnemiesLeft;
 
     // Designer input
     [SerializeField] private bool isRoomCleared;
@@ -61,6 +63,14 @@ public class SpawnManager : MonoBehaviour
         StartedSpawning = false;
         // StartNextWave(); //used for testing
 
+        for (int i = 0; i < Waves.Length; i++)
+        {
+            for (int a = 0; a < Waves[i].Numberofenemy.Length; a++)
+            {
+                totalEnemiesLeft += Waves[i].Numberofenemy[a];
+            }
+        }
+        Debug.Log("Enemies Left in Arena: " + totalEnemiesLeft);
     }
 
 
@@ -139,6 +149,8 @@ public class SpawnManager : MonoBehaviour
     public void EnemyDefeated()
     {
         EnemiesInWaveLeft--;
+        totalEnemiesLeft--;
+        Debug.Log("Enemies Left in Arena: " + TotalEnemiesLeft);
 
         // We start the next wave once we have spawned and defeated them all
         if (EnemiesInWaveLeft == 0 && SpawnedEnemies == TotalEnemiesInCurrentWave)
