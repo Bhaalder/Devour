@@ -40,6 +40,7 @@ public class Enemy3Movement : EnemyMovement
     {
         if (owner.IsIdle)
         {
+            owner.GetComponent<Enemy3>().State = Enemy3State.IDLE;
             CheckAttackDistance();
             return;
         }

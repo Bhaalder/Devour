@@ -15,7 +15,7 @@ public class Enemy3TelegraphCharge : Enemy3Movement
         base.Enter();
         currentTCooldown = telegraphTime;
         owner.rb.velocity = new Vector2(0f, 0f);
-        owner.GetComponent<Enemy3>().State = Enemy3State.CHARGE_TELEGRAPH;
+        owner.GetComponent<Enemy3>().State = Enemy3State.IDLE;
         TurnedRight();
         chargeIndicatorColor = owner.GetComponent<Enemy3>().ChargeIndicator.color;
 

@@ -15,7 +15,7 @@ public class Enemy3ChargeAttack : Enemy3Movement
     public override void Enter()
     {
         base.Enter();
-        owner.GetComponent<Enemy3>().State = Enemy3State.CHARGE;
+        owner.GetComponent<Enemy3>().State = Enemy3State.IDLE;
         dashTime = startDashTime;
         TurnedRight();
         FindTargetDirection();
@@ -39,6 +39,7 @@ public class Enemy3ChargeAttack : Enemy3Movement
 
     private void Movement()
     {
+        owner.GetComponent<Enemy3>().State = Enemy3State.MOVEMENT;
         owner.rb.velocity = new Vector2((dashForce * direction.x), 0);
 
         if (dashTime <= 0)
