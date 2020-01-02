@@ -21,6 +21,7 @@ public class SpawnManager : MonoBehaviour
     [SerializeField] private Transform[] SpawnPoints;
     [SerializeField] private GameObject teleportEffect;
     [SerializeField] private GameObject doorOpenAudioGO;
+    [SerializeField] private GameObject canvasTextGO;
 
     public float TimeBetweenEnemies = 2f;
 
@@ -78,6 +79,7 @@ public class SpawnManager : MonoBehaviour
     {
         StartNextWave();
         StartedSpawning = true;
+        canvasTextGO.SetActive(true);
     }
 
     void StartNextWave()
@@ -161,7 +163,7 @@ public class SpawnManager : MonoBehaviour
             {
                 Debug.Log("clear condition has been reached");
                 StopCoroutine(SpawnEnemies());
-
+                canvasTextGO.SetActive(false);
                 try
                 {
                     door.SetActive(false);
