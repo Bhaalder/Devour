@@ -79,7 +79,10 @@ public class SpawnManager : MonoBehaviour
     {
         StartNextWave();
         StartedSpawning = true;
-        canvasTextGO.SetActive(true);
+        if(canvasTextGO != null)
+        {
+            canvasTextGO.SetActive(true);
+        }
     }
 
     void StartNextWave()
@@ -163,7 +166,10 @@ public class SpawnManager : MonoBehaviour
             {
                 Debug.Log("clear condition has been reached");
                 StopCoroutine(SpawnEnemies());
-                canvasTextGO.SetActive(false);
+                if (canvasTextGO != null)
+                {
+                    canvasTextGO.SetActive(false);
+                }
                 try
                 {
                     door.SetActive(false);
