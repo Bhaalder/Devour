@@ -53,7 +53,6 @@ public class Player : StateMachine {
     public int ExtraJumps { get => extraJumps; set => extraJumps = value; }
     public int ExtraJumpsLeft { get; set; }
     public float VariableJumpHeight { get => variableJumpHeight; set => variableJumpHeight = value; }
-    //public float PermanentVariableJumpHeight { get; set; }
     public int NumberOfDashes { get => numberOfDashes; set => numberOfDashes = value; }
     public int DashesLeft { get; set; }
     public float DashCooldown { get; set; }
@@ -496,8 +495,6 @@ public class Player : StateMachine {
         }
         UntilInvulnerableEnds = invulnerableStateTime;
     }
-
-    
 
     private void Die() {
         if (!IsDead) {
