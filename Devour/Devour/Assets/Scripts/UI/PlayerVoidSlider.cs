@@ -27,6 +27,10 @@ public class PlayerVoidSlider : MonoBehaviour {
     private void GetVoidMend(PlayerGetAbilityEvent abilityEvent) {
         if(abilityEvent.playerAbility == PlayerAbility.VOIDMEND) {
             gameObject.SetActive(true);
+            PlayerVoidChangeEvent fullMendEvent = new PlayerVoidChangeEvent {
+                amount = 100
+            };
+            fullMendEvent.FireEvent();
         }
     }
 
