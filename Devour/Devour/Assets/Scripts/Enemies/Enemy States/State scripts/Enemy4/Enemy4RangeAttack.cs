@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(menuName = "Enemy/Enemy4RangeAttackState")]
-public class Enemy4RangeAttack : EnemyBaseState
+public class Enemy4RangeAttack : EnemyMovement
 {
 
     [SerializeField] private float abortAttack;
@@ -12,8 +12,6 @@ public class Enemy4RangeAttack : EnemyBaseState
     [SerializeField] private float middlePointCurve = 5f;
     [SerializeField] private Vector2 projectileOffset;
     [SerializeField] private GameObject enemy4Projectile;
-
-    private Transform target;
  
     private Vector2 startPoint;
     private Vector2 endPoint;
@@ -28,7 +26,7 @@ public class Enemy4RangeAttack : EnemyBaseState
     {
         base.Enter();
         target = FindObjectOfType<Player>().transform;
-        owner.GetComponent<Enemy4>().State = Enemy4State.RANGE_ATTACK;
+        owner.GetComponent<Enemy4>().State = Enemy4State.IDLE;
 
     }
 
@@ -36,17 +34,7 @@ public class Enemy4RangeAttack : EnemyBaseState
     {
         base.HandleUpdate();
 
-        if (Vector2.Distance(owner.rb.position, target.position) >= abortAttack)
-        {
-            if (owner.GetComponent<Enemy4>().IsIdle)
-            {
-                owner.Transition<Enemy4Idle>();
-            }
-            else
-            {
-                owner.Transition<Enemy4Movement>();
-            }
-        }
+        AbortAttack();
 
         if (canAttack)
         {
@@ -115,6 +103,37 @@ public class Enemy4RangeAttack : EnemyBaseState
             Vector3 v = new Vector3(1f, 1f, 1f);
             owner.setGFX(v);
         }
+    }
+
+    private void AbortAttack()
+    {
+        if (owner.GetComponent<Enemy4>().AttackOnlyOnCanSeePlayer && !CanSeePlayer())
+        {
+            if (owner.GetComponent<Enemy4>().IsIdle)
+            {
+                owner.Transition<Enemy4Idle>();
+            }
+            else
+            {
+                owner.Transition<Enemy4Movement>();
+            }
+        }
+        else
+        {
+            if (Vector2.Distance(owner.rb.position, target.position) >= abortAttack)
+            {
+                if (owner.GetComponent<Enemy4>().IsIdle)
+                {
+                    owner.Transition<Enemy4Idle>();
+                }
+                else
+                {
+                    owner.Transition<Enemy4Movement>();
+                }
+            }
+        }
+
+
     }
 
 }

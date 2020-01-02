@@ -35,7 +35,7 @@ public class Enemy6 : Enemy
     protected override void Update()
     {
         base.Update();
-        //Animator.SetInteger("State", (int)State);
+        Animator.SetInteger("State", (int)State);
     }
 
     protected override void FixedUpdate()
