@@ -37,6 +37,7 @@ public class SpawnManager : MonoBehaviour
     // Designer input
     [SerializeField] private bool isRoomCleared;
     [SerializeField] private GameObject door;
+    [SerializeField] private float timeBeforeEnemySpawn;
 
 
     void Start()
@@ -87,6 +88,7 @@ public class SpawnManager : MonoBehaviour
 
         EnemiesInWaveLeft = 0;
         SpawnedEnemies = 0;
+        spawnPointIndex = 0;
 
         StartCoroutine(SpawnEnemies());
     }
@@ -104,21 +106,26 @@ public class SpawnManager : MonoBehaviour
                 int place = System.Array.IndexOf(enemies, enemy);
                 int numberofenemytospawn = Waves[CurrentWave].Numberofenemy[place];
 
+                for (int i = 0; i < SpawnPoints.Length; i++)
+                {
+                    GameObject teleport = Instantiate(teleportEffect, SpawnPoints[i].position, Quaternion.identity);
+
+                    Destroy(teleport, timeBeforeEnemySpawn);
+                }
+
+                yield return new WaitForSeconds(timeBeforeEnemySpawn);
+
                 for (int i = 0; i < numberofenemytospawn; i++)
                 {
 
 
                     GameObject newEnemy1 = Instantiate(enemies[place], SpawnPoints[spawnPointIndex].position, SpawnPoints[spawnPointIndex].rotation);
                     newEnemy1.transform.parent = gameObject.transform;
-                    GameObject teleport = Instantiate(teleportEffect, newEnemy1.transform.position, Quaternion.identity);
-
-
 
                     if (spawnPointIndex == SpawnPoints.Length - 1) { spawnPointIndex = 0; }
                     SpawnedEnemies++;
                     EnemiesInWaveLeft++;
                     spawnPointIndex++;
-                    Destroy(teleport, 3f);
                     yield return new WaitForSeconds(TimeBetweenEnemies);
                 }
             }
