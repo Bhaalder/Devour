@@ -1,0 +1,583 @@
+fileFormatVersion: 2
+guid: 764c09313b4c3b049be21dd8714f878c
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 7767270664100228385
+    second: TutorialButtons_0
+  - first:
+      213: -5827959693197223593
+    second: TutorialButtons_1
+  - first:
+      213: -1428501138088637894
+    second: TutorialButtons_2
+  - first:
+      213: 4049537996867783947
+    second: TutorialButtons_3
+  - first:
+      213: -8359422586673518440
+    second: TutorialButtons_4
+  - first:
+      213: -6832330410225447162
+    second: TutorialButtons_5
+  - first:
+      213: -1033058299205578493
+    second: TutorialButtons_6
+  - first:
+      213: 8175659599035421826
+    second: TutorialButtons_7
+  - first:
+      213: -1507328836323925282
+    second: TutorialButtons_8
+  - first:
+      213: -6082150760088949954
+    second: TutorialButtons_9
+  - first:
+      213: -7050291072366018660
+    second: TutorialButtons_10
+  - first:
+      213: -1581130332206946409
+    second: TutorialButtons_11
+  - first:
+      213: -5456695292337247249
+    second: TutorialButtons_12
+  - first:
+      213: 2888499354526926377
+    second: TutorialButtons_13
+  - first:
+      213: 2236158414728303871
+    second: TutorialButtons_14
+  - first:
+      213: -441380764784282125
+    second: TutorialButtons_15
+  - first:
+      213: -3873424833314294705
+    second: TutorialButtons_16
+  - first:
+      213: -8596436316022616103
+    second: TutorialButtons_17
+  - first:
+      213: -5574127897764123080
+    second: TutorialButtons_18
+  - first:
+      213: 4459250898961341982
+    second: TutorialButtons_19
+  externalObjects: {}
+  serializedVersion: 10
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: TutorialButtons_0
+      rect:
+        serializedVersion: 2
+        x: 2305
+        y: 1703
+        width: 138
+        height: 172
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f7a08cb6c8cee834998df64fddf69361
+      internalID: 7767270664100228385
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TutorialButtons_1
+      rect:
+        serializedVersion: 2
+        x: 2502
+        y: 1691
+        width: 344
+        height: 125
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d2c394d57b52ee8428df0b7de70c7e1e
+      internalID: -5827959693197223593
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TutorialButtons_2
+      rect:
+        serializedVersion: 2
+        x: 2885
+        y: 1691
+        width: 110
+        height: 105
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 59c5f0a33eecefe4ebd1752875ad8751
+      internalID: -1428501138088637894
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TutorialButtons_3
+      rect:
+        serializedVersion: 2
+        x: 965
+        y: 1339
+        width: 173
+        height: 203
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f91fdc96b75a4874fab8df73debfab76
+      internalID: 4049537996867783947
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TutorialButtons_4
+      rect:
+        serializedVersion: 2
+        x: 1171
+        y: 1339
+        width: 173
+        height: 204
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9f2bdea2512ce6a47b9823418a25739c
+      internalID: -8359422586673518440
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TutorialButtons_5
+      rect:
+        serializedVersion: 2
+        x: 1375
+        y: 1338
+        width: 174
+        height: 204
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d40251dcc7088024a8f75b67918c8ee6
+      internalID: -6832330410225447162
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TutorialButtons_6
+      rect:
+        serializedVersion: 2
+        x: 1734
+        y: 1366
+        width: 220
+        height: 190
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 751028b5e8725f049aff41c0c8c8915e
+      internalID: -1033058299205578493
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TutorialButtons_7
+      rect:
+        serializedVersion: 2
+        x: 2891
+        y: 1534
+        width: 109
+        height: 104
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b91e38539072c654fa975732c4cb7a0e
+      internalID: 8175659599035421826
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TutorialButtons_8
+      rect:
+        serializedVersion: 2
+        x: 2296
+        y: 1386
+        width: 161
+        height: 137
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5ecc62d6f2784ed4e855027ed280f004
+      internalID: -1507328836323925282
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TutorialButtons_9
+      rect:
+        serializedVersion: 2
+        x: 2527
+        y: 1433
+        width: 93
+        height: 69
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: af46ce9044a66394f8651ed552af5993
+      internalID: -6082150760088949954
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TutorialButtons_10
+      rect:
+        serializedVersion: 2
+        x: 2894
+        y: 1414
+        width: 108
+        height: 104
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e3323e7727acbab4b99b115225c0262d
+      internalID: -7050291072366018660
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TutorialButtons_11
+      rect:
+        serializedVersion: 2
+        x: 756
+        y: 1109
+        width: 173
+        height: 204
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b9d433ecc3e1c9540bc7bee2bae3c1b6
+      internalID: -1581130332206946409
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TutorialButtons_12
+      rect:
+        serializedVersion: 2
+        x: 965
+        y: 1109
+        width: 173
+        height: 204
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2a2de4d40551f154c863847356a00e87
+      internalID: -5456695292337247249
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TutorialButtons_13
+      rect:
+        serializedVersion: 2
+        x: 1171
+        y: 1109
+        width: 173
+        height: 204
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 659db5a0f0baa8544a74213ce999fb58
+      internalID: 2888499354526926377
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TutorialButtons_14
+      rect:
+        serializedVersion: 2
+        x: 1990
+        y: 1082
+        width: 260
+        height: 227
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9d9e598203483a34ab238479f7ccb8f7
+      internalID: 2236158414728303871
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TutorialButtons_15
+      rect:
+        serializedVersion: 2
+        x: 2894
+        y: 1297
+        width: 108
+        height: 105
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 021cc51832a82ea4fbb9a02ba4dd4084
+      internalID: -441380764784282125
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TutorialButtons_16
+      rect:
+        serializedVersion: 2
+        x: 756
+        y: 881
+        width: 363
+        height: 204
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7bfb151e82cd4904b930370274ec8d39
+      internalID: -3873424833314294705
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TutorialButtons_17
+      rect:
+        serializedVersion: 2
+        x: 2473
+        y: 772
+        width: 197
+        height: 400
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5201a576366f872429406bef2527869d
+      internalID: -8596436316022616103
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TutorialButtons_18
+      rect:
+        serializedVersion: 2
+        x: 2805
+        y: 772
+        width: 197
+        height: 400
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1ac9a0543da8a464bbcfdb273d7d9137
+      internalID: -5574127897764123080
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TutorialButtons_19
+      rect:
+        serializedVersion: 2
+        x: 756
+        y: 648
+        width: 595
+        height: 204
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ced69b68d470bbf47bcb0fddcdc00463
+      internalID: 4459250898961341982
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
