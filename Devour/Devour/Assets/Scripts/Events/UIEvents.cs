@@ -35,3 +35,8 @@ public class ShowTipTextEvent : Event<ShowTipTextEvent> {
 public class HideTipTextEvent : Event<HideTipTextEvent> {
 
 }
+
+public class BackButtonEvent : Event<BackButtonEvent>
+{
+
+}

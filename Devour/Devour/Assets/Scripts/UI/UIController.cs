@@ -56,6 +56,16 @@ public class UIController : MonoBehaviour{
             InGameMenuEvent e = new InGameMenuEvent { };
             e.FireEvent();
         }
+        if (Input.GetButtonDown("Back"))
+        {
+            //BackButtonEvent back = new BackButtonEvent { };
+            //back.FireEvent();
+            //if (voidTalentScreen.activeSelf)
+            //{
+            //    VoidTalentScreenEvent closeScreen = new VoidTalentScreenEvent { };
+            //    closeScreen.FireEvent();
+            //}
+        }
     }
 
     private void OnVoidTalentScreen(VoidTalentScreenEvent screenEvent) {

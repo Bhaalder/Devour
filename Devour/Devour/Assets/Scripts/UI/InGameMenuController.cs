@@ -56,6 +56,8 @@ public class InGameMenuController : MonoBehaviour
         AddListener(visualBackButton, optionsGO, visualOptionsGO);
 
         AddListener(optionsBackButton, InGameMenuGO, optionsGO);
+
+        BackButtonEvent.RegisterListener(OnBackButtonEvent);
     }
 
     private void OnEnable()
@@ -150,6 +152,31 @@ public class InGameMenuController : MonoBehaviour
     private void LoadScene()
     {
         SceneManager.LoadScene(sceneToLoad);
+    }
+
+    private void OnBackButtonEvent(BackButtonEvent back)
+    {
+        if (inGameMenuGO.activeSelf)
+        {
+            resumeButton.onClick.Invoke();
+        }
+        else if (optionsGO.activeSelf)
+        {
+            optionsBackButton.onClick.Invoke();
+        }
+        else if (visualOptionsGO.activeSelf)
+        {
+            visualBackButton.onClick.Invoke();
+        }
+        else if (soundOptionsGO.activeSelf)
+        {
+            soundBackButton.onClick.Invoke();
+        }
+    }
+
+    private void OnDestroy()
+    {
+        BackButtonEvent.UnRegisterListener(OnBackButtonEvent);
     }
 
 }
