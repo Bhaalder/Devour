@@ -21,7 +21,6 @@ public class SpawnManager : MonoBehaviour
     [SerializeField] private Transform[] SpawnPoints;
     [SerializeField] private GameObject teleportEffect;
     [SerializeField] private GameObject doorOpenAudioGO;
-    [SerializeField] private GameObject canvasTextGO;
 
     public float TimeBetweenEnemies = 2f;
 
@@ -79,10 +78,14 @@ public class SpawnManager : MonoBehaviour
     {
         StartNextWave();
         StartedSpawning = true;
-        if(canvasTextGO != null)
+        ArenaTriggerEvent arenaTrigger = new ArenaTriggerEvent { };
+        arenaTrigger.FireEvent();
+        ArenaEnemyDiedEvent enemyDied = new ArenaEnemyDiedEvent
         {
-            canvasTextGO.SetActive(true);
-        }
+            enemiesLeft = totalEnemiesLeft
+        };
+        enemyDied.FireEvent();
+
     }
 
     void StartNextWave()
@@ -155,6 +158,13 @@ public class SpawnManager : MonoBehaviour
     {
         EnemiesInWaveLeft--;
         totalEnemiesLeft--;
+
+        ArenaEnemyDiedEvent enemyDied = new ArenaEnemyDiedEvent
+        {
+            enemiesLeft = totalEnemiesLeft
+        };
+        enemyDied.FireEvent();
+
         Debug.Log("Enemies Left in Arena: " + TotalEnemiesLeft);
 
         // We start the next wave once we have spawned and defeated them all
@@ -166,24 +176,11 @@ public class SpawnManager : MonoBehaviour
             {
                 Debug.Log("clear condition has been reached");
                 StopCoroutine(SpawnEnemies());
-                if (canvasTextGO != null)
-                {
-                    canvasTextGO.SetActive(false);
-                }
-                try
-                {
-                    door.SetActive(false);
-                    if(doorOpenAudioGO != null) {
-                        AudioPlaySoundAtLocationEvent openDoorSound = new AudioPlaySoundAtLocationEvent {
-                            name = "DoorOpen",
-                            isRandomPitch = false,
-                            soundType = SoundType.SFX,
-                            gameObject = doorOpenAudioGO
-                        };
-                        openDoorSound.FireEvent();
-                    }
-                }
-                catch (NullReferenceException) { }
+
+                ArenaTriggerEvent arenaTrigger = new ArenaTriggerEvent { };
+                arenaTrigger.FireEvent();
+
+                Invoke("OnArenaCleared", 1f);
 
                 if (GameController.Instance.ClearedSpawners.ContainsKey(SceneManager.GetActiveScene().name))
                 {
@@ -211,6 +208,26 @@ public class SpawnManager : MonoBehaviour
 
         }
         
+    }
+
+    private void OnArenaCleared()
+    {
+        try
+        {
+            door.SetActive(false);
+            if (doorOpenAudioGO != null)
+            {
+                AudioPlaySoundAtLocationEvent openDoorSound = new AudioPlaySoundAtLocationEvent
+                {
+                    name = "DoorOpen",
+                    isRandomPitch = false,
+                    soundType = SoundType.SFX,
+                    gameObject = doorOpenAudioGO
+                };
+                openDoorSound.FireEvent();
+            }
+        }
+        catch (NullReferenceException) { }
     }
 
 }

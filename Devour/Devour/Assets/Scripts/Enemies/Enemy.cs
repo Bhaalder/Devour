@@ -151,6 +151,10 @@ public class Enemy : StateMachine
         if (IsAlive)
         {
             Transition<EnemyDeathState>();
+            if (GetComponentInParent<SpawnManager>())
+            {
+                GetComponentInParent<SpawnManager>().EnemyDefeated();
+            }
         }
         GiveCollectibles();
     }
@@ -229,10 +233,6 @@ public class Enemy : StateMachine
     protected virtual void OnDestroy() {
         PlayerAttackEvent.UnRegisterListener(TakeDamage);
         EnemyTouchKillzoneEvent.UnRegisterListener(EnemyTouchKillzone);
-        if (GetComponentInParent<SpawnManager>())
-        {
-            GetComponentInParent<SpawnManager>().EnemyDefeated();
-        }
     }
 
 }

@@ -40,3 +40,13 @@ public class BossDiedEvent : Event<BossDiedEvent> {
     public Boss boss;
 
 }
+
+public class ArenaEnemyDiedEvent : Event<ArenaEnemyDiedEvent>
+{
+    public int enemiesLeft;
+}
+
+public class ArenaTriggerEvent: Event<ArenaTriggerEvent>
+{
+
+}
