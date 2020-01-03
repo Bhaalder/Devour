@@ -14,6 +14,7 @@ public class ArenaText : MonoBehaviour
     {
         ArenaEnemyDiedEvent.RegisterListener(OnArenaEnemyDiedEvent);
         ArenaTriggerEvent.RegisterListener(OnArenaTriggerEvent);
+        PlayerDiedEvent.RegisterListener(OnPlayerDeathEvent);
         arenaEnemiesText.text = arenaText + 0;
     }
 
@@ -31,6 +32,12 @@ public class ArenaText : MonoBehaviour
     {
         ArenaEnemyDiedEvent.UnRegisterListener(OnArenaEnemyDiedEvent);
         ArenaTriggerEvent.UnRegisterListener(OnArenaTriggerEvent);
+        PlayerDiedEvent.UnRegisterListener(OnPlayerDeathEvent);
+    }
+
+    private void OnPlayerDeathEvent(PlayerDiedEvent playerDied)
+    {
+        ArenaTextGO.SetActive(false);
     }
 
 }
