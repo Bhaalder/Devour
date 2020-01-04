@@ -341,7 +341,7 @@ public class Player : StateMachine {
         if (busyEvent.playerIsBusy) {
             Transition<PlayerBusyState>();
         } else {
-            Invoke("PlayerNotBusy", 0.2f);
+            Invoke("PlayerNotBusy", 0.01f);
         }
     }
 
