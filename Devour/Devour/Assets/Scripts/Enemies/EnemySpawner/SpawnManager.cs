@@ -119,24 +119,22 @@ public class SpawnManager : MonoBehaviour
         while (SpawnedEnemies < TotalEnemiesInCurrentWave)
         {
 
+            for (int i = 0; i < SpawnPoints.Length; i++)
+            {
+                GameObject teleport = Instantiate(teleportEffect, SpawnPoints[i].position, Quaternion.identity);
+
+                Destroy(teleport, timeBeforeEnemySpawn);
+            }
+
+            yield return new WaitForSeconds(timeBeforeEnemySpawn);
+
             foreach (GameObject enemy in enemies)
             {
                 int place = System.Array.IndexOf(enemies, enemy);
                 int numberofenemytospawn = Waves[CurrentWave].Numberofenemy[place];
 
-                for (int i = 0; i < SpawnPoints.Length; i++)
-                {
-                    GameObject teleport = Instantiate(teleportEffect, SpawnPoints[i].position, Quaternion.identity);
-
-                    Destroy(teleport, timeBeforeEnemySpawn);
-                }
-
-                yield return new WaitForSeconds(timeBeforeEnemySpawn);
-
                 for (int i = 0; i < numberofenemytospawn; i++)
                 {
-
-
                     GameObject newEnemy1 = Instantiate(enemies[place], SpawnPoints[spawnPointIndex].position, SpawnPoints[spawnPointIndex].rotation);
                     newEnemy1.transform.parent = gameObject.transform;
 
