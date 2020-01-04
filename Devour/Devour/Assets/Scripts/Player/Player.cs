@@ -341,14 +341,19 @@ public class Player : StateMachine {
         if (busyEvent.playerIsBusy) {
             Transition<PlayerBusyState>();
         } else {
-            if (!IsGrounded) {
-                Transition<PlayerAirState>();
+            Invoke("PlayerNotBusy", 0.2f);
+        }
+    }
+
+    private void PlayerNotBusy()
+    {
+        if (!IsGrounded){
+            Transition<PlayerAirState>();
+        } else {
+            if (XInput != 0){
+                Transition<PlayerWalkState>();
             } else {
-                if(XInput != 0) {
-                    Transition<PlayerWalkState>();
-                } else {
-                    Transition<PlayerIdleState>();
-                }
+                Transition<PlayerIdleState>();
             }
         }
     }

@@ -43,6 +43,19 @@ public class UIController : MonoBehaviour{
             {
                 MenuInput();
             }
+            if (Input.GetButtonDown("Back"))
+            {
+                if (voidTalentScreen.activeSelf)
+                {
+                    VoidTalentScreenEvent closeScreen = new VoidTalentScreenEvent { };
+                    closeScreen.FireEvent();
+                }
+                else if (Input.GetButtonDown("Back") && GameController.Instance.GameIsPaused)
+                {
+                    BackButtonEvent back = new BackButtonEvent { };
+                    back.FireEvent();
+                }
+            }
         }
         catch (System.NullReferenceException)
         {
@@ -55,16 +68,6 @@ public class UIController : MonoBehaviour{
         if (Input.GetButtonDown("Menu")) {
             InGameMenuEvent e = new InGameMenuEvent { };
             e.FireEvent();
-        }
-        if (Input.GetButtonDown("Back"))
-        {
-            //BackButtonEvent back = new BackButtonEvent { };
-            //back.FireEvent();
-            //if (voidTalentScreen.activeSelf)
-            //{
-            //    VoidTalentScreenEvent closeScreen = new VoidTalentScreenEvent { };
-            //    closeScreen.FireEvent();
-            //}
         }
     }
 
