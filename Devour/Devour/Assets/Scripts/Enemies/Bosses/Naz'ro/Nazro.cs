@@ -120,6 +120,13 @@ public class Nazro : Boss {
         StopBossMusic();
     }
 
+    public override void TakeDamage(PlayerAttackEvent attackEvent) {
+        if(State != BossNazroState.NONE) {
+            base.TakeDamage(attackEvent);
+        }
+    }
+
+
     public override void EnemyDeath() {
         if (!IsDead) {
             IsDead = true;
