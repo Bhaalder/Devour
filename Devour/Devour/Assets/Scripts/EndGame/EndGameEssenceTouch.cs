@@ -23,6 +23,8 @@ public class EndGameEssenceTouch : MonoBehaviour
             playerBusy.FireEvent();
             voidEssenceGainSound.FireEvent();
             endGame.FireEvent();
+            GameController.Instance.Player.transform.position = new Vector3(0, -5000, 0);
+
             Destroy(gameObject);
         }
     }
