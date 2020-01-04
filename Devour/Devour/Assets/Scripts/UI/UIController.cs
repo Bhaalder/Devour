@@ -99,18 +99,6 @@ public class UIController : MonoBehaviour{
 
     private void OnInGameMenuEvent(InGameMenuEvent inGameMenuScreenEvent)
     {
-        try
-        {
-            inGameMenuScreen.GetComponent<InGameMenuController>().InGameMenuGO.SetActive(true);
-            inGameMenuScreen.GetComponent<InGameMenuController>().OptionsGO.SetActive(false);
-            inGameMenuScreen.GetComponent<InGameMenuController>().SoundOptionsGO.SetActive(false);
-            inGameMenuScreen.GetComponent<InGameMenuController>().VisualOptionsGO.SetActive(false);
-        }
-        catch (System.NullReferenceException e)
-        {
-            Debug.Log("GameObject Could Not Be Found: " + e);
-        }
-
         inGameMenuScreen.SetActive(!inGameMenuScreen.activeSelf);
 
         PlayerBusyEvent playerBusy = new PlayerBusyEvent

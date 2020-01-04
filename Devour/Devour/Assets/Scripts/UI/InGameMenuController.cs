@@ -174,6 +174,14 @@ public class InGameMenuController : MonoBehaviour
         }
     }
 
+    private void OnDisable()
+    {
+        InGameMenuGO.SetActive(true);
+        OptionsGO.SetActive(false);
+        SoundOptionsGO.SetActive(false);
+        VisualOptionsGO.SetActive(false);
+    }
+
     private void OnDestroy()
     {
         BackButtonEvent.UnRegisterListener(OnBackButtonEvent);
