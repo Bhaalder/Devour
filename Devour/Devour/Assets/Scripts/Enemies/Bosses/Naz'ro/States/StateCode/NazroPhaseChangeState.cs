@@ -19,7 +19,11 @@ public class NazroPhaseChangeState : NazroBaseState {
     public override void Enter() {
         owner.State = BossNazroState.PHASE_CHANGE;
         owner.BossLog("PhaseChangeState");
-        owner.StopSounds();
+        try {
+            owner.StopSounds();
+        } catch (MissingReferenceException) {
+
+        }
         for (int i = 0; i < owner.NazroVoidObstacles.Count; i++) {
             Destroy(owner.NazroVoidObstacles[i]);
         }

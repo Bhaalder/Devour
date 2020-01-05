@@ -14,7 +14,12 @@ public class NazroDeathState : NazroBaseState {
     public override void Enter() {
         owner.State = BossNazroState.DEATH;
         owner.BossLog("DeathState");
-        owner.StopSounds();
+        try {
+            owner.StopSounds();
+        } catch (MissingReferenceException) {
+
+        }
+        
         deathTimeLeft = deathTime;
         BossDiedEvent nazroDied = new BossDiedEvent {
             boss = owner
