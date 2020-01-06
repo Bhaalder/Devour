@@ -10,6 +10,7 @@ public class GameController : MonoBehaviour {
     public Transform Canvas { get; set; }
     public bool GameIsPaused { get; set; }
     public bool MenuIsOpen { get; set; }
+    public bool BarrierCutsceneHasPlayed { get; set; }
 
     public Vector3 SceneCheckpoint { get; set; } //om man rör vid en "killzone"
     public string RestingScene { get; set; } //senaste scenen man restade på
