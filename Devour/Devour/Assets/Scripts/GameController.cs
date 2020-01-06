@@ -11,6 +11,7 @@ public class GameController : MonoBehaviour {
     public bool GameIsPaused { get; set; }
     public bool MenuIsOpen { get; set; }
     public bool BarrierCutsceneHasPlayed { get; set; }
+    public int TalentPointChange { get; set; } //FÖR SPELTEST 4
 
     public Vector3 SceneCheckpoint { get; set; } //om man rör vid en "killzone"
     public string RestingScene { get; set; } //senaste scenen man restade på
@@ -80,6 +81,23 @@ public class GameController : MonoBehaviour {
         BossDiedEvent.RegisterListener(OnBossDied);
         InGameMenuEvent.RegisterListener(OnInGameMenu);
     }
+
+    private void Update() {//FÖR SPELTEST 4
+        if (Input.GetKeyDown(KeyCode.F10)) {
+            TalentPointChange++;
+            TalentPointLimitChangeEvent moreTalentPointsEvent = new TalentPointLimitChangeEvent {
+                amount = TalentPointChange
+            };
+            moreTalentPointsEvent.FireEvent();
+        }
+        if (Input.GetKeyDown(KeyCode.F11)) {
+            TalentPointChange--;
+            TalentPointLimitChangeEvent moreTalentPointsEvent = new TalentPointLimitChangeEvent {
+                amount = TalentPointChange
+            };
+            moreTalentPointsEvent.FireEvent();
+        }
+    }//FÖR SPELTEST 4
 
     private void OnPlayerDied(PlayerDiedEvent playerDiedEvent) {
         PlayerLifeForce = new PlayerLifeForce(SceneManager.GetActiveScene().name, playerDiedEvent.player.transform.position, playerDiedEvent.collectibleLifeforceLost);

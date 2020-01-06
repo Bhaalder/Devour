@@ -28,7 +28,12 @@ public class TalentPointButton : SelectedButton {
         MaxPointsToInvest = maxPointsToInvest;
         PointsInvestedText = GetComponentInChildren<TextMeshProUGUI>();     
         TalentPoint = talentPoint;
+        TalentPointLimitChangeEvent.RegisterListener(ChangeMaxPointToInvest);//FÖR SPELTEST 4
     }
+
+    private void ChangeMaxPointToInvest(TalentPointLimitChangeEvent limitEvent) {//FÖR SPELTEST 4
+        MaxPointsToInvest = maxPointsToInvest + limitEvent.amount;
+    }//FÖR SPELTEST 4
 
     private void OnEnable() {
         int points = 0;
@@ -63,5 +68,9 @@ public class TalentPointButton : SelectedButton {
         }
         PointsInvestedText.text = sb + "\n" + pointsInvested + "/" + MaxPointsToInvest;
     }
+
+    private void OnDestroy() {//FÖR SPELTEST 4
+        TalentPointLimitChangeEvent.UnRegisterListener(ChangeMaxPointToInvest);
+    }//FÖR SPELTEST 4
 
 }

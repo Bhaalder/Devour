@@ -290,8 +290,8 @@ public class Player : StateMachine {
             voidAbility.FireEvent();
         }//
         if (Input.GetKeyDown(KeyCode.F3)) {//
-            Collectible lifeForce = new Collectible(CollectibleType.LIFEFORCE, 1000);//
-            Collectible voidEssence = new Collectible(CollectibleType.VOIDESSENCE, 10);//
+            Collectible lifeForce = new Collectible(CollectibleType.LIFEFORCE, 200);//
+            Collectible voidEssence = new Collectible(CollectibleType.VOIDESSENCE, 2);//
             PlayerCollectibleChangeEvent gainCollectibleEvent = new PlayerCollectibleChangeEvent {//
                 collectible = lifeForce//
             };//
@@ -304,14 +304,6 @@ public class Player : StateMachine {
         if (Input.GetKeyDown(KeyCode.F4)) {//
             VoidTalentScreenEvent e = new VoidTalentScreenEvent { };//
             e.FireEvent();//
-        }//
-        if (Input.GetKeyDown(KeyCode.F10)){//
-            InGameMenuEvent e = new InGameMenuEvent { };//
-            e.FireEvent();//
-        }//
-        if (Input.GetKeyDown(KeyCode.F11)){//
-            ScreenCapture.CaptureScreenshot("ScreenShot" + screenShot + ".png");//
-            screenShot++;//
         }//
         PlayerVelocity = Rb2D.velocity;//
         health = Health;//TEST END_____________________________________________________________________
@@ -596,7 +588,9 @@ public class Player : StateMachine {
                 TalentMovementSpeed += talentPoint.variablesToChange[0].amount;
                 TalentDashCooldown += talentPoint.variablesToChange[1].amount;
                 MovementSpeed = movementSpeed + TalentMovementSpeed;
-                DashCooldown = dashCooldown - TalentDashCooldown;
+                if(DashCooldown > 0.2f) {
+                    DashCooldown = dashCooldown - TalentDashCooldown;
+                }
                 break;
             case TalentPointType.VOID:
                 TalentPlayerVoid += talentPoint.variablesToChange[0].amount;
