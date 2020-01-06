@@ -31,7 +31,7 @@ public class BarrierCutscene : MonoBehaviour{
                 playerIsBusy = true
             };
             busyEvent.FireEvent();
-            Invoke("SwitchBack", 4);
+            Invoke("SwitchBack", 5);
         }
     }
 
