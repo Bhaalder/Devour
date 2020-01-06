@@ -19,4 +19,4 @@ MonoBehaviour:
   enemySpeed: 1500
   distanceBeforeTurning: 3
   attackDistance: 10
-  dropDownDistance: 15
+  tooCloseToJumpTime: 0.5
