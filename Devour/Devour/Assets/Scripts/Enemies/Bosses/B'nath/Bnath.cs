@@ -114,7 +114,6 @@ public override void EnemyDeath()
         bnathDied.FireEvent();
         if (!isDead)
         {
-            SpawnAbilityEssence();
             GiveCollectibles();
             isDead = true;
             IsAlive = false;

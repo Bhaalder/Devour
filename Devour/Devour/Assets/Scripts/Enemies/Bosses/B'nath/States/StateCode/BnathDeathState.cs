@@ -10,6 +10,7 @@ public class BnathDeathState : EnemyDeathState
 
     public override void Enter()
     {
+        currentCooldown = deathTimer;
         owner.GetComponent<Bnath>().State = BossBnathState.DEATH;
         currentCooldown = deathTimer;
         owner.BoxCollider2D.enabled = false;
@@ -21,9 +22,22 @@ public class BnathDeathState : EnemyDeathState
     public override void HandleUpdate()
     {
         base.HandleUpdate();
+        AbilityEssenceTimer();
     }
     public override void HandleFixedUpdate()
     {
         base.HandleFixedUpdate();
+    }
+
+    private void AbilityEssenceTimer()
+    {
+        currentCooldown -= Time.deltaTime;
+
+        if (currentCooldown > 0)
+        {
+            return;
+        }
+
+        owner.GetComponent<Bnath>().SpawnAbilityEssence();
     }
 }
