@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿//Author: Marcus Söderberg
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Pathfinding;
@@ -33,7 +34,6 @@ public class Enemy2 : Enemy
     protected override void Update()
     {
         base.Update();
-        //Animator.SetInteger("State", (int)State);
     }
 
     public override Vector2 KnockBack(Vector2 knockback) {

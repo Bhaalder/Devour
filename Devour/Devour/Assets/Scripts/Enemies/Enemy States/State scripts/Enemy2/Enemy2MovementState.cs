@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿//Author: Marcus Söderberg
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Pathfinding;

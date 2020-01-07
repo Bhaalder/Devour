@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿//Author: Marcus Söderberg
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -35,8 +36,6 @@ public class Boss2SonicDashAttack : Boss2BaseState
         TurnToTargetPosition();
         startPosition = owner.rb.position;
         owner.rb.gravityScale = 0;
-        //owner.transform.rotation = new Quaternion(0, 0, Vector2.Angle(owner.transform.position, positions[currentPosition].transform.position)/2, 0);
-        //Debug.Log("Angle: " + Vector2.Angle(owner.transform.position, positions[currentPosition].transform.position));
     }
 
     public override void HandleUpdate()
@@ -65,7 +64,6 @@ public class Boss2SonicDashAttack : Boss2BaseState
         startPosition = owner.rb.position;
         countUp = 0;
         currentDashTime = 0;
-        //FindTargetDirection();
         
         if (currentPosition >= positions.Length)
         {
@@ -79,7 +77,6 @@ public class Boss2SonicDashAttack : Boss2BaseState
         }
         else
         {
-            //owner.transform.rotation = new Quaternion(0, 0, Vector2.Angle(owner.transform.position, positions[currentPosition].transform.position) / 2, 0);
             Debug.Log("Angle: " + Vector2.Angle(owner.transform.position, positions[currentPosition].transform.position));
             TurnToTargetPosition();
         }

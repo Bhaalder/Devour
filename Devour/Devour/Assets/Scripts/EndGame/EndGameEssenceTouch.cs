@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+//Author: Marcus Söderberg
 public class EndGameEssenceTouch : MonoBehaviour
 {
 

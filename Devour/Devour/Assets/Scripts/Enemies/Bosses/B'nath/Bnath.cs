@@ -1,4 +1,6 @@
-﻿using System.Collections;
+﻿//Author: Marcus Söderberg
+//Secondary Author: Patrik Ahlgren
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -105,8 +107,6 @@ public class Bnath : Boss
 
 public override void EnemyDeath()
     {
-        //Transition till DeathState
-
         BossDiedEvent bnathDied = new BossDiedEvent
         {
             boss = this
@@ -131,7 +131,6 @@ public override void EnemyDeath()
         Transitioned = false;
         IntroStarted = false;
         StopBossMusic();
-        //Transition<BnathBaseState>();
     }
 
     protected override void OnDestroy()

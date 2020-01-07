@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿//Author: Marcus Söderberg
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
@@ -49,21 +50,4 @@ public class Enemy4 : Enemy
             Transition<Enemy4Hurt>();
         }
     }
-
-    //protected override void OnCollisionStay2D(Collision2D collision)
-    //{
-    //    if (collision.gameObject.tag == "Player")
-    //    {
-    //        Debug.Log("Collided with Player");
-    //        PlayerTakeDamageEvent ptde = new PlayerTakeDamageEvent
-    //        {
-    //            damage = damageToPlayerOnContact,
-    //            enemyPosition = rb.position
-    //        };
-    //        ptde.FireEvent();
-    //        Stunned = true;
-    //        Transition<Enemy4Hurt>();
-    //    }
-    //}
-
 }

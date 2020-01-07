@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿//Author: Marcus Söderberg
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -16,14 +17,7 @@ public class VisualSettings : MonoBehaviour
         DepthBlur = settings.DepthBlur;
         depthBlurToggle.isOn = DepthBlur;
     }
-    private void OnEnable()
-    {
-        //settings = DataStorage.Instance.Settings;
-        //DepthBlur = settings.DepthBlur;
-        //depthBlurToggle.isOn = DepthBlur;
-    }
 
-    // Update is called once per frame
     void Update()
     {
         

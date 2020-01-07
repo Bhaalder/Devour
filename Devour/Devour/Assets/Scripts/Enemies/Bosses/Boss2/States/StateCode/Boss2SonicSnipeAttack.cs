@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿//Author: Marcus Söderberg
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -14,7 +15,6 @@ public class Boss2SonicSnipeAttack : Boss2BaseState
         base.Enter();
         owner.State = Boss2State.SONIC_SNIPE_ATTACK;
         currentCooldown = attackTime;
-        //owner.SnipeBeamSprite.color = new Color(0, 0, 0);
         owner.SonicSnipeBeam.GetComponentInChildren<BoxCollider2D>().enabled = true;
         owner.SonicSnipeBeam.GetComponentInChildren<SpriteRenderer>().enabled = false;
 

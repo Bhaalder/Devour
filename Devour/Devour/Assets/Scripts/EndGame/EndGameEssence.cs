@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+//Author: Marcus Söderberg
 public class EndGameEssence : MonoBehaviour
 {
     [SerializeField] private string bossName;
@@ -136,7 +137,6 @@ public class EndGameEssence : MonoBehaviour
     private void OnPlayerTookLastEssenceEvent(PlayerTookLastEssenceEvent lastEssenceTaken)
     {
 
-        //Destroy(GameController.Instance.Player.gameObject);
         playerDummy.SetActive(true);
         CameraChangeTargetEvent cameraTarget = new CameraChangeTargetEvent
         {

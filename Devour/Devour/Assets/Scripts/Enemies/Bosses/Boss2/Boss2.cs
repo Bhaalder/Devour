@@ -1,4 +1,6 @@
-﻿using System.Collections;
+﻿//Author: Marcus Söderberg
+//Secondary Author: Patrik Ahlgren
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -135,7 +137,6 @@ public class Boss2 : Boss
 
     public override void EnemyDeath()
     {
-        //Transition till DeathState
         BossDiedEvent boss2Died = new BossDiedEvent
         {
             boss = this

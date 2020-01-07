@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+//Author: Marcus Söderberg
 public class EndGameSceneController : MonoBehaviour
 {
     [SerializeField] private GameObject[] endGameCards;

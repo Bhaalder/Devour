@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿//Author: Marcus Söderberg
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -12,7 +13,7 @@ public class BossRoomBlock : MonoBehaviour
 
     private float currentCooldown;
     private bool isTriggered;
-    // Start is called before the first frame update
+
     void Start()
     {
         blocker.SetActive(false);
@@ -21,7 +22,6 @@ public class BossRoomBlock : MonoBehaviour
         isTriggered = false;
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (isTriggered)
