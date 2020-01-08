@@ -280,15 +280,15 @@ public class Player : StateMachine {
             };//
             ptde.FireEvent();//
         }//TEST
-        if (Input.GetKeyDown(KeyCode.F2)) {//
-            foreach (PlayerAbility ability in playerAbilities) {//
-                PlayerAbilities.Add(ability);//
-            }//
-            PlayerGetAbilityEvent voidAbility = new PlayerGetAbilityEvent {
-                playerAbility = PlayerAbility.VOIDMEND
-            };
-            voidAbility.FireEvent();
-        }//
+        //if (Input.GetKeyDown(KeyCode.F2)) {//
+        //    foreach (PlayerAbility ability in playerAbilities) {//
+        //        PlayerAbilities.Add(ability);//
+        //    }//
+        //    PlayerGetAbilityEvent voidAbility = new PlayerGetAbilityEvent {
+        //        playerAbility = PlayerAbility.VOIDMEND
+        //    };
+        //    voidAbility.FireEvent();
+        //}//
         if (Input.GetKeyDown(KeyCode.F3)) {//
             Collectible lifeForce = new Collectible(CollectibleType.LIFEFORCE, 200);//
             Collectible voidEssence = new Collectible(CollectibleType.VOIDESSENCE, 2);//

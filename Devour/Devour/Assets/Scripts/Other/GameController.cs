@@ -83,14 +83,14 @@ public class GameController : MonoBehaviour {
     }
 
     private void Update() {//FÖR SPELTEST 4
-        if (Input.GetKeyDown(KeyCode.F10)) {
+        if (Input.GetKeyDown(KeyCode.F11)) {
             TalentPointChange++;
             TalentPointLimitChangeEvent moreTalentPointsEvent = new TalentPointLimitChangeEvent {
                 amount = TalentPointChange
             };
             moreTalentPointsEvent.FireEvent();
         }
-        if (Input.GetKeyDown(KeyCode.F11)) {
+        if (Input.GetKeyDown(KeyCode.F10)) {
             TalentPointChange--;
             TalentPointLimitChangeEvent moreTalentPointsEvent = new TalentPointLimitChangeEvent {
                 amount = TalentPointChange
