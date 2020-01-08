@@ -24,10 +24,13 @@ public class Enemy3Movement : EnemyMovement
     protected bool movingRight = true;
     private bool startPositionSet = false;
     private bool movingToNewPosition = false;
+    private bool pauseBeforeTurn = false;
 
     private float currentPositionCooldown;
     private float patrolMoveRange;
     private float iWasStuckCurrentCooldown;
+    private float pauseBeforeTurnCooldown;
+    
 
 
     public override void Enter()
@@ -35,6 +38,7 @@ public class Enemy3Movement : EnemyMovement
         base.Enter();
         iWasStuckCurrentCooldown = iWasStuckCooldown;
         owner.GetComponent<Enemy3>().State = Enemy3State.MOVEMENT;
+        pauseBeforeTurnCooldown = 0.5f;
     }
 
     public override void HandleUpdate()
@@ -53,7 +57,14 @@ public class Enemy3Movement : EnemyMovement
             }
             else
             {
-                Movement();
+                if (!pauseBeforeTurn) 
+                {
+                    Movement();
+                }
+                else
+                {
+                    PauseBeforeTurn();
+                }
             }
         }
         else if (owner.Stunned)
@@ -137,6 +148,7 @@ public class Enemy3Movement : EnemyMovement
         if (obstructed.collider == true)
         {
             movingRight = !movingRight;
+            pauseBeforeTurn = true;
         }
         noGroundAhead = new Vector2(direction.x, -1);
         RaycastHit2D noMoreGround = Physics2D.Raycast(owner.rb.position, noGroundAhead, distanceBeforeTurning + 2f, layerMask);
@@ -144,6 +156,7 @@ public class Enemy3Movement : EnemyMovement
         if (noMoreGround.collider == false)
         {
             movingRight = !movingRight;
+            pauseBeforeTurn = true;
         }
     }
 
@@ -221,6 +234,19 @@ public class Enemy3Movement : EnemyMovement
             Vector3 v = new Vector3(1f, 1f, 1f);
             owner.setGFX(v);
         }
+    }
+
+    private void PauseBeforeTurn()
+    {
+        pauseBeforeTurnCooldown -= Time.deltaTime;
+
+        if (pauseBeforeTurnCooldown > 0)
+        {
+            return;
+        }
+
+        pauseBeforeTurn = false;
+        pauseBeforeTurnCooldown = 1f;
     }
 
 }

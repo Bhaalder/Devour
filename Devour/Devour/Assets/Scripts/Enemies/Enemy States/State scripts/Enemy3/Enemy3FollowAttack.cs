@@ -45,13 +45,13 @@ public class Enemy3FollowAttack : Enemy3Movement
 
     private void FindTargetDirection()
     {
-        if (target.position.x > owner.rb.position.x)
+        if (target.position.x > owner.rb.position.x +1f)
         {
             direction = new Vector2(1f, 0f);
             Vector3 v = new Vector3(1f, 1f, 1f);
             owner.setGFX(v);
         }
-        else if (target.position.x < owner.rb.position.x)
+        else if (target.position.x < owner.rb.position.x -1f)
         {
             direction = new Vector2(-1f, 0f);
             Vector3 v = new Vector3(-1f, 1f, 1f);
