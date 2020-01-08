@@ -26,7 +26,8 @@ public class Boss2SonicSnipeTelegraph : Boss2BaseState
     public override void HandleUpdate()
     {
         TelegraphTime();
-        TurnedRight();
+        Vector3 v = new Vector3(-1f, 1f, 1f);
+        owner.setGFX(v);
         owner.rb.velocity = new Vector2(0, 0);
     }
     public override void HandleFixedUpdate()
