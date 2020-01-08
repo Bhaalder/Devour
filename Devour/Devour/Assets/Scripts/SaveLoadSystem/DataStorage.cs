@@ -248,6 +248,11 @@ public class DataStorage : MonoBehaviour
         Invoke("LoadInMainMenu", 3f);
     }
 
+    public void EndGameReset()
+    {
+        PlayerDataStorage = null;
+    }
+
     private void OnDestroy()
     {
         MainMenuEvent.UnRegisterListener(OnMainMenuSwitch);

@@ -23,6 +23,9 @@ public class EndGameSceneController : MonoBehaviour
         exitDirectlyToMainMenu = true;
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;
+
+        SaveSystem.NewGame();
+        DataStorage.Instance.EndGameReset();
     }
 
     void Update()
