@@ -91,17 +91,15 @@ public class Bnath : Boss
             default:
                 break;
         }
-        if (IsAlive && !AudioVoiceGO.GetComponent<AudioSource>().isPlaying) {          
-            AudioPlaySoundAtLocationEvent soundEvent = new AudioPlaySoundAtLocationEvent {
-                name = sound,
-                soundType = SoundType.SFX,
-                isRandomPitch = true,
-                minPitch = 0.95f,
-                maxPitch = 1f,
-                gameObject = AudioVoiceGO
-            };
-            soundEvent.FireEvent();
-        }
+        AudioPlaySoundAtLocationEvent soundEvent = new AudioPlaySoundAtLocationEvent {
+            name = sound,
+            soundType = SoundType.SFX,
+            isRandomPitch = true,
+            minPitch = 0.95f,
+            maxPitch = 1f,
+            gameObject = AudioVoiceGO
+        };
+        soundEvent.FireEvent();
     }
 
 
