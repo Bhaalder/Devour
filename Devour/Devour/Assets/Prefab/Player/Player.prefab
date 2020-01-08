@@ -70,7 +70,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: b04781c55caf83b46bf3399a28fcbdf5, type: 3}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_Color: {r: 0.49587786, g: 0.31719476, b: 0.8301887, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -1199,6 +1199,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3752226931262427211}
     m_Modifications:
+    - target: {fileID: 1280141305896002, guid: d93b1ada808c85f4fa86ecd6925ae819, type: 3}
+      propertyPath: m_Name
+      value: PFX_Hurt
+      objectReference: {fileID: 0}
+    - target: {fileID: 1280141305896002, guid: d93b1ada808c85f4fa86ecd6925ae819, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4888592692647344, guid: d93b1ada808c85f4fa86ecd6925ae819, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.57
@@ -1243,14 +1251,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1280141305896002, guid: d93b1ada808c85f4fa86ecd6925ae819, type: 3}
-      propertyPath: m_Name
-      value: PFX_Hurt
-      objectReference: {fileID: 0}
-    - target: {fileID: 1280141305896002, guid: d93b1ada808c85f4fa86ecd6925ae819, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d93b1ada808c85f4fa86ecd6925ae819, type: 3}
 --- !u!4 &707821730036851766 stripped
@@ -1266,6 +1266,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3752226931262427211}
     m_Modifications:
+    - target: {fileID: 100000, guid: b229618038662bb4cad3fcc31054c073, type: 3}
+      propertyPath: m_Name
+      value: PFX_Projectile
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: b229618038662bb4cad3fcc31054c073, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: b229618038662bb4cad3fcc31054c073, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.41
@@ -1308,14 +1316,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: b229618038662bb4cad3fcc31054c073, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 100000, guid: b229618038662bb4cad3fcc31054c073, type: 3}
-      propertyPath: m_Name
-      value: PFX_Projectile
-      objectReference: {fileID: 0}
-    - target: {fileID: 100000, guid: b229618038662bb4cad3fcc31054c073, type: 3}
-      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
