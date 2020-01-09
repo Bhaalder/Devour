@@ -19,6 +19,7 @@ public class DataStorage : MonoBehaviour
     public GameData GameData { get; set; }
     public SettingsData SettingsData { get; set; }
     public Settings Settings { get; set; }
+    public bool isNewGame;
 
     public string RestingScene { get; set; }
 
@@ -62,6 +63,8 @@ public class DataStorage : MonoBehaviour
         Settings = GetComponent<Settings>();
 
         MainMenuEvent.RegisterListener(OnMainMenuSwitch);
+
+        isNewGame = false;
     }
 
     private void Update()
@@ -248,9 +251,10 @@ public class DataStorage : MonoBehaviour
         Invoke("LoadInMainMenu", 3f);
     }
 
-    public void EndGameReset()
+    public void GameDataReset()
     {
         PlayerDataStorage = null;
+        GameData = null;
     }
 
     private void OnDestroy()

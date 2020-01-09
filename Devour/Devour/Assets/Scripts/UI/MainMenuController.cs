@@ -89,6 +89,8 @@ public class MainMenuController : MonoBehaviour{
         switch (buttonName) {
             case "newGame":
                 SaveSystem.NewGame();
+                DataStorage.Instance.GameDataReset();
+                DataStorage.Instance.isNewGame = true;
                 sceneToLoad = newGameScene;
                 Invoke("FadeScene", loadingSequenceLength);
                 cameraAnim.Play("GameStartAnim");
@@ -101,6 +103,7 @@ public class MainMenuController : MonoBehaviour{
                 PlaySound("StartGameClick");
                 break;
             case "loadGame":
+                DataStorage.Instance.isNewGame = false;
                 if (DataStorage.Instance.RestingScene != null)
                 {
                     loadGameScene = DataStorage.Instance.RestingScene;

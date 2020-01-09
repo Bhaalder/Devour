@@ -43,12 +43,16 @@ public class Boss2 : Boss
     public List<GameObject> SonicDashParticles { get; set; }
     public bool Transitioned { get; set; }
 
-    private static bool isDead;
+    private static bool IsDead;
 
     protected override void Awake()
     {
         base.Awake();
-        if (isDead)
+        if (DataStorage.Instance.isNewGame)
+        {
+            IsDead = false;
+        }
+        if (IsDead)
         {
             Destroy(bossFightBlock);
             Destroy(gameObject);
@@ -65,7 +69,7 @@ public class Boss2 : Boss
         PlayerDiedEvent.RegisterListener(Reset);
         Transition<Boss2BaseState>();
         bossFightBlock.SetActive(true);
-        IsAlive = !isDead;
+        IsAlive = !IsDead;
         hitBoxHorizontal.SetActive(false);
         BoxCollider2D = hitBoxVertical.GetComponent<BoxCollider2D>();
         SonicDashParticles = new List<GameObject>();
@@ -142,9 +146,9 @@ public class Boss2 : Boss
             boss = this
         };
         boss2Died.FireEvent();
-        if (!isDead)
+        if (!IsDead)
         {
-            isDead = true;
+            IsDead = true;
             IsAlive = false;
             GiveCollectibles();
             State = Boss2State.DEATH;

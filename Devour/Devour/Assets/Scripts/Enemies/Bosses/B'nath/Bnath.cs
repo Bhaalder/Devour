@@ -27,11 +27,15 @@ public class Bnath : Boss
     public bool Transitioned { get; set; }
     public bool IntroStarted { get; set; }
 
-    private static bool isDead;
+    private static bool IsDead;
 
     protected override void Awake()
     {
-        if (isDead)
+        if (DataStorage.Instance.isNewGame)
+        {
+            IsDead = false;
+        }
+        if (IsDead)
         {
             Destroy(gameObject);
         }
@@ -41,7 +45,7 @@ public class Bnath : Boss
         Blocker = bossFightBlock;
         StartPosition = startPosition;
         YPoint = yPoint;
-        IsAlive = !isDead;
+        IsAlive = !IsDead;
         Transitioned = false;
         IntroStarted = false;
 
@@ -110,10 +114,10 @@ public override void EnemyDeath()
             boss = this
         };
         bnathDied.FireEvent();
-        if (!isDead)
+        if (!IsDead)
         {
             GiveCollectibles();
-            isDead = true;
+            IsDead = true;
             IsAlive = false;
             State = BossBnathState.DEATH;
             Transition<BnathDeathState>();

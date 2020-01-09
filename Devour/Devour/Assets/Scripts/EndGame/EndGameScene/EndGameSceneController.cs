@@ -25,7 +25,7 @@ public class EndGameSceneController : MonoBehaviour
         Cursor.lockState = CursorLockMode.None;
 
         SaveSystem.NewGame();
-        DataStorage.Instance.EndGameReset();
+        DataStorage.Instance.GameDataReset();
     }
 
     void Update()

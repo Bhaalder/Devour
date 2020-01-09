@@ -42,6 +42,9 @@ public class Zvixa : Boss{
     public static bool IsDead { get; set; }
 
     protected override void Awake() {
+        if (DataStorage.Instance.isNewGame){
+            IsDead = false;
+        }
         if (IsDead) {
             Destroy(gameObject);
         }
