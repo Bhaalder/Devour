@@ -4777,7 +4777,6 @@ GameObject:
   - component: {fileID: 2427486597975375625}
   - component: {fileID: 3568660457012407684}
   - component: {fileID: 182182979151240964}
-  - component: {fileID: 182182978914074141}
   m_Layer: 0
   m_Name: AbilityEssence
   m_TagString: Untagged
@@ -9535,22 +9534,6 @@ SortingGroup:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: -1
---- !u!58 &182182978914074141
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1499821804984040229}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 2.6343467
 --- !u!1 &4547593536878563113
 GameObject:
   m_ObjectHideFlags: 0
