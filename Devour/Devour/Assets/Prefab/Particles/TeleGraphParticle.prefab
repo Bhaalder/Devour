@@ -58,9 +58,9 @@ SortingGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1609845037211932075}
   m_Enabled: 1
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 4
+  m_SortingLayerID: -787293511
+  m_SortingLayer: 1
+  m_SortingOrder: 50
 --- !u!61 &292876968777379632
 BoxCollider2D:
   m_ObjectHideFlags: 0
