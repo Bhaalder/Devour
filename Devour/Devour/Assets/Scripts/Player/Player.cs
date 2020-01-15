@@ -641,6 +641,7 @@ public class Player : StateMachine {
         FadeScreenEvent.UnRegisterListener(OnFadeScreen);
         PlayerBusyEvent.UnRegisterListener(OnPlayerBusyEvent);
         MainMenuEvent.UnRegisterListener(OnMainMenuSwitch);
+        PlayerTookLastEssenceEvent.UnRegisterListener(OnLastEssenceEvent);
     }
 
 }
